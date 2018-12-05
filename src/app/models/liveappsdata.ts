@@ -247,7 +247,7 @@ export class LaProcessSelection {
   caseReference: string;
 }
 
-export class CaseList {
+export class CaseList implements Deserializable {
   uniqueKey: string;
   maxSize: number;
   caseRefs: string[];
@@ -260,7 +260,7 @@ export class CaseList {
   }
 }
 
-export class SharedStateContent {
+export class SharedStateContent implements Deserializable {
   json: string;
   deserialize(input: any) {
     Object.assign(this, input);
@@ -268,7 +268,7 @@ export class SharedStateContent {
   }
 }
 
-export class SharedStateEntry {
+export class SharedStateEntry implements Deserializable {
   attributes: string[];
   content: SharedStateContent;
   createdBy: string;
@@ -309,7 +309,7 @@ export class SharedStateEntry {
   }
 }
 
-export class SharedStateList {
+export class SharedStateList implements Deserializable {
   sharedStateEntries: SharedStateEntry[];
   deserialize(input: any): this {
     this.sharedStateEntries = [];
@@ -318,7 +318,7 @@ export class SharedStateList {
   }
 }
 
-export class Document {
+export class Document implements Deserializable {
   artifactCheckSum: string;
   artifactRef: string;
   artifactVersion: string;
@@ -343,7 +343,7 @@ export class Document {
   }
 }
 
-export class DocumentList {
+export class DocumentList implements Deserializable {
   documents: Document[];
   deserialize(input: any): this {
     this.documents = [];
@@ -352,7 +352,7 @@ export class DocumentList {
   }
 }
 
-export class ApiResponseText {
+export class ApiResponseText implements Deserializable {
   message: string;
   deserialize(input: any) {
     Object.assign(this, input);
@@ -360,7 +360,7 @@ export class ApiResponseText {
   }
 }
 
-export class UserInfo {
+export class UserInfo implements Deserializable {
   externalId: string;
   firstName: string;
   lastName: string;
@@ -374,7 +374,7 @@ export class UserInfo {
   }
 }
 
-export class NotesRole {
+export class NotesRole implements Deserializable {
   entityId: string;
   entityName: string;
   entityType: string;
@@ -387,7 +387,7 @@ export class NotesRole {
   }
 }
 
-export class Thread {
+export class Thread implements Deserializable {
   acceptedStatusCount: number;
   actionDate: number;
   actionId: string;
@@ -429,7 +429,7 @@ export class Thread {
   }
 }
 
-export class Note {
+export class Note implements Deserializable {
   attributes: string[];
   createdById: string;
   createdByName: string;
@@ -465,7 +465,7 @@ export class Note {
   }
 }
 
-export class NotesList {
+export class NotesList implements Deserializable {
   notes: Note[];
   deserialize(input: any): this {
     this.notes = [];
@@ -473,3 +473,4 @@ export class NotesList {
     return this;
   }
 }
+

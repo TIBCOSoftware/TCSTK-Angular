@@ -9,6 +9,7 @@ import {LiveAppsService} from '../../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {LiveAppsNotesComponent} from '../../tibco-cloud-components/live-apps-notes/live-apps-notes.component';
+import {LiveAppsDocumentsComponent} from '../../tibco-cloud-components/live-apps-documents/live-apps-documents.component';
 
 @Component({
   selector: 'app-case',
@@ -22,6 +23,7 @@ export class CaseComponent implements OnInit, OnDestroy {
   @ViewChild(LiveAppsCaseActionsComponent) caseActionsComponent: LiveAppsCaseActionsComponent;
   @ViewChild(LiveAppsCaseAuditComponent) caseAuditComponent: LiveAppsCaseAuditComponent;
   @ViewChild(LiveAppsCaseStateAuditComponent) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
+  @ViewChild(LiveAppsDocumentsComponent) caseDocumentsComponent: LiveAppsDocumentsComponent;
   @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
 
   caseRef: string;
@@ -42,6 +44,7 @@ export class CaseComponent implements OnInit, OnDestroy {
     this.caseActionsComponent.refresh();
     this.caseAuditComponent.refresh();
     this.caseStatesComponent.refresh();
+    this.caseDocumentsComponent.refresh();
     this.caseNotesComponent.refresh();
   }
 

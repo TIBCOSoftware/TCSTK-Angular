@@ -18,7 +18,7 @@ import {
   CaseList,
   SharedStateList,
   SharedStateEntry,
-  SharedStateContent, DocumentList, Document, UserInfo, ApiResponseText, NotesList,
+  SharedStateContent, DocumentList, Document, UserInfo, ApiResponseText, NotesList, Note,
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -539,7 +539,9 @@ export class LiveAppsService {
       );
   }
 
-  public getNotes(relatedItemType: string, itemTypeId: string) {
+  /* notes service */
+
+  public getNotes(relatedItemType: string, itemTypeId: string): Observable<NotesList> {
     // https://liveapps.tenant-integration.tcie.pro/collaboration/notes?$relatedItemCollection=CASE_APP_15441&$orderby=createdDate%20ASC
     const url =  '/collaboration/v1/notes?$relatedItemCollection=' + relatedItemType + '_' + itemTypeId
       + '&$orderBy=createdDate ASC';
@@ -548,6 +550,128 @@ export class LiveAppsService {
         map(notes => new NotesList().deserialize(notes))
       );
   }
+
+  public getNotesForCollection(collectionIds): Observable<NotesList> {
+    if (collectionIds) {
+      const url = 'collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
+        '&$orderby=createdDate ASC';
+      return this.http.get(url)
+        .pipe(
+          map(notes => new NotesList().deserialize(notes))
+        );
+    }
+  }
+
+  public deleteAllNotes() {
+  }
+
+  public updateNote(note: Note, nodeId: string) {
+    const url = 'collaboration/v1/notes/' + noteId;
+    const body = note;
+    const bodyStr = JSON.stringify(body);
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+    return this.http.put(url, bodyStr, { headers })
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+        // todo check what is returned from this
+      );
+  }
+
+  public createNote(relatedItemType: string, relatedItemId, note: Note): Observable<number> {
+    const url = 'collaboration/v1/notes';
+    const body = {
+      note: note,
+      relatedItemCollection: [ relatedItemType + '_' + relatedItemId ],
+      relatedItemId: relatedItemId,
+      relatedItemType: 'RT_CASE',
+      roles: undefined
+    }
+    const bodyStr = JSON.stringify(body);
+    const headers = new HttpHeaders();
+    return this.http.post(url, bodyStr, { headers })
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+        map(result => result)
+      );
+  }
+
+  public getNote(noteId: number): Observable<Note> {
+    const url = 'collaboration/v1/notes/' + noteId;
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+        map(note => new Note().deserialize(note)
+        )
+      );
+  }
+
+  public getThread(relatedItemType: string, relatedItemId: string, threadId: number) {
+    const url = 'collaboration/v1/notes/?$relatedItemType=' + relatedItemType
+      + '&relatedItemId=' + relatedItemId
+      + '&filter=threadId=' + threadId
+      + '&orderby=createdDate ASC';
+      return this.http.get(url)
+        .pipe(
+          tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+          map(notes => new NotesList().deserialize(notes)
+          )
+        );
+  }
+
+  public createReplyNote(originalNote: Note, reply: string, noteId: string): Observable<number> {
+    const url = 'collaboration/v1/notes/' + noteId;
+    const body = {
+      notificationLabel: originalNote.notificationLabel,
+      notificationUrl: originalNote.notificationUrl,
+      text: reply
+    };
+    const bodyStr = JSON.stringify(body);
+    const headers = new HttpHeaders();
+    return this.http.put(url, bodyStr, { headers })
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+        map(value => value)
+      );
+  }
+
+  public subscribeToNotes(relatedItemType, relatedTypeId) {
+    const url = 'collaboration/notifications';
+    const body = {
+      topicId: undefined,
+      threadId: undefined,
+      notifyCollection: {
+        collectionName: relatedItemType + '_' + relatedTypeId,
+        lifecycledWithType: 'RT_CASE',
+        lifecycledWithId: caseId
+      }
+    };
+    const bodyStr = JSON.stringify(body);
+    return this.http.post(url, bodyStr)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+      );
+  }
+
+  public unsubscribeToNotes(relatedItemType, relatedTypeId, userId) {
+    const url = 'collaboration/notifications?$filter=collectionName=';
+    url = url + '\'' + relatedItemType + '_' + relatedTypeId + '\' and entityId=' + userId;
+    return this.http.delete(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+      );
+  }
+
+  public deleteNote(noteId: number) {
+    const url = 'collaboration/v1/notes/' + nodeId;
+    return this.http.delete(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+      );
+  }
+
+  /* end notes service */
+
 
   public fileSizeToHuman(size) {
     const e = (Math.log(size) / Math.log(1e3)) | 0;
