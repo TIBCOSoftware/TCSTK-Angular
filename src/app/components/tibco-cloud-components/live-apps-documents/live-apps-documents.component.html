@@ -1,0 +1,38 @@
+<pre>Documents: {{documents | json }}</pre>
+
+<div fxLayout="column">
+  <div *ngFor="let doc of documents" fxLayout="row">
+    <button (click)="removeDocument(doc.name)">Delete {{doc.name}}</button>
+    <button (click)="downloadDocument(doc)">Download {{doc.name}}</button>
+  </div>
+  <br>
+  <div>
+    <h3>Upload Document</h3>
+    <div *ngIf="uploadMessage">{{uploadMessage}}</div>
+    <div>
+      <form #fileUploadForm="ngForm" (submit)="uploadFile()" fxFlex fxLayout="column">
+        <div fxLayout="row">
+          <button type="button" mat-raised-button (click)="fileInput.click()">Choose File To Upload</button>
+          <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
+          <!-- below input is hidden and enabled by above button -->
+          <input class="tcs-hidden-input" (change)="attachFile($event.target.files)" #fileInput type="file" id="file">
+        </div>
+        <mat-form-field fxFlex>
+          <input matInput name="inputdata.description" type="text" placeholder="Comments" [(ngModel)]="inputdata.description"/>
+        </mat-form-field>
+        <button mat-raised-button style="max-width: 100px" type="submit" [disabled]="!fileToUpload">Upload</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  <!--div class="form-group">
+    <label for="file">Choose File</label>
+    <input type="file"
+           id="file"
+           (change)="attachFile($event.target.files)">
+    <input id="fileComments" type="text"(change)="setFileDescription($events)">
+    <button (click)="uploadFile()">Upload File</button>
+  </div-->
+
