@@ -1,0 +1,226 @@
+{
+  "/as/token.oauth2": {
+    "target": {
+      "host": "sso-awsqa.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "cloud.tibco.com"
+    },
+    "cookiePathRewrite": {
+      "*": "/"
+    }
+  },
+  "/idm/v1/login-oauth": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/tsc-ws/v1/tsc-domain": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/idm/v1/reauthorize": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/tsc-ws": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/griddetails": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/tsc-ws-content": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/organisation": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/case/cases": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/case/types": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/case/reports": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/process/": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/pageflow/": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/event": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/clientstate/states": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/webresource": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/collaboration": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  }
+}

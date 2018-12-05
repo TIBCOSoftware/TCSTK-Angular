@@ -1,0 +1,96 @@
+{
+  "/as/token.oauth2": {
+    "target": {
+      "host": "sso-ext.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "cloud.tibco.com"
+    },
+    "cookiePathRewrite": {
+      "*": "/"
+    }
+  },
+  "/idm/v1/login-oauth": {
+    "target": {
+      "host": "eu.liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/organisation/claims": {
+    "target": {
+      "host": "eu.liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://eu.liveapps.cloud.tibco.com"
+    }
+  },
+  "/case/cases": {
+    "target": {
+      "host": "eu.liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://eu.liveapps.cloud.tibco.com"
+    }
+  },
+  "/case/types": {
+    "target": {
+      "host": "eu.liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://eu.liveapps.cloud.tibco.com"
+    }
+  },
+  "/case/reports": {
+    "target": {
+      "host": "eu.liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://eu.liveapps.cloud.tibco.com"
+    }
+  },
+  "/process/": {
+    "target": {
+      "host": "eu.liveapps.cloud.tibco.com",
+      "protocol": "http:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://eu.liveapps.cloud.tibco.com"
+    }
+  }
+}

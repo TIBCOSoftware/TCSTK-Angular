@@ -1,0 +1,24 @@
+  <div class="la-login-div" fxLayoutAlign="space-around start">
+    <mat-card class="la-login-card" fxLayout="column">
+        <div fxflex fxLayoutAlign="start stretch">
+          <form #laLoginForm="ngForm" (submit)="doLogin()" fxLayout="column" fxFlex disabled="loading">
+            <mat-form-field>
+              <input matInput placeholder="Email Address" [(ngModel)]="name" name="email" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+            </mat-form-field>
+            <div class="la-login-button-div" fxFlex fxLayoutAlign="center start">
+              <button type="submit" mat-raised-button color="primary" [disabled]="!laLoginForm.form.valid || loading">Login</button>
+            </div>
+          </form>
+        </div>
+
+        <div fxflex class="la-login-info-pane">
+          <div *ngIf="loading">
+            Logging in...
+          </div>
+          <div *ngIf="loginError">Unable to login: {{loginError}}</div>
+        </div>
+    </mat-card>
+  </div>

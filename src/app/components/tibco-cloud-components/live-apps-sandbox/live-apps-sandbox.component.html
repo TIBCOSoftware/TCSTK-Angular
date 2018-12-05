@@ -1,0 +1,16 @@
+<div *ngIf="error">{{errorMessage}}</div>
+<div *ngIf="sandboxes" class="la-sandbox-div" fxLayoutAlign="space-around start">
+  <div class="la-sandboxes-card" fxLayout="column" *ngIf="!loading">
+    <h3>Select sandbox:</h3>
+    <div class="la-sandbox-selection">
+      <div class="la-available-sub" (click)="selectSandbox(sandbox)" *ngFor="let sandbox of sandboxes.sandboxes">
+        <div *ngIf="sandbox.name" class="la-sandbox-name">{{sandbox.name}}</div>
+        <div *ngIf="!sandbox.name" class="la-sandbox-name">{{sandbox.type}}</div>
+        <div fxLayout="column" class="la-sandbox-selection-dtl" fxLayoutAlign="start start">
+          <div>Id: {{sandbox.id}}</div>
+          <div>Type: {{sandbox.type}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
