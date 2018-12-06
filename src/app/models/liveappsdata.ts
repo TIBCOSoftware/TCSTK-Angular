@@ -1,5 +1,21 @@
 import { Deserializable} from './deserializable';
 
+export class NoteThread {
+  constructor(public threadId: string,
+              public thread: Note[],
+              public note: Note
+  ) {
+  }
+}
+
+export class ThreadList implements Deserializable {
+  threads: NoteThread[];
+  deserialize(input: any): this {
+    this.threads = [];
+    Object.assign(this.threads, input);
+    return this;
+  }
+}
 
 export class Group {
   constructor(public id: string,

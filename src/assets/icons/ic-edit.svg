@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+    <g fill="none" fill-rule="evenodd">
+        <mask id="tcs-collab-edit" fill="#fff">
+          <path d="M4.056 16.433L14.604 5.88 18.12 9.4 7.572 19.95l-3.516-3.517zM18.12 2.364a1.242 1.242 0 0 1 1.758 0l1.758 1.759a1.243 1.243 0 0 1 0 1.758L18.999 8.52l-3.516-3.517 2.637-2.638zM2 22l1.17-4.689 3.517 3.518L2 22z"/>
+        </mask>
+        <g fill="#212121" mask="url(#tcs-collab-edit)">
+            <path d="M0 0h24v24H0z"/>
+        </g>
+    </g>
+</svg>

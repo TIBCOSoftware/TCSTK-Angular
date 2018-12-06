@@ -1,3 +1,78 @@
+  <div fxLayout="column" *ngIf="threads && threads.threads.length > 0" class="tcs-small-pane">
+    <div class="tcs-collaboration-thread" *ngFor="let thread of threads.threads" fxLayout="column">
+      <div class="tcs-collaboration-entry">
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+          <span class="tcs-collaboration-thread-author">{{thread.note.createdByName}}</span>
+          <span class="tcs-collaboration-thread-date">{{thread.note.modifiedDate | durationSince}}</span>
+        </div>
+        <span class="tcs-collaboration-thread-text">{{thread.note.text}}</span>
+      </div>
+      <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="tcs-collaboration-thread-icon-left">
+          <mat-icon class="tcs-icon tcs-collaboration-delete-icon" svgIcon="tcs-collaboration-delete"></mat-icon>
+          <mat-icon class="tcs-icon tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-edit"></mat-icon>
+        </div>
+        <div class="tcs-collaboration-thread-icon-right" fxLayoutAlign="end center" fxLayoutGap="8px">
+          <span class="tcs-collaboration-thread-replies">{{thread.note.thread.totalCount}} replies</span>
+          <mat-icon class="tcs-icon tcs-collaboration-reply-icon" svgIcon="tcs-collaboration-reply"></mat-icon>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
+
+  </div>
+
+  <!--mat-list fxLayout="column" *ngIf="threads && threads.threads.length > 0">
+    <div *ngFor="let thread of threads.threads" fxLayout="column">
+      <h4 matSubheader>{{thread.note.createdByName}}</h4>
+      <mat-list-item>
+        <h4 mat-line>{{thread.note.text}}</h4>
+        <p mat-line> {{thread.note.modifiedDate | date}} </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <div *ngIf="thread.thread.length > 0" style="margin-left: 50px;">
+        <h4 matSubheader>Replies</h4>
+        <div>
+          <mat-list-item *ngFor="let reply of thread.thread">
+            <h4 mat-line>{{reply.createdByName}}</h4>
+            <h4 mat-line>{{reply.text}}</h4>
+            <p mat-line> {{reply.modifiedDate | date}} </p>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+    </div>
+  </mat-list>
+</div-->
+
+
+
+<!--
+<h3>New Note:</h3>
+<form #newNotesForm="ngForm" (submit)="createNote($event)" fxFlex fxLayout="column">
+  <mat-form-field fxFlex>
+    <input matInput name="newNote.text" type="text" placeholder="Comments" [(ngModel)]="newNote.text"/>
+  </mat-form-field>
+  <button mat-raised-button style="max-width: 100px" type="submit">Create Note</button>
+</form>
+
+<h3>Delete Note:</h3>
+<form #delNotesForm="ngForm" (submit)="deleteNote($event)" fxFlex fxLayout="column">
+  <mat-form-field fxFlex>
+    <input matInput name="delNoteId" type="number" placeholder="Id" [(ngModel)]="delNoteId"/>
+  </mat-form-field>
+  <button mat-raised-button style="max-width: 100px" type="submit">Delete Note</button>
+</form>
+
+<br>
+
 <div *ngFor="let note of notes">
-  <pre>{{note | json}}</pre>
+    <pre>{{note | json}}</pre>
+    <form #{{note.id}}updNotesForm="ngForm" (submit)="updateNote(note)" fxFlex fxLayout="column">
+      <mat-form-field fxFlex>
+        <input matInput name="note.text" type="text" placeholder="note text" [(ngModel)]="note.text"/>
+      </mat-form-field>
+    <button mat-raised-button style="max-width: 100px" type="submit">Update Note</button>
+  </form>
 </div>
+-->

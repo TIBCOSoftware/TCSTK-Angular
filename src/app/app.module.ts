@@ -7,7 +7,7 @@ import { LoginComponent } from './components/routes/login/login.component';
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-components/tibco-cloud-login/tibco-cloud-login.component';
 import {TibcoCloudMultipleSubscriptionComponent} from './components/tibco-cloud-components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -28,6 +28,7 @@ import { LiveAppsRecentCasesComponent } from './components/tibco-cloud-component
 import { LiveAppsFavoriteCasesComponent } from './components/tibco-cloud-components/live-apps-favorite-cases/live-apps-favorite-cases.component';
 import { LiveAppsDocumentsComponent } from './components/tibco-cloud-components/live-apps-documents/live-apps-documents.component';
 import { LiveAppsNotesComponent } from './components/tibco-cloud-components/live-apps-notes/live-apps-notes.component';
+import { DurationSincePipe } from './pipes/duration-since.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LiveAppsNotesComponent } from './components/tibco-cloud-components/live
     LiveAppsRecentCasesComponent,
     LiveAppsFavoriteCasesComponent,
     LiveAppsDocumentsComponent,
-    LiveAppsNotesComponent
+    LiveAppsNotesComponent,
+    DurationSincePipe
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { LiveAppsNotesComponent } from './components/tibco-cloud-components/live
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     FormsModule,
     HttpClientModule,
     FlexLayoutModule

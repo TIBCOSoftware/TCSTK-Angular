@@ -1,0 +1,76 @@
+.tcs-small-pane {
+  width: 400px;
+  height: 386px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+  overflow-x: auto;
+}
+
+.tcs-collaboration-entry {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tcs-icon-row {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+}
+
+.tcs-collaboration-thread-author {
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+}
+
+.tcs-collaboration-thread-text {
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+}
+
+.tcs-collaboration-thread-date {
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+}
+
+.tcs-collaboration-reply-icon {
+  transform: scale(-1,1);
+}
+
+.tcs-collaboration-thread-replies {
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #0081cb;
+}
+
+.tcs-icon {
+  height: 20px;
+  width: 20px;
+}
+
+:host ::ng-deep .tcs-icon:hover path {
+  fill: #0081cb!important;
+}
+
+.tcs-icon.tcs-collaboration-edit-icon {
+  margin-left: 5px;
+}

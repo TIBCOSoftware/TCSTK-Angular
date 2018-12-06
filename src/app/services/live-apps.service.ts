@@ -18,7 +18,13 @@ import {
   CaseList,
   SharedStateList,
   SharedStateEntry,
-  SharedStateContent, DocumentList, Document, UserInfo, ApiResponseText, NotesList, Note,
+  SharedStateContent,
+  DocumentList,
+  Document,
+  UserInfo,
+  ApiResponseText,
+  NotesList,
+  Note, ThreadList, Thread, NoteThread
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -541,17 +547,36 @@ export class LiveAppsService {
 
   /* notes service */
 
-  public getNotes(relatedItemType: string, itemTypeId: string): Observable<NotesList> {
+  public getThreads(relatedItemType: string, itemTypeId: string): Observable<ThreadList> {
     // https://liveapps.tenant-integration.tcie.pro/collaboration/notes?$relatedItemCollection=CASE_APP_15441&$orderby=createdDate%20ASC
     const url =  '/collaboration/v1/notes?$relatedItemCollection=' + relatedItemType + '_' + itemTypeId
       + '&$orderBy=createdDate ASC';
     return this.http.get(url)
       .pipe(
-        map(notes => new NotesList().deserialize(notes))
+        map(notes => {
+          const returnedNotes = new NotesList().deserialize(notes);
+          const threadList: ThreadList = new ThreadList();
+          threadList.threads = [];
+          // create threads
+          returnedNotes.notes.forEach(function(note) {
+              if (note.level === 1) {
+                const noteThread = new NoteThread(note.thread.id, [], note);
+                // get other threads for this id
+                returnedNotes.notes.forEach(function (threadNote) {
+                  if (threadNote.level > 1 && threadNote.threadId === note.thread.id) {
+                    // add to the thread
+                    noteThread.thread.push(threadNote);
+                  }
+                })
+                threadList.threads.push(noteThread);
+              }
+            });
+          return threadList;
+        })
       );
   }
 
-  public getNotesForCollection(collectionIds): Observable<NotesList> {
+  public getNotesForCollections(collectionIds): Observable<NotesList> {
     if (collectionIds) {
       const url = 'collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
         '&$orderby=createdDate ASC';
@@ -565,7 +590,7 @@ export class LiveAppsService {
   public deleteAllNotes() {
   }
 
-  public updateNote(note: Note, nodeId: string) {
+  public updateNote(note: Note, noteId: string): Observable<Note> {
     const url = 'collaboration/v1/notes/' + noteId;
     const body = note;
     const bodyStr = JSON.stringify(body);
@@ -573,26 +598,44 @@ export class LiveAppsService {
       .set('Content-Type', 'application/json');
     return this.http.put(url, bodyStr, { headers })
       .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
-        // todo check what is returned from this
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map( result => new Note().deserialize(result))
       );
   }
 
-  public createNote(relatedItemType: string, relatedItemId, note: Note): Observable<number> {
+  public createNote(relatedItemType: string,
+                    uiAppSource: string,
+                    relatedItemId: string,
+                    notificationLabel: string,
+                    notificationUrl: string,
+                    title: string,
+                    noteText: string): Observable<number> {
     const url = 'collaboration/v1/notes';
+    const note = new Note().deserialize(
+      {
+        attributes: [],
+        notificationLabel: notificationLabel,
+        notificationUrl: notificationUrl,
+        text: noteText,
+        title: title
+      }
+    );
     const body = {
       note: note,
-      relatedItemCollection: [ relatedItemType + '_' + relatedItemId ],
+      relatedItemCollection: [
+        (relatedItemType + '_' + relatedItemId)
+      ],
       relatedItemId: relatedItemId,
-      relatedItemType: 'RT_CASE',
+      relatedItemType: uiAppSource,
       roles: undefined
-    }
+    };
     const bodyStr = JSON.stringify(body);
-    const headers = new HttpHeaders();
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
     return this.http.post(url, bodyStr, { headers })
       .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
-        map(result => result)
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(result => Number(result))
       );
   }
 
@@ -600,7 +643,7 @@ export class LiveAppsService {
     const url = 'collaboration/v1/notes/' + noteId;
     return this.http.get(url)
       .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(note => new Note().deserialize(note)
         )
       );
@@ -630,8 +673,8 @@ export class LiveAppsService {
     const headers = new HttpHeaders();
     return this.http.put(url, bodyStr, { headers })
       .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
-        map(value => value)
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(value => Number(value))
       );
   }
 
@@ -643,7 +686,7 @@ export class LiveAppsService {
       notifyCollection: {
         collectionName: relatedItemType + '_' + relatedTypeId,
         lifecycledWithType: 'RT_CASE',
-        lifecycledWithId: caseId
+        lifecycledWithId: true
       }
     };
     const bodyStr = JSON.stringify(body);
@@ -654,7 +697,7 @@ export class LiveAppsService {
   }
 
   public unsubscribeToNotes(relatedItemType, relatedTypeId, userId) {
-    const url = 'collaboration/notifications?$filter=collectionName=';
+    let url = 'collaboration/notifications?$filter=collectionName=';
     url = url + '\'' + relatedItemType + '_' + relatedTypeId + '\' and entityId=' + userId;
     return this.http.delete(url)
       .pipe(
@@ -663,7 +706,7 @@ export class LiveAppsService {
   }
 
   public deleteNote(noteId: number) {
-    const url = 'collaboration/v1/notes/' + nodeId;
+    const url = 'collaboration/v1/notes/' + noteId;
     return this.http.delete(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
