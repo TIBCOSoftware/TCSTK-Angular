@@ -1,4 +1,5 @@
-  <div fxLayout="column" *ngIf="threads && threads.threads.length > 0" class="tcs-small-pane">
+<div class="tcs-small-pane">
+<div fxLayout="column" *ngIf="threads && threads.threads.length > 0">
     <div class="tcs-collaboration-thread" *ngFor="let thread of threads.threads" fxLayout="column">
       <div class="tcs-collaboration-entry">
         <div fxLayout="row" fxLayoutAlign="space-between start">
@@ -19,8 +20,8 @@
       </div>
       <mat-divider></mat-divider>
     </div>
-
   </div>
+</div>
 
   <!--mat-list fxLayout="column" *ngIf="threads && threads.threads.length > 0">
     <div *ngFor="let thread of threads.threads" fxLayout="column">
