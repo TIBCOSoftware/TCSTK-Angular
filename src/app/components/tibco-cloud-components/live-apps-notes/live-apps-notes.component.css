@@ -4,7 +4,33 @@
   border-radius: 3px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
   background-color: #ffffff;
+}
+
+.tcs-collaboration-existing-threads {
   overflow-y: auto;
+  height: 70%;
+}
+
+.tcs-collaboration-detail-box {
+  min-height: 85px;
+  flex-shrink: 0;
+}
+
+.tcs-thread-box {
+  height: 86px;
+}
+
+.tcs-thread-box:hover {
+  background-color: #EEF0F7;
+  transition: background-color 0.5s;
+}
+
+.tcs-thread-box:hover .tcs-icon{
+  display: inline-block;
+}
+
+.tcs-thread-box .tcs-icon{
+  display: none;
 }
 
 .tcs-collaboration-entry {
@@ -48,6 +74,17 @@
   color: #b6b6b6;
 }
 
+.tcs-collaboration-edited {
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #EF5350;
+  padding-right: 4px;
+}
+
 .tcs-collaboration-reply-icon {
   transform: scale(-1,1);
 }
@@ -80,12 +117,22 @@
   width: 20px;
 }
 
-:host ::ng-deep .tcs-icon:hover path {
-  fill: #0081cb!important;
+:host ::ng-deep .tcs-icon.tcs-collaboration-edit-buttons:hover path {
+  fill: #0081cb;
 }
 
 .tcs-icon.tcs-collaboration-edit-icon {
   margin-left: 5px;
+}
+
+.tcs-icon.tcs-collaboration-send-icon {
+  height: 24px;
+  width: 24px;
+}
+
+:host ::ng-deep .tcs-icon.tcs-collaboration-send-icon:hover path#tcs-collab-send {
+  fill: red;
+  fill: #0081cb;
 }
 
 .tcs-collaboration-line {
@@ -107,4 +154,30 @@
   border-bottom-color: #f4f4f4;
   border-bottom-width: 1.1px;
   border-bottom-style: solid;
+}
+
+.tcs-collaboration-new-thread {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.tcs-collaboration-input  {
+  height: 90px;
+  max-width: 100%;
+  border-color: #d5e6ff;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+  resize: none;
+  border-radius: 3px;
+}
+
+.tcs-collaboration-new-thread-form {
+  max-width: 90%;
+  max-height: 100%;
 }

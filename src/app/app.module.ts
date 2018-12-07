@@ -29,6 +29,7 @@ import { LiveAppsFavoriteCasesComponent } from './components/tibco-cloud-compone
 import { LiveAppsDocumentsComponent } from './components/tibco-cloud-components/live-apps-documents/live-apps-documents.component';
 import { LiveAppsNotesComponent } from './components/tibco-cloud-components/live-apps-notes/live-apps-notes.component';
 import { DurationSincePipe } from './pipes/duration-since.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { DurationSincePipe } from './pipes/duration-since.pipe';
     LiveAppsFavoriteCasesComponent,
     LiveAppsDocumentsComponent,
     LiveAppsNotesComponent,
-    DurationSincePipe
+    DurationSincePipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,10 @@ export class AppComponent {
       'tcs-collaboration-edit',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-edit.svg')
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-collaboration-send',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/send.svg')
+    );
   }
   title = 'BaseApp';
 }
