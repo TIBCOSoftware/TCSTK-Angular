@@ -74,3 +74,13 @@
 .tcs-icon.tcs-collaboration-edit-icon {
   margin-left: 5px;
 }
+
+.tcs-collaboration-line {
+  margin-left: 20px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  border-color: #f4f4f4;
+  border-width: 1.1px;
+}
