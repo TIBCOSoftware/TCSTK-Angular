@@ -52,6 +52,19 @@
   transform: scale(-1,1);
 }
 
+.tcs-collaboration-reply-item-icon {
+  transform: scale(1,-1);
+  margin-top: 10px;
+}
+
+.tcs-collaboration-reply-box {
+  margin-left: 20px;
+}
+
+.tcs-collaboration-reply-details {
+  width: 100%;
+}
+
 .tcs-collaboration-thread-replies {
   font-size: 12px;
   font-weight: 600;
@@ -81,6 +94,17 @@
   margin-top: 0px;
   margin-right: 20px;
   margin-bottom: 0px;
-  border-color: #f4f4f4;
-  border-width: 1.1px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
+}
+
+.tcs-collaboration-reply-line {
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
 }

@@ -1,6 +1,8 @@
 <div class="tcs-small-pane">
-<div fxLayout="column" *ngIf="threads && threads.threads.length > 0">
+  <div fxLayout="column" *ngIf="threads && threads.threads.length > 0">
     <div class="tcs-collaboration-thread" *ngFor="let thread of threads.threads" fxLayout="column">
+
+      <!-- collaboration threads -->
       <div class="tcs-collaboration-entry">
         <div fxLayout="row" fxLayoutAlign="space-between start">
           <span class="tcs-collaboration-thread-author">{{thread.note.createdByName}}</span>
@@ -14,38 +16,61 @@
           <mat-icon class="tcs-icon tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-edit"></mat-icon>
         </div>
         <div class="tcs-collaboration-thread-icon-right" fxLayoutAlign="end center" fxLayoutGap="8px">
-          <span class="tcs-collaboration-thread-replies">{{thread.note.thread.totalCount}} replies</span>
+          <span *ngIf="thread.note.thread.totalCount > 1" class="tcs-collaboration-thread-replies" (click)="toggleReplies(thread)">{{thread.note.thread.totalCount-1}} replies</span>
           <mat-icon class="tcs-icon tcs-collaboration-reply-icon" svgIcon="tcs-collaboration-reply"></mat-icon>
         </div>
       </div>
-      <hr class="tcs-collaboration-line"/>
+      <div class="tcs-collaboration-line"></div>
+      <!-- replies -->
+      <div class="tcs-collaboration-reply-box" *ngIf="thread.showReplies">
+        <div class="tcs-collaboration-reply" *ngFor="let reply of thread.thread" fxLayout="column">
+          <div fxLayout="row">
+            <mat-icon class="tcs-icon tcs-collaboration-reply-item-icon" svgIcon="tcs-collaboration-reply"></mat-icon>
+            <div fxLayout="column" class="tcs-collaboration-reply-details">
+              <div class="tcs-collaboration-entry">
+                <div fxLayout="row" fxLayoutAlign="space-between start">
+                  <span class="tcs-collaboration-thread-author">{{reply.createdByName}}</span>
+                  <span class="tcs-collaboration-thread-date">{{reply.modifiedDate | durationSince}}</span>
+                </div>
+                <span class="tcs-collaboration-thread-text">{{reply.text}}</span>
+              </div>
+              <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="tcs-collaboration-thread-icon-left">
+                  <mat-icon class="tcs-icon tcs-collaboration-delete-icon" svgIcon="tcs-collaboration-delete"></mat-icon>
+                  <mat-icon class="tcs-icon tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-edit"></mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tcs-collaboration-reply-line"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-  <!--mat-list fxLayout="column" *ngIf="threads && threads.threads.length > 0">
-    <div *ngFor="let thread of threads.threads" fxLayout="column">
-      <h4 matSubheader>{{thread.note.createdByName}}</h4>
-      <mat-list-item>
-        <h4 mat-line>{{thread.note.text}}</h4>
-        <p mat-line> {{thread.note.modifiedDate | date}} </p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <div *ngIf="thread.thread.length > 0" style="margin-left: 50px;">
-        <h4 matSubheader>Replies</h4>
-        <div>
-          <mat-list-item *ngFor="let reply of thread.thread">
-            <h4 mat-line>{{reply.createdByName}}</h4>
-            <h4 mat-line>{{reply.text}}</h4>
-            <p mat-line> {{reply.modifiedDate | date}} </p>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-        </div>
+<!--mat-list fxLayout="column" *ngIf="threads && threads.threads.length > 0">
+  <div *ngFor="let thread of threads.threads" fxLayout="column">
+    <h4 matSubheader>{{thread.note.createdByName}}</h4>
+    <mat-list-item>
+      <h4 mat-line>{{thread.note.text}}</h4>
+      <p mat-line> {{thread.note.modifiedDate | date}} </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div *ngIf="thread.thread.length > 0" style="margin-left: 50px;">
+      <h4 matSubheader>Replies</h4>
+      <div>
+        <mat-list-item *ngFor="let reply of thread.thread">
+          <h4 mat-line>{{reply.createdByName}}</h4>
+          <h4 mat-line>{{reply.text}}</h4>
+          <p mat-line> {{reply.modifiedDate | date}} </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
       </div>
     </div>
-  </mat-list>
+  </div>
+</mat-list>
 </div-->
-
 
 
 <!--

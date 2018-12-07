@@ -41,11 +41,11 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
       });
   }
 
-  public showThread = (threadId) => {
-
+  private toggleReplies = (thread) => {
+    thread.showReplies = !thread.showReplies;
   }
 
-  public createNote = () => {
+  private createNote = () => {
     console.log('Sending new note');
     this.liveapps.createNote(this.relatedItemType, 'RT_CASE', this.relatedItemId, 'comments update', '', '', this.newNote.text)
       .pipe(
@@ -60,7 +60,7 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
       .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
   }
 
-  public updateNote = (note) => {
+  private updateNote = (note) => {
     console.log('Updating note');
     this.liveapps.updateNote(note, note.id)
       .pipe(
@@ -73,7 +73,7 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
       .subscribe(null, error => this.errorMessage = 'Error updating note: ' + error.error.errorMessage);
   }
 
-  public deleteNote = () => {
+  private deleteNote = () => {
     console.log('Deleting note');
     this.liveapps.deleteNote(this.delNoteId)
       .pipe(

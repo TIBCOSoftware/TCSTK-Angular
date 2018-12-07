@@ -560,7 +560,7 @@ export class LiveAppsService {
           // create threads
           returnedNotes.notes.forEach(function(note) {
               if (note.level === 1) {
-                const noteThread = new NoteThread(note.thread.id, [], note);
+                const noteThread = new NoteThread(note.thread.id, false, [], note);
                 // get other threads for this id
                 returnedNotes.notes.forEach(function (threadNote) {
                   if (threadNote.level > 1 && threadNote.threadId === note.thread.id) {
