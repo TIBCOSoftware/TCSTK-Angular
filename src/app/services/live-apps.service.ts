@@ -560,7 +560,7 @@ export class LiveAppsService {
           // create threads
           returnedNotes.notes.forEach(function(note) {
               if (note.level === 1) {
-                const noteThread = new NoteThread(note.thread.id, false, [], note);
+                const noteThread = new NoteThread(note.thread.id, false, false, undefined,[], note);
                 // get other threads for this id
                 returnedNotes.notes.forEach(function (threadNote) {
                   if (threadNote.level > 1 && threadNote.threadId === note.thread.id) {
@@ -670,8 +670,9 @@ export class LiveAppsService {
       text: reply
     };
     const bodyStr = JSON.stringify(body);
-    const headers = new HttpHeaders();
-    return this.http.put(url, bodyStr, { headers })
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+    return this.http.post(url, bodyStr, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(value => Number(value))

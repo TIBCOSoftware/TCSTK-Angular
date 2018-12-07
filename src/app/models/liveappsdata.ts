@@ -3,6 +3,8 @@ import { Deserializable} from './deserializable';
 export class NoteThread {
   constructor(public threadId: string,
               public showReplies: boolean,
+              public showNewReply: boolean,
+              public newReply: any,
               public thread: Note[],
               public note: Note
   ) {

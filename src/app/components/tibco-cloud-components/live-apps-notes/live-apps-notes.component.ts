@@ -45,6 +45,34 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
     thread.showReplies = !thread.showReplies;
   }
 
+  private toggleNewReply = (thread) => {
+    if (!thread.newReply) {
+      thread.newReply = {};
+    }
+    if (thread.showReplies && !thread.showNewReply) {
+      thread.newReply = {};
+      thread.showNewReply = true;
+    } else {
+      thread.showNewReply = !thread.showNewReply;
+      thread.showReplies = !thread.showReplies;
+    }
+
+  }
+
+  private createReply = (thread, replyText) => {
+    this.liveapps.createReplyNote(thread.note, replyText, thread.note.id)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result => {
+          this.newNoteId = result;
+          thread.newReply.text = undefined;
+          this.refresh();
+        })
+      )
+      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+  }
+
   private createThread = (noteText) => {
     if (noteText !== undefined) {
       this.liveapps.createNote(this.relatedItemType, 'RT_CASE', this.relatedItemId, 'comments update', '', '', noteText)
@@ -53,9 +81,8 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
           takeUntil(this._destroyed$),
           map(result => {
             this.newNoteId = result;
-            this.refresh();
             this.newNote.text = undefined;
-            // todo: should now go and get the new note
+            this.refresh();
           })
         )
         .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);

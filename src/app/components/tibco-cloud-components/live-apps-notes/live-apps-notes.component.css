@@ -29,7 +29,7 @@
   display: inline-block;
 }
 
-.tcs-thread-box .tcs-icon{
+.tcs-thread-box .tcs-icon.tcs-icon-active {
   display: none;
 }
 
@@ -160,6 +160,13 @@
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 10px;
+}
+
+.tcs-collaboration-new-reply {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .tcs-collaboration-input  {
