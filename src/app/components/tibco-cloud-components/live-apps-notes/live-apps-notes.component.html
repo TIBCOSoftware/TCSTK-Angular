@@ -71,8 +71,8 @@
                 </div>
                 <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">
                   <div class="tcs-collaboration-thread-icon-left">
-                    <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon" svgIcon="tcs-collaboration-delete"></mat-icon>
-                    <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-edit"></mat-icon>
+                    <mat-icon (click)="deleteNote(reply.id)" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon" svgIcon="tcs-collaboration-delete"></mat-icon>
+                    <mat-icon (click)="editNote(reply)" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-edit"></mat-icon>
                   </div>
                 </div>
               </div>

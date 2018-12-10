@@ -150,7 +150,7 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
   }
 
   private deleteNote = (id) => {
-    console.log('Deleting thread');
+    console.log('Deleting note');
     this.liveapps.deleteNote(id)
       .pipe(
         take(1),
