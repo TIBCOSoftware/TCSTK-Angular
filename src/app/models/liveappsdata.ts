@@ -4,10 +4,45 @@ export class NoteThread {
   constructor(public threadId: string,
               public showReplies: boolean,
               public showNewReply: boolean,
+              public editMode: boolean,
               public newReply: any,
               public thread: Note[],
               public note: Note
   ) {
+  }
+}
+
+export class NotificationCollection {
+  constructor(
+    public collectionName: string,
+    public lifecycledWithType: string,
+    public lifecycledWithId: string
+  ) { }
+}
+
+export class Notification implements Deserializable {
+  entityId: string;
+  entityName: string;
+  entityType: string;
+  id: string;
+  notifyCollection: NotificationCollection;
+  notifyOnAllReplies: boolean;
+  notifyOnUpdate: boolean;
+  threadId: string;
+  topicId: string;
+  type: string;
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class NotificationList implements Deserializable {
+  notifications: Notification[];
+  deserialize(input: any): this {
+    this.notifications = [];
+    Object.assign(this.notifications, input);
+    return this;
   }
 }
 

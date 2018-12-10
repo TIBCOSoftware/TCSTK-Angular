@@ -43,13 +43,14 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
   public uploadDocument = (doc) => {
   }
 
-  public removeDocument = (docname) => {
-    this.liveapps.deleteDocument(this.folderType, this.folderId, docname, this.sandboxId)
+  public removeDocument = (doc) => {
+    this.liveapps.deleteDocument(this.folderType, this.folderId, doc.name, this.sandboxId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
         map(val => {
           console.log(val);
+          this.refresh();
         })
       )
       .subscribe(

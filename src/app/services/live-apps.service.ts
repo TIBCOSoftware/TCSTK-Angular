@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread
+  Note, ThreadList, Thread, NoteThread, NotificationList
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -515,23 +515,23 @@ export class LiveAppsService {
 
   private getIcon(extension: string): string {
     if (extension === 'txt') {
-      return('txt');
+      return('doc');
     } else if (extension === 'css') {
-      return('css');
+      return('doc');
     } else if (extension === 'js') {
-      return('js');
+      return('doc');
     } else if (extension === 'pdf') {
-      return('pdf');
+      return('doc');
     } else if (extension === 'xml') {
-      return('xml');
+      return('doc');
     } else if (extension === 'doc') {
       return('doc');
     } else if (extension === 'zip') {
       return('zip');
     } else if (extension === 'ppt') {
-      return('ppt');
+      return('doc');
     } else if (extension === 'png') {
-      return('png');
+      return('image');
     } else {
       return('doc');
     }
@@ -560,7 +560,7 @@ export class LiveAppsService {
           // create threads
           returnedNotes.notes.forEach(function(note) {
               if (note.level === 1) {
-                const noteThread = new NoteThread(note.thread.id, false, false, undefined,[], note);
+                const noteThread = new NoteThread(note.thread.id, false, false, false, undefined,[], note);
                 // get other threads for this id
                 returnedNotes.notes.forEach(function (threadNote) {
                   if (threadNote.level > 1 && threadNote.threadId === note.thread.id) {
@@ -691,7 +691,9 @@ export class LiveAppsService {
       }
     };
     const bodyStr = JSON.stringify(body);
-    return this.http.post(url, bodyStr)
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+    return this.http.post(url, bodyStr, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
       );
@@ -703,6 +705,16 @@ export class LiveAppsService {
     return this.http.delete(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+      );
+  }
+
+  public getNotifications(relatedItemType, relatedTypeId, userId): Observable<NotificationList> {
+    const url = 'collaboration/notifications?$filter=collectionName=\'' + relatedItemType + '_' + relatedTypeId
+            + '\' and entityId=' + userId;
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(value => new NotificationList().deserialize(value))
       );
   }
 

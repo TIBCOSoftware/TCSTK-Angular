@@ -6,6 +6,30 @@
   background-color: #ffffff;
 }
 
+.tcs-collaboration-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-collaboration-header-text {
+  margin-left: 5px;
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.tcs-collaboration-thread-icon-left {
+  height: 24px;
+  width: 50px;
+}
+
 .tcs-collaboration-existing-threads {
   overflow-y: auto;
   height: 70%;
@@ -14,6 +38,26 @@
 .tcs-collaboration-detail-box {
   min-height: 85px;
   flex-shrink: 0;
+}
+
+.tcs-collaboration-detail-box.editing {
+  min-height: 109px;
+}
+
+.tcs-collaboration-detail-box.editing > .tcs-thread-box {
+  height: 110px;
+  background-color: #EEF0F7;
+}
+
+.tcs-collaboration-new-reply-box {
+  transition: background-color 0.5s;
+  background-color: #EEF0F7;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-collaboration-reply {
+  padding-left: 20px;
 }
 
 .tcs-thread-box {
@@ -25,7 +69,9 @@
   transition: background-color 0.5s;
 }
 
-.tcs-thread-box:hover .tcs-icon{
+
+
+.tcs-thread-box:hover .tcs-icon.tcs-icon-active {
   display: inline-block;
 }
 
@@ -95,7 +141,7 @@
 }
 
 .tcs-collaboration-reply-box {
-  margin-left: 20px;
+  /*margin-left: 20px;*/
 }
 
 .tcs-collaboration-reply-details {
@@ -117,7 +163,7 @@
   width: 20px;
 }
 
-:host ::ng-deep .tcs-icon.tcs-collaboration-edit-buttons:hover path {
+:host ::ng-deep .tcs-icon.tcs-collaboration-edit-buttons:hover path.svg-content {
   fill: #0081cb;
 }
 
@@ -128,10 +174,10 @@
 .tcs-icon.tcs-collaboration-send-icon {
   height: 24px;
   width: 24px;
+  margin-left: 12px;
 }
 
-:host ::ng-deep .tcs-icon.tcs-collaboration-send-icon:hover path#tcs-collab-send {
-  fill: red;
+:host ::ng-deep .tcs-icon.tcs-collaboration-send-icon:hover path.svg-content {
   fill: #0081cb;
 }
 
@@ -162,6 +208,10 @@
   margin-top: 10px;
 }
 
+.tcs-collaboration-edit-thread {
+  margin-top: 10px;
+}
+
 .tcs-collaboration-new-reply {
   margin-left: 20px;
   margin-right: 20px;
@@ -170,7 +220,39 @@
 }
 
 .tcs-collaboration-input  {
-  height: 90px;
+   height: 90px;
+   max-width: 100%;
+   border-color: #d5e6ff;
+   font-size: 11px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: -0.1px;
+   color: #b6b6b6;
+   resize: none;
+   border-radius: 3px;
+ }
+
+.tcs-collaboration-reply-textbox {
+  height: 55px;
+  max-width: 100%;
+  border-color: #d5e6ff;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+  resize: none;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tcs-collaboration-edit  {
+  height: 55px;
   max-width: 100%;
   border-color: #d5e6ff;
   font-size: 11px;

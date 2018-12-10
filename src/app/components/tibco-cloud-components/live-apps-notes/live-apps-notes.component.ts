@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {Note, NoteThread, ThreadList} from '../../../models/liveappsdata';
+import {Note, NoteThread, NotificationList, ThreadList} from '../../../models/liveappsdata';
 
 @Component({
   selector: 'app-live-apps-notes',
@@ -13,6 +13,7 @@ import {Note, NoteThread, ThreadList} from '../../../models/liveappsdata';
 export class LiveAppsNotesComponent implements OnInit, OnDestroy {
   @Input() relatedItemType: string; // use 'CASE_APP' to share notes with case manager
   @Input() relatedItemId: string; // 'caseRef' for case related
+  @Input() userId: string;
 
   private notes: Note[];
   private errorMessage: string;
@@ -20,8 +21,7 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
   private newNoteId: number;
   private delNoteId: number;
   private threads: ThreadList;
-
-
+  private subscribed: Boolean;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
@@ -39,6 +39,7 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
       ).subscribe(null, error => {
         this.errorMessage = 'Error retrieving notes: ' + error.error.errorMsg;
       });
+    this.getNotifications();
   }
 
   private toggleReplies = (thread) => {
@@ -89,6 +90,51 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
     }
   }
 
+  private getNotifications = () => {
+    this.liveapps.getNotifications(this.relatedItemType, this.relatedItemId, this.userId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result => {
+          const notificationList: NotificationList = result;
+          if (notificationList.notifications.length > 0) {
+            this.subscribed = true;
+          }
+        })
+      )
+      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+  }
+
+  private subscribe = () => {
+    this.liveapps.subscribeToNotes(this.relatedItemType, this.relatedItemId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result => {
+          if (result) {
+            this.subscribed = true;
+          }
+        })
+      )
+      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+  }
+
+  private unsubscribe = () => {
+    this.liveapps.unsubscribeToNotes(this.relatedItemType, this.relatedItemId, this.userId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result => {
+          this.subscribed = false;
+        })
+      )
+      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+  }
+
+  private editNote = (thread) => {
+    thread.editMode = !thread.editMode;
+  }
+
   private updateNote = (note) => {
     console.log('Updating note');
     this.liveapps.updateNote(note, note.id)
@@ -97,19 +143,21 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
         takeUntil(this._destroyed$),
         map(result => {
           console.log('Note updated');
+          this.refresh();
         })
       )
       .subscribe(null, error => this.errorMessage = 'Error updating note: ' + error.error.errorMessage);
   }
 
-  private deleteNote = () => {
-    console.log('Deleting note');
-    this.liveapps.deleteNote(this.delNoteId)
+  private deleteNote = (id) => {
+    console.log('Deleting thread');
+    this.liveapps.deleteNote(id)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
         map(result => {
           console.log('Note deleted: ' + result);
+          this.refresh();
         })
       )
       .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);

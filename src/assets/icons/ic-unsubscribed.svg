@@ -1,0 +1,51 @@
+<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+  <!-- Generator: sketchtool 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+  <title>0D7E6B2E-0DCE-491F-8719-70779DF0C61D</title>
+  <desc>Created with sketchtool.</desc>
+  <defs>
+    <rect id="path-1" x="0" y="0" width="355" height="950"></rect>
+    <filter x="-3.7%" y="-1.2%" width="107.3%" height="102.7%" filterUnits="objectBoundingBox" id="filter-2">
+      <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+      <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+    </filter>
+    <path d="M7.02092272,9.64382773 L10.429694,12.9694583 C10.2893638,12.9895851 10.1458982,13 10,13 C8.34314575,13 7,11.6568542 7,10 C7,9.87948409 7.0071063,9.76062794 7.02092272,9.64382773 Z M12.9979012,9.88673222 C12.9388301,8.29534999 11.6402099,7.02078376 10.0392586,7.00025162 L12.9979019,9.88673289 Z M5.39239715,8.05502229 C5.13971651,8.65288074 5,9.3101241 5,10 C5,12.7614237 7.23857625,15 10,15 C10.7336604,15 11.4304146,14.8419859 12.0580864,14.5581338 L13.8229037,16.2799067 C12.6354037,16.7451582 11.3468341,17 10,17 C5.45454545,17 1.57272727,14.0973333 -7.10542736e-15,10 C0.642490676,8.32615705 1.67034243,6.85169041 2.97137252,5.69304704 L5.39239715,8.05502229 Z M8.2947756,5.29831698 L6.53943522,3.58578978 C7.62510828,3.20602952 8.78900189,3 10,3 C14.5454545,3 18.4272727,5.90266667 20,10 C19.4004851,11.5618806 18.4654382,12.9501651 17.2860026,14.0702457 L14.742345,11.5886286 C14.9094634,11.089535 15,10.5553405 15,10 C15,7.23857625 12.7614237,5 10,5 C9.40117224,5 8.82693188,5.10527121 8.2947756,5.29831698 Z M0.292893219,1.70710678 C-0.0976310729,1.31658249 -0.0976310729,0.683417511 0.292893219,0.292893219 C0.683417511,-0.0976310729 1.31658249,-0.0976310729 1.70710678,0.292893219 L19.7071068,18.2928932 C20.0976311,18.6834175 20.0976311,19.3165825 19.7071068,19.7071068 C19.3165825,20.0976311 18.6834175,20.0976311 18.2928932,19.7071068 L0.292893219,1.70710678 Z" id="path-3"></path>
+  </defs>
+  <g id="Pages/Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Reporting-Dashboard/Page/Dashboard-comments/1440-01" transform="translate(-1360.000000, -154.000000)">
+      <rect fill="#F4F4F4" x="0" y="0" width="1440" height="1072"></rect>
+      <g id="Group-5">
+        <rect id="Mask" fill="#D8D8D8" opacity="0" x="1" y="0" width="1438" height="1072"></rect>
+        <g id="modal/header/tabs">
+          <g transform="translate(25.000000, 163.000000)"></g>
+        </g>
+      </g>
+      <rect id="Rectangle-2" stroke="#232323" x="0.5" y="0.5" width="1439" height="1071"></rect>
+      <g id="cmpt/comments" transform="translate(1085.000000, 122.000000)">
+        <g id="Rectangle">
+          <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+          <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+        <g id="cmpt/card/little-card-04" transform="translate(0.000000, 16.000000)">
+          <g id="Group">
+            <g id="comments-header" transform="translate(16.000000, 0.000000)">
+              <g id="toggle/off" transform="translate(259.000000, 16.000000)">
+                <g id="icon/eye/off" transform="translate(2.000000, 2.000000)">
+                  <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                  </mask>
+                  <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-3"></use>
+                  <g id="color/gray/dark" mask="url(#mask-4)" class="svg-content" fill="#727272">
+                    <g transform="translate(-2.000000, -2.000000)" id="blue">
+                      <rect x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

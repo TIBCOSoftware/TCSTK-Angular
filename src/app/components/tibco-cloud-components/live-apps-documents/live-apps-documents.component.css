@@ -1,3 +1,114 @@
 .tcs-hidden-input {
   display: none;
 }
+
+.tcs-small-pane {
+  width: 400px;
+  height: 386px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
+.tcs-documents-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-documents-header-text {
+  margin-left: 5px;
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.tcs-document-name-text {
+  font-family: SourceSansPro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0081cb;
+}
+
+.tcs-document-comment-text {
+  font-family: SourceSansPro;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #727272;
+}
+
+.tcs-document-modified-text {
+  font-family: SourceSansPro;
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+}
+
+.tcs-document-filesize-text {
+  font-family: SourceSansPro;
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+}
+
+
+.tcs-document-details-text-box {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+:host ::ng-deep .tcs-icon.tcs-document-edit-buttons:hover path.svg-content {
+  fill: #0081cb;
+}
+
+:host ::ng-deep .tcs-icon.tcs-document-edit-icon:hover path.svg-content {
+  fill: #0081cb;
+}
+
+.tcs-document-detail-box {
+  min-height: 85px;
+  flex-shrink: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-document-detail-box:hover {
+  background-color: #EEF0F7;
+  transition: background-color 0.5s;
+}
+
+.tcs-document-line {
+  margin-left: 20px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
+}
+

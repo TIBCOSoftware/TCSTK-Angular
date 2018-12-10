@@ -1,26 +1,43 @@
 <div class="tcs-small-pane" fxLayout="column">
-  <div fxLayout="column" fxFill>
+  <div class="tcs-collaboration-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="start center">
+      <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-collaboration-feed"></mat-icon>
+      <div class="tcs-collaboration-header-text">Notes</div>
+    </div>
+    <mat-icon *ngIf="subscribed" (click)="unsubscribe()" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-subscribed"></mat-icon>
+    <mat-icon *ngIf="!subscribed" (click)="subscribe()" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-unsubscribed"></mat-icon>
+  </div>
+  <div fxLayout="column" fxFlex>
     <div class="tcs-collaboration-existing-threads" fxLayout="column">
       <div *ngIf="threads && threads.threads.length > 0">
-        <div class="tcs-collaboration-detail-box tcs-collaboration-thread" *ngFor="let thread of threads.threads | reverse" fxLayout="column">
+        <div class="tcs-collaboration-detail-box tcs-collaboration-thread" [ngClass]="{ editing: thread.editMode }" *ngFor="let thread of threads.threads | reverse" fxLayout="column">
 
           <div class="tcs-thread-box">
             <!-- collaboration threads -->
             <div class="tcs-collaboration-entry">
-              <div fxLayout="row" fxLayoutAlign="space-between start">
-                <span class="tcs-collaboration-thread-author">{{thread.note.createdByName}}</span>
-                <div fxLayoutAlign="row">
+              <div *ngIf="!thread.editMode">
+                <div fxLayout="row" fxLayoutAlign="space-between start">
+                  <span class="tcs-collaboration-thread-author">{{thread.note.createdByName}}</span>
+                  <div fxLayoutAlign="row">
                   <span *ngIf="thread.note.modifiedDate > thread.note.createdDate" class="tcs-collaboration-edited">Edited
                   </span>
-                  <span class="tcs-collaboration-thread-date">{{thread.note.modifiedDate | durationSince}}</span>
+                    <span class="tcs-collaboration-thread-date">{{thread.note.modifiedDate | durationSince}}</span>
+                  </div>
                 </div>
+                <span class="tcs-collaboration-thread-text">{{thread.note.text}}</span>
               </div>
-              <span class="tcs-collaboration-thread-text">{{thread.note.text}}</span>
+
+              <div *ngIf="thread.editMode" class="tcs-collaboration-edit-thread" fxLayoutAlign="space-between center">
+                <form class="tcs-collaboration-edit-thread-form" #editThreadForm{{thread.note.id}}="ngForm" fxFlex>
+                  <textarea fxFlex class="tcs-collaboration-edit" [(ngModel)]="thread.note.text" name="thread.note.text" md-maxlength="10000" rows="2"></textarea>
+                </form>
+                <mat-icon class="tcs-icon tcs-collaboration-send-icon" svgIcon="tcs-collaboration-send" (click)="updateNote(thread.note)"></mat-icon>
+              </div>
             </div>
             <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">
               <div class="tcs-collaboration-thread-icon-left">
-                <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon" svgIcon="tcs-collaboration-delete"></mat-icon>
-                <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-edit"></mat-icon>
+                <mat-icon (click)="deleteNote(thread.note.id)" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon" svgIcon="tcs-collaboration-delete"></mat-icon>
+                <mat-icon (click)="editNote(thread)" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-edit"></mat-icon>
               </div>
               <div class="tcs-collaboration-thread-icon-right" fxLayoutAlign="end center" fxLayoutGap="8px">
                 <span *ngIf="thread.note.thread.totalCount > 1" class="tcs-collaboration-thread-replies" (click)="toggleReplies(thread)">{{thread.note.thread.totalCount-1}} replies</span>
@@ -32,9 +49,10 @@
         <!-- replies -->
         <div class="tcs-collaboration-reply-box" *ngIf="thread.showReplies">
           <div fxLayout="column">
-            <div *ngIf="thread.showNewReply" class="tcs-collaboration-new-reply" fxLayoutAlign="space-between center">
+            <div *ngIf="thread.showNewReply" class="tcs-collaboration-new-reply-box" fxLayoutAlign="space-between center">
+              <mat-icon class="tcs-icon tcs-collaboration-reply-item-icon" svgIcon="tcs-collaboration-reply"></mat-icon>
               <form class="tcs-collaboration-new-thread-form" #newReplyForm{{thread.note.id}}="ngForm" fxFlex>
-                <textarea fxFlex class="tcs-collaboration-input" [(ngModel)]="thread.newReply.text" name="thread.newReply.text" md-maxlength="10000" placeholder="New Reply... " rows="2" max-rows="true"></textarea>
+                <textarea fxFlex class="tcs-collaboration-reply-textbox" [(ngModel)]="thread.newReply.text" name="thread.newReply.text" md-maxlength="10000" placeholder="New Reply... " rows="2"></textarea>
               </form>
               <mat-icon class="tcs-icon tcs-collaboration-send-icon" svgIcon="tcs-collaboration-send" (click)="createReply(thread, thread.newReply.text)"></mat-icon>
             </div>

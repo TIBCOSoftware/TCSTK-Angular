@@ -1,11 +1,55 @@
+<div class="tcs-small-pane" fxLayout="column">
+  <div class="tcs-documents-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="start center">
+      <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-document-library"></mat-icon>
+      <div class="tcs-documents-header-text">Documents</div>
+    </div>
+    <mat-icon (click)="upload()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" svgIcon="tcs-document-upload"></mat-icon>
+  </div>
+  <div fxLayout="column" fxFlex>
+    <div class="tcs-document-list" fxLayout="column">
+      <div *ngIf="documents && documents.length > 0">
+        <div class="tcs-document-detail-box tcs-document" *ngFor="let document of documents | reverse" fxLayout="column">
+          <div class="tcs-document-box" fxLayoutAlign="space-between center" fxLayout="row" fxFlex>
+            <div fxLayoutAlign="start center">
+              <mat-icon class="tcs-icon tcs-icon-active tcs-document-type-icon" svgIcon="tcs-document-{{document.fileIcon}}"></mat-icon>
+            </div>
+            <div class="tcs-document-details-text-box" fxLayout="column" fxLayoutAlign="center start" fxFlex>
+                <div fxLayout="row" fxLayoutAlign="start center" fxFill>
+                  <div class="tcs-document-name-text">{{document.name}}</div>
+                  <div fxLayout="row" fxLayoutAlign="end center" fxFlex>
+                    <div class="tcs-document-filesize-text">&nbsp;({{document.fileSize}})</div>
+                  </div>
+                </div>
+                <div class="tcs-document-comment-text">{{document.description}}</div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <div class="tcs-document-modified-text">{{document.lastModifiedDate | durationSince}}</div>
+                <div *ngIf="document.lastModifiedByDetails" class="tcs-document-modified-text">&nbsp;by {{document.lastModifiedByDetails.username}}</div>
+              </div>
+            </div>
+
+            <div fxLayoutAlign="end center">
+              <mat-icon [matMenuTriggerFor]="docActionMenu" class="tcs-icon tcs-icon-active tcs-document-action-icon" svgIcon="tcs-document-action"></mat-icon>
+              <mat-menu #docActionMenu="matMenu" class="tcs-icon tcs-icon-active tcs-document-action-icon">
+                <button class="tcs-document-action-text" mat-menu-item (click)="downloadDocument(document)">Download</button>
+                <button class="tcs-document-action-text" mat-menu-item (click)="removeDocument(document)">Delete</button>
+              </mat-menu>
+
+
+            </div>
+          </div>
+          <div class="tcs-document-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
 <pre>Documents: {{documents | json }}</pre>
 
 <div fxLayout="column">
-  <div *ngFor="let doc of documents" fxLayout="row">
-    <button (click)="removeDocument(doc.name)">Delete {{doc.name}}</button>
-    <button (click)="downloadDocument(doc)">Download {{doc.name}}</button>
-  </div>
-  <br>
   <div>
     <h3>Upload Document</h3>
     <div *ngIf="uploadMessage">{{uploadMessage}}</div>
@@ -25,14 +69,4 @@
     </div>
   </div>
 </div>
-
-
-  <!--div class="form-group">
-    <label for="file">Choose File</label>
-    <input type="file"
-           id="file"
-           (change)="attachFile($event.target.files)">
-    <input id="fileComments" type="text"(change)="setFileDescription($events)">
-    <button (click)="uploadFile()">Upload File</button>
-  </div-->
 

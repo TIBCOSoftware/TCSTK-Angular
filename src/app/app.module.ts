@@ -7,7 +7,15 @@ import { LoginComponent } from './components/routes/login/login.component';
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-components/tibco-cloud-login/tibco-cloud-login.component';
 import {TibcoCloudMultipleSubscriptionComponent} from './components/tibco-cloud-components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule, MatMenuModule, MatOptionModule,
+  MatSelectModule
+} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -67,6 +75,9 @@ import { ReversePipe } from './pipes/reverse.pipe';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatMenuModule,
     FormsModule,
     HttpClientModule,
     FlexLayoutModule

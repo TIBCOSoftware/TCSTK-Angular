@@ -39,13 +39,27 @@ export class CaseComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private route: ActivatedRoute, private liveapps: LiveAppsService) { }
 
   public refresh = () => {
-    this.caseDataComponent.refresh();
-    this.caseStatesComponent.refresh();
-    this.caseActionsComponent.refresh();
-    this.caseAuditComponent.refresh();
-    this.caseStatesComponent.refresh();
-    this.caseDocumentsComponent.refresh();
-    this.caseNotesComponent.refresh();
+    if (this.caseDataComponent) {
+      this.caseDataComponent.refresh();
+    }
+    if (this.caseStatesComponent) {
+      this.caseStatesComponent.refresh();
+    }
+    if (this.caseActionsComponent) {
+      this.caseActionsComponent.refresh();
+    }
+    if (this.caseAuditComponent) {
+      this.caseAuditComponent.refresh();
+    }
+    if (this.caseStatesComponent) {
+      this.caseStatesComponent.refresh();
+    }
+    if (this.caseDocumentsComponent) {
+      this.caseDocumentsComponent.refresh();
+    }
+    if (this.caseNotesComponent) {
+      this.caseNotesComponent.refresh();
+    }
   }
 
   public toggleFavorite = () => {

@@ -8,8 +8,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DurationSincePipe implements PipeTransform {
 
   transform(value: Date, args?: any): any {
-    const seconds = Math.floor((new Date() - new Date(value)) / 1000);
-    let interval = Math.floor(seconds / 31536000);
+    const seconds: number = Math.floor((+new Date() - +new Date(value)) / 1000);
+    let interval: number = Math.floor(seconds / 31536000);
     // years
     if (interval >= 1) {
       if (interval === 1) {
