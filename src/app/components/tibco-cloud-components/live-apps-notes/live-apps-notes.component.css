@@ -32,7 +32,7 @@
 
 .tcs-collaboration-existing-threads {
   overflow-y: auto;
-  height: 70%;
+  /*height: 70%;*/
 }
 
 .tcs-collaboration-detail-box {
@@ -54,6 +54,10 @@
   background-color: #EEF0F7;
   margin-left: 20px;
   padding-right: 20px;
+}
+
+.tcs-collaboration-detail-box.tcs-collaboration-reply.editing {
+  min-height: 100px;
 }
 
 .tcs-collaboration-reply {
@@ -205,7 +209,10 @@
 .tcs-collaboration-new-thread {
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
+  max-height: 85px;
+  height: 85px;
+  min-height: 85px;
 }
 
 .tcs-collaboration-edit-thread {
@@ -220,7 +227,7 @@
 }
 
 .tcs-collaboration-input  {
-   height: 90px;
+   height: 55px;
    max-width: 100%;
    border-color: #d5e6ff;
    font-size: 11px;
@@ -269,4 +276,20 @@
 .tcs-collaboration-new-thread-form {
   max-width: 90%;
   max-height: 100%;
+}
+
+.tcs-collaboration-new-note-component {
+  height: 85px;
+  min-height: 85px;
+  max-height: 85px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.tcs-collaboration-new-reply-component {
+  height: 85px;
+  min-height: 85px;
+  max-height: 85px;
+  margin-left: 20px;
+  margin-right: 20px;
 }

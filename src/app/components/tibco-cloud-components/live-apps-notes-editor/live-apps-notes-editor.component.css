@@ -1,0 +1,43 @@
+.tcs-collaboration-new-thread {
+  /*margin-left: 20px;
+  margin-right: 20px;*/
+  /*max-height: 55px;
+  height: 55px;
+  min-height: 55px;*/
+}
+
+.tcs-collaboration-new-thread-form {
+  max-width: 90%;
+  max-height: 100%;
+}
+
+.tcs-collaboration-input  {
+  height: 55px;
+  max-width: 100%;
+  border-color: #d5e6ff;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+  resize: none;
+  border-radius: 3px;
+}
+
+.tcs-icon.tcs-collaboration-send-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 12px;
+}
+
+.tcs-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.tcs-collaboration-reply-item-icon {
+  transform: scale(1,-1);
+  margin-top: 10px;
+}

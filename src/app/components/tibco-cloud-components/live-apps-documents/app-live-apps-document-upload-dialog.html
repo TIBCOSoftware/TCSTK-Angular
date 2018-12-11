@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Upload New File</h1>
+<div mat-dialog-content>
+  <form #fileUploadForm="ngForm" fxFlex fxLayout="column">
+    <div fxLayout="row">
+      <button type="button" mat-raised-button (click)="fileInput.click()">Choose File To Upload</button>
+      <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
+      <!-- below input is hidden and enabled by above button -->
+      <input class="tcs-hidden-input" (change)="attachFile($event.target.files)" #fileInput type="file" id="file">
+    </div>
+    <mat-form-field fxFlex>
+      <input matInput name="description" type="text" placeholder="Comments" [(ngModel)]="description"/>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="uploadFile()" type="submit" [disabled]="!fileToUpload">Upload</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+</div>

@@ -4,12 +4,12 @@
       <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-document-library"></mat-icon>
       <div class="tcs-documents-header-text">Documents</div>
     </div>
-    <mat-icon (click)="upload()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" svgIcon="tcs-document-upload"></mat-icon>
+    <mat-icon (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" svgIcon="tcs-document-upload"></mat-icon>
   </div>
   <div fxLayout="column" fxFlex>
     <div class="tcs-document-list" fxLayout="column">
       <div *ngIf="documents && documents.length > 0">
-        <div class="tcs-document-detail-box tcs-document" *ngFor="let document of documents | reverse" fxLayout="column">
+        <div class="tcs-document-detail-box tcs-document" *ngFor="let document of documents | orderByDate: 'lastModifiedDate'" fxLayout="column">
           <div class="tcs-document-box" fxLayoutAlign="space-between center" fxLayout="row" fxFlex>
             <div fxLayoutAlign="start center">
               <mat-icon class="tcs-icon tcs-icon-active tcs-document-type-icon" svgIcon="tcs-document-{{document.fileIcon}}"></mat-icon>
@@ -49,7 +49,7 @@
 
 <pre>Documents: {{documents | json }}</pre>
 
-<div fxLayout="column">
+<!--div fxLayout="column">
   <div>
     <h3>Upload Document</h3>
     <div *ngIf="uploadMessage">{{uploadMessage}}</div>
@@ -59,7 +59,7 @@
           <button type="button" mat-raised-button (click)="fileInput.click()">Choose File To Upload</button>
           <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
           <!-- below input is hidden and enabled by above button -->
-          <input class="tcs-hidden-input" (change)="attachFile($event.target.files)" #fileInput type="file" id="file">
+          <!--input class="tcs-hidden-input" (change)="attachFile($event.target.files)" #fileInput type="file" id="file">
         </div>
         <mat-form-field fxFlex>
           <input matInput name="inputdata.description" type="text" placeholder="Comments" [(ngModel)]="inputdata.description"/>
@@ -68,5 +68,5 @@
       </form>
     </div>
   </div>
-</div>
+</div-->
 

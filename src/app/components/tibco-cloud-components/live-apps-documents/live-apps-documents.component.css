@@ -112,3 +112,7 @@
   border-bottom-style: solid;
 }
 
+.tcs-document-list {
+  overflow-y: auto;
+}
+

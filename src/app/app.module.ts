@@ -9,7 +9,7 @@ import {TibcoCloudMultipleSubscriptionComponent} from './components/tibco-cloud-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -34,10 +34,15 @@ import { LiveAppsCaseAuditComponent } from './components/tibco-cloud-components/
 import {LiveAppsCaseStateAuditComponent} from './components/tibco-cloud-components/live-apps-case-state-audit/live-apps-case-state-audit.component';
 import { LiveAppsRecentCasesComponent } from './components/tibco-cloud-components/live-apps-recent-cases/live-apps-recent-cases.component';
 import { LiveAppsFavoriteCasesComponent } from './components/tibco-cloud-components/live-apps-favorite-cases/live-apps-favorite-cases.component';
-import { LiveAppsDocumentsComponent } from './components/tibco-cloud-components/live-apps-documents/live-apps-documents.component';
+import {
+  LiveAppsDocumentsComponent,
+  LiveAppsDocumentUploadDialogComponent
+} from './components/tibco-cloud-components/live-apps-documents/live-apps-documents.component';
 import { LiveAppsNotesComponent } from './components/tibco-cloud-components/live-apps-notes/live-apps-notes.component';
 import { DurationSincePipe } from './pipes/duration-since.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { LiveAppsNotesEditorComponent } from './components/tibco-cloud-components/live-apps-notes-editor/live-apps-notes-editor.component';
+import { OrderByDatePipe } from './pipes/order-by-date.pipe';
 
 @NgModule({
   declarations: [
@@ -62,7 +67,10 @@ import { ReversePipe } from './pipes/reverse.pipe';
     LiveAppsDocumentsComponent,
     LiveAppsNotesComponent,
     DurationSincePipe,
-    ReversePipe
+    ReversePipe,
+    LiveAppsNotesEditorComponent,
+    LiveAppsDocumentUploadDialogComponent,
+    OrderByDatePipe
   ],
   imports: [
     BrowserModule,
@@ -77,6 +85,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
     MatIconModule,
     MatSelectModule,
     MatOptionModule,
+    MatDialogModule,
     MatMenuModule,
     FormsModule,
     HttpClientModule,
@@ -86,7 +95,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
   providers: [AuthGuard],
   bootstrap: [AppComponent],
     entryComponents: [
-
+      LiveAppsDocumentUploadDialogComponent
     ]
 })
 export class AppModule { }

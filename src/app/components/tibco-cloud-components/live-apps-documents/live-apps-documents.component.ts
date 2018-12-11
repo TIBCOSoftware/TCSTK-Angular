@@ -1,8 +1,9 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import { DocumentList, Document } from '../../../models/liveappsdata';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-live-apps-documents',
@@ -19,7 +20,6 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
   private documents: Document[];
   private fileToUpload: File = undefined;
   private fileDescription: string;
-  inputdata: any = {};
   uploadMessage: string;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
@@ -84,13 +84,16 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
     this.fileDescription = description;
   }
 
-  uploadFile() {
+  uploadFile(fileToUpload, description) {
+    this.fileToUpload = fileToUpload;
+    this.fileDescription = description;
     if (this.fileToUpload) {
       this.liveapps.uploadDocument(this.folderType, this.folderId, this.sandboxId,
-        this.fileToUpload, this.fileToUpload.name, this.inputdata.description)
+        this.fileToUpload, this.fileToUpload.name, this.fileDescription)
         .pipe(
           map(val => {
             console.log(val);
+            this.refresh();
           })
         )
         .subscribe(
@@ -103,7 +106,21 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService, public dialog: MatDialog) { }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LiveAppsDocumentUploadDialogComponent, {
+      width: '500px',
+      data: {}
+    });
+
+    dialogRef.componentInstance.fileevent.subscribe(($e) => {
+      this.uploadFile($e.file, $e.description);
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
 
   ngOnInit() {
     this.refresh();
@@ -111,6 +128,43 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this._destroyed$.next();
+  }
+
+}
+
+@Component({
+  selector: 'app-live-apps-document-upload-dialog',
+  templateUrl: 'app-live-apps-document-upload-dialog.html',
+  styleUrls: [ 'app-live-apps-document-upload-dialog.css']
+})
+export class LiveAppsDocumentUploadDialogComponent {
+  @Output() fileevent = new EventEmitter<any>();
+  private fileToUpload: File = undefined;
+  private description: string = undefined;
+
+  constructor(
+    public dialogRef: MatDialogRef<LiveAppsDocumentUploadDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+
+  private uploadFile = () => {
+    if (this.fileToUpload) {
+      this.fileevent.emit({ file: this.fileToUpload, description: this.description });
+      this.dialogRef.close();
+    }
+  }
+
+  setFileDescription(description: string) {
+    this.fileDescription = description;
+  }
+
+  attachFile(files: FileList) {
+    this.uploadMessage = '';
+    this.fileToUpload = files.item(0);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

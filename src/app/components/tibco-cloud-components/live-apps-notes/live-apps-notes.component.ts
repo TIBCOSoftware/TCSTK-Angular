@@ -135,8 +135,9 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
     thread.editMode = !thread.editMode;
   }
 
-  private updateNote = (note) => {
+  private updateNote = (note, updatedText) => {
     console.log('Updating note');
+    note.text = updatedText;
     this.liveapps.updateNote(note, note.id)
       .pipe(
         take(1),
@@ -165,6 +166,7 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.refresh();
+    this.newNote.text = '';
   }
 
   ngOnDestroy(): void {

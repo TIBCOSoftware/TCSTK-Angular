@@ -513,6 +513,7 @@ export class Note implements Deserializable {
   title: string;
   topicId: string;
   type: string;
+  editMode: boolean;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;

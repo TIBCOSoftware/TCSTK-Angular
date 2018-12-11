@@ -1,0 +1,7 @@
+<div class="tcs-collaboration-new-thread" fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
+  <mat-icon *ngIf="isReply" class="tcs-icon tcs-collaboration-reply-item-icon" svgIcon="tcs-collaboration-reply"></mat-icon>
+  <form class="tcs-collaboration-new-thread-form" #newThreadForm="ngForm" fxFlex>
+    <textarea fxFlex class="tcs-collaboration-input" [(ngModel)]="noteText" name="noteText" md-maxlength="10000" placeholder="New Note... " rows="2"></textarea>
+  </form>
+  <mat-icon class="tcs-icon tcs-collaboration-send-icon" svgIcon="tcs-collaboration-send" (click)="submitNote(noteText)"></mat-icon>
+</div>

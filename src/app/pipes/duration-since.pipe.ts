@@ -40,7 +40,7 @@ export class DurationSincePipe implements PipeTransform {
     interval = Math.floor(seconds / 86400);
     if (interval >= 1) {
       if (interval === 1) {
-        return interval + ' yesterday';
+        return ' yesterday';
       } else {
         return interval + ' days ago';
       }

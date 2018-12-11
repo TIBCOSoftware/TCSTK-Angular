@@ -8,7 +8,7 @@
     <mat-icon *ngIf="!subscribed" (click)="subscribe()" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-unsubscribed"></mat-icon>
   </div>
   <div fxLayout="column" fxFlex>
-    <div class="tcs-collaboration-existing-threads" fxLayout="column">
+    <div class="tcs-collaboration-existing-threads" fxLayout="column" fxFlex>
       <div *ngIf="threads && threads.threads.length > 0">
         <div class="tcs-collaboration-detail-box tcs-collaboration-thread" [ngClass]="{ editing: thread.editMode }" *ngFor="let thread of threads.threads | reverse" fxLayout="column">
 
@@ -26,13 +26,7 @@
                 </div>
                 <span class="tcs-collaboration-thread-text">{{thread.note.text}}</span>
               </div>
-
-              <div *ngIf="thread.editMode" class="tcs-collaboration-edit-thread" fxLayoutAlign="space-between center">
-                <form class="tcs-collaboration-edit-thread-form" #editThreadForm{{thread.note.id}}="ngForm" fxFlex>
-                  <textarea fxFlex class="tcs-collaboration-edit" [(ngModel)]="thread.note.text" name="thread.note.text" md-maxlength="10000" rows="2"></textarea>
-                </form>
-                <mat-icon class="tcs-icon tcs-collaboration-send-icon" svgIcon="tcs-collaboration-send" (click)="updateNote(thread.note)"></mat-icon>
-              </div>
+              <app-live-apps-notes-editor *ngIf="thread.editMode" [noteText]="thread.note.text" (noteSubmitted)="updateNote(thread.note, $event)"></app-live-apps-notes-editor>
             </div>
             <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">
               <div class="tcs-collaboration-thread-icon-left">
@@ -49,25 +43,22 @@
         <!-- replies -->
         <div class="tcs-collaboration-reply-box" *ngIf="thread.showReplies">
           <div fxLayout="column">
-            <div *ngIf="thread.showNewReply" class="tcs-collaboration-new-reply-box" fxLayoutAlign="space-between center">
-              <mat-icon class="tcs-icon tcs-collaboration-reply-item-icon" svgIcon="tcs-collaboration-reply"></mat-icon>
-              <form class="tcs-collaboration-new-thread-form" #newReplyForm{{thread.note.id}}="ngForm" fxFlex>
-                <textarea fxFlex class="tcs-collaboration-reply-textbox" [(ngModel)]="thread.newReply.text" name="thread.newReply.text" md-maxlength="10000" placeholder="New Reply... " rows="2"></textarea>
-              </form>
-              <mat-icon class="tcs-icon tcs-collaboration-send-icon" svgIcon="tcs-collaboration-send" (click)="createReply(thread, thread.newReply.text)"></mat-icon>
-            </div>
+            <app-live-apps-notes-editor class="tcs-collaboration-new-reply-component" *ngIf="thread.showNewReply" [isReply]="true" [noteText]="thread.newReply.text" (noteSubmitted)="createReply(thread, $event)"></app-live-apps-notes-editor>
             <div class="tcs-collaboration-line"></div>
           </div>
-          <div class="tcs-collaboration-detail-box tcs-collaboration-reply" *ngFor="let reply of thread.thread | reverse" fxLayout="column">
+          <div class="tcs-collaboration-detail-box tcs-collaboration-reply" [ngClass]="{ editing: reply.editMode }" *ngFor="let reply of thread.thread | reverse" fxLayout="column">
             <div class="tcs-thread-box" fxLayout="row">
               <mat-icon class="tcs-icon tcs-collaboration-reply-item-icon" svgIcon="tcs-collaboration-reply"></mat-icon>
               <div fxLayout="column" class="tcs-collaboration-reply-details">
                 <div class="tcs-collaboration-entry">
-                  <div fxLayout="row" fxLayoutAlign="space-between start">
-                    <span class="tcs-collaboration-thread-author">{{reply.createdByName}}</span>
-                    <span class="tcs-collaboration-thread-date">{{reply.modifiedDate | durationSince}}</span>
+                  <div *ngIf="!reply.editMode">
+                    <div fxLayout="row" fxLayoutAlign="space-between start">
+                      <span class="tcs-collaboration-thread-author">{{reply.createdByName}}</span>
+                      <span class="tcs-collaboration-thread-date">{{reply.modifiedDate | durationSince}}</span>
+                    </div>
+                    <span class="tcs-collaboration-thread-text">{{reply.text}}</span>
                   </div>
-                  <span class="tcs-collaboration-thread-text">{{reply.text}}</span>
+                  <app-live-apps-notes-editor *ngIf="reply.editMode" [noteText]="reply.text" (noteSubmitted)="updateNote(reply, $event)"></app-live-apps-notes-editor>
                 </div>
                 <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">
                   <div class="tcs-collaboration-thread-icon-left">
@@ -83,12 +74,13 @@
       </div>
       </div>
     </div>
-    <div class="tcs-collaboration-new-thread" fxLayout="row" fxLayoutAlign="space-between center">
+    <app-live-apps-notes-editor class="tcs-collaboration-new-note-component" [noteText]="newNote.text" (noteSubmitted)="createThread($event)"></app-live-apps-notes-editor>
+    <!--div class="tcs-collaboration-new-thread" fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
       <form class="tcs-collaboration-new-thread-form" #newThreadForm="ngForm" fxFlex>
         <textarea fxFlex class="tcs-collaboration-input" [(ngModel)]="newNote.text" name="newNote.text" md-maxlength="10000" placeholder="New Thread... " rows="2" max-rows="true"></textarea>
       </form>
       <mat-icon class="tcs-icon tcs-collaboration-send-icon" svgIcon="tcs-collaboration-send" (click)="createThread(newNote.text)"></mat-icon>
-    </div>
+    </div-->
   </div>
 </div>
 
