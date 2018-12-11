@@ -14,7 +14,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule,
-  MatSelectModule
+  MatSelectModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -43,6 +43,7 @@ import { DurationSincePipe } from './pipes/duration-since.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { LiveAppsNotesEditorComponent } from './components/tibco-cloud-components/live-apps-notes-editor/live-apps-notes-editor.component';
 import { OrderByDatePipe } from './pipes/order-by-date.pipe';
+import { LiveAppsCaseSummaryComponent } from './components/tibco-cloud-components/live-apps-case-summary/live-apps-case-summary.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { OrderByDatePipe } from './pipes/order-by-date.pipe';
     ReversePipe,
     LiveAppsNotesEditorComponent,
     LiveAppsDocumentUploadDialogComponent,
-    OrderByDatePipe
+    OrderByDatePipe,
+    LiveAppsCaseSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +89,8 @@ import { OrderByDatePipe } from './pipes/order-by-date.pipe';
     MatOptionModule,
     MatDialogModule,
     MatMenuModule,
+    MatCardModule,
+    MatTooltipModule,
     FormsModule,
     HttpClientModule,
     FlexLayoutModule

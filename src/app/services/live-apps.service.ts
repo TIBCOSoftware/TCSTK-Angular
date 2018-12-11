@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList
+  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -126,13 +126,34 @@ export class LiveAppsService {
         map(caseinfo => new CaseInfo().deserialize(caseinfo)));
   }
 
+  private parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string): CaseInfo {
+    this.getCaseTypeBasicInfo(sandboxId, appId, typeId).subscribe(val => {
+      caseinfo.metadata.applicationLabel = val.label;
+      return caseinfo;
+    }, error => { console.log('Unable to retrieve application details for casetype: ' + error.errorMsg); });
+    this.getUserInfo(caseinfo.metadata.createdBy).subscribe(val => {
+      caseinfo.metadata.createdByDetails = val;
+      return caseinfo;
+    }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
+    this.getUserInfo(caseinfo.metadata.modifiedBy).subscribe(val => {
+      caseinfo.metadata.modifiedByDetails = val;
+      return caseinfo;
+    }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
+    return caseinfo;
+  }
+
     public getCaseWithSummary(caseRef: string, sandboxId: number, appId: string, typeId: string ): Observable<CaseInfo> {
         const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
             + appId + ' and typeId eq ' + typeId + '&$select=uc, m, s';
         return this.http.get(url)
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-                map(caseinfo => new CaseInfo().deserialize(caseinfo)));
+                map(caseinfo => {
+                  const caseinf = new CaseInfo().deserialize(caseinfo);
+                  caseinf = this.parseCaseInfo(caseinf, sandboxId, appId, typeId);
+                  return caseinf;
+                })
+            );
     }
 
   public getCaseTypes(sandboxId: number, appId: string): Observable<CaseTypesList> {
@@ -171,6 +192,28 @@ export class LiveAppsService {
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
                 map(casetypestates => new CaseTypeStatesList().deserialize(casetypestates[0].states)));
+    }
+
+    public getCaseTypeBasicInfo(sandboxId: number, appId: string, typeId: string): Observable<CaseType> {
+        const select = 'b';
+      let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select;
+      if (appId != null) {
+        url = url + '&$filter=applicationId eq ' + appId;
+      }
+      return this.http.get(url)
+        .pipe(
+          tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+          map(casetypes => {
+              const caseTypesList: CaseTypesList = new CaseTypesList().deserialize(casetypes);
+              const requestedType: CaseType;
+              caseTypesList.casetypes.forEach((casetype) => {
+                if (casetype.id === typeId) {
+                  requestedType = casetype;
+                }
+              })
+              return requestedType;
+            })
+          );
     }
 
     // note this is not a public API
@@ -464,6 +507,7 @@ export class LiveAppsService {
     return document;
   }
 
+
   public deleteDocument(folderType: string, folderId: string, documentName: string, sandboxId: number): Observable<ApiResponseText> {
     const url = '/webresource/v1/' + folderType + '/' + folderId + '/artifacts/' + documentName + '?$sandbox=' + sandboxId;
     return this.http.delete(url)
@@ -560,14 +604,14 @@ export class LiveAppsService {
           // create threads
           returnedNotes.notes.forEach(function(note) {
               if (note.level === 1) {
-                const noteThread = new NoteThread(note.thread.id, false, false, false, undefined,[], note);
+                const noteThread = new NoteThread(note.thread.id, false, false, false, undefined, [], note);
                 // get other threads for this id
                 returnedNotes.notes.forEach(function (threadNote) {
                   if (threadNote.level > 1 && threadNote.threadId === note.thread.id) {
                     // add to the thread
                     noteThread.thread.push(threadNote);
                   }
-                })
+                });
                 threadList.threads.push(noteThread);
               }
             });

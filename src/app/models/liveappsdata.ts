@@ -85,8 +85,10 @@ export class SandboxList {
 export class Metadata {
   constructor(public createdBy:	string,
               public creationTimestamp:	string,
+              public createdByDetails: UserInfo,
               public modifiedBy:	string,
               public modificationTimestamp:	string,
+              public modifiedByDetails: UserInfo,
               public lock:	boolean,
               public lockType:	string,
               public lockedBy:	string,
@@ -94,6 +96,7 @@ export class Metadata {
               public msSystemTime:	string,
               public markedForPurge: boolean,
               public applicationId:	string,
+              public applicationLabel: string,
               public typeId: string
             ) {
   }

@@ -31,9 +31,9 @@ export class DurationSincePipe implements PipeTransform {
     interval = Math.floor(seconds / 604800);
     if (interval >= 1) {
       if (interval === 1) {
-        return interval + 'week ago';
+        return interval + ' week ago';
       } else {
-        return interval + 'weeks ago';
+        return interval + ' weeks ago';
       }
     }
     // days
