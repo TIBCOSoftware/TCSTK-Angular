@@ -11,7 +11,7 @@
         <div class="tcs-case-summary-state-text">{{summaryValues[0]}}</div>
       </div>
     </div>
-    <div class="tcs-case-summary-mini-card-right" fxLayout="row" fxLayoutAlign="end center">
+    <div class="tcs-case-summary-mini-card-right" (click)="clickCase" fxLayout="row" fxLayoutAlign="end center" matTooltipPosition="left" matTooltip="Open Case">
       <mat-icon class="tcs-icon tcs-case-summary-details-icon" svgIcon="tcs-summary-details-button"></mat-icon>
     </div>
   </mat-card>
