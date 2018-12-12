@@ -8,21 +8,28 @@
 }
 
 .tcs-case-summary-mini-card {
-  width: 288px;
   height: 91px;
-  min-width: 288px;
+  min-width: 285px;
+  max-width: 297px;
   min-height: 91px;
   background-color: #ffffff;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  border-radius: 0px;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 7px;
   padding-bottom: 7px;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.tcs-case-summary-mini-card.border {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
 }
 
 .tcs-case-summary-mini-card:hover {
   box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
+  border-radius: 3px;
 }
 
 .tcs-case-summary-card:hover {

@@ -65,6 +65,14 @@ export class AppComponent {
       'tcs-summary-details-button',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-details-button.svg')
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-favorites-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-favorite.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-clear-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-clear.svg')
+    );
 
     // TODO: case state icons - can we load these from somewhere?
 
