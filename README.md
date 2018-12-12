@@ -1,5 +1,24 @@
 # BaseApp
 
+This repo contains Angular 7 components and sample code for creating cloud starter applications using existing components on top of Tibco Cloud Services.
+
+# Documents
+
+![alt text](screenshots/Documents.png)
+
+# Notes
+
+![alt text](screenshots/Notes.png)
+
+# Summary Cards
+
+![alt text](screenshots/Summary.png) ![alt text](screenshots/Summary-mini.png)
+
+# Navbar
+
+![alt text](screenshots/Navbar.png)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
 ## Development server
