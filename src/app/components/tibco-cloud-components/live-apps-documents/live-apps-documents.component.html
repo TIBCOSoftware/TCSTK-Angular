@@ -21,7 +21,7 @@
                     <div class="tcs-document-filesize-text">&nbsp;({{document.fileSize}})</div>
                   </div>
                 </div>
-                <div class="tcs-document-comment-text">{{document.description}}</div>
+                <div class="tcs-document-comment-text" matTooltip="{{document.description}}" matTooltipPosition="below">{{document.description | ellipsis: 50}}</div>
               <div fxLayout="row" fxLayoutAlign="start center">
                 <div class="tcs-document-modified-text">{{document.lastModifiedDate | durationSince}}</div>
                 <div *ngIf="document.lastModifiedByDetails" class="tcs-document-modified-text">&nbsp;by {{document.lastModifiedByDetails.username}}</div>

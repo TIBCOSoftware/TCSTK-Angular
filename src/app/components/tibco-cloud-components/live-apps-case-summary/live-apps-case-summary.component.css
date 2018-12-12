@@ -7,6 +7,24 @@
   padding: 0px;
 }
 
+.tcs-case-summary-mini-card {
+  width: 288px;
+  height: 91px;
+  min-width: 288px;
+  min-height: 91px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.tcs-case-summary-mini-card:hover {
+  box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
+}
+
 .tcs-case-summary-card:hover {
   box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
 }
@@ -61,6 +79,10 @@
   min-height: 18px;
 }
 
+.tcs-case-summary-summary1-text.mini {
+  margin-top: 0px;
+}
+
 .tcs-case-summary-creation-text {
   height: 15px;
   min-height: 15px;
@@ -81,7 +103,7 @@
 .tcs-case-summary-line {
   margin-left: 20px;
   padding: 0px;
-  margin-top: 10px;
+  margin-top: 12px;
   margin-right: 20px;
   margin-bottom: 0px;
   border-bottom-color: #f4f4f4;
@@ -101,6 +123,14 @@
   text-align: center;
   color: #000000;
   margin-top: 8px;
+}
+
+.tcs-case-summary-summary2-text.mini {
+  margin-top: 0px;
+}
+
+.tcs-case-summary-mini-card-right:hover {
+  cursor: pointer;
 }
 
 .tcs-case-summary-case-footer:hover {

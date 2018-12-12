@@ -24,7 +24,7 @@
                     <span class="tcs-collaboration-thread-date">{{thread.note.modifiedDate | durationSince}}</span>
                   </div>
                 </div>
-                <span class="tcs-collaboration-thread-text">{{thread.note.text}}</span>
+                <span class="tcs-collaboration-thread-text" matTooltip="{{thread.note.text}}" matTooltipPosition="below">{{thread.note.text | ellipsis: 70}}</span>
               </div>
               <app-live-apps-notes-editor *ngIf="thread.editMode" [noteText]="thread.note.text" (noteSubmitted)="updateNote(thread.note, $event)"></app-live-apps-notes-editor>
             </div>
@@ -56,7 +56,7 @@
                       <span class="tcs-collaboration-thread-author">{{reply.createdByName}}</span>
                       <span class="tcs-collaboration-thread-date">{{reply.modifiedDate | durationSince}}</span>
                     </div>
-                    <span class="tcs-collaboration-thread-text">{{reply.text}}</span>
+                    <span class="tcs-collaboration-thread-text" matTooltip="{{reply.text}}" matTooltipPosition="below">{{reply.text | ellipsis: 60}}</span>
                   </div>
                   <app-live-apps-notes-editor *ngIf="reply.editMode" [noteText]="reply.text" (noteSubmitted)="updateNote(reply, $event)"></app-live-apps-notes-editor>
                 </div>

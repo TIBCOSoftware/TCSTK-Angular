@@ -44,6 +44,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { LiveAppsNotesEditorComponent } from './components/tibco-cloud-components/live-apps-notes-editor/live-apps-notes-editor.component';
 import { OrderByDatePipe } from './pipes/order-by-date.pipe';
 import { LiveAppsCaseSummaryComponent } from './components/tibco-cloud-components/live-apps-case-summary/live-apps-case-summary.component';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { LiveAppsCaseSummaryComponent } from './components/tibco-cloud-component
     LiveAppsNotesEditorComponent,
     LiveAppsDocumentUploadDialogComponent,
     OrderByDatePipe,
-    LiveAppsCaseSummaryComponent
+    LiveAppsCaseSummaryComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,

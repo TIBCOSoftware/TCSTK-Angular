@@ -15,6 +15,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string;
+  @Input() miniCard: boolean;
   @Output() openCase = new EventEmitter;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
