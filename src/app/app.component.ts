@@ -23,7 +23,7 @@ export class AppComponent {
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-send',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/send.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-send.svg')
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-subscribed',

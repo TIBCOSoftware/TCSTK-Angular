@@ -10,7 +10,7 @@ export class EllipsisPipe implements PipeTransform {
       return value;
     }
 
-    if (value.length > args) {
+    if (value && value.length > args) {
       return value.substring(0, args) + '...';
     } else {
       return value;

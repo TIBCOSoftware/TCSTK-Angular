@@ -23,9 +23,9 @@
 }
 
 .tcs-documents-header-text {
-  margin-left: 5px;
+  margin-left: 10px;
   font-family: SourceSansPro;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -87,10 +87,12 @@
 
 :host ::ng-deep .tcs-icon.tcs-document-edit-buttons:hover path.svg-content {
   fill: #0081cb;
+  cursor: pointer;
 }
 
 :host ::ng-deep .tcs-icon.tcs-document-edit-icon:hover path.svg-content {
   fill: #0081cb;
+  cursor: pointer;
 }
 
 .tcs-document-detail-box {

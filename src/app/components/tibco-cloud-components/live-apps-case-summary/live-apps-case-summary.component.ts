@@ -13,8 +13,6 @@ import {Meta} from '@angular/platform-browser';
 export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() caseReference: string;
   @Input() sandboxId: number;
-  @Input() appId: string;
-  @Input() typeId: string;
   @Input() miniCard: boolean;
   @Input() borderCard: boolean;
   @Output() openCase = new EventEmitter;
@@ -35,7 +33,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   constructor(private liveapps: LiveAppsService) { }
 
   ngOnInit() {
-    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId, this.appId, this.typeId)
+    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

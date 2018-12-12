@@ -4,7 +4,7 @@
       <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-document-library"></mat-icon>
       <div class="tcs-documents-header-text">Documents</div>
     </div>
-    <mat-icon (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" svgIcon="tcs-document-upload"></mat-icon>
+    <mat-icon (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" matTooltip="Upload Document" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
   </div>
   <div fxLayout="column" fxFlex>
     <div class="tcs-document-list" fxLayout="column">
@@ -21,7 +21,7 @@
                     <div class="tcs-document-filesize-text">&nbsp;({{document.fileSize}})</div>
                   </div>
                 </div>
-                <div class="tcs-document-comment-text" matTooltip="{{document.description}}" matTooltipPosition="below">{{document.description | ellipsis: 50}}</div>
+                <div class="tcs-document-comment-text" matTooltip="{{document.description}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{document.description | ellipsis: 50}}</div>
               <div fxLayout="row" fxLayoutAlign="start center">
                 <div class="tcs-document-modified-text">{{document.lastModifiedDate | durationSince}}</div>
                 <div *ngIf="document.lastModifiedByDetails" class="tcs-document-modified-text">&nbsp;by {{document.lastModifiedByDetails.username}}</div>

@@ -8,18 +8,25 @@
 }
 
 .tcs-case-summary-mini-card {
+  padding: 0px;
   height: 91px;
   min-width: 285px;
   max-width: 297px;
   min-height: 91px;
   background-color: #ffffff;
-  border-radius: 0px;
+  /*padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;*/
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.tcs-case-summary-mini-card-right-content {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 7px;
-  padding-bottom: 7px;
-  box-shadow: none;
-  border-radius: 3px;
+  padding-bottom: 7px
 }
 
 .tcs-case-summary-mini-card.border {
@@ -41,6 +48,13 @@
   height: 20px;
   border-radius: 3px 3px 0px 0px;
   background-color: #0285a1;
+}
+
+.tcs-case-summary-mini-card-side-bar {
+  border-radius: 3px 0px 0px 3px;
+  background-color: #0285a1;
+  width: 20px;
+  height: 100%;
 }
 
 .tcs-case-summary-card-contents {
@@ -171,6 +185,10 @@
   height: 14px;
   width: 14px;
   margin-left: 5px;
+}
+
+.tcs-case-summary-mini-card-state-box {
+  width: 100%;
 }
 
 .tcs-case-summary-state-icon {

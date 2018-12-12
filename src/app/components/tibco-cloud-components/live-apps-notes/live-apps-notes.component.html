@@ -4,8 +4,8 @@
       <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-collaboration-feed"></mat-icon>
       <div class="tcs-collaboration-header-text">Notes</div>
     </div>
-    <mat-icon *ngIf="subscribed" (click)="unsubscribe()" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-subscribed"></mat-icon>
-    <mat-icon *ngIf="!subscribed" (click)="subscribe()" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" svgIcon="tcs-collaboration-unsubscribed"></mat-icon>
+    <mat-icon *ngIf="subscribed" (click)="unsubscribe()" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" matTooltip="Enable Notifications" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-collaboration-subscribed"></mat-icon>
+    <mat-icon *ngIf="!subscribed" (click)="subscribe()" class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon" matTooltip="Disable Notifications" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-collaboration-unsubscribed"></mat-icon>
   </div>
   <div fxLayout="column" fxFlex>
     <div class="tcs-collaboration-existing-threads" fxLayout="column" fxFlex>
@@ -24,7 +24,7 @@
                     <span class="tcs-collaboration-thread-date">{{thread.note.modifiedDate | durationSince}}</span>
                   </div>
                 </div>
-                <span class="tcs-collaboration-thread-text" matTooltip="{{thread.note.text}}" matTooltipPosition="below">{{thread.note.text | ellipsis: 70}}</span>
+                <span class="tcs-collaboration-thread-text" matTooltip="{{thread.note.text}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{thread.note.text | ellipsis: 70}}</span>
               </div>
               <app-live-apps-notes-editor *ngIf="thread.editMode" [noteText]="thread.note.text" (noteSubmitted)="updateNote(thread.note, $event)"></app-live-apps-notes-editor>
             </div>
@@ -56,7 +56,7 @@
                       <span class="tcs-collaboration-thread-author">{{reply.createdByName}}</span>
                       <span class="tcs-collaboration-thread-date">{{reply.modifiedDate | durationSince}}</span>
                     </div>
-                    <span class="tcs-collaboration-thread-text" matTooltip="{{reply.text}}" matTooltipPosition="below">{{reply.text | ellipsis: 60}}</span>
+                    <span class="tcs-collaboration-thread-text" matTooltip="{{reply.text}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{reply.text | ellipsis: 60}}</span>
                   </div>
                   <app-live-apps-notes-editor *ngIf="reply.editMode" [noteText]="reply.text" (noteSubmitted)="updateNote(reply, $event)"></app-live-apps-notes-editor>
                 </div>

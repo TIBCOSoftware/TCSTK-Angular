@@ -142,15 +142,14 @@ export class LiveAppsService {
     return caseinfo;
   }
 
-    public getCaseWithSummary(caseRef: string, sandboxId: number, appId: string, typeId: string ): Observable<CaseInfo> {
-        const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
-            + appId + ' and typeId eq ' + typeId + '&$select=uc, m, s';
+    public getCaseWithSummary(caseRef: string, sandboxId: number): Observable<CaseInfo> {
+        const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
         return this.http.get(url)
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
                 map(caseinfo => {
                   const caseinf = new CaseInfo().deserialize(caseinfo);
-                  caseinf = this.parseCaseInfo(caseinf, sandboxId, appId, typeId);
+                  caseinf = this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId);
                   return caseinf;
                 })
             );

@@ -15,9 +15,9 @@
 }
 
 .tcs-collaboration-header-text {
-  margin-left: 5px;
+  margin-left: 10px;
   font-family: SourceSansPro;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -169,6 +169,12 @@
 
 :host ::ng-deep .tcs-icon.tcs-collaboration-edit-buttons:hover path.svg-content {
   fill: #0081cb;
+  cursor: pointer;
+}
+
+:host ::ng-deep .tcs-icon.tcs-collaboration-edit-buttons:hover g.svg-content {
+  fill: #0081cb;
+  cursor: pointer;
 }
 
 .tcs-icon.tcs-collaboration-edit-icon {

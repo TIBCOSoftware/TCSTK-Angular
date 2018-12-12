@@ -1,18 +1,25 @@
 <div *ngIf="miniCard">
   <mat-card *ngIf="metadata && metadata.applicationLabel && metadata.createdByDetails" class="tcs-case-summary-mini-card" [ngClass]="{border: borderCard}" fxLayout="row" fxLayoutAlign="start stretch">
-    <div class="tcs-case-summary-mini-card-left" fxLayout="column" fxLayoutAlign="space-between start" fxFlex>
-      <div *ngIf="summaryValues[1]" class="tcs-case-summary-summary1-text mini" matTooltip="{{summaryKeys[1] | ellipsis: 45}}" matTooltipShowDelay="1000" matTooltipPosition="above">{{summaryValues[1]}}</div>
-      <div class="tcs-case-summary-creation-text">
-        <div *ngIf="metadata.createdByDetails">Created {{metadata.creationTimestamp | durationSince}} by {{metadata.createdByDetails.username}}</div>
+    <div class="tcs-case-summary-mini-card-side-bar"></div>
+    <div class="tcs-case-summary-mini-card-right-content" fxFlex>
+      <div class="tcs-case-summary-mini-card-left" fxLayout="column" fxLayoutAlign="space-between start" fxFlex>
+        <div *ngIf="summaryValues[1]" class="tcs-case-summary-summary1-text mini" matTooltip="{{summaryKeys[1]}}" matTooltipShowDelay="1000" matTooltipPosition="above">{{summaryValues[1]  | ellipsis: 45}}</div>
+        <div class="tcs-case-summary-creation-text">
+          <div *ngIf="metadata.createdByDetails">Created {{metadata.creationTimestamp | durationSince}} by {{metadata.createdByDetails.username}}</div>
+        </div>
+        <div *ngIf="summaryValues[2]" class="tcs-case-summary-summary2-text mini" matTooltip="{{summaryValues[2]}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{summaryValues[2] | ellipsis: 45}}</div>
+        <div class="tcs-case-summary-mini-card-state-box" fxLayout="row" fxLayoutAlign="start start">
+          <mat-icon class="tcs-icon tcs-case-summary-state-icon" svgIcon="case-state-{{metadata.applicationLabel}}-{{summaryValues[0]}}"></mat-icon>
+          <div class="tcs-case-summary-state-text">{{summaryValues[0]}}</div>
+          <div fxLayout="row" fxLayoutAlign="end center" fxFlex>
+            <div class="tcs-case-summary-state-text">{{metadata.applicationLabel}}</div>
+          </div>
+
+        </div>
       </div>
-      <div *ngIf="summaryValues[2]" class="tcs-case-summary-summary2-text mini" matTooltip="{{summaryValues[2]}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{summaryValues[2] | ellipsis: 45}}</div>
-      <div class="tcs-case-summary-mini-card-state-box" fxLayout="row" fxLayoutAlign="start start">
-        <mat-icon class="tcs-icon tcs-case-summary-state-icon" svgIcon="case-state-{{metadata.applicationLabel}}-{{summaryValues[0]}}"></mat-icon>
-        <div class="tcs-case-summary-state-text">{{summaryValues[0]}}</div>
+      <div class="tcs-case-summary-mini-card-right" (click)="clickCase" fxLayout="row" fxLayoutAlign="end center" matTooltipPosition="left" matTooltipShowDelay="1000" matTooltip="Open Case">
+        <mat-icon class="tcs-icon tcs-case-summary-details-icon" svgIcon="tcs-summary-details-button"></mat-icon>
       </div>
-    </div>
-    <div class="tcs-case-summary-mini-card-right" (click)="clickCase" fxLayout="row" fxLayoutAlign="end center" matTooltipPosition="left" matTooltipShowDelay="1000" matTooltip="Open Case">
-      <mat-icon class="tcs-icon tcs-case-summary-details-icon" svgIcon="tcs-summary-details-button"></mat-icon>
     </div>
   </mat-card>
 </div>
