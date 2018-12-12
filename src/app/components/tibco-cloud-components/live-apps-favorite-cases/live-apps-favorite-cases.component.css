@@ -33,6 +33,7 @@
 }
 
 .tcs-case-favorite-item-box {
+  margin-top: 3px;
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
@@ -45,4 +46,15 @@
 
 :host ::ng-deep .tcs-icon.tcs-icon-active:hover .svg-content {
   fill: #0081cb;
+}
+
+.tcs-case-summary-line {
+  padding: 0px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left:5px;
+  margin-right: 5px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
 }
