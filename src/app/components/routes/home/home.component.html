@@ -1,6 +1,8 @@
-<app-live-apps-recent-cases [sandboxId]="38" [uiAppId]="uiAppId"></app-live-apps-recent-cases>
-<br>
-<app-live-apps-favorite-cases [sandboxId]="38" [uiAppId]="uiAppId"></app-live-apps-favorite-cases>
+<div fxLayout="row" fxLayoutAlign="space-around start">
+  <app-live-apps-favorite-cases [sandboxId]="38" [uiAppId]="uiAppId"></app-live-apps-favorite-cases>
+  <app-live-apps-recent-cases [sandboxId]="38" [uiAppId]="uiAppId"></app-live-apps-recent-cases>
+</div>
+
 <br>
 <app-live-apps-documents [folderId]="'partner-portal'" [folderType]="'orgFolders'"></app-live-apps-documents>
 

@@ -1,3 +1,15 @@
-<pre>Recent cases: {{ recentCases }}</pre>
-  <br>
-  <button (click)="clearRecentCases()">CLEAR RECENT CASES</button>
+<div class="tcs-case-recent-box" fxLayout="column">
+  <div class="tcs-case-recent-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="start center">
+      <mat-icon class="tcs-icon tcs-recent-icon" svgIcon="tcs-recent-icon"></mat-icon>
+      <div class="tcs-case-recent-header-text">Recent</div>
+    </div>
+    <mat-icon (click)="clearRecentCases()" class="tcs-icon tcs-icon-active tcs-clear-recent-icon" svgIcon="tcs-clear-icon" matTooltip="Clear Recent Cases" matTooltipPosition="left" matTooltipShowDelay="1000"></mat-icon>
+  </div>
+  <div class="tcs-case-recent-flow-list" fxLayout="column" fxLayout="row wrap">
+    <div class="tcs-case-recent-item-box" *ngFor="let case of recentCases" fxFlex>
+      <app-live-apps-case-summary [typeBar]="true" [borderCard]="false" [miniCard]="true" [sandboxId]="38" [caseReference]="case"></app-live-apps-case-summary>
+      <div class="tcs-case-recent-line"></div>
+    </div>
+  </div>
+</div>

@@ -70,6 +70,10 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-favorite.svg')
     );
     this.matIconRegistry.addSvgIcon(
+      'tcs-recent-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-recent.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
       'tcs-clear-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-clear.svg')
     );

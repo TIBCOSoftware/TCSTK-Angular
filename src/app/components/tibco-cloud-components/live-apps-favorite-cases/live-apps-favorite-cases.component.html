@@ -1,8 +1,3 @@
-<pre>Favorite cases: {{ favoriteCases }}</pre>
-<br>
-<button (click)="clearFavoriteCases()">CLEAR FAVORITE CASES</button>
-<br>
-
 <div class="tcs-case-favorites-box" fxLayout="column">
     <div class="tcs-case-favorites-header" fxLayout="row" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center">
@@ -13,10 +8,8 @@
     </div>
     <div class="tcs-case-favorites-flow-list" fxLayout="column" fxLayout="row wrap">
       <div class="tcs-case-favorite-item-box" *ngFor="let case of favoriteCases" fxFlex>
-        <app-live-apps-case-summary [borderCard]="false" [miniCard]="true" [sandboxId]="38" [caseReference]="case"></app-live-apps-case-summary>
+        <app-live-apps-case-summary [typeBar]="true" [borderCard]="false" [miniCard]="true" [sandboxId]="38" [caseReference]="case"></app-live-apps-case-summary>
         <div class="tcs-case-summary-line"></div>
       </div>
-
-
     </div>
 </div>
