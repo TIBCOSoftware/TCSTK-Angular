@@ -535,7 +535,7 @@ export class LiveAppsService {
     } else {
       url = url + 'folders/' + folderId;
     }
-    if (sandboxId) {
+    if (sandboxId && folderType !== 'orgFolders') {
       url = url + '/' + sandboxId;
     }
     url = url + '/' + docId + '?$download=true';

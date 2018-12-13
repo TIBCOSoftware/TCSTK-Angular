@@ -17,6 +17,7 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
   @Input() folderType: string; // 'orgFolders' or 'caseFolders'
   @Input() folderId: string;   // caseRef for caseFolder
   @Input() filter: string;
+  @Input() folderDescription: string;
 
   private errorMessage: string;
   private documents: Document[];

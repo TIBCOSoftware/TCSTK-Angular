@@ -2,12 +2,13 @@
   {
     "state": "Reported",
     "fill": "#859BA6",
-    "icon": "assets/icons/app-icons/ServiceRequest/ic-reported.svg"
+    "_icon": "assets/icons/app-icons/ServiceRequest/ic-reported.svg",
+    "icon": "webresource/orgFolders/ServiceRequest_Icons/ic-reported.svg"
   },
   {
     "state": "Request Engineering",
     "fill": "#0285A1",
-    "icon": "sr-ic-reported"
+    "icon": "webresource/orgFolders/ServiceRequest_Icons/ic-investigate.svg"
   },
   {
     "state": "Need Info From Site",

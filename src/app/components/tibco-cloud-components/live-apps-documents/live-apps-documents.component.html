@@ -2,7 +2,7 @@
   <div class="tcs-documents-header" fxLayout="row" fxLayoutAlign="space-between center">
     <div fxLayoutAlign="start center">
       <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-document-library"></mat-icon>
-      <div class="tcs-documents-header-text">Documents</div>
+      <div class="tcs-documents-header-text">{{folderDescription ? folderDescription : 'Documents'}}</div>
     </div>
     <mat-icon (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" matTooltip="Upload Document" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
   </div>
