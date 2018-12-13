@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {LiveAppsService} from '../../../services/live-apps.service';
-import {CaseInfo, Metadata} from '../../../models/liveappsdata';
+import {AppStateConfig, CaseInfo, Metadata} from '../../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {Meta} from '@angular/platform-browser';
+import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-live-apps-case-summary',
@@ -26,12 +26,15 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   private summaryKeys: string[];
   private summaryValues: string[];
   private metadata: Metadata;
+  private appStateConfig: AppStateConfig;
+  private errorMessage;
+  color: string;
 
   private clickCase = () => {
     this.openCase.emit(this.caseReference);
   }
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId)

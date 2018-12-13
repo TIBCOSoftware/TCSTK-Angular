@@ -11,6 +11,8 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
   styleUrls: ['./live-apps-documents.component.css']
 })
 export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
+
+  constructor(private liveapps: LiveAppsService, public dialog: MatDialog) { }
   @Input() sandboxId: number;
   @Input() folderType: string; // 'orgFolders' or 'caseFolders'
   @Input() folderId: string;   // caseRef for caseFolder
@@ -99,14 +101,11 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
         .subscribe(
           result => {
             this.fileToUpload = undefined;
-            this.inputdata = {};
             this.uploadMessage = 'File uploaded';
           },
           error => { console.log('error'); this.errorMessage = 'Error uploading document: ' + error.errorMsg; });
     }
   }
-
-  constructor(private liveapps: LiveAppsService, public dialog: MatDialog) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LiveAppsDocumentUploadDialogComponent, {
@@ -143,8 +142,7 @@ export class LiveAppsDocumentUploadDialogComponent {
   private description: string = undefined;
 
   constructor(
-    public dialogRef: MatDialogRef<LiveAppsDocumentUploadDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    public dialogRef: MatDialogRef<LiveAppsDocumentUploadDialogComponent>) {}
 
 
   private uploadFile = () => {
@@ -155,11 +153,11 @@ export class LiveAppsDocumentUploadDialogComponent {
   }
 
   setFileDescription(description: string) {
-    this.fileDescription = description;
+    this.description = description;
   }
 
   attachFile(files: FileList) {
-    this.uploadMessage = '';
+    // this.uploadMessage = '';
     this.fileToUpload = files.item(0);
   }
 

@@ -1,0 +1,37 @@
+[
+  {
+    "state": "Created",
+    "fill": "#859BA6",
+    "icon": "pr-ic-created"
+  },
+  {
+    "state": "Review",
+    "fill": "#0285A1",
+    "icon": "pr-ic-review"
+  },
+  {
+    "state": "InformationRequired",
+    "fill": "#FFB556",
+    "icon": "pr-ic-infop"
+  },
+  {
+    "state": "Investigation",
+    "fill": "#95A5FB",
+    "icon": "pr-ic-investigate"
+  },
+  {
+    "state": "Respond",
+    "fill": "#A74AB7",
+    "icon": "pr-ic-respond"
+  },
+  {
+    "state": "Canceled",
+    "fill": "#98EED1",
+    "icon": "pr-ic-review"
+  },
+  {
+    "state": "Resolved",
+    "fill": "#02B857",
+    "icon": "pr-ic-closed"
+  }
+]

@@ -17,7 +17,7 @@ import {
   MatSelectModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { StarterAppComponent } from './components/routes/starter-app/starter-app.component';
 import {AuthGuard} from './guards/auth.guard';
@@ -45,6 +45,9 @@ import { LiveAppsNotesEditorComponent } from './components/tibco-cloud-component
 import { OrderByDatePipe } from './pipes/order-by-date.pipe';
 import { LiveAppsCaseSummaryComponent } from './components/tibco-cloud-components/live-apps-case-summary/live-apps-case-summary.component';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { LiveAppsStateIconComponent } from './components/tibco-cloud-components/live-apps-state-icon/live-apps-state-icon.component';
+import {RequestCacheService} from './services/request-cache.service';
+import {CachingInterceptor} from './interceptors/caching-interceptor';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,8 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
     LiveAppsDocumentUploadDialogComponent,
     OrderByDatePipe,
     LiveAppsCaseSummaryComponent,
-    EllipsisPipe
+    EllipsisPipe,
+    LiveAppsStateIconComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +102,11 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
     FlexLayoutModule
 
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    RequestCacheService,
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
     entryComponents: [
       LiveAppsDocumentUploadDialogComponent

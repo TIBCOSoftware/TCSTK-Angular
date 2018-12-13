@@ -97,7 +97,9 @@ export class Metadata {
               public markedForPurge: boolean,
               public applicationId:	string,
               public applicationLabel: string,
-              public typeId: string
+              public typeId: string,
+              public stateColor: string,
+              public stateIcon: string
             ) {
   }
 }
@@ -528,6 +530,22 @@ export class NotesList implements Deserializable {
   deserialize(input: any): this {
     this.notes = [];
     Object.assign(this.notes, input);
+    return this;
+  }
+}
+
+export class StateMap {
+  constructor(
+    public state: string,
+    public fill: string,
+    public icon: string
+  ) {}
+}
+export class AppStateConfig implements Deserializable {
+  stateMap: StateMap[];
+  deserialize(input: any): this {
+    this.stateMap = [];
+    Object.assign(this.stateMap, input);
     return this;
   }
 }

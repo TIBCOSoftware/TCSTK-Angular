@@ -16,7 +16,7 @@
             </div>
             <div class="tcs-document-details-text-box" fxLayout="column" fxLayoutAlign="center start" fxFlex>
                 <div fxLayout="row" fxLayoutAlign="start center" fxFill>
-                  <div class="tcs-document-name-text">{{document.name}}</div>
+                  <div class="tcs-document-name-text" matTooltip="{{document.name}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{document.name | ellipsis: 30}}</div>
                   <div fxLayout="row" fxLayoutAlign="end center" fxFlex>
                     <div class="tcs-document-filesize-text">&nbsp;({{document.fileSize}})</div>
                   </div>
@@ -24,7 +24,7 @@
                 <div class="tcs-document-comment-text" matTooltip="{{document.description}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{document.description | ellipsis: 50}}</div>
               <div fxLayout="row" fxLayoutAlign="start center">
                 <div class="tcs-document-modified-text">{{document.lastModifiedDate | durationSince}}</div>
-                <div *ngIf="document.lastModifiedByDetails" class="tcs-document-modified-text">&nbsp;by {{document.lastModifiedByDetails.username}}</div>
+                <div *ngIf="document.lastModifiedByDetails" class="tcs-document-modified-text" matTooltip="{{document.lastModifiedByDetails.username}}" matTooltipShowDelay="1000" matTooltipPosition="below">&nbsp;by {{document.lastModifiedByDetails.username | ellipsis: 40}}</div>
               </div>
             </div>
 

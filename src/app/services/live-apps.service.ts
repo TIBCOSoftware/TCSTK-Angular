@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType
+  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppStateConfig, StateMap
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -139,6 +139,19 @@ export class LiveAppsService {
       caseinfo.metadata.modifiedByDetails = val;
       return caseinfo;
     }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
+    this.getAppStateConfig(appId).subscribe(val => {
+      // state attribute is first in summary
+      const stateId = caseinfo.summaryObj.state;
+      let stateConfig: StateMap;
+      val.stateMap.forEach((state) => {
+        if (state.state === stateId) {
+          stateConfig = state;
+        }
+      });
+      caseinfo.metadata.stateColor = stateConfig.fill;
+      caseinfo.metadata.stateIcon = stateConfig.icon;
+      return caseinfo;
+    }, error => { console.log('Unable to retrieve case type config for app: ' + error.errorMsg); });
     return caseinfo;
   }
 
@@ -148,7 +161,7 @@ export class LiveAppsService {
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
                 map(caseinfo => {
-                  const caseinf = new CaseInfo().deserialize(caseinfo);
+                  let caseinf = new CaseInfo().deserialize(caseinfo);
                   caseinf = this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId);
                   return caseinf;
                 })
@@ -204,7 +217,7 @@ export class LiveAppsService {
           tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
           map(casetypes => {
               const caseTypesList: CaseTypesList = new CaseTypesList().deserialize(casetypes);
-              const requestedType: CaseType;
+              let requestedType: CaseType;
               caseTypesList.casetypes.forEach((casetype) => {
                 if (casetype.id === typeId) {
                   requestedType = casetype;
@@ -582,7 +595,8 @@ export class LiveAppsService {
 
   public getUserInfo(userId: string): Observable<UserInfo> {
     const url =  '/organisation/v1/users/' + userId;
-    return this.http.get(url)
+    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    return this.http.get(url, { headers: headers } )
       .pipe(
         map(userinfo => new UserInfo().deserialize(userinfo))
       );
@@ -766,6 +780,16 @@ export class LiveAppsService {
     return this.http.delete(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+      );
+  }
+
+  public getAppStateConfig(appId: string): Observable<AppStateConfig> {
+    const url = 'assets/config/statemaps/'
+      + appId + '.json';
+    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    return this.http.get(url, { headers: headers })
+      .pipe(
+        map(value => new AppStateConfig().deserialize(value))
       );
   }
 

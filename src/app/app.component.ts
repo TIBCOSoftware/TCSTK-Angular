@@ -77,14 +77,6 @@ export class AppComponent {
       'tcs-clear-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-clear.svg')
     );
-
-    // TODO: case state icons - can we load these from somewhere?
-
-    this.matIconRegistry.addSvgIcon(
-      'case-state-Service Request-Reported',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/serviceRequest-Reported.svg')
-    );
-
   }
   title = 'BaseApp';
 }

@@ -1,6 +1,6 @@
 <div *ngIf="miniCard">
-  <mat-card *ngIf="metadata && metadata.applicationLabel && metadata.createdByDetails" class="tcs-case-summary-mini-card" [ngClass]="{border: borderCard}" fxLayout="row" fxLayoutAlign="start stretch">
-    <div *ngIf="typeBar" class="tcs-case-summary-mini-card-side-bar"></div>
+  <mat-card *ngIf="metadata && metadata.applicationLabel && metadata.createdByDetails && metadata.stateColor && metadata.stateIcon" class="tcs-case-summary-mini-card" [ngClass]="{border: borderCard}" fxLayout="row" fxLayoutAlign="start stretch">
+    <div *ngIf="typeBar" class="tcs-case-summary-mini-card-side-bar" [style.background-color]="metadata.stateColor"></div>
     <div class="tcs-case-summary-mini-card-right-content" fxFlex>
       <div class="tcs-case-summary-mini-card-left" fxLayout="column" fxLayoutAlign="space-between start" fxFlex>
         <div *ngIf="summaryValues[1]" class="tcs-case-summary-summary1-text mini" matTooltip="{{summaryKeys[1]}}" matTooltipShowDelay="1000" matTooltipPosition="above">{{summaryValues[1]  | ellipsis: 45}}</div>
@@ -8,13 +8,12 @@
           <div *ngIf="metadata.createdByDetails">Created {{metadata.creationTimestamp | durationSince}} by {{metadata.createdByDetails.username}}</div>
         </div>
         <div *ngIf="summaryValues[2]" class="tcs-case-summary-summary2-text mini" matTooltip="{{summaryValues[2]}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{summaryValues[2] | ellipsis: 45}}</div>
-        <div class="tcs-case-summary-mini-card-state-box" fxLayout="row" fxLayoutAlign="start start">
-          <mat-icon class="tcs-icon tcs-case-summary-state-icon" svgIcon="case-state-{{metadata.applicationLabel}}-{{summaryValues[0]}}"></mat-icon>
+        <div class="tcs-case-summary-mini-card-state-box" fxLayout="row" fxLayoutAlign="start center">
+          <app-live-apps-state-icon class="tcs-case-summary-state-icon" [iconPath]="metadata.stateIcon" [color]="metadata.stateColor"></app-live-apps-state-icon>
           <div class="tcs-case-summary-state-text">{{summaryValues[0]}}</div>
           <div fxLayout="row" fxLayoutAlign="end center" fxFlex>
             <div class="tcs-case-summary-state-text">{{metadata.applicationLabel}}</div>
           </div>
-
         </div>
       </div>
       <div class="tcs-case-summary-mini-card-right" (click)="clickCase" fxLayout="row" fxLayoutAlign="end center" matTooltipPosition="left" matTooltipShowDelay="1000" matTooltip="Open Case">
@@ -26,7 +25,7 @@
 
 <div *ngIf="!miniCard">
 <mat-card *ngIf="metadata && metadata.applicationLabel && metadata.createdByDetails" class="tcs-case-summary-card" fxLayout="column" fxLayoutAlign="start start">
-  <div class="tcs-case-summary-header"></div>
+  <div *ngIf="typeBar" class="tcs-case-summary-header" [style.background-color]="metadata.stateColor"></div>
   <div class="tcs-case-summary-card-contents" fxFlex fxFill fxLayout="column" fxLayoutAlign="start center">
     <div class="tcs-case-summary-case-type-text">{{metadata.applicationLabel}}</div>
     <div *ngIf="summaryValues[1] | ellipsis: 45" class="tcs-case-summary-summary1-text" matTooltip="{{summaryKeys[1]}}" matTooltipShowDelay="1000" matTooltipPosition="above">{{summaryValues[1]}}</div>
@@ -34,13 +33,11 @@
       <div *ngIf="metadata.createdByDetails">Created {{metadata.creationTimestamp | durationSince}} by {{metadata.createdByDetails.username}}</div>
     </div>
     <div class="tcs-case-summary-line"></div>
-
     <div *ngIf="summaryValues[2]" class="tcs-case-summary-summary2-text">{{summaryValues[2]}}</div>
-
   </div>
   <div class="tcs-case-summary-case-footer" (click)="clickCase" matTooltipPosition="above" matTooltip="Open Case" matTooltipShowDelay="1000" fxLayout="row" fxLayoutAlign="space-between center">
     <div fxLayout="row" fxLayoutAlign="start center">
-      <mat-icon class="tcs-icon tcs-case-summary-state-icon" svgIcon="case-state-{{metadata.applicationLabel}}-{{summaryValues[0]}}"></mat-icon>
+      <app-live-apps-state-icon class="tcs-case-summary-state-icon" [iconPath]="metadata.stateIcon" [color]="metadata.stateColor"></app-live-apps-state-icon>
       <div class="tcs-case-summary-state-text">{{summaryValues[0]}}</div>
     </div>
     <div class="tcs-case-summary-view-details" fxLayout="row" fxLayoutAlign="end center">

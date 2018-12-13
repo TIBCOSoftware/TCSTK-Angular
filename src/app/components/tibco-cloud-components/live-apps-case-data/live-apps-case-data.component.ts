@@ -26,7 +26,7 @@ export class LiveAppsCaseDataComponent implements OnInit, OnDestroy {
   constructor(private liveapps: LiveAppsService) { }
 
   public refresh = () => {
-    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId, this.appId, this.typeId)
+    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
