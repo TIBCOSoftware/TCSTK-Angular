@@ -126,7 +126,7 @@ export class LiveAppsService {
         map(caseinfo => new CaseInfo().deserialize(caseinfo)));
   }
 
-  private parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string): CaseInfo {
+  private parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string, uiAppId): CaseInfo {
     this.getCaseTypeBasicInfo(sandboxId, appId, typeId).subscribe(val => {
       caseinfo.metadata.applicationLabel = val.label;
       return caseinfo;
@@ -139,30 +139,41 @@ export class LiveAppsService {
       caseinfo.metadata.modifiedByDetails = val;
       return caseinfo;
     }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
-    this.getAppStateConfig(appId).subscribe(val => {
+    this.getAppStateConfig(appId, uiAppId).subscribe(val => {
       // state attribute is first in summary
       const stateId = caseinfo.summaryObj.state;
       let stateConfig: StateMap;
-      val.stateMap.forEach((state) => {
-        if (state.state === stateId) {
-          stateConfig = state;
-        }
-      });
-      caseinfo.metadata.stateColor = stateConfig.fill;
-      caseinfo.metadata.stateIcon = stateConfig.icon;
+      if (val !== undefined) {
+        val.stateMap.forEach((state) => {
+          if (state.state === stateId) {
+            stateConfig = state;
+            caseinfo.metadata.stateColor = stateConfig.fill;
+            caseinfo.metadata.stateIcon = stateConfig.icon;
+          }
+        });
+      }
+      // defaults
+      if (!caseinfo.metadata.stateColor) {
+          caseinfo.metadata.stateColor = '#8197c0';
+      }
+      if (!caseinfo.metadata.stateIcon) {
+        caseinfo.metadata.stateIcon = 'assets/icons/ic-generic-state.svg';
+      }
+
+
       return caseinfo;
     }, error => { console.log('Unable to retrieve case type config for app: ' + error.errorMsg); });
     return caseinfo;
   }
 
-    public getCaseWithSummary(caseRef: string, sandboxId: number): Observable<CaseInfo> {
+    public getCaseWithSummary(caseRef: string, sandboxId: number, uiAppId: string): Observable<CaseInfo> {
         const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
         return this.http.get(url)
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
                 map(caseinfo => {
                   let caseinf = new CaseInfo().deserialize(caseinfo);
-                  caseinf = this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId);
+                  caseinf = this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId, uiAppId);
                   return caseinf;
                 })
             );
@@ -783,17 +794,67 @@ export class LiveAppsService {
       );
   }
 
-  public getAppStateConfig(appId: string): Observable<AppStateConfig> {
-    const url = 'assets/config/statemaps/'
-      + appId + '.json';
-    const headers = new HttpHeaders().set('cacheResponse', 'true');
-    return this.http.get(url, { headers: headers })
+  /* end notes service */
+
+  /* app state config */
+
+  public getAppStateConfig(appId: string, uiAppId: string): Observable<AppStateConfig> {
+    const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
+    // const url = 'assets/config/statemaps/'
+    //  + appId + '.json';
+    /* const headers = new HttpHeaders().set('cacheResponse', 'true');
+      return this.http.get(url, { headers: headers })
       .pipe(
         map(value => new AppStateConfig().deserialize(value))
+      );*/
+
+    return this.getSharedState(ssName, 'PUBLIC')
+      .pipe(
+        map( value => {
+          if (value.sharedStateEntries.length > 0) {
+            const ssresult = new AppStateConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
+            ssresult.id = value.sharedStateEntries[0].id;
+            return ssresult;
+          } else {
+            return undefined;
+          }
+        }
+      )
       );
   }
 
-  /* end notes service */
+  public createAppStateConfig(sandboxId: number, appId: string, uiAppId: string): Observable<string> {
+    const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
+    const content: SharedStateContent = new SharedStateContent();
+    content.json = this.escapeString(JSON.stringify([]));
+    return this.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
+      .pipe(
+        map(value => value)
+      );
+  }
+
+  public updateAppStateConfig(sandboxId: number, appId: string, uiAppId: string, config: AppStateConfig, id: string): Observable<AppStateConfig> {
+    const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
+    const content: SharedStateContent = new SharedStateContent();
+    content.json = this.escapeString(JSON.stringify(config));
+    const entry: SharedStateEntry = new SharedStateEntry();
+    entry.content = content;
+    entry.sandboxId = sandboxId;
+    entry.name = ssName;
+    entry.type = 'PUBLIC';
+    entry.id = id;
+    const ssList: SharedStateList = new SharedStateList();
+    ssList.sharedStateEntries = [];
+    ssList.sharedStateEntries.push(entry);
+    return this.updateSharedState(ssList.sharedStateEntries)
+      .pipe(
+        map(value => {
+          return new AppStateConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+        })
+      );
+  }
+
+  /* app state config */
 
 
   public fileSizeToHuman(size) {

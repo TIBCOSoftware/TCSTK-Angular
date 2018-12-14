@@ -48,6 +48,7 @@ import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { LiveAppsStateIconComponent } from './components/tibco-cloud-components/live-apps-state-icon/live-apps-state-icon.component';
 import {RequestCacheService} from './services/request-cache.service';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
+import { LiveAppsCaseStateConfigComponent } from './components/tibco-cloud-components/live-apps-case-state-config/live-apps-case-state-config.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import {CachingInterceptor} from './interceptors/caching-interceptor';
     OrderByDatePipe,
     LiveAppsCaseSummaryComponent,
     EllipsisPipe,
-    LiveAppsStateIconComponent
+    LiveAppsStateIconComponent,
+    LiveAppsCaseStateConfigComponent
   ],
   imports: [
     BrowserModule,

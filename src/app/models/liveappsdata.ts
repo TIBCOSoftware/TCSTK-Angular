@@ -541,11 +541,13 @@ export class StateMap {
     public icon: string
   ) {}
 }
+
 export class AppStateConfig implements Deserializable {
+  id: string;
   stateMap: StateMap[];
   deserialize(input: any): this {
-    this.stateMap = [];
-    Object.assign(this.stateMap, input);
+    // this.stateMap = [];
+    Object.assign(this, input);
     return this;
   }
 }

@@ -8,15 +8,15 @@
     <div fxFlex fxLayout="row" fxLayoutGap="20px">
       <app-live-apps-notes [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="134"></app-live-apps-notes>
       <app-live-apps-documents [sandboxId]="38" [folderId]="caseRef" [folderType]="'caseFolders'"></app-live-apps-documents>
-      <app-live-apps-case-summary [miniCard]="false" [typeBar]="true" [caseReference]="caseRef" [sandboxId]="38"></app-live-apps-case-summary>
-      <app-live-apps-case-summary [miniCard]="true" [borderCard]="true" [typeBar]="true" [caseReference]="caseRef" [sandboxId]="38"></app-live-apps-case-summary>
+      <app-live-apps-case-summary [uiAppId]="uiAppId" [miniCard]="false" [typeBar]="true" [caseReference]="caseRef" [sandboxId]="38"></app-live-apps-case-summary>
+      <app-live-apps-case-summary [uiAppId]="uiAppId" [miniCard]="true" [borderCard]="true" [typeBar]="true" [caseReference]="caseRef" [sandboxId]="38"></app-live-apps-case-summary>
     </div>
 
 
     <br>
 
     <!--
-    <app-live-apps-case-data [caseReference]="caseRef" [sandboxId]="38" [appId]="'934'" [typeId]="'1'"></app-live-apps-case-data>
+    <app-live-apps-case-data [uiAppId]="uiAppId" [caseReference]="caseRef" [sandboxId]="38" [appId]="'934'" [typeId]="'1'"></app-live-apps-case-data>
     <br>
     <app-live-apps-case-states [sandboxId]="38" [appId]="'934'"></app-live-apps-case-states>
     <br>

@@ -14,6 +14,7 @@ export class LiveAppsCaseDataComponent implements OnInit, OnDestroy {
   @Input() appId: string;
   @Input() typeId: string;
   @Input() sandboxId: number;
+  @Input() uiAppId: string;
 
   private casedata: any;
   private summary: any;
@@ -26,7 +27,7 @@ export class LiveAppsCaseDataComponent implements OnInit, OnDestroy {
   constructor(private liveapps: LiveAppsService) { }
 
   public refresh = () => {
-    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId)
+    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId, this.uiAppId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

@@ -16,6 +16,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() miniCard: boolean;
   @Input() borderCard: boolean;
   @Input() typeBar: boolean;
+  @Input() uiAppId: string;
   @Output() openCase = new EventEmitter;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
@@ -37,7 +38,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId)
+    this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId, this.uiAppId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
