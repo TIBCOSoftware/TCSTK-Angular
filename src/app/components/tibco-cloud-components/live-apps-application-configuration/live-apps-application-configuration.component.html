@@ -1,0 +1,10 @@
+<div class="tcs-case-states-list" *ngIf="appStateConfig && states">
+  <div *ngFor="let state of states">
+    <div *ngIf="getConfigForState(state); let stateConfig">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <div [innerHtml]="getSVG(stateConfig)" fxLayoutAlign="start center"></div>
+        <input [(colorPicker)]="stateConfig.fill" [style.background]="stateConfig.fill"/>
+      </div>
+    </div>
+  </div>
+</div>

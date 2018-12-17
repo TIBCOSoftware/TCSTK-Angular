@@ -50,6 +50,9 @@ import {RequestCacheService} from './services/request-cache.service';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
 import { LiveAppsCaseStateConfigComponent } from './components/tibco-cloud-components/live-apps-case-state-config/live-apps-case-state-config.component';
 
+import { ColorPickerModule } from 'ngx-color-picker';
+import { LiveAppsApplicationConfigurationComponent } from './components/tibco-cloud-components/live-apps-application-configuration/live-apps-application-configuration.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +83,9 @@ import { LiveAppsCaseStateConfigComponent } from './components/tibco-cloud-compo
     LiveAppsCaseSummaryComponent,
     EllipsisPipe,
     LiveAppsStateIconComponent,
-    LiveAppsCaseStateConfigComponent
+    LiveAppsCaseStateConfigComponent,
+    LiveAppsApplicationConfigurationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -101,7 +106,8 @@ import { LiveAppsCaseStateConfigComponent } from './components/tibco-cloud-compo
     MatTooltipModule,
     FormsModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ColorPickerModule
 
   ],
   providers: [
