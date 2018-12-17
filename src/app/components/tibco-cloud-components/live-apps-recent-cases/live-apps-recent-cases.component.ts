@@ -33,7 +33,7 @@ export class LiveAppsRecentCasesComponent implements OnInit, OnDestroy {
 
   public clearRecentCases = () => {
     // -1 will clear recent cases
-    this.liveapps.setRecentCase('-1', this.uiAppId, 38);
+    this.liveapps.setRecentCase('-1', this.uiAppId, this.sandboxId);
     this.recentCases = [];
   }
 

@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppStateConfig, StateMap
+  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppStateConfig, StateMap, Metadata
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -131,14 +131,22 @@ export class LiveAppsService {
       caseinfo.metadata.applicationLabel = val.label;
       return caseinfo;
     }, error => { console.log('Unable to retrieve application details for casetype: ' + error.errorMsg); });
-    this.getUserInfo(caseinfo.metadata.createdBy).subscribe(val => {
-      caseinfo.metadata.createdByDetails = val;
-      return caseinfo;
-    }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
-    this.getUserInfo(caseinfo.metadata.modifiedBy).subscribe(val => {
-      caseinfo.metadata.modifiedByDetails = val;
-      return caseinfo;
-    }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
+    if (caseinfo.metadata.createdBy) {
+      this.getUserInfo(caseinfo.metadata.createdBy).subscribe(val => {
+        caseinfo.metadata.createdByDetails = val;
+        return caseinfo;
+      }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
+    } else {
+      caseinfo.metadata.modifiedByDetails = new UserInfo();
+    }
+    if (caseinfo.metadata.modifiedBy) {
+      this.getUserInfo(caseinfo.metadata.modifiedBy).subscribe(val => {
+        caseinfo.metadata.modifiedByDetails = val;
+        return caseinfo;
+      }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
+    } else {
+      caseinfo.metadata.createdByDetails = new UserInfo();
+    }
     this.getAppStateConfig(appId, uiAppId).subscribe(val => {
       // state attribute is first in summary
       const stateId = caseinfo.summaryObj.state;
@@ -493,7 +501,10 @@ export class LiveAppsService {
 
   public listDocuments(folderType: string, folderId: string, sandboxId: number, filter: string): Observable<DocumentList> {
     let url: string;
-    url = '/webresource/v1/' + folderType + '/' + folderId + '/artifacts/?$sandbox=' + sandboxId;
+    url = '/webresource/v1/' + folderType + '/' + folderId + '/artifacts/';
+    if (sandboxId) {
+      url = url + '?$sandbox=' + sandboxId;
+    }
     if (filter) {
       url = url + '&$filter=contains(name,\'' + filter + '\')';
     }
@@ -564,8 +575,12 @@ export class LiveAppsService {
                         fileToUpload: File, fileName: string, description: string): Observable<any> {
     let url = '/webresource/v1/' + folderType
       + '/' + folderId
-      + '/artifacts/' + fileName
-      + '/upload/?$sandbox=' + sandboxId;
+      + '/artifacts/' + fileName + '/upload/';
+
+    if (sandboxId) {
+      url = url + '?$sandbox=' + sandboxId;
+    }
+
     if (description) {
       url = url + '&description=' + description;
     }

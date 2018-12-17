@@ -1,10 +1,12 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {Observable, of, Subject} from 'rxjs';
 import {LiveAppsService} from '../../../services/live-apps.service';
 import {AppStateConfig, CaseTypeState, StateMap} from '../../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {LiveAppsCaseDataComponent} from '../live-apps-case-data/live-apps-case-data.component';
+import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
 
 @Component({
   selector: 'app-live-apps-application-configuration',
@@ -12,6 +14,9 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./live-apps-application-configuration.component.css']
 })
 export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDestroy {
+  // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
+  @ViewChildren('iconcomp') stateIconComponents: QueryList<LiveAppsStateIconComponent>;
+
   @Input() appId: string;
   @Input() sandboxId: number;
   @Input() uiAppId: string;
@@ -27,31 +32,18 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   private getConfigForState = (state): StateMap => {
     let reqStateMap: StateMap;
     this.appStateConfig.stateMap.forEach((stateMap) => {
-      if (stateMap.state === state) {
+      if (stateMap.state === state.value) {
         reqStateMap = stateMap;
       }
     });
     return reqStateMap ? reqStateMap : new StateMap(state, undefined, undefined);
   }
 
-  private getSVG = (state: string) => {
-    const stateConfig = this.getConfigForState(state);
-    const headers = new HttpHeaders().set('cacheResponse', 'true');
-    this.http.get(stateConfig.icon, {responseType: 'text', headers: headers } )
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(val => {
-            val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + stateConfig.fill + '"');
-            const newval = this.sanitizer.bypassSecurityTrustHtml(val);
-            return newval;
-          }
-        )
-      ).subscribe(val => {
-          return(val);
-        }
-        , error => { console.log('Unable to retrieve icon: ' + error.errorMsg); }
-      );
+  private setFill = (fill, stateConfig: StateMap) => {
+    stateConfig.fill = fill;
+    this.stateIconComponents.find(function(comp) {
+      return comp.id === stateConfig.state;
+    }).refillSVG(fill);
   }
 
   private saveConfig = () => {

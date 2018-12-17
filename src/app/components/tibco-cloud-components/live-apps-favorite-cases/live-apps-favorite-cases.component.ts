@@ -31,7 +31,7 @@ export class LiveAppsFavoriteCasesComponent implements OnInit, OnDestroy {
   }
 
   public clearFavoriteCases = () => {
-    this.liveapps.setFavoriteCase('-1', this.uiAppId, 38);
+    this.liveapps.setFavoriteCase('-1', this.uiAppId, this.sandboxId);
     this.favoriteCases = [];
   }
 

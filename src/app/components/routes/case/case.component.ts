@@ -63,17 +63,17 @@ export class CaseComponent implements OnInit, OnDestroy {
   }
 
   public toggleFavorite = () => {
-    this.liveapps.setFavoriteCase(this.caseRef, this.uiAppId, 38);
+    this.liveapps.setFavoriteCase(this.caseRef, this.uiAppId, 31);
     this.isFavorite = !this.isFavorite;
   }
 
   ngOnInit() {
     this.caseRef = this.route.snapshot.params['caseRef'];
     if (!isNaN(Number(this.caseRef))) {
-      this.liveapps.setRecentCase(this.caseRef, this.uiAppId, 38);
+      this.liveapps.setRecentCase(this.caseRef, this.uiAppId, 31);
       this.valid = true;
     }
-    this.liveapps.isFavoriteCase(this.caseRef, this.uiAppId, 38)
+    this.liveapps.isFavoriteCase(this.caseRef, this.uiAppId, 31)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

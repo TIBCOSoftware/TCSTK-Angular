@@ -1,10 +1,12 @@
 <div class="tcs-case-states-list" *ngIf="appStateConfig && states">
   <div *ngFor="let state of states">
-    <div *ngIf="getConfigForState(state); let stateConfig">
+    <div *ngIf="getConfigForState(state); let stateConfig;">
       <div fxLayout="row" fxLayoutAlign="start center">
-        <div [innerHtml]="getSVG(stateConfig)" fxLayoutAlign="start center"></div>
-        <input [(colorPicker)]="stateConfig.fill" [style.background]="stateConfig.fill"/>
+        <div>{{state.label}}</div>
+        <app-live-apps-state-icon [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"></app-live-apps-state-icon>
+        <input [value]="stateConfig.fill" [(colorPicker)]="stateConfig.fill" [style.background]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)">
       </div>
     </div>
   </div>
 </div>
+<button mat-button (click)="saveConfig()" type="submit">Save</button>
