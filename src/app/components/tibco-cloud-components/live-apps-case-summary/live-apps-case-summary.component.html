@@ -1,5 +1,5 @@
 <div *ngIf="miniCard">
-  <mat-card *ngIf="metadata && metadata.applicationLabel && metadata.createdByDetails && metadata.stateColor && metadata.stateIcon" class="tcs-case-summary-mini-card" [ngClass]="{border: borderCard}" fxLayout="row" fxLayoutAlign="start stretch">
+  <mat-card *ngIf="configMode || (metadata && metadata.applicationLabel && metadata.createdByDetails && metadata.stateColor && metadata.stateIcon)" class="tcs-case-summary-mini-card" [ngClass]="{border: borderCard}" fxLayout="row" fxLayoutAlign="start stretch">
     <div *ngIf="typeBar" class="tcs-case-summary-mini-card-side-bar" [style.background-color]="metadata.stateColor"></div>
     <div class="tcs-case-summary-mini-card-right-content" fxFlex>
       <div class="tcs-case-summary-mini-card-left" fxLayout="column" fxLayoutAlign="space-between start" fxFlex>
@@ -24,7 +24,7 @@
 </div>
 
 <div *ngIf="!miniCard">
-<mat-card *ngIf="metadata && metadata.applicationLabel && metadata.createdByDetails" class="tcs-case-summary-card" fxLayout="column" fxLayoutAlign="start start">
+<mat-card *ngIf="configMode || (metadata && metadata.applicationLabel && metadata.createdByDetails)" class="tcs-case-summary-card" fxLayout="column" fxLayoutAlign="start start">
   <div *ngIf="typeBar" class="tcs-case-summary-header" [style.background-color]="metadata.stateColor"></div>
   <div class="tcs-case-summary-card-contents" fxFlex fxFill fxLayout="column" fxLayoutAlign="start center">
     <div class="tcs-case-summary-case-type-text">{{metadata.applicationLabel}}</div>

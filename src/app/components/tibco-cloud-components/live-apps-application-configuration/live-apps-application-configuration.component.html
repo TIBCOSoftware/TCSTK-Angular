@@ -1,12 +1,48 @@
-<div class="tcs-case-states-list" *ngIf="appStateConfig && states">
-  <div *ngFor="let state of states">
-    <div *ngIf="getConfigForState(state); let stateConfig;">
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div>{{state.label}}</div>
-        <app-live-apps-state-icon [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"></app-live-apps-state-icon>
-        <input [value]="stateConfig.fill" [(colorPicker)]="stateConfig.fill" [style.background]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)">
+<div class="tcs-case-card-customization" fxLayout="column">
+  <div class="tcs-case-card-customization-header" fxLayout="row" fxLayoutAlign="space-between stretch">
+    <div fxLayoutAlign="start center">
+      <mat-icon class="tcs-icon tcs-customization-icon" svgIcon="tcs-customization-icon"></mat-icon>
+      <div class="tcs-case-card-customization-header-text">Configure Case Cards</div>
+    </div>
+  </div>
+  <div class="tcs-case-card-customization-content" fxFlex>
+    <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFlex>
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex>
+        <div fxLayout="column" fxLayoutAlign="start center">
+          <div class="tcs-case-card-customization-section-text">Preview</div>
+        </div>
+        <div class="tcs-case-card-customization-preview" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+          <div *ngIf="selectedStateConfig" style="border-radius: 3px; background-color: #fbfbfb; padding: 25px;" fxLayout="column" fxLayoutAlign="space-around center">
+            <app-live-apps-case-summary style="margin: 5px;" [miniCard]="false" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon"></app-live-apps-case-summary>
+            <app-live-apps-case-summary style="margin: 5px;" [miniCard]="true" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon"></app-live-apps-case-summary>
+          </div>
+
+        </div>
+      </div>
+      <div class="tcs-case-card-customization-divider"></div>
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex>
+        <div fxLayout="column" fxLayoutAlign="start center">
+          <div class="tcs-case-card-customization-section-text">Configure Card</div>
+        </div>
+        <div fxFlex class="tcs-case-states-list" *ngIf="appStateConfig && states" fxLayout="column" fxLayoutAlign="center center">
+          <div class="tcs-case-states-list-inner">
+            <div *ngFor="let state of states" class="tcs-case-states-list-row" (click)="selectState(state)">
+              <div *ngIf="getConfigForState(state); let stateConfig;">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <div style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>
+                  <app-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"></app-live-apps-state-icon>
+                  <input [value]="stateConfig.fill" [(colorPicker)]="stateConfig.fill" [style.background]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <div class="tcs-case-card-customization-footer" fxLayout="column" fxLayoutAlign="end stretch">
+    <div class="tcs-case-card-customization-action-buttons" fxLayout="row" fxLayoutAlign="center center">
+      <button mat-button (click)="saveConfig()" type="submit">Save</button>
+    </div>
+  </div>
 </div>
-<button mat-button (click)="saveConfig()" type="submit">Save</button>

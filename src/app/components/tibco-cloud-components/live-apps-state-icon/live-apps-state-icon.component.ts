@@ -27,19 +27,26 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
     const updatedsvg = this.svgcontents.replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
     const newval = this.sanitizer.bypassSecurityTrustHtml(updatedsvg);
     this.iconSVG = newval;
-  }
+  };
 
-  ngOnInit() {
-    const url = this.iconPath;
+  public refresh = (icon, fill) => {
+    let url: string;
+    if (icon) {
+      url = icon;
+    } else {
+      // use generic icon
+      url = 'assets/icons/ic-generic-state.svg';
+    }
+
     const headers = new HttpHeaders().set('cacheResponse', 'true');
     this.http.get(url, {responseType: 'text', headers: headers } )
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
         map(val => {
-          this.svgcontents = val.toString();
-          val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + this.color + '"');
-          const newval = this.sanitizer.bypassSecurityTrustHtml(val);
+            this.svgcontents = val.toString();
+            val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
+            const newval = this.sanitizer.bypassSecurityTrustHtml(val);
             return newval;
           }
         )
@@ -47,8 +54,12 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
       .subscribe(val => {
           this.iconSVG = val;
         }
-      , error => { console.log('Unable to retrieve icon: ' + error.errorMsg); }
+        , error => { console.log('Unable to retrieve icon: ' + error.errorMsg); }
       );
+}
+
+  ngOnInit() {
+    this.refresh(this.iconPath, this.color);
   }
 
   ngOnDestroy(): void {

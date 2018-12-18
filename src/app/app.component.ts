@@ -77,6 +77,10 @@ export class AppComponent {
       'tcs-clear-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-clear.svg')
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-customization-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-settings.svg')
+    );
   }
   title = 'BaseApp';
 }

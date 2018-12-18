@@ -1,0 +1,83 @@
+.tcs-case-card-customization {
+  width: 900px;
+  height: 500px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
+.tcs-case-card-customization-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-case-card-customization-header-text {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: black;
+  margin-left: 10px;
+}
+
+.tcs-case-card-customization-action-buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tcs-case-card-customization-divider {
+  padding: 0px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left:5px;
+  margin-right: 5px;
+  border-left-color: #f4f4f4;
+  border-left-width: 1.1px;
+  border-left-style: solid;
+}
+
+.tcs-case-card-customization-section-text {
+  font-family: SourceSansPro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: black;
+  margin-top: 20px;
+}
+
+.tcs-case-states-list {
+  margin: 20px;
+}
+
+.tcs-case-states-list-inner {
+  overflow-y: auto;
+}
+
+.tcs-case-card-customization-preview {
+  /*margin: 20px;*/
+}
+
+.tcs-case-card-customization-preview app-live-apps-case-summary {
+  overflow-y: auto;
+}
+
+.tcs-case-states-list-row {
+  border-radius: 3px;
+  padding: 3px;
+  padding: 3px;
+}
+
+.tcs-case-states-list-row:hover {
+  transition: background-color 0.5s;
+  background-color: #EEF0F7;
+}
