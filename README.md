@@ -24,12 +24,11 @@ This repo contains Angular 7 components and sample code for creating cloud start
 
 # Card Config
 
-![alt text](screenshots/Summary.png) ![alt text](screenshots/Card-config.png)
+![alt text](screenshots/Card-config.png) ![alt text](screenshots/Card-config.png)
 
 # Navbar
 
 ![alt text](screenshots/Navbar.png)
-
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
