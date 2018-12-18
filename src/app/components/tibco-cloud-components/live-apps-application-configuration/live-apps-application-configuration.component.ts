@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {LiveAppsService} from '../../../services/live-apps.service';
 import {AppStateConfig, CaseTypeState, StateMap} from '../../../models/liveappsdata';
@@ -8,6 +8,8 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {LiveAppsCaseDataComponent} from '../live-apps-case-data/live-apps-case-data.component';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {LiveAppsDocumentUploadDialogComponent} from '../live-apps-documents/live-apps-documents.component';
 
 @Component({
   selector: 'app-live-apps-application-configuration',
@@ -22,6 +24,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   @Input() appId: string;
   @Input() sandboxId: number;
   @Input() uiAppId: string;
+  @Input() folderId: string;
   @Output() configChanged = new EventEmitter();
 
   private states: CaseTypeState[];
@@ -32,14 +35,28 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
 
-  private getConfigForState = (state): StateMap => {
+  private getConfigForState = (state: CaseTypeState): StateMap => {
     let reqStateMap: StateMap;
     this.appStateConfig.stateMap.forEach((stateMap) => {
       if (stateMap.state === state.value) {
         reqStateMap = stateMap;
       }
     });
-    return reqStateMap ? reqStateMap : new StateMap(state, '#8197c0', 'assets/icons/ic-generic-state.svg');
+    return reqStateMap ? reqStateMap : new StateMap(state.value, '#8197c0', 'assets/icons/ic-generic-state.svg');
+  }
+
+  private updateStateMap = (stateConfig: StateMap) => {
+    let foundMap: StateMap;
+    this.appStateConfig.stateMap.forEach((stateMap) => {
+      if (stateMap.state === stateConfig.state) {
+        foundMap = stateMap;
+      }
+    });
+    if (foundMap) {
+      foundMap = stateConfig;
+    } else {
+      this.appStateConfig.stateMap.push(stateConfig);
+    }
   }
 
   private setFill = (fill, stateConfig: StateMap) => {
@@ -53,7 +70,9 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
 
   private selectState = (state: CaseTypeState) => {
     this.selectedStateConfig = this.getConfigForState(state);
-    this.caseSummaryComponent.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
+      comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+    });
   }
 
   private saveConfig = () => {
@@ -66,9 +85,50 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
           })
       ).subscribe(null, error => { console.log('Unable to retrieve icon: ' + error.errorMsg); }
     );
-}
+  }
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private liveapps: LiveAppsService) { }
+  private openDialog(state: CaseTypeState): void {
+    this.selectState(state);
+    const dialogRef = this.dialog.open(LiveAppsStateIconUploadDialogComponent, {
+      width: '500px',
+      data: { state: state }
+    });
+
+    dialogRef.componentInstance.fileevent.subscribe(($e) => {
+      this.uploadFile($e.file, $e.state);
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  private setNewIcon = (url) => {
+    this.selectedStateConfig.icon = url;
+    this.stateIconComponents.find((comp: LiveAppsStateIconComponent) => {
+      return comp.id === this.selectedStateConfig.state;
+    }).refresh(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
+      comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+    });
+    this.updateStateMap(this.selectedStateConfig);
+  }
+
+  private uploadFile(file, state) {
+    if (file) {
+      this.liveapps.uploadDocument('orgFolders', this.folderId, this.sandboxId,
+        file, file.name, '')
+        .pipe(
+          map(val => {
+            this.setNewIcon('webresource/orgFolders/' + this.folderId + '/' + file.name);
+          })
+        )
+        .subscribe(
+          result => null,
+          error => { console.log('error'); this.errorMessage = 'Error uploading state icon: ' + error.errorMsg; });
+    }
+  }
+
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private liveapps: LiveAppsService, public dialog: MatDialog) { }
 
   ngOnInit() {
     // get states for application
@@ -100,3 +160,42 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   }
 
 }
+
+@Component({
+  selector: 'app-live-apps-state-icon-upload-dialog',
+  templateUrl: 'upload-file-dialog/app-live-apps-state-icon-upload-dialog.html',
+  styleUrls: [ 'upload-file-dialog/app-live-apps-state-icon-upload-dialog.css']
+})
+export class LiveAppsStateIconUploadDialogComponent {
+  @Output() fileevent = new EventEmitter<any>();
+  private fileToUpload: File = undefined;
+  private description: string = undefined;
+  private fileText: string;
+
+  constructor(
+    public dialogRef: MatDialogRef<LiveAppsStateIconUploadDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  private uploadFile = () => {
+    if (this.fileToUpload) {
+      this.fileevent.emit({ file: this.fileToUpload, state: this.data.state } );
+      this.dialogRef.close();
+    }
+  }
+
+  setFileDescription(description: string) {
+    this.description = description;
+  }
+
+  attachFile(files: FileList) {
+    this.fileToUpload = files.item(0);
+    /*const myReader: FileReader = new FileReader();
+    myReader.readAsText(this.fileToUpload);
+    this.fileText = myReader.result.toString();*/
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+

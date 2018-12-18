@@ -74,10 +74,28 @@
 .tcs-case-states-list-row {
   border-radius: 3px;
   padding: 3px;
-  padding: 3px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .tcs-case-states-list-row:hover {
   transition: background-color 0.5s;
   background-color: #EEF0F7;
+}
+
+.tcs-icon-active.tcs-config-button {
+  display: none;
+}
+
+.tcs-icon-active.tcs-config-button-placeholder {
+  display: inline-block;
+  width: 24px;
+}
+
+.tcs-case-states-list-row:hover .tcs-icon-active.tcs-config-button {
+  display: inline-block;
+}
+
+.tcs-case-states-list-row:hover .tcs-icon-active.tcs-config-button-placeholder {
+  display: none;
 }

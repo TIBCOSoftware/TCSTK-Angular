@@ -1,0 +1,15 @@
+  <h1 mat-dialog-title>Upload New Icon (svg) for state '{{data.state.value}}'</h1>
+  <div mat-dialog-content class="tcs-state-icon-upload-dialog">
+    <form #fileUploadForm="ngForm" fxFlex fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="start space-between">
+        <button type="button" mat-raised-button (click)="fileInput.click()">Choose File To Upload</button>
+        <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
+        <!-- below input is hidden and enabled by above button -->
+        <input class="tcs-hidden-input" (change)="attachFile($event.target.files)" accept="image/svg+xml" #fileInput type="file" id="file">
+      </div>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="uploadFile()" type="submit" [disabled]="!fileToUpload">Upload</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+  </div>

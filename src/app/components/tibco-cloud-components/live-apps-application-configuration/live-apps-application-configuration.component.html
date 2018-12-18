@@ -22,16 +22,24 @@
       <div class="tcs-case-card-customization-divider"></div>
       <div fxLayout="column" fxLayoutAlign="center center" fxFlex>
         <div fxLayout="column" fxLayoutAlign="start center">
-          <div class="tcs-case-card-customization-section-text">Configure Card</div>
+          <div class="tcs-case-card-customization-section-text">Configure States</div>
         </div>
-        <div fxFlex class="tcs-case-states-list" *ngIf="appStateConfig && states" fxLayout="column" fxLayoutAlign="center center">
-          <div class="tcs-case-states-list-inner">
-            <div *ngFor="let state of states" class="tcs-case-states-list-row" (click)="selectState(state)">
-              <div *ngIf="getConfigForState(state); let stateConfig;">
-                <div fxLayout="row" fxLayoutAlign="space-between center">
-                  <div style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>
-                  <app-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"></app-live-apps-state-icon>
-                  <input [value]="stateConfig.fill" [(colorPicker)]="stateConfig.fill" [style.background]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)">
+        <div fxFlex>
+          <div fxFlex class="tcs-case-states-list" *ngIf="appStateConfig && states" fxLayout="column" fxLayoutAlign="center center">
+            <div class="tcs-case-states-list-inner">
+              <div *ngFor="let state of states" class="tcs-case-states-list-row" (click)="selectState(state)">
+                <div *ngIf="getConfigForState(state); let stateConfig;">
+                  <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>
+                    <app-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"
+                                              [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)"
+                                              matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">
+                    </app-live-apps-state-icon>
+                    <mat-icon (click)="openDialog(state)" class="tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button" svgIcon="tcs-document-upload"
+                              matTooltip="Click to upload new icon" matTooltipShowDelay="1000" matTooltipPosition="below">
+                    </mat-icon>
+                    <mat-icon class="tcs-icon tcs-icon-active tcs-config-button-placeholder"></mat-icon>
+                  </div>
                 </div>
               </div>
             </div>

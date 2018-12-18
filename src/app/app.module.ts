@@ -51,7 +51,10 @@ import {CachingInterceptor} from './interceptors/caching-interceptor';
 import { LiveAppsCaseStateConfigComponent } from './components/tibco-cloud-components/live-apps-case-state-config/live-apps-case-state-config.component';
 
 import { ColorPickerModule } from 'ngx-color-picker';
-import { LiveAppsApplicationConfigurationComponent } from './components/tibco-cloud-components/live-apps-application-configuration/live-apps-application-configuration.component';
+import {
+  LiveAppsApplicationConfigurationComponent,
+  LiveAppsStateIconUploadDialogComponent
+} from './components/tibco-cloud-components/live-apps-application-configuration/live-apps-application-configuration.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +87,8 @@ import { LiveAppsApplicationConfigurationComponent } from './components/tibco-cl
     EllipsisPipe,
     LiveAppsStateIconComponent,
     LiveAppsCaseStateConfigComponent,
-    LiveAppsApplicationConfigurationComponent
+    LiveAppsApplicationConfigurationComponent,
+    LiveAppsStateIconUploadDialogComponent
 
   ],
   imports: [
@@ -117,7 +121,8 @@ import { LiveAppsApplicationConfigurationComponent } from './components/tibco-cl
   ],
   bootstrap: [AppComponent],
     entryComponents: [
-      LiveAppsDocumentUploadDialogComponent
+      LiveAppsDocumentUploadDialogComponent,
+      LiveAppsStateIconUploadDialogComponent
     ]
 })
 export class AppModule { }
