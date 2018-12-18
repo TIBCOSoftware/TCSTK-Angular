@@ -20,11 +20,11 @@ This repo contains Angular 7 components and sample code for creating cloud start
 
 # Summary Cards
 
-![alt text](screenshots/Summary.png) ![alt text](screenshots/Summary-mini.png)
+![alt text](screenshots/Summary.png)
 
 # Card Config
 
-![alt text](screenshots/Card-config.png) ![alt text](screenshots/Card-config.png)
+![alt text](screenshots/Card-config.png)
 
 # Navbar
 
