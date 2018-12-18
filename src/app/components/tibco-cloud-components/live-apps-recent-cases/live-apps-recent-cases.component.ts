@@ -20,6 +20,7 @@ export class LiveAppsRecentCasesComponent implements OnInit, OnDestroy {
   private errorMessage: string;
 
   public refresh = () => {
+    this.recentCases = [];
     this.liveapps.getRecentCases(this.uiAppId, this.sandboxId)
       .pipe(
         take(1),

@@ -19,6 +19,7 @@ export class LiveAppsFavoriteCasesComponent implements OnInit, OnDestroy {
   private errorMessage: string;
 
   public refresh = () => {
+    this.favoriteCases = [];
     this.liveapps.getFavoriteCases(this.uiAppId, this.sandboxId)
       .pipe(
         take(1),
