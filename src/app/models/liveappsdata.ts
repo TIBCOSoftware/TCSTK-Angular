@@ -534,7 +534,7 @@ export class NotesList implements Deserializable {
   }
 }
 
-export class StateMap {
+export class IconMap {
   constructor(
     public state: string,
     public fill: string,
@@ -544,7 +544,7 @@ export class StateMap {
 
 export class AppStateConfig implements Deserializable {
   id: string;
-  stateMap: StateMap[];
+  stateMap: IconMap[];
   deserialize(input: any): this {
     // this.stateMap = [];
     Object.assign(this, input);

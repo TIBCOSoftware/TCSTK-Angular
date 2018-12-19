@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {LiveAppsService} from '../../../services/live-apps.service';
-import {AppStateConfig, CaseTypeState, StateMap} from '../../../models/liveappsdata';
+import {AppStateConfig, CaseTypeState, IconMap} from '../../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
@@ -30,23 +30,23 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   private states: CaseTypeState[];
   private errorMessage: string;
   private appStateConfig: AppStateConfig;
-  private selectedStateConfig: StateMap;
+  private selectedStateConfig: IconMap;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
 
-  private getConfigForState = (state: CaseTypeState): StateMap => {
-    let reqStateMap: StateMap;
+  private getConfigForState = (state: CaseTypeState): IconMap => {
+    let reqIconMap: IconMap;
     this.appStateConfig.stateMap.forEach((stateMap) => {
       if (stateMap.state === state.value) {
-        reqStateMap = stateMap;
+        reqIconMap = stateMap;
       }
     });
-    return reqStateMap ? reqStateMap : new StateMap(state.value, '#8197c0', 'assets/icons/ic-generic-state.svg');
+    return reqIconMap ? reqIconMap : new IconMap(state.value, '#8197c0', 'assets/icons/ic-generic-state.svg');
   }
 
-  private updateStateMap = (stateConfig: StateMap) => {
-    let foundMap: StateMap;
+  private updateIconMap = (stateConfig: IconMap) => {
+    let foundMap: IconMap;
     this.appStateConfig.stateMap.forEach((stateMap) => {
       if (stateMap.state === stateConfig.state) {
         foundMap = stateMap;
@@ -59,7 +59,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     }
   }
 
-  private setFill = (fill, stateConfig: StateMap) => {
+  private setFill = (fill, stateConfig: IconMap) => {
     this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
       comp.restylePreview(stateConfig.icon, fill);
     });
@@ -110,7 +110,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
       comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
     });
-    this.updateStateMap(this.selectedStateConfig);
+    this.updateIconMap(this.selectedStateConfig);
   }
 
   private uploadFile(file, state) {

@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppStateConfig, StateMap, Metadata
+  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppStateConfig, IconMap, Metadata
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -150,7 +150,7 @@ export class LiveAppsService {
     this.getAppStateConfig(appId, uiAppId).subscribe(val => {
       // state attribute is first in summary
       const stateId = caseinfo.summaryObj.state;
-      let stateConfig: StateMap;
+      let stateConfig: IconMap;
       if (val !== undefined) {
         val.stateMap.forEach((state) => {
           if (state.state === stateId) {
