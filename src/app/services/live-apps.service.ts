@@ -230,7 +230,9 @@ export class LiveAppsService {
         if (appId != null) {
             url = url + '&$filter=applicationId eq ' + appId;
         }
-        return this.http.get(url)
+        const headers = new HttpHeaders().set('cacheResponse', 'true');
+        return this.http.get(url, { headers: headers } )
+        // return this.http.get(url)
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
                 map(casetypestates => new CaseTypeStatesList().deserialize(casetypestates[0].states)));
@@ -242,7 +244,8 @@ export class LiveAppsService {
       if (appId != null) {
         url = url + '&$filter=applicationId eq ' + appId;
       }
-      return this.http.get(url)
+      const headers = new HttpHeaders().set('cacheResponse', 'true');
+      return this.http.get(url, { headers: headers } )
         .pipe(
           tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
           map(casetypes => {
@@ -347,8 +350,9 @@ export class LiveAppsService {
   private getSharedState(name: string, type: string): Observable<SharedStateList>  {
     const url = 'clientstate/states?$filter=type=' + type
       + ' and name=\'' + name + '\'';
-
-    return this.http.get(url)
+    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    return this.http.get(url, { headers: headers } )
+    // return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => new SharedStateList().deserialize(sharedStateList)));

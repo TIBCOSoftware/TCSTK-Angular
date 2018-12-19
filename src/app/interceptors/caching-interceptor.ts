@@ -9,17 +9,18 @@ import { RequestCacheService } from '../services/request-cache.service';
 @Injectable()
 export class CachingInterceptor implements HttpInterceptor {
   constructor(private cache: RequestCacheService) {}
-
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let cachedResponse;
-    if (req.headers.get('cacheResponse')) {
+    if (req.headers.get('cacheResponse') || (req.urlWithParams.substr(0, 15)) === '../assets/icons') {
       // only cache if the cacheResponse flag is set
       cachedResponse = this.cache.get(req);
     } else {
       // dont pass the cache since this should not be cached
+      console.log('*** NOT USING CACHE FOR: ' + req.urlWithParams);
       return this.sendRequest(req, next, undefined);
     }
     // use the cache
+    console.log('*** cache hit for: ' + req.urlWithParams);
     return cachedResponse ? of(cachedResponse) : this.sendRequest(req, next, this.cache);
   }
 

@@ -32,6 +32,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() configModeIcon: string;
   @Input() configModeCaseTypeColor: string;
   @Input() configModeCaseTypeIcon: string;
+  @Input() configModeAppTypeLabel: string;
   @Input() caseReference: string;
   @Input() sandboxId: number;
   @Input() miniCard: boolean;
@@ -124,6 +125,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
       this.metadata.stateColor = this.configModeColor;
       this.metadata.caseTypeColor = this.configModeCaseTypeColor;
       this.metadata.caseTypeIcon = this.configModeCaseTypeIcon;
+      this.metadata.applicationLabel = this.configModeAppTypeLabel;
     }
   }
 
