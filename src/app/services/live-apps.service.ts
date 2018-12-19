@@ -26,7 +26,7 @@ import {
   NotesList,
   Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata
 } from '../models/liveappsdata';
-import {map, share, tap} from 'rxjs/operators';
+import {map, share, shareReplay, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
 import {split} from 'ts-node';
 
@@ -35,6 +35,8 @@ import {split} from 'ts-node';
 })
 
 export class LiveAppsService {
+  private userInfoCacheMap = new Map();
+  private caseTypesCacheMap = new Map();
 
   constructor(
     private http: HttpClient
@@ -244,21 +246,33 @@ export class LiveAppsService {
       if (appId != null) {
         url = url + '&$filter=applicationId eq ' + appId;
       }
+
+      if (!this.caseTypesCacheMap.get(url)) {
+        const cacheEntry$ = this.getCaseTypeBasicInfoCached(url, typeId)
+          .pipe(
+            shareReplay(1)
+          );
+        this.caseTypesCacheMap.set(url, cacheEntry$);
+      }
+      return this.caseTypesCacheMap.get(url);
+    }
+
+    private getCaseTypeBasicInfoCached(url, typeId) {
       const headers = new HttpHeaders().set('cacheResponse', 'true');
       return this.http.get(url, { headers: headers } )
         .pipe(
           tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
           map(casetypes => {
-              const caseTypesList: CaseTypesList = new CaseTypesList().deserialize(casetypes);
-              let requestedType: CaseType;
-              caseTypesList.casetypes.forEach((casetype) => {
-                if (casetype.id === typeId) {
-                  requestedType = casetype;
-                }
-              })
-              return requestedType;
+            const caseTypesList: CaseTypesList = new CaseTypesList().deserialize(casetypes);
+            let requestedType: CaseType;
+            caseTypesList.casetypes.forEach((casetype) => {
+              if (casetype.id === typeId) {
+                requestedType = casetype;
+              }
             })
-          );
+            return requestedType;
+          })
+        );
     }
 
     // note this is not a public API
@@ -634,8 +648,20 @@ export class LiveAppsService {
     }
   }
 
+  // Since we call get userinfo a lot - and the data doesn't tend to change - I will cache it for the session
   public getUserInfo(userId: string): Observable<UserInfo> {
     const url =  '/organisation/v1/users/' + userId;
+    if (!this.userInfoCacheMap.get(userId)) {
+      const cacheEntry$ = this.getUserCached(url)
+        .pipe(
+          shareReplay(1)
+        );
+      this.userInfoCacheMap.set(userId, cacheEntry$);
+    }
+      return this.userInfoCacheMap.get(userId);
+  }
+
+  private getUserCached(url) {
     const headers = new HttpHeaders().set('cacheResponse', 'true');
     return this.http.get(url, { headers: headers } )
       .pipe(
