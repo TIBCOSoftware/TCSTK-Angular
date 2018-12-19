@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {LiveAppsService} from '../../../services/live-apps.service';
-import {AppStateConfig, CaseTypeState, IconMap} from '../../../models/liveappsdata';
+import {AppConfig, CaseTypeState, IconMap} from '../../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
@@ -29,7 +29,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
 
   private states: CaseTypeState[];
   private errorMessage: string;
-  private appStateConfig: AppStateConfig;
+  private appStateConfig: AppConfig;
   private selectedStateConfig: IconMap;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
@@ -76,7 +76,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   }
 
   private saveConfig = () => {
-    this.liveapps.updateAppStateConfig(this.sandboxId, this.appId, this.uiAppId, this.appStateConfig, this.appStateConfig.id)
+    this.liveapps.updateAppConfig(this.sandboxId, this.appId, this.uiAppId, this.appStateConfig, this.appStateConfig.id)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -140,7 +140,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case type states: ' + error.error.errorMsg; });
 
-    this.liveapps.getAppStateConfig(this.appId, this.uiAppId)
+    this.liveapps.getAppConfig(this.appId, this.uiAppId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

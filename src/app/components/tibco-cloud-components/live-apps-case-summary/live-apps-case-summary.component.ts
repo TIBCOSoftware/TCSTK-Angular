@@ -11,7 +11,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {LiveAppsService} from '../../../services/live-apps.service';
-import {AppStateConfig, CaseInfo, Metadata} from '../../../models/liveappsdata';
+import {AppConfig, CaseInfo, Metadata} from '../../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
@@ -45,7 +45,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   private summaryKeys: string[];
   private summaryValues: string[];
   private metadata: Metadata;
-  private appStateConfig: AppStateConfig;
+  private appStateConfig: AppConfig;
   private errorMessage;
   color: string;
 

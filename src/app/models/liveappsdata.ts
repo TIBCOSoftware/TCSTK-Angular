@@ -542,7 +542,7 @@ export class IconMap {
   ) {}
 }
 
-export class AppStateConfig implements Deserializable {
+export class AppConfig implements Deserializable {
   id: string;
   stateMap: IconMap[];
   deserialize(input: any): this {

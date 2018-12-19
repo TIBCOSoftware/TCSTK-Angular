@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {LiveAppsService} from '../../../services/live-apps.service';
 import {Subject} from 'rxjs';
-import {AppStateConfig} from '../../../models/liveappsdata';
+import {AppConfig} from '../../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 
 @Component({
@@ -18,7 +18,7 @@ export class LiveAppsCaseStateConfigComponent implements OnInit, OnDestroy {
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
 
-  private appStateConfig: AppStateConfig;
+  private appStateConfig: AppConfig;
   private appStateConfigJson: string;
   private errorMessage: string;
 
@@ -26,8 +26,8 @@ export class LiveAppsCaseStateConfigComponent implements OnInit, OnDestroy {
 
   private saveStateConfig = () => {
     const newConfigjson = JSON.parse(this.appStateConfigJson);
-    const newConfig = new AppStateConfig().deserialize(newConfigjson);
-    this.liveapps.updateAppStateConfig(this.sandboxId, this.appId, this.uiAppId, newConfig, newConfig.id)
+    const newConfig = new AppConfig().deserialize(newConfigjson);
+    this.liveapps.updateAppConfig(this.sandboxId, this.appId, this.uiAppId, newConfig, newConfig.id)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -43,7 +43,7 @@ export class LiveAppsCaseStateConfigComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.liveapps.getAppStateConfig(this.appId, this.uiAppId)
+    this.liveapps.getAppConfig(this.appId, this.uiAppId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -53,13 +53,13 @@ export class LiveAppsCaseStateConfigComponent implements OnInit, OnDestroy {
             this.appStateConfigJson = JSON.stringify(appStateConfig);
           } else {
             // create one
-            this.liveapps.createAppStateConfig(this.sandboxId, this.appId, this.uiAppId)
+            this.liveapps.createAppConfig(this.sandboxId, this.appId, this.uiAppId)
               .pipe(
                 take(1),
                 takeUntil(this._destroyed$),
                 map( value => {
                   if (value) {
-                    this.appStateConfig = new AppStateConfig().deserialize({ id: value, stateMap: [] });
+                    this.appStateConfig = new AppConfig().deserialize({ id: value, stateMap: [] });
                     this.appStateConfigJson = JSON.stringify(appStateConfig);
                   }
                 })

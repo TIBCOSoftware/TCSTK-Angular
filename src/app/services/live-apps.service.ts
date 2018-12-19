@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppStateConfig, IconMap, Metadata
+  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata
 } from '../models/liveappsdata';
 import {map, share, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -147,7 +147,7 @@ export class LiveAppsService {
     } else {
       caseinfo.metadata.createdByDetails = new UserInfo();
     }
-    this.getAppStateConfig(appId, uiAppId).subscribe(val => {
+    this.getAppConfig(appId, uiAppId).subscribe(val => {
       // state attribute is first in summary
       const stateId = caseinfo.summaryObj.state;
       let stateConfig: IconMap;
@@ -813,21 +813,21 @@ export class LiveAppsService {
 
   /* app state config */
 
-  public getAppStateConfig(appId: string, uiAppId: string): Observable<AppStateConfig> {
+  public getAppConfig(appId: string, uiAppId: string): Observable<AppConfig> {
     const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
     // const url = 'assets/config/statemaps/'
     //  + appId + '.json';
     /* const headers = new HttpHeaders().set('cacheResponse', 'true');
       return this.http.get(url, { headers: headers })
       .pipe(
-        map(value => new AppStateConfig().deserialize(value))
+        map(value => new AppConfig().deserialize(value))
       );*/
 
     return this.getSharedState(ssName, 'PUBLIC')
       .pipe(
         map( value => {
           if (value.sharedStateEntries.length > 0) {
-            const ssresult = new AppStateConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
+            const ssresult = new AppConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
             ssresult.id = value.sharedStateEntries[0].id;
             return ssresult;
           } else {
@@ -838,7 +838,7 @@ export class LiveAppsService {
       );
   }
 
-  public createAppStateConfig(sandboxId: number, appId: string, uiAppId: string): Observable<string> {
+  public createAppConfig(sandboxId: number, appId: string, uiAppId: string): Observable<string> {
     const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
     content.json = this.escapeString(JSON.stringify([]));
@@ -848,7 +848,7 @@ export class LiveAppsService {
       );
   }
 
-  public updateAppStateConfig(sandboxId: number, appId: string, uiAppId: string, config: AppStateConfig, id: string): Observable<AppStateConfig> {
+  public updateAppConfig(sandboxId: number, appId: string, uiAppId: string, config: AppConfig, id: string): Observable<AppConfig> {
     const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
     content.json = this.escapeString(JSON.stringify(config));
@@ -864,7 +864,7 @@ export class LiveAppsService {
     return this.updateSharedState(ssList.sharedStateEntries)
       .pipe(
         map(value => {
-          return new AppStateConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+          return new AppConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
         })
       );
   }
