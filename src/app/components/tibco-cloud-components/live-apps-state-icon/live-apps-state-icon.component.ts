@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {map, take, takeUntil} from 'rxjs/operators';
+import {LiveAppsService} from '../../../services/live-apps.service';
 
 @Component({
   selector: 'app-live-apps-state-icon',
@@ -21,7 +22,7 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
 
-  constructor(private sanitizer: DomSanitizer, private http: HttpClient) { }
+  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private liveapps: LiveAppsService) { }
 
   public refillSVG = function(fill) {
     const updatedsvg = this.svgcontents.replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
@@ -37,14 +38,11 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
       // use generic icon
       url = 'assets/icons/ic-generic-state.svg';
     }
-
-    const headers = new HttpHeaders().set('cacheResponse', 'true');
-    this.http.get(url, {responseType: 'text', headers: headers } )
+    this.liveapps.getIconSVGText(url)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
         map(val => {
-            this.svgcontents = val.toString();
             val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
             const newval = this.sanitizer.bypassSecurityTrustHtml(val);
             return newval;
@@ -54,9 +52,11 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
       .subscribe(val => {
           this.iconSVG = val;
         }
-        , error => { console.log('Unable to retrieve icon: ' + error.errorMsg); }
+        , error => {
+          console.log('Unable to retrieve icon: ' + error.errorMsg);
+        }
       );
-}
+  }
 
   ngOnInit() {
     this.refresh(this.iconPath, this.color);

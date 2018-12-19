@@ -26,7 +26,7 @@ import {
   NotesList,
   Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata
 } from '../models/liveappsdata';
-import {map, share, shareReplay, tap} from 'rxjs/operators';
+import {map, share, shareReplay, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
 import {split} from 'ts-node';
 
@@ -37,6 +37,7 @@ import {split} from 'ts-node';
 export class LiveAppsService {
   private userInfoCacheMap = new Map();
   private caseTypesCacheMap = new Map();
+  private iconSVGTextCacheMap = new Map();
 
   constructor(
     private http: HttpClient
@@ -272,6 +273,29 @@ export class LiveAppsService {
             })
             return requestedType;
           })
+        );
+    }
+
+    public getIconSVGText(url): Observable<string> {
+      if (!this.iconSVGTextCacheMap.get(url)) {
+        const cacheEntry$ = this.getIconSVGTextCache(url)
+          .pipe(
+            shareReplay(1)
+          );
+        this.iconSVGTextCacheMap.set(url, cacheEntry$);
+      }
+      return this.iconSVGTextCacheMap.get(url);
+    }
+
+    private getIconSVGTextCache(url) {
+      const headers = new HttpHeaders().set('cacheResponse', 'true');
+      return this.http.get(url, {responseType: 'text', headers: headers } )
+        .pipe(
+          map(val => {
+              const svgContents = val.toString();
+              return svgContents;
+            }
+          )
         );
     }
 
