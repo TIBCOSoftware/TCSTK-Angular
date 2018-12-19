@@ -22,6 +22,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   @ViewChildren(LiveAppsCaseSummaryComponent) caseSummaryComponent: QueryList<LiveAppsCaseSummaryComponent>;
 
   @Input() appId: string;
+  @Input() appTypeLabel: string;
   @Input() sandboxId: number;
   @Input() uiAppId: string;
   @Input() folderId: string;
@@ -31,6 +32,13 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   private errorMessage: string;
   private appStateConfig: AppConfig;
   private selectedStateConfig: IconMap;
+  private caseTypeIcon: string;
+  private caseTypeColor: string;
+
+  private DEFAULT_CASE_TYPE_ICON = 'assets/icons/ic-generic-casetype.svg';
+  private DEFAULT_CASE_TYPE_COLOR = '#8197c0';
+  private DEFAULT_CASE_STATE_ICON = 'assets/icons/ic-generic-state.svg';
+  private DEFAULT_CASE_STATE_COLOR = '#8197c0';
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
@@ -42,7 +50,17 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
         reqIconMap = stateMap;
       }
     });
-    return reqIconMap ? reqIconMap : new IconMap(state.value, '#8197c0', 'assets/icons/ic-generic-state.svg');
+    return reqIconMap ? reqIconMap : new IconMap(false, state.value, this.DEFAULT_CASE_STATE_COLOR, this.DEFAULT_CASE_STATE_ICON);
+  }
+
+  private getConfigForCaseType = (caseTypeId: string): IconMap => {
+    let reqIconMap: IconMap;
+    this.appStateConfig.stateMap.forEach((stateMap) => {
+      if (stateMap.state === caseTypeId) {
+        reqIconMap = stateMap;
+      }
+    });
+    return reqIconMap ? reqIconMap : new IconMap(true, caseTypeId, this.DEFAULT_CASE_TYPE_COLOR, this.DEFAULT_CASE_TYPE_ICON);
   }
 
   private updateIconMap = (stateConfig: IconMap) => {
@@ -66,7 +84,16 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     this.stateIconComponents.find(function(comp) {
       return comp.id === stateConfig.state;
     }).refillSVG(fill);
-}
+  }
+
+  private setCaseTypeFill = (fill, stateConfig: IconMap) => {
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
+      comp.restylePreviewCaseType(stateConfig.icon, fill);
+    });
+    /*this.stateIconComponents.find(function(comp) {
+      return (comp.id === stateConfig.state && stateConfig.isCaseType);
+    }).refillSVG(fill);*/
+  }
 
   private selectState = (state: CaseTypeState) => {
     this.selectedStateConfig = this.getConfigForState(state);
@@ -87,25 +114,29 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     );
   }
 
-  private openDialog(state: CaseTypeState): void {
-    this.selectState(state);
+  private openDialog(state: CaseTypeState, isCaseType: boolean): void {
+    if (!isCaseType) {
+      this.selectState(state);
+    } else {
+      state = new CaseTypeState().deserialize({ value: this.appTypeLabel });
+    }
     const dialogRef = this.dialog.open(LiveAppsStateIconUploadDialogComponent, {
       width: '500px',
-      data: { state: state }
+      data: { state: state, isCaseType: isCaseType }
     });
 
     dialogRef.componentInstance.fileevent.subscribe(($e) => {
-      this.uploadFile($e.file, $e.state);
+      this.uploadFile($e.file, $e.state, $e.isCaseType);
     })
 
     dialogRef.afterClosed().subscribe(result => {
     });
   }
 
-  private setNewIcon = (url) => {
+  private setNewStateIcon = (url) => {
     this.selectedStateConfig.icon = url;
     this.stateIconComponents.find((comp: LiveAppsStateIconComponent) => {
-      return comp.id === this.selectedStateConfig.state;
+      return (comp.id === this.selectedStateConfig.state);
     }).refresh(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
     this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
       comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
@@ -113,13 +144,28 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     this.updateIconMap(this.selectedStateConfig);
   }
 
-  private uploadFile(file, state) {
+  private setNewCaseTypeIcon = (url) => {
+    this.caseTypeIcon = url;
+    this.stateIconComponents.find((comp: LiveAppsStateIconComponent) => {
+      return (comp.id === this.appTypeLabel);
+    }).refresh(this.caseTypeIcon, this.caseTypeColor);
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
+      comp.restylePreviewCaseType(this.caseTypeIcon, this.caseTypeColor);
+    });
+    this.updateIconMap(new IconMap(true, this.appTypeLabel, this.caseTypeColor, this.caseTypeIcon));
+  }
+
+  private uploadFile(file: File, state: CaseTypeState, isStateIcon: boolean) {
     if (file) {
       this.liveapps.uploadDocument('orgFolders', this.folderId, this.sandboxId,
         file, file.name, '')
         .pipe(
           map(val => {
-            this.setNewIcon('webresource/orgFolders/' + this.folderId + '/' + file.name);
+            if (!isStateIcon) {
+              this.setNewStateIcon('webresource/orgFolders/' + this.folderId + '/' + file.name);
+            } else {
+              this.setNewCaseTypeIcon('webresource/orgFolders/' + this.folderId + '/' + file.name);
+            }
           })
         )
         .subscribe(
@@ -147,7 +193,23 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
         map(config => {
           this.appStateConfig = config;
           if (this.appStateConfig && this.appStateConfig.stateMap.length > 0) {
-            this.selectedStateConfig = this.appStateConfig.stateMap[0];
+            this.appStateConfig.stateMap.forEach((stateMap) => {
+              if (stateMap.isCaseType) {
+                this.caseTypeIcon = stateMap.icon;
+                this.caseTypeColor = stateMap.fill;
+              } else {
+                if (!this.selectedStateConfig) {
+                  this.selectedStateConfig = stateMap;
+                }
+              }
+            });
+          }
+            // defaults
+          if (!this.caseTypeIcon) {
+            this.caseTypeIcon = this.DEFAULT_CASE_TYPE_ICON;
+          }
+          if (!this.caseTypeColor) {
+            this.caseTypeColor = this.DEFAULT_CASE_TYPE_COLOR;
           }
           return config;
         })
@@ -177,7 +239,7 @@ export class LiveAppsStateIconUploadDialogComponent {
 
   private uploadFile = () => {
     if (this.fileToUpload) {
-      this.fileevent.emit({ file: this.fileToUpload, state: this.data.state } );
+      this.fileevent.emit({ file: this.fileToUpload, state: this.data.state, isCaseType: this.data.isCaseType } );
       this.dialogRef.close();
     }
   }

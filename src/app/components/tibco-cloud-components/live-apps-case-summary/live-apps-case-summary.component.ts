@@ -24,11 +24,14 @@ import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-stat
 })
 export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
-  @ViewChild(LiveAppsStateIconComponent) stateIconComponent: LiveAppsStateIconComponent;
+  @ViewChild('caseStateIcon') stateIconComponent: LiveAppsStateIconComponent;
+  @ViewChild('caseTypeIcon') caseTypeIconComponent: LiveAppsStateIconComponent;
 
   @Input() configMode: boolean;
   @Input() configModeColor: string;
   @Input() configModeIcon: string;
+  @Input() configModeCaseTypeColor: string;
+  @Input() configModeCaseTypeIcon: string;
   @Input() caseReference: string;
   @Input() sandboxId: number;
   @Input() miniCard: boolean;
@@ -57,6 +60,12 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
     this.metadata.stateIcon = icon;
     this.metadata.stateColor = fill;
     this.stateIconComponent.refresh(icon, fill);
+  }
+
+  public restylePreviewCaseType = (icon, fill) => {
+    this.metadata.caseTypeIcon = icon;
+    this.metadata.caseTypeColor = fill;
+    this.caseTypeIconComponent.refresh(icon, fill);
   }
 
   constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) { }
@@ -113,6 +122,8 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
       this.summaryValues = Object.values(this.summary);
       this.metadata.stateIcon = this.configModeIcon;
       this.metadata.stateColor = this.configModeColor;
+      this.metadata.caseTypeColor = this.configModeCaseTypeColor;
+      this.metadata.caseTypeIcon = this.configModeCaseTypeIcon;
     }
   }
 

@@ -158,6 +158,11 @@ export class LiveAppsService {
             caseinfo.metadata.stateColor = stateConfig.fill;
             caseinfo.metadata.stateIcon = stateConfig.icon;
           }
+          if (state.isCaseType) {
+            stateConfig = state;
+            caseinfo.metadata.caseTypeColor = stateConfig.fill;
+            caseinfo.metadata.caseTypeIcon = stateConfig.icon;
+          }
         });
       }
       // defaults
@@ -166,6 +171,12 @@ export class LiveAppsService {
       }
       if (!caseinfo.metadata.stateIcon) {
         caseinfo.metadata.stateIcon = 'assets/icons/ic-generic-state.svg';
+      }
+      if (!caseinfo.metadata.caseTypeColor) {
+        caseinfo.metadata.caseTypeColor = '#8197c0';
+      }
+      if (!caseinfo.metadata.caseTypeIcon) {
+        caseinfo.metadata.caseTypeIcon = 'assets/icons/ic-generic-casetype.svg';
       }
 
 

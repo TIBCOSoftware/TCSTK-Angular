@@ -99,7 +99,9 @@ export class Metadata {
               public applicationLabel: string,
               public typeId: string,
               public stateColor: string,
-              public stateIcon: string
+              public stateIcon: string,
+              public caseTypeColor: string,
+              public caseTypeIcon: string
             ) {
   }
 }
@@ -536,6 +538,7 @@ export class NotesList implements Deserializable {
 
 export class IconMap {
   constructor(
+    public isCaseType: boolean,
     public state: string,
     public fill: string,
     public icon: string
