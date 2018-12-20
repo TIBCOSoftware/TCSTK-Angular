@@ -29,6 +29,7 @@ import {
 import {map, share, shareReplay, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
 import {split} from 'ts-node';
+import {Location} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class LiveAppsService {
   private iconSVGTextCacheMap = new Map();
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient, private location: Location
   ) { }
 
   public login(username, password): Observable<AccessToken> {
@@ -155,7 +156,7 @@ export class LiveAppsService {
       // state attribute is first in summary
       const stateId = caseinfo.summaryObj.state;
       let stateConfig: IconMap;
-      if (val !== undefined) {
+      if (val !== undefined && val.stateMap) {
         val.stateMap.forEach((state) => {
           if (state.state === stateId) {
             stateConfig = state;
@@ -174,13 +175,13 @@ export class LiveAppsService {
           caseinfo.metadata.stateColor = '#8197c0';
       }
       if (!caseinfo.metadata.stateIcon) {
-        caseinfo.metadata.stateIcon = 'assets/icons/ic-generic-state.svg';
+        caseinfo.metadata.stateIcon = this.location.prepareExternalUrl('/assets/icons/ic-generic-state.svg');
       }
       if (!caseinfo.metadata.caseTypeColor) {
         caseinfo.metadata.caseTypeColor = '#8197c0';
       }
       if (!caseinfo.metadata.caseTypeIcon) {
-        caseinfo.metadata.caseTypeIcon = 'assets/icons/ic-generic-casetype.svg';
+        caseinfo.metadata.caseTypeIcon = this.location.prepareExternalUrl('/assets/icons/ic-generic-casetype.svg');
       }
 
 
@@ -283,9 +284,14 @@ export class LiveAppsService {
       }
     }
 
-    public getIconSVGText(url): Observable<string> {
+    public getIconSVGText(url: string): Observable<string> {
+      // todo: revisit the base href issue
+      if (url.substr(0, 2) === '//') {
+        url = url.substr(1, url.length - 1);
+      }
       if (!this.iconSVGTextCacheMap.get(url)) {
-        const cacheEntry$ = this.getIconSVGTextCache(url)
+        const fixedUrl = window.location.protocol + '//' + window.location.host  + url;
+        const cacheEntry$ = this.getIconSVGTextCache(fixedUrl)
           .pipe(
             shareReplay(1)
           );
@@ -311,7 +317,7 @@ export class LiveAppsService {
     // https://eu.liveapps.cloud.tibco.com/pageflow/caseActions?$sandbox=31&
     // $filter=applicationId%20eq%201742%20and%20caseType%20eq%201%20and%20caseState%20eq%20Responded%20and%20caseRef%20eq%20150491
     const select = 's';
-    const url = 'pageflow/caseActions?$sandbox=' + sandboxId
+    const url = '/pageflow/caseActions?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and caseType eq ' + typeId
       + ' and caseState eq ' + caseState
@@ -325,7 +331,7 @@ export class LiveAppsService {
 
   public getCaseAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
     const select = 's';
-    const url = 'event/auditEvents?$sandbox=' + sandboxId
+    const url = '/event/auditEvents?$sandbox=' + sandboxId
       + '&$filter=type eq \'case\''
       + ' and id eq \'' + caseRef + '\'';
 
@@ -336,7 +342,7 @@ export class LiveAppsService {
   }
 
   public getCaseStateAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
-    const url = 'event/auditEvents?$sandbox=' + sandboxId
+    const url = '/event/auditEvents?$sandbox=' + sandboxId
       + '&$filter=type eq \'casestate\''
       + ' and id eq \'' + caseRef + '\'';
 
@@ -393,7 +399,7 @@ export class LiveAppsService {
   }
 
   private getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean): Observable<SharedStateList>  {
-    const url = 'clientstate/states?$filter=type=' + type
+    const url = '/clientstate/states?$filter=type=' + type
       + ' and name=\'' + name + '\'';
     let options = {};
       let headers: HttpHeaders = new HttpHeaders();
@@ -745,7 +751,7 @@ export class LiveAppsService {
 
   public getNotesForCollections(collectionIds): Observable<NotesList> {
     if (collectionIds) {
-      const url = 'collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
+      const url = '/collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
         '&$orderby=createdDate ASC';
       return this.http.get(url)
         .pipe(
@@ -758,7 +764,7 @@ export class LiveAppsService {
   }
 
   public updateNote(note: Note, noteId: string): Observable<Note> {
-    const url = 'collaboration/v1/notes/' + noteId;
+    const url = '/collaboration/v1/notes/' + noteId;
     const body = note;
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
@@ -777,7 +783,7 @@ export class LiveAppsService {
                     notificationUrl: string,
                     title: string,
                     noteText: string): Observable<number> {
-    const url = 'collaboration/v1/notes';
+    const url = '/collaboration/v1/notes';
     const note = new Note().deserialize(
       {
         attributes: [],
@@ -807,7 +813,7 @@ export class LiveAppsService {
   }
 
   public getNote(noteId: number): Observable<Note> {
-    const url = 'collaboration/v1/notes/' + noteId;
+    const url = '/collaboration/v1/notes/' + noteId;
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -817,7 +823,7 @@ export class LiveAppsService {
   }
 
   public getThread(relatedItemType: string, relatedItemId: string, threadId: number) {
-    const url = 'collaboration/v1/notes/?$relatedItemType=' + relatedItemType
+    const url = '/collaboration/v1/notes/?$relatedItemType=' + relatedItemType
       + '&relatedItemId=' + relatedItemId
       + '&filter=threadId=' + threadId
       + '&orderby=createdDate ASC';
@@ -830,7 +836,7 @@ export class LiveAppsService {
   }
 
   public createReplyNote(originalNote: Note, reply: string, noteId: string): Observable<number> {
-    const url = 'collaboration/v1/notes/' + noteId;
+    const url = '/collaboration/v1/notes/' + noteId;
     const body = {
       notificationLabel: originalNote.notificationLabel,
       notificationUrl: originalNote.notificationUrl,
@@ -847,7 +853,7 @@ export class LiveAppsService {
   }
 
   public subscribeToNotes(relatedItemType, relatedTypeId) {
-    const url = 'collaboration/notifications';
+    const url = '/collaboration/notifications';
     const body = {
       topicId: undefined,
       threadId: undefined,
@@ -867,7 +873,7 @@ export class LiveAppsService {
   }
 
   public unsubscribeToNotes(relatedItemType, relatedTypeId, userId) {
-    let url = 'collaboration/notifications?$filter=collectionName=';
+    let url = '/collaboration/notifications?$filter=collectionName=';
     url = url + '\'' + relatedItemType + '_' + relatedTypeId + '\' and entityId=' + userId;
     return this.http.delete(url)
       .pipe(
@@ -876,7 +882,7 @@ export class LiveAppsService {
   }
 
   public getNotifications(relatedItemType, relatedTypeId, userId): Observable<NotificationList> {
-    const url = 'collaboration/notifications?$filter=collectionName=\'' + relatedItemType + '_' + relatedTypeId
+    const url = '/collaboration/notifications?$filter=collectionName=\'' + relatedItemType + '_' + relatedTypeId
             + '\' and entityId=' + userId;
     return this.http.get(url)
       .pipe(
@@ -886,7 +892,7 @@ export class LiveAppsService {
   }
 
   public deleteNote(noteId: number) {
-    const url = 'collaboration/v1/notes/' + noteId;
+    const url = '/collaboration/v1/notes/' + noteId;
     return this.http.delete(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))

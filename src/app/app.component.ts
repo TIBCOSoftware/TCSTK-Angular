@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -8,78 +9,78 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-reply',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-reply.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-reply.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-delete',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-delete.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-delete.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-edit',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-edit.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-edit.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-send',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-send.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-send.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-subscribed',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-subscribed.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-subscribed.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-unsubscribed',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-unsubscribed.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-unsubscribed.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-feed',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-feed.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-feed.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-document-library',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-document-library.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-library.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-document-action',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-document-action.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-action.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-document-upload',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-document-upload.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-upload.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-document-zip',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-document-zip.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-zip.svg'))
     );
     this.matIconRegistry.addSvgIcon(
         'tcs-document-image',
-        this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-document-image.svg')
+        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-image.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-document-doc',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-document-doc.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-doc.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-summary-details-button',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-details-button.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-details-button.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-favorites-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-favorite.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-favorite.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-recent-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-recent.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-recent.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-clear-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-clear.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-clear.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-customization-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/icons/ic-settings.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-settings.svg'))
     );
   }
   title = 'BaseApp';

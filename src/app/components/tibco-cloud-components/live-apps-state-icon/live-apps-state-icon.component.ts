@@ -4,6 +4,7 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../../services/live-apps.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-live-apps-state-icon',
@@ -22,7 +23,7 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
 
-  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private liveapps: LiveAppsService) { }
+  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private liveapps: LiveAppsService, private location: Location) { }
 
   public refillSVG = function(fill) {
     const updatedsvg = this.svgcontents.replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
@@ -33,10 +34,10 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
   public refresh = (icon, fill) => {
     let url: string;
     if (icon) {
-      url = icon;
+      url = '/' + icon;
     } else {
       // use generic icon
-      url = 'assets/icons/ic-generic-state.svg';
+      this.location.prepareExternalUrl('/assets/icons/ic-generic-state.svg');
     }
     this.liveapps.getIconSVGText(url)
       .pipe(

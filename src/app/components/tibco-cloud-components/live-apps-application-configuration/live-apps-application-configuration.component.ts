@@ -10,6 +10,7 @@ import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-stat
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsDocumentUploadDialogComponent} from '../live-apps-documents/live-apps-documents.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-live-apps-application-configuration',
@@ -35,9 +36,10 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   private caseTypeIcon: string;
   private caseTypeColor: string;
 
-  private DEFAULT_CASE_TYPE_ICON = 'assets/icons/ic-generic-casetype.svg';
+  // prepareExternalUrl will add the base href
+  private DEFAULT_CASE_TYPE_ICON = this.location.prepareExternalUrl('/assets/icons/ic-generic-casetype.svg');
   private DEFAULT_CASE_TYPE_COLOR = '#8197c0';
-  private DEFAULT_CASE_STATE_ICON = 'assets/icons/ic-generic-state.svg';
+  private DEFAULT_CASE_STATE_ICON = this.location.prepareExternalUrl('/assets/icons/ic-generic-state.svg');
   private DEFAULT_CASE_STATE_COLOR = '#8197c0';
   private DEFAULT_COLOR_PALETTE = [
     '#3E94C0', '#49B3D3', '#76C6CF', '#A9DACD', '#DCECC9',
@@ -52,34 +54,47 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
 
   private getConfigForState = (state: CaseTypeState): IconMap => {
     let reqIconMap: IconMap;
-    this.appStateConfig.stateMap.forEach((stateMap) => {
-      if (stateMap.state === state.value) {
-        reqIconMap = stateMap;
-      }
-    });
+    if (this.appStateConfig && this.appStateConfig.stateMap) {
+      this.appStateConfig.stateMap.forEach((stateMap) => {
+        if (stateMap.state === state.value) {
+          reqIconMap = stateMap;
+        }
+      });
+    }
     return reqIconMap ? reqIconMap : new IconMap(false, state.value, this.DEFAULT_CASE_STATE_COLOR, this.DEFAULT_CASE_STATE_ICON);
   }
 
   private getConfigForCaseType = (caseTypeId: string): IconMap => {
     let reqIconMap: IconMap;
-    this.appStateConfig.stateMap.forEach((stateMap) => {
-      if (stateMap.state === caseTypeId) {
-        reqIconMap = stateMap;
-      }
-    });
+    if (this.appStateConfig && this.appStateConfig.stateMap) {
+      this.appStateConfig.stateMap.forEach((stateMap) => {
+        if (stateMap.state === caseTypeId) {
+          reqIconMap = stateMap;
+        }
+      });
+    }
     return reqIconMap ? reqIconMap : new IconMap(true, caseTypeId, this.DEFAULT_CASE_TYPE_COLOR, this.DEFAULT_CASE_TYPE_ICON);
   }
 
   private updateIconMap = (stateConfig: IconMap) => {
     let foundMap: IconMap;
-    this.appStateConfig.stateMap.forEach((stateMap) => {
-      if (stateMap.state === stateConfig.state) {
-        foundMap = stateMap;
+    let updatedMap: IconMap;
+    if (this.appStateConfig && this.appStateConfig.stateMap) {
+      this.appStateConfig.stateMap.forEach(function(stateMap) {
+        if (stateMap.state === stateConfig.state) {
+          foundMap = stateConfig;
+          stateMap.state = stateConfig.state;
+          stateMap.icon = stateConfig.icon;
+          stateMap.fill = stateConfig.fill;
+        }
+      });
+      if (foundMap) {
+        foundMap = stateConfig;
+      } else {
+        this.appStateConfig.stateMap.push(stateConfig);
       }
-    });
-    if (foundMap) {
-      foundMap = stateConfig;
     } else {
+      this.appStateConfig.stateMap = [];
       this.appStateConfig.stateMap.push(stateConfig);
     }
   }
@@ -185,7 +200,8 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     }
   }
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer, private liveapps: LiveAppsService, public dialog: MatDialog) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer,
+              private liveapps: LiveAppsService, public dialog: MatDialog, private location: Location) { }
 
   ngOnInit() {
     // get states for application
@@ -203,7 +219,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
         takeUntil(this._destroyed$),
         map(config => {
           this.appStateConfig = config;
-          if (this.appStateConfig && this.appStateConfig.stateMap.length > 0) {
+          if (this.appStateConfig && this.appStateConfig.stateMap && this.appStateConfig.stateMap.length > 0) {
             this.appStateConfig.stateMap.forEach((stateMap) => {
               if (stateMap.isCaseType) {
                 this.caseTypeIcon = stateMap.icon;
