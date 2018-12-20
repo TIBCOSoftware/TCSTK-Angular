@@ -3,6 +3,7 @@ import {LiveAppsCaseDataComponent} from '../../tibco-cloud-components/live-apps-
 import {LiveAppsCaseStatesComponent} from '../../tibco-cloud-components/live-apps-case-states/live-apps-case-states.component';
 import {LiveAppsFavoriteCasesComponent} from '../../tibco-cloud-components/live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsRecentCasesComponent} from '../../tibco-cloud-components/live-apps-recent-cases/live-apps-recent-cases.component';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,11 @@ export class HomeComponent implements OnInit {
   @ViewChild(LiveAppsFavoriteCasesComponent) caseFavoritesComponent: LiveAppsFavoriteCasesComponent;
   @ViewChild(LiveAppsRecentCasesComponent) caseRecentComponent: LiveAppsRecentCasesComponent;
 
-
   uiAppId = 'testappjs';
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   private clickCaseAction = (caseReference) => {
-    console.log('*HOME ROUTE*: Case Clicked: ' + caseReference);
+    this.router.navigate(['/starterApp/case', caseReference], {queryParams: {}});
   }
 
   private refresh = () => {
