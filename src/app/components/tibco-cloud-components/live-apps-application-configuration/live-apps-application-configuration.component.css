@@ -99,3 +99,14 @@
 .tcs-case-states-list-row:hover .tcs-icon-active.tcs-config-button-placeholder {
   display: none;
 }
+
+.tcs-case-states-icon-divider {
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  margin-left:10px;
+  margin-right: 15px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
+}
