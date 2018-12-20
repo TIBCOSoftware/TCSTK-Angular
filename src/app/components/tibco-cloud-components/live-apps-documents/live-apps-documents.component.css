@@ -24,7 +24,7 @@
 
 .tcs-documents-header-text {
   margin-left: 10px;
-  font-family: SourceSansPro;
+  font-family: Source Sans Pro;
   font-size: 18px;
   font-weight: 600;
   font-style: normal;
@@ -34,7 +34,7 @@
 }
 
 .tcs-document-name-text {
-  font-family: SourceSansPro;
+  font-family: Source Sans Pro;
   font-size: 16px;
   font-weight: 600;
   font-style: normal;
@@ -45,7 +45,7 @@
 }
 
 .tcs-document-comment-text {
-  font-family: SourceSansPro;
+  font-family: Source Sans Pro;
   font-size: 12px;
   font-weight: normal;
   font-style: normal;
@@ -56,7 +56,7 @@
 }
 
 .tcs-document-modified-text {
-  font-family: SourceSansPro;
+  font-family: Source Sans Pro;
   font-size: 10px;
   font-weight: 600;
   font-style: normal;
@@ -67,7 +67,7 @@
 }
 
 .tcs-document-filesize-text {
-  font-family: SourceSansPro;
+  font-family: Source Sans Pro;
   font-size: 10px;
   font-weight: 600;
   font-style: normal;
