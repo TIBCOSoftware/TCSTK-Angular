@@ -39,6 +39,13 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   private DEFAULT_CASE_TYPE_COLOR = '#8197c0';
   private DEFAULT_CASE_STATE_ICON = 'assets/icons/ic-generic-state.svg';
   private DEFAULT_CASE_STATE_COLOR = '#8197c0';
+  private DEFAULT_COLOR_PALETTE = [
+    '#3E94C0', '#49B3D3', '#76C6CF', '#A9DACD', '#DCECC9',
+    '#FFAB40', '#FFD180', '#FFE0B2', '#FFF3E0', '#81D4FA',
+    '#B3E5FC', '#8AF2F2', '#91A3AE', '#CED8DD', '#EBEFF1',
+    '#6A1B9A', '#AD1457', '#EC407A', '#C4469E', '#BA68C8',
+    '#8C9EFF', '#FF8A80', '#546F7A', '#263237'
+  ];
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
