@@ -87,6 +87,11 @@ export class TibcoCloudLoginComponent {
                 // send subscription list back to the parent
                 this.subscriptionRequired.emit({ subscriptions: subscriptions, token: this.token } );
               });
+            } else {
+              this.loading = false;
+              this.loginError = error.error.error_description;
+              console.error('Login Failed: ');
+              console.error(error);
             }
           });
     }
