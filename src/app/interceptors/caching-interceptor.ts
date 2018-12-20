@@ -15,13 +15,13 @@ export class CachingInterceptor implements HttpInterceptor {
       cachedResponse = this.cache.get(req);
       // use the cache
       if (cachedResponse) {
-        console.log('*** using cached response for: ' + req.urlWithParams);
+        // console.log('*** using cached response for: ' + req.urlWithParams);
       } else {
-        console.log('*** no cached response for: ' + req.urlWithParams);
+        // console.log('*** no cached response for: ' + req.urlWithParams);
       }
     } else {
       // dont pass the cache since this should not be cached
-      console.log('*** BYPASS CACHE FOR: ' + req.urlWithParams);
+      // console.log('*** BYPASS CACHE FOR: ' + req.urlWithParams);
       return this.sendRequest(req, next, undefined);
     }
     // return cached response or make request if no cached response

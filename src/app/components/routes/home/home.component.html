@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="space-around start">
-  <app-live-apps-favorite-cases [sandboxId]="38" [uiAppId]="uiAppId"></app-live-apps-favorite-cases>
-  <app-live-apps-recent-cases [sandboxId]="38" [uiAppId]="uiAppId"></app-live-apps-recent-cases>
+  <app-live-apps-favorite-cases [sandboxId]="38" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></app-live-apps-favorite-cases>
+  <app-live-apps-recent-cases [sandboxId]="38" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></app-live-apps-recent-cases>
 </div>
 
 <br>

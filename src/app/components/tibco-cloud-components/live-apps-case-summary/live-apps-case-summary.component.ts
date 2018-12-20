@@ -39,7 +39,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() borderCard: boolean;
   @Input() typeBar: boolean;
   @Input() uiAppId: string;
-  @Output() openCase = new EventEmitter;
+  @Output() clickCase = new EventEmitter;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
@@ -53,8 +53,8 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   private errorMessage;
   color: string;
 
-  private clickCase = () => {
-    this.openCase.emit(this.caseReference);
+  private clickCaseAction = () => {
+    this.clickCase.emit(this.caseReference);
   }
 
   public restylePreview = (icon, fill) => {

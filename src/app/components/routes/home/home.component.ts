@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
   uiAppId = 'testappjs';
   constructor() { }
 
+  private clickCaseAction = (caseReference) => {
+    console.log('*HOME ROUTE*: Case Clicked: ' + caseReference);
+  }
+
   private refresh = () => {
     if (this.caseFavoritesComponent) {
       this.caseFavoritesComponent.refresh();
