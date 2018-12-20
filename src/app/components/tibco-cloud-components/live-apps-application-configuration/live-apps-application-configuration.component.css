@@ -122,3 +122,7 @@
   border-bottom-width: 1.1px;
   border-bottom-style: solid;
 }
+
+.tcs-save-app-config-button {
+  height: 35px;
+}
