@@ -16,7 +16,6 @@
             <app-live-apps-case-summary style="margin: 5px;" [miniCard]="false" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></app-live-apps-case-summary>
             <app-live-apps-case-summary style="margin: 5px;" [miniCard]="true" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></app-live-apps-case-summary>
           </div>
-
         </div>
       </div>
       <div class="tcs-case-card-customization-divider"></div>
@@ -31,7 +30,7 @@
               <div class="tcs-case-states-list-row">
                 <div *ngIf="getConfigForCaseType(appTypeLabel); let stateConfig;">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <div style="min-width: 170px;">Case Type Icon</div>
+                    <div fxLayoutAlign="start center" style="min-width: 170px;">Case Type Icon</div>
                     <app-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="appTypeLabel" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"
                                               [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setCaseTypeFill($event, stateConfig)"
                                               matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">
@@ -48,7 +47,7 @@
               <div *ngFor="let state of states" class="tcs-case-states-list-row" (click)="selectState(state)">
                 <div *ngIf="getConfigForState(state); let stateConfig;">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
-                    <div style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>
+                    <div fxLayoutAlign="start center" style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>
                     <app-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"
                                               [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)"
                                               matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">
