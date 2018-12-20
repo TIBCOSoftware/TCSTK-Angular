@@ -43,6 +43,7 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
         take(1),
         takeUntil(this._destroyed$),
         map(val => {
+            this.svgcontents = val;
             val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
             const newval = this.sanitizer.bypassSecurityTrustHtml(val);
             return newval;

@@ -12,13 +12,12 @@ export class CachingInterceptor implements HttpInterceptor {
     let cachedResponse;
     if (req.headers.get('cacheResponse') || (req.urlWithParams.substr(0, 15)) === '../assets/icons') {
       // only cache if the cacheResponse flag is set
-      cachedResponse = this.cache.get(req);
-      // use the cache
-      if (cachedResponse) {
-        // console.log('*** using cached response for: ' + req.urlWithParams);
+      if (!req.headers.get('flushCache')) {
+        cachedResponse = this.cache.get(req);
       } else {
-        // console.log('*** no cached response for: ' + req.urlWithParams);
+        console.log('flushing cache');
       }
+      // use the cache
     } else {
       // dont pass the cache since this should not be cached
       // console.log('*** BYPASS CACHE FOR: ' + req.urlWithParams);

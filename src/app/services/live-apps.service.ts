@@ -151,7 +151,7 @@ export class LiveAppsService {
     } else {
       caseinfo.metadata.createdByDetails = new UserInfo();
     }
-    this.getAppConfig(appId, uiAppId).subscribe(val => {
+    this.getAppConfig(appId, uiAppId, true, false).subscribe(val => {
       // state attribute is first in summary
       const stateId = caseinfo.summaryObj.state;
       let stateConfig: IconMap;
@@ -392,14 +392,19 @@ export class LiveAppsService {
       );
   }
 
-  private getSharedState(name: string, type: string, useCache: boolean): Observable<SharedStateList>  {
+  private getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean): Observable<SharedStateList>  {
     const url = 'clientstate/states?$filter=type=' + type
       + ' and name=\'' + name + '\'';
     let options = {};
-    if (useCache) {
-      const headers = new HttpHeaders().set('cacheResponse', 'true');
+      let headers: HttpHeaders = new HttpHeaders();
+      if (useCache) {
+        headers = headers.set('cacheResponse', 'true');
+      }
+      if (flushCache) {
+        headers = headers.set('flushCache', 'true');
+      }
       options = { headers: headers };
-    }
+
     /*if (useCache) {
       headers.set('cacheResponse', 'true');
     }*/
@@ -460,7 +465,7 @@ export class LiveAppsService {
   }
 
   private getSSCasesList(ssName: string, sandboxId: number): Observable<CaseList> {
-    return this.getSharedState(ssName, 'PRIVATE', false)
+    return this.getSharedState(ssName, 'PRIVATE', false, false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -485,7 +490,7 @@ export class LiveAppsService {
     // update cases data removing oldest if > maxsize
     // set shared state
     let casesEntry: SharedStateEntry;
-    this.getSharedState(ssName, 'PRIVATE', false)
+    this.getSharedState(ssName, 'PRIVATE', false, false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -510,7 +515,7 @@ export class LiveAppsService {
 
   public getFavoriteCases(uiAppId: string, sandboxId: number): Observable<CaseList> {
     const ssName = uiAppId + '.favoritecases.tibcolabs.client.context.PRIVATE';
-    return this.getSharedState(ssName, 'PRIVATE', false)
+    return this.getSharedState(ssName, 'PRIVATE', false, false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -892,7 +897,8 @@ export class LiveAppsService {
 
   /* app state config */
 
-  public getAppConfig(appId: string, uiAppId: string): Observable<AppConfig> {
+  public getAppConfig(appId: string, uiAppId: string, useCache: boolean, flushCache: boolean): Observable<AppConfig> {
+    // if useCache is false this will trigger the service to update the cached version with latest
     const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
     // const url = 'assets/config/statemaps/'
     //  + appId + '.json';
@@ -902,7 +908,7 @@ export class LiveAppsService {
         map(value => new AppConfig().deserialize(value))
       );*/
 
-    return this.getSharedState(ssName, 'PUBLIC', true)
+    return this.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
       .pipe(
         map( value => {
           if (value.sharedStateEntries.length > 0) {

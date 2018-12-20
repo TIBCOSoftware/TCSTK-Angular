@@ -43,7 +43,7 @@ export class LiveAppsCaseStateConfigComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.liveapps.getAppConfig(this.appId, this.uiAppId)
+    this.liveapps.getAppConfig(this.appId, this.uiAppId, true, false)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

@@ -90,9 +90,9 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
       comp.restylePreviewCaseType(stateConfig.icon, fill);
     });
-    /*this.stateIconComponents.find(function(comp) {
+    this.stateIconComponents.find(function(comp) {
       return (comp.id === stateConfig.state && stateConfig.isCaseType);
-    }).refillSVG(fill);*/
+    }).refillSVG(fill);
   }
 
   private selectState = (state: CaseTypeState) => {
@@ -108,7 +108,9 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
         take(1),
         takeUntil(this._destroyed$),
         map( val => {
-            this.configChanged.emit(this.appStateConfig);
+            // trigger cache flush
+            this.liveapps.getAppConfig(this.appId, this.uiAppId, true, true)
+              .subscribe(appconfig => this.configChanged.emit(this.appStateConfig));
           })
       ).subscribe(null, error => { console.log('Unable to retrieve icon: ' + error.errorMsg); }
     );
@@ -188,7 +190,7 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case type states: ' + error.error.errorMsg; });
 
-    this.liveapps.getAppConfig(this.appId, this.uiAppId)
+    this.liveapps.getAppConfig(this.appId, this.uiAppId, true, false)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
