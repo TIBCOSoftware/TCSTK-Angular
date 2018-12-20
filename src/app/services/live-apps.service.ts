@@ -35,6 +35,7 @@ import {split} from 'ts-node';
 })
 
 export class LiveAppsService {
+  // these are 'per session' caches. They won't time out unless explicitly cleared or browser is refreshed
   private userInfoCacheMap = new Map();
   private caseTypesCacheMap = new Map();
   private iconSVGTextCacheMap = new Map();
@@ -276,6 +277,12 @@ export class LiveAppsService {
         );
     }
 
+    public clearFromIconSVGTextCache(url) {
+      if (this.iconSVGTextCacheMap.get(url)) {
+        this.iconSVGTextCacheMap.delete(url);
+      }
+    }
+
     public getIconSVGText(url): Observable<string> {
       if (!this.iconSVGTextCacheMap.get(url)) {
         const cacheEntry$ = this.getIconSVGTextCache(url)
@@ -385,11 +392,18 @@ export class LiveAppsService {
       );
   }
 
-  private getSharedState(name: string, type: string): Observable<SharedStateList>  {
+  private getSharedState(name: string, type: string, useCache: boolean): Observable<SharedStateList>  {
     const url = 'clientstate/states?$filter=type=' + type
       + ' and name=\'' + name + '\'';
-    const headers = new HttpHeaders().set('cacheResponse', 'true');
-    return this.http.get(url, { headers: headers } )
+    let options = {};
+    if (useCache) {
+      const headers = new HttpHeaders().set('cacheResponse', 'true');
+      options = { headers: headers };
+    }
+    /*if (useCache) {
+      headers.set('cacheResponse', 'true');
+    }*/
+     return this.http.get(url, options )
     // return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -446,7 +460,7 @@ export class LiveAppsService {
   }
 
   private getSSCasesList(ssName: string, sandboxId: number): Observable<CaseList> {
-    return this.getSharedState(ssName, 'PRIVATE')
+    return this.getSharedState(ssName, 'PRIVATE', false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -471,7 +485,7 @@ export class LiveAppsService {
     // update cases data removing oldest if > maxsize
     // set shared state
     let casesEntry: SharedStateEntry;
-    this.getSharedState(ssName, 'PRIVATE')
+    this.getSharedState(ssName, 'PRIVATE', false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -496,7 +510,7 @@ export class LiveAppsService {
 
   public getFavoriteCases(uiAppId: string, sandboxId: number): Observable<CaseList> {
     const ssName = uiAppId + '.favoritecases.tibcolabs.client.context.PRIVATE';
-    return this.getSharedState(ssName, 'PRIVATE')
+    return this.getSharedState(ssName, 'PRIVATE', false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -888,7 +902,7 @@ export class LiveAppsService {
         map(value => new AppConfig().deserialize(value))
       );*/
 
-    return this.getSharedState(ssName, 'PUBLIC')
+    return this.getSharedState(ssName, 'PUBLIC', true)
       .pipe(
         map( value => {
           if (value.sharedStateEntries.length > 0) {

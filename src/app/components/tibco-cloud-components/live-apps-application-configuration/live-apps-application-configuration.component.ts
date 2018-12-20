@@ -157,14 +157,16 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
 
   private uploadFile(file: File, state: CaseTypeState, isStateIcon: boolean) {
     if (file) {
+      const url = 'webresource/orgFolders/' + this.folderId + '/' + file.name;
+      this.liveapps.clearFromIconSVGTextCache(url);
       this.liveapps.uploadDocument('orgFolders', this.folderId, this.sandboxId,
         file, file.name, '')
         .pipe(
           map(val => {
             if (!isStateIcon) {
-              this.setNewStateIcon('webresource/orgFolders/' + this.folderId + '/' + file.name);
+              this.setNewStateIcon(url);
             } else {
-              this.setNewCaseTypeIcon('webresource/orgFolders/' + this.folderId + '/' + file.name);
+              this.setNewCaseTypeIcon(url);
             }
           })
         )
