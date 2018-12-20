@@ -15,7 +15,6 @@ export class CachingInterceptor implements HttpInterceptor {
       if (!req.headers.get('flushCache')) {
         cachedResponse = this.cache.get(req);
       } else {
-        console.log('flushing cache');
       }
       // use the cache
     } else {
