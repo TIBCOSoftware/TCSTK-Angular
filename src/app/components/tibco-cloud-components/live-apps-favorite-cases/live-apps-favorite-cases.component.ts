@@ -16,6 +16,7 @@ export class LiveAppsFavoriteCasesComponent implements OnInit, OnDestroy {
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
 
+  private displayType = 'miniCard';
   private favoriteCases: string[];
   private errorMessage: string;
 

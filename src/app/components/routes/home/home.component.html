@@ -4,6 +4,9 @@
 </div>
 
 <br>
+<div fxLayout="row" fxLayoutAlign="space-around start" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px;">
+  <app-live-apps-case-list fxFlex [sandboxId]="this.appConfig.sandboxId" [uiAppId]="this.appConfig.uiAppId" [caseRefs]="['150481', '150491', '150471']" [displayType]="'list'" [headerText]="'All Cases'" (clickCase)="clickCaseAction($event)"></app-live-apps-case-list>
+</div>
 
 <div fxLayout="row" fxLayoutAlign="space-around start">
   <app-live-apps-application-configuration [appId]="appConfig.applicationId" [appTypeLabel]="appConfig.caseTypeLabel" [uiAppId]="appConfig.uiAppId" [sandboxId]="appConfig.sandboxId" [folderId]="appConfig.caseIconsFolderId" (configChanged)="refresh()"></app-live-apps-application-configuration>

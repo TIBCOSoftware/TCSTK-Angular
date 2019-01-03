@@ -55,6 +55,7 @@ import {
   LiveAppsApplicationConfigurationComponent,
   LiveAppsStateIconUploadDialogComponent
 } from './components/tibco-cloud-components/live-apps-application-configuration/live-apps-application-configuration.component';
+import { LiveAppsCaseListComponent } from './components/tibco-cloud-components/live-apps-case-list/live-apps-case-list.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import {
     LiveAppsStateIconComponent,
     LiveAppsCaseStateConfigComponent,
     LiveAppsApplicationConfigurationComponent,
-    LiveAppsStateIconUploadDialogComponent
+    LiveAppsStateIconUploadDialogComponent,
+    LiveAppsCaseListComponent
 
   ],
   imports: [
