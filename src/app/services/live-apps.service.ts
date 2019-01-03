@@ -1,5 +1,5 @@
 import { Injectable, NgModule} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import { HttpClientModule, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import {
@@ -26,7 +26,7 @@ import {
   NotesList,
   Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata
 } from '../models/liveappsdata';
-import {map, share, shareReplay, take, takeUntil, tap} from 'rxjs/operators';
+import {catchError, map, share, shareReplay, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
 import {split} from 'ts-node';
 import {Location} from '@angular/common';
@@ -120,6 +120,17 @@ export class LiveAppsService {
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(casecount => casecount.toString()));
+  }
+
+  public getCaseByRef(sandboxId, caseRef: string): Observable<CaseInfo> {
+    const url = '/case/cases/' + caseRef
+      + '?$sandbox=' + sandboxId
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(caseinfo => new CaseInfo().deserialize(caseinfo))
+      );
+
   }
 
   public getCase(caseRef: string, sandboxId: number, appId: string, typeId: string ): Observable<CaseInfo> {

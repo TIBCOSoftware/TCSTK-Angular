@@ -7,6 +7,7 @@ import { HomeComponent } from './components/routes/home/home.component';
 import { CaseComponent } from './components/routes/case/case.component';
 import { AppConfig } from './models/liveappsdata';
 import { ConfigResolver } from './resolvers/config.resolver';
+import {CaseGuard} from './guards/case.guard';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
       {
         path: 'case/:caseRef',
         component: CaseComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, CaseGuard],
         resolve: {
           appConfig: ConfigResolver
         }
@@ -46,6 +47,7 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [
     LoginComponent,
+    CaseGuard,
     ConfigResolver
     ]
 })
