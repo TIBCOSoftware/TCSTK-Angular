@@ -26,11 +26,10 @@ export class CaseComponent implements OnInit, OnDestroy {
   @ViewChild(LiveAppsDocumentsComponent) caseDocumentsComponent: LiveAppsDocumentsComponent;
   @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
 
+  private appConfig;
   caseRef: string;
   isFavorite: boolean;
   valid = false;
-  // todo hardcoded uiAppId
-  uiAppId = 'testappjs';
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
@@ -63,17 +62,19 @@ export class CaseComponent implements OnInit, OnDestroy {
   }
 
   public toggleFavorite = () => {
-    this.liveapps.setFavoriteCase(this.caseRef, this.uiAppId, 31);
+    this.liveapps.setFavoriteCase(this.caseRef, this.appConfig.uiAppId, this.appConfig.sandboxId);
     this.isFavorite = !this.isFavorite;
   }
 
   ngOnInit() {
+    // read resolved config params
+    this.appConfig = this.route.snapshot.data.appConfig;
     this.caseRef = this.route.snapshot.params['caseRef'];
     if (!isNaN(Number(this.caseRef))) {
-      this.liveapps.setRecentCase(this.caseRef, this.uiAppId, 31);
+      this.liveapps.setRecentCase(this.caseRef, this.appConfig.uiAppId, this.appConfig.sandboxId);
       this.valid = true;
     }
-    this.liveapps.isFavoriteCase(this.caseRef, this.uiAppId, 31)
+    this.liveapps.isFavoriteCase(this.caseRef, this.appConfig.uiAppId, this.appConfig.sandboxId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

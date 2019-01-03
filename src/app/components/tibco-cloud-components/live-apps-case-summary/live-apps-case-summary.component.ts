@@ -35,7 +35,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() configModeAppTypeLabel: string;
   @Input() caseReference: string;
   @Input() sandboxId: number;
-  @Input() miniCard: boolean;
+  @Input() displayType: boolean; // miniCard, card, list
   @Input() borderCard: boolean;
   @Input() typeBar: boolean;
   @Input() uiAppId: string;
@@ -91,7 +91,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
     } else {
       const sampleCaseInfoJSON = '{\n' +
         '  "untaggedCasedata": "",\n' +
-        '  "summary": "{\\"state\\":\\"Reported\\",\\"Summary1\\":\\"000001\\",\\"Summary2\\":\\"summary data\\",\\"Summary3\\":\\"summary data\\"}",\n' +
+        '  "summary": "{\\"state\\":\\"Current State\\",\\"Summary1\\":\\"000001\\",\\"Summary2\\":\\"summary data\\",\\"Summary3\\":\\"summary data\\"}",\n' +
         '  "metadata": {\n' +
         '    "createdBy": "-1",\n' +
         '    "creationTimestamp": "2018-11-27T08:40:03.404Z",\n' +
@@ -107,7 +107,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
         '    "typeId": "1"\n' +
         '  },\n' +
         '  "summaryObj": {\n' +
-        '    "state": "Reported",\n' +
+        '    "state": "Current State",\n' +
         '    "Summary 1": "000001",\n' +
         '    "Summary 2": "The case name",\n' +
         '    "Summary 3": "The case description"\n' +

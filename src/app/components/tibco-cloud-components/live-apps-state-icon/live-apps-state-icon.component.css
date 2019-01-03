@@ -1,0 +1,4 @@
+:host ::ng-deep .la-state-icon-svg svg {
+  height: 16px;
+  width: 16px;
+}
