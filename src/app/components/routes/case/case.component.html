@@ -4,6 +4,11 @@
 
   <div>Is Favorite? {{isFavorite}}</div>
 
+  <div style="padding: 50px; width: 100%">
+    <app-live-apps-case-summary fxFlex [uiAppId]="appConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'list'" [sandboxId]="appConfig.sandboxId" [caseReference]="caseRef"></app-live-apps-case-summary>
+  </div>
+
+
   <div fxLayout="column" style="margin-left: 40px">
     <div fxFlex fxLayout="row" fxLayoutGap="20px">
       <app-live-apps-notes [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="appConfig.userId"></app-live-apps-notes>
