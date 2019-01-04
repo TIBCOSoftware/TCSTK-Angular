@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata
+  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata, UiAppConfig
 } from '../models/liveappsdata';
 import {catchError, map, share, shareReplay, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -124,7 +124,7 @@ export class LiveAppsService {
 
   public getCaseByRef(sandboxId, caseRef: string): Observable<CaseInfo> {
     const url = '/case/cases/' + caseRef
-      + '?$sandbox=' + sandboxId
+      + '?$sandbox=' + sandboxId;
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -283,7 +283,7 @@ export class LiveAppsService {
               if (casetype.id === typeId) {
                 requestedType = casetype;
               }
-            })
+            });
             return requestedType;
           })
         );
@@ -972,6 +972,60 @@ export class LiveAppsService {
   }
 
   /* app state config */
+
+  /* Ui App Config */
+
+  public getUiAppConfig(uiAppId: string, useCache: boolean, flushCache: boolean): Observable<UiAppConfig> {
+    // if useCache is false this will trigger the service to update the cached version with latest
+    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
+
+    return this.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
+      .pipe(
+        map( value => {
+            if (value.sharedStateEntries.length > 0) {
+              const ssresult = new UiAppConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
+              ssresult.id = value.sharedStateEntries[0].id;
+              return ssresult;
+            } else {
+              return undefined;
+            }
+          }
+        )
+      );
+  }
+
+  public createUiAppConfig(sandboxId: number, uiAppConfig: UiAppConfig, uiAppId: string): Observable<string> {
+    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
+    const content: SharedStateContent = new SharedStateContent();
+    content.json = this.escapeString(JSON.stringify(uiAppConfig));
+    return this.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
+      .pipe(
+        map(value => value)
+      );
+  }
+
+  public updateUiAppConfig(sandboxId: number, uiAppConfig: UiAppConfig, uiAppId: string, id: string): Observable<UiAppConfig> {
+    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
+    const content: SharedStateContent = new SharedStateContent();
+    content.json = this.escapeString(JSON.stringify(uiAppConfig));
+    const entry: SharedStateEntry = new SharedStateEntry();
+    entry.content = content;
+    entry.sandboxId = sandboxId;
+    entry.name = ssName;
+    entry.type = 'PUBLIC';
+    entry.id = id;
+    const ssList: SharedStateList = new SharedStateList();
+    ssList.sharedStateEntries = [];
+    ssList.sharedStateEntries.push(entry);
+    return this.updateSharedState(ssList.sharedStateEntries)
+      .pipe(
+        map(value => {
+          return new UiAppConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+        })
+      );
+  }
+
+  /* UI App Config */
 
 
   public fileSizeToHuman(size) {

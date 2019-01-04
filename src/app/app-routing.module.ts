@@ -7,7 +7,7 @@ import { HomeComponent } from './components/routes/home/home.component';
 import { CaseComponent } from './components/routes/case/case.component';
 import { AppConfig } from './models/liveappsdata';
 import { ConfigResolver } from './resolvers/config.resolver';
-import {CaseGuard} from './guards/case.guard';
+import { CaseGuard } from './guards/case.guard';
 
 const routes: Routes = [
   {
