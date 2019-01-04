@@ -13,7 +13,7 @@
   </div>
   <div *ngIf="displayType === 'list'" class="tcs-case-list-flow-list" fxLayout="column">
     <div class="tcs-case-list-item-box" *ngFor="let caseRef of caseRefs" fxFlex>
-      <app-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="caseRef" (clickCase)="clickCaseAction($event)"></app-live-apps-case-summary>
+      <app-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="caseRef" [highlight]="highlight" (clickCase)="clickCaseAction($event)"></app-live-apps-case-summary>
       <div class="tcs-case-summary-line"></div>
     </div>
   </div>

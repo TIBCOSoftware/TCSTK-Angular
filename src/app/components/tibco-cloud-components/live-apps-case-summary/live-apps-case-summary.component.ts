@@ -39,6 +39,7 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() borderCard: boolean;
   @Input() typeBar: boolean;
   @Input() uiAppId: string;
+  @Input() highlight: string;
   @Output() clickCase = new EventEmitter;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received

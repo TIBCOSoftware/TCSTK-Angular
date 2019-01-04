@@ -14,6 +14,7 @@ export class LiveAppsCaseListComponent implements OnInit, OnDestroy {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
   @Input() caseRefs: string[];
+  @Input() highlight: string;
   @Output() clickCase = new EventEmitter;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received

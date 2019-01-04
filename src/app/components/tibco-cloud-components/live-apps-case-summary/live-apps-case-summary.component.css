@@ -274,3 +274,8 @@
 .tcs-case-summary-list-large-details-box {
   max-width: 500px;
 }
+
+:host ::ng-deep .tcs-case-summary-highlight {
+  color: black;
+  font-weight: 900;
+}
