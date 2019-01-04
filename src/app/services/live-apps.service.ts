@@ -97,7 +97,8 @@ export class LiveAppsService {
 
   public getClaims(): Observable<Claim> {
     const url = '/organisation/claims';
-    return this.http.get(url)
+    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    return this.http.get(url, { headers: headers } )
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map ( claim => new Claim().deserialize(claim)));

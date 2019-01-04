@@ -111,10 +111,10 @@ export class Claim implements Deserializable {
   firstName: string;
   id: string;
   lastName: string;
-  sandboxes: SandboxList;
-  // status: Sandbox[];
+  sandboxes: Sandbox[];
   subscriptionId: string;
   username: string;
+  primaryProductionSandbox: Sandbox;
 
   deserialize(input: any): this {
     Object.assign(this, input);

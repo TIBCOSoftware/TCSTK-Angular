@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve } from '@angular/router';
+import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
 import {UiAppConfig} from '../models/liveappsdata';
@@ -11,7 +11,6 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
   private defaultAppConfig = new UiAppConfig().deserialize({
     id: undefined,
     userId: '256',
-    sandboxId: 31,
     applicationId: '1742',
     typeId: '1',
     uiAppId: 'testappjs',
@@ -21,7 +20,10 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
   constructor(public liveapps: LiveAppsService) {}
 
-  resolve(): Observable<UiAppConfig> {
+  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
+
+    // assume we will always be called from within the starterApp route which already has claims and hence sandboxId
+    const sandboxId = routeSnapshot.parent.data.claims.primaryProductionSandbox.id;
 
     const appConfig = this.liveapps.getUiAppConfig('testappjs', true, false)
       .pipe(
@@ -37,6 +39,7 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
                     result => {
                       const newAppConfig = this.defaultAppConfig;
                       newAppConfig.id = result;
+                      newAppConfig.sandboxId = sandboxId;
                       this.liveapps.updateUiAppConfig(
                         newAppConfig.sandboxId,
                         newAppConfig,

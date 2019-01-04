@@ -23,9 +23,7 @@ export class CaseGuard implements CanActivate {
 
     const configResolver = new ConfigResolver(this.liveapps);
 
-    const config = configResolver.resolve();
-
-    const decision = configResolver.resolve()
+    const decision = configResolver.resolve(route)
       .pipe(
         // use mergeMap so we can pass the config into the getCaseByRef call)
         mergeMap(

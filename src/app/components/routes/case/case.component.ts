@@ -10,6 +10,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {LiveAppsNotesComponent} from '../../tibco-cloud-components/live-apps-notes/live-apps-notes.component';
 import {LiveAppsDocumentsComponent} from '../../tibco-cloud-components/live-apps-documents/live-apps-documents.component';
+import {Claim, Sandbox} from '../../../models/liveappsdata';
 
 @Component({
   selector: 'app-case',
@@ -27,6 +28,8 @@ export class CaseComponent implements OnInit, OnDestroy {
   @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
 
   private appConfig;
+  private claims: Claim;
+  private sandbox: Sandbox;
   caseRef: string;
   isFavorite: boolean;
   valid = false;
@@ -69,6 +72,8 @@ export class CaseComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // read resolved config params
     this.appConfig = this.route.snapshot.data.appConfig;
+    this.claims = this.route.snapshot.data.claims;
+    this.sandbox = this.claims.primaryProductionSandbox;
     this.caseRef = this.route.snapshot.params['caseRef'];
     if (!isNaN(Number(this.caseRef))) {
       this.liveapps.setRecentCase(this.caseRef, this.appConfig.uiAppId, this.appConfig.sandboxId);

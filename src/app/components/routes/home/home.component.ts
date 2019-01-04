@@ -5,6 +5,7 @@ import {LiveAppsFavoriteCasesComponent} from '../../tibco-cloud-components/live-
 import {LiveAppsRecentCasesComponent} from '../../tibco-cloud-components/live-apps-recent-cases/live-apps-recent-cases.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ConfigResolver} from '../../../resolvers/config.resolver';
+import {Claim, Sandbox} from '../../../models/liveappsdata';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,9 @@ export class HomeComponent implements OnInit {
   @ViewChild(LiveAppsRecentCasesComponent) caseRecentComponent: LiveAppsRecentCasesComponent;
 
   private appConfig;
+  private claims: Claim;
+  private sandbox: Sandbox;
+
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   private clickCaseAction = (caseReference) => {
@@ -35,6 +39,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // read resolved config params
     this.appConfig = this.route.snapshot.data.appConfig;
+    this.claims = this.route.snapshot.data.claims;
+    this.sandbox = this.claims.primaryProductionSandbox;
 
   }
 
