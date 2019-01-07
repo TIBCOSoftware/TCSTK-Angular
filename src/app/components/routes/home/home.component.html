@@ -1,11 +1,15 @@
 <div fxLayout="row" fxLayoutAlign="space-around start">
-  <app-live-apps-favorite-cases [sandboxId]="this.appConfig.sandboxId" [uiAppId]="this.appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></app-live-apps-favorite-cases>
-  <app-live-apps-recent-cases [sandboxId]="this.appConfig.sandboxId" [uiAppId]="this.appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></app-live-apps-recent-cases>
+  <app-live-apps-favorite-cases [sandboxId]="appConfig.sandboxId" [uiAppId]="appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></app-live-apps-favorite-cases>
+  <app-live-apps-recent-cases [sandboxId]="appConfig.sandboxId" [uiAppId]="appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></app-live-apps-recent-cases>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-around start" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px;">
+  <app-live-apps-case-search [sandboxId]="appConfig.sandboxId" [appId]="appConfig.applicationId" [typeId]="appConfig.typeId" (foundRefs)="handleSearchResults($event)"></app-live-apps-case-search>
 </div>
 
 <br>
 <div fxLayout="row" fxLayoutAlign="space-around start" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px;">
-  <app-live-apps-case-list fxFlex [sandboxId]="this.appConfig.sandboxId" [uiAppId]="this.appConfig.uiAppId" [caseRefs]="['150481', '150491', '150471']" [displayType]="'list'" [headerText]="'All Cases'" [highlight]="" (clickCase)="clickCaseAction($event)"></app-live-apps-case-list>
+  <app-live-apps-case-list fxFlex [sandboxId]="this.appConfig.sandboxId" [uiAppId]="this.appConfig.uiAppId" [caseRefs]="matchedRefs" [displayType]="'list'" [headerText]="'All Cases'" [highlight]="searchString" (clickCase)="clickCaseAction($event)"></app-live-apps-case-list>
 </div>
 
 <div fxLayout="row" fxLayoutAlign="space-around start">

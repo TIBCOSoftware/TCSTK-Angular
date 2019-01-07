@@ -1,0 +1,8 @@
+<div class="tcs-search-box" fxlayout="row" fxLayoutAlign="space-around center" fxFlex>
+  <div class="tcs-search-input-container" fxFlex>
+    <input class="tcs-search-input" placeholder="Search within cases" (keyup)="searchTerm$.next($event.target.value)" fxFlex>
+    <div fxLayoutAlign="center end">
+      <mat-icon class="tcs-icon" svgIcon="tcs-search-icon"></mat-icon>
+    </div>
+  </div>
+</div>

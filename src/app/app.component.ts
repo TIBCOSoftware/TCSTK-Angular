@@ -86,6 +86,10 @@ export class AppComponent {
       'tcs-caselist-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-caselist.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-search-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-search.svg'))
+    );
   }
   title = 'BaseApp';
 }

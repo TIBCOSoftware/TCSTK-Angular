@@ -57,6 +57,7 @@ import {
 } from './components/tibco-cloud-components/live-apps-application-configuration/live-apps-application-configuration.component';
 import { LiveAppsCaseListComponent } from './components/tibco-cloud-components/live-apps-case-list/live-apps-case-list.component';
 import { HighlightPipe } from './pipes/highlight.pipe';
+import { LiveAppsCaseSearchComponent } from './components/tibco-cloud-components/live-apps-case-search/live-apps-case-search.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { HighlightPipe } from './pipes/highlight.pipe';
     LiveAppsApplicationConfigurationComponent,
     LiveAppsStateIconUploadDialogComponent,
     LiveAppsCaseListComponent,
-    HighlightPipe
+    HighlightPipe,
+    LiveAppsCaseSearchComponent
 
   ],
   imports: [

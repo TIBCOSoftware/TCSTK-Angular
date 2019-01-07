@@ -26,7 +26,7 @@ import {
   NotesList,
   Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata, UiAppConfig
 } from '../models/liveappsdata';
-import {catchError, map, share, shareReplay, take, takeUntil, tap} from 'rxjs/operators';
+import {catchError, debounceTime, distinctUntilChanged, map, share, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
 import {split} from 'ts-node';
 import {Location} from '@angular/common';
@@ -141,6 +141,34 @@ export class LiveAppsService {
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfo => new CaseInfo().deserialize(caseinfo)));
+  }
+
+  public caseSearch(terms: Observable<string>, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<any> {
+    return terms
+      .pipe(
+        debounceTime(500),
+        distinctUntilChanged(),
+        switchMap(term => this.caseSearchEntries(term, sandboxId, appId, typeId, skip, top))
+      );
+  }
+
+  private caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<any> {
+      const url = '/case/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+        + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top
+        + '&$search=' + term;
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(caseinfos => {
+          const caserefs: string[] = [];
+            const caseinfolist = new CaseInfoList().deserialize(caseinfos);
+            caseinfolist.caseinfos.forEach(caseinfo => {
+              caserefs.push(caseinfo.caseReference);
+            })
+            return { caserefs: caserefs, searchString: term };
+          }
+        )
+      );
   }
 
   private parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string, uiAppId): CaseInfo {

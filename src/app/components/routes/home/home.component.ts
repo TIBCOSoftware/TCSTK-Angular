@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   private appConfig;
   private claims: Claim;
   private sandbox: Sandbox;
+  private matchedRefs: string[];
+  private searchString: string;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -36,12 +38,16 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  private handleSearchResults = (data) => {
+    this.matchedRefs = data.caserefs;
+    this.searchString = data.searchString;
+  }
+
   ngOnInit() {
     // read resolved config params
     this.appConfig = this.route.snapshot.data.appConfig;
     this.claims = this.route.snapshot.data.claims;
     this.sandbox = this.claims.primaryProductionSandbox;
-
   }
 
 }
