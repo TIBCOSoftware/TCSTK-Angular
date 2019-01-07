@@ -22,7 +22,7 @@ export class LiveAppsCaseSearchComponent implements OnInit {
 
   ngOnInit() {
     const skip = 0;
-    const top = 10;
+    const top = 100;
     this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.appId, this.typeId, skip, top)
       .subscribe(results => {
         this.foundRefs.emit(results);
