@@ -5,7 +5,7 @@ import {LiveAppsFavoriteCasesComponent} from '../../tibco-cloud-components/live-
 import {LiveAppsRecentCasesComponent} from '../../tibco-cloud-components/live-apps-recent-cases/live-apps-recent-cases.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ConfigResolver} from '../../../resolvers/config.resolver';
-import {Claim, Sandbox} from '../../../models/liveappsdata';
+import {CaseSearchResults, Claim, Sandbox} from '../../../models/liveappsdata';
 
 @Component({
   selector: 'app-home',
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  private handleSearchResults = (data) => {
+  private handleSearchResults = (data: CaseSearchResults) => {
     this.matchedRefs = data.caserefs;
     this.searchString = data.searchString;
   }

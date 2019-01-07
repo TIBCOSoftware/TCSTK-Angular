@@ -569,3 +569,12 @@ export class UiAppConfig implements Deserializable {
     return this;
   }
 }
+
+export class CaseSearchResults implements Deserializable {
+  caserefs: string[];
+  searchString: string;
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
+}

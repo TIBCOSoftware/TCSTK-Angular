@@ -24,7 +24,7 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata, UiAppConfig
+  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata, UiAppConfig, CaseSearchResults
 } from '../models/liveappsdata';
 import {catchError, debounceTime, distinctUntilChanged, map, share, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -143,7 +143,7 @@ export class LiveAppsService {
         map(caseinfo => new CaseInfo().deserialize(caseinfo)));
   }
 
-  public caseSearch(terms: Observable<string>, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<any> {
+  public caseSearch(terms: Observable<string>, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
     return terms
       .pipe(
         debounceTime(500),
@@ -152,7 +152,7 @@ export class LiveAppsService {
       );
   }
 
-  private caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<any> {
+  private caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
       const url = '/case/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
         + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top
         + '&$search=' + term;
@@ -165,7 +165,7 @@ export class LiveAppsService {
             caseinfolist.caseinfos.forEach(caseinfo => {
               caserefs.push(caseinfo.caseReference);
             })
-            return { caserefs: caserefs, searchString: term };
+            return new CaseSearchResults().deserialize({ caserefs: caserefs, searchString: term });
           }
         )
       );

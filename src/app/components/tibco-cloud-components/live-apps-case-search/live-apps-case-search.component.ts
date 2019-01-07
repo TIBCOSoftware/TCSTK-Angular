@@ -25,7 +25,7 @@ export class LiveAppsCaseSearchComponent implements OnInit {
     const top = 10;
     this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.appId, this.typeId, skip, top)
       .subscribe(results => {
-        this.foundRefs.emit({ caserefs: results.caserefs, searchString: results.searchString });
+        this.foundRefs.emit(results);
       });
   }
 
