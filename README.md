@@ -10,6 +10,10 @@ This repo contains Angular 7 components and sample code for creating cloud start
 
 ![alt text](screenshots/Notes.png)
 
+# Case Search
+
+![alt text](screenshots/Case Search.png)
+
 # Favorite Cases
 
 ![alt text](screenshots/Favorites.png)
