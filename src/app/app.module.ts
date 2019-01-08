@@ -58,6 +58,7 @@ import {
 import { LiveAppsCaseListComponent } from './components/tibco-cloud-components/live-apps-case-list/live-apps-case-list.component';
 import { HighlightPipe } from './pipes/highlight.pipe';
 import { LiveAppsCaseSearchComponent } from './components/tibco-cloud-components/live-apps-case-search/live-apps-case-search.component';
+import { ScrollingModule  } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -117,8 +118,8 @@ import { LiveAppsCaseSearchComponent } from './components/tibco-cloud-components
     FormsModule,
     HttpClientModule,
     FlexLayoutModule,
-    ColorPickerModule
-
+    ColorPickerModule,
+    ScrollingModule
   ],
   providers: [
     AuthGuard,

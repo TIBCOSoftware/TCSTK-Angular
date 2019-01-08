@@ -11,10 +11,14 @@
       <div class="tcs-case-summary-line"></div>
     </div>
   </div>
-  <div *ngIf="displayType === 'list'" class="tcs-case-list-flow-list" fxLayout="column">
-    <div class="tcs-case-list-item-box" *ngFor="let caseRef of caseRefs" fxFlex>
-      <app-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="caseRef" [highlight]="highlight" (clickCase)="clickCaseAction($event)"></app-live-apps-case-summary>
-      <div class="tcs-case-summary-line"></div>
-    </div>
+
+
+  <div *ngIf="displayType === 'list'" fxFlex fxLayout="column">
+    <cdk-virtual-scroll-viewport class="tcs-case-list-flow-list" itemSize="56" fxFlex>
+        <div class="tcs-case-list-item-box" *cdkVirtualFor="let caseRef of caseRefs" style="height: 56px">
+          <app-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="caseRef" [highlight]="highlight" (clickCase)="clickCaseAction($event)"></app-live-apps-case-summary>
+          <div class="tcs-case-summary-line"></div>
+        </div>
+    </cdk-virtual-scroll-viewport>
   </div>
 </div>
