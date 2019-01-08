@@ -193,8 +193,8 @@ export class CaseInfoList implements Deserializable {
     this.caseinfos = [];
     Object.assign(this.caseinfos, input);
     this.caseinfos.forEach(function(caseinfo) {
-      caseinfo.summaryObj = JSON.parse(caseinfo.summary);
-      caseinfo.casedataObj = JSON.parse(caseinfo.casedata);
+      if (caseinfo.summary) { caseinfo.summaryObj = JSON.parse(caseinfo.summary); }
+      if (caseinfo.casedata) { caseinfo.casedataObj = JSON.parse(caseinfo.casedata); }
     })
     return this;
   }

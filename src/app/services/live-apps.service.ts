@@ -155,6 +155,7 @@ export class LiveAppsService {
   private caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
       const url = '/case/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
         + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top
+        + '&$select=cr'
         + '&$search=' + term;
     return this.http.get(url)
       .pipe(

@@ -22,7 +22,12 @@ export class LiveAppsCaseSearchComponent implements OnInit {
 
   ngOnInit() {
     const skip = 0;
-    const top = 100;
+    const top = 10000;
+    // Note: The API limits searches to 10000 items
+    // The service is configured to optimize performance by only returning case references at this stage
+    // The case details will only be loaded when the item is rendered (for example in the case-list component)
+    // Any case list component should use cdk virtual scroll to ensure 10000 case details are not loaded in one go
+    // (from the API or to the DOM)
     this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.appId, this.typeId, skip, top)
       .subscribe(results => {
         this.foundRefs.emit(results);
