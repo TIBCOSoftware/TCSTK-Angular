@@ -17,6 +17,7 @@ import {Claim, Sandbox} from '../../../models/liveappsdata';
   templateUrl: './case.component.html',
   styleUrls: ['./case.component.css']
 })
+
 export class CaseComponent implements OnInit, OnDestroy {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChild(LiveAppsCaseDataComponent) caseDataComponent: LiveAppsCaseDataComponent;
@@ -27,11 +28,34 @@ export class CaseComponent implements OnInit, OnDestroy {
   @ViewChild(LiveAppsDocumentsComponent) caseDocumentsComponent: LiveAppsDocumentsComponent;
   @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
 
+  /**
+   * shared appConfig
+   */
   private appConfig;
+
+  /**
+   * TC Account Claim
+   */
   private claims: Claim;
+
+  /**
+   * TC Sandbox
+   */
   private sandbox: Sandbox;
+
+  /**
+   * case reference
+   */
   caseRef: string;
+
+  /**
+   * marks a Favorite case
+   */
   isFavorite: boolean;
+
+  /**
+   * not sure ??
+   */
   valid = false;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
@@ -69,6 +93,11 @@ export class CaseComponent implements OnInit, OnDestroy {
     this.isFavorite = !this.isFavorite;
   }
 
+  /**
+  * Just a Example Documenation Comment
+  *
+  * Demo Link<a href="">test</a>
+  */
   ngOnInit() {
     // read resolved config params
     this.appConfig = this.route.snapshot.data.appConfig;
@@ -89,6 +118,15 @@ export class CaseComponent implements OnInit, OnDestroy {
         );
   }
 
+  /**
+  * @name ngOnDestroy
+  * @description on Init Case Component.
+  *
+  * Just a Example Documenation Comment
+  *
+  * Demo Link<a href="">test</a>
+  *
+  */
   ngOnDestroy(): void {
     this._destroyed$.next();
   }
