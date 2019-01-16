@@ -12,14 +12,24 @@ import {LiveAppsNotesComponent} from '../../tibco-cloud-components/live-apps-not
 import {LiveAppsDocumentsComponent} from '../../tibco-cloud-components/live-apps-documents/live-apps-documents.component';
 import {Claim, Sandbox} from '../../../models/liveappsdata';
 
+/**
+* Component Description of CaseComponent
+*
+* Usage: &lt;app-case caseRef="">&lt;/app-case>
+*/
 @Component({
   selector: 'app-case',
   templateUrl: './case.component.html',
   styleUrls: ['./case.component.css']
 })
 
+/**
+* Class Description of CaseComponent
+*/
 export class CaseComponent implements OnInit, OnDestroy {
-  // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
+  /**
+   * The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
+  */
   @ViewChild(LiveAppsCaseDataComponent) caseDataComponent: LiveAppsCaseDataComponent;
   @ViewChild(LiveAppsCaseStatesComponent) caseStatesComponent: LiveAppsCaseStatesComponent;
   @ViewChild(LiveAppsCaseActionsComponent) caseActionsComponent: LiveAppsCaseActionsComponent;
@@ -29,7 +39,7 @@ export class CaseComponent implements OnInit, OnDestroy {
   @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
 
   /**
-   * shared appConfig
+   * shared appConfig within the App
    */
   private appConfig;
 
@@ -62,8 +72,14 @@ export class CaseComponent implements OnInit, OnDestroy {
   private _destroyed$ = new Subject();
   private errorMessage: string;
 
+  /**
+  * Component Constructor
+  */
   constructor(private router: Router, private route: ActivatedRoute, private liveapps: LiveAppsService) { }
 
+  /**
+  * Case Data global Refresh support
+  */
   public refresh = () => {
     if (this.caseDataComponent) {
       this.caseDataComponent.refresh();
@@ -88,6 +104,9 @@ export class CaseComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+  * Toggle Case to Favorite Cases List
+  */
   public toggleFavorite = () => {
     this.liveapps.setFavoriteCase(this.caseRef, this.appConfig.uiAppId, this.appConfig.sandboxId);
     this.isFavorite = !this.isFavorite;
@@ -126,6 +145,12 @@ export class CaseComponent implements OnInit, OnDestroy {
   *
   * Demo Link<a href="">test</a>
   *
+  */
+
+  /**
+  * Just a Example Documenation Comment
+  *
+  * Demo Link<a href="">test</a>
   */
   ngOnDestroy(): void {
     this._destroyed$.next();
