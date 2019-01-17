@@ -16,6 +16,12 @@ usage HTML Tags
 #### Inputs
 available Attributes
 
+| Attribute       | Type            | Default Value | Comments            |
+| --------------- |:--------------- |:------------- |:------------------- |
+| cust-attribute1 | boolean         | false         | some comment        |
+| cust-attribute2 | 'opt1' : 'opt2' | 'opt1'        | come more comment   |
+
+
 #### Demos
 live Showcase
 
