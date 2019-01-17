@@ -9,6 +9,10 @@ Screenshot Image as PNG or animated GIF
 #### Usage
 usage HTML Tags
 
+```html
+<custom-element cust-attribute=""></custom-element>
+```
+
 #### Inputs
 available Attributes
 
