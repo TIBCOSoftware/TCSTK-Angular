@@ -1,14 +1,13 @@
-= Component Name
-
+## Component Name
 detailed description of the component and how to use it
 
-== Usage
+#### Usage
 usage HTML Tags
 
-== Inputs
+#### Inputs
 available Attributes
 
-== Demos
+#### Demos
 live Showcase
 
 <custom-element cust-attribute=""></custom-element>
