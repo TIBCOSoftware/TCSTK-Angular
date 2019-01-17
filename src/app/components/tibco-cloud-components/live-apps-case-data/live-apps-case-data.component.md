@@ -1,6 +1,11 @@
 ## Component Name
 detailed description of the component and how to use it
 
+#### Screenshot
+Screenshot Image as PNG or animated GIF
+
+![alt-text](../../../../../screenshots/Summary.png "Image")
+
 #### Usage
 usage HTML Tags
 
