@@ -25,5 +25,10 @@ available Attributes
 #### Demos
 live Showcase
 
+```html
+<!-- as HTML within Markdown, just remove the ```html code-area ``` -->
 <custom-element cust-attribute=""></custom-element>
 <script type="text/javascript" src="http://host/cust-component/cust-element.js"></script>
+```
+
+> Showcase connected to Mock Service
