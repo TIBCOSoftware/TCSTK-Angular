@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<div fxFlexFill>
+<tcla-live-apps-login *ngIf="!loggedIn" (loginContext)="handleLoginContext($event)"></tcla-live-apps-login>
+
+<div *ngIf="loggedIn"fxFlexFill>
+  <tcla-tibco-cloud-navbar class="tcla-cloud-navbar" [appName]="'Custom Cloud App (TIBCO LABS™)'"></tcla-tibco-cloud-navbar>
+  <br>
+
+  <div #widgetsContainer class="tcla-components-pane" fxLayout="column" fxFlexFill>
+
+    <div #widgetBlock1 class="widget-block-1" fxFlex>
+      <tcla-live-apps-search-widget [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="this.appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
+    </div>
+
+    <div #widgetBlock2 class="widget-block-2" fxFlex fxLayout="row" fxLayoutAlign="space-around start">
+      <div #widgetBlock2.1 class="widget-block-2-1">
+        <tcla-live-apps-favorite-cases class="padded-widget" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
+      </div>
+      <div #widgetBlock2.2 class="widget-block-2-2">
+        <tcla-live-apps-recent-cases class="padded-widget" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

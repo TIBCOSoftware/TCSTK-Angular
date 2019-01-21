@@ -1,0 +1,34 @@
+<div *ngIf="errorMessage">{{errorMessage}}</div>
+<div *ngIf="mode==='creators'" class="la-process-div" fxLayoutAlign="space-around start">
+  <div class="la-process-card" fxLayout="column">
+    <h3>Select Creator:</h3>
+    <div class="la-process-selection">
+      <div class="la-available-process" (click)="selectProcess('creator', creator)" *ngFor="let creator of caseCreatorList">
+        <div class="la-process-name">{{creator.name}}</div>
+        <div fxLayout="column" class="la-sandbox-selection-dtl" fxLayoutAlign="start start">
+          <div>Id: {{creator.id}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="mode==='actions'" class="la-process-div" fxLayoutAlign="space-around start">
+  <div class="la-process-card" fxLayout="column">
+    <h3>Enter a case reference to list actions</h3>
+    <mat-form-field fxFlex style="margin-left: 15px">
+      <input matInput name="caseReference" type="text" placeholder="Enter a Case Reference" [(ngModel)]="caseReference" maxlength="50">
+    </mat-form-field>
+    <div *ngIf="caseReference">
+    <h3>Now click an action to run it:</h3>
+    <span style="margin-left: 30px; font-size: 14px">Note - all actions are listed - some may not be runable</span>
+      <div class="la-process-selection">
+        <div class="la-available-process" (click)="selectProcess('action', action)" *ngFor="let action of caseActionList">
+          <div class="la-process-name">{{action.name}}</div>
+          <div fxLayout="column" class="la-process-selection-dtl" fxLayoutAlign="start start">
+            <div>Id: {{action.id}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

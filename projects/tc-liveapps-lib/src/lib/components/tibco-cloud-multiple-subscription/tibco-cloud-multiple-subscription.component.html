@@ -1,0 +1,15 @@
+d<div class="la-subscription-div" fxLayoutAlign="space-around start">
+  <div class="la-subscriptions-card" fxLayout="column" *ngIf="!loading">
+    <h3>Select Subscription:</h3>
+        <div class="la-subscription-selection">
+          <div class="la-available-sub" (click)="authorize(subscription.accountId)" *ngFor="let subscription of subscriptions">
+              <div class="la-subscription-name">{{subscription.accountDisplayName}}</div>
+              <div fxLayout="column" class="la-subscription-selection-dtl" fxLayoutAlign="start start">
+                <div>Owner: {{subscription.ownerName}}</div>
+                <div>Your role: {{subscription.loggedInUserRole}}</div>
+                <div>Regions: {{subscription.regions}}</div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>

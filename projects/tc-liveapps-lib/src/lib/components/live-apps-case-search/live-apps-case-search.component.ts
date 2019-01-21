@@ -1,0 +1,55 @@
+import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {LiveAppsService} from '../../services/live-apps.service';
+import {CaseInfoList, CaseSearchResults, CaseType} from '../../models/liveappsdata';
+
+@Component({
+  selector: 'tcla-live-apps-case-search',
+  templateUrl: './live-apps-case-search.component.html',
+  styleUrls: ['./live-apps-case-search.component.css']
+})
+
+export class LiveAppsCaseSearchComponent {
+  @ViewChild('searchBox') searchBox: ElementRef;
+  @Input() sandboxId: number;
+  // @Input() appId: string;
+  // @Input() typeId: string;
+  @Output() foundRefs: EventEmitter<CaseSearchResults> = new EventEmitter<CaseSearchResults>();
+
+  searchTerm$: Subject<string>;
+  searchValue: Observable<String>;
+  searchString: string;
+
+  // case type selector
+  public selectedApp: CaseType = new CaseType();
+
+  constructor(private liveapps: LiveAppsService) {}
+
+  // handle search app selection
+  public handleSearchAppSelection = (application: CaseType) => {
+    this.selectedApp = application;
+    this.doSearch();
+  }
+
+  private doSearch = () => {
+    this.searchBox.nativeElement.value = '';
+    const blankres = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
+    this.foundRefs.emit(blankres);
+    this.searchTerm$ = new Subject<string>();
+    this.searchValue = this.searchTerm$.asObservable();
+    if (this.selectedApp.applicationId && this.selectedApp.id && this.sandboxId) {
+      const skip = 0;
+      const top = 10000;
+      // Note: The API limits searches to 10000 items
+      // The service is configured to optimize performance by only returning case references at this stage
+      // The case details will only be loaded when the item is rendered (for example in the case-list component)
+      // Any case list component should use cdk virtual scroll to ensure 10000 case details are not loaded in one go
+      // (from the API or to the DOM)
+      this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, skip, top)
+        .subscribe(results => {
+          this.foundRefs.emit(results);
+        });
+    }
+  }
+
+}

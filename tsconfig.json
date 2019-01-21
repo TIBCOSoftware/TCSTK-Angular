@@ -17,6 +17,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "tc-liveapps-lib": [
+        // This is so debugging works for the library (.ts files served up in chrome)
+        // "dist/tc-liveapps-lib"
+        "projects/tc-liveapps-lib/src/public_api"
+      ],
+      "tc-liveapps-lib/*": [
+        "dist/tc-liveapps-lib/*"
+      ]
+    }
   }
 }

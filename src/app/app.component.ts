@@ -1,14 +1,49 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import {
+  AccessToken,
+  AuthInfo,
+  CaseSearchResults, CaseType,
+  LoginContext,
+  UiAppConfig
+} from '../../projects/tc-liveapps-lib/src/lib/models/liveappsdata';
+import { LiveAppsCaseSummaryComponent } from '../../projects/tc-liveapps-lib/src/lib/components/live-apps-case-summary/live-apps-case-summary.component';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
+  selector: 'laapp-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'tc-liveapps';
+
+  loggedIn = false;
+  loginContext: LoginContext;
+
+  // generic app config
+  appConfig = new UiAppConfig().deserialize({
+    id: undefined,
+    userId: '256',
+    applicationId: '1742',
+    typeId: '1',
+    uiAppId: 'testappjs',
+    caseIconsFolderId: 'ServiceRequest_Icons',
+    caseTypeLabel: 'Partner Request'
+  });
+
+  // handle login context
+  handleLoginContext = (loginContext: LoginContext) => {
+    this.loginContext = loginContext;
+    this.loggedIn = true;
+  }
+
+  // case clicked
+  private clickCaseAction = (caseReference) => {
+    console.log('Case was clicked: ' + caseReference);
+  }
+
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-reply',
@@ -55,8 +90,8 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-zip.svg'))
     );
     this.matIconRegistry.addSvgIcon(
-        'tcs-document-image',
-        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-image.svg'))
+      'tcs-document-image',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-document-image.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-document-doc',
@@ -91,6 +126,6 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-search.svg'))
     );
   }
-  title = 'BaseApp';
-}
 
+
+}
