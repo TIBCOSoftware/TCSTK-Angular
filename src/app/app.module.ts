@@ -6,6 +6,7 @@ import {TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {Location} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,8 @@ import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
     FlexLayoutModule,
     BrowserModule,
     TcLiveappsLibModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([])
   ],
   providers: [],

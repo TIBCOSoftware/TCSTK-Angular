@@ -29,6 +29,7 @@ export * from './lib/components/live-apps-state-icon/live-apps-state-icon.compon
 export * from './lib/components/tibco-cloud-login/tibco-cloud-login.component';
 export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 export * from './lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component';
+export * from './lib/components/spotfire-wrapper/spotfire-wrapper.component';
 
 // pipes
 export * from './lib/pipes/highlight.pipe';

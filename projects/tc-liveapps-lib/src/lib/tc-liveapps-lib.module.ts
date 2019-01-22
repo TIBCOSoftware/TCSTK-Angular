@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
   MatButtonModule,
-  MatCardModule, MatDialogModule,
+  MatCardModule, MatCheckboxModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule,
   MatSelectModule, MatTooltipModule
 } from '@angular/material';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -56,6 +56,7 @@ import {LiveAppsService} from './services/live-apps.service';
 import { LiveAppsLoginComponent } from './components/live-apps-login/live-apps-login.component';
 import { LiveAppsSearchWidgetComponent } from './components/live-apps-search-widget/live-apps-search-widget.component';
 import { LiveAppsComponentComponent } from './components/live-apps-component/live-apps-component.component';
+import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-wrapper.component';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { LiveAppsComponentComponent } from './components/live-apps-component/liv
     HighlightPipe,
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
-    LiveAppsComponentComponent
+    LiveAppsComponentComponent,
+    SpotfireWrapperComponent
   ],
   imports: [
     HttpClientModule,
@@ -99,6 +101,7 @@ import { LiveAppsComponentComponent } from './components/live-apps-component/liv
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
@@ -112,7 +115,9 @@ import { LiveAppsComponentComponent } from './components/live-apps-component/liv
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,
-    ScrollingModule
+    ScrollingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     LiveAppsLoginComponent,
@@ -146,7 +151,8 @@ import { LiveAppsComponentComponent } from './components/live-apps-component/liv
     HighlightPipe,
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
-    LiveAppsComponentComponent
+    LiveAppsComponentComponent,
+    SpotfireWrapperComponent
   ],
   providers: [
     RequestCacheService,
