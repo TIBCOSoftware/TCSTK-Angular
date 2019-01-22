@@ -1,4 +1,4 @@
-<div class="flip-container" [class.flipit]="edit">
+<!--div class="flip-container" [class.flipit]="edit">
   <div class="flipper">
     <div *ngIf="form && metadata && dataTables" class="back" [formGroup]="form" (click)="stopPropagation($event)">
       <div class="header">
@@ -53,13 +53,13 @@
               </mat-select>
             </mat-form-field>
           </div>
-        </div>
+        </div-->
         <!--
         <pre>{{markingOn|json}}</pre>
         <pre>{{dataTables|json}}</pre>
         <pre>{{form.value|json}}</pre>
         -->
-      </div>
+      <!--/div>
       <div style='border-top:1px solid #ccc; padding: 20px 30px; text-align:right'>
         <button mat-flat-button (click)="edit=!edit;stopPropagation($event)">Close</button>
         &nbsp;&nbsp;
@@ -75,4 +75,5 @@
       </div>
     </div>
   </div>
-</div>
+</div-->
+<div style="height: 500px" #spot></div>
