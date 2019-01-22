@@ -5,10 +5,13 @@
   <tcla-tibco-cloud-navbar class="tcla-cloud-navbar" [appName]="'Custom Cloud App (TIBCO LABS™)'"></tcla-tibco-cloud-navbar>
   <br>
 
+
   <div #widgetsContainer class="tcla-components-pane" fxLayout="column" fxFlexFill>
 
+    <!--tcla-live-apps-case-actions [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [caseReference]="'150471'" [caseState]="'Created'" (actionClicked)="handleActionClick($event)"></tcla-live-apps-case-actions-->
+
     <div #widgetBlock1 class="widget-block-1" fxFlex>
-      <tcla-live-apps-search-widget [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="this.appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
+      <tcla-live-apps-search-widget [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
     </div>
 
     <div #widgetBlock2 class="widget-block-2" fxFlex fxLayout="row" fxLayoutAlign="space-around start">

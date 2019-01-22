@@ -1,0 +1,21 @@
+.tcs-case-action-button {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+  max-width: 250px;
+  border-radius: 3px;
+  border-color: #0081cb;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #ffffff;
+  color: #0081cb;
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+}

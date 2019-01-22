@@ -1,8 +1,23 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+/**
+ * @ngdoc component
+ * @name liveAppsCaseActionComponent
+ *
+ * @description
+ * `<tcla-live-apps-case-actions>` is a component providing the ability to list and select case actions.
+ *
+ * @param {function callback} actionClicked Notify parent that an action has been selected.
+ *
+ * @usage
+ *
+ *
+ *
+ */
+
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {CaseAction} from '../../models/liveappsdata';
+import {CaseAction, CaseType} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
@@ -16,6 +31,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   @Input() typeId: string;
   @Input() sandboxId: number;
   @Input() caseState: string;
+  @Output() actionClicked: EventEmitter<CaseAction> = new EventEmitter<CaseAction>();
 
   public caseactions: CaseAction[];
   public errorMessage: string;
@@ -30,6 +46,10 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
+  }
+
+  public selectAction(action: CaseAction) {
+    this.actionClicked.emit(action);
   }
 
   constructor(private liveapps: LiveAppsService) {

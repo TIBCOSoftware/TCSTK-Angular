@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {
   AccessToken,
-  AuthInfo,
+  AuthInfo, CaseAction,
   CaseSearchResults, CaseType,
   LoginContext,
   UiAppConfig
@@ -42,6 +42,11 @@ export class AppComponent {
   // case clicked
   private clickCaseAction = (caseReference) => {
     console.log('Case was clicked: ' + caseReference);
+  }
+
+  // action clicked
+  private handleActionClick = (action: CaseAction) => {
+    console.log('Action was clicked:' + action.label);
   }
 
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {

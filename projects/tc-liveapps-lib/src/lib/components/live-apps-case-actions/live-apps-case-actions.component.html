@@ -1,1 +1,5 @@
-<pre>Case Actions: {{ caseactions | json }}</pre>
+<button mat-button class="tcs-case-action-button" *ngFor="let action of caseactions"
+        matTooltip="{{action.label}}" matTooltipShowDelay="1000" matTooltipPosition="above"
+        (click)="selectAction(action)">
+  {{action.label | ellipsis: 30 }}
+</button>
