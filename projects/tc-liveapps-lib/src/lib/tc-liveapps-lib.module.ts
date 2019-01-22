@@ -55,7 +55,7 @@ import {EllipsisPipe} from './pipes/ellipsis.pipe';
 import {LiveAppsService} from './services/live-apps.service';
 import { LiveAppsLoginComponent } from './components/live-apps-login/live-apps-login.component';
 import { LiveAppsSearchWidgetComponent } from './components/live-apps-search-widget/live-apps-search-widget.component';
-import { LiveAppsComponentComponent } from './components/live-apps-component/live-apps-component.component';
+import { LiveAppsComponent } from './components/live-apps-component/live-apps-component.component';
 import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-wrapper.component';
 
 
@@ -92,7 +92,7 @@ import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-w
     HighlightPipe,
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
-    LiveAppsComponentComponent,
+    LiveAppsComponent,
     SpotfireWrapperComponent
   ],
   imports: [
@@ -151,7 +151,7 @@ import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-w
     HighlightPipe,
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
-    LiveAppsComponentComponent,
+    LiveAppsComponent,
     SpotfireWrapperComponent
   ],
   providers: [

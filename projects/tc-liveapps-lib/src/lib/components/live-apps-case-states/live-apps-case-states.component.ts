@@ -3,21 +3,19 @@ import {CaseTypeState, CaseTypeStatesList, Metadata} from '../../models/liveapps
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-states',
   templateUrl: './live-apps-case-states.component.html',
   styleUrls: ['./live-apps-case-states.component.css']
 })
-export class LiveAppsCaseStatesComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements OnInit {
   @Input() appId: string;
   @Input() sandboxId: number;
 
   public states: CaseTypeState[];
   public errorMessage: string;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public refresh = () => {
     this.liveapps.getCaseTypeStates(this.sandboxId, this.appId)
@@ -31,14 +29,12 @@ export class LiveAppsCaseStatesComponent implements OnInit, OnDestroy {
       null, error => { this.errorMessage = 'Error retrieving case states: ' + error.error.errorMsg; });
   }
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   ngOnInit() {
     this.refresh();
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }

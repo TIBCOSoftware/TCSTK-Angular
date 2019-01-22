@@ -4,17 +4,20 @@ import {Log} from '@angular/core/testing/src/logger';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-login',
   templateUrl: './live-apps-login.component.html',
   styleUrls: ['./live-apps-login.component.css']
 })
-export class LiveAppsLoginComponent implements OnInit, OnDestroy {
+export class LiveAppsLoginComponent extends LiveAppsComponent {
 
   @Output() loginContext: EventEmitter<LoginContext> = new EventEmitter<LoginContext>();
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   authinfo: AuthInfo;
   loggedIn = false;
@@ -22,9 +25,6 @@ export class LiveAppsLoginComponent implements OnInit, OnDestroy {
   subscriptions: any;
   accessToken: AccessToken;
   errorMessage: string;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   // run when logged in
   handleLoggedIn = (loginInfo) => {
@@ -76,13 +76,6 @@ export class LiveAppsLoginComponent implements OnInit, OnDestroy {
     this.accessToken = subscriptionSelection.token;
     this.subscriptions = subscriptionSelection.subscriptions;
     this.subRequired = true;
-  }
-
-  ngOnInit() {
-  }
-
-  ngOnDestroy() {
-    this._destroyed$.next();
   }
 
 }

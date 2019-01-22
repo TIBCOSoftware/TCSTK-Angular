@@ -5,13 +5,14 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Location} from '@angular/common';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-state-icon',
   templateUrl: './live-apps-state-icon.component.html',
   styleUrls: ['./live-apps-state-icon.component.css']
 })
-export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
+export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnInit {
   @Input() id: string;
   @Input() iconPath: string;
   @Input() color: string;
@@ -20,10 +21,9 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
   public iconSVG: SafeHtml;
   public svgcontents: string = undefined;
 
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
-
-  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private liveapps: LiveAppsService, private location: Location) { }
+  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private liveapps: LiveAppsService, private location: Location) {
+    super();
+  }
 
   public refillSVG = function(fill) {
     const updatedsvg = this.svgcontents.replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
@@ -62,10 +62,6 @@ export class LiveAppsStateIconComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.refresh(this.iconPath, this.color);
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }

@@ -2,19 +2,17 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angula
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-favorite-cases',
   templateUrl: './live-apps-favorite-cases.component.html',
   styleUrls: ['./live-apps-favorite-cases.component.css']
 })
-export class LiveAppsFavoriteCasesComponent implements OnInit, OnDestroy {
+export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
   @Output() clickCase = new EventEmitter;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public displayType = 'miniCard';
   public favoriteCases: string[];
@@ -23,7 +21,6 @@ export class LiveAppsFavoriteCasesComponent implements OnInit, OnDestroy {
   public clickCaseAction = (caseReference) => {
     this.clickCase.emit(caseReference);
   }
-
 
   public refresh = () => {
     this.favoriteCases = [];
@@ -44,14 +41,12 @@ export class LiveAppsFavoriteCasesComponent implements OnInit, OnDestroy {
   }
 
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   ngOnInit() {
     this.refresh();
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }

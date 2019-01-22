@@ -27,13 +27,14 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {LaProcessSelection} from '../../models/liveappsdata';
 import {CaseType, CaseTypesList, JsonSchema, Process} from '../../models/liveappsdata';
 import {Subject} from 'rxjs';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-schema-list',
   templateUrl: './live-apps-case-schema-list.component.html',
   styleUrls: ['./live-apps-case-schema-list.component.css']
 })
-export class LiveAppsCaseSchemaListComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseSchemaListComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() applicationId: string;
   @Input() caseTypeId: string;
@@ -47,9 +48,6 @@ export class LiveAppsCaseSchemaListComponent implements OnInit, OnDestroy {
   caseType: CaseType;
   // caseReference: string;
   errorMessage: string;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   // run when the user clicks on a process (action or case creator)
   public selectProcess = (type, process) => {
@@ -100,14 +98,11 @@ export class LiveAppsCaseSchemaListComponent implements OnInit, OnDestroy {
   }
 
   constructor(private liveapps: LiveAppsService) {
+    super();
   }
-
 
   ngOnInit() {
     this.refresh();
   }
 
-  ngOnDestroy() {
-    this._destroyed$.next();
-  }
 }

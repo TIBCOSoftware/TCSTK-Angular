@@ -3,19 +3,17 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {CaseList} from '../../models/liveappsdata';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-recent-cases',
   templateUrl: './live-apps-recent-cases.component.html',
   styleUrls: ['./live-apps-recent-cases.component.css']
 })
-export class LiveAppsRecentCasesComponent implements OnInit, OnDestroy {
+export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
   @Output() clickCase = new EventEmitter;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public recentCases: string[];
   public errorMessage: string;
@@ -43,14 +41,12 @@ export class LiveAppsRecentCasesComponent implements OnInit, OnDestroy {
     this.recentCases = [];
   }
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   ngOnInit() {
     this.refresh();
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }

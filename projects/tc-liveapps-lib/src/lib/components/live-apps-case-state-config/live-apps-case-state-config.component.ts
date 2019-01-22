@@ -3,26 +3,26 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 import {AppConfig} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-state-config',
   templateUrl: './live-apps-case-state-config.component.html',
   styleUrls: ['./live-apps-case-state-config.component.css']
 })
-export class LiveAppsCaseStateConfigComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseStateConfigComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string;
   @Input() uiAppId: string;
 
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
-
   public appStateConfig: AppConfig;
   public appStateConfigJson: string;
   public errorMessage: string;
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   public saveStateConfig = () => {
     const newConfigjson = JSON.parse(this.appStateConfigJson);
@@ -70,10 +70,6 @@ export class LiveAppsCaseStateConfigComponent implements OnInit, OnDestroy {
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving app config: ' + error.error.errorMsg; });
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }

@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, V
 import {Observable, Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {CaseInfoList, CaseSearchResults, CaseType} from '../../models/liveappsdata';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-search',
@@ -9,7 +10,7 @@ import {CaseInfoList, CaseSearchResults, CaseType} from '../../models/liveappsda
   styleUrls: ['./live-apps-case-search.component.css']
 })
 
-export class LiveAppsCaseSearchComponent {
+export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
   @ViewChild('searchBox') searchBox: ElementRef;
   @Input() sandboxId: number;
   // @Input() appId: string;
@@ -23,7 +24,9 @@ export class LiveAppsCaseSearchComponent {
   // case type selector
   public selectedApp: CaseType = new CaseType();
 
-  constructor(private liveapps: LiveAppsService) {}
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   // handle search app selection
   public handleSearchAppSelection = (application: CaseType) => {

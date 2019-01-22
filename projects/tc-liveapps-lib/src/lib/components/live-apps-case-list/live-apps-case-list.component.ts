@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angula
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
+import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-list',
@@ -9,7 +10,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
   styleUrls: ['./live-apps-case-list.component.css']
 })
 
-export class LiveAppsCaseListComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseListComponent extends LiveAppsComponent implements OnInit {
   @Input() headerText: string;
   @Input() displayType: string;
   @Input() sandboxId: number;
@@ -18,23 +19,17 @@ export class LiveAppsCaseListComponent implements OnInit, OnDestroy {
   @Input() highlight: string;
   @Output() clickCase = new EventEmitter;
 
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
-
   public errorMessage: string;
 
   public clickCaseAction = (caseReference) => {
     this.clickCase.emit(caseReference);
   }
 
-  constructor() { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   ngOnInit() {
   }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
-  }
-
 
 }

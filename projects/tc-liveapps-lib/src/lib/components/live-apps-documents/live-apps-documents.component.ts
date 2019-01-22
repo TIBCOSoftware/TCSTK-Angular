@@ -4,15 +4,18 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import { DocumentList, Document } from '../../models/liveappsdata';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-documents',
   templateUrl: './live-apps-documents.component.html',
   styleUrls: ['./live-apps-documents.component.css']
 })
-export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
+export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnInit {
 
-  constructor(private liveapps: LiveAppsService, public dialog: MatDialog) { }
+  constructor(private liveapps: LiveAppsService, public dialog: MatDialog) {
+    super();
+  }
   @Input() sandboxId: number;
   @Input() folderType: string; // 'orgFolders' or 'caseFolders'
   @Input() folderId: string;   // caseRef for caseFolder
@@ -24,9 +27,6 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
   public fileToUpload: File = undefined;
   public fileDescription: string;
   uploadMessage: string;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public refresh = () => {
     this.listDocuments();
@@ -125,11 +125,6 @@ export class LiveAppsDocumentsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.refresh();
   }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
-  }
-
 }
 
 @Component({

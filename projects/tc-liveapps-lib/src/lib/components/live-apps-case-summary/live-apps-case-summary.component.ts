@@ -16,6 +16,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-summary',
@@ -23,7 +24,7 @@ import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-stat
   styleUrls: ['./live-apps-case-summary.component.css']
 })
 
-export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChild('caseStateIcon') stateIconComponent: LiveAppsStateIconComponent;
   @ViewChild('caseTypeIcon') caseTypeIconComponent: LiveAppsStateIconComponent;
@@ -42,9 +43,6 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
   @Input() uiAppId: string;
   @Input() highlight: string;
   @Output() clickCase = new EventEmitter;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public casedata: any;
   public summary: any;
@@ -71,7 +69,9 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
     this.caseTypeIconComponent.refresh(icon, fill);
   }
 
-  constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) { }
+  constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) {
+    super();
+  }
 
   ngOnInit() {
     if (!this.configMode) {
@@ -129,10 +129,6 @@ export class LiveAppsCaseSummaryComponent implements OnInit, OnDestroy {
       this.metadata.caseTypeIcon = this.configModeCaseTypeIcon;
       this.metadata.applicationLabel = this.configModeAppTypeLabel;
     }
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }

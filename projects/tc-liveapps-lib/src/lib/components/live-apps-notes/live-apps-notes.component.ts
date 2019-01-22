@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Note, NoteThread, NotificationList, ThreadList} from '../../models/liveappsdata';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-notes',
@@ -10,7 +11,7 @@ import {Note, NoteThread, NotificationList, ThreadList} from '../../models/livea
   styleUrls: ['./live-apps-notes.component.css']
 })
 
-export class LiveAppsNotesComponent implements OnInit, OnDestroy {
+export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit {
   @Input() relatedItemType: string; // use 'CASE_APP' to share notes with case manager
   @Input() relatedItemId: string; // 'caseRef' for case related
   @Input() userId: string;
@@ -23,10 +24,9 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
   public threads: ThreadList;
   public subscribed: Boolean;
 
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
-
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   public refresh = () => {
     this.liveapps.getThreads(this.relatedItemType, this.relatedItemId)
@@ -167,10 +167,6 @@ export class LiveAppsNotesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.refresh();
     this.newNote.text = '';
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }

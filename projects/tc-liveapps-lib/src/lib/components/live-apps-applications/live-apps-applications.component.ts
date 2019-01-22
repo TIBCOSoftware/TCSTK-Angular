@@ -18,6 +18,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {CaseType, CaseTypesList} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-applications',
@@ -25,7 +26,7 @@ import {Subject} from 'rxjs';
   styleUrls: ['./live-apps-applications.component.css']
 })
 
-export class LiveAppsApplicationsComponent implements OnInit, OnDestroy {
+export class LiveAppsApplicationsComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Output() selection: EventEmitter<CaseType> = new EventEmitter<CaseType>();
 
@@ -33,10 +34,9 @@ export class LiveAppsApplicationsComponent implements OnInit, OnDestroy {
   selectedApp: CaseType = new CaseType();
   errorMessage: string;
 
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
-
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   selectApplication = (selectionEvent) => {
     this.selectedApp = selectionEvent.source.value;
@@ -57,10 +57,6 @@ export class LiveAppsApplicationsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.refresh();
-  }
-
-  ngOnDestroy() {
-    this._destroyed$.next();
   }
 
 }

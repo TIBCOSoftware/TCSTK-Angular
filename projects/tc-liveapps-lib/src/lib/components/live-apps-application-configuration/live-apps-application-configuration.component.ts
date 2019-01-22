@@ -11,13 +11,14 @@ import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsDocumentUploadDialogComponent} from '../live-apps-documents/live-apps-documents.component';
 import { Location } from '@angular/common';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-application-configuration',
   templateUrl: './live-apps-application-configuration.component.html',
   styleUrls: ['./live-apps-application-configuration.component.css']
 })
-export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDestroy {
+export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent implements OnInit {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChildren('iconcomp') stateIconComponents: QueryList<LiveAppsStateIconComponent>;
   @ViewChildren(LiveAppsCaseSummaryComponent) caseSummaryComponent: QueryList<LiveAppsCaseSummaryComponent>;
@@ -48,9 +49,6 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
     '#6A1B9A', '#AD1457', '#EC407A', '#C4469E', '#BA68C8',
     '#8C9EFF', '#FF8A80', '#546F7A', '#263237'
   ];
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public getConfigForState = (state: CaseTypeState): IconMap => {
     let reqIconMap: IconMap;
@@ -201,7 +199,9 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
   }
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer,
-              private liveapps: LiveAppsService, public dialog: MatDialog, private location: Location) { }
+              private liveapps: LiveAppsService, public dialog: MatDialog, private location: Location) {
+    super();
+  }
 
   ngOnInit() {
     // get states for application
@@ -243,11 +243,6 @@ export class LiveAppsApplicationConfigurationComponent implements OnInit, OnDest
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving application config: ' + error.error.errorMsg; });
   }
-
-  ngOnDestroy() {
-    this._destroyed$.next();
-  }
-
 }
 
 @Component({

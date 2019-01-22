@@ -30,6 +30,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {SandboxList} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-sandbox',
@@ -37,15 +38,12 @@ import {Subject} from 'rxjs';
   styleUrls: ['./live-apps-sandbox.component.css']
 })
 
-export class LiveAppsSandboxComponent implements OnInit, OnDestroy {
+export class LiveAppsSandboxComponent extends LiveAppsComponent implements OnInit {
   @Input() allSandboxes: boolean;
   @Output() selection = new EventEmitter();
 
   sandboxes: SandboxList;
   errorMessage: string;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public refresh = () => {
     if (this.allSandboxes) {
@@ -72,7 +70,9 @@ export class LiveAppsSandboxComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   selectSandbox = (sandbox) => {
     this.selection.emit(sandbox);
@@ -80,10 +80,6 @@ export class LiveAppsSandboxComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.refresh();
-  }
-
-  ngOnDestroy() {
-    this._destroyed$.next();
   }
 
 }

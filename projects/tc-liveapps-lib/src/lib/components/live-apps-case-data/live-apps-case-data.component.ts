@@ -3,13 +3,14 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {CaseInfo, Metadata} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-data',
   templateUrl: './live-apps-case-data.component.html',
   styleUrls: ['./live-apps-case-data.component.css']
 })
-export class LiveAppsCaseDataComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnInit {
   @Input() caseReference: string;
   @Input() appId: string;
   @Input() typeId: string;
@@ -21,10 +22,9 @@ export class LiveAppsCaseDataComponent implements OnInit, OnDestroy {
   public metadata: Metadata
   public errorMessage: string;
 
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
-
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   public refresh = () => {
     this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId, this.uiAppId)
@@ -44,7 +44,4 @@ export class LiveAppsCaseDataComponent implements OnInit, OnDestroy {
     this.refresh();
   }
 
-  ngOnDestroy(): void {
-    this._destroyed$.next();
-  }
 }

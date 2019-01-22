@@ -3,22 +3,20 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {AuditEvent} from '../../models/liveappsdata';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-case-audit',
   templateUrl: './live-apps-case-audit.component.html',
   styleUrls: ['./live-apps-case-audit.component.css']
 })
-export class LiveAppsCaseAuditComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnInit, OnDestroy {
 
   @Input() caseRef: string;
   @Input() sandboxId: number;
 
   public auditEvents: AuditEvent[];
   public errorMessage: string;
-
-  // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
 
   public refresh = () => {
     this.liveapps.getCaseAudit(this.caseRef, this.sandboxId)
@@ -32,14 +30,12 @@ export class LiveAppsCaseAuditComponent implements OnInit, OnDestroy {
       null, error => { this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg; });
   }
 
-  constructor(private liveapps: LiveAppsService) { }
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
 
   ngOnInit() {
     this.refresh();
-  }
-
-  ngOnDestroy(): void {
-    this._destroyed$.next();
   }
 
 }
