@@ -20,6 +20,7 @@ export class CachingInterceptor implements HttpInterceptor {
     } else {
       // dont pass the cache since this should not be cached
       // console.log('*** BYPASS CACHE FOR: ' + req.urlWithParams);
+      // console.log(JSON.stringify(req));
       return this.sendRequest(req, next, undefined);
     }
     // return cached response or make request if no cached response

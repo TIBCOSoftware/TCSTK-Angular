@@ -19,3 +19,17 @@
   line-height: normal;
   letter-spacing: 0.2px;
 }
+
+.tcs-case-action-option {
+  padding-top: 9px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  max-width: 250px;
+  border-radius: 3px;
+  border-color: #0081cb;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #ffffff;
+  color: #0081cb;
+}

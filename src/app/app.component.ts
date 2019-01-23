@@ -6,7 +6,6 @@ import {
   LoginContext,
   UiAppConfig
 } from '../../projects/tc-liveapps-lib/src/lib/models/liveappsdata';
-import { LiveAppsCaseSummaryComponent } from '../../projects/tc-liveapps-lib/src/lib/components/live-apps-case-summary/live-apps-case-summary.component';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import { Location } from '@angular/common';
@@ -131,6 +130,4 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-search.svg'))
     );
   }
-
-
 }

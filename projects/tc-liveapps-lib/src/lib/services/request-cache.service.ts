@@ -25,6 +25,7 @@ export class RequestCacheService {
   }
 
   put(req: HttpRequest<any>, response: HttpResponse<any>): void {
+    // console.log(JSON.stringify(response));
     const url = req.url;
     const entry = { url, response, lastRead: Date.now() };
     this.cache.set(url, entry);
