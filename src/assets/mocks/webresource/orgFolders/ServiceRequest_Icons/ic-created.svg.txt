@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <path fill="<DYNAMICFILL>" class="svg-content" fill-rule="evenodd" d="M7 14A7 7 0 1 1 7 0a7 7 0 0 1 0 14zm3.474-6.472a.527.527 0 0 0 0-1.053H7.526V3.527a.525.525 0 1 0-1.052 0v2.948H3.526a.527.527 0 0 0 0 1.053h2.948v2.948a.525.525 0 0 0 .898.373.525.525 0 0 0 .154-.373V7.528h2.948z"/>
+</svg>

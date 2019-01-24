@@ -8,50 +8,5 @@
     "applicationName": "Partner Request",
     "applicationInternalName": "PartnerRequest",
     "applicationVersion": 1
-  },
-  {
-    "id": "11",
-    "name": "Customer_v1",
-    "label": "Customer",
-    "applicationId": "1742",
-    "applicationName": "Partner Request",
-    "applicationInternalName": "PartnerRequest",
-    "applicationVersion": 1
-  },
-  {
-    "id": "14",
-    "name": "RequestDetails_v1",
-    "label": "Order Details",
-    "applicationId": "1742",
-    "applicationName": "Partner Request",
-    "applicationInternalName": "PartnerRequest",
-    "applicationVersion": 1
-  },
-  {
-    "id": "18",
-    "name": "PartnerInvestigation_v1",
-    "label": "Partner Investigation",
-    "applicationId": "1742",
-    "applicationName": "Partner Request",
-    "applicationInternalName": "PartnerRequest",
-    "applicationVersion": 1
-  },
-  {
-    "id": "31",
-    "name": "IssueLog_v1",
-    "label": "Issue Log",
-    "applicationId": "1742",
-    "applicationName": "Partner Request",
-    "applicationInternalName": "PartnerRequest",
-    "applicationVersion": 1
-  },
-  {
-    "id": "35",
-    "name": "CaseMetrics_v1",
-    "label": "Case Metrics",
-    "applicationId": "1742",
-    "applicationName": "Partner Request",
-    "applicationInternalName": "PartnerRequest",
-    "applicationVersion": 1
   }
 ]
