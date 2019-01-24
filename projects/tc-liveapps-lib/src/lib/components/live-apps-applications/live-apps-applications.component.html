@@ -1,7 +1,7 @@
 <div fxFlex>
   <mat-select class="tcs-application-selector-option" [disableOptionCentering]="true" placeholder="Case Type" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
     <mat-option *ngFor="let application of applications.casetypes" [value]="application">
-      <span>{{application.applicationName}}</span>
+      <span>{{application.label}}</span>
     </mat-option>
   </mat-select>
 </div>

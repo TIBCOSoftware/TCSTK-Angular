@@ -59,8 +59,6 @@ import { LiveAppsComponent } from './components/live-apps-component/live-apps-co
 import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-wrapper.component';
 import {MockingInterceptor} from './interceptors/mocking-interceptor';
 
-// declare var require: any;
-
 @NgModule({
   declarations: [
     LiveAppsLoginComponent,
