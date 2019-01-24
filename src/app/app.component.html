@@ -8,7 +8,7 @@
 
   <div #widgetsContainer class="tcla-components-pane" fxLayout="column" fxFlexFill>
 
-    <!--tcla-live-apps-case-actions [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [caseReference]="'150471'" [caseState]="'Created'" (actionClicked)="handleActionClick($event)"></tcla-live-apps-case-actions-->
+    <tcla-live-apps-case-actions [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [caseReference]="'150471'" [caseState]="'Created'" [maxActions]="1" (actionClicked)="handleActionClick($event)"></tcla-live-apps-case-actions>
 
     <div #widgetBlock1 class="widget-block-1" fxFlex>
       <tcla-live-apps-search-widget [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
@@ -23,13 +23,13 @@
       </div>
     </div>
 
-    <div #widgetBlock3 class="widget-block-3" style="margin-top: 420px; padding-left: 80px; padding-right: 80px;">
+    <!--div #widgetBlock3 class="widget-block-3" style="margin-top: 420px; padding-left: 80px; padding-right: 80px;">
       <tcla-spotfire-viz
         url="https://spotfire-next.cloud.tibco.com"
         path="/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard"
       >
       </tcla-spotfire-viz>
-    </div>
+    </div-->
 
   </div>
 </div>

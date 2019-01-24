@@ -57,7 +57,7 @@ import { LiveAppsLoginComponent } from './components/live-apps-login/live-apps-l
 import { LiveAppsSearchWidgetComponent } from './components/live-apps-search-widget/live-apps-search-widget.component';
 import { LiveAppsComponent } from './components/live-apps-component/live-apps-component.component';
 import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-wrapper.component';
-
+import {MockingInterceptor} from './interceptors/mocking-interceptor';
 
 @NgModule({
   declarations: [
@@ -156,7 +156,8 @@ import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-w
   ],
   providers: [
     RequestCacheService,
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]
 })
 export class TcLiveappsLibModule { }

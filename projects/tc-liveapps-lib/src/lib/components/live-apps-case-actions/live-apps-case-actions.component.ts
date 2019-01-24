@@ -31,6 +31,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   @Input() typeId: string;
   @Input() sandboxId: number;
   @Input() caseState: string;
+  @Input() maxActions = 1;
   @Output() actionClicked: EventEmitter<CaseAction> = new EventEmitter<CaseAction>();
 
   public caseactions: CaseAction[];

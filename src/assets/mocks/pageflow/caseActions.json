@@ -1,0 +1,41 @@
+[
+    {
+      "chatBotEnabled": false,
+      "id": 7919,
+      "name": "SubmitRequestforReview",
+      "label": "Submit Request for Review",
+      "version": 1,
+      "applicationId": 1742,
+      "applicationName": "PartnerRequest",
+      "activityName": "Task",
+      "noData": false,
+      "availableInStates": [
+        "Created"
+      ],
+      "roles": [
+        "3630"
+      ],
+      "performerPaths": []
+    },
+    {
+      "chatBotEnabled": false,
+      "id": 7916,
+      "name": "UpdateRequestMetrics",
+      "label": "Update Request Metrics",
+      "version": 1,
+      "applicationId": 1742,
+      "applicationName": "PartnerRequest",
+      "activityName": "Task",
+      "noData": false,
+      "availableInStates": [
+        "Created",
+        "Information Required",
+        "Review",
+        "Investigate"
+      ],
+      "roles": [
+        "3630"
+      ],
+      "performerPaths": []
+    }
+  ]
