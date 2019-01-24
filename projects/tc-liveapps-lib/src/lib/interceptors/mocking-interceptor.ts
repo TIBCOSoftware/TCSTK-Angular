@@ -1,33 +1,65 @@
-import { Injectable } from '@angular/core';
-import {HttpEvent, HttpRequest, HttpResponse, HttpInterceptor, HttpHandler, HttpClient} from '@angular/common/http';
-
-import { Observable, of } from 'rxjs';
-import { startWith, tap, shareReplay } from 'rxjs/operators';
-import { RequestCacheService } from '../services/request-cache.service';
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpRequest, HttpResponse, HttpInterceptor, HttpHandler, HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable, of, onErrorResumeNext} from 'rxjs';
+import {map, catchError} from 'rxjs/operators';
 
 @Injectable()
 export class MockingInterceptor implements HttpInterceptor {
-  constructor() {
+  MOCK_BASE_PATH = '/assets/mocks';
+
+  constructor(private http: HttpClient) {
   }
+
+  public readMockJSON(url): Observable<any> {
+    return this.http.get(url);
+  }
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    let mockResponse;
-    if (req.url === '/pageflow/caseActions?$sandbox=31&$filter=applicationId eq 1742 and caseType eq 1 and caseState eq Created and caseRef eq 150471') {
-      // use the mock
-      const resp = require('./mock.json');
-      mockResponse = new HttpResponse(resp);
-      // mockResponse.body = resp.body;
 
-    } else {
-      // dont use the mock
-      return this.sendRequest(req, next);
-    }
-    // return mocked response
-    return mockResponse ? of(mockResponse) : this.sendRequest(req, next);
+    // save original request
+    const originalReq = req.clone();
+
+    // try and find a mock response
+    const resource = originalReq.url.split('?')[0];
+    const segments: string[] = resource.split('/');
+    const seg2: string[] = resource.split('/');
+    let path = this.MOCK_BASE_PATH;
+    segments.splice(1, segments.length).forEach((seg) => {
+      path = path + '/' + seg;
+    });
+    path = path + '.json';
+
+    const httpRequest = new HttpRequest(
+      <any>'GET',
+      path
+    );
+    req = Object.assign(req, httpRequest);
+    req = req.clone();
+    return next.handle(req).pipe(
+      map(
+        data => {
+          const d = <HttpResponse<any>> data;
+          if (d.status === 200) {
+            // return the body of the cached response loaded from file
+            const mockedResponse = new HttpResponse(d);
+            return mockedResponse;
+          } else {
+            return data;
+          }
+        }
+      ),
+      catchError(
+        error => {
+          // no mock file so make real request
+          return this.sendRequest(originalReq, next);
+        }
+      )
+    );
   }
 
-  sendRequest(
+  sendRequest = (
     req: HttpRequest<any>,
-    next: HttpHandler): Observable<HttpEvent<any>> {
+    next: HttpHandler): Observable<HttpEvent<any>> => {
     return next.handle(req);
   }
 }
