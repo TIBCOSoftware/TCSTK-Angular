@@ -1,6 +1,21 @@
+/**
+ * @ngdoc component
+ * @name mockingInterceptor
+ *
+ * @description
+ * This interceptor attempts to use local json files from the assets directory to mock Tibco Cloud API calls
+ *
+ * Each mock file can contain either a single response or a "mockedResponses" object that contains specific URLs and responses
+ *
+ * @usage
+ *
+ *
+ *
+ */
+
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpRequest, HttpResponse, HttpInterceptor, HttpHandler, HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, of, onErrorResumeNext} from 'rxjs';
+import {Observable, of, onErrorResumeNext, throwError} from 'rxjs';
 import {map, catchError, delay} from 'rxjs/operators';
 
 @Injectable()
@@ -69,10 +84,26 @@ export class MockingInterceptor implements HttpInterceptor {
       delay(100),
       map(
         data => {
-          const d = <HttpResponse<any>> data;
+          let d = <HttpResponse<any>> data;
           if (d.status === 200) {
             // return the body of the cached response loaded from file
-            const mockedResponse = new HttpResponse(d);
+            console.log(originalReq.url);
+            let mockedResponse: HttpResponse<any>;
+            if (data['body']['mockedResponses']) {
+              // multi mocked response file
+              if (data['body']['mockedResponses'][originalReq.url]) {
+                data['body'] = data['body']['mockedResponses'][originalReq.url];
+                d = <HttpResponse<any>> data;
+                mockedResponse = new HttpResponse(d);
+              } else {
+                // no mock for this URL
+                // todo: there is a bug here that this does not trigger the real call
+                throwError('no mock for this url - no response sent');
+              }
+            } else {
+              // single mocked response file
+              mockedResponse = new HttpResponse(d);
+            }
             return mockedResponse;
           } else {
             return data;
