@@ -1,0 +1,17 @@
+{
+  "mockedResponses": {
+    "/case/cases/150491/?$sandbox=31&$select=uc, m, s": {
+      "untaggedCasedata": "{\"RequestDescription_v1\":\"Can you provide the tracking ID?\",\"RequestType_v1\":\"Shipping & Tracking\",\"Customer_v1\":{\"Name_v1\":\"John Smith\",\"CustomerReference_v1\":\"66000125\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"123-00708\",\"OrderReference_v1\":\"19060123\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2018-10-18\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Responded\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-3\",\"Resolution_v1\":\"TrackingID is 05834-2208-07050708.\"}",
+      "summary": "{\"state\":\"Responded\",\"CaseId_v1\":\"PNR-3\",\"RequestDescription_v1\":\"Can you provide the tracking ID?\",\"RequestType_v1\":\"Shipping & Tracking\"}",
+      "metadata": {
+        "creationTimestamp": "2018-10-18T09:09:30.072Z",
+        "modificationTimestamp": "2018-10-18T09:09:30.269Z",
+        "lockType": "1",
+        "msLockExpiry": "1539853770455",
+        "msSystemTime": "1548334323684",
+        "applicationId": "1742",
+        "typeId": "1"
+      }
+    }
+  }
+}

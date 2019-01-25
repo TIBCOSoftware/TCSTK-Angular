@@ -34,3 +34,6 @@ export * from './lib/components/spotfire-wrapper/spotfire-wrapper.component';
 // pipes
 export * from './lib/pipes/highlight.pipe';
 
+// data
+
+export * from './lib/models/liveappsdata';

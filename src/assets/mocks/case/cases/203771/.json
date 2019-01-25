@@ -1,0 +1,19 @@
+{
+  "mockedResponses": {
+    "/case/cases/203771/?$sandbox=31&$select=uc, m, s": {
+      "untaggedCasedata": "{\"CaseId_v1\":\"PNR-15\",\"RequestType_v1\":\"Shipping & Tracking\",\"RequestDescription_v1\":\"What is happening with my order ?\",\"Customer_v1\":{\"Name_v1\":\"A Pharmcy\",\"CustomerReference_v1\":\"Ref123\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"Order123\",\"OrderReference_v1\":\"Ref123\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2019-01-18\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Responded\",\"PartnerReference_v1\":\"99000123\",\"Resolution_v1\":\"Your order is coming next week Tuesday\"}",
+      "summary": "{\"state\":\"Responded\",\"CaseId_v1\":\"PNR-15\",\"RequestDescription_v1\":\"What is happening with my order ?\",\"RequestType_v1\":\"Shipping & Tracking\"}",
+      "metadata": {
+        "createdBy": "8374",
+        "creationTimestamp": "2019-01-18T08:59:55.356Z",
+        "modifiedBy": "8374",
+        "modificationTimestamp": "2019-01-18T09:00:54.653Z",
+        "lockType": "1",
+        "msLockExpiry": "1547802054706",
+        "msSystemTime": "1548333869947",
+        "applicationId": "1742",
+        "typeId": "1"
+      }
+    }
+  }
+}

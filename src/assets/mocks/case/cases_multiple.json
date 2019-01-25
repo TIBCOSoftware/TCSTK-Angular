@@ -1,0 +1,12 @@
+{
+  "mockedResponses": {
+    "/case/cases?$sandbox=31&$filter=applicationId eq 1742 and typeId eq 1&$skip=0&$top=10000&$select=cr&$search=p": [
+      {
+        "caseReference": "203771"
+      },
+      {
+        "caseReference": "203731"
+      }
+    ]
+  }
+}
