@@ -1,1 +1,19 @@
-{"untaggedCasedata":"{\"CaseId_v1\":\"PNR-14\",\"RequestType_v1\":\"Invoice & Payments\",\"RequestDescription_v1\":\"What is happening with payment 123\",\"Customer_v1\":{\"Name_v1\":\"me\",\"CustomerReference_v1\":\"ref\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"ord123\",\"OrderReference_v1\":\"ref\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2019-01-18\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Created\",\"PartnerReference_v1\":\"99000123\"}","summary":"{\"state\":\"Created\",\"CaseId_v1\":\"PNR-14\",\"RequestDescription_v1\":\"What is happening with payment 123\",\"RequestType_v1\":\"Invoice & Payments\"}","metadata":{"createdBy":"8374","creationTimestamp":"2019-01-18T06:47:24.668Z","modifiedBy":"8374","modificationTimestamp":"2019-01-18T06:47:24.668Z","lockType":"1","msLockExpiry":"0","msSystemTime":"1548334127590","applicationId":"1742","typeId":"1"}}
+{
+  "mockedResponses": {
+    "/case/cases/203731/?$sandbox=31&$select=uc, m, s": {
+      "untaggedCasedata": "{\"CaseId_v1\":\"PNR-14\",\"RequestType_v1\":\"Invoice & Payments\",\"RequestDescription_v1\":\"What is happening with payment 123\",\"Customer_v1\":{\"Name_v1\":\"me\",\"CustomerReference_v1\":\"ref\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"ord123\",\"OrderReference_v1\":\"ref\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2019-01-18\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Created\",\"PartnerReference_v1\":\"99000123\"}",
+      "summary": "{\"state\":\"Created\",\"CaseId_v1\":\"PNR-14\",\"RequestDescription_v1\":\"What is happening with payment 123\",\"RequestType_v1\":\"Invoice & Payments\"}",
+      "metadata": {
+        "createdBy": "8374",
+        "creationTimestamp": "2019-01-18T06:47:24.668Z",
+        "modifiedBy": "8374",
+        "modificationTimestamp": "2019-01-18T06:47:24.668Z",
+        "lockType": "1",
+        "msLockExpiry": "0",
+        "msSystemTime": "1548334127590",
+        "applicationId": "1742",
+        "typeId": "1"
+      }
+    }
+  }
+}
