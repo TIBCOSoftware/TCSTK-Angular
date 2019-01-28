@@ -1,0 +1,91 @@
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+
+  /* flip the pane when flipit */
+  &.flipit .flipper {
+    transform: rotateY(180deg);
+  }
+  &, .front, .back {
+    width:100%; height: 900px;
+  }
+
+  /* flip speed goes here */
+  .flipper {
+    transition: 1s;
+    transform-style: preserve-3d;
+    transition-timing-function: ease-out;
+    position: relative;
+  }
+
+  /* hide back of pane during swap */
+  .front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* front pane, placed above back */
+  .front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    .err {
+      font-size:10px;
+      color:red; 
+      font-family:monospace
+    }
+  }
+
+  /* back, initially hidden pane */
+  .back {
+    transform: rotateY(180deg);
+    box-shadow: inset 0px 0px 7px black;
+    overflow: scroll;
+  }
+}
+
+.flexcol {
+  margin: 20px 30px;
+display:flex; flex-flow:column;
+  > * {
+    margin-top:10px;
+    flex-grow: 1;
+  }
+}
+.flexrow {
+  display:flex; flex-flow:row wrap;
+  > * {
+    margin-top:10px;
+    flex: 0 0 48%;
+    margin-right: 2%;
+  }
+  > button {
+    margin-top:10px;
+    margin-left:20px;
+    flex: 0 0 1
+  }
+}
+$blu:#0081cb;
+.header {
+  background:$blu;
+  color:white;
+  padding:5px 30px;
+  display:flex;
+  align-items: center;
+}
+.editdiv {
+  font-size:9px; color:#666; float:right; padding:10px;
+  font-family: monospace;
+  span {
+    font-size:10px; border: 1px solid $blu;
+      border-radius: 5px;
+      padding: 0 5px; color:$blu;
+      &:hover {
+        cursor:pointer;
+        color:white;
+        background-color: $blu;
+      }
+  }
+}
