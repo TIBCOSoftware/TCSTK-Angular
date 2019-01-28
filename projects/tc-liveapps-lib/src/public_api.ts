@@ -31,6 +31,9 @@ export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-mu
 export * from './lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component';
 export * from './lib/components/spotfire-wrapper/spotfire-wrapper.component';
 export * from './lib/components/rendered-form/rendered-form.component';
+export * from './lib/components/live-apps-case-creator/live-apps-case-creator.component';
+export * from './lib/components/live-apps-creator-selector/live-apps-creator-selector.component';
+
 
 // pipes
 export * from './lib/pipes/highlight.pipe';

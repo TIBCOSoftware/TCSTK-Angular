@@ -60,6 +60,8 @@ import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-w
 import {MockingInterceptor} from './interceptors/mocking-interceptor';
 import { RenderedFormComponent } from './components/rendered-form/rendered-form.component';
 import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
+import { LiveAppsCaseCreatorComponent } from './components/live-apps-case-creator/live-apps-case-creator.component';
+import { LiveAppsCreatorSelectorComponent } from './components/live-apps-creator-selector/live-apps-creator-selector.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +98,9 @@ import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,
     SpotfireWrapperComponent,
-    RenderedFormComponent
+    RenderedFormComponent,
+    LiveAppsCaseCreatorComponent,
+    LiveAppsCreatorSelectorComponent
   ],
   imports: [
     HttpClientModule,
@@ -156,6 +160,8 @@ import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,
+    LiveAppsCreatorSelectorComponent,
+    LiveAppsCaseCreatorComponent,
     SpotfireWrapperComponent,
     RenderedFormComponent
   ],

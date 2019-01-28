@@ -10,7 +10,10 @@
 
     <tcla-live-apps-case-actions [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [caseReference]="'150471'" [caseState]="'Created'" [maxActions]="1" (actionClicked)="handleActionClick($event)"></tcla-live-apps-case-actions>
 
-    <!--tcla-rendered-form style="min-height:500px; overflow: auto;" [schema]="schema" [layout]="layout" [data]="data" (formSubmit)="handleSubmit($event)"></tcla-rendered-form-->
+    <div fxLayout="column" fxFlexFill>
+      <tcla-live-apps-creator-selector style="max-width: 200px" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" (creatorSelection)="handleCreatorSelection($event)"></tcla-live-apps-creator-selector>
+      <tcla-rendered-form *ngIf="selectedProcess" style="min-height:500px; overflow: auto;" [schema]="selectedProcess.process.jsonSchema" [layout]="" [data]="" (formSubmit)="handleSubmit($event)"></tcla-rendered-form>
+    </div>
 
     <div #widgetBlock1 class="widget-block-1" fxFlex>
       <tcla-live-apps-search-widget [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>

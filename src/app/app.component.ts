@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  CaseAction,
+  CaseAction, LaProcessSelection,
   LoginContext,
   UiAppConfig
 } from 'tc-liveapps-lib';
@@ -268,6 +268,8 @@ export class AppComponent {
     CaseId_v1: '555'
   };
 
+  selectedProcess: LaProcessSelection;
+
   // handle form submit
   handleSubmit = (data: any) => {
     console.log(JSON.stringify(data));
@@ -277,6 +279,12 @@ export class AppComponent {
   handleLoginContext = (loginContext: LoginContext) => {
     this.loginContext = loginContext;
     this.loggedIn = true;
+  }
+
+  // handle case creator selection
+  handleCreatorSelection = (process: LaProcessSelection) => {
+    console.log(JSON.stringify(process));
+    this.selectedProcess = process;
   }
 
   // case clicked

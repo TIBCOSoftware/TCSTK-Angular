@@ -237,6 +237,7 @@ export class CaseType {
   isCase: boolean
   label: any;
   name: Metadata;
+  jsonSchema: JsonSchema;
   deserialize(input: any): this {
     Object.assign(this, input);
     return this;
