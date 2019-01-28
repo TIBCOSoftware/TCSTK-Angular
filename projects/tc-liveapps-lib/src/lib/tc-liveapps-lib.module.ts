@@ -58,6 +58,8 @@ import { LiveAppsSearchWidgetComponent } from './components/live-apps-search-wid
 import { LiveAppsComponent } from './components/live-apps-component/live-apps-component.component';
 import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-wrapper.component';
 import {MockingInterceptor} from './interceptors/mocking-interceptor';
+import { RenderedFormComponent } from './components/rendered-form/rendered-form.component';
+import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,8 @@ import {MockingInterceptor} from './interceptors/mocking-interceptor';
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,
-    SpotfireWrapperComponent
+    SpotfireWrapperComponent,
+    RenderedFormComponent
   ],
   imports: [
     HttpClientModule,
@@ -117,7 +120,8 @@ import {MockingInterceptor} from './interceptors/mocking-interceptor';
     ColorPickerModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialDesignFrameworkModule
   ],
   exports: [
     LiveAppsLoginComponent,
@@ -152,7 +156,8 @@ import {MockingInterceptor} from './interceptors/mocking-interceptor';
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,
-    SpotfireWrapperComponent
+    SpotfireWrapperComponent,
+    RenderedFormComponent
   ],
   providers: [
     RequestCacheService,

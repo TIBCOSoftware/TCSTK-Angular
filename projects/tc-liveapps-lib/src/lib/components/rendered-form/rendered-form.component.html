@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign = "center start" fxFlex>
+<json-schema-form *ngIf="formSchema" style="width: 700px;"
+  loadExternalAssets="false"
+  framework="material-design"
+  [schema]="formSchema"
+  [layout]="formLayout"
+  [(data)]="formData"
+  (onSubmit)="submitForm($event)"
+>
+</json-schema-form>
+</div>
