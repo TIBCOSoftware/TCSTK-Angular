@@ -205,7 +205,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   ngOnInit() {
     // get states for application
-    this.liveapps.getCaseTypeStates(this.sandboxId, this.appId)
+    this.liveapps.getCaseTypeStates(this.sandboxId, this.appId, 50)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

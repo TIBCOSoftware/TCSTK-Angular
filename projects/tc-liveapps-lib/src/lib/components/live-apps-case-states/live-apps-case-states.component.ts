@@ -18,7 +18,7 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
   public errorMessage: string;
 
   public refresh = () => {
-    this.liveapps.getCaseTypeStates(this.sandboxId, this.appId)
+    this.liveapps.getCaseTypeStates(this.sandboxId, this.appId, 50)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

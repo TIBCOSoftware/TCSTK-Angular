@@ -44,7 +44,7 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   }
 
   public refresh = () => {
-    this.liveapps.getApplications(this.sandboxId)
+    this.liveapps.getApplications(this.sandboxId, 50)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

@@ -85,9 +85,9 @@ export class LiveAppsService {
         map ( sandboxList => new SandboxList().deserialize(sandboxList)));
   }
 
-  public getApplications(sandboxId: number): Observable<CaseTypesList> {
+  public getApplications(sandboxId: number, top: number): Observable<CaseTypesList> {
     const select = 'b';
-    const url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select;
+    const url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
 
     return this.http.get(url)
       .pipe(
@@ -173,7 +173,7 @@ export class LiveAppsService {
   }
 
   private parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string, uiAppId): CaseInfo {
-    this.getCaseTypeBasicInfo(sandboxId, appId, typeId).subscribe(val => {
+    this.getCaseTypeBasicInfo(sandboxId, appId, typeId, 50).subscribe(val => {
       caseinfo.metadata.applicationLabel = val.label;
       return caseinfo;
     }, error => { console.log('Unable to retrieve application details for casetype: ' + error.errorMsg); });
@@ -244,9 +244,9 @@ export class LiveAppsService {
             );
     }
 
-  public getCaseTypes(sandboxId: number, appId: string): Observable<CaseTypesList> {
+  public getCaseTypes(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
     const select = 'b,s,sa,a';
-    let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select;
+    let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
     if (appId != null) {
       url = url + '&$filter=applicationId eq ' + appId;
     }
@@ -257,10 +257,10 @@ export class LiveAppsService {
         map(casetypes => new CaseTypesList().deserialize(casetypes)));
   }
 
-  public getCaseTypeSchema(sandboxId: number, appId: string): Observable<CaseTypesList> {
+  public getCaseTypeSchema(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
     // https://eu.liveapps.cloud.tibco.com/case/v1/types?$sandbox=25&&$filter=applicationName eq 'Customer Complaint'&$select=b,js,c,ac
     const select = 'b,js,c,ac,a';
-    let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select;
+    let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
     if (appId != null) {
       url = url + '&$filter=applicationId eq ' + appId;
     }
@@ -270,9 +270,9 @@ export class LiveAppsService {
         map(casetypes => new CaseTypesList().deserialize(casetypes)));
   }
 
-    public getCaseTypeStates(sandboxId: number, appId: string): Observable<CaseTypeStatesList> {
+    public getCaseTypeStates(sandboxId: number, appId: string, top: number): Observable<CaseTypeStatesList> {
         const select = 's';
-        let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select;
+        let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select  + '&$top=' + top;
         if (appId != null) {
             url = url + '&$filter=applicationId eq ' + appId;
         }
@@ -284,9 +284,9 @@ export class LiveAppsService {
                 map(casetypestates => new CaseTypeStatesList().deserialize(casetypestates[0].states)));
     }
 
-    public getCaseTypeBasicInfo(sandboxId: number, appId: string, typeId: string): Observable<CaseType> {
+    public getCaseTypeBasicInfo(sandboxId: number, appId: string, typeId: string, top: number): Observable<CaseType> {
         const select = 'b';
-      let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select;
+      let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
       if (appId != null) {
         url = url + '&$filter=applicationId eq ' + appId;
       }

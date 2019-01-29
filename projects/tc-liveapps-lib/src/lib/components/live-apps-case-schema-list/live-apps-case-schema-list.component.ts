@@ -75,7 +75,7 @@ export class LiveAppsCaseSchemaListComponent extends LiveAppsComponent implement
 
   public refresh = () => {
     // retrieve the schema for this case type so we can display case creators and case actions for this case type
-    this.liveapps.getCaseTypeSchema(this.sandboxId, this.applicationId).pipe(
+    this.liveapps.getCaseTypeSchema(this.sandboxId, this.applicationId, 50).pipe(
       take(1),
       takeUntil(this._destroyed$),
       map(schema => {
