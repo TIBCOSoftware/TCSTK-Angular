@@ -225,6 +225,15 @@ export class Process {
   id: string;
 }
 
+export class ProcessId {
+  caseIdentifier: string;
+  caseReference: string;
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
 
 export class CaseType {
   actions: Process[];

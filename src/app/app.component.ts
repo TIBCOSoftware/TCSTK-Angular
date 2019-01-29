@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {
-  CaseAction, LaProcessSelection,
-  LoginContext,
+  CaseAction, LaProcessSelection, LiveAppsCreatorSelectorComponent,
+  LoginContext, ProcessId,
   UiAppConfig
 } from 'tc-liveapps-lib';
-import {MatIconRegistry} from '@angular/material';
+import {MatIconRegistry, MatSelect} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import { Location } from '@angular/common';
 
@@ -14,6 +14,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('creatorSelector') creatorSelector: LiveAppsCreatorSelectorComponent;
   title = 'tc-liveapps';
   loggedIn = false;
   loginContext: LoginContext;
@@ -271,8 +272,9 @@ export class AppComponent {
   selectedProcess: LaProcessSelection;
 
   // handle form submit
-  handleSubmit = (data: any) => {
+  handleSubmit = (data: ProcessId) => {
     console.log(JSON.stringify(data));
+    this.creatorSelector.reset();
   }
 
   // handle login context

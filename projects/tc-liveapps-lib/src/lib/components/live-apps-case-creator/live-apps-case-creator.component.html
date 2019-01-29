@@ -1,1 +1,1 @@
-<tcla-rendered-form [schema]="schema" [layout]="layout" [data]="data" (formSubmit)="handleSubmit($event)"></tcla-rendered-form>
+<tcla-rendered-form *ngIf="schema" style="min-height:500px; overflow: auto;" [schema]="schema" [layout]="layout" [data]="data" (formSubmit)="handleSubmit($event)"></tcla-rendered-form>

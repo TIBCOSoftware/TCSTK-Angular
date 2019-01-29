@@ -1,8 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CaseType, CaseTypesList, LaProcessSelection, Process} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../../components/live-apps-component/live-apps-component.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map} from 'rxjs/operators';
+import {LiveAppsStateIconComponent} from 'tc-liveapps-lib';
+import {MatSelect} from '@angular/material';
 
 @Component({
   selector: 'tcla-live-apps-creator-selector',
@@ -10,6 +12,7 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./live-apps-creator-selector.component.css']
 })
 export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implements OnInit {
+  @ViewChild('creatorSelector') creatorSelector: MatSelect;
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string;
@@ -30,6 +33,10 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
       ref: this.caseType.applicationName + '.' + this.caseType.applicationInternalName + '.' + 'creator' + '.' + process.name,
       caseReference: undefined
     });
+  }
+
+  public reset = () => {
+    this.creatorSelector.value = undefined;
   }
 
   private getCaseIDAttributeName = () => {

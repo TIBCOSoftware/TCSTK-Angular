@@ -33,7 +33,8 @@ export class RenderedFormComponent implements OnInit, OnChanges {
         delete tmpSchema.$schema;
       }
       this.formSchema = tmpSchema;
-    };
+      console.log(JSON.stringify(this.formSchema));
+    }
     if (changes.data && changes.data.currentValue && (changes.schema.currentValue !== changes.schema.previousValue)) {
       this.formData = this.data;
     }
