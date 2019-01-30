@@ -63,6 +63,7 @@ import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
 import { LiveAppsCaseCreatorComponent } from './components/live-apps-case-creator/live-apps-case-creator.component';
 import { LiveAppsCreatorSelectorComponent } from './components/live-apps-creator-selector/live-apps-creator-selector.component';
 import { LiveAppsCreatorsComponent } from './components/live-apps-creators/live-apps-creators.component';
+import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/live-apps-case-action.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { LiveAppsCreatorsComponent } from './components/live-apps-creators/live-
     RenderedFormComponent,
     LiveAppsCaseCreatorComponent,
     LiveAppsCreatorSelectorComponent,
-    LiveAppsCreatorsComponent
+    LiveAppsCreatorsComponent,
+    LiveAppsCaseActionComponent
   ],
   imports: [
     HttpClientModule,

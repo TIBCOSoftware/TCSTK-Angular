@@ -3,7 +3,7 @@ import {CaseType, CaseTypesList, LaProcessSelection, Process} from '../../models
 import {LiveAppsComponent} from '../../components/live-apps-component/live-apps-component.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map} from 'rxjs/operators';
-import {LiveAppsStateIconComponent} from 'tc-liveapps-lib';
+import {LiveAppsStateIconComponent} from '../../components/live-apps-state-icon/live-apps-state-icon.component';
 import {MatSelect} from '@angular/material';
 
 @Component({
@@ -23,7 +23,7 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
   caseCreatorList: Process[];
 
   // run when the user clicks on a case creator
-  private selectProcess = (process) => {
+  public selectProcess = (process) => {
     this.creatorSelection.emit({
       type: 'creator',
       appSchema: this.appSchema,

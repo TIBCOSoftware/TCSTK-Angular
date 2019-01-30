@@ -21,9 +21,9 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   schema: any;
   layout: any[];
 
-  handleSubmit = (data) => {
+  handleSubmit = (data, caseRef) => {
     // run the process
-    this.liveapps.runProcess(this.sandboxId, this.applicationId, this.process.process.id, null, data)
+    this.liveapps.runProcess(this.sandboxId, this.applicationId, this.process.process.id, caseRef, data)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -60,7 +60,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
       );
   }
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 
