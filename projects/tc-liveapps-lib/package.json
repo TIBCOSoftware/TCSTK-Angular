@@ -6,6 +6,7 @@
     "@angular/core": "^7.2.2",
     "@angular/material": "^7.2.2",
     "@angular/flex-layout": "^7.0.0-beta.23",
-    "ngx-color-picker": "^7.3.0"
+    "ngx-color-picker": "^7.3.0",
+    "angular6-json-schema-form": "^7.0.3"
   }
 }
