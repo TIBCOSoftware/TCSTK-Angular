@@ -40,13 +40,6 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
             this.data = {
               [caseTypeName]: casedata
             };
-
-            this.data = {
-              PartnerRequest:
-                {
-                  RequestDescription_v1: 'Where is my order?'
-                }
-              };
           } else {
             console.error('The selected case is not the right case type for this action');
           }

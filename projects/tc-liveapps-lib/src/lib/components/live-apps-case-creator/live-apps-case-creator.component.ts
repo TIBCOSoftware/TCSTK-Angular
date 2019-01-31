@@ -17,7 +17,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   @Input() process: LaProcessSelection;
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
-  data: any = {};
+  data: any;
   schema: any;
   layout: any[];
 

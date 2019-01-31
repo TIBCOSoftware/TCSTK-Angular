@@ -35,7 +35,7 @@ export class RenderedFormComponent implements OnInit, OnChanges {
       this.formSchema = tmpSchema;
       console.log(JSON.stringify(this.formSchema));
     }
-    if (changes.data && changes.data.currentValue && (changes.schema.currentValue !== changes.schema.previousValue)) {
+    if (changes.data && changes.data.currentValue && (changes.data.currentValue !== changes.data.previousValue)) {
       this.formData = this.data;
     }
     if (changes.layout && changes.layout.currentValue && (changes.layout.currentValue !== changes.layout.previousValue)) {
