@@ -17,7 +17,6 @@ export class AppComponent {
   title = 'tc-liveapps';
   loggedIn = false;
   loginContext: LoginContext;
-  selectedAction: LaProcessSelection;
 
   // generic app config
   appConfig = new UiAppConfig().deserialize({
@@ -42,15 +41,15 @@ export class AppComponent {
     console.log(data);
   }
 
+  // handle case action response
+  handleCaseActioned = (data: ProcessId) => {
+    console.log('Case Actioned');
+    console.log(data);
+  }
+
   // case clicked
   private clickCaseAction = (caseReference) => {
     console.log('Case was clicked: ' + caseReference);
-  }
-
-  // action clicked
-  private handleActionClick = (action: LaProcessSelection) => {
-    console.log('Action was clicked:' + action.process.name);
-    this.selectedAction = action;
   }
 
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {

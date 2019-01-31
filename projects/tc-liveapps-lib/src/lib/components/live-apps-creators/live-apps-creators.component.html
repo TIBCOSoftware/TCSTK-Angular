@@ -1,4 +1,4 @@
 <div fxLayout="column" fxFlexFill>
   <tcla-live-apps-creator-selector #creatorSelector style="max-width: 200px" [sandboxId]="sandboxId" [appId]="applicationId" [typeId]="typeId" (creatorSelection)="handleCreatorSelection($event)"></tcla-live-apps-creator-selector>
-  <tcla-live-apps-case-creator *ngIf="selectedProcess" style="min-height:500px; overflow: auto;" [sandboxId]="sandboxId" [applicationId]="applicationId" [typeId]="typeId" [process]="selectedProcess" (caseCreated)="handleSubmit($event)"></tcla-live-apps-case-creator>
+  <tcla-live-apps-case-creator *ngIf="selectedProcess" style="min-height:500px; overflow: auto;" [sandboxId]="sandboxId" [applicationId]="applicationId" [typeId]="typeId" [process]="selectedProcess" (caseChanged)="handleSubmit($event)"></tcla-live-apps-case-creator>
 </div>

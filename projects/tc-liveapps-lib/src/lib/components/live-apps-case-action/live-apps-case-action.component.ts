@@ -1,8 +1,8 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {LiveAppsCaseCreatorComponent} from '../../components/live-apps-case-creator/live-apps-case-creator.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {CaseType, LaProcessSelection} from '../../models/liveappsdata';
+import {CaseType, LaProcessSelection, ProcessId} from '../../models/liveappsdata';
 
 @Component({
   selector: 'tcla-live-apps-case-action',
@@ -14,7 +14,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
 
   originalData: any;
 
-  private getCaseTypeNameFromSchema(typeId: string, process: LaProcessSelection): CaseType {
+  private getMainCaseTypeFromSchema(typeId: string, process: LaProcessSelection): CaseType {
     let requestedType: CaseType;
     process.appSchema.casetypes.forEach((cType) => {
       if (cType.id === typeId) {
@@ -36,7 +36,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
             this.originalData = {
               [this.process.process.name]: casedata
             };
-            const caseTypeName = this.getCaseTypeNameFromSchema(this.typeId, this.process).applicationInternalName;
+            const caseTypeName = this.getMainCaseTypeFromSchema(this.typeId, this.process).applicationInternalName;
             this.data = {
               [caseTypeName]: casedata
             };
@@ -60,6 +60,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    // the extended class will detect change in the process and layout passed
     super.ngOnChanges(changes);
     // handle input param changes
     if (changes.caseRef.currentValue && (changes.caseRef.currentValue !== changes.caseRef.previousValue)) {

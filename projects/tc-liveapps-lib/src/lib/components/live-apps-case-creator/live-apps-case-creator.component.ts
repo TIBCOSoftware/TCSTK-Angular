@@ -15,7 +15,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   @Input() applicationId: string;
   @Input() typeId: string;
   @Input() process: LaProcessSelection;
-  @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
+  @Output() caseChanged: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   data: any;
   schema: any;
@@ -32,7 +32,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
             if (!response.data.errorMsg) {
               // parse data to object
               response.data = JSON.parse(response.data);
-              // case created send back response including caseIdentifier if one is present - otherwise return -1
+              // case created send back response including caseIdentifier if one is present
               let caseIdentifier;
               let caseReference;
               if (response.caseIdentifier) {
@@ -42,7 +42,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
                 caseReference = response.caseReference;
               }
               const processResponse = new ProcessId().deserialize({'caseIdentifier': caseIdentifier, 'caseReference': caseReference });
-              this.caseCreated.emit(processResponse);
+              this.caseChanged.emit(processResponse);
               this.schema = undefined;
               this.data = undefined;
               this.layout = undefined;
@@ -71,6 +71,9 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     // handle input param changes
     if (changes.process && (changes.process.currentValue !== changes.process.previousValue)) {
       this.schema = changes.process.currentValue.process.jsonSchema;
+    }
+    if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
+      this.layout = changes.layou.currentValue;
     }
   }
 

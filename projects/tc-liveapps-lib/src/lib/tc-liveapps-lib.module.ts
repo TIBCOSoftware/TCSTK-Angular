@@ -64,6 +64,7 @@ import { LiveAppsCaseCreatorComponent } from './components/live-apps-case-creato
 import { LiveAppsCreatorSelectorComponent } from './components/live-apps-creator-selector/live-apps-creator-selector.component';
 import { LiveAppsCreatorsComponent } from './components/live-apps-creators/live-apps-creators.component';
 import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/live-apps-case-action.component';
+import { LiveAppsActionsComponent } from './components/live-apps-actions/live-apps-actions.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,9 @@ import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/
     LiveAppsCaseCreatorComponent,
     LiveAppsCreatorSelectorComponent,
     LiveAppsCreatorsComponent,
-    LiveAppsCaseActionComponent
+    LiveAppsCaseActionComponent,
+    LiveAppsActionsComponent,
+    LiveAppsActionsComponent
   ],
   imports: [
     HttpClientModule,
@@ -168,6 +171,7 @@ import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/
     LiveAppsCaseCreatorComponent,
     LiveAppsCreatorsComponent,
     LiveAppsCaseActionComponent,
+    LiveAppsActionsComponent,
     SpotfireWrapperComponent,
     RenderedFormComponent
   ],
