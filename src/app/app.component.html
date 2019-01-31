@@ -8,7 +8,9 @@
 
   <div #widgetsContainer class="tcla-components-pane" fxLayout="column" fxFlexFill>
 
-    <tcla-live-apps-case-actions [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [caseReference]="'150471'" [caseState]="'Created'" [maxActions]="1" (actionClicked)="handleActionClick($event)"></tcla-live-apps-case-actions>
+    <tcla-live-apps-case-actions [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [caseReference]="'150481'" [caseState]="'Created'" [maxActions]="1" (actionClicked)="handleActionClick($event)"></tcla-live-apps-case-actions>
+
+    <tcla-live-apps-case-action *ngIf="selectedAction" [process]="selectedAction" [caseRef]="'150481'" [typeId]="appConfig.typeId" [applicationId]="appConfig.applicationId" [sandboxId]="loginContext.claims.primaryProductionSandbox.id"></tcla-live-apps-case-action>
 
     <tcla-live-apps-creators [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
 

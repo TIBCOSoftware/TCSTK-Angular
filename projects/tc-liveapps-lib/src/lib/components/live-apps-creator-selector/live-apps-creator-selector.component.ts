@@ -24,15 +24,11 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
 
   // run when the user clicks on a case creator
   public selectProcess = (process) => {
-    this.creatorSelection.emit({
-      type: 'creator',
-      appSchema: this.appSchema,
-      caseIdAttribute: this.getCaseIDAttributeName(),
-      process: process,
+    this.creatorSelection.emit(new LaProcessSelection('creator', this.appSchema, this.getCaseIDAttributeName(), process,
       // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
-      ref: this.caseType.applicationName + '.' + this.caseType.applicationInternalName + '.' + 'creator' + '.' + process.name,
-      caseReference: undefined
-    });
+      (this.caseType.applicationName + '.' + this.caseType.applicationInternalName + '.' + 'creator' + '.' + process.name),
+      undefined
+    ));
   }
 
   public reset = () => {
@@ -56,7 +52,7 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
 
   ngOnInit() {
 // retrieve the schema for this case type so we can display case creators and case actions for this case type
-    this.liveapps.getCaseTypeSchema(this.sandboxId, this.appId, 50).pipe(
+    this.liveapps.getCaseTypeSchema(this.sandboxId, this.appId, 100).pipe(
       map(schema => {
           this.appSchema = schema;
           schema.casetypes.forEach((casetype) => {

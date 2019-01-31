@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {LiveAppsCaseCreatorComponent} from '../../components/live-apps-case-creator/live-apps-case-creator.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
+import {CaseType, LaProcessSelection} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-action',
@@ -10,6 +11,18 @@ import {map, take, takeUntil} from 'rxjs/operators';
 })
 export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent implements OnInit, OnChanges {
   @Input() caseRef: string;
+
+  originalData: any;
+
+  private getCaseTypeNameFromSchema(typeId: string, process: LaProcessSelection): CaseType {
+    let requestedType: CaseType;
+    process.appSchema.casetypes.forEach((cType) => {
+      if (cType.id === typeId) {
+        requestedType = cType;
+      }
+    });
+    return requestedType;
+  }
 
   private getCaseData = (caseRef) => {
     // retrieve the case data for this case reference
@@ -20,8 +33,20 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
         map(result => {
           if (result.metadata.applicationId === this.applicationId.toString()) {
             const casedata = result.untaggedCasedataObj;
-            this.data = {};
-            this.data[this.process.process.name] = casedata;
+            this.originalData = {
+              [this.process.process.name]: casedata
+            };
+            const caseTypeName = this.getCaseTypeNameFromSchema(this.typeId, this.process).applicationInternalName;
+            this.data = {
+              [caseTypeName]: casedata
+            };
+
+            this.data = {
+              PartnerRequest:
+                {
+                  RequestDescription_v1: 'Where is my order?'
+                }
+              };
           } else {
             console.error('The selected case is not the right case type for this action');
           }
@@ -29,7 +54,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     )
       .subscribe(success => success, error => {
         // Emit any error retrieving case data to the parent
-        console.error('Unable to retrieve case data: ' + error.error.errorMsg);
+        console.error('Unable to retrieve case data');
+        console.error(error);
       });
   }
 
@@ -45,6 +71,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     // handle input param changes
     if (changes.caseRef.currentValue && (changes.caseRef.currentValue !== changes.caseRef.previousValue)) {
       // get case data
+      this.getCaseData(changes.caseRef.currentValue);
     }
   }
 

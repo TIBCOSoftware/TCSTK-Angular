@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
   MatButtonModule,
@@ -167,13 +167,22 @@ import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/
     LiveAppsCreatorSelectorComponent,
     LiveAppsCaseCreatorComponent,
     LiveAppsCreatorsComponent,
+    LiveAppsCaseActionComponent,
     SpotfireWrapperComponent,
     RenderedFormComponent
   ],
   providers: [
+    LiveAppsService,
     RequestCacheService,
      { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]
 })
-export class TcLiveappsLibModule { }
+export class TcLiveappsLibModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: TcLiveappsLibModule,
+      providers: [ LiveAppsService ]
+    };
+  }
+}

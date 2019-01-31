@@ -15,7 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   imports: [
     FlexLayoutModule,
     BrowserModule,
-    TcLiveappsLibModule,
+    TcLiveappsLibModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([])

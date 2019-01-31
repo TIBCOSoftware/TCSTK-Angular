@@ -34,6 +34,7 @@ export * from './lib/components/rendered-form/rendered-form.component';
 export * from './lib/components/live-apps-case-creator/live-apps-case-creator.component';
 export * from './lib/components/live-apps-creator-selector/live-apps-creator-selector.component';
 export * from './lib/components/live-apps-creators/live-apps-creators.component';
+export * from './lib/components/live-apps-case-action/live-apps-case-action.component';
 
 
 // pipes
@@ -42,3 +43,7 @@ export * from './lib/pipes/highlight.pipe';
 // data
 
 export * from './lib/models/liveappsdata';
+
+// service
+
+export * from './lib/services/live-apps.service';

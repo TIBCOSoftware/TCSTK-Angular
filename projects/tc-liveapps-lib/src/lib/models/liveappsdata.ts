@@ -275,6 +275,7 @@ export class CaseAction implements Deserializable {
   performerPaths: string[];
   roles: string[];
   version: number;
+  process: Process;
   deserialize(input: any): this {
     Object.assign(this, input);
     return this;
@@ -309,13 +310,15 @@ export class AuditEventList implements Deserializable {
 }
 
 export class LaProcessSelection {
-  type: string;
-  appSchema: CaseTypesList;
-  caseIdAttribute: CaseAttribute;
-  process: Process;
   // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
-  ref: string;
-  caseReference: string;
+  constructor(public type: string,
+              public appSchema: CaseTypesList,
+              public caseIdAttribute: CaseAttribute,
+              public process: Process,
+              public ref: string,
+              public caseReference: string
+  ) {
+  }
 }
 
 export class CaseList implements Deserializable {
