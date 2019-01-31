@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {LiveAppsCaseCreatorComponent} from '../../components/live-apps-case-creator/live-apps-case-creator.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {CaseType, LaProcessSelection} from 'tc-liveapps-lib';
+import {CaseType, LaProcessSelection} from '../../models/liveappsdata';
 
 @Component({
   selector: 'tcla-live-apps-case-action',
