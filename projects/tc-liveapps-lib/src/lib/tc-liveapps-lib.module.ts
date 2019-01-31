@@ -176,7 +176,7 @@ import { LiveAppsActionsComponent } from './components/live-apps-actions/live-ap
     RenderedFormComponent
   ],
   providers: [
-    LiveAppsService,
+//    LiveAppsService,
     RequestCacheService,
      { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
