@@ -175,6 +175,7 @@ import { LiveAppsActionsComponent } from './components/live-apps-actions/live-ap
     SpotfireWrapperComponent,
     RenderedFormComponent
   ],
+  entryComponents: [LiveAppsStateIconUploadDialogComponent],
   providers: [
 //    LiveAppsService,
     RequestCacheService,
