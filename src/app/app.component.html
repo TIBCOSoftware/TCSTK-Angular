@@ -30,7 +30,11 @@
         url="https://spotfire-next.cloud.tibco.com"
         path="/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard"
       >
-      </tcla-spotfire-viz-->
+      </tcla-spotfire-viz>
+      </div-->
+
+    <div #widgetBlock4 class="widget-block-4" style="margin-top: 420px; padding-left: 80px; padding-right: 80px;">
+      <tcla-live-apps-application-configuration [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" [appId]="appConfig.applicationId" [folderId]="'ServiceRequest_Icons'" [appTypeLabel]="'Partner Portal'"></tcla-live-apps-application-configuration>
     </div>
 
   </div>

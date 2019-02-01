@@ -158,6 +158,15 @@ export class CaseTypeState implements Deserializable {
   }
 }
 
+export class CaseTypeStatesListList implements  Deserializable {
+  casetypes: CaseTypeStatesList[];
+  deserialize(input: any): this {
+    this.casetypes = [];
+    Object.assign(this.casetypes, input);
+    return this;
+  }
+}
+
 export class CaseTypeStatesList implements Deserializable {
   states: CaseTypeState[];
   deserialize(input: any): this {

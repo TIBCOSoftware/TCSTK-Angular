@@ -24,7 +24,18 @@ import {
   UserInfo,
   ApiResponseText,
   NotesList,
-  Note, ThreadList, Thread, NoteThread, NotificationList, CaseType, AppConfig, IconMap, Metadata, UiAppConfig, CaseSearchResults
+  Note,
+  ThreadList,
+  Thread,
+  NoteThread,
+  NotificationList,
+  CaseType,
+  AppConfig,
+  IconMap,
+  Metadata,
+  UiAppConfig,
+  CaseSearchResults,
+  CaseTypeStatesListList
 } from '../models/liveappsdata';
 import {catchError, debounceTime, distinctUntilChanged, map, share, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
@@ -281,7 +292,20 @@ export class LiveAppsService {
         // return this.http.get(url)
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-                map(casetypestates => new CaseTypeStatesList().deserialize(casetypestates[0].states)));
+                map(casetypestates => {
+                  // const x = new CaseTypeStatesList().deserialize(casetypestates[0].states);
+                  // return x;
+
+                  const casetypelist = new CaseTypeStatesListList().deserialize(casetypestates);
+                  let states: CaseTypeStatesList;
+                  casetypelist.casetypes.forEach((casetype) => {
+                    if (casetype.states !== undefined) {
+                      states = new CaseTypeStatesList().deserialize(casetype.states);
+                    }
+                  });
+                  return states;
+                }
+                ));
     }
 
     public getCaseTypeBasicInfo(sandboxId: number, appId: string, typeId: string, top: number): Observable<CaseType> {
