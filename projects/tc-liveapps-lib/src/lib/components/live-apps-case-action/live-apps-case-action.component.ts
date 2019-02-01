@@ -63,9 +63,10 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     // the extended class will detect change in the process and layout passed
     super.ngOnChanges(changes);
     // handle input param changes
-    if (changes.caseRef.currentValue && (changes.caseRef.currentValue !== changes.caseRef.previousValue)) {
-      // get case data
-      this.getCaseData(changes.caseRef.currentValue);
+    if ((changes.caseRef && changes.caseRef.currentValue && (changes.caseRef.currentValue !== changes.caseRef.previousValue))
+      || (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue))) {
+      // get case data if anything changes
+      this.getCaseData(this.caseRef);
     }
   }
 

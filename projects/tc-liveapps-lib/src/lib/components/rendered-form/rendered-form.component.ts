@@ -20,6 +20,11 @@ export class RenderedFormComponent implements OnInit, OnChanges {
     this.formSubmit.emit(data);
   }
 
+  handleLayoutOutput = (layout: any) => {
+    console.log('Layout:');
+    console.log(JSON.stringify(layout));
+  }
+
   constructor() { }
 
   ngOnInit() {

@@ -13,6 +13,7 @@ export class LiveAppsCreatorsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() applicationId: string;
   @Input() typeId: string;
+  @Input() dataOverride: any;
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   selectedProcess: LaProcessSelection;
