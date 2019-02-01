@@ -6,14 +6,46 @@
   <br>
 
 
-  <div #widgetsContainer class="tcla-components-pane" fxLayout="column" fxFlexFill>
+  <mat-tab-group style="margin-top: 30px;">
+    <mat-tab label="Config">
+        <tcla-live-apps-application-configuration [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" [appId]="appConfig.applicationId" [folderId]="'ServiceRequest_Icons'" [appTypeLabel]="'Partner Portal'"></tcla-live-apps-application-configuration>
+    </mat-tab>
+
+    <mat-tab label="Favorite">
+      <tcla-live-apps-favorite-cases class="padded-widget" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
+    </mat-tab>
+
+    <mat-tab label="Recent">
+      <tcla-live-apps-recent-cases class="padded-widget" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
+    </mat-tab>
+
+    <mat-tab label="Search">
+      <tcla-live-apps-search-widget [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (caseSelected)="handleCaseClick($event)"></tcla-live-apps-search-widget>
+    </mat-tab>
+
+    <mat-tab label="Creators">
+      <tcla-live-apps-creators [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
+    </mat-tab>
+
+    <mat-tab label="Case Action" fxLayout="row">
+      <div style="margin: 20px">
+        <tcla-live-apps-case-summary [uiAppId]="appConfig.uiAppId" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [caseReference]="'205301'" [displayType]="'list'" [typeBar]="true"></tcla-live-apps-case-summary>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start start">
+        <tcla-live-apps-case-summary style="margin: 20px;" [uiAppId]="appConfig.uiAppId" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [caseReference]="'205301'" [displayType]="'card'" [typeBar]="true"></tcla-live-apps-case-summary>
+        <tcla-live-apps-case-summary style="margin: 20px;" [uiAppId]="appConfig.uiAppId" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [caseReference]="'205301'" [displayType]="'miniCard'" [typeBar]="true"></tcla-live-apps-case-summary>
+      </div>
+      <tcla-live-apps-actions [caseRef]="205301" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" [caseState]="'Created'" (caseActioned)="handleCaseActioned($event)"></tcla-live-apps-actions>
+    </mat-tab>
+  </mat-tab-group>
+  <!--div #widgetsContainer class="tcla-components-pane" fxLayout="column" fxFlexFill>
 
     <tcla-live-apps-actions [caseRef]="205301" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" [caseState]="'Created'" (caseActioned)="handleCaseActioned($event)"></tcla-live-apps-actions>
 
     <tcla-live-apps-creators [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
 
     <div #widgetBlock1 class="widget-block-1" fxFlex>
-      <tcla-live-apps-search-widget [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
+      <tcla-live-apps-creators [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
     </div>
 
     <div #widgetBlock2 class="widget-block-2" fxFlex fxLayout="row" fxLayoutAlign="space-around start">
@@ -33,9 +65,10 @@
       </tcla-spotfire-viz>
       </div-->
 
-    <div #widgetBlock4 class="widget-block-4" style="margin-top: 420px; padding-left: 80px; padding-right: 80px;">
+    <!--div #widgetBlock4 class="widget-block-4" style="margin-top: 420px; padding-left: 80px; padding-right: 80px;">
       <tcla-live-apps-application-configuration [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" [appId]="appConfig.applicationId" [folderId]="'ServiceRequest_Icons'" [appTypeLabel]="'Partner Portal'"></tcla-live-apps-application-configuration>
     </div>
 
-  </div>
+  </div-->
+</div>
 </div>

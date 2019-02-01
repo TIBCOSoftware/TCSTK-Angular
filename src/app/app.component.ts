@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {
-  CaseAction, LaProcessSelection, LiveAppsCreatorSelectorComponent,
+  CaseAction, CaseInfo, LaProcessSelection, LiveAppsCreatorSelectorComponent, LiveAppsService,
   LoginContext, ProcessId,
   UiAppConfig
 } from 'tc-liveapps-lib';
@@ -47,12 +47,18 @@ export class AppComponent {
     console.log(data);
   }
 
+  // set recent case
+  handleCaseClick = (caseRef: string) => {
+      this.liveapps.setRecentCase(caseRef, this.appConfig.uiAppId, Number(this.loginContext.claims.primaryProductionSandbox.id));
+      this.liveapps.setFavoriteCase(caseRef, this.appConfig.uiAppId, Number(this.loginContext.claims.primaryProductionSandbox.id));
+  }
+
   // case clicked
   private clickCaseAction = (caseReference) => {
     console.log('Case was clicked: ' + caseReference);
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private liveapps: LiveAppsService) {
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-reply',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-reply.svg'))

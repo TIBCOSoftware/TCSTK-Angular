@@ -7,6 +7,7 @@ import {Location} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatTabsModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     TcLiveappsLibModule.forRoot(),
     FormsModule,
+    MatTabsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([])
   ],
