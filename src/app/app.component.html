@@ -8,7 +8,8 @@
 
   <mat-tab-group style="margin-top: 30px;">
     <mat-tab label="Config">
-        <tcla-live-apps-application-configuration [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" [appId]="appConfig.applicationId" [folderId]="'ServiceRequest_Icons'" [appTypeLabel]="'Partner Portal'"></tcla-live-apps-application-configuration>
+      <tcla-live-apps-application-configuration [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [uiAppId]="appConfig.uiAppId" [appId]="appConfig.applicationId" [folderId]="'ServiceRequest_Icons'" [appTypeLabel]="'Partner Portal'"></tcla-live-apps-application-configuration>
+      <tcla-live-apps-documents style="padding: 30px;" [folderId]="'ServiceRequest_Icons'" [folderDescription]="'Case Icons'" [folderType]="'orgFolders'"></tcla-live-apps-documents>
     </mat-tab>
 
     <mat-tab label="Favorite">
@@ -27,7 +28,7 @@
       <tcla-live-apps-creators [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
     </mat-tab>
 
-    <mat-tab label="Case Action" fxLayout="row">
+    <mat-tab label="Case" fxLayout="row">
       <div style="margin: 20px">
         <tcla-live-apps-case-summary [uiAppId]="appConfig.uiAppId" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [caseReference]="'205301'" [displayType]="'list'" [typeBar]="true"></tcla-live-apps-case-summary>
       </div>
@@ -35,6 +36,12 @@
         <tcla-live-apps-case-summary style="margin: 20px;" [uiAppId]="appConfig.uiAppId" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [caseReference]="'205301'" [displayType]="'card'" [typeBar]="true"></tcla-live-apps-case-summary>
         <tcla-live-apps-case-summary style="margin: 20px;" [uiAppId]="appConfig.uiAppId" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [caseReference]="'205301'" [displayType]="'miniCard'" [typeBar]="true"></tcla-live-apps-case-summary>
       </div>
+
+      <div fxFlex fxLayout="row" fxLayoutGap="20px">
+        <tcla-live-apps-notes [relatedItemType]="'CASE_APP'" [relatedItemId]="205301" [userId]="appConfig.userId"></tcla-live-apps-notes>
+        <tcla-live-apps-documents [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [folderId]="205301" [folderType]="'caseFolders'"></tcla-live-apps-documents>
+      </div>
+
       <tcla-live-apps-actions [caseRef]="205301" [sandboxId]="loginContext.claims.primaryProductionSandbox.id" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" [caseState]="'Created'" (caseActioned)="handleCaseActioned($event)"></tcla-live-apps-actions>
     </mat-tab>
 
@@ -44,7 +51,6 @@
         path="/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard"
       >
       </tcla-spotfire-viz>
-
     </mat-tab>
   </mat-tab-group>
   <!--div #widgetsContainer class="tcla-components-pane" fxLayout="column" fxFlexFill>
