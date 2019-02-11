@@ -1,0 +1,13 @@
+{
+  "/claps": { 
+    "target": {
+      "host": "eu-west-1.integration.cloud.tibcoapps.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {"^/claps" : "/qg56zzs644r3lr2t62mbe75xb457rv26/claps"}
+  }
+}
