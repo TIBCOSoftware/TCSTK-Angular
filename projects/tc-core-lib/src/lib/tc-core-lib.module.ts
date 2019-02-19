@@ -61,6 +61,8 @@ import {CachingInterceptor} from './interceptors/caching-interceptor';
     RequestCacheService,
     // comment this line to disable the CachingInterceptor
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    // uncomment this line to use the mock service interceptor
+    // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]
 })
 
