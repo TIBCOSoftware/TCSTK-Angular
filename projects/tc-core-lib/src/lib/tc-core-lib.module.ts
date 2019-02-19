@@ -24,6 +24,7 @@ import {RequestCacheService} from './services/request-cache.service';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
 import {AuthGuard} from './guards/auth.guard';
 import {TcCoreCommonFunctions} from './common/tc-core-common-functions';
+import {AuthErrorInterceptor} from './interceptors/authentication-error-interceptor';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,9 @@ import {TcCoreCommonFunctions} from './common/tc-core-common-functions';
     RequestCacheService,
     AuthGuard,
     // comment this line to disable the CachingInterceptor
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
+    // error handling interceptor
+    { provide: HTTP_INTERCEPTORS, useClass: AuthErrorInterceptor, multi: true }
     // uncomment this line to use the mock service interceptor
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]
