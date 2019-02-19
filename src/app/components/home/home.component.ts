@@ -5,7 +5,7 @@ import {Claim} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',
-  templateUrl: './home.component.html',
+  templateUrl: './templates/home.component.liveapps.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
