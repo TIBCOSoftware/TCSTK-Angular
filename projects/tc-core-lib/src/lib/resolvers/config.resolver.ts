@@ -23,6 +23,7 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
 
+    // can we pass this in somehow rather than get it off the parent route snapshot?
     const sandboxId = routeSnapshot.parent.data.claims.primaryProductionSandbox.id;
 
     const appConfig = this.tcSharedState.getUiAppConfig('testappjs', true, false)

@@ -13,6 +13,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    // todo: Need to have this starterApp route in order for the ConfigResolver to get the sandboxId from claims
+    // might be able to pass this in a different way
     path: 'starterApp',
     component: StarterAppComponent,
     canActivate: [AuthGuard],
@@ -25,8 +27,8 @@ const routes: Routes = [
         component: HomeComponent,
         canActivate: [AuthGuard],
         resolve: {
-          appConfig: ConfigResolver,
-          claims: ClaimsResolver
+          claims: ClaimsResolver,
+          appConfig: ConfigResolver
         }
       }
     ]
