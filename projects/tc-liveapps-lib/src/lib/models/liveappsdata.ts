@@ -1,4 +1,5 @@
 import { Deserializable} from './deserializable';
+import {AuthInfo, AccessToken} from 'tc-core-lib';
 
 export class NoteThread {
   constructor(public threadId: string,
@@ -115,31 +116,6 @@ export class Claim implements Deserializable {
   subscriptionId: string;
   username: string;
   primaryProductionSandbox: Sandbox;
-
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
-  }
-}
-
-export class AccessToken implements Deserializable {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
-  }
-}
-
-export class AuthInfo implements Deserializable {
-  userName: string;
-  firstName: string;
-  lastName: string;
-  userId: string;
-  ts: number;
-  orgName: string;
 
   deserialize(input: any): this {
     Object.assign(this, input);
@@ -591,6 +567,7 @@ export class UiAppConfig implements Deserializable {
     return this;
   }
 }
+
 
 export class LoginContext implements Deserializable {
   claims: Claim;

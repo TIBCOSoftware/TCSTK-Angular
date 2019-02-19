@@ -3,15 +3,15 @@
  * @name tibcoCloudLoginComponent
  *
  * @description
- * `<tcla-tibco-cloud-login-component>` is a component providing the ability to log into tibco cloud.
+ * `<tc-tibco-cloud-login-component>` is a component providing the ability to log into tibco cloud.
  *
  * @param {function callback} loggedIn Notify parent that user is logged in ok.
  * @param {function callback} subscriptionRequired Notify parent that user is in multiple subscriptions.
  *
  * @usage
  *
- * <tcla-tibco-cloud-login *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)"
- *    (subscriptionRequired)="handleSubscription($event)"></tcla-tibco-cloud-login>
+ * <tc-tibco-cloud-login *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)"
+ *    (subscriptionRequired)="handleSubscription($event)"></tc-tibco-cloud-login>
  *
  * This component will attempt to log the user in. If the user has multiple subscriptions then the
  * component will emit a list of available subscriptions. The user must select a subscription and
@@ -20,14 +20,14 @@
  */
 
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AccountsInfo, Subscription } from '../../models/tscdata';
+import { AccountsInfo, Subscription } from '../../models/tc-login';
 import {Observable, ObservableInput} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
-import {AccessToken, AuthInfo } from '../../models/liveappsdata';
-import {LiveAppsService} from '../../services/live-apps.service';
+import {AccessToken, AuthInfo } from '../../models/tc-login';
+import {TcLoginService} from '../../services/tc-login.service';
 
 @Component({
-    selector: 'tcla-tibco-cloud-login',
+    selector: 'tc-tibco-cloud-login',
     templateUrl: './tibco-cloud-login.component.html',
     styleUrls: ['./tibco-cloud-login.component.css']
 })
@@ -46,7 +46,7 @@ export class TibcoCloudLoginComponent {
     auth: Observable<AuthInfo>
 
   constructor(
-    private liveapps: LiveAppsService
+    private tcLogin: TcLoginService
   ) { }
 
     doLogin() {
@@ -54,11 +54,11 @@ export class TibcoCloudLoginComponent {
         this.loginError = undefined;
 
         // We need to pass the token from getToken into the authorize call. Hence, using mergeMap below.
-        this.auth = this.liveapps.login(this.name, this.password)
+        this.auth = this.tcLogin.login(this.name, this.password)
           .pipe(
             mergeMap(token => {
                 this.token = token;
-                return this.liveapps.authorize(token, '');
+                return this.tcLogin.laAuthorize(token, '');
               }
             )
           );

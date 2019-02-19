@@ -177,6 +177,41 @@
           }
         }
       }
+    },
+    "tc-core-lib": {
+      "root": "projects/tc-core-lib",
+      "sourceRoot": "projects/tc-core-lib/src",
+      "projectType": "library",
+      "prefix": "tc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tc-core-lib/tsconfig.lib.json",
+            "project": "projects/tc-core-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tc-core-lib/src/test.ts",
+            "tsConfig": "projects/tc-core-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tc-core-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tc-core-lib/tsconfig.lib.json",
+              "projects/tc-core-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tc-liveapps"

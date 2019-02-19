@@ -17,11 +17,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {ColorPickerModule} from 'ngx-color-picker';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
 import {RequestCacheService} from './services/request-cache.service';
-import {TibcoCloudNavbarComponent} from './components/tibco-cloud-navbar/tibco-cloud-navbar.component';
-import {TibcoCloudLoginComponent} from './components/tibco-cloud-login/tibco-cloud-login.component';
-import {
-  TibcoCloudMultipleSubscriptionComponent
-} from './components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 import {LiveAppsCaseSearchComponent} from './components/live-apps-case-search/live-apps-case-search.component';
 import {LiveAppsCaseListComponent} from './components/live-apps-case-list/live-apps-case-list.component';
 import {LiveAppsCaseSummaryComponent} from './components/live-apps-case-summary/live-apps-case-summary.component';
@@ -65,13 +60,11 @@ import { LiveAppsCreatorSelectorComponent } from './components/live-apps-creator
 import { LiveAppsCreatorsComponent } from './components/live-apps-creators/live-apps-creators.component';
 import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/live-apps-case-action.component';
 import { LiveAppsActionsComponent } from './components/live-apps-actions/live-apps-actions.component';
+import {TcCoreLibModule} from 'tc-core-lib';
 
 @NgModule({
   declarations: [
     LiveAppsLoginComponent,
-    TibcoCloudLoginComponent,
-    TibcoCloudNavbarComponent,
-    TibcoCloudMultipleSubscriptionComponent,
     LiveAppsSandboxComponent,
     LiveAppsApplicationsComponent,
     LiveAppsCaseSchemaListComponent,
@@ -110,6 +103,7 @@ import { LiveAppsActionsComponent } from './components/live-apps-actions/live-ap
     LiveAppsActionsComponent
   ],
   imports: [
+    TcCoreLibModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -136,9 +130,6 @@ import { LiveAppsActionsComponent } from './components/live-apps-actions/live-ap
   ],
   exports: [
     LiveAppsLoginComponent,
-    TibcoCloudLoginComponent,
-    TibcoCloudNavbarComponent,
-    TibcoCloudMultipleSubscriptionComponent,
     LiveAppsSandboxComponent,
     LiveAppsApplicationsComponent,
     LiveAppsCaseSchemaListComponent,

@@ -6,8 +6,6 @@ import {
   Group,
   Claim,
   Sandbox,
-  AccessToken,
-  AuthInfo,
   CaseInfo,
   CaseInfoList,
   CaseTypesList,
@@ -37,6 +35,7 @@ import {
   CaseSearchResults,
   CaseTypeStatesListList
 } from '../models/liveappsdata';
+import {AccessToken, AuthInfo} from 'tc-core-lib';
 import {catchError, debounceTime, distinctUntilChanged, map, share, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from '../models/deserializable';
 import {split} from 'ts-node';
@@ -55,38 +54,6 @@ export class LiveAppsService {
   constructor(
     private http: HttpClient, private location: Location
   ) { }
-
-  public login(username, password): Observable<AccessToken> {
-    const url = '/as/token.oauth2';
-    const body = new HttpParams()
-      .set('username', username)
-      .set('password', password)
-      .set('client_id', 'ropc_ipass')
-      .set('grant_type', 'password');
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded');
-
-    return this.http.post(url, body.toString(), { headers })
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map( accessToken => new AccessToken().deserialize(accessToken)));
-  }
-
-  public authorize(accessToken: AccessToken, accountId): Observable<AuthInfo> {
-    const url = '/idm/v1/login-oauth';
-    const body = new HttpParams()
-      .set('AccessToken', accessToken.access_token)
-      .set('TenantId', 'bpm')
-      .set('AccountId', accountId);
-
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded');
-
-    return this.http.post(url, body.toString(), { headers })
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map( authInfo => new AuthInfo().deserialize(authInfo)));
-  }
 
   public getSandboxes(): Observable<SandboxList> {
     const url = '/organisation/sandboxes';

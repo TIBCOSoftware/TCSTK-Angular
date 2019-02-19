@@ -3,7 +3,7 @@ import {Component, OnInit, ViewChild, ElementRef, Input} from '@angular/core';
 declare var GlobalNavbar: any;
 
 @Component({
-  selector: 'tcla-tibco-cloud-navbar',
+  selector: 'tc-tibco-cloud-navbar',
   templateUrl: './tibco-cloud-navbar.component.html',
   styleUrls: ['./tibco-cloud-navbar.component.css']
 })

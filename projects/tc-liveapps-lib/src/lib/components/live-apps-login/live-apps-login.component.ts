@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {AccessToken, AuthInfo, LoginContext, UiAppConfig, UserInfo} from '../../models/liveappsdata';
+import {LoginContext, UiAppConfig, UserInfo} from '../../models/liveappsdata';
+import {AccessToken, AuthInfo} from 'tc-core-lib';
 import {Log} from '@angular/core/testing/src/logger';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';

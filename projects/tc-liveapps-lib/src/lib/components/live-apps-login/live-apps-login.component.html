@@ -1,5 +1,5 @@
 <!-- If the user is not logged in we just show the login components -->
-<tcla-tibco-cloud-login *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)" (subscriptionRequired)="handleSubscription($event)"></tcla-tibco-cloud-login>
+<tc-tibco-cloud-login *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)" (subscriptionRequired)="handleSubscription($event)"></tc-tibco-cloud-login>
 
 <!-- This component is required if user is in multiple subscriptions - they must select a subscription to complete login -->
-<tcla-tibco-cloud-multiple-subscription *ngIf="subRequired && !loggedIn" [subscriptions]="subscriptions" [token]="accessToken" (subscriptionSelection)="handleLoggedIn($event)"></tcla-tibco-cloud-multiple-subscription>
+<tc-tibco-cloud-multiple-subscription *ngIf="subRequired && !loggedIn" [subscriptions]="subscriptions" [token]="accessToken" (subscriptionSelection)="handleLoggedIn($event)"></tc-tibco-cloud-multiple-subscription>

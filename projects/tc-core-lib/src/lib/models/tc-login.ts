@@ -1,6 +1,31 @@
 import { Deserializable} from './deserializable';
-// no longer used - moved to core lib
-/*export class Subscription {
+
+export class AccessToken implements Deserializable {
+  access_token: string;
+  token_type: string;
+  expires_in: number;
+
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class AuthInfo implements Deserializable {
+  userName: string;
+  firstName: string;
+  lastName: string;
+  userId: string;
+  ts: number;
+  orgName: string;
+
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class Subscription {
   constructor(
     public accountId: string,
     public accountDisplayName: string,
@@ -37,30 +62,5 @@ export class AccountsInfo implements Deserializable {
     return this;
   }
 }
-
-export class AccessToken implements Deserializable {
-  access_token: string;
-  token_type: string;
-  expires_in: number;
-
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
-  }
-}
-
-export class AuthInfo implements Deserializable {
-  userName: string;
-  firstName: string;
-  lastName: string;
-  userId: string;
-  ts: number;
-  orgName: string;
-
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
-  }
-}*/
 
 

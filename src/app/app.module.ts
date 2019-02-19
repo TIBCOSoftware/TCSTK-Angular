@@ -8,12 +8,14 @@ import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material';
+import {TcCoreLibModule} from 'tc-core-lib';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    TcCoreLibModule,
     FlexLayoutModule,
     BrowserModule,
     TcLiveappsLibModule.forRoot(),

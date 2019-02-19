@@ -23,11 +23,11 @@
  */
 
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {AccessToken} from '../../models/liveappsdata';
-import {LiveAppsService} from '../../services/live-apps.service';
+import {AccessToken} from '../../models/tc-login';
+import {TcLoginService} from '../../services/tc-login.service';
 
 @Component({
-    selector: 'tcla-tibco-cloud-multiple-subscription',
+    selector: 'tc-tibco-cloud-multiple-subscription',
     templateUrl: './tibco-cloud-multiple-subscription.component.html',
     styleUrls: ['./tibco-cloud-multiple-subscription.component.css']
 })
@@ -40,12 +40,12 @@ export class TibcoCloudMultipleSubscriptionComponent {
     public loading = false;
 
     constructor(
-        private liveapps: LiveAppsService
+        private tcLogin: TcLoginService
     ) { }
 
     authorize(subscriptionId) {
         this.loading = true;
-        this.liveapps.authorize(this.token, subscriptionId)
+        this.tcLogin.laAuthorize(this.token, subscriptionId)
             .subscribe(authorize => {
                 this.loading = false;
                 this.subscriptionSelection.emit(authorize);
