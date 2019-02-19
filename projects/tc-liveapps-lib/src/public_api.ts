@@ -38,9 +38,10 @@ export * from './lib/components/live-apps-actions/live-apps-actions.component';
 export * from './lib/pipes/highlight.pipe';
 
 // data
-
 export * from './lib/models/liveappsdata';
 
 // service
-
 export * from './lib/services/live-apps.service';
+
+// resolvers
+export * from './lib/resolvers/claims.resolver';

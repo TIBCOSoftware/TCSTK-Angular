@@ -28,7 +28,6 @@ import {
   AppConfig,
   IconMap,
   Metadata,
-  UiAppConfig,
   CaseSearchResults,
   CaseTypeStatesListList
 } from '../models/liveappsdata';
@@ -38,7 +37,9 @@ import {
   SharedStateList,
   SharedStateEntry,
   SharedStateContent,
-  TcSharedStateService
+  TcSharedStateService,
+  UiAppConfig,
+  TcCoreCommonFunctions
 } from 'tc-core-lib';
 import {catchError, debounceTime, distinctUntilChanged, map, share, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import { Deserializable} from 'tc-core-lib';
@@ -414,7 +415,7 @@ export class LiveAppsService {
         }
       }
     }
-    sharedStateContent.json = this.escapeString(JSON.stringify(casesRec));
+    sharedStateContent.json = TcCoreCommonFunctions.escapeString(JSON.stringify(casesRec));
     return sharedStateContent;
   }
 
@@ -428,7 +429,7 @@ export class LiveAppsService {
     }
     casesRec.uniqueKey = 'caseReference';
     const sharedStateContent: SharedStateContent = new SharedStateContent();
-    sharedStateContent.json = this.escapeString(JSON.stringify(casesRec));
+    sharedStateContent.json = TcCoreCommonFunctions.escapeString(JSON.stringify(casesRec));
     return sharedStateContent;
   }
 
@@ -521,7 +522,7 @@ export class LiveAppsService {
   public runProcess(sandboxId: number, appId: string, processId: string, caseReference: string, data: any): Observable<any> {
     const url = '/process/processes';
     // convert data to an escaped JSON string
-    const dataJson = this.escapeString(JSON.stringify(data));
+    const dataJson = TcCoreCommonFunctions.escapeString(JSON.stringify(data));
     const body = {
       'id': processId,
       'sandboxId': sandboxId,
@@ -574,7 +575,7 @@ export class LiveAppsService {
       document.extension = '';
     }
     document.fileIcon = this.getIcon(document.extension);
-    document.fileSize = this.fileSizeToHuman(Number(document.size));
+    document.fileSize = TcCoreCommonFunctions.fileSizeToHuman(Number(document.size));
     this.getUserInfo(document.author).subscribe(val => {
       document.authorDetails = val;
       return document;
@@ -899,7 +900,7 @@ export class LiveAppsService {
   public createAppConfig(sandboxId: number, appId: string, uiAppId: string): Observable<string> {
     const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
-    content.json = this.escapeString(JSON.stringify([]));
+    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify([]));
     return this.tcSharedState.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
       .pipe(
         map(value => value)
@@ -909,7 +910,7 @@ export class LiveAppsService {
   public updateAppConfig(sandboxId: number, appId: string, uiAppId: string, config: AppConfig, id: string): Observable<AppConfig> {
     const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
-    content.json = this.escapeString(JSON.stringify(config));
+    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(config));
     const entry: SharedStateEntry = new SharedStateEntry();
     entry.content = content;
     entry.sandboxId = sandboxId;
@@ -928,70 +929,5 @@ export class LiveAppsService {
   }
 
   /* app state config */
-
-  /* Ui App Config */
-
-  public getUiAppConfig(uiAppId: string, useCache: boolean, flushCache: boolean): Observable<UiAppConfig> {
-    // if useCache is false this will trigger the service to update the cached version with latest
-    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
-
-    return this.tcSharedState.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
-      .pipe(
-        map( value => {
-            if (value.sharedStateEntries.length > 0) {
-              const ssresult = new UiAppConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
-              ssresult.id = value.sharedStateEntries[0].id;
-              return ssresult;
-            } else {
-              return undefined;
-            }
-          }
-        )
-      );
-  }
-
-  public createUiAppConfig(sandboxId: number, uiAppConfig: UiAppConfig, uiAppId: string): Observable<string> {
-    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
-    const content: SharedStateContent = new SharedStateContent();
-    content.json = this.escapeString(JSON.stringify(uiAppConfig));
-    return this.tcSharedState.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
-      .pipe(
-        map(value => value)
-      );
-  }
-
-  public updateUiAppConfig(sandboxId: number, uiAppConfig: UiAppConfig, uiAppId: string, id: string): Observable<UiAppConfig> {
-    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
-    const content: SharedStateContent = new SharedStateContent();
-    content.json = this.escapeString(JSON.stringify(uiAppConfig));
-    const entry: SharedStateEntry = new SharedStateEntry();
-    entry.content = content;
-    entry.sandboxId = sandboxId;
-    entry.name = ssName;
-    entry.type = 'PUBLIC';
-    entry.id = id;
-    const ssList: SharedStateList = new SharedStateList();
-    ssList.sharedStateEntries = [];
-    ssList.sharedStateEntries.push(entry);
-    return this.tcSharedState.updateSharedState(ssList.sharedStateEntries)
-      .pipe(
-        map(value => {
-          return new UiAppConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
-        })
-      );
-  }
-
-  /* UI App Config */
-
-
-  public fileSizeToHuman(size) {
-    const e = (Math.log(size) / Math.log(1e3)) | 0;
-    return +(size / Math.pow(1e3, e)).toFixed(2) + ' ' + ('kMGTPEZY'[e - 1] || '') + 'B';
-  }
-
-  private escapeString(text) {
-    return text
-      .replace(/"/g, '\"');
-  }
 
 }

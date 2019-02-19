@@ -9,20 +9,27 @@ import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material';
 import {TcCoreLibModule} from 'tc-core-lib';
+import {LoginComponent} from './components/login/login.component';
+import {HomeComponent} from './components/home/home.component';
+import {AppRoutingModule} from './app-routing.module';
+import {StarterAppComponent} from './components/starter-app/starter-app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    StarterAppComponent,
+    HomeComponent
   ],
   imports: [
+    AppRoutingModule,
     TcCoreLibModule,
+    TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,
     BrowserModule,
-    TcLiveappsLibModule.forRoot(),
     FormsModule,
     MatTabsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([])
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

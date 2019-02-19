@@ -18,6 +18,7 @@ export * from './lib/services/request-cache.service';
 export * from './lib/models/tc-login';
 export * from './lib/models/tc-shared-state';
 export * from './lib/models/deserializable';
+export * from './lib/models/tc-app-config';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';
@@ -25,3 +26,9 @@ export * from './lib/interceptors/mocking-interceptor';
 
 // guards
 export * from './lib/guards/auth.guard';
+
+// resolvers
+export * from './lib/resolvers/config.resolver';
+
+// common functions
+export * from './lib/common/tc-core-common-functions';

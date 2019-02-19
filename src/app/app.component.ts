@@ -1,9 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
 import {
   CaseAction, CaseInfo, LaProcessSelection, LiveAppsCreatorSelectorComponent, LiveAppsService,
-  LoginContext, ProcessId,
-  UiAppConfig
+  LoginContext, ProcessId
 } from 'tc-liveapps-lib';
+import {UiAppConfig} from 'tc-core-lib';
 import {MatIconRegistry, MatSelect} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import { Location } from '@angular/common';
@@ -18,16 +18,7 @@ export class AppComponent {
   loggedIn = false;
   loginContext: LoginContext;
 
-  // generic app config
-  appConfig = new UiAppConfig().deserialize({
-    id: undefined,
-    userId: '256',
-    applicationId: '1742',
-    typeId: '1',
-    uiAppId: 'testappjs',
-    caseIconsFolderId: 'ServiceRequest_Icons',
-    caseTypeLabel: 'Partner Request'
-  });
+  /*
 
   // handle login context
   handleLoginContext = (loginContext: LoginContext) => {
@@ -57,6 +48,7 @@ export class AppComponent {
   private clickCaseAction = (caseReference) => {
     console.log('Case was clicked: ' + caseReference);
   }
+  */
 
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private liveapps: LiveAppsService) {
     this.matIconRegistry.addSvgIcon(

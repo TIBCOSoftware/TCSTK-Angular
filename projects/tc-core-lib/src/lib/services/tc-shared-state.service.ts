@@ -17,11 +17,13 @@
  */
 
 import { Injectable } from '@angular/core';
-import {SharedStateContent, SharedStateList} from '../models/tc-shared-state';
+import {SharedStateContent, SharedStateEntry, SharedStateList} from '../models/tc-shared-state';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
 import {Location} from '@angular/common';
+import {UiAppConfig} from '../models/tc-app-config';
+import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
 
 @Injectable({
   providedIn: 'root'
@@ -95,4 +97,59 @@ export class TcSharedStateService {
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => new SharedStateList().deserialize(sharedStateList)));
   }
+
+  /* Ui App Config */
+
+  public getUiAppConfig(uiAppId: string, useCache: boolean, flushCache: boolean): Observable<UiAppConfig> {
+    // if useCache is false this will trigger the service to update the cached version with latest
+    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
+
+    return this.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
+      .pipe(
+        map( value => {
+            if (value.sharedStateEntries.length > 0) {
+              const ssresult = new UiAppConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
+              ssresult.id = value.sharedStateEntries[0].id;
+              return ssresult;
+            } else {
+              return undefined;
+            }
+          }
+        )
+      );
+  }
+
+  public createUiAppConfig(sandboxId: number, uiAppConfig: UiAppConfig, uiAppId: string): Observable<string> {
+    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
+    const content: SharedStateContent = new SharedStateContent();
+    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(uiAppConfig));
+    return this.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
+      .pipe(
+        map(value => value)
+      );
+  }
+
+  public updateUiAppConfig(sandboxId: number, uiAppConfig: UiAppConfig, uiAppId: string, id: string): Observable<UiAppConfig> {
+    const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
+    const content: SharedStateContent = new SharedStateContent();
+    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(uiAppConfig));
+    const entry: SharedStateEntry = new SharedStateEntry();
+    entry.content = content;
+    entry.sandboxId = sandboxId;
+    entry.name = ssName;
+    entry.type = 'PUBLIC';
+    entry.id = id;
+    const ssList: SharedStateList = new SharedStateList();
+    ssList.sharedStateEntries = [];
+    ssList.sharedStateEntries.push(entry);
+    return this.updateSharedState(ssList.sharedStateEntries)
+      .pipe(
+        map(value => {
+          return new UiAppConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+        })
+      );
+  }
+
+  /* UI App Config */
+
 }

@@ -23,6 +23,7 @@ import {TcSharedStateService} from './services/tc-shared-state.service';
 import {RequestCacheService} from './services/request-cache.service';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
 import {AuthGuard} from './guards/auth.guard';
+import {TcCoreCommonFunctions} from './common/tc-core-common-functions';
 
 @NgModule({
   declarations: [
