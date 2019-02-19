@@ -1,8 +1,9 @@
+// @dynamic
 export class TcCoreCommonFunctions {
 
+
   public static escapeString(text) {
-    return text
-      .replace(/"/g, '\"');
+    return text.replace(/"/g, '\"');
   }
 
   public static fileSizeToHuman(size) {

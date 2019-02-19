@@ -1,4 +1,4 @@
-import {Deserializable} from 'tc-core-lib';
+import {Deserializable} from '../models/deserializable';
 
 export class UiAppConfig implements Deserializable {
   id: string;

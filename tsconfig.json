@@ -28,7 +28,7 @@
       "tc-core-lib": [
         // use projects/tc-core-lib/src/public_api to debug in chrome with source maps (.ts files)
         // use dist/tc-core-lib to build tc-liveapps-lib
-        "projects/tc-core-lib/src/public_api"
+         "projects/tc-core-lib/src/public_api"
         // "dist/tc-core-lib"
       ],
       "tc-core-lib/*": [
