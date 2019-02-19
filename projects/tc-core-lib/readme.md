@@ -18,3 +18,5 @@
 The other CSDK libraries will be dependant on this library.
 This library should not depend on other CSDK libraries to avoid circular dependencies.
 
+Note: Stuff used by multiple other libraries can go here if not in their own library.
+
