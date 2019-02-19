@@ -1,8 +1,22 @@
+/**
+ * @ngdoc component
+ * @name CachingInterceptor
+ *
+ * @description
+ *
+ * This interceptor will intercept http calls if it is enabled in the tc-core-lib-module.ts.
+ *
+ * It will cache requests if the cacheResponse header is specified on the http request.
+ * If flush cache header is on the request it will not use the cache and will overwrite the current cached entry.
+ *
+ *
+ */
+
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpRequest, HttpResponse, HttpInterceptor, HttpHandler } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { startWith, tap, shareReplay } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { RequestCacheService } from '../services/request-cache.service';
 
 @Injectable()
@@ -19,8 +33,6 @@ export class CachingInterceptor implements HttpInterceptor {
       // use the cache
     } else {
       // dont pass the cache since this should not be cached
-      // console.log('*** BYPASS CACHE FOR: ' + req.urlWithParams);
-      // console.log(JSON.stringify(req));
       return this.sendRequest(req, next, undefined);
     }
     // return cached response or make request if no cached response

@@ -11,6 +11,13 @@ export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-mu
 
 // services
 export * from './lib/services/tc-login.service';
+export * from './lib/services/tc-shared-state.service';
+export * from './lib/services/request-cache.service';
 
 // models
 export * from './lib/models/tc-login';
+export * from './lib/models/tc-shared-state';
+export * from './lib/models/deserializable';
+
+// interceptor
+export * from './lib/interceptors/caching-interceptor';

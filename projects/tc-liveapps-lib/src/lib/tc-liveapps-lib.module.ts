@@ -15,8 +15,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {ColorPickerModule} from 'ngx-color-picker';
-import {CachingInterceptor} from './interceptors/caching-interceptor';
-import {RequestCacheService} from './services/request-cache.service';
+import {CachingInterceptor} from 'tc-core-lib';
+import {RequestCacheService} from 'tc-core-lib';
 import {LiveAppsCaseSearchComponent} from './components/live-apps-case-search/live-apps-case-search.component';
 import {LiveAppsCaseListComponent} from './components/live-apps-case-list/live-apps-case-list.component';
 import {LiveAppsCaseSummaryComponent} from './components/live-apps-case-summary/live-apps-case-summary.component';
@@ -99,7 +99,6 @@ import {TcCoreLibModule} from 'tc-core-lib';
     LiveAppsCreatorSelectorComponent,
     LiveAppsCreatorsComponent,
     LiveAppsCaseActionComponent,
-    LiveAppsActionsComponent,
     LiveAppsActionsComponent
   ],
   imports: [
@@ -168,7 +167,6 @@ import {TcCoreLibModule} from 'tc-core-lib';
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent],
   providers: [
-//    LiveAppsService,
     RequestCacheService,
      { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }

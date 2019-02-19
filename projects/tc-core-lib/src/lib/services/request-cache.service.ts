@@ -1,3 +1,14 @@
+/**
+ * @ngdoc component
+ * @name RequestCacheService
+ *
+ * @description
+ *
+ * This service provides the ability to cache http requests
+ *
+ *
+ */
+
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse } from '@angular/common/http';
 

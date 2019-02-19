@@ -1,4 +1,4 @@
-import { Deserializable} from './deserializable';
+import { Deserializable} from 'tc-core-lib';
 // no longer used - moved to core lib
 /*export class Subscription {
   constructor(

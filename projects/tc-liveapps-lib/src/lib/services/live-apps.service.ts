@@ -14,9 +14,6 @@ import {
   CaseActionsList,
   AuditEventList,
   CaseList,
-  SharedStateList,
-  SharedStateEntry,
-  SharedStateContent,
   DocumentList,
   Document,
   UserInfo,
@@ -35,9 +32,16 @@ import {
   CaseSearchResults,
   CaseTypeStatesListList
 } from '../models/liveappsdata';
-import {AccessToken, AuthInfo} from 'tc-core-lib';
+import {
+  AccessToken,
+  AuthInfo,
+  SharedStateList,
+  SharedStateEntry,
+  SharedStateContent,
+  TcSharedStateService
+} from 'tc-core-lib';
 import {catchError, debounceTime, distinctUntilChanged, map, share, shareReplay, switchMap, take, takeUntil, tap} from 'rxjs/operators';
-import { Deserializable} from '../models/deserializable';
+import { Deserializable} from 'tc-core-lib';
 import {split} from 'ts-node';
 import {Location} from '@angular/common';
 
@@ -52,7 +56,7 @@ export class LiveAppsService {
   private iconSVGTextCacheMap = new Map();
 
   constructor(
-    private http: HttpClient, private location: Location
+    private http: HttpClient, private location: Location, private tcSharedState: TcSharedStateService
   ) { }
 
   public getSandboxes(): Observable<SandboxList> {
@@ -384,75 +388,6 @@ export class LiveAppsService {
         map(caseaudit => new AuditEventList().deserialize(caseaudit)));
   }
 
-  private createSharedState(name: string,
-                        type: string,
-                        description: string,
-                        sandboxId: number,
-                        attributes: string[],
-                        roles: string[],
-                        links: string[],
-                        content: SharedStateContent): Observable<string> {
-    const url = '/clientstate/states';
-
-    const body = {
-        'name': name,
-        'type': type,
-        'description': description,
-        'sandboxId': sandboxId,
-        'attributes': attributes,
-        'roles': roles,
-        'links': links,
-        content: content
-      };
-    const bodyStr = JSON.stringify(body);
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json');
-    return this.http.post(url, bodyStr, { headers })
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(result => {
-          return result.toString();
-        })
-      );
-  }
-
-  private updateSharedState(sharedStateList): Observable<SharedStateList> {
-    const url = '/clientstate/states';
-
-    const body = sharedStateList;
-    const bodyStr = JSON.stringify(body);
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json');
-    return this.http.put(url, bodyStr, { headers })
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(updatedSharedStateList => new SharedStateList().deserialize(updatedSharedStateList))
-      );
-  }
-
-  private getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean): Observable<SharedStateList>  {
-    const url = '/clientstate/states?$filter=type=' + type
-      + ' and name=\'' + name + '\'';
-    let options = {};
-      let headers: HttpHeaders = new HttpHeaders();
-      if (useCache) {
-        headers = headers.set('cacheResponse', 'true');
-      }
-      if (flushCache) {
-        headers = headers.set('flushCache', 'true');
-      }
-      options = { headers: headers };
-
-    /*if (useCache) {
-      headers.set('cacheResponse', 'true');
-    }*/
-     return this.http.get(url, options )
-    // return this.http.get(url)
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(sharedStateList => new SharedStateList().deserialize(sharedStateList)));
-  }
-
   private updateCasesRecord(casesContent: SharedStateContent, caseRef: string, toggle: Boolean): SharedStateContent {
     const sharedStateContent: SharedStateContent = new SharedStateContent().deserialize(casesContent);
     const casesRec: CaseList = JSON.parse(sharedStateContent.json);
@@ -503,7 +438,7 @@ export class LiveAppsService {
   }
 
   private getSSCasesList(ssName: string, sandboxId: number): Observable<CaseList> {
-    return this.getSharedState(ssName, 'PRIVATE', false, false)
+    return this.tcSharedState.getSharedState(ssName, 'PRIVATE', false, false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -528,7 +463,7 @@ export class LiveAppsService {
     // update cases data removing oldest if > maxsize
     // set shared state
     let casesEntry: SharedStateEntry;
-    this.getSharedState(ssName, 'PRIVATE', false, false)
+    this.tcSharedState.getSharedState(ssName, 'PRIVATE', false, false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -538,10 +473,10 @@ export class LiveAppsService {
               content = this.updateCasesRecord(casesEntry.content, caseRef, toggle);
               casesEntry.content = content;
               sharedStateList.sharedStateEntries[0] = casesEntry;
-              this.updateSharedState(sharedStateList.sharedStateEntries).subscribe();
+              this.tcSharedState.updateSharedState(sharedStateList.sharedStateEntries).subscribe();
             } else {
               content = this.newCasesRecord(caseRef, maxSize);
-              this.createSharedState(ssName, 'PRIVATE', '', sandboxId, undefined, undefined, undefined, content).subscribe();
+              this.tcSharedState.createSharedState(ssName, 'PRIVATE', '', sandboxId, undefined, undefined, undefined, content).subscribe();
             }
 
             return casesEntry;
@@ -553,7 +488,7 @@ export class LiveAppsService {
 
   public getFavoriteCases(uiAppId: string, sandboxId: number): Observable<CaseList> {
     const ssName = uiAppId + '.favoritecases.tibcolabs.client.context.PRIVATE';
-    return this.getSharedState(ssName, 'PRIVATE', false, false)
+    return this.tcSharedState.getSharedState(ssName, 'PRIVATE', false, false)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => {
@@ -946,7 +881,7 @@ export class LiveAppsService {
         map(value => new AppConfig().deserialize(value))
       );*/
 
-    return this.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
+    return this.tcSharedState.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
       .pipe(
         map( value => {
           if (value.sharedStateEntries.length > 0) {
@@ -965,7 +900,7 @@ export class LiveAppsService {
     const ssName = uiAppId + '.' + appId + '.stateconfig.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
     content.json = this.escapeString(JSON.stringify([]));
-    return this.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
+    return this.tcSharedState.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
       .pipe(
         map(value => value)
       );
@@ -984,7 +919,7 @@ export class LiveAppsService {
     const ssList: SharedStateList = new SharedStateList();
     ssList.sharedStateEntries = [];
     ssList.sharedStateEntries.push(entry);
-    return this.updateSharedState(ssList.sharedStateEntries)
+    return this.tcSharedState.updateSharedState(ssList.sharedStateEntries)
       .pipe(
         map(value => {
           return new AppConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
@@ -1000,7 +935,7 @@ export class LiveAppsService {
     // if useCache is false this will trigger the service to update the cached version with latest
     const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
 
-    return this.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
+    return this.tcSharedState.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
       .pipe(
         map( value => {
             if (value.sharedStateEntries.length > 0) {
@@ -1019,7 +954,7 @@ export class LiveAppsService {
     const ssName = uiAppId + '.config.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
     content.json = this.escapeString(JSON.stringify(uiAppConfig));
-    return this.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
+    return this.tcSharedState.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
       .pipe(
         map(value => value)
       );
@@ -1038,7 +973,7 @@ export class LiveAppsService {
     const ssList: SharedStateList = new SharedStateList();
     ssList.sharedStateEntries = [];
     ssList.sharedStateEntries.push(entry);
-    return this.updateSharedState(ssList.sharedStateEntries)
+    return this.tcSharedState.updateSharedState(ssList.sharedStateEntries)
       .pipe(
         map(value => {
           return new UiAppConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
