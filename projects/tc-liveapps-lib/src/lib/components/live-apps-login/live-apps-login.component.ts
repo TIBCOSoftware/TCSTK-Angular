@@ -1,3 +1,5 @@
+// Note: This may move to the core library
+
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {LoginContext, UiAppConfig, UserInfo} from '../../models/liveappsdata';
 import {AccessToken, AuthInfo} from 'tc-core-lib';

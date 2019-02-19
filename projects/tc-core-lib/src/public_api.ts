@@ -22,3 +22,6 @@ export * from './lib/models/deserializable';
 // interceptor
 export * from './lib/interceptors/caching-interceptor';
 export * from './lib/interceptors/mocking-interceptor';
+
+// guards
+export * from './lib/guards/auth.guard';

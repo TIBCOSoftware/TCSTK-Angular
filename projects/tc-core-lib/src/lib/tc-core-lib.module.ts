@@ -22,6 +22,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {TcSharedStateService} from './services/tc-shared-state.service';
 import {RequestCacheService} from './services/request-cache.service';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
+import {AuthGuard} from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {CachingInterceptor} from './interceptors/caching-interceptor';
   ],
   providers: [
     RequestCacheService,
+    AuthGuard,
     // comment this line to disable the CachingInterceptor
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // uncomment this line to use the mock service interceptor
