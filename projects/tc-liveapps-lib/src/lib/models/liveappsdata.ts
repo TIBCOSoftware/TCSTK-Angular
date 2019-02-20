@@ -495,8 +495,6 @@ export class AppConfig implements Deserializable {
 }
 
 export class LoginContext implements Deserializable {
-  claims: Claim;
-  userInfo: UserInfo;
   authInfo: AuthInfo;
   accessToken: AccessToken;
   deserialize(input: any) {

@@ -52,6 +52,7 @@ import {Location} from '@angular/common';
 
 export class LiveAppsService {
   // these are 'per session' caches. They won't time out unless explicitly cleared or browser is refreshed
+  private claimsCacheMap = new Map();
   private userInfoCacheMap = new Map();
   private caseTypesCacheMap = new Map();
   private iconSVGTextCacheMap = new Map();

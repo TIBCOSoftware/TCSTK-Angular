@@ -17,9 +17,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
-  // handle login context
-  handleLoginContext = (loginContext: LoginContext) => {
-    sessionStorage.setItem('loggedIn', Date.now().toString());
+  // handle login
+  handleLogin = (loginContext: LoginContext) => {
+    // these session variables aren't used anywhere by the libraries but might be useful in an application
+    sessionStorage.setItem('csdkAppLoggedIn', Date.now().toString());
+    sessionStorage.setItem('csdkAppLoginContext', loginContext);
     const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     // redirect
     this.router.navigate([returnUrl], {queryParams: {}});

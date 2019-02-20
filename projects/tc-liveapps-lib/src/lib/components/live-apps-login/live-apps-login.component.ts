@@ -37,41 +37,12 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
     this.loggedIn = true;
     sessionStorage.setItem('loggedIn', Date.now().toString());
 
-    // need to get claims info (note this will be cached at http level for the session)
-    const claims = this.liveapps.getClaims()
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(claim => {
-          claim.sandboxes.forEach(sandbox => {
-            if (sandbox.type === 'Production') {
-              claim.primaryProductionSandbox = sandbox;
-            }
-          });
-          return claim;
-        })
-      );
-    claims.subscribe(claim => {
-      const userInfo = new UserInfo().deserialize({
-        externalId: this.authinfo.userId,
-        firstName: claim.firstName,
-        lastName: claim.lastName,
-        username: claim.username,
-        email: claim.email,
-        id: claim.id
-      });
-        // emit useful details about the login and session/claims
-      this.loginContext.emit(new LoginContext().deserialize(
+    // emit useful details about the login and session/claims
+    this.loginContext.emit(new LoginContext().deserialize(
         {
-          claims: claim,
-          userInfo: userInfo,
           authInfo: this.authinfo,
           accessToken: this.accessToken
         }));
-      return claim;
-    },
-      error => { this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; }
-    );
   }
 
   // run when subscription selection required

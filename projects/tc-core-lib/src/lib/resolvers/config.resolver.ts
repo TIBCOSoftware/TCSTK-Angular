@@ -8,6 +8,7 @@ import {TcSharedStateService} from '../services/tc-shared-state.service';
 @Injectable()
 export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
+  private sandboxId: number;
   // todo: Move to JSON file?
   private defaultAppConfig = new UiAppConfig().deserialize({
     id: undefined,
@@ -21,10 +22,11 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
   constructor(private tcSharedState: TcSharedStateService) {}
 
-  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
+  public setSandbox = (sandboxId: number) => {
+    this.sandboxId = sandboxId;
+  }
 
-    // can we pass this in somehow rather than get it off the parent route snapshot?
-    const sandboxId = routeSnapshot.parent.data.claims.primaryProductionSandbox.id;
+  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
 
     // todo: get uiAppId - where from?
 
@@ -42,7 +44,7 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
                     result => {
                       const newAppConfig = this.defaultAppConfig;
                       newAppConfig.id = result;
-                      newAppConfig.sandboxId = sandboxId;
+                      newAppConfig.sandboxId = this.sandboxId;
                       this.tcSharedState.updateUiAppConfig(
                         newAppConfig.sandboxId,
                         newAppConfig,
