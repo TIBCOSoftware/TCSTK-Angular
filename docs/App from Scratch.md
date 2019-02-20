@@ -1,19 +1,65 @@
 # Documentation 
 #### How to create an Angular App from scratch
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+How to create a new App using Angular CLI from our Cloud Starter Component Library Template.
 
-How to create a new App using Angular CLI and our Cloud Starter Component Library
+> Note: This is currently under restricted early access, please get in contact with us via GitHub and we provide you access.
 
-starting from:
+##### Step 1) Install Node & NPM
+Node.js and [pkg install ](https://www.npmjs.com/get-npm)
 
-- ng new my-app
+##### Step 2) Install GIT
+Installers here https://nodejs.org/en/download/ or just use
 
-... to ...
+```bash
+git --version
+```
 
-- ng serve --open --host 127.0.0.1
-- browse to: http://127.0.0.1:4200/
+##### Step 3) Install Angular
 
-#### running Sample
+```bash
+npm install -g @angular/cli
+```
 
-<embed height=400px width=750px src="https://stackblitz.com/edit/angular-tci-service-call?embed=1&file=src/app/app.component.ts"></embed>     
+##### Step 4) Set Git User (and Pass)
+ask us to provide you early access and Configure your GitHub Credentials
+
+```bash
+git config --global user.email "<your_email>"
+git config --global user.name "<your_password>"
+git config credential.helper store
+```
+
+> we well change this to use public NPM soon.
+
+##### Step 5) Get the package into NPM
+load package from GitHub
+
+```bash
+npm install -g git+https://github.com/hpeters83/cloud-starter-application-template.git
+```
+
+> we well change this to use public NPM soon.
+
+##### Step 6) Create a new application:
+
+```bash
+ng new --collection=@TIBCO/cloudapp MyCloudStarter
+```
+
+##### Step 7) Go to the Folder and Start and test the app:
+
+```bash
+cd MyCloudStarter
+ng serve --proxy-config proxy.conf.prod.json --ssl true --source-map
+```
+
+or just ...
+
+```bash
+npm run serve
+```
+
+The App typically runs on http://localhost:4200/
+
+
 

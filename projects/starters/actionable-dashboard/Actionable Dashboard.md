@@ -7,6 +7,8 @@ A process implementation could be "contact customer" or a case creator like "inv
 
 ![alt-text](actionable-dashboard.png "Image")
 
-#### How to provision
+#### Details
+more Details will follow here soon ...
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et.
+#### Source
+All Source on GitHub here: [github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/actionable-dashboard/src](https://github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/actionable-dashboard/src)

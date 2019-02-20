@@ -1,5 +1,9 @@
 # Documentation 
-#### How tocreate new Components
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+#### How to create new Components
+New custom components can be created using ready to use Angular <b>Schematics</b> NG Commands.
 
-all about creating new Components for the Library using NPM and <b>Schematics</b>
+```bash
+ng generate @TIBCO/cloud-components:comp-base --name custom_base
+```
+
+> more Details here soon.

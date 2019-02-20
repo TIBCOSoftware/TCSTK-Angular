@@ -1,10 +1,11 @@
 # Documentation 
-#### Components Get Started Guide
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+#### Get Started Guide
+The Repository stores ready to Sample Pattern Application and UI Components. All of them build to use within your custom Implementation as a whole reusable App or just your preferred Components.
 
-general overview
+We use the following Tools for your best Development Experience:
 
-- NPM, stores a Library of TIBCO ready to use UI Components
+- Public NPM, stores a Library of TIBCO Components
 - GitHub, to collaborate on available Components 
 - Schematics, to create new Components 
-- etc.
+
+> Any contribution via GitHub is welcome!

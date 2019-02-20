@@ -7,30 +7,28 @@ Screenshot Image as PNG or animated GIF
 ![alt-text](Login.png "Image")
 
 #### Usage
-usage HTML Tags
-
+If the user is not logged in we just show the login components.
 ```html
-<custom-element cust-attribute=""></custom-element>
+<tcla-live-apps-login></tcla-live-apps-login>
 ```
 
-#### Inputs
+This component is required if user is in multiple subscriptions - they must select a subscription to complete login.
+```html
+<tcla-tibco-cloud-multiple-subscription></tcla-tibco-cloud-multiple-subscription>
+```
+
+#### Outputs
 available Attributes
 
-| Attribute       | Type            | Default Value | Comments            |
-| --------------- |:--------------- |:------------- |:------------------- |
-| cust-attribute1 | boolean         | false         | some comment        |
-| cust-attribute2 | 'opt1' : 'opt2' | 'opt1'        | come more comment   |
-
+| Attribute       | Type            | Default Value | Comments                  |
+| --------------- |:--------------- |:------------- |:------------------------- |
+| loginContext    | LoginContext    |               | valid Session after login |
+| loggedIn        | boolean         | false         | indicate valid Session    |
 
 #### Demos
 live Showcase
 
-```html
-<!-- as HTML within Markdown, just remove the ```html code-area ``` -->
-<custom-element cust-attribute=""></custom-element>
+<tcla-live-apps-login></tcla-live-apps-login>
 <script type="text/javascript" src="http://host/cust-component/cust-element.js"></script>
-```
 
 > Showcase connected to Mock Service
-
-
