@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatTabsModule} from '@angular/material';
-import {TcCoreLibModule} from 'tc-core-lib';
+import {LogService, TcCoreLibModule} from 'tc-core-lib';
 import {LoginComponent} from './components/login/login.component';
 import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -31,7 +31,7 @@ import {StarterAppComponent} from './components/starter-app/starter-app.componen
     MatTabsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,6 +13,7 @@ export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-mu
 export * from './lib/services/tc-login.service';
 export * from './lib/services/tc-shared-state.service';
 export * from './lib/services/request-cache.service';
+export * from './lib/services/tc-logging.service';
 
 // models
 export * from './lib/models/tc-login';

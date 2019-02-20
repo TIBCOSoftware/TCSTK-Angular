@@ -1,12 +1,9 @@
-import {Component, ViewChild} from '@angular/core';
-import {
-  CaseAction, CaseInfo, LaProcessSelection, LiveAppsCreatorSelectorComponent, LiveAppsService,
-  LoginContext, ProcessId
-} from 'tc-liveapps-lib';
-import {UiAppConfig} from 'tc-core-lib';
-import {MatIconRegistry, MatSelect} from '@angular/material';
+import {Component} from '@angular/core';
+import {LiveAppsService, LoginContext} from 'tc-liveapps-lib';
+import {LogLevel, LogService} from 'tc-core-lib';
+import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'laapp-root',
@@ -50,7 +47,9 @@ export class AppComponent {
   }
   */
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private liveapps: LiveAppsService) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private liveapps: LiveAppsService, private logger: LogService ) {
+    logger.level = LogLevel.Debug;
+    logger.info("My Cloud Starter Online...")
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-reply',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-reply.svg'))
