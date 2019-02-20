@@ -1,8 +1,8 @@
 ## Login Component
-detailed description of the component and how to use it
+Component perfrom a Login in case there is no valid Session yet.
 
 #### Screenshot
-Screenshot Image as PNG or animated GIF
+Screenshot Image of the Login Dialog
 
 ![alt-text](Login.png "Image")
 
