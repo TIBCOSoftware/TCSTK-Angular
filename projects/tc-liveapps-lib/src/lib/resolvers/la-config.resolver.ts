@@ -9,15 +9,16 @@ import {ConfigResolver, UiAppConfig} from 'tc-core-lib';
 import {flatMap, map, mergeMap} from 'rxjs/operators';
 import {TcSharedStateService} from 'tc-core-lib';
 import {Claim, ClaimsResolver, LiveAppsService} from 'tc-liveapps-lib';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class LaConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
-  constructor(private tcSharedState: TcSharedStateService, private liveAppsService: LiveAppsService) {}
+  constructor(private tcSharedState: TcSharedStateService, private http: HttpClient, private liveAppsService: LiveAppsService) {}
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
 
-    const configResolver = new ConfigResolver(this.tcSharedState);
+    const configResolver = new ConfigResolver(this.tcSharedState, this.http);
     const claimResolver = new ClaimsResolver(this.liveAppsService).resolve().pipe(
       flatMap(value => {
           const sandboxId = value.primaryProductionSandbox.id;
