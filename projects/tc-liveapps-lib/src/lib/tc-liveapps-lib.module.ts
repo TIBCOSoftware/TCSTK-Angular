@@ -29,15 +29,11 @@ import {
   LiveAppsDocumentUploadDialogComponent
 } from './components/live-apps-documents/live-apps-documents.component';
 import {LiveAppsCaseStateConfigComponent} from './components/live-apps-case-state-config/live-apps-case-state-config.component';
-import {ReversePipe} from './pipes/reverse.pipe';
 import {LiveAppsCaseStatesComponent} from './components/live-apps-case-states/live-apps-case-states.component';
 import {
   LiveAppsApplicationConfigurationComponent,
   LiveAppsStateIconUploadDialogComponent
 } from './components/live-apps-application-configuration/live-apps-application-configuration.component';
-import {DurationSincePipe} from './pipes/duration-since.pipe';
-import {HighlightPipe} from './pipes/highlight.pipe';
-import {OrderByDatePipe} from './pipes/order-by-date.pipe';
 import {LiveAppsCaseSchemaListComponent} from './components/live-apps-case-schema-list/live-apps-case-schema-list.component';
 import {LiveAppsFavoriteCasesComponent} from './components/live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsCaseAuditComponent} from './components/live-apps-case-audit/live-apps-case-audit.component';
@@ -46,7 +42,6 @@ import {LiveAppsCaseActionsComponent} from './components/live-apps-case-actions/
 import {LiveAppsRecentCasesComponent} from './components/live-apps-recent-cases/live-apps-recent-cases.component';
 import {LiveAppsCaseStateAuditComponent} from './components/live-apps-case-state-audit/live-apps-case-state-audit.component';
 import {LiveAppsNotesEditorComponent} from './components/live-apps-notes-editor/live-apps-notes-editor.component';
-import {EllipsisPipe} from './pipes/ellipsis.pipe';
 import {LiveAppsService} from './services/live-apps.service';
 import { LiveAppsLoginComponent } from './components/live-apps-login/live-apps-login.component';
 import { LiveAppsSearchWidgetComponent } from './components/live-apps-search-widget/live-apps-search-widget.component';
@@ -77,19 +72,14 @@ import {TcCoreLibModule} from 'tc-core-lib';
     LiveAppsFavoriteCasesComponent,
     LiveAppsDocumentsComponent,
     LiveAppsNotesComponent,
-    DurationSincePipe,
-    ReversePipe,
     LiveAppsNotesEditorComponent,
     LiveAppsDocumentUploadDialogComponent,
-    OrderByDatePipe,
     LiveAppsCaseSummaryComponent,
-    EllipsisPipe,
     LiveAppsStateIconComponent,
     LiveAppsCaseStateConfigComponent,
     LiveAppsApplicationConfigurationComponent,
     LiveAppsStateIconUploadDialogComponent,
     LiveAppsCaseListComponent,
-    HighlightPipe,
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,
@@ -141,19 +131,14 @@ import {TcCoreLibModule} from 'tc-core-lib';
     LiveAppsFavoriteCasesComponent,
     LiveAppsDocumentsComponent,
     LiveAppsNotesComponent,
-    DurationSincePipe,
-    ReversePipe,
     LiveAppsNotesEditorComponent,
     LiveAppsDocumentUploadDialogComponent,
-    OrderByDatePipe,
     LiveAppsCaseSummaryComponent,
-    EllipsisPipe,
     LiveAppsStateIconComponent,
     LiveAppsCaseStateConfigComponent,
     LiveAppsApplicationConfigurationComponent,
     LiveAppsStateIconUploadDialogComponent,
     LiveAppsCaseListComponent,
-    HighlightPipe,
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,

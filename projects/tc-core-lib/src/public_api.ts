@@ -33,3 +33,10 @@ export * from './lib/resolvers/config.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';
+
+// pipes
+export * from './lib/pipes/duration-since.pipe';
+export * from './lib/pipes/ellipsis.pipe';
+export * from './lib/pipes/highlight.pipe';
+export * from './lib/pipes/order-by-date.pipe';
+export * from './lib/pipes/reverse.pipe';

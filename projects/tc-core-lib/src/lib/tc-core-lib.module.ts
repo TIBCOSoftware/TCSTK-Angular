@@ -25,12 +25,22 @@ import {CachingInterceptor} from './interceptors/caching-interceptor';
 import {AuthGuard} from './guards/auth.guard';
 import {TcCoreCommonFunctions} from './common/tc-core-common-functions';
 import {AuthErrorInterceptor} from './interceptors/authentication-error-interceptor';
+import {EllipsisPipe} from './pipes/ellipsis.pipe';
+import {DurationSincePipe} from './pipes/duration-since.pipe';
+import {HighlightPipe} from './pipes/highlight.pipe';
+import {OrderByDatePipe} from './pipes/order-by-date.pipe';
+import {ReversePipe} from './pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
     TibcoCloudNavbarComponent,
     TibcoCloudLoginComponent,
-    TibcoCloudMultipleSubscriptionComponent
+    TibcoCloudMultipleSubscriptionComponent,
+    EllipsisPipe,
+    DurationSincePipe,
+    HighlightPipe,
+    OrderByDatePipe,
+    ReversePipe
   ],
   imports: [
     HttpClientModule,
@@ -58,7 +68,12 @@ import {AuthErrorInterceptor} from './interceptors/authentication-error-intercep
   exports: [
     TibcoCloudNavbarComponent,
     TibcoCloudLoginComponent,
-    TibcoCloudMultipleSubscriptionComponent
+    TibcoCloudMultipleSubscriptionComponent,
+    EllipsisPipe,
+    DurationSincePipe,
+    HighlightPipe,
+    OrderByDatePipe,
+    ReversePipe
   ],
   providers: [
     RequestCacheService,
