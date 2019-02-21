@@ -18,8 +18,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    // starterApp route doesnt do anything but will be a useful place to do stuff that applies to all routes
-    // note although each route uses claimsResolver this doesnt actually result in multiple REST call to claims
+    // starterApp only provides the global nav bar at present - but will be a useful place to do stuff that applies to all routes
+    // Note: although each route uses claimsResolver this doesnt actually result in multiple REST call to claims
     // because we cache at http level using an interceptor
     path: 'starterApp',
     component: StarterAppComponent,
