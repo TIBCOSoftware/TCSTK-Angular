@@ -17,6 +17,8 @@
       <tcla-live-apps-case-summary [uiAppId]="appConfig.uiAppId" [displayType]="'miniCard'" [borderCard]="true" [typeBar]="true" [caseReference]="caseRef" [sandboxId]="appConfig.sandboxId"></tcla-live-apps-case-summary>
     </div>
 
+    <tcla-live-apps-actions style="margin-top: 400px" [caseRef]="205301" [sandboxId]="appConfig.sandboxId" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" [caseState]="'Created'" (caseActioned)="handleCaseActioned($event)"></tcla-live-apps-actions>
+
     <br>
 
     <!--

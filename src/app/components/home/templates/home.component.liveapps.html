@@ -34,7 +34,7 @@
   <mat-tab label="Search">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
-      <tcla-live-apps-search-widget [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" (caseSelected)="handleCaseClick($event)"></tcla-live-apps-search-widget>
+      <tcla-live-apps-search-widget [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
     </ng-template>
   </mat-tab>
 
@@ -45,9 +45,9 @@
     </ng-template>
   </mat-tab>
 
-  <mat-tab label="Case">
+  <!--mat-tab label="Case">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
-    <ng-template matTabContent>
+    <!--ng-template matTabContent>
       <div fxLayout="column">
         <div style="margin: 20px">
           <tcla-live-apps-case-summary [uiAppId]="appConfig.uiAppId" [sandboxId]="sandboxId" [caseReference]="'205301'" [displayType]="'list'" [typeBar]="true"></tcla-live-apps-case-summary>
@@ -65,7 +65,7 @@
         <tcla-live-apps-actions style="margin-top: 400px" [caseRef]="205301" [sandboxId]="sandboxId" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" [caseState]="'Created'" (caseActioned)="handleCaseActioned($event)"></tcla-live-apps-actions>
       </div>
     </ng-template>
-  </mat-tab>
+  </mat-tab-->
 
 
   <mat-tab label="Analytics">

@@ -15,6 +15,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
+  clickCaseAction = (caseId: string) => {
+    // case clicked - navigate to case
+    this.router.navigate(['/starterApp/case/' + caseId], {queryParams: {} });
+  }
+
+
   ngOnInit() {
     this.appConfig = this.route.snapshot.data.appConfig;
     this.claims = this.route.snapshot.data.claims;
