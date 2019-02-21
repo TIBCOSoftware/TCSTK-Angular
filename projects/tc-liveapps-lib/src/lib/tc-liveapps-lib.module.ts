@@ -48,14 +48,13 @@ import { LiveAppsSearchWidgetComponent } from './components/live-apps-search-wid
 import { LiveAppsComponent } from './components/live-apps-component/live-apps-component.component';
 import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-wrapper.component';
 import {MockingInterceptor} from 'tc-core-lib';
-import { RenderedFormComponent } from './components/rendered-form/rendered-form.component';
-import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
 import { LiveAppsCaseCreatorComponent } from './components/live-apps-case-creator/live-apps-case-creator.component';
 import { LiveAppsCreatorSelectorComponent } from './components/live-apps-creator-selector/live-apps-creator-selector.component';
 import { LiveAppsCreatorsComponent } from './components/live-apps-creators/live-apps-creators.component';
 import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/live-apps-case-action.component';
 import { LiveAppsActionsComponent } from './components/live-apps-actions/live-apps-actions.component';
 import {TcCoreLibModule} from 'tc-core-lib';
+import {TcFormsLibModule} from 'tc-forms-lib';
 
 @NgModule({
   declarations: [
@@ -84,7 +83,6 @@ import {TcCoreLibModule} from 'tc-core-lib';
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,
     SpotfireWrapperComponent,
-    RenderedFormComponent,
     LiveAppsCaseCreatorComponent,
     LiveAppsCreatorSelectorComponent,
     LiveAppsCreatorsComponent,
@@ -93,6 +91,7 @@ import {TcCoreLibModule} from 'tc-core-lib';
   ],
   imports: [
     TcCoreLibModule,
+    TcFormsLibModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -113,9 +112,7 @@ import {TcCoreLibModule} from 'tc-core-lib';
     FlexLayoutModule,
     ColorPickerModule,
     ScrollingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialDesignFrameworkModule
+    ReactiveFormsModule
   ],
   exports: [
     LiveAppsLoginComponent,
@@ -147,8 +144,7 @@ import {TcCoreLibModule} from 'tc-core-lib';
     LiveAppsCreatorsComponent,
     LiveAppsCaseActionComponent,
     LiveAppsActionsComponent,
-    SpotfireWrapperComponent,
-    RenderedFormComponent
+    SpotfireWrapperComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent],
   providers: [

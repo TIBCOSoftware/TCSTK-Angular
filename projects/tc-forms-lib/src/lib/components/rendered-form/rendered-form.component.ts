@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
 
 @Component({
-  selector: 'tcla-rendered-form',
+  selector: 'tcfrm-rendered-form',
   templateUrl: './rendered-form.component.html',
   styleUrls: ['./rendered-form.component.css']
 })

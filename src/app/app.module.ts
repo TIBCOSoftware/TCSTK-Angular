@@ -13,6 +13,7 @@ import {LoginComponent} from './components/login/login.component';
 import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './components/starter-app/starter-app.component';
+import {TcFormsLibModule} from 'tc-forms-lib';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {StarterAppComponent} from './components/starter-app/starter-app.componen
   imports: [
     AppRoutingModule,
     TcCoreLibModule,
+    TcFormsLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,
     BrowserModule,
