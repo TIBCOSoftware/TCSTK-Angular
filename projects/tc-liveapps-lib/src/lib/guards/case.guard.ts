@@ -35,6 +35,7 @@ export class CaseGuard implements CanActivate {
                   if (caseinfo) {
                     return true;
                   } else {
+                    // TODO: Externalize redirect URL
                     this.router.navigate(['/starterApp/home'], {});
                     return false;
                   }
@@ -42,6 +43,7 @@ export class CaseGuard implements CanActivate {
                 catchError(error => {
                   // if the case is not found (someone tried to manually route to an invalid caseref) then redirect back to home
                   console.error('Unable to load case ' + caseRef + ' are you sure that is a valid case reference?');
+                  // TODO: Externalize redirect URL
                   this.router.navigate(['/starterApp/home'], {});
                   return throwError(error);
                 })

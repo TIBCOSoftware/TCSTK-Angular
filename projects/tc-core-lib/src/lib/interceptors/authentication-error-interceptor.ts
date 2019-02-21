@@ -31,11 +31,13 @@ export class AuthErrorInterceptor implements HttpInterceptor {
             if (err.status === 419) {
               // timed out
               // should only be used if not on tibco cloud (and hence using our login route)
-              // todo: get the login URL from a config JSON?
+              // TODO: Externalize redirect URL
               this.router.navigate(['/login'], {queryParams: {} });
+            } else {
+              throw of(err);
             }
           }
-          throw of(err);
+          return of(err);
         }
       )
     );

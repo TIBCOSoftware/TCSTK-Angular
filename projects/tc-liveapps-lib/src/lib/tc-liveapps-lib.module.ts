@@ -147,7 +147,7 @@ import {CaseGuard} from './guards/case.guard';
     LiveAppsActionsComponent,
     SpotfireWrapperComponent
   ],
-  entryComponents: [LiveAppsStateIconUploadDialogComponent],
+  entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent],
   providers: [
     RequestCacheService,
     CaseGuard,
