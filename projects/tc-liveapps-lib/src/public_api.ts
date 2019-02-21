@@ -41,3 +41,6 @@ export * from './lib/services/live-apps.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
+
+// guards
+export * from './lib/guards/case.guard';

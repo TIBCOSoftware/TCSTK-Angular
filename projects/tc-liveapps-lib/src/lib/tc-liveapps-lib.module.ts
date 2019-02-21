@@ -55,6 +55,7 @@ import { LiveAppsCaseActionComponent } from './components/live-apps-case-action/
 import { LiveAppsActionsComponent } from './components/live-apps-actions/live-apps-actions.component';
 import {TcCoreLibModule} from 'tc-core-lib';
 import {TcFormsLibModule} from 'tc-forms-lib';
+import {CaseGuard} from './guards/case.guard';
 
 @NgModule({
   declarations: [
@@ -149,6 +150,7 @@ import {TcFormsLibModule} from 'tc-forms-lib';
   entryComponents: [LiveAppsStateIconUploadDialogComponent],
   providers: [
     RequestCacheService,
+    CaseGuard,
      { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]

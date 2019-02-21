@@ -8,7 +8,9 @@ import { Observable, of } from 'rxjs';
 import {ConfigResolver, UiAppConfig} from 'tc-core-lib';
 import {flatMap, map, mergeMap} from 'rxjs/operators';
 import {TcSharedStateService} from 'tc-core-lib';
-import {Claim, ClaimsResolver, LiveAppsService} from 'tc-liveapps-lib';
+import {Claim} from '../models/liveappsdata';
+import {ClaimsResolver} from '../resolvers/claims.resolver';
+import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable()

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {TcLiveappsLibModule} from 'tc-liveapps-lib';
+import {CaseGuard, TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {Location} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
@@ -14,13 +14,15 @@ import {HomeComponent} from './components/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './components/starter-app/starter-app.component';
 import {TcFormsLibModule} from 'tc-forms-lib';
+import {CaseComponent} from './components/case/case.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     StarterAppComponent,
-    HomeComponent
+    HomeComponent,
+    CaseComponent
   ],
   imports: [
     AppRoutingModule,

@@ -9,6 +9,8 @@ import {Claim, ClaimsResolver, LiveAppsService} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
 import {LaConfigResolver} from '../../projects/tc-liveapps-lib/src/lib/resolvers/la-config.resolver';
+import {CaseComponent} from './components/case/case.component';
+import {CaseGuard} from 'tc-liveapps-lib';
 
 const routes: Routes = [
   {
@@ -33,6 +35,15 @@ const routes: Routes = [
         resolve: {
           claims: ClaimsResolver,
           appConfig: LaConfigResolver
+        }
+      },
+      {
+        path: 'case/:caseRef',
+        component: CaseComponent,
+        canActivate: [AuthGuard, CaseGuard],
+        resolve: {
+          appConfig: ConfigResolver,
+          claims: ClaimsResolver
         }
       }
     ]
