@@ -15,6 +15,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './components/starter-app/starter-app.component';
 import {TcFormsLibModule} from 'tc-forms-lib';
 import {CaseComponent} from './components/case/case.component';
+import {TcHandsontableLibModule} from 'tc-handsontable-lib';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {CaseComponent} from './components/case/case.component';
     AppRoutingModule,
     TcCoreLibModule,
     TcFormsLibModule,
+    TcHandsontableLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,
     BrowserModule,

@@ -39,6 +39,13 @@
       ],
       "tc-forms-lib/*": [
         "dist/tc-forms-lib/*"
+      ],
+      "tc-handsontable-lib": [
+        // "dist/tc-handsontable-lib"
+        "projects/tc-handsontable-lib/src/public_api"
+      ],
+      "tc-handsontable-lib/*": [
+        "dist/tc-handsontable-lib/*"
       ]
     }
   }
