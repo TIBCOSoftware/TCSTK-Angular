@@ -7,15 +7,14 @@ Screenshot Image of the Login Dialog
 ![alt-text](Login.png "Image")
 
 #### Usage
-If the user is not logged in we just show the login components.
+to place a Login Dialog inside your App just use the following HTML Tag:
+
 ```html
 <tcla-live-apps-login></tcla-live-apps-login>
 ```
 
-This component is required if user is in multiple subscriptions - they must select a subscription to complete login.
-```html
-<tcla-tibco-cloud-multiple-subscription></tcla-tibco-cloud-multiple-subscription>
-```
+If the user is not logged in the login component will be displayed automatically.
+In Case the user is in multiple subscriptions - they must select a subscription to complete login.
 
 #### Outputs
 available Attributes
