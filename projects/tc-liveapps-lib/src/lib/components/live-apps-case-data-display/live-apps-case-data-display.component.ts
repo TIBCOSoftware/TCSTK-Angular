@@ -18,7 +18,8 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
   ngOnInit() {
     this.options = {
       defaultOptions: {
-        'readonly': true
+        'readonly': true,
+        'appearance': 'legacy'
       }
     };
     this.layout = [
