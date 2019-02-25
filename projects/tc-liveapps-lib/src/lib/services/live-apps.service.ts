@@ -156,7 +156,7 @@ export class LiveAppsService {
       );
   }
 
-  private parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string, uiAppId): CaseInfo {
+  public parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string, uiAppId): CaseInfo {
     this.getCaseTypeBasicInfo(sandboxId, appId, typeId, 50).subscribe(val => {
       caseinfo.metadata.applicationLabel = val.label;
       return caseinfo;

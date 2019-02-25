@@ -1,5 +1,1 @@
-<pre>Casedata: {{ casedata | json }}</pre>
-<br>
-<pre>Summary: {{ summary | json }}</pre>
-<br>
-<pre>Metadata: {{ metadata | json }}</pre>
+<tcla-live-apps-case-data-display id="readOnlyDiv" *ngIf="casedata && schema" [schema]="schema" [caseData]="casedata"></tcla-live-apps-case-data-display>

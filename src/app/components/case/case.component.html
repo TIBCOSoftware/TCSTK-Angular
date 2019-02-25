@@ -19,6 +19,8 @@
 
     <tcla-live-apps-actions style="margin-top: 400px" [caseRef]="205301" [sandboxId]="appConfig.sandboxId" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" [caseState]="'Created'" (caseActioned)="handleCaseActioned($event)"></tcla-live-apps-actions>
 
+    <tcla-live-apps-case-data [caseReference]="caseRef" [sandboxId]="appConfig.sandboxId" [uiAppId]="appConfig.uiAppId" [appId]="appConfig.applicationId" [typeId]="appConfig.typeId"></tcla-live-apps-case-data>
+
     <br>
 
     <!--

@@ -14,7 +14,7 @@
  */
 
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
+import {JsonSchemaFormComponent, MaterialDesignFrameworkModule} from 'angular6-json-schema-form';
 
 @Component({
   selector: 'tcfrm-rendered-form',
@@ -25,6 +25,7 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() schema: any = {};
   @Input() layout: any[] = [];
   @Input() data: any = {};
+  @Input() options: any[];
   @Output() formSubmit: EventEmitter<any> = new EventEmitter<any>();
 
   formSchema: any;

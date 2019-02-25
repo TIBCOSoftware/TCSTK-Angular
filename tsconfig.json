@@ -35,7 +35,10 @@
         "dist/tc-core-lib/*"
       ],
       "tc-forms-lib": [
-        "dist/tc-forms-lib"
+        // "dist/tc-forms-lib"
+        // use projects/tc-forms-lib/src/public_api to debug in chrome with source maps (.ts files)
+        // use dist/tc-forms-lib to build tc-liveapps-lib
+        "projects/tc-forms-lib/src/public_api"
       ],
       "tc-forms-lib/*": [
         "dist/tc-forms-lib/*"

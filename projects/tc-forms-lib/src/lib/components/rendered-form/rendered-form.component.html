@@ -1,17 +1,22 @@
 <div fxLayout="row" fxLayoutAlign = "center start">
   <div class="tcs-rendered-form">
-
-    <fieldset><json-schema-form *ngIf="formSchema"
+    <json-schema-form #renderedForm *ngIf="formSchema"
       loadExternalAssets="false"
       framework="material-design"
       [schema]="formSchema"
       [layout]="formLayout"
       [(data)]="formData"
+      [options]="options"
       (onSubmit)="submitForm($event)"
       (formLayout)="handleLayoutOutput($event)"
     >
     </json-schema-form>
-    </fieldset>
-
   </div>
 </div>
+<!--
+
+[options]= "{
+        defaultOptions: { 'readonly': 'true' }
+      }"
+
+-->

@@ -1,4 +1,4 @@
-import {AuthInfo, AccessToken, Deserializable} from 'tc-core-lib';
+import {AccessToken, AuthInfo, Deserializable} from 'tc-core-lib';
 
 export class NoteThread {
   constructor(public threadId: string,
