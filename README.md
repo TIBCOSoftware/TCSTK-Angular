@@ -1,6 +1,6 @@
-# BaseApp
+# Overview
 
-This repo contains Angular 7 components and sample code for creating cloud starter applications using existing components on top of Tibco Cloud Services.
+This repo contains Angular 7 components and sample code for creating cloud starter applications using existing components on top of Tibco Cloud Services. More Details here on [TIBCO Cloud™ Starters Development Kit Docs](https://tibcosoftware.github.io/TCSDK-Docs/)
 
 # Documents
 
@@ -63,6 +63,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Further Angular CLI help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
