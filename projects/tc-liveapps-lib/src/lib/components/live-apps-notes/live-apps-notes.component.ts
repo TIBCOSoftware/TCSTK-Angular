@@ -4,6 +4,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Note, NoteThread, NotificationList, ThreadList} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {ToolbarButton} from 'tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-notes',
@@ -23,6 +24,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   public delNoteId: number;
   public threads: ThreadList;
   public subscribed: Boolean;
+  public toolbarButtons: ToolbarButton[] = [];
 
   constructor(private liveapps: LiveAppsService) {
     super();
@@ -90,6 +92,55 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     }
   }
 
+  public setupNotificationButtons = (subscribed: boolean) => {
+    const buttons: ToolbarButton[] = this.createToolbarButtons(subscribed);
+    buttons.forEach(tbButton => {
+      this.toolbarButtons.push(tbButton);
+    });
+  }
+
+  public updateButtonDef = (updatedToolbarButtons: ToolbarButton[]) => {
+    updatedToolbarButtons.forEach( updatedButton => {
+      const idx = this.toolbarButtons.findIndex(item => item.id === updatedButton.id);
+      this.toolbarButtons[idx] = updatedButton;
+    });
+  }
+
+  public handleToolbarButtonEvent = (id) => {
+    if (id === 'subscribe') {
+      this.subscribe();
+    } else if (id === 'unsubscribe') {
+      this.unsubscribe();
+    }
+  }
+
+  private createToolbarButtons = (subscribed): ToolbarButton[] => {
+    const unSubscribedButton = new ToolbarButton().deserialize(
+      {
+        id: 'subscribe',
+        icon: 'tcs-collaboration-unsubscribed',
+        tooltip: 'Enable Notifications',
+        visible: !subscribed,
+        enabled: !subscribed
+      }
+    );
+    const subscribedButton = new ToolbarButton().deserialize(
+      {
+        id: 'unsubscribe',
+        icon: 'tcs-collaboration-subscribed',
+        tooltip: 'Disable Notifications',
+        visible: subscribed,
+        enabled: subscribed
+      }
+    );
+    return [ unSubscribedButton, subscribedButton ];
+  }
+
+  public recreateButtonsForNotifications = (subscribed) => {
+      const buttons: ToolbarButton[] = this.createToolbarButtons(subscribed);
+      this.updateButtonDef(buttons);
+  }
+
   public getNotifications = () => {
     this.liveapps.getNotifications(this.relatedItemType, this.relatedItemId, this.userId)
       .pipe(
@@ -99,6 +150,10 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
           const notificationList: NotificationList = result;
           if (notificationList.notifications.length > 0) {
             this.subscribed = true;
+            this.setupNotificationButtons(true);
+          } else {
+            this.subscribed = false;
+            this.setupNotificationButtons(false);
           }
         })
       )
@@ -113,6 +168,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
         map(result => {
           if (result) {
             this.subscribed = true;
+            this.recreateButtonsForNotifications(true);
           }
         })
       )
@@ -126,6 +182,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
         takeUntil(this._destroyed$),
         map(result => {
           this.subscribed = false;
+          this.recreateButtonsForNotifications(false);
         })
       )
       .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
@@ -167,6 +224,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   ngOnInit() {
     this.refresh();
     this.newNote.text = '';
+
   }
 
 }

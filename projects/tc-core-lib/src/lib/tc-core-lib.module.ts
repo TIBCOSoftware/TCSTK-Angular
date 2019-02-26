@@ -30,6 +30,7 @@ import {DurationSincePipe} from './pipes/duration-since.pipe';
 import {HighlightPipe} from './pipes/highlight.pipe';
 import {OrderByDatePipe} from './pipes/order-by-date.pipe';
 import {ReversePipe} from './pipes/reverse.pipe';
+import { TibcoCloudWidgetHeaderComponent } from './components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {ReversePipe} from './pipes/reverse.pipe';
     DurationSincePipe,
     HighlightPipe,
     OrderByDatePipe,
-    ReversePipe
+    ReversePipe,
+    TibcoCloudWidgetHeaderComponent
   ],
   imports: [
     HttpClientModule,
@@ -73,7 +75,8 @@ import {ReversePipe} from './pipes/reverse.pipe';
     DurationSincePipe,
     HighlightPipe,
     OrderByDatePipe,
-    ReversePipe
+    ReversePipe,
+    TibcoCloudWidgetHeaderComponent
   ],
   providers: [
     RequestCacheService,

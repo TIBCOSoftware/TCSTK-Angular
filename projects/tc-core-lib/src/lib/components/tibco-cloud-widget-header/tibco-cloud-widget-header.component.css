@@ -1,0 +1,41 @@
+.tcs-widget-header-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.tcs-widget-toolbar-button {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+:host ::ng-deep .tcs-widget-toolbar-button:hover path.svg-content {
+  fill: #0081cb;
+  cursor: pointer;
+}
+
+:host ::ng-deep .tcs-widget-toolbar-button:hover g.svg-content {
+  fill: #0081cb;
+  cursor: pointer;
+}
+
+.tcs-widget-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 5px;
+}
+
+.tcs-widget-header-text {
+  margin-left: 10px;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}

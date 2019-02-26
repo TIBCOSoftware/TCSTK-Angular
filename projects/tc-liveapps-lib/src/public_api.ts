@@ -33,6 +33,7 @@ export * from './lib/components/live-apps-creators/live-apps-creators.component'
 export * from './lib/components/live-apps-case-action/live-apps-case-action.component';
 export * from './lib/components/live-apps-actions/live-apps-actions.component';
 export * from './lib/components/live-apps-case-data-display/live-apps-case-data-display.component';
+export * from './lib/components/live-apps-case-cockpit/live-apps-case-cockpit.component';
 
 // data
 export * from './lib/models/liveappsdata';

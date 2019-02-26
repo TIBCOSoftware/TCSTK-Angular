@@ -8,6 +8,7 @@ export * from './lib/tc-core-lib.module';
 export * from './lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component';
 export * from './lib/components/tibco-cloud-login/tibco-cloud-login.component';
 export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
+export * from './lib/components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
 
 // services
 export * from './lib/services/tc-login.service';
@@ -20,6 +21,7 @@ export * from './lib/models/tc-login';
 export * from './lib/models/tc-shared-state';
 export * from './lib/models/deserializable';
 export * from './lib/models/tc-app-config';
+export * from './lib/models/tc-widget-header';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';

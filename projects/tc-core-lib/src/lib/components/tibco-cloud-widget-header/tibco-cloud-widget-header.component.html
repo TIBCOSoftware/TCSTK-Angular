@@ -1,0 +1,12 @@
+<div class="tcs-widget-header" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxLayoutAlign="start center">
+    <mat-icon class="tcs-widget-header-icon" svgIcon="{{icon}}"></mat-icon>
+    <div class="tcs-widget-header-text">{{headerText}}</div>
+  </div>
+  <div class="tcs-widget-toolbar" fxLayout="row" fxLayoutAlign="end, center">
+    <div class="tcs-widget-toolbar-button-div" *ngFor="let toolbarButton of toolbarButtons">
+      <mat-icon *ngIf="toolbarButton.visible" (click)="toolbarButtonClick(toolbarButton.id)" class="tcs-widget-toolbar-button" [matTooltip]="toolbarButton.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000" [svgIcon]="toolbarButton.icon"></mat-icon>
+    </div>
+  </div>
+
+</div>

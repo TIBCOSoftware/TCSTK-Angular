@@ -69,11 +69,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
     this.caseTypeIconComponent.refresh(icon, fill);
   }
 
-  constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) {
-    super();
-  }
-
-  ngOnInit() {
+  public refresh = () => {
     if (!this.configMode) {
       this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId, this.uiAppId)
         .pipe(
@@ -129,6 +125,14 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
       this.metadata.caseTypeIcon = this.configModeCaseTypeIcon;
       this.metadata.applicationLabel = this.configModeAppTypeLabel;
     }
+  }
+
+  constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) {
+    super();
+  }
+
+  ngOnInit() {
+    this.refresh();
   }
 
 }

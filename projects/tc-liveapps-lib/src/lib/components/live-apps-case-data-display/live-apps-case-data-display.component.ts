@@ -16,11 +16,14 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // since this is the 'display' of case data we set to readonly and no validation
+    // legacy makes the labels appear above the data
     this.options = {
       defaultOptions: {
         'readonly': true,
         'appearance': 'legacy'
-      }
+      },
+      'validateOnRender': false
     };
     this.layout = [
       '*',
