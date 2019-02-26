@@ -26,5 +26,9 @@ export class HomeComponent implements OnInit {
     this.claims = this.route.snapshot.data.claims;
     this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
   }
+  /*
+  mark(){
+    con
+  }*/
 
 }
