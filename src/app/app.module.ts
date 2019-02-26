@@ -16,6 +16,7 @@ import {StarterAppComponent} from './components/starter-app/starter-app.componen
 import {TcFormsLibModule} from 'tc-forms-lib';
 import {CaseComponent} from './components/case/case.component';
 import {TcHandsontableLibModule} from 'tc-handsontable-lib';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {TcHandsontableLibModule} from 'tc-handsontable-lib';
     LoginComponent,
     StarterAppComponent,
     HomeComponent,
-    CaseComponent
+    CaseComponent,
+    ErrorComponent
   ],
   imports: [
     AppRoutingModule,

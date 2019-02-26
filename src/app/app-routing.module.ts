@@ -11,11 +11,17 @@ import {share} from 'rxjs/operators';
 import {LaConfigResolver} from '../../projects/tc-liveapps-lib/src/lib/resolvers/la-config.resolver';
 import {CaseComponent} from './components/case/case.component';
 import {CaseGuard} from 'tc-liveapps-lib';
+import {ErrorComponent} from './components/error/error.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'errorHandler/:errorCode/:errorMessage?',
+    component: ErrorComponent
+
   },
   {
     // starterApp only provides the global nav bar at present - but will be a useful place to do stuff that applies to all routes
