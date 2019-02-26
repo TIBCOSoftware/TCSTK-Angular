@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LiveAppsService} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-starter-app',
   templateUrl: './starter-app.component.html',
-  styleUrls: ['./starter-app.component.css']
+  styleUrls: ['./starter-app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class StarterAppComponent implements OnInit {
 

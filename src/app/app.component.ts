@@ -130,5 +130,9 @@ export class AppComponent {
       'tcs-search-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-search.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-case-data-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-case-data.svg'))
+    );
   }
 }

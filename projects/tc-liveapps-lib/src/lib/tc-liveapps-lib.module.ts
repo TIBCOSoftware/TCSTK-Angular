@@ -58,6 +58,7 @@ import {TcFormsLibModule} from 'tc-forms-lib';
 import {CaseGuard} from './guards/case.guard';
 import {TcCaseDataService} from './services/tc-case-data.service';
 import { LiveAppsCaseDataDisplayComponent } from './components/live-apps-case-data-display/live-apps-case-data-display.component';
+import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpit/live-apps-case-cockpit.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { LiveAppsCaseDataDisplayComponent } from './components/live-apps-case-da
     LiveAppsCreatorsComponent,
     LiveAppsCaseActionComponent,
     LiveAppsActionsComponent,
-    LiveAppsCaseDataDisplayComponent
+    LiveAppsCaseDataDisplayComponent,
+    LiveAppsCaseCockpitComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -149,7 +151,8 @@ import { LiveAppsCaseDataDisplayComponent } from './components/live-apps-case-da
     LiveAppsCaseActionComponent,
     LiveAppsActionsComponent,
     SpotfireWrapperComponent,
-    LiveAppsCaseDataDisplayComponent
+    LiveAppsCaseDataDisplayComponent,
+    LiveAppsCaseCockpitComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent],
   providers: [

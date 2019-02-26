@@ -74,6 +74,7 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes.url) {
       this.openWebPlayer(changes.url.currentValue, changes.path.currentValue, new SpotfireCustomization());
+      // this.openWebPlayer(changes.url.currentValue, changes.path.currentValue, changes.customization.currentValue);
     } else if (this.app && changes.page) {
       this.openPage(changes.page.currentValue);
     }

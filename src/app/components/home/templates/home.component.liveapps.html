@@ -71,9 +71,10 @@
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
       <tcla-spotfire-viz
-        url="https://spotfire-next.cloud.tibco.com"
-        path="/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard"
+        [url]="'https://spotfire-next.cloud.tibco.com'"
+        [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
       >
+        <!-- [customization]="{ showAbout: true, showPageNavigation: true }" -->
       </tcla-spotfire-viz>
     </ng-template>
     <!--tcla-spotfire-viz
