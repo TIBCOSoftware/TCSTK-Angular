@@ -44,6 +44,7 @@ export * from './lib/services/tc-case-data.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
+export * from './lib/resolvers/la-config.resolver';
 
 // guards
 export * from './lib/guards/case.guard';

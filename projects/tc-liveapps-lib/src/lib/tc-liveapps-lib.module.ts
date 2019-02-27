@@ -59,6 +59,7 @@ import {CaseGuard} from './guards/case.guard';
 import {TcCaseDataService} from './services/tc-case-data.service';
 import { LiveAppsCaseDataDisplayComponent } from './components/live-apps-case-data-display/live-apps-case-data-display.component';
 import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpit/live-apps-case-cockpit.component';
+import {LaConfigResolver} from './resolvers/la-config.resolver';
 
 @NgModule({
   declarations: [
@@ -158,6 +159,7 @@ import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpi
   providers: [
     RequestCacheService,
     CaseGuard,
+    LaConfigResolver,
      { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]
