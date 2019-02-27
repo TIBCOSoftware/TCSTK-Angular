@@ -1,0 +1,25 @@
+.tcs-menu-bar-pane {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  height: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-toolbar-button-div {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+:host ::ng-deep .tcs-toolbar-button:hover .svg-content {
+  fill: #0081cb;
+}
+
+:host ::ng-deep .tcs-button-filled .svg-content {
+  fill: #727272;
+}
+
+:host ::ng-deep .tcs-button-not-filled .svg-content {
+  fill: #dedede;
+}
+
