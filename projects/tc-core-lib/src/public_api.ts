@@ -9,12 +9,14 @@ export * from './lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component'
 export * from './lib/components/tibco-cloud-login/tibco-cloud-login.component';
 export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 export * from './lib/components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
+export * from './lib/components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
 
 // services
 export * from './lib/services/tc-login.service';
 export * from './lib/services/tc-shared-state.service';
 export * from './lib/services/request-cache.service';
 export * from './lib/services/tc-logging.service';
+export * from './lib/services/tc-buttons-helper.service';
 
 // models
 export * from './lib/models/tc-login';

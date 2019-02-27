@@ -12,6 +12,7 @@ import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-docum
 import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
 import {LiveAppsService} from '../../services/live-apps.service';
+import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-cockpit',
@@ -38,12 +39,29 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
 
   isFavorite: boolean;
   valid = false;
+  toolbarButtons: ToolbarButton[];
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   private _destroyed$ = new Subject();
   private errorMessage: string;
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(private liveapps: LiveAppsService, private buttonsHelper: TcButtonsHelperService) {
+  }
+
+  private createToolbarButtons = (): ToolbarButton[] => {
+    const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
+    const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
+    const buttons = [ favButton, refreshButton ];
+    return buttons;
+  }
+
+  public handleToolbarButtonEvent = (buttonId: string) => {
+    if (buttonId === 'favorite') {
+      this.toggleFavorite();
+    }
+    if (buttonId === 'refresh') {
+      this.refresh();
+    }
   }
 
   public refresh = () => {
@@ -76,6 +94,9 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   public toggleFavorite = () => {
     this.liveapps.setFavoriteCase(this.caseRef, this.uiAppId, this.sandboxId);
     this.isFavorite = !this.isFavorite;
+    const updatedFavButton = this.buttonsHelper.createButton(
+      'favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
+    this.toolbarButtons = this.buttonsHelper.updateButtons([updatedFavButton], this.toolbarButtons);
   }
 
   ngOnInit() {
@@ -87,7 +108,12 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
-        map(result => this.isFavorite = result))
+        map(result => {
+          this.isFavorite = result;
+          this.toolbarButtons = this.createToolbarButtons();
+          return result;
+        })
+      )
       .subscribe(
         null, error => {
           this.errorMessage = 'Error retrieving isFavorite: ' + error.error.errorMsg;

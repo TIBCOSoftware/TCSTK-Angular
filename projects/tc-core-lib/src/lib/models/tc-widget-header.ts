@@ -6,6 +6,7 @@ export class ToolbarButton implements Deserializable {
   visible: boolean;
   enabled: boolean;
   tooltip: string;
+  filled: boolean;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
