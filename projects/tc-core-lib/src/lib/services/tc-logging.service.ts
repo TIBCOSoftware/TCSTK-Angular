@@ -25,19 +25,19 @@ import { Injectable } from '@angular/core';
 export class LogService {
 
   level: LogLevel = LogLevel.All;
-  logWithDate: boolean = true;
+  logWithDate = true;
 
   private writeToLog(msg: string,
                      level: LogLevel,
                      params: any[]) {
     if (this.shouldLog(level)) {
-      let value: string = "";
+      let value = '';
 
       // Build log string
       if (this.logWithDate) {
         value = new Date() + ' - ';
       }
-      value += '[My Cloud Starter] [' + LogLevel[this.level] + '](' +this.getLevelString(level) + ')';
+      value += '[My Cloud Starter] [' + LogLevel[this.level] + '](' + this.getLevelString(level) + ')';
       value += ' - Message: ' + msg;
       if (params.length) {
         value += ' - Extra Info: '
@@ -50,7 +50,7 @@ export class LogService {
   }
 
   private shouldLog(level: LogLevel): boolean {
-    let ret: boolean = false;
+    let ret = false;
     if ((level >= this.level &&
       level !== LogLevel.Off) ||
       this.level === LogLevel.All) {
@@ -60,13 +60,13 @@ export class LogService {
   }
 
   private formatParams(params: any[]): string {
-    let ret: string = params.join(",");
+    let ret: string = params.join(',');
     // Is there at least one object in the array?
-    if (params.some(p => typeof p == "object")) {
-      ret = "";
+    if (params.some(p => typeof p === 'object')) {
+      ret = '';
       // Build comma-delimited string
-      for (let item of params) {
-        ret += JSON.stringify(item) + ",";
+      for (const item of params) {
+        ret += JSON.stringify(item) + ',';
       }
     }
     return ret;
@@ -102,39 +102,39 @@ export class LogService {
     this.writeToLog(msg, LogLevel.All,
       optionalParams);
   }
-  private getLevelString(level){
-    let re: string = "";
-    switch(level) {
+  private getLevelString(level) {
+    let re = '';
+    switch (level) {
       case LogLevel.All: {
-        re = "All";
+        re = 'All';
         break;
       }
       case LogLevel.Debug: {
-        re = "Debug";
+        re = 'Debug';
         break;
       }
       case LogLevel.Error: {
-        re = "Error";
+        re = 'Error';
         break;
       }
       case LogLevel.Fatal: {
-        re = "Fatal";
+        re = 'Fatal';
         break;
       }
       case LogLevel.Info: {
-        re = "Info";
+        re = 'Info';
         break;
       }
       case LogLevel.Off: {
-        re = "Off";
+        re = 'Off';
         break;
       }
       case LogLevel.Warn: {
-        re = "Warn";
+        re = 'Warn';
         break;
       }
       default: {
-        //statements;
+        // statements;
         break;
       }
     }
