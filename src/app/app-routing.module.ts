@@ -8,7 +8,7 @@ import { ConfigResolver } from 'tc-core-lib';
 import {Claim, ClaimsResolver, LiveAppsService} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
-import {LaConfigResolver} from '../../projects/tc-liveapps-lib/src/lib/resolvers/la-config.resolver';
+import {LaConfigResolver} from 'tc-liveapps-lib';
 import {CaseComponent} from './routes/case/case.component';
 import {CaseGuard} from 'tc-liveapps-lib';
 import {ErrorComponent} from './components/error/error.component';
@@ -48,7 +48,7 @@ const routes: Routes = [
         component: CaseComponent,
         canActivate: [AuthGuard, CaseGuard],
         resolve: {
-          appConfig: ConfigResolver,
+          appConfig: LaConfigResolver,
           claims: ClaimsResolver
         }
       }

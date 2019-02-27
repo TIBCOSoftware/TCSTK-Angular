@@ -5,7 +5,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Note, NoteThread, NotificationList, ThreadList} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {ToolbarButton} from 'tc-core-lib';
-import {TcButtonsHelperService} from '../../../../../tc-core-lib/src/lib/services/tc-buttons-helper.service';
+import {TcButtonsHelperService} from 'tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-notes',

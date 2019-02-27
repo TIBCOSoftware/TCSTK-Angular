@@ -2,7 +2,6 @@ import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {Claim, Sandbox} from '../../models/liveappsdata';
 import {LiveAppsCaseActionsComponent} from '../live-apps-case-actions/live-apps-case-actions.component';
 import {LiveAppsCaseAuditComponent} from '../live-apps-case-audit/live-apps-case-audit.component';
 import {LiveAppsCaseDataComponent} from '../live-apps-case-data/live-apps-case-data.component';
