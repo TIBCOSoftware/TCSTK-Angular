@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import {Routes, RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import {AuthGuard, TcSharedStateService} from 'tc-core-lib';
-import { HomeComponent } from './components/home/home.component';
-import { StarterAppComponent } from './components/starter-app/starter-app.component';
+import { HomeComponent } from './routes/home/home.component';
+import { StarterAppComponent } from './routes/starter-app/starter-app.component';
 import { ConfigResolver } from 'tc-core-lib';
 import {Claim, ClaimsResolver, LiveAppsService} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
 import {LaConfigResolver} from '../../projects/tc-liveapps-lib/src/lib/resolvers/la-config.resolver';
-import {CaseComponent} from './components/case/case.component';
+import {CaseComponent} from './routes/case/case.component';
 import {CaseGuard} from 'tc-liveapps-lib';
 import {ErrorComponent} from './components/error/error.component';
 

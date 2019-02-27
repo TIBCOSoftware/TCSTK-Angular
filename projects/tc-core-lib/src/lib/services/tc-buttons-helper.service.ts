@@ -26,7 +26,12 @@ export class TcButtonsHelperService {
   public updateButtons = (updatedToolbarButtons: ToolbarButton[], toolbarButtons: ToolbarButton[]): ToolbarButton[] => {
     updatedToolbarButtons.forEach( updatedButton => {
       const idx = toolbarButtons.findIndex(item => item.id === updatedButton.id);
-      toolbarButtons[idx] = updatedButton;
+      if (idx > -1) {
+        toolbarButtons[idx] = updatedButton;
+      } else {
+        // no existing button so add it
+        toolbarButtons.push(updatedButton);
+      }
     });
     return toolbarButtons;
   }

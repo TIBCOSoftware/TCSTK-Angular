@@ -5,6 +5,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Note, NoteThread, NotificationList, ThreadList} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {ToolbarButton} from 'tc-core-lib';
+import {TcButtonsHelperService} from '../../../../../tc-core-lib/src/lib/services/tc-buttons-helper.service';
 
 @Component({
   selector: 'tcla-live-apps-notes',
@@ -26,7 +27,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   public subscribed: Boolean;
   public toolbarButtons: ToolbarButton[] = [];
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(private liveapps: LiveAppsService, private buttonsHelper: TcButtonsHelperService) {
     super();
   }
 
@@ -92,11 +93,19 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     }
   }
 
+
+  protected createToolbarButtons = (subscribed): ToolbarButton[] => {
+    const subscribeButton: ToolbarButton = this.buttonsHelper.createButton(
+      'subscribe', 'tcs-collaboration-unsubscribed', true, 'Enable Notifications', !subscribed, !subscribed);
+    const unSubscribeButton: ToolbarButton = this.buttonsHelper.createButton(
+      'unsubscribe', 'tcs-collaboration-subscribed', true, 'Disable Notifications', subscribed, subscribed);
+    const buttons = [ subscribeButton, unSubscribeButton ];
+    return buttons;
+  }
+
   public setupNotificationButtons = (subscribed: boolean) => {
     const buttons: ToolbarButton[] = this.createToolbarButtons(subscribed);
-    buttons.forEach(tbButton => {
-      this.toolbarButtons.push(tbButton);
-    });
+    this.buttonsHelper.updateButtons(buttons, this.toolbarButtons);
   }
 
   public updateButtonDef = (updatedToolbarButtons: ToolbarButton[]) => {
@@ -114,31 +123,9 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     }
   }
 
-  private createToolbarButtons = (subscribed): ToolbarButton[] => {
-    const unSubscribedButton = new ToolbarButton().deserialize(
-      {
-        id: 'subscribe',
-        icon: 'tcs-collaboration-unsubscribed',
-        tooltip: 'Enable Notifications',
-        visible: !subscribed,
-        enabled: !subscribed
-      }
-    );
-    const subscribedButton = new ToolbarButton().deserialize(
-      {
-        id: 'unsubscribe',
-        icon: 'tcs-collaboration-subscribed',
-        tooltip: 'Disable Notifications',
-        visible: subscribed,
-        enabled: subscribed
-      }
-    );
-    return [ unSubscribedButton, subscribedButton ];
-  }
-
   public recreateButtonsForNotifications = (subscribed) => {
       const buttons: ToolbarButton[] = this.createToolbarButtons(subscribed);
-      this.updateButtonDef(buttons);
+      this.buttonsHelper.updateButtons(buttons, this.toolbarButtons);
   }
 
   public getNotifications = () => {
