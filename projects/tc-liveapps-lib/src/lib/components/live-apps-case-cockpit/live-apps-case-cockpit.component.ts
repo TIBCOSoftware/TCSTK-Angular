@@ -42,13 +42,13 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   toolbarButtons: ToolbarButton[];
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
-  private _destroyed$ = new Subject();
-  private errorMessage: string;
+  protected _destroyed$ = new Subject();
+  protected errorMessage: string;
 
-  constructor(private liveapps: LiveAppsService, private buttonsHelper: TcButtonsHelperService) {
+  constructor(protected liveapps: LiveAppsService, protected buttonsHelper: TcButtonsHelperService) {
   }
 
-  private createToolbarButtons = (): ToolbarButton[] => {
+  protected createToolbarButtons = (): ToolbarButton[] => {
     const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
     const buttons = [ favButton, refreshButton ];
