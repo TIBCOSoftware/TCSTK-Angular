@@ -5,13 +5,16 @@
   </tc-tibco-cloud-menu-bar>
   <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px" fxLayoutGap="20px">
     <div fxLayout="row" fxLayoutAlign="end center">
-      <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseReference]="caseRef" [caseState]="'Created'" [maxActions]="5"></tcla-live-apps-case-actions>
+      <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseReference]="caseRef" [caseState]="'Created'" [maxActions]="5" (actionClicked)="handleActionSelection($event)"></tcla-live-apps-case-actions>
     </div>
     <div fxLayout="row" fxFlex fxLayout="space-around, stretch" fxLayoutGap="20px">
       <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
         <mat-tab-group>
           <mat-tab label="Case Data">
             <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [showHeader]="false"></tcla-live-apps-case-data>
+          </mat-tab>
+          <mat-tab *ngIf="actionSelection" label="{{actionSelection.process.name}}">
+            <tcla-live-apps-case-action [process]="actionSelection" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId"></tcla-live-apps-case-action>
           </mat-tab>
         </mat-tab-group>
       </div>
