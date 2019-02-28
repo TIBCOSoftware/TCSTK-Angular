@@ -6,7 +6,7 @@
   <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px">
     <div fxLayout="row" fxFlex fxLayout="space-around, stretch" fxLayoutGap="20px">
       <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
-        <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId"></tcla-live-apps-case-data>
+            <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [showHeader]="false"></tcla-live-apps-case-data>
       </div>
       <div fxLayout="column" fxFlex fxLayoutGap="20px">
         <tcla-live-apps-notes class="live-apps-widget" fxFlex="50" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>

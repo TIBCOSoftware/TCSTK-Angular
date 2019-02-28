@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {CaseType, CaseTypesList, LaProcessSelection, Process} from '../../models/liveappsdata';
+import {CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsComponent} from '../../components/live-apps-component/live-apps-component.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map} from 'rxjs/operators';

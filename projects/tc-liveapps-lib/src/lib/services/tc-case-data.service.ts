@@ -13,6 +13,19 @@ export class TcCaseDataService {
 
   constructor(private http: HttpClient, private liveAppsService: LiveAppsService) { }
 
+  public getCaseState(caseRef: string, sandboxId: number): Observable<string> {
+    const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=s';
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(caseinfo => {
+          const caseinf = new CaseInfo().deserialize(caseinfo);
+          const state: string = caseinf.summaryObj.state;
+          return state;
+        })
+      );
+  }
+
   public getCaseWithSchema(
     caseRef: string, sandboxId: number, appId: string, typeId: string, uiAppId: string): Observable<CaseInfoWithSchema> {
     const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';

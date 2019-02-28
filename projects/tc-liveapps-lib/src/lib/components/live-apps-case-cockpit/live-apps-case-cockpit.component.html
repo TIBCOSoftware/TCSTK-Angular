@@ -3,14 +3,27 @@
     <!-- this is content projection. Tibco cloud menu bar contains ng-template and content here is projected inside the ng-content -->
     <tcla-live-apps-case-summary class="live-apps-widget" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'list'" [sandboxId]="sandboxId" [caseReference]="caseRef"></tcla-live-apps-case-summary>
   </tc-tibco-cloud-menu-bar>
-  <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px">
+  <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px" fxLayoutGap="20px">
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseReference]="caseRef" [caseState]="'Created'" [maxActions]="5"></tcla-live-apps-case-actions>
+    </div>
     <div fxLayout="row" fxFlex fxLayout="space-around, stretch" fxLayoutGap="20px">
       <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
-        <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId"></tcla-live-apps-case-data>
+        <mat-tab-group>
+          <mat-tab label="Case Data">
+            <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [showHeader]="false"></tcla-live-apps-case-data>
+          </mat-tab>
+        </mat-tab-group>
       </div>
       <div fxLayout="column" fxFlex fxLayoutGap="20px">
-        <tcla-live-apps-notes class="live-apps-widget" fxFlex="50" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>
-        <tcla-live-apps-documents class="live-apps-widget" fxFlex="50" [sandboxId]="sandboxId" [folderId]="caseRef" [folderType]="'caseFolders'"></tcla-live-apps-documents>
+        <mat-tab-group fxFlex>
+          <mat-tab label="Notes">
+            <tcla-live-apps-notes class="live-apps-widget" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>
+          </mat-tab>
+          <mat-tab label="Documents">
+            <tcla-live-apps-documents class="live-apps-widget" [sandboxId]="sandboxId" [folderId]="caseRef" [folderType]="'caseFolders'"></tcla-live-apps-documents>
+          </mat-tab>
+        </mat-tab-group>
       </div>
     </div>
   </div>

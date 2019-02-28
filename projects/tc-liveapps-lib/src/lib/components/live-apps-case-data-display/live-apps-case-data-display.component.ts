@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CaseType, CaseTypesList, JsonSchema, LaProcessSelection} from '../../models/liveappsdata';
+import {CaseType, CaseTypesList, JsonSchema} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 
 @Component({
   selector: 'tcla-live-apps-case-data-display',
