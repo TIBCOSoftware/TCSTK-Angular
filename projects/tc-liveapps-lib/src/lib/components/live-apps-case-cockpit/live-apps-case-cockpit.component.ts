@@ -12,6 +12,7 @@ import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.compone
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
+import {LaProcessSelection} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-cockpit',
@@ -39,6 +40,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   isFavorite: boolean;
   valid = false;
   toolbarButtons: ToolbarButton[];
+  actionSelection: LaProcessSelection;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   protected _destroyed$ = new Subject();
@@ -61,6 +63,10 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
     if (buttonId === 'refresh') {
       this.refresh();
     }
+  }
+
+  public handleActionSelection = (actionSelection) => {
+    this.actionSelection = actionSelection;
   }
 
   public refresh = () => {
