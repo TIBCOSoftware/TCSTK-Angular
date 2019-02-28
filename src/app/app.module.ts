@@ -16,7 +16,7 @@ import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {TcFormsLibModule} from 'tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
 import {TcHandsontableLibModule} from 'tc-handsontable-lib';
-import { ErrorComponent } from './components/error/error.component';
+//import { TibcoCloudErrorComponent } from 'tc-core-lib';
 import { CaseCockpitComponent } from './components/case-cockpit/case-cockpit.component';
 
 @NgModule({
@@ -26,7 +26,6 @@ import { CaseCockpitComponent } from './components/case-cockpit/case-cockpit.com
     StarterAppComponent,
     HomeComponent,
     CaseComponent,
-    ErrorComponent,
     CaseCockpitComponent
   ],
   imports: [

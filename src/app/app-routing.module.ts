@@ -11,7 +11,7 @@ import {share} from 'rxjs/operators';
 import {LaConfigResolver} from 'tc-liveapps-lib';
 import {CaseComponent} from './routes/case/case.component';
 import {CaseGuard} from 'tc-liveapps-lib';
-import {ErrorComponent} from './components/error/error.component';
+import {TibcoCloudErrorComponent} from 'tc-core-lib';
 
 const routes: Routes = [
   {
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'errorHandler/:errorCode/:errorMessage?',
-    component: ErrorComponent
+    component: TibcoCloudErrorComponent
 
   },
   {

@@ -10,6 +10,7 @@ export * from './lib/components/tibco-cloud-login/tibco-cloud-login.component';
 export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 export * from './lib/components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
 export * from './lib/components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
+export * from './lib/components/tibco-cloud-error/tibco-cloud-error.component';
 
 // services
 export * from './lib/services/tc-login.service';
