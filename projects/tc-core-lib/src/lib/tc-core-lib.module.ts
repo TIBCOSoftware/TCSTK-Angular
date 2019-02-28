@@ -33,6 +33,7 @@ import {ReversePipe} from './pipes/reverse.pipe';
 import { TibcoCloudWidgetHeaderComponent } from './components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
 import { TibcoCloudMenuBarComponent } from './components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
 import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
+import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
     OrderByDatePipe,
     ReversePipe,
     TibcoCloudWidgetHeaderComponent,
-    TibcoCloudMenuBarComponent
+    TibcoCloudMenuBarComponent,
+    TibcoCloudErrorComponent
   ],
   imports: [
     HttpClientModule,
@@ -80,7 +82,9 @@ import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
     HighlightPipe,
     OrderByDatePipe,
     ReversePipe,
-    TibcoCloudWidgetHeaderComponent
+    TibcoCloudWidgetHeaderComponent,
+    TibcoCloudErrorComponent
+
   ],
   providers: [
     RequestCacheService,

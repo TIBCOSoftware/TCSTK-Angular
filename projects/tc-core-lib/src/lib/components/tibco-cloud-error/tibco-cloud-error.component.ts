@@ -3,11 +3,12 @@ import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'laapp-error',
-  templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']
+  templateUrl: './tibco-cloud-error.component.html',
+  styleUrls: ['./tibco-cloud-error.component.css']
 })
-export class ErrorComponent implements OnInit {
+export class TibcoCloudErrorComponent implements OnInit {
 
+  // todo: Add logger
   constructor(private route: ActivatedRoute) {
     this.message = '';
     this.route.params.subscribe(params => {

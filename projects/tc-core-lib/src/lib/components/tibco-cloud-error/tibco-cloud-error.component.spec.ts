@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorComponent } from './error.component';
+import { TibcoCloudErrorComponent } from './error.component';
 
 describe('ErrorComponent', () => {
-  let component: ErrorComponent;
-  let fixture: ComponentFixture<ErrorComponent>;
+  let component: TibcoCloudErrorComponent;
+  let fixture: ComponentFixture<TibcoCloudErrorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErrorComponent ]
+      declarations: [ TibcoCloudErrorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorComponent);
+    fixture = TestBed.createComponent(TibcoCloudErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
