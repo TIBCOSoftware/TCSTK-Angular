@@ -12,7 +12,7 @@ import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.compone
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
-import {LaProcessSelection} from 'tc-liveapps-lib';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 
 @Component({
   selector: 'tcla-live-apps-case-cockpit',

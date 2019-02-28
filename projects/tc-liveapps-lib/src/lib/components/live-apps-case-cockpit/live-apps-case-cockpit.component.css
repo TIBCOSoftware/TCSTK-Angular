@@ -1,3 +1,7 @@
 .live-apps-widget {
   background-color: white; border-radius: 3px;
 }
+
+.tcs-actions-bar {
+  height: 50px;
+}
