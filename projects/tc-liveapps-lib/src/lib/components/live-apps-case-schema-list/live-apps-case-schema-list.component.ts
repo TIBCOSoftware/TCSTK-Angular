@@ -24,7 +24,7 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {LaProcessSelection} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 import {CaseType, CaseTypesList, JsonSchema, Process} from '../../models/liveappsdata';
 import {Subject} from 'rxjs';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';

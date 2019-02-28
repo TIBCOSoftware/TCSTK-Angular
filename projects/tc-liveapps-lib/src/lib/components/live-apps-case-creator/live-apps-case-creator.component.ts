@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, OnDestroy, SimpleChanges, OnChanges} from '@angular/core';
 import {LiveAppsComponent} from '../../components/live-apps-component/live-apps-component.component';
-import {LaProcessSelection, ProcessId} from '../../models/liveappsdata';
+import {ProcessId} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';

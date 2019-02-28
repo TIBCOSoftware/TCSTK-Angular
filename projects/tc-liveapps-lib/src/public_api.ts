@@ -37,10 +37,13 @@ export * from './lib/components/live-apps-case-cockpit/live-apps-case-cockpit.co
 
 // data
 export * from './lib/models/liveappsdata';
+export * from './lib/models/tc-case-data';
+export * from './lib/models/tc-case-processes';
 
 // service
 export * from './lib/services/live-apps.service';
 export * from './lib/services/tc-case-data.service';
+export * from './lib/services/tc-case-processes.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';

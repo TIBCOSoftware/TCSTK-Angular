@@ -7,7 +7,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule,
-  MatSelectModule, MatTooltipModule
+  MatSelectModule, MatTabsModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -59,6 +59,7 @@ import {CaseGuard} from './guards/case.guard';
 import {TcCaseDataService} from './services/tc-case-data.service';
 import { LiveAppsCaseDataDisplayComponent } from './components/live-apps-case-data-display/live-apps-case-data-display.component';
 import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpit/live-apps-case-cockpit.component';
+import {TcCaseProcessesService} from './services/tc-case-processes.service';
 
 @NgModule({
   declarations: [
@@ -114,6 +115,7 @@ import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpi
     MatMenuModule,
     MatCardModule,
     MatTooltipModule,
+    MatTabsModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,
@@ -166,7 +168,7 @@ export class TcLiveappsLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcLiveappsLibModule,
-      providers: [ LiveAppsService, TcCaseDataService ]
+      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService ]
     };
   }
 }

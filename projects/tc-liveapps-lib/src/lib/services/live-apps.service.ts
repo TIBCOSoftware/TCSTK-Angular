@@ -178,7 +178,6 @@ export class LiveAppsService {
       caseinfo.metadata.createdByDetails = new UserInfo();
     }
     this.getAppConfig(appId, uiAppId, true, false).subscribe(val => {
-      // state attribute is first in summary
       const stateId = caseinfo.summaryObj.state;
       let stateConfig: IconMap;
       if (val !== undefined && val.stateMap) {
@@ -349,23 +348,6 @@ export class LiveAppsService {
           )
         );
     }
-
-    // note this is not a public API
-  public getCaseActions(caseRef: string, sandboxId: number, appId: string, typeId: string, caseState: string): Observable<CaseActionsList> {
-    // https://eu.liveapps.cloud.tibco.com/pageflow/caseActions?$sandbox=31&
-    // $filter=applicationId%20eq%201742%20and%20caseType%20eq%201%20and%20caseState%20eq%20Responded%20and%20caseRef%20eq%20150491
-    const select = 's';
-    const url = '/pageflow/caseActions?$sandbox=' + sandboxId
-      + '&$filter=applicationId eq ' + appId
-      + ' and caseType eq ' + typeId
-      + ' and caseState eq ' + caseState
-      + ' and caseRef eq ' + caseRef;
-
-    return this.http.get(url)
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(caseactions => new CaseActionsList().deserialize(caseactions)));
-  }
 
   public getCaseAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
     const select = 's';
