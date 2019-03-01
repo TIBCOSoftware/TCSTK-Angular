@@ -5,3 +5,8 @@
 .tcs-actions-bar {
   height: 50px;
 }
+
+:host ::ng-deep .tcs-cancel-action-button svg {
+  width: 15px;
+  height: 15px;
+}
