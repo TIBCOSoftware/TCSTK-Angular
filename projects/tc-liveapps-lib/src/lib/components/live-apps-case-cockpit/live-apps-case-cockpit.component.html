@@ -16,7 +16,7 @@
           <mat-tab #actionTab *ngIf="actionSelection">
             <ng-template mat-tab-label fxLayout="row" fxFlex>
               {{actionSelection?.process?.name ? actionSelection.process.name : 'Action' }}
-              <mat-icon fxLayoutAlign="end start" (click)="cancelAction()" class="tcs-cancel-action-button" [svgIcon]="'tcs-close-icon'" (click)="handleCancelAction()"></mat-icon>
+              <mat-icon fxLayoutAlign="end start" class="tcs-cancel-action-button" [svgIcon]="'tcs-close-icon'" (click)="handleCancelAction()"></mat-icon>
             </ng-template>
             <tcla-live-apps-case-action *ngIf="actionSelection" tcOnCreate (fireCreated)="actionTabCreated($event)" [process]="actionSelection" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted($event)"></tcla-live-apps-case-action>
           </mat-tab>
