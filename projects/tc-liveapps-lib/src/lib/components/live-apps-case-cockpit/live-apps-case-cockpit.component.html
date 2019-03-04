@@ -4,6 +4,7 @@
     <tcla-live-apps-case-summary class="live-apps-widget" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId" [caseReference]="caseRef"></tcla-live-apps-case-summary>
   </tc-tibco-cloud-menu-bar>
   <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px">
+    <!--tcla-live-apps-case-states [sandboxId]="sandboxId" [caseRef]="caseRef" [appId]="appId"></tcla-live-apps-case-states-->
     <div fxLayout="row" fxLayoutAlign="end center" class="tcs-actions-bar">
       <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseReference]="caseRef" [caseState]="'Created'" [maxActions]="5" (actionClicked)="handleActionSelection($event)"></tcla-live-apps-case-actions>
     </div>
