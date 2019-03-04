@@ -62,7 +62,7 @@ export class LiveAppsService {
   ) { }
 
   public getSandboxes(): Observable<SandboxList> {
-    const url = '/organisation/sandboxes';
+    const url = '/organisation/v1/sandboxes';
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -71,7 +71,7 @@ export class LiveAppsService {
 
   public getApplications(sandboxId: number, top: number): Observable<CaseTypesList> {
     const select = 'b';
-    const url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+    const url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
 
     return this.http.get(url)
       .pipe(
@@ -80,7 +80,7 @@ export class LiveAppsService {
   }
 
   public getClaims(): Observable<Claim> {
-    const url = '/organisation/claims';
+    const url = '/organisation/v1/claims';
     const headers = new HttpHeaders().set('cacheResponse', 'true');
     return this.http.get(url, { headers: headers } )
       .pipe(
@@ -89,7 +89,7 @@ export class LiveAppsService {
   }
 
   public getCases(sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseInfoList> {
-    const url = '/case/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+    const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
       + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top;
     return this.http.get(url)
       .pipe(
@@ -98,7 +98,7 @@ export class LiveAppsService {
   }
 
   public getCasesCount(sandboxId: number, appId: string, typeId: string): Observable<string> {
-    const url = '/case/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+    const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
       + appId + ' and typeId eq ' + typeId + '&$count=true';
 
     return this.http.get(url)
@@ -108,7 +108,7 @@ export class LiveAppsService {
   }
 
   public getCaseByRef(sandboxId, caseRef: string): Observable<CaseInfo> {
-    const url = '/case/cases/' + caseRef
+    const url = '/case/v1/cases/' + caseRef
       + '?$sandbox=' + sandboxId;
     return this.http.get(url)
       .pipe(
@@ -119,7 +119,7 @@ export class LiveAppsService {
   }
 
   public getCase(caseRef: string, sandboxId: number, appId: string, typeId: string ): Observable<CaseInfo> {
-    const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
       + appId + ' and typeId eq ' + typeId + '&$select=uc, m';
     return this.http.get(url)
       .pipe(
@@ -137,7 +137,7 @@ export class LiveAppsService {
   }
 
   private caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
-      const url = '/case/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+      const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
         + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top
         + '&$select=cr'
         + '&$search=' + term;
@@ -215,7 +215,7 @@ export class LiveAppsService {
   }
 
     public getCaseWithSummary(caseRef: string, sandboxId: number, uiAppId: string): Observable<CaseInfo> {
-        const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
+        const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
         return this.http.get(url)
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -229,7 +229,7 @@ export class LiveAppsService {
 
   public getCaseTypes(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
     const select = 'b,s,sa,a';
-    let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+    let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
     if (appId != null) {
       url = url + '&$filter=applicationId eq ' + appId;
     }
@@ -243,7 +243,7 @@ export class LiveAppsService {
   public getCaseTypeSchema(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
     // https://eu.liveapps.cloud.tibco.com/case/v1/types?$sandbox=25&&$filter=applicationName eq 'Customer Complaint'&$select=b,js,c,ac
     const select = 'b,js,c,ac,a';
-    let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+    let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
     if (appId != null) {
       url = url + '&$filter=applicationId eq ' + appId;
     }
@@ -255,7 +255,7 @@ export class LiveAppsService {
 
     public getCaseTypeStates(sandboxId: number, appId: string, top: number): Observable<CaseTypeStatesList> {
         const select = 's';
-        let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select  + '&$top=' + top;
+        let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select  + '&$top=' + top;
         if (appId != null) {
             url = url + '&$filter=applicationId eq ' + appId;
         }
@@ -282,7 +282,7 @@ export class LiveAppsService {
 
     public getCaseTypeBasicInfo(sandboxId: number, appId: string, typeId: string, top: number): Observable<CaseType> {
         const select = 'b';
-      let url = '/case/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+      let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
       if (appId != null) {
         url = url + '&$filter=applicationId eq ' + appId;
       }
@@ -351,7 +351,7 @@ export class LiveAppsService {
 
   public getCaseAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
     const select = 's';
-    const url = '/event/auditEvents?$sandbox=' + sandboxId
+    const url = '/event/v1/auditEvents?$sandbox=' + sandboxId
       + '&$filter=type eq \'case\''
       + ' and id eq \'' + caseRef + '\'';
 
@@ -362,7 +362,7 @@ export class LiveAppsService {
   }
 
   public getCaseStateAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
-    const url = '/event/auditEvents?$sandbox=' + sandboxId
+    const url = '/event/v1/auditEvents?$sandbox=' + sandboxId
       + '&$filter=type eq \'casestate\''
       + ' and id eq \'' + caseRef + '\'';
 
@@ -503,7 +503,7 @@ export class LiveAppsService {
   }
 
   public runProcess(sandboxId: number, appId: string, processId: string, caseReference: string, data: any): Observable<any> {
-    const url = '/process/processes';
+    const url = '/process/v1/processes';
     // convert data to an escaped JSON string
     const dataJson = TcCoreCommonFunctions.escapeString(JSON.stringify(data));
     const body = {
@@ -804,7 +804,7 @@ export class LiveAppsService {
   }
 
   public subscribeToNotes(relatedItemType, relatedTypeId) {
-    const url = '/collaboration/notifications';
+    const url = '/collaboration/v1/notifications';
     const body = {
       topicId: undefined,
       threadId: undefined,
@@ -824,7 +824,7 @@ export class LiveAppsService {
   }
 
   public unsubscribeToNotes(relatedItemType, relatedTypeId, userId) {
-    let url = '/collaboration/notifications?$filter=collectionName=';
+    let url = '/collaboration/v1/notifications?$filter=collectionName=';
     url = url + '\'' + relatedItemType + '_' + relatedTypeId + '\' and entityId=' + userId;
     return this.http.delete(url)
       .pipe(
@@ -833,7 +833,7 @@ export class LiveAppsService {
   }
 
   public getNotifications(relatedItemType, relatedTypeId, userId): Observable<NotificationList> {
-    const url = '/collaboration/notifications?$filter=collectionName=\'' + relatedItemType + '_' + relatedTypeId
+    const url = '/collaboration/v1/notifications?$filter=collectionName=\'' + relatedItemType + '_' + relatedTypeId
             + '\' and entityId=' + userId;
     return this.http.get(url)
       .pipe(
