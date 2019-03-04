@@ -161,7 +161,7 @@ import {TcCaseProcessesService} from './services/tc-case-processes.service';
     RequestCacheService,
     CaseGuard,
      { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
-    // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
+     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]
 })
 export class TcLiveappsLibModule {
