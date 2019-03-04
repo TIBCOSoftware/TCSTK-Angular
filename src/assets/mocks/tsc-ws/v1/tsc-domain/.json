@@ -1,0 +1,7 @@
+{
+    "mockedResponses": {
+        "/tsc-ws/v1/tsc-domain": {
+            "url": "https://kk.account.cloud.tibco.com"
+        }
+    }
+}
