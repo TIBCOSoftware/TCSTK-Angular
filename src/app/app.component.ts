@@ -138,5 +138,9 @@ export class AppComponent {
       'tcs-case-data-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-case-data.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-close-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-close.svg'))
+    );
   }
 }

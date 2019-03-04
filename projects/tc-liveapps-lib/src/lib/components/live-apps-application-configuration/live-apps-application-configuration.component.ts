@@ -179,7 +179,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public uploadFile(file: File, state: CaseTypeState, isStateIcon: boolean) {
     if (file) {
-      const url = 'webresource/orgFolders/' + this.folderId + '/' + file.name;
+      const url = 'webresource/v1/orgFolders/' + this.folderId + '/' + file.name;
       this.liveapps.clearFromIconSVGTextCache(url);
       this.liveapps.uploadDocument('orgFolders', this.folderId, this.sandboxId,
         file, file.name, '')

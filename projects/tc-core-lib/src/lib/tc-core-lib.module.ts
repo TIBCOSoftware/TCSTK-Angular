@@ -34,6 +34,7 @@ import { TibcoCloudWidgetHeaderComponent } from './components/tibco-cloud-widget
 import { TibcoCloudMenuBarComponent } from './components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
 import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
 import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
+import { OnCreateDirective } from './directives/on-create.directive';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-clo
     ReversePipe,
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudMenuBarComponent,
-    TibcoCloudErrorComponent
+    TibcoCloudErrorComponent,
+    OnCreateDirective
   ],
   imports: [
     HttpClientModule,
@@ -83,7 +85,8 @@ import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-clo
     OrderByDatePipe,
     ReversePipe,
     TibcoCloudWidgetHeaderComponent,
-    TibcoCloudErrorComponent
+    TibcoCloudErrorComponent,
+    OnCreateDirective
 
   ],
   providers: [
