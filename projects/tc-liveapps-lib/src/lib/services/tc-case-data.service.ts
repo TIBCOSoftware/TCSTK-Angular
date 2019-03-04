@@ -14,7 +14,7 @@ export class TcCaseDataService {
   constructor(private http: HttpClient, private liveAppsService: LiveAppsService) { }
 
   public getCaseState(caseRef: string, sandboxId: number): Observable<string> {
-    const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=s';
+    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=s';
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -28,7 +28,7 @@ export class TcCaseDataService {
 
   public getCaseWithSchema(
     caseRef: string, sandboxId: number, appId: string, typeId: string, uiAppId: string): Observable<CaseInfoWithSchema> {
-    const url = '/case/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
+    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
 
     // Make the two required API calls
 

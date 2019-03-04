@@ -13,7 +13,7 @@
  *
  */
 
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil, tap} from 'rxjs/operators';
@@ -60,12 +60,19 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   public selectAction(action: CaseAction) {
+    // todo: JS: When the form is not supported there will be no 'form schema' and hence we cannot render the form.
+    // Need to decide what to do here.
+
     this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, 100).pipe(
       take(1),
       takeUntil(this._destroyed$),
       tap(processDetails => {
-        if (!processDetails.process) {
-            console.error('No schema available for this case type: You may need to update/re-deploy the live apps application');
+        if (!processDetails || !processDetails.process) {
+          // This will be triggered when no form schema is available
+          // Typically happens when:
+          // 1) The form has elements that are not supported by the Live Apps API for form schemas such as participant selectors
+          // 2) The Live Apps application is legacy and has no form schema at all, redeploying the live apps application would fix this.
+            console.error('No schema available for this case type: The form may not be supported or you may need to update/re-deploy the live apps application');
           }
         }
       ),

@@ -59,6 +59,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
   }
 
   ngOnInit() {
+    // set default layout
+    // this.layout = [];
   }
 
   ngOnChanges(changes: SimpleChanges) {

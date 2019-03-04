@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, Directive, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, ViewChildren} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
@@ -13,6 +13,9 @@ import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-
 import {LiveAppsService} from '../../services/live-apps.service';
 import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
+import {MatTab, MatTabGroup} from '@angular/material';
+import {QueryList} from '@angular/core';
+import { OnCreateDirective} from 'tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-cockpit',
@@ -36,6 +39,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   @ViewChild(LiveAppsCaseStateAuditComponent) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
   @ViewChild(LiveAppsDocumentsComponent) caseDocumentsComponent: LiveAppsDocumentsComponent;
   @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
+  @ViewChild('dataTabGroup') dataTabGroups: MatTabGroup;
 
   isFavorite: boolean;
   valid = false;
@@ -67,6 +71,23 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
 
   public handleActionSelection = (actionSelection) => {
     this.actionSelection = actionSelection;
+  }
+
+  public actionTabCreated = (data) => {
+    // the tab isn't actually it the tab-group at this point but this should still work as length is current tab + 1
+    this.dataTabGroups.selectedIndex = this.dataTabGroups._tabs.length;
+  }
+
+  public handleCancelAction = () => {
+    this.actionSelection = undefined;
+  }
+
+  public handleActionCompleted = (processId: string) => {
+    this.actionSelection = undefined;
+    // to allow case to update async before we refresh
+    setTimeout(() => {
+      this.refresh();
+    }, 1000);
   }
 
   public refresh = () => {

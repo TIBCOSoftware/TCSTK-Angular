@@ -9,12 +9,16 @@
     </div>
     <div fxLayout="row" fxFlex fxLayout="space-around, stretch" fxLayoutGap="20px">
       <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
-        <mat-tab-group>
+        <mat-tab-group #dataTabGroup>
           <mat-tab label="Case Data">
             <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [showHeader]="false"></tcla-live-apps-case-data>
           </mat-tab>
-          <mat-tab *ngIf="actionSelection" label="{{actionSelection.process.name}}">
-            <tcla-live-apps-case-action [process]="actionSelection" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId"></tcla-live-apps-case-action>
+          <mat-tab #actionTab *ngIf="actionSelection">
+            <ng-template mat-tab-label fxLayout="row" fxFlex>
+              {{actionSelection?.process?.name ? actionSelection.process.name : 'Action' }}
+              <mat-icon fxLayoutAlign="end start" class="tcs-cancel-action-button" [svgIcon]="'tcs-close-icon'" (click)="handleCancelAction()"></mat-icon>
+            </ng-template>
+            <tcla-live-apps-case-action *ngIf="actionSelection" tcOnCreate (fireCreated)="actionTabCreated($event)" [process]="actionSelection" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted($event)"></tcla-live-apps-case-action>
           </mat-tab>
         </mat-tab-group>
       </div>

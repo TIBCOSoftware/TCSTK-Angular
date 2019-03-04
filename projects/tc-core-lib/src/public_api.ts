@@ -45,3 +45,6 @@ export * from './lib/pipes/ellipsis.pipe';
 export * from './lib/pipes/highlight.pipe';
 export * from './lib/pipes/order-by-date.pipe';
 export * from './lib/pipes/reverse.pipe';
+
+// directives
+export * from './lib/directives/on-create.directive';
