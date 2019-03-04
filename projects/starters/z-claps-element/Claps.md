@@ -20,7 +20,7 @@ usage HTML Tags
 
 ```html
 <tc-claps tags="TCSDK-Docs" size="1"></tc-claps>
-<script type="text/javascript" src="https://tibcosoftware.github.io/TCSDK-Docs/Angular/starters/claps/element/claps.js"></script> 
+<script type="text/javascript" src="https://tibcosoftware.github.io/TCSDK-Docs/Angular/starters/z-claps-element/element/claps.js"></script> 
 ```
 
 #### Inputs
@@ -68,4 +68,4 @@ create table claps(
 > Cloud hosted PostgreSQL Database for this Showcase, no 24*7 operation availability!  
 
 ### Source
-All Source on GitHub here: [github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/claps/src](https://github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/claps/src)
+All Source on GitHub here: [github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/z-claps-element/src](https://github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/z-claps-element/src)
