@@ -1,0 +1,19 @@
+{
+    "mockedResponses": {
+        "/case/v1/cases/190651/?$sandbox=31&$select=uc, m, s": {
+            "untaggedCasedata": "{\"CaseId_v1\":\"PNR-5\",\"RequestType_v1\":\"Account Enquiry\",\"RequestDescription_v1\":\"Please reset my account\",\"Customer_v1\":{\"Name_v1\":\"John Smith\",\"CustomerReference_v1\":\"SMITH-123\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"PRT1233\",\"OrderReference_v1\":\"ORD-55555\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2019-01-08\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Created\",\"PartnerReference_v1\":\"99000123\"}",
+            "summary": "{\"state\":\"Created\",\"CaseId_v1\":\"PNR-5\",\"RequestDescription_v1\":\"Please reset my account\",\"RequestType_v1\":\"Account Enquiry\"}",
+            "metadata": {
+                "createdBy": "265",
+                "creationTimestamp": "2019-01-08T14:30:42.125Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-01-08T14:30:42.125Z",
+                "lockType": "1",
+                "msLockExpiry": "0",
+                "msSystemTime": "1551708931838",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
+    }
+}

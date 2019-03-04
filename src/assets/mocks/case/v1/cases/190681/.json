@@ -1,0 +1,19 @@
+{
+    "mockedResponses": {
+        "/case/v1/cases/190681/?$sandbox=31&$select=uc, m, s": {
+            "untaggedCasedata": "{\"CaseId_v1\":\"PNR-8\",\"RequestType_v1\":\"Open an Account\",\"RequestDescription_v1\":\"Please create me an account\",\"Customer_v1\":{\"Name_v1\":\"John Weasley\",\"CustomerReference_v1\":\"CST-283\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"PRT-283\",\"OrderReference_v1\":\"ORD-12121\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2019-01-08\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Created\",\"PartnerReference_v1\":\"99000123\"}",
+            "summary": "{\"state\":\"Created\",\"CaseId_v1\":\"PNR-8\",\"RequestDescription_v1\":\"Please create me an account\",\"RequestType_v1\":\"Open an Account\"}",
+            "metadata": {
+                "createdBy": "265",
+                "creationTimestamp": "2019-01-08T14:42:47.058Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-01-08T14:42:47.058Z",
+                "lockType": "1",
+                "msLockExpiry": "0",
+                "msSystemTime": "1551708850726",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
+    }
+}

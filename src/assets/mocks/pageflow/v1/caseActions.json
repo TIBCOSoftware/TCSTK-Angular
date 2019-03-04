@@ -1,0 +1,144 @@
+{
+    "mockedResponses": {
+        "/pageflow/v1/caseActions?$sandbox=31&$filter=applicationId eq 1742 and caseType eq 1 and caseState eq Created and caseRef eq 150471": [
+            {
+                "chatBotEnabled": false,
+                "id": 7919,
+                "name": "SubmitRequestforReview",
+                "label": "Submit Request for Review",
+                "version": 1,
+                "applicationId": 1742,
+                "applicationName": "PartnerRequest",
+                "activityName": "Task",
+                "noData": false,
+                "availableInStates": [
+                    "Created"
+                ],
+                "roles": [
+                    "3630"
+                ],
+                "performerPaths": []
+            },
+            {
+                "chatBotEnabled": false,
+                "id": 7916,
+                "name": "UpdateRequestMetrics",
+                "label": "Update Request Metrics",
+                "version": 1,
+                "applicationId": 1742,
+                "applicationName": "PartnerRequest",
+                "activityName": "Task",
+                "noData": false,
+                "availableInStates": [
+                    "Created",
+                    "Information Required",
+                    "Review",
+                    "Investigate"
+                ],
+                "roles": [
+                    "3630"
+                ],
+                "performerPaths": []
+            }
+        ],
+        "/pageflow/v1/caseActions?$sandbox=31&$filter=applicationId eq 1742 and caseType eq 1 and caseState eq Review and caseRef eq 205201": [
+            {
+                "chatBotEnabled": false,
+                "id": 7921,
+                "name": "CreateRequestReminder",
+                "label": "Create Request Reminder",
+                "version": 2,
+                "applicationId": 1742,
+                "applicationName": "PartnerRequest",
+                "activityName": "Task",
+                "noData": false,
+                "availableInStates": [
+                    "Investigate",
+                    "Review"
+                ],
+                "roles": [
+                    "3630"
+                ],
+                "performerPaths": []
+            },
+            {
+                "chatBotEnabled": false,
+                "id": 7923,
+                "name": "RecallRequest",
+                "label": "Recall Request",
+                "version": 2,
+                "applicationId": 1742,
+                "applicationName": "PartnerRequest",
+                "activityName": "Task",
+                "noData": false,
+                "availableInStates": [
+                    "Investigate",
+                    "Review"
+                ],
+                "roles": [
+                    "3630"
+                ],
+                "performerPaths": []
+            },
+            {
+                "chatBotEnabled": false,
+                "id": 7922,
+                "name": "RequestHelp",
+                "label": "Request Help",
+                "version": 2,
+                "applicationId": 1742,
+                "applicationName": "PartnerRequest",
+                "activityName": "Task",
+                "noData": false,
+                "availableInStates": [
+                    "Investigate",
+                    "Review"
+                ],
+                "roles": [
+                    "3629"
+                ],
+                "performerPaths": []
+            },
+            {
+                "chatBotEnabled": false,
+                "id": 7917,
+                "name": "RespondtoRequest",
+                "label": "Respond to Request",
+                "version": 2,
+                "applicationId": 1742,
+                "applicationName": "PartnerRequest",
+                "activityName": "Task",
+                "noData": false,
+                "availableInStates": [
+                    "Investigate",
+                    "Review"
+                ],
+                "roles": [
+                    "3629"
+                ],
+                "performerPaths": []
+            },
+            {
+                "chatBotEnabled": false,
+                "id": 7916,
+                "name": "UpdateRequestMetrics",
+                "label": "Update Request Metrics",
+                "version": 2,
+                "applicationId": 1742,
+                "applicationName": "PartnerRequest",
+                "activityName": "Task",
+                "noData": false,
+                "availableInStates": [
+                    "Created",
+                    "Information Required",
+                    "Review",
+                    "Investigate"
+                ],
+                "roles": [
+                    "3630"
+                ],
+                "performerPaths": []
+            }
+        ]
+    }
+}

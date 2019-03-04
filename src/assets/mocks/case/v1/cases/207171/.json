@@ -1,0 +1,19 @@
+{
+    "mockedResponses": {
+        "/case/v1/cases/207171/?$sandbox=31&$select=uc, m, s": {
+            "untaggedCasedata": "{\"CaseMetrics_v1\":{\"DueDate_v1\":\"2019-04-04\",\"Owner_v1\":\"Jez\",\"RequestOwnerEmail_v1\":\"nthat@tibco.com\",\"RequestOwnerSMS_v1\":\"0101010100110\",\"PartnerContactEmail_v1\":\"nthat@tibco.com\",\"Priority_v1\":3},\"state\":\"Created\",\"RequestType_v1\":\"new Product\",\"RequestDescription_v1\":\"test123\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-32\"}",
+            "summary": "{\"state\":\"Created\",\"CaseId_v1\":\"PNR-32\",\"RequestDescription_v1\":\"test123\",\"RequestType_v1\":\"new Product\"}",
+            "metadata": {
+                "createdBy": "265",
+                "creationTimestamp": "2019-02-21T16:15:19.421Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-02-26T15:20:45.150Z",
+                "lockType": "1",
+                "msLockExpiry": "1551194445180",
+                "msSystemTime": "1551707669570",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
+    }
+}
