@@ -1,10 +1,45 @@
 import {Deserializable} from 'tc-core-lib';
-import {AuditEventList, CaseTypeStatesList} from './liveappsdata';
+import {AuditEvent, CaseTypeStatesList, AuditEventList} from './liveappsdata';
+
+export class StateAuditEvent implements Deserializable {
+  caseState: AuditEvent;
+  type: AuditEvent;
+  phaseLabel: AuditEvent;
+  previousPhaseLabel: AuditEvent;
+  messageId: AuditEvent;
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class StateAuditEventList implements Deserializable {
+  auditEvents: StateAuditEvent[];
+  deserialize(input: any) {
+    this.auditEvents = [];
+    Object.assign(this.auditEvents, input);
+    return this;
+  }
+}
 
 export class StateTrackerData implements Deserializable {
   possibleStates: CaseTypeStatesList;
   currentState: string;
-  caseAudit: AuditEventList;
+  phase: string;
+  caseAudit: StateAuditEvent[];
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class TrackerState implements Deserializable {
+  name: string;
+  label: string;
+  phase: string;
+  previousPhase: string;
+  isTerminal: boolean;
+  status: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
@@ -12,9 +47,10 @@ export class StateTrackerData implements Deserializable {
 }
 
 export class StateTracker implements Deserializable {
-  stuff: any;
+  states: TrackerState[];
   deserialize(input: any) {
-    Object.assign(this, input);
+    this.states = [];
+    Object.assign(this.states, input);
     return this;
   }
 }

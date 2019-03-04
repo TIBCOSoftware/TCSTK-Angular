@@ -4,6 +4,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {AuditEvent} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseStatesService} from '../../services/tc-case-states.service';
+import {StateAuditEvent} from '../../models/tc-case-states';
 
 @Component({
   selector: 'tcla-live-apps-case-state-audit',
@@ -15,7 +16,7 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
   @Input() caseRef: string;
   @Input() sandboxId: number;
 
-  public auditEvents: AuditEvent[];
+  public auditEvents: StateAuditEvent[];
   public errorMessage: string;
 
 
@@ -29,7 +30,7 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
         take(1),
         takeUntil(this._destroyed$),
         map(auditeventlist => {
-          this.auditEvents = auditeventlist.auditevents;
+          this.auditEvents = auditeventlist.auditEvents;
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg; });
