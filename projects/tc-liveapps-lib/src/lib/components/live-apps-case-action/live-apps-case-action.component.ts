@@ -2,7 +2,8 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {LiveAppsCaseCreatorComponent} from '../../components/live-apps-case-creator/live-apps-case-creator.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {CaseType, LaProcessSelection, ProcessId} from '../../models/liveappsdata';
+import {CaseType, ProcessId} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 
 @Component({
   selector: 'tcla-live-apps-case-action',
@@ -11,6 +12,7 @@ import {CaseType, LaProcessSelection, ProcessId} from '../../models/liveappsdata
 })
 export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent implements OnInit, OnChanges {
   @Input() caseRef: string;
+  @Input() showHeader: boolean;
 
   originalData: any;
 
@@ -57,6 +59,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
   }
 
   ngOnInit() {
+    // set default layout
+    // this.layout = [];
   }
 
   ngOnChanges(changes: SimpleChanges) {

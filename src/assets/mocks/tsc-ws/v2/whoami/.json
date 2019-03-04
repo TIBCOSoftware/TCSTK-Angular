@@ -1,0 +1,20 @@
+{
+    "email": "username@domain.com",
+    "firstName": "John",
+    "lastName": "Smith",
+    "admn": true,
+    "sexp": {
+      "BPM": -1
+    },
+    "aud": [
+      "BPM",
+      "BPM.eu-west-1"
+    ],
+    "ll": 1551687286,
+    "regn": "eu-west-1",
+    "auth": "Goog",
+    "accountsNumber": 1,
+    "hasSubscription": true,
+    "hid": "1",
+    "hacct": "1"
+  }

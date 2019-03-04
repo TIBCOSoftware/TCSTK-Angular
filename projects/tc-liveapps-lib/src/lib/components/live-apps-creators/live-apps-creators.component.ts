@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {LaProcessSelection, ProcessId} from '../../models/liveappsdata';
+import {ProcessId} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsCreatorSelectorComponent} from '../../components/live-apps-creator-selector/live-apps-creator-selector.component';
 
 

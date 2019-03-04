@@ -14,6 +14,12 @@
   padding: 0;
 }
 
+.tcs-documents-pane {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
 .tcs-documents-header {
   height: 40px;
   border-radius: 3px 3px 0px 0px;

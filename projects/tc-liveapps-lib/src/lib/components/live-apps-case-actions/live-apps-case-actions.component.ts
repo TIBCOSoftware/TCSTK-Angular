@@ -13,12 +13,14 @@
  *
  */
 
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {map, take, takeUntil} from 'rxjs/operators';
-import {CaseAction, CaseType, CaseTypesList, LaProcessSelection, Process} from '../../models/liveappsdata';
+import {map, take, takeUntil, tap} from 'rxjs/operators';
+import {CaseAction, CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 
 @Component({
   selector: 'tcla-live-apps-case-actions',
@@ -41,18 +43,12 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   caseType: CaseType;
   caseActionList: Process[];
 
-  private getCaseIDAttributeName = () => {
-    let caseIdAttrib: any;
-    this.caseType.attributes.forEach((attribute) => {
-      if (attribute.isIdentifier) {
-        caseIdAttrib = attribute;
-      }
-    });
-    return caseIdAttrib;
+  constructor(private liveapps: LiveAppsService, private caseProcessesService: TcCaseProcessesService) {
+    super();
   }
 
   public refresh = () => {
-    this.liveapps.getCaseActions(this.caseReference, this.sandboxId, this.appId, this.typeId, this.caseState)
+    this.caseProcessesService.getCaseActionsForCaseRef(this.caseReference, this.sandboxId, this.appId, this.typeId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -64,43 +60,28 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   public selectAction(action: CaseAction) {
-    // retrieve action definition then emit CaseAction object including process def
-    this.liveapps.getCaseTypeSchema(this.sandboxId, this.appId, 100).pipe(
-      map(schema => {
-          this.appSchema = schema;
-          let selectedProcess: LaProcessSelection;
-          schema.casetypes.forEach((casetype) => {
-              // the schema will contain definitions for both the 'case' and any defined types in that case.
-              // We want the schema for this 'case'.
-              if (casetype.applicationId === this.appId && casetype.id === this.typeId) {
-                if (casetype.jsonSchema !== undefined) {
-                  this.caseType = casetype;
-                  this.caseActionList = casetype.actions ? casetype.actions : [];
-                  // now find the selected action
-                  this.caseActionList.forEach((actionDef) => {
-                    if (action.id === Number(actionDef.id)) {
-                      selectedProcess = new LaProcessSelection(
-                        'action', this.appSchema, this.getCaseIDAttributeName(), actionDef,
-                          // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
-                          (this.caseType.applicationName + '.' + this.caseType.applicationInternalName + '.' + 'action' + '.' + actionDef.name),
-                          undefined
-                        );
-                    }
-                  });
-                } else {
-                  console.error('No schema returned for this case type: You may need to update/re-deploy the live apps application');
-                }
-              }
-            }
-          );
-          this.actionClicked.emit(selectedProcess);
-        }
-      )
-      ).subscribe();
-    }
+    // todo: JS: When the form is not supported there will be no 'form schema' and hence we cannot render the form.
+    // Need to decide what to do here.
 
-  constructor(private liveapps: LiveAppsService) {
-    super();
+    this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, 100).pipe(
+      take(1),
+      takeUntil(this._destroyed$),
+      tap(processDetails => {
+        if (!processDetails || !processDetails.process) {
+          // This will be triggered when no form schema is available
+          // Typically happens when:
+          // 1) The form has elements that are not supported by the Live Apps API for form schemas such as participant selectors
+          // 2) The Live Apps application is legacy and has no form schema at all, redeploying the live apps application would fix this.
+            console.error('No schema available for this case type: The form may not be supported or you may need to update/re-deploy the live apps application');
+          }
+        }
+      ),
+      map(processSchema => {
+        this.actionClicked.emit(processSchema);
+        return processSchema;
+      })
+    )
+    .subscribe(null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
   ngOnInit() {

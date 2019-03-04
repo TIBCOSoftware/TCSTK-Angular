@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {LaProcessSelection, ProcessId} from '../../models/liveappsdata';
+import {ProcessId} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 
 @Component({
   selector: 'tcla-live-apps-actions',

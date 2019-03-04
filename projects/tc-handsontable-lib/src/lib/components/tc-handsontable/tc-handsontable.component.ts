@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {LiveAppsCaseDataComponent} from 'tc-liveapps-lib';
 import {HotTableComponent, HotTableRegisterer} from '@handsontable/angular';
 
 @Component({

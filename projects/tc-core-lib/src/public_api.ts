@@ -8,18 +8,23 @@ export * from './lib/tc-core-lib.module';
 export * from './lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component';
 export * from './lib/components/tibco-cloud-login/tibco-cloud-login.component';
 export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
+export * from './lib/components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
+export * from './lib/components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
+export * from './lib/components/tibco-cloud-error/tibco-cloud-error.component';
 
 // services
 export * from './lib/services/tc-login.service';
 export * from './lib/services/tc-shared-state.service';
 export * from './lib/services/request-cache.service';
 export * from './lib/services/tc-logging.service';
+export * from './lib/services/tc-buttons-helper.service';
 
 // models
 export * from './lib/models/tc-login';
 export * from './lib/models/tc-shared-state';
 export * from './lib/models/deserializable';
 export * from './lib/models/tc-app-config';
+export * from './lib/models/tc-widget-header';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';
@@ -40,3 +45,6 @@ export * from './lib/pipes/ellipsis.pipe';
 export * from './lib/pipes/highlight.pipe';
 export * from './lib/pipes/order-by-date.pipe';
 export * from './lib/pipes/reverse.pipe';
+
+// directives
+export * from './lib/directives/on-create.directive';

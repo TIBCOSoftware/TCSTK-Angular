@@ -1,0 +1,7 @@
+{
+    "mockedResponses": {
+      "/collaboration/notifications?$filter=collectionName=%27CASE_APP_150481%27%20and%20entityId=265":
+        []    
+    }
+}
+  

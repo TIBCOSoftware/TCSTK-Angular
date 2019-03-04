@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CaseType, CaseTypesList, JsonSchema, LaProcessSelection} from '../../models/liveappsdata';
+import {CaseType, CaseTypesList, JsonSchema} from '../../models/liveappsdata';
+import {LaProcessSelection} from '../../models/tc-case-processes';
 
 @Component({
   selector: 'tcla-live-apps-case-data-display',
@@ -16,10 +17,14 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // since this is the 'display' of case data we set to readonly and no validation
+    // legacy makes the labels appear above the data
     this.options = {
       defaultOptions: {
-        'readonly': true
-      }
+        'readonly': true,
+        'appearance': 'legacy'
+      },
+      'validateOnRender': false
     };
     this.layout = [
       '*',

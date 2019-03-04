@@ -33,16 +33,21 @@ export * from './lib/components/live-apps-creators/live-apps-creators.component'
 export * from './lib/components/live-apps-case-action/live-apps-case-action.component';
 export * from './lib/components/live-apps-actions/live-apps-actions.component';
 export * from './lib/components/live-apps-case-data-display/live-apps-case-data-display.component';
+export * from './lib/components/live-apps-case-cockpit/live-apps-case-cockpit.component';
 
 // data
 export * from './lib/models/liveappsdata';
+export * from './lib/models/tc-case-data';
+export * from './lib/models/tc-case-processes';
 
 // service
 export * from './lib/services/live-apps.service';
 export * from './lib/services/tc-case-data.service';
+export * from './lib/services/tc-case-processes.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
+export * from './lib/resolvers/la-config.resolver';
 
 // guards
 export * from './lib/guards/case.guard';

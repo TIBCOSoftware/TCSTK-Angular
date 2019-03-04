@@ -1,9 +1,11 @@
-.tcs-small-pane {
-  width: 400px;
-  height: 386px;
+.tcs-notes-pane {
   border-radius: 3px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
   background-color: #ffffff;
+}
+
+.tcs-collaboration-pane {
+  padding-top: 10px;
 }
 
 .tcs-collaboration-header {
