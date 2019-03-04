@@ -8,7 +8,7 @@ Screenshot Image of the Notes Component.
 ![alt-text](Notes.png "Notes Component Image")
 
 #### Usage
-usage HTML Tags
+Sample usage HTML Tag
 
 ```html
 <!-- just for testing -->

@@ -1,19 +1,29 @@
 ## Documents Component
-This Component allows to list, upload, download, view Documents attached to a Case-Instance or a whole Application.
+This Component allows to list, upload, download, Documents attached to a Case-Instance or a whole Application.
+In the Upload Dialog the User is able to select a local File and enter a short Description.
+
+The Component stores also the following Data
+- uploading User
+- Timestamp
+- File Size
 
 #### Screenshot
 Screenshot Image of the Documents Component.
 
+##### Document List
+
 ![alt-text](Documents.png "Documents Component Image")
 
+##### Document Upload Dialog
+
+![alt-text](Docs-Upload.png "Documents Component Image")
+
 #### Usage
-usage HTML Tags
+Sample usage HTML Tags
 
 ```html
-<tcla-live-apps-documents [sandboxId]="31" [folderType]="orgFolders" [folderId]="1" folderDescription="Sample"></tcla-live-apps-documents>
-```
-
-> needs 'LiveAppsDocumentUploadDialogComponent' to allow uploads via Drag'n Drop. 
+<tcla-live-apps-documents [sandboxId]="sandboxId" [folderType]="'orgFolders'" [folderId]="501" folderDescription="Sample"></tcla-live-apps-documents>
+``` 
 
 #### Inputs
 available Attributes
@@ -32,7 +42,7 @@ live Showcase
 
 ```html
 <!-- as HTML within Markdown, just remove the ```html code-area ``` -->
-<tcla-live-apps-documents [sandboxId]="31" [folderType]="orgFolders" [folderId]="1" folderDescription="Sample"></tcla-live-apps-documents>
+<tcla-live-apps-documents [sandboxId]="sandboxId" [folderType]="'orgFolders'" [folderId]="501" folderDescription="Sample"></tcla-live-apps-documents>
 <script type="text/javascript" src="http://host/cust-component/tcla-live-apps-documents.js"></script>
 ```
 
