@@ -17,6 +17,7 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   @Input() typeId: string;
   @Input() sandboxId: number;
   @Input() uiAppId: string;
+  @Input() showHeader: boolean;
 
   public casedata: any;
   public summary: any;

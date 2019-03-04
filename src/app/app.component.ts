@@ -111,6 +111,10 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-favorite.svg'))
     );
     this.matIconRegistry.addSvgIcon(
+      'tcs-refresh-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-refresh.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
       'tcs-recent-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-recent.svg'))
     );
@@ -129,6 +133,14 @@ export class AppComponent {
     this.matIconRegistry.addSvgIcon(
       'tcs-search-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-search.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-case-data-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-case-data.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-close-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-close.svg'))
     );
   }
 }

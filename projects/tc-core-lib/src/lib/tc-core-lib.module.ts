@@ -30,6 +30,11 @@ import {DurationSincePipe} from './pipes/duration-since.pipe';
 import {HighlightPipe} from './pipes/highlight.pipe';
 import {OrderByDatePipe} from './pipes/order-by-date.pipe';
 import {ReversePipe} from './pipes/reverse.pipe';
+import { TibcoCloudWidgetHeaderComponent } from './components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
+import { TibcoCloudMenuBarComponent } from './components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
+import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
+import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
+import { OnCreateDirective } from './directives/on-create.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,11 @@ import {ReversePipe} from './pipes/reverse.pipe';
     DurationSincePipe,
     HighlightPipe,
     OrderByDatePipe,
-    ReversePipe
+    ReversePipe,
+    TibcoCloudWidgetHeaderComponent,
+    TibcoCloudMenuBarComponent,
+    TibcoCloudErrorComponent,
+    OnCreateDirective
   ],
   imports: [
     HttpClientModule,
@@ -69,14 +78,20 @@ import {ReversePipe} from './pipes/reverse.pipe';
     TibcoCloudNavbarComponent,
     TibcoCloudLoginComponent,
     TibcoCloudMultipleSubscriptionComponent,
+    TibcoCloudMenuBarComponent,
     EllipsisPipe,
     DurationSincePipe,
     HighlightPipe,
     OrderByDatePipe,
-    ReversePipe
+    ReversePipe,
+    TibcoCloudWidgetHeaderComponent,
+    TibcoCloudErrorComponent,
+    OnCreateDirective
+
   ],
   providers: [
     RequestCacheService,
+    TcButtonsHelperService,
     AuthGuard,
     // comment this line to disable the CachingInterceptor
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },

@@ -1,4 +1,4 @@
-<!--tcla-rendered-form *ngIf="schema && data" style="min-height:500px; overflow: auto;" [schema]="schema" [layout]='[
-    { "key": "PartnerRequest.Customer_v1.CustomerReference_v1" },{ "key": "PartnerRequest.Customer_v1.CustomerEmail_v1" },{type: "submit",title: "Save"} ]' [data]="data" (formSubmit)="handleSubmit($event, caseRef)"></tcla-rendered-form-->
-<!--tcla-rendered-form *ngIf="schema && data" style="min-height:500px; overflow: auto;" [schema]="schema" [layout]="layout" [data]="data" (formSubmit)="handleSubmit($event, caseRef)"></tcla-rendered-form-->
-<tcfrm-rendered-form *ngIf="schema && data" [schema]="schema" [layout]="layout" [data]="data" (formSubmit)="handleSubmit($event, caseRef)"></tcfrm-rendered-form>
+<div class="tcs-case-action-pane" fxLayout="column" fxFill>
+  <tc-tibco-cloud-widget-header *ngIf="showHeader" fxFlex="nogrow" [headerText]="'Action'" [icon]="'tcs-case-action-item'"></tc-tibco-cloud-widget-header>
+  <tcfrm-rendered-form *ngIf="schema && data" [schema]="schema" [layout]="layout" [data]="data" (formSubmit)="handleSubmit($event, caseRef)"></tcfrm-rendered-form>
+</div>

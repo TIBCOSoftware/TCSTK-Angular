@@ -51,7 +51,7 @@
   </mat-card>
   </div>
 
-  <div *ngIf="displayType === 'list'">
+  <div *ngIf="displayType === 'list'" style="min-height: 50px; background-color: white">
     <mat-card *ngIf="configMode || (metadata && metadata.applicationLabel && metadata.createdByDetails && metadata.stateColor && metadata.stateIcon && metadata.caseTypeIcon && metadata.caseTypeColor)" class="tcs-case-summary-list-card" [ngClass]="{border: borderCard}" fxLayout="row" fxLayoutAlign="start stretch">
       <div *ngIf="typeBar" class="tcs-case-summary-mini-card-side-bar" [style.background-color]="metadata.stateColor"></div>
       <div class="tcs-case-summary-mini-card-right-content" fxFlex>
