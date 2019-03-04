@@ -7,8 +7,8 @@
 }
 
 .tcs-toolbar-button-div {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 :host ::ng-deep .tcs-toolbar-button:hover .svg-content {
