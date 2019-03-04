@@ -1,0 +1,19 @@
+{
+    "mockedResponses": {
+        "/case/v1/cases/205301/?$sandbox=31&$select=uc, m, s": {
+            "untaggedCasedata": "{\"RequestDescription_v1\":\"Where is my order?\",\"RequestType_v1\":\"Account Enquiry\",\"Customer_v1\":{\"Name_v1\":\"Sarah Thomas\",\"CustomerReference_v1\":\"CST-10293\",\"CustomerDetailsExtract_v1\":\"Blah\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"PRT-12121\",\"OrderReference_v1\":\"ORD-12121\",\"IssueLog_v1\":[{\"LogEntry_v1\":\"sadasdsadsa\"},{\"LogEntry_v1\":\"sadsdasdasd\"}]},\"CaseMetrics_v1\":{\"Priority_v1\":2,\"DueDate_v1\":\"2019-01-18\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Review\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-27\"}",
+            "summary": "{\"state\":\"Review\",\"CaseId_v1\":\"PNR-27\",\"RequestDescription_v1\":\"Where is my order?\",\"RequestType_v1\":\"Account Enquiry\"}",
+            "metadata": {
+                "createdBy": "265",
+                "creationTimestamp": "2019-01-29T13:38:43.518Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-03-01T19:29:28.470Z",
+                "lockType": "1",
+                "msLockExpiry": "1551468568506",
+                "msSystemTime": "1551707642048",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
+    }
+}

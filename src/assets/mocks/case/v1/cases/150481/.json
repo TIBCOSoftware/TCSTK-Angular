@@ -1,13 +1,18 @@
 {
-    "untaggedCasedata": "{\"RequestDescription_v1\":\"Received a broken product.\",\"RequestType_v1\":\"Claims\",\"Customer_v1\":{\"Name_v1\":\"John Smith\",\"CustomerReference_v1\":\"66000124\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"123-00705\",\"OrderReference_v1\":\"22080123\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2018-10-18\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Review\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-2\"}",
-    "summary": "{\"state\":\"Review\",\"CaseId_v1\":\"PNR-2\",\"RequestDescription_v1\":\"Received a broken product.\",\"RequestType_v1\":\"Claims\"}",
-    "metadata": {
-        "creationTimestamp": "2018-10-18T09:09:29.928Z",
-        "modificationTimestamp": "2018-10-18T09:09:29.986Z",
-        "lockType": "1",
-        "msLockExpiry": "1544004647262",
-        "msSystemTime": "1548334323664",
-        "applicationId": "1742",
-        "typeId": "1"
+    "mockedResponses": {
+        "/case/v1/cases/150481/?$sandbox=31&$select=uc, m, s": {
+            "untaggedCasedata": "{\"RequestDescription_v1\":\"Where is my order?\",\"Customer_v1\":{\"Name_v1\":\"James\",\"CustomerReference_v1\":\"cst-waew\"},\"RequestDetails_v1\":{},\"CaseMetrics_v1\":{\"Priority_v1\":3},\"state\":\"Created\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-2\",\"RequestType_v1\":\"Shipping & Tracking\"}",
+            "summary": "{\"state\":\"Created\",\"CaseId_v1\":\"PNR-2\",\"RequestDescription_v1\":\"Where is my order?\",\"RequestType_v1\":\"Shipping & Tracking\"}",
+            "metadata": {
+                "creationTimestamp": "2018-10-18T09:09:29.928Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-03-04T12:27:07.733Z",
+                "lockType": "1",
+                "msLockExpiry": "1551702427841",
+                "msSystemTime": "1551707055651",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
     }
 }
