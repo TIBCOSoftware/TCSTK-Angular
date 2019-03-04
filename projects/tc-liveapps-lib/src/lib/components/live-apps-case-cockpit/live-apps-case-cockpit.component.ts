@@ -73,7 +73,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
     this.actionSelection = actionSelection;
   }
 
-  public actionTabCreated = () => {
+  public actionTabCreated = (data) => {
     // the tab isn't actually it the tab-group at this point but this should still work as length is current tab + 1
     this.dataTabGroups.selectedIndex = this.dataTabGroups._tabs.length;
   }
@@ -84,7 +84,10 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
 
   public handleActionCompleted = (processId: string) => {
     this.actionSelection = undefined;
-    this.refresh();
+    // to allow case to update async before we refresh
+    setTimeout(() => {
+      this.refresh();
+    }, 1000);
   }
 
   public refresh = () => {

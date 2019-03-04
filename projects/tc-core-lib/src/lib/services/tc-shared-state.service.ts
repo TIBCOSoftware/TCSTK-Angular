@@ -40,7 +40,7 @@ export class TcSharedStateService {
                             roles: string[],
                             links: string[],
                             content: SharedStateContent): Observable<string> {
-    const url = '/clientstate/states';
+    const url = '/clientstate/v1/states';
 
     const body = {
       'name': name,
@@ -65,7 +65,7 @@ export class TcSharedStateService {
   }
 
   public updateSharedState(sharedStateList): Observable<SharedStateList> {
-    const url = '/clientstate/states';
+    const url = '/clientstate/v1/states';
 
     const body = sharedStateList;
     const bodyStr = JSON.stringify(body);
@@ -79,7 +79,7 @@ export class TcSharedStateService {
   }
 
   public getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean): Observable<SharedStateList>  {
-    const url = '/clientstate/states?$filter=type=' + type
+    const url = '/clientstate/v1/states?$filter=type=' + type
       + ' and name=\'' + name + '\'';
     let options = {}
     // set headers when caching required
