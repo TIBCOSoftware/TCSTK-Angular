@@ -72,9 +72,33 @@
           </div>
         </div>
 
-        <!--div class="tcs-case-summary-mini-card-right" (click)="clickCaseAction()" fxLayout="row" fxLayoutAlign="end center" matTooltipPosition="left" matTooltipShowDelay="1000" matTooltip="Open Case">
+        <div class="tcs-case-summary-mini-card-right" (click)="clickCaseAction()" fxLayout="row" fxLayoutAlign="end center" matTooltipPosition="left" matTooltipShowDelay="1000" matTooltip="Open Case">
           <mat-icon class="tcs-icon tcs-case-summary-details-icon" svgIcon="tcs-summary-details-button"></mat-icon>
-        </div-->
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div *ngIf="displayType === 'staticlist'" style="min-height: 50px; background-color: white">
+    <mat-card *ngIf="configMode || (metadata && metadata.applicationLabel && metadata.createdByDetails && metadata.stateColor && metadata.stateIcon && metadata.caseTypeIcon && metadata.caseTypeColor)" class="tcs-case-summary-static-list-card" [ngClass]="{border: borderCard}" fxLayout="row" fxLayoutAlign="start stretch">
+      <div *ngIf="typeBar" class="tcs-case-summary-mini-card-side-bar" [style.background-color]="metadata.stateColor"></div>
+      <div class="tcs-case-summary-mini-card-right-content" fxFlex>
+        <div class="tcs-case-summary-list-card-left" fxLayout="row" fxLayoutAlign="start center" fxFlex>
+          <div fxFlex="nogrow" *ngIf="summaryValues[1]" class="tcs-case-summary-list-summary1-text tcs-case-summary-list-details-box" matTooltip="{{summaryKeys[1]}}" matTooltipShowDelay="1000" matTooltipPosition="above" [innerHTML]="summaryValues[1] | ellipsis : 20 | highlight : highlight : 'Multi-Match' : false : 'tcs-case-summary-highlight'"></div>
+          <div fxFlex="shrink" *ngIf="summaryValues[2]" class="tcs-case-summary-list-summary2-text tcs-case-summary-list-large-details-box" [innerHTML]="summaryValues[2] | highlight : highlight : 'Multi-Match' : false : 'tcs-case-summary-highlight'"></div>
+          <div fxFlex *ngIf="summaryValues[3]" class="tcs-case-summary-list-summary3-text tcs-case-summary-list-details-box" [innerHTML]="summaryValues[3] | highlight : highlight : 'Multi-Match' : false : 'tcs-case-summary-highlight'"></div>
+          <div fxFlex fxLayout="row" fxLayoutAlign="start center" class="tcs-case-summary-list-details-box">
+            <tcla-live-apps-state-icon #caseTypeIcon class="tcs-case-summary-state-icon" [iconPath]="metadata.caseTypeIcon" [color]="metadata.caseTypeColor" matTooltipShowDelay="1000" matTooltip="Case type: {{metadata.applicationLabel}}"></tcla-live-apps-state-icon>
+            <div class="tcs-case-summary-state-text">{{metadata.applicationLabel}}</div>
+          </div>
+          <div fxFlex fxLayout="row" fxLayoutAlign="start center" class="tcs-case-summary-list-details-box">
+            <tcla-live-apps-state-icon #caseStateIcon class="tcs-case-summary-state-icon" [iconPath]="metadata.stateIcon" [color]="metadata.stateColor"></tcla-live-apps-state-icon>
+            <div class="tcs-case-summary-state-text">{{summaryValues[0]}}</div>
+          </div>
+          <div fxFlex class="tcs-case-summary-list-details-box tcs-case-summary-creation-text">
+            <div *ngIf="metadata.createdByDetails">Created {{metadata.creationTimestamp | durationSince}} by {{metadata.createdByDetails.username ? metadata.createdByDetails.username : 'system'}}</div>
+          </div>
+        </div>
       </div>
     </mat-card>
   </div>

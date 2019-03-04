@@ -1,7 +1,7 @@
 <div fxFill fxLayout="column" fxLayoutAlign="space-between stretch">
   <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
     <!-- this is content projection. Tibco cloud menu bar contains ng-template and content here is projected inside the ng-content -->
-    <tcla-live-apps-case-summary class="live-apps-widget" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'list'" [sandboxId]="sandboxId" [caseReference]="caseRef"></tcla-live-apps-case-summary>
+    <tcla-live-apps-case-summary class="live-apps-widget" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId" [caseReference]="caseRef"></tcla-live-apps-case-summary>
   </tc-tibco-cloud-menu-bar>
   <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px">
     <div fxLayout="row" fxLayoutAlign="end center" class="tcs-actions-bar">
