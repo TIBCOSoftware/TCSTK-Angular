@@ -4,39 +4,43 @@ This repo contains Angular 7 components and sample code for creating cloud start
 
 ![](./docs/CloudStartersDeveloperToolkit.gif)
 
-# Documents
+### Documents
 
 ![alt text](screenshots/Documents.png)
 
-# Notes
+### Notes
 
 ![alt text](screenshots/Notes.png)
 
-# Case Search
+### Case Search
 
 ![alt text](screenshots/Case-search.png)
 
-# Favorite Cases
+### Favorite Cases
 
 ![alt text](screenshots/Favorites.png)
 
-# Recent Cases
+### Recent Cases
 
 ![alt text](screenshots/Recent.png)
 
-# Summary Cards
+### Summary Cards
 
 ![alt text](screenshots/Summary.png)
 
-# Card Config
+### Card Config
 
 ![alt text](screenshots/Card-config.png)
 
-# Navbar
+### Navbar
 
 ![alt text](screenshots/Navbar.png)
 
+# First Step
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+
+npm install --save-dev @angular-devkit/build-angular
 
 ## Development server
 
