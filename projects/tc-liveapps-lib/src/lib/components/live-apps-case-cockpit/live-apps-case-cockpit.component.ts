@@ -29,6 +29,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   @Input() sandboxId;
   @Input() caseRef;
   @Input() userId;
+  @Input() closeRoute;
 
 // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChild(LiveAppsCaseSummaryComponent) caseSummaryComponent: LiveAppsCaseSummaryComponent;
@@ -50,13 +51,14 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   protected _destroyed$ = new Subject();
   protected errorMessage: string;
 
-  constructor(protected liveapps: LiveAppsService, protected buttonsHelper: TcButtonsHelperService) {
+  constructor(protected liveapps: LiveAppsService, protected buttonsHelper: TcButtonsHelperService, private router: Router) {
   }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
     const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
-    const buttons = [ favButton, refreshButton ];
+    const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
+    const buttons = [ favButton, refreshButton, homeButton ];
     return buttons;
   }
 
@@ -66,6 +68,9 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
     }
     if (buttonId === 'refresh') {
       this.refresh();
+    }
+    if (buttonId === 'close') {
+      this.router.navigate([this.closeRoute], {queryParams: {} });
     }
   }
 
