@@ -1,8 +1,21 @@
-[
-  {
-    "caseReference": "203771"
-  },
-  {
-    "caseReference": "203731"
-  }
-]
+{
+    "mockedResponses": {
+        "/case/v1/cases?$sandbox=31&$filter=applicationId eq 1742 and typeId eq 1&$skip=0&$top=1000&$select=cr&$search=a": [
+            {
+                "caseReference": "190681"
+            },
+            {
+                "caseReference": "205201"
+            },
+            {
+                "caseReference": "205211"
+            },
+            {
+                "caseReference": "190651"
+            },
+            {
+                "caseReference": "205221"
+            }
+        ]
+    }
+}
