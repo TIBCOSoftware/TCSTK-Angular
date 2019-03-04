@@ -1,28 +1,76 @@
 {
-  "mockedResponses": {
-    "/case/types?$sandbox=31&$select=b": [
-      {
-        "id": "1",
-        "name": "PartnerRequest",
-        "label": "Partner Request",
-        "isCase": true,
-        "applicationId": "1742",
-        "applicationName": "Partner Request",
-        "applicationInternalName": "PartnerRequest",
-        "applicationVersion": 1
-      }
-    ],
-    "/case/types?$sandbox=31&$select=b&$filter=applicationId eq 1742": [
-      {
-        "id": "1",
-        "name": "PartnerRequest",
-        "label": "Partner Request",
-        "isCase": true,
-        "applicationId": "1742",
-        "applicationName": "Partner Request",
-        "applicationInternalName": "PartnerRequest",
-        "applicationVersion": 1
-      }
-    ]
-  }
+    "mockedResponses": {
+        "/case/types?$sandbox=31&$select=b": [
+            {
+                "id": "1",
+                "name": "PartnerRequest",
+                "label": "Partner Request",
+                "isCase": true,
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 1
+            }
+        ],
+        "/case/types?$sandbox=31&$select=b&$top=50&$filter=applicationId eq 1742": [
+            {
+                "id": "1",
+                "name": "PartnerRequest",
+                "label": "Partner Request",
+                "isCase": true,
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 1
+            }
+        ],
+        "/case/types?$sandbox=31&$select=s&$top=50&$filter=applicationId eq 1742": [
+            {},
+            {},
+            {},
+            {},
+            {},
+            {
+                "states": [
+                    {
+                        "id": "6",
+                        "label": "Created",
+                        "value": "Created"
+                    },
+                    {
+                        "id": "7",
+                        "label": "Review",
+                        "value": "Review"
+                    },
+                    {
+                        "id": "29",
+                        "label": "Information Required",
+                        "value": "Information Required"
+                    },
+                    {
+                        "id": "30",
+                        "label": "Investigate",
+                        "value": "Investigate"
+                    },
+                    {
+                        "id": "34",
+                        "label": "Responded",
+                        "value": "Responded"
+                    },
+                    {
+                        "id": "50",
+                        "label": "Canceled",
+                        "value": "Canceled",
+                        "isTerminal": true
+                    },
+                    {
+                        "id": "28",
+                        "label": "Resolved",
+                        "value": "Resolved",
+                        "isTerminal": true
+                    }
+                ]
+            }
+        ]
+    }
 }

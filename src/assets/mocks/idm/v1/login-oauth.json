@@ -1,8 +1,8 @@
 {
-  "userName" : "segliveapps@outlook.com",
-  "firstName" : "Guest",
-  "lastName" : "SEG",
-  "userId" : "ypme3jizfxmh2dzvcgc4fcbxnyv7a5pi",
+  "userName" : "username@domain.com",
+  "firstName" : "John",
+  "lastName" : "Smith",
+  "userId" : "userId",
   "ts" : 1548330627,
-  "orgName" : "OOCTO"
+  "orgName" : "Your Org"
 }
