@@ -66,8 +66,8 @@
 }
 
 .tcs-case-summary-list-card:hover {
-  box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
-  border-radius: 3px;
+  /* box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);*/
+  /* border-radius: 3px; */
 }
 
 .tcs-case-summary-header {

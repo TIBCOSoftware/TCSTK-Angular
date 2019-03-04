@@ -1,9 +1,9 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {AuditEvent} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {TcCaseStatesService} from '../../services/tc-case-states.service';
 
 @Component({
   selector: 'tcla-live-apps-case-state-audit',
@@ -18,8 +18,13 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
   public auditEvents: AuditEvent[];
   public errorMessage: string;
 
+
+  constructor(private caseStatesService: TcCaseStatesService) {
+    super();
+  }
+
   public refresh = () => {
-    this.liveapps.getCaseStateAudit(this.caseRef, this.sandboxId)
+    this.caseStatesService.getCaseStateAudit(this.caseRef, this.sandboxId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -28,10 +33,6 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg; });
-  }
-
-  constructor(private liveapps: LiveAppsService) {
-    super();
   }
 
   ngOnInit() {
