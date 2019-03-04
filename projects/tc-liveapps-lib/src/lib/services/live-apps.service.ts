@@ -361,17 +361,6 @@ export class LiveAppsService {
         map(caseaudit => new AuditEventList().deserialize(caseaudit)));
   }
 
-  public getCaseStateAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
-    const url = '/event/v1/auditEvents?$sandbox=' + sandboxId
-      + '&$filter=type eq \'casestate\''
-      + ' and id eq \'' + caseRef + '\'';
-
-    return this.http.get(url)
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(caseaudit => new AuditEventList().deserialize(caseaudit)));
-  }
-
   private updateCasesRecord(casesContent: SharedStateContent, caseRef: string, toggle: Boolean): SharedStateContent {
     const sharedStateContent: SharedStateContent = new SharedStateContent().deserialize(casesContent);
     const casesRec: CaseList = JSON.parse(sharedStateContent.json);
