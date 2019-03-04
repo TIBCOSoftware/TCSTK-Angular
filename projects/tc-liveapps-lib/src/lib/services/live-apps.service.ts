@@ -167,7 +167,7 @@ export class LiveAppsService {
         return caseinfo;
       }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
     } else {
-      caseinfo.metadata.modifiedByDetails = new UserInfo();
+      caseinfo.metadata.createdByDetails = new UserInfo();
     }
     if (caseinfo.metadata.modifiedBy) {
       this.getUserInfo(caseinfo.metadata.modifiedBy).subscribe(val => {
@@ -175,7 +175,7 @@ export class LiveAppsService {
         return caseinfo;
       }, error => { console.log('Unable to retrieve user details for user: ' + error.errorMsg); });
     } else {
-      caseinfo.metadata.createdByDetails = new UserInfo();
+      caseinfo.metadata.modifiedByDetails = new UserInfo();
     }
     this.getAppConfig(appId, uiAppId, true, false).subscribe(val => {
       const stateId = caseinfo.summaryObj.state;
