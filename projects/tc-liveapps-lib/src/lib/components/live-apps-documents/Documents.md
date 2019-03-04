@@ -19,7 +19,7 @@ Screenshot Image of the Documents Component.
 ![alt-text](Docs-Upload.png "Documents Component Image")
 
 #### Usage
-Sample usage HTML Tags
+Sample usage HTML Tag
 
 ```html
 <tcla-live-apps-documents [sandboxId]="sandboxId" [folderType]="'orgFolders'" [folderId]="501" folderDescription="Sample"></tcla-live-apps-documents>
