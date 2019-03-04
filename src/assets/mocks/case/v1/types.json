@@ -1,6 +1,6 @@
 {
     "mockedResponses": {
-        "/case/types?$sandbox=31&$select=b": [
+        "/case/v1/types?$sandbox=31&$select=b": [
             {
                 "id": "1",
                 "name": "PartnerRequest",
@@ -12,7 +12,7 @@
                 "applicationVersion": 1
             }
         ],
-        "/case/types?$sandbox=31&$select=b&$top=50&$filter=applicationId eq 1742": [
+        "/case/v1/types?$sandbox=31&$select=b&$top=50&$filter=applicationId eq 1742": [
             {
                 "id": "1",
                 "name": "PartnerRequest",
@@ -24,7 +24,7 @@
                 "applicationVersion": 1
             }
         ],
-        "/case/types?$sandbox=31&$select=s&$top=50&$filter=applicationId eq 1742": [
+        "/case/v1/types?$sandbox=31&$select=s&$top=50&$filter=applicationId eq 1742": [
             {},
             {},
             {},
