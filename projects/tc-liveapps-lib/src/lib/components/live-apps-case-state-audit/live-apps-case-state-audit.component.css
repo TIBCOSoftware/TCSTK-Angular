@@ -26,6 +26,19 @@
   padding: 11px;
 }
 
+.tc-no-audit-data {
+  padding: 20px;
+  min-width: 150px;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  color: black;
+}
+
 /* to remove the train line after terminal state */
 .tcs-mini-state-item-last:after {
   content: '';

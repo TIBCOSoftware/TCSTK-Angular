@@ -1,19 +1,25 @@
 <div class="tcs-state-audit-pane" fxLayout="column" fxFill style="overflow: hidden;">
-  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'States'" [icon]="'tcs-case-state-audit-icon'" [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)"></tc-tibco-cloud-widget-header>
-  <div class="tcs-state-audit-container">
+  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'States'" [icon]="'tcs-case-state-audit-icon'"></tc-tibco-cloud-widget-header>
+  <div *ngIf="auditEvents.length > 0" class="tcs-state-audit-container">
     <div class="tcs-state-audit-details" fxLayout="column" fxLayoutAlign="start start">
-      <div *ngFor="let state of auditEvents; first as isFirst; last as isLast" [ngClass]="isFirst ? 'tcs-mini-state-item-first' : (isLast ? 'tcs-mini-state-item-last' : 'tcs-mini-state-item-middle')">
-          <div fxLayout="row">
-            <mat-icon class="tcs-mini-state-icon" [svgIcon]="isLast ? 'tcs-mini-state-current' : 'tcs-mini-state-completed'"></mat-icon>
-            <li class="tcs-mini-state-details" fxLayout="column" fxLayoutAlign="start start" ng-class="{'underline':smallContainer}">
-              <div class="tcs-mini-state-primary-label"><span>{{state.caseState.value}}</span></div>
-              <div class="tcs-mini-state-secondary-label">
-                <span *ngIf="state.principalName">By {{state.principalName.value}}</span>
-                <span class="tcs-mini-state-spanPadding"> on {{state.creationTime.value | date: "medium"}}</span>
-              </div>
-            </li>
-          </div>
+      <div *ngFor="let state of auditEvents; first as isFirst; last as isLast"
+           [ngClass]="isFirst ? 'tcs-mini-state-item-first' : (isLast ? 'tcs-mini-state-item-last' : 'tcs-mini-state-item-middle')">
+        <div fxLayout="row">
+          <mat-icon class="tcs-mini-state-icon"
+                    [svgIcon]="isLast ? (state.isTerminal ? 'tcs-mini-state-terminal-completed' : 'tcs-mini-state-current') : 'tcs-mini-state-completed'"></mat-icon>
+          <li class="tcs-mini-state-details" fxLayout="column" fxLayoutAlign="start start"
+              ng-class="{'underline':smallContainer}">
+            <div class="tcs-mini-state-primary-label"><span>{{state.caseState.value}}</span></div>
+            <div class="tcs-mini-state-secondary-label">
+              <span *ngIf="state.principalName">By {{state.principalName.value}}</span>
+              <span class="tcs-mini-state-spanPadding"> on {{state.creationTime.value | date: "medium"}}</span>
+            </div>
+          </li>
+        </div>
       </div>
     </div>
+  </div>
+  <div *ngIf="!auditEvents || auditEvents.length <= 0">
+    <span class="tc-no-audit-data">Audit data not available</span>
   </div>
 </div>

@@ -93,7 +93,25 @@ export class TcCaseStatesService {
     return tracker$;
   }
 
+  public getCaseStateAuditWithTerminal(caseRef: string, sandboxId: number, appId: string): Observable<StateAuditEventList> {
+    const possibleStates$ = this.liveAppsService.getCaseTypeStates(sandboxId, appId, 100);
+    const caseStateAudit$ = this.getCaseStateAudit(caseRef, sandboxId);
+    return forkJoin([possibleStates$, caseStateAudit$]).pipe(
+      map(resultArr => {
+        const possibleStates = resultArr[0];
+        const caseStateAudit = resultArr[1];
+        // mark if any are terminal states
+        caseStateAudit.auditEvents.forEach(auditEvent => {
+          const foundState = possibleStates.states.find(state => state.value === auditEvent.caseState.value);
+          auditEvent.isTerminal = foundState.isTerminal ? foundState.isTerminal : false;
+        });
+        return caseStateAudit;
+      })
+    );
+  }
+
   public getCaseStateAudit(caseRef: string, sandboxId: number): Observable<StateAuditEventList> {
+
     const url = '/event/v1/auditEvents?$sandbox=' + sandboxId
       + '&$filter=type eq \'casestate\''
       + ' and id eq \'' + caseRef + '\'';
