@@ -15,6 +15,7 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
 
   @Input() caseRef: string;
   @Input() sandboxId: number;
+  @Input() appId: string;
 
   public auditEvents: StateAuditEvent[];
   public errorMessage: string;
@@ -25,12 +26,15 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
   }
 
   public refresh = () => {
-    this.caseStatesService.getCaseStateAudit(this.caseRef, this.sandboxId)
+    this.caseStatesService.getCaseStateAuditWithTerminal(this.caseRef, this.sandboxId, this.appId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
         map(auditeventlist => {
           this.auditEvents = auditeventlist.auditEvents;
+          if (!this.auditEvents || this.auditEvents.length <= 0) {
+            console.error('Unable to create states audit view. Case Audit likely removed due to subscription retention period.');
+          }
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg; });

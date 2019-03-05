@@ -37,7 +37,7 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
       map(tracker => {
         this.tracker = tracker;
         if (!tracker.valid) {
-          console.warn('Unable to create state tracker. Case Audit likely removing due to subscription retention period.');
+          console.error('Unable to create milestone trailer. Case Audit likely removed due to subscription retention period.');
         }
         return tracker;
       }
