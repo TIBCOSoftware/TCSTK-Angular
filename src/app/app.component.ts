@@ -143,6 +143,10 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-close.svg'))
     );
     this.matIconRegistry.addSvgIcon(
+      'tcs-case-state-audit-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-case-state-audit.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
       'tcs-milestone-completed',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-completed.svg'))
     );
@@ -165,6 +169,18 @@ export class AppComponent {
     this.matIconRegistry.addSvgIcon(
       'tcs-milestone-pending-terminal',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-pending-terminal.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-mini-state-completed',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-completed.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-mini-state-current',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-current.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-mini-state-terminal-completed',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-terminal-completed.svg'))
     );
   }
 }

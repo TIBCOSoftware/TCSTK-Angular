@@ -24,7 +24,9 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
 
   public getToolTipText = (trackerState: TrackerState): string => {
     let toolTipText = '';
-    toolTipText =  toolTipText + trackerState.user + ' ' + this.durationSince.transform(trackerState.changed);
+    if (trackerState.status != 'pending') {
+      toolTipText = toolTipText + trackerState.user + ' ' + this.durationSince.transform(trackerState.changed);
+    }
     return toolTipText;
   }
 
@@ -34,6 +36,9 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
       takeUntil(this._destroyed$),
       map(tracker => {
         this.tracker = tracker;
+        if (!tracker.valid) {
+          console.warn('Unable to create state tracker. Case Audit likely removing due to subscription retention period.');
+        }
         return tracker;
       }
         )
