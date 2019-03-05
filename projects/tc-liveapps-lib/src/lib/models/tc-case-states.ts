@@ -7,6 +7,8 @@ export class StateAuditEvent implements Deserializable {
   phaseLabel: AuditEvent;
   previousPhaseLabel: AuditEvent;
   messageId: AuditEvent;
+  principalName: AuditEvent;
+  creationTime: AuditEvent;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
@@ -40,6 +42,8 @@ export class TrackerState implements Deserializable {
   previousPhase: string;
   isTerminal: boolean;
   status: string;
+  user: string;
+  changed: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
@@ -48,6 +52,7 @@ export class TrackerState implements Deserializable {
 
 export class StateTracker implements Deserializable {
   states: TrackerState[];
+  valid: boolean;
   deserialize(input: any) {
     this.states = [];
     Object.assign(this.states, input);

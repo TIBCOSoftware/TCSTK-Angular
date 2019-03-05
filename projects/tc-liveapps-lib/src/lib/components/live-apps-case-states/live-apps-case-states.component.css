@@ -1,0 +1,31 @@
+.tc-milestone-title {
+  min-width: 150px;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  color: black;
+}
+
+:host ::ng-deep tcla-live-apps-milestone .tc-ms-pending-bg {
+  fill: #DEDEDE;
+}
+
+:host ::ng-deep tcla-live-apps-milestone .tc-ms-inprogress-bg {
+  fill: #0081CB;
+}
+
+:host ::ng-deep tcla-live-apps-milestone .tc-ms-completed-bg {
+  fill: #062E79;
+}
+
+:host ::ng-deep tcla-live-apps-milestone .tc-ms-completed-terminal-bg {
+  fill: #04BE5B;
+}
+
+:host ::ng-deep tcla-live-apps-milestone .tc-ms-label {
+  color: black;
+}

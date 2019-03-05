@@ -15,7 +15,7 @@
       "*": "/"
     }
   },
-  "/idm/v1/login-oauth": {
+  "/idm/v2/login-oauth": {
     "target": {
       "host": "eu.liveapps.cloud.tibco.com",
       "protocol": "https:",

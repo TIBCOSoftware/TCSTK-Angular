@@ -6,13 +6,14 @@ import {AuditEventList} from '../models/liveappsdata';
 import {map, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {StateTrackerData, StateTracker, TrackerState, StateAuditEventList, StateAuditEvent} from '../models/tc-case-states';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TcCaseStatesService {
 
-  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private caseDataService: TcCaseDataService) { }
+  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private caseDataService: TcCaseDataService, private sanitizer: DomSanitizer) { }
 
   private getTrackerData = (caseRef: string, sandboxId: number, appId: string): Observable<StateTrackerData> => {
     const caseState$ = this.caseDataService.getCaseState(caseRef, sandboxId);
@@ -28,46 +29,54 @@ export class TcCaseStatesService {
   private buildTracker = (trackerData: StateTrackerData): StateTracker => {
     const tracker = new StateTracker();
     tracker.states = [];
-    // work out the status of each state
-    // possible states: 'pending', 'inprogress', 'completed'
-    trackerData.possibleStates.states.forEach(state => {
-      const stateLabel = state.label;
-      const stateName = state.value;
-      const trackerState = new TrackerState();
-      trackerState.phase = '';
-      trackerState.previousPhase = '';
-      // no specific name coming from API so use label.
-      trackerState.name = state.label;
-      trackerState.label = state.label;
-      trackerState.isTerminal = state.isTerminal ? state.isTerminal : false;
-      // find last event for this state
-      // todo **** reverse is reversing the array too!!!
-      const reversedEvents = [];
-      Object.assign(reversedEvents, trackerData.caseAudit);
-      reversedEvents.reverse();
-      const idx = reversedEvents.findIndex(auditEvent => auditEvent.caseState.value === state.value);
-      const origIdx = (trackerData.caseAudit.length - 1) - idx;
-      let thisEvent: StateAuditEvent;
-      if (idx === -1) {
-        // no audit events so we haven't reached this state yet
-        trackerState.status = 'pending';
-      } else {
-        thisEvent = trackerData.caseAudit[origIdx];
-        trackerState.phase = thisEvent.phaseLabel ? thisEvent.phaseLabel.value : undefined;
-        trackerState.previousPhase = thisEvent.previousPhaseLabel ? thisEvent.previousPhaseLabel.value : undefined;
-        if (state.isTerminal) {
-          // if we have audit for this state and it is terminal it must be completed
-          trackerState.status = 'completed';
-        } else if ((trackerData.caseAudit.length - 1) === origIdx) {
-          // if this is the last audit entry then it is in progress
-          trackerState.status = 'inprogress';
+    if (trackerData.caseAudit.length <= 0) {
+      // if no audit it has likely been deleted and we cannot create a milestone trailer
+      tracker.valid = false;
+    } else {
+      // work out the status of each state
+      // possible states: 'pending', 'inprogress', 'completed'
+      trackerData.possibleStates.states.forEach(state => {
+        const stateLabel = state.label;
+        const stateName = state.value;
+        const trackerState = new TrackerState();
+        trackerState.phase = '';
+        trackerState.previousPhase = '';
+        // no specific name coming from API so use label.
+        trackerState.name = state.label;
+        trackerState.label = state.label;
+        trackerState.isTerminal = state.isTerminal ? state.isTerminal : false;
+        // find last event for this state
+        // todo **** reverse is reversing the array too!!!
+        const reversedEvents = [];
+        Object.assign(reversedEvents, trackerData.caseAudit);
+        reversedEvents.reverse();
+        const idx = reversedEvents.findIndex(auditEvent => auditEvent.caseState.value === state.value);
+        const origIdx = (trackerData.caseAudit.length - 1) - idx;
+        let thisEvent: StateAuditEvent;
+        if (idx === -1) {
+          // no audit events so we haven't reached this state yet
+          trackerState.status = 'pending';
         } else {
-          // otherwise it must be completed
-          trackerState.status = 'completed';
+          thisEvent = trackerData.caseAudit[origIdx];
+          trackerState.user = thisEvent.principalName ? thisEvent.principalName.value : 'system';
+          trackerState.changed = thisEvent.creationTime ? thisEvent.creationTime.value : '';
+          trackerState.phase = thisEvent.phaseLabel ? thisEvent.phaseLabel.value : undefined;
+          trackerState.previousPhase = thisEvent.previousPhaseLabel ? thisEvent.previousPhaseLabel.value : undefined;
+          if (state.isTerminal) {
+            // if we have audit for this state and it is terminal it must be completed
+            trackerState.status = 'completed';
+          } else if ((trackerData.caseAudit.length - 1) === origIdx) {
+            // if this is the last audit entry then it is in progress
+            trackerState.status = 'inprogress';
+          } else {
+            // otherwise it must be completed
+            trackerState.status = 'completed';
+          }
         }
-      }
-      tracker.states.push(trackerState);
-    });
+        tracker.states.push(trackerState);
+        tracker.valid = true;
+      });
+    }
     return tracker;
   }
 
@@ -89,5 +98,17 @@ export class TcCaseStatesService {
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseaudit => new StateAuditEventList().deserialize(caseaudit)));
+  }
+
+  public getMilestoneSectionSvg(stateLabel: string, labelClass: string, bgClass: string, svgFileName: string): Observable<SafeHtml> {
+    return this.liveAppsService.getIconSVGText('/assets/icons/milestones/' + svgFileName).pipe(
+      map(svgcontents => {
+        let updatedsvg = svgcontents.replace('{{milestoneLabel}}', stateLabel);
+        updatedsvg = updatedsvg.replace('{{milestoneBgClass}}', bgClass);
+        updatedsvg = updatedsvg.replace('{{milestoneLabelClass}}', labelClass);
+        const newval = this.sanitizer.bypassSecurityTrustHtml(updatedsvg);
+        return newval;
+      })
+    );
   }
 }
