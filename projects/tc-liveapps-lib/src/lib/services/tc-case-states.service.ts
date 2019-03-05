@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {forkJoin, Observable} from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
 import {TcCaseDataService} from '../services/tc-case-data.service';
-import {AuditEventList} from '../models/liveappsdata';
 import {map, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {StateTrackerData, StateTracker, TrackerState, StateAuditEventList, StateAuditEvent} from '../models/tc-case-states';
@@ -13,15 +12,21 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 })
 export class TcCaseStatesService {
 
-  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private caseDataService: TcCaseDataService, private sanitizer: DomSanitizer) { }
+  constructor(private http: HttpClient,
+              private liveAppsService: LiveAppsService,
+              private caseDataService: TcCaseDataService,
+              private sanitizer: DomSanitizer) { }
 
   private getTrackerData = (caseRef: string, sandboxId: number, appId: string): Observable<StateTrackerData> => {
+    // merge the result of these three API calls into one object
     const caseState$ = this.caseDataService.getCaseState(caseRef, sandboxId);
     const possibleStates$ = this.liveAppsService.getCaseTypeStates(sandboxId, appId, 100);
     const stateAudit$ = this.getCaseStateAudit(caseRef, sandboxId);
     return forkJoin([caseState$, possibleStates$, stateAudit$]).pipe(
       map(resultArr => {
-        return new StateTrackerData().deserialize({ possibleStates: resultArr[1], currentState: resultArr[0], caseAudit: resultArr[2].auditEvents });
+        return new StateTrackerData().deserialize(
+          { possibleStates: resultArr[1], currentState: resultArr[0], caseAudit: resultArr[2].auditEvents }
+          );
       })
     );
   }
@@ -46,7 +51,6 @@ export class TcCaseStatesService {
         trackerState.label = state.label;
         trackerState.isTerminal = state.isTerminal ? state.isTerminal : false;
         // find last event for this state
-        // todo **** reverse is reversing the array too!!!
         const reversedEvents = [];
         Object.assign(reversedEvents, trackerData.caseAudit);
         reversedEvents.reverse();

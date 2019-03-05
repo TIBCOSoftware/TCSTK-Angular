@@ -1,0 +1,80 @@
+.tcs-state-audit-pane {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
+.tcs-mini-state-item-middle {
+  padding-top: 30px;
+  border-left: solid 3px #062e79;
+  margin-top: -10px;
+}
+
+.tcs-mini-state-item-first {
+  border-left: solid 3px #062e79;
+}
+
+.tcs-mini-state-item-last {
+  margin-top: -10px;
+  padding-top: 30px;
+  border-left: solid 3px #062e79;
+}
+
+.tcs-state-audit-container {
+  height: 100%;
+  overflow-x: auto;
+  padding: 11px;
+}
+
+/* to remove the train line after terminal state */
+.tcs-mini-state-item-last:after {
+  content: '';
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  left: -46px;
+  top: 0px;
+  background-color: red;
+  width: 10px;
+  height: 0px;
+  margin-top: -12px;
+}
+
+.tcs-mini-state-icon {
+  position: relative;
+  left: -13px;
+}
+
+.tcs-state-audit-details {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.tcs-mini-state-details {
+  margin-left: 10px;
+}
+
+.tcs-mini-state-primary-label {
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  color: #212121;
+}
+
+.tcs-mini-state-secondary-label {
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  color: #b6b6b6;
+}
