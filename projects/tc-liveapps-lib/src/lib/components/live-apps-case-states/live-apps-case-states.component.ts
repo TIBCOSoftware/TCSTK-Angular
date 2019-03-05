@@ -4,8 +4,9 @@ import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {StateTracker} from '../../models/tc-case-states';
+import {StateTracker, TrackerState} from '../../models/tc-case-states';
 import {TcCaseStatesService} from '../../services/tc-case-states.service';
+import {DurationSincePipe} from 'tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-states',
@@ -21,6 +22,12 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
   public tracker: StateTracker;
   public errorMessage: string;
 
+  public getToolTipText = (trackerState: TrackerState): string => {
+    let toolTipText = '';
+    toolTipText =  toolTipText + trackerState.user + ' ' + this.durationSince.transform(trackerState.changed);
+    return toolTipText;
+  }
+
   public refresh = () => {
     this.caseStatesService.getTracker(this.caseRef, this.sandboxId, this.appId).pipe(
       take(1),
@@ -34,7 +41,7 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
       null, error => { this.errorMessage = 'Error constructing state tracker: ' + error.error.errorMsg; });
   }
 
-  constructor(private caseStatesService: TcCaseStatesService) {
+  constructor(private caseStatesService: TcCaseStatesService, private durationSince: DurationSincePipe) {
     super();
   }
 

@@ -15,7 +15,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {ColorPickerModule} from 'ngx-color-picker';
-import {CachingInterceptor} from 'tc-core-lib';
+import {CachingInterceptor, DurationSincePipe} from 'tc-core-lib';
 import {RequestCacheService} from 'tc-core-lib';
 import {LiveAppsCaseSearchComponent} from './components/live-apps-case-search/live-apps-case-search.component';
 import {LiveAppsCaseListComponent} from './components/live-apps-case-list/live-apps-case-list.component';
@@ -60,6 +60,7 @@ import {TcCaseDataService} from './services/tc-case-data.service';
 import { LiveAppsCaseDataDisplayComponent } from './components/live-apps-case-data-display/live-apps-case-data-display.component';
 import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpit/live-apps-case-cockpit.component';
 import {TcCaseProcessesService} from './services/tc-case-processes.service';
+import { LiveAppsMilestoneComponent } from './components/live-apps-milestone/live-apps-milestone.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import {TcCaseProcessesService} from './services/tc-case-processes.service';
     LiveAppsCaseActionComponent,
     LiveAppsActionsComponent,
     LiveAppsCaseDataDisplayComponent,
-    LiveAppsCaseCockpitComponent
+    LiveAppsCaseCockpitComponent,
+    LiveAppsMilestoneComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -160,6 +162,7 @@ import {TcCaseProcessesService} from './services/tc-case-processes.service';
   providers: [
     RequestCacheService,
     CaseGuard,
+    DurationSincePipe,
      { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
      // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ]
