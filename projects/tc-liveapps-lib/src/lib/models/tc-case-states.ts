@@ -1,5 +1,6 @@
 import {Deserializable} from 'tc-core-lib';
-import {AuditEvent, CaseTypeStatesList, AuditEventList} from './liveappsdata';
+import {CaseTypeStatesList} from './liveappsdata';
+import {AuditEvent, AuditEventList} from './tc-case-audit';
 
 export class StateAuditEvent implements Deserializable {
   caseState: AuditEvent;

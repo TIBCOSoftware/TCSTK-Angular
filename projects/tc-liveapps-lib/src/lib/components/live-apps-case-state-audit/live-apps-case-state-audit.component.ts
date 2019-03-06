@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {AuditEvent} from '../../models/liveappsdata';
+import {AuditEvent} from '../../models/tc-case-audit';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseStatesService} from '../../services/tc-case-states.service';
 import {StateAuditEvent} from '../../models/tc-case-states';

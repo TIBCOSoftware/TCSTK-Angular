@@ -275,24 +275,6 @@ export class CaseActionsList implements Deserializable {
   }
 }
 
-export class AuditEvent implements Deserializable {
-  value: string;
-  type: string;
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
-  }
-}
-
-export class AuditEventList implements Deserializable {
-  auditevents: AuditEvent[];
-  deserialize(input: any): this {
-    this.auditevents = [];
-    Object.assign(this.auditevents, input);
-    return this;
-  }
-}
-
 export class CaseList implements Deserializable {
   uniqueKey: string;
   maxSize: number;
