@@ -50,6 +50,13 @@
       ],
       "tc-handsontable-lib/*": [
         "dist/tc-handsontable-lib/*"
+      ],
+      "tc-process-discovery-lib": [
+        "projects/tc-process-discovery-lib/src/public_api",
+        // "dist/tc-process-discovery-lib"
+      ],
+      "tc-process-discovery-lib/*": [
+        "dist/tc-process-discovery-lib/*"
       ]
     }
   }

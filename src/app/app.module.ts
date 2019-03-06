@@ -16,8 +16,8 @@ import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {TcFormsLibModule} from 'tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
 import {TcHandsontableLibModule} from 'tc-handsontable-lib';
-//import { TibcoCloudErrorComponent } from 'tc-core-lib';
 import { CaseCockpitComponent } from './components/case-cockpit/case-cockpit.component';
+import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { CaseCockpitComponent } from './components/case-cockpit/case-cockpit.com
     TcCoreLibModule,
     TcFormsLibModule,
     TcHandsontableLibModule,
+    TcProcessDiscoveryLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,
     BrowserModule,

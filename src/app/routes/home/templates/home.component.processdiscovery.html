@@ -1,0 +1,7 @@
+<h1>This is the Process Discovery Home Page</h1>
+
+<mat-tab-group style="margin-top: 30px; height: 100%;">
+  <mat-tab label="Recent">
+    <tcpd-recent-pd-cases [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" (clickCase)="clickCaseAction($event)"></tcpd-recent-pd-cases>
+  </mat-tab>
+</mat-tab-group>
