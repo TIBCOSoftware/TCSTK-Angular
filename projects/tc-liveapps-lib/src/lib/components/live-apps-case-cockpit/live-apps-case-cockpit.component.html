@@ -38,6 +38,9 @@
             <mat-tab label="States">
               <tcla-live-apps-case-state-audit [caseRef]="caseRef" [sandboxId]="sandboxId" [appId]="appId"></tcla-live-apps-case-state-audit>
             </mat-tab>
+            <mat-tab label="Audit">
+              <tcla-live-apps-case-audit [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-audit>
+            </mat-tab>
           </mat-tab-group>
         </div>
       </div>
