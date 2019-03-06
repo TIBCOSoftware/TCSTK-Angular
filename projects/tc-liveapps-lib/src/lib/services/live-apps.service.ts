@@ -12,7 +12,6 @@ import {
   SandboxList,
   CaseTypeStatesList,
   CaseActionsList,
-  AuditEventList,
   CaseList,
   DocumentList,
   Document,
@@ -45,6 +44,7 @@ import {catchError, debounceTime, distinctUntilChanged, map, share, shareReplay,
 import { Deserializable} from 'tc-core-lib';
 import {split} from 'ts-node';
 import {Location} from '@angular/common';
+import {AuditEventList} from '../models/tc-case-audit';
 
 @Injectable({
   providedIn: 'root'
@@ -348,18 +348,6 @@ export class LiveAppsService {
           )
         );
     }
-
-  public getCaseAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
-    const select = 's';
-    const url = '/event/v1/auditEvents?$sandbox=' + sandboxId
-      + '&$filter=type eq \'case\''
-      + ' and id eq \'' + caseRef + '\'';
-
-    return this.http.get(url)
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(caseaudit => new AuditEventList().deserialize(caseaudit)));
-  }
 
   private updateCasesRecord(casesContent: SharedStateContent, caseRef: string, toggle: Boolean): SharedStateContent {
     const sharedStateContent: SharedStateContent = new SharedStateContent().deserialize(casesContent);

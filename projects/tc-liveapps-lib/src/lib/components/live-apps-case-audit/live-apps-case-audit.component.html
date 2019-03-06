@@ -1,1 +1,6 @@
-<pre>Case State Audit:{{ auditEvents | json }}</pre>
+<div class="tcs-case-audit-pane" fxLayout="column" fxFill style="overflow: hidden;">
+  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'Audit'" [icon]="'tcs-recent-icon'"></tc-tibco-cloud-widget-header>
+  <div *ngIf="auditEvents.length > 0" class="tcs-case-audit-container">
+
+  </div>
+</div>

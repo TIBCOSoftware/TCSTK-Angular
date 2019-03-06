@@ -1,0 +1,11 @@
+.tcs-case-audit-pane {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
+.tcs-case-audit-container {
+  height: 100%;
+  overflow-x: auto;
+  padding: 11px;
+}
