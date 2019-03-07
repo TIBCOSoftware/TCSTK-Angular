@@ -18,6 +18,7 @@ import {CaseComponent} from './routes/case/case.component';
 import {TcHandsontableLibModule} from 'tc-handsontable-lib';
 import { CaseCockpitComponent } from './components/case-cockpit/case-cockpit.component';
 import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
+import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
     HomeComponent,
     CaseComponent,
     CaseCockpitComponent
+
   ],
   imports: [
     AppRoutingModule,
@@ -39,7 +41,8 @@ import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
     BrowserModule,
     FormsModule,
     MatTabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TcSpotfirePlayLibModule
   ],
   providers: [LogService],
   bootstrap: [AppComponent]

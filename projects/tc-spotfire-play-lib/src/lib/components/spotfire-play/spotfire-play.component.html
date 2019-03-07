@@ -1,0 +1,51 @@
+<p>
+  spotfire-play
+</p>
+<!--
+<tcla-spotfire-viz
+  [sid]="123435"
+  [url]="'https://spotfire-next.cloud.tibco.com'"
+  [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
+  [customization]="{ showAbout: true, showPageNavigation: true }"
+>
+  <!- [customization]="{ showAbout: true, showPageNavigation: true }" ->
+</tcla-spotfire-viz>
+-->
+
+<tcla-spotfire-viz
+  url="https://spotfire-next.cloud.tibco.com"
+  path="/Users/af6ivxgr5bw7lanlbwyqklonloxpkvqu/Public/RugbyWorldCup"
+  markingon='{"20150925_RugbyWorldCup": [ "Country"]}'
+  (markingEvent)="marking($event)"
+  id="id1"
+  customization='{"showAuthor":true, "showFilterPanel":true, "showToolBar":true}'>
+</tcla-spotfire-viz>
+
+<div>
+  <br>
+  <p>
+    {{markingdata}}
+  </p>
+</div>
+
+<!--
+ customization='{
+          "showAbout": true,
+          "showAnalysisInformationTool": true,
+          "showAuthor": true,
+          "showClose": true,
+          "showCustomizableHeader": true,
+          "showDodPanel": true,
+          "showExportFile": true,
+          "showExportVisualization": true,
+          "showFilterPanel": true,
+          "showHelp": true,
+          "showLogout": true,
+          "showPageNavigation": true,
+          "showAnalysisInfo": true,
+          "showReloadAnalysis": true,
+          "showStatusBar": true,
+          "showToolBar": true,
+          "showUndoRedo": true}'
+
+-->

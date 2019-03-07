@@ -1,0 +1,28 @@
+{
+  "name":"testappjs.1742.stateconfig.tibcolabs.client.context.PUBLIC",
+  "content":{
+    "json":"{\"id\":\"5603\",\"stateMap\":[{\"state\":\"Review\",\"fill\":\"rgba(8,12,235,0.31)\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-review.svg\"},{\"state\":\"Investigation\",\"fill\":\"#95A5FB\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-investigate.svg\"},{\"isCaseType\":true,\"state\":\"Service Request\",\"fill\":\"#263237\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-partner-portal.svg\"},{\"isCaseType\":false,\"state\":\"Created\",\"fill\":\"#3d8457\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-created.svg\"},{\"isCaseType\":false,\"state\":\"Information Required\",\"fill\":\"#b481c0\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-info.svg\"},{\"isCaseType\":false,\"state\":\"Investigate\",\"fill\":\"#d8cf13\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-investigate.svg\"},{\"isCaseType\":false,\"state\":\"Responded\",\"fill\":\"#2019dc\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-respond.svg\"},{\"isCaseType\":false,\"state\":\"Canceled\",\"fill\":\"#c22e25\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-cancel.svg\"},{\"isCaseType\":false,\"state\":\"Resolved\",\"fill\":\"#34c623\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-closed.svg\"},{\"isCaseType\":true,\"state\":\"Partner Request\",\"fill\":\"#263237\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-partner-portal.svg\"},{\"isCaseType\":true,\"state\":\"Partner Portal\",\"fill\":\"#5147c4\",\"icon\":\"webresource/orgFolders/ServiceRequest_Icons/ic-partner-portal.svg\"}]}"
+  },
+  "type":"PUBLIC",
+  "description":null,
+  "sandboxId":"31",
+  "scope":"",
+  "attributes":[
+
+  ],
+  "roles":[
+
+  ],
+  "links":[
+
+  ],
+  "id":"5603",
+  "createdById":"178",
+  "createdByName":"Jeremy Smith",
+  "createdDate":1545058088002,
+  "modifiedById":"265",
+  "modifiedByName":"Guest SEG",
+  "modifiedDate":1550567537708,
+  "isOrphaned":false,
+  "isAbandoned":false
+}
