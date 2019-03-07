@@ -14,19 +14,20 @@
 
 <tcla-spotfire-viz
   url="https://spotfire-next.cloud.tibco.com"
-  path="/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard"
-  marking-on='{"SpotfireExpenseAnalyzer": [ "Type", "Department"]}'
+  path="/Users/af6ivxgr5bw7lanlbwyqklonloxpkvqu/Public/RugbyWorldCup"
+  markingon='{"20150925_RugbyWorldCup": [ "Country"]}'
   (markingEvent)="marking($event)"
-  [sid]="'myID'"
   id="id1"
-  [customization]="{ showAbout: true, showPageNavigation: true }"
-
-
-
-
->
-
+  customization='{"showAuthor":true, "showFilterPanel":true, "showToolBar":true}'>
 </tcla-spotfire-viz>
+
+<div>
+  <br>
+  <p>
+    {{markingdata}}
+  </p>
+</div>
+
 <!--
  customization='{
           "showAbout": true,

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpotfirePlayComponent implements OnInit {
 
+  markingdata:any;
+
   constructor() { }
 
   ngOnInit() {
@@ -15,6 +17,7 @@ export class SpotfirePlayComponent implements OnInit {
   public marking(data){
     console.log("Marking: ");
     console.log(data);
+    this.markingdata = JSON.stringify(data);
   }
 
 }

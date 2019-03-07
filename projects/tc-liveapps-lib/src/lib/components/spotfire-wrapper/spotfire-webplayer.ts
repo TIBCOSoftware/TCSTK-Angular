@@ -31,14 +31,14 @@ class DistinctValues { count: number; values: Array<string>; }
 
 
 function doCall<T>(obj, m: string, ...a): Observable<T> {
-  return Observable.create(observer => {
-    // console.log('[OBS]', 'doCall obj=', obj, ', m=', m, ', arg=', args, typeof obj);
+  return new Observable(observer => {
+     console.log('[OBS]', 'doCall obj=', obj, ', m=', m, ', arg=', a, typeof obj);
     if (typeof obj[m] !== 'function' || !obj) {
       console.error('[OBS]', 'pas de ', m, 'sur ', obj);
       observer.error(`pas de function ${m} sur l'objet ${JSON.stringify(obj)}`);
     }
     try {
-      // console.log('[OBS]', `Call ${m}(${args.join(',')})`, args.length);
+      console.log('[OBS]', `Call ${m}(${a.join(',')})`, a.length);
       const p = (g: T) => { observer.next(g); observer.complete(); };
       const q = (g: T) => observer.next(g);
       const s = m.startsWith('on');

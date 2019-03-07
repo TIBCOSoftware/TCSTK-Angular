@@ -34,7 +34,7 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
   @Input() filters: Array<SpotfireFilter> | string;
   private version = '7.14';
   @Input() config = {};
-  @Input() markingOn: { string: Array<String> };
+  @Input() markingon: { string: Array<String> };
   @Input() maxRows = 10;
   @ViewChild('spot', { read: ElementRef }) spot: ElementRef;
   errorMessages = [];
@@ -82,6 +82,8 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
   }*/
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log("CHANGES");
+    console.log(changes);
     if (changes.url && changes.url.previousValue !== undefined && !changes.url.isFirstChange()) {
       this.openWebPlayer(changes.url.currentValue, changes.path.currentValue, new SpotfireCustomization());
     } else if (this.app && changes.page && changes.page.previousValue !== undefined && !changes.page.isFirstChange()) {
@@ -123,7 +125,7 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
         this.filters = this.storSvc.get('flts');
       }
       if (this.storSvc.get('mark')) {
-        this.markingOn = this.storSvc.get('mark');
+        this.markingon = this.storSvc.get('mark');
       }
     }
     console.log('-----> ', this.path, this.page, this.sid, 'has markingEvent:', this.markingEvent.observers.length > 0);
@@ -136,10 +138,12 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
       this.customization = new SpotfireCustomization(this.customization);
     }
 
-    if (typeof this.markingOn === 'string') {
-      this.markingOn = JSON.parse(this.markingOn);
-    }
+    if (typeof this.markingon === 'string') {
 
+      this.markingon = JSON.parse(this.markingon);
+      console.log("Marking ON: " , this.markingon);
+    }
+    console.log("Marking ON SET: " , this.markingon);
     this.form = this.fb.group({
       url: [this.url, Validators.required],
       path: [this.path, Validators.required],
@@ -279,14 +283,14 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
     // get Table info
     //
     this.document.data.getAllTables$().subscribe(tables => {
-      console.log('getAllTables$ returns', tables, this.filters, this.markingOn);
+      console.log('getAllTables$ returns', tables, this.filters, this.markingon);
       const toList = (g) => g.map(f => `'${f}'`).join(', '),
         errTxt1 = '[spotfire-wrapper] Attribut marking-on contains unknwon',
         errTxt2 = '[spotfire-wrapper] Possible values for',
         fil: FormGroup = this.form.get('filters') as FormGroup,
         mar: FormGroup = this.form.get('marking') as FormGroup,
         tNames = Object.keys(tables),
-        tdiff = this.markingOn ? difference(Object.keys(this.markingOn), tNames) : [];
+        tdiff = this.markingon ? difference(Object.keys(this.markingon), tNames) : [];
       console.log('Tables : ', tNames, tdiff, fil);
 
       if (tdiff.length > 0) {
@@ -299,16 +303,16 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
       //
       Object.keys(tables).forEach(tname => {
         const columns = tables[tname];
-        mar.addControl(tname, new FormControl(this.markingOn ? this.markingOn[tname] : null));
+        mar.addControl(tname, new FormControl(this.markingon ? this.markingon[tname] : null));
         if (!fil.contains(tname)) {
           fil.addControl(tname, new FormGroup({}));
         }
         const frm: FormGroup = fil.get(tname) as FormGroup;
         const cNames = Object.keys(columns);
         /*
-        console.log('Columns : ', cNames, this.markingOn);
-        if (this.markingOn) {
-          const cdiff = this.markingOn[tname] ? this.difference(this.markingOn[tname], cNames) : [];
+        console.log('Columns : ', cNames, this.markingon);
+        if (this.markingon) {
+          const cdiff = this.markingon[tname] ? this.difference(this.markingon[tname], cNames) : [];
           console.log('Columns : ', cNames, cdiff);
           if (_.size(cdiff) > 0) {
             this.errorMessages.push(`${errTxt1} column names: ${toList(cdiff)}`);
@@ -329,11 +333,14 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
           frm.addControl(cname, new FormControl(flt2 ? flt2.filterSettings.values : null));
         });
       });
+      console.log("this.markingon: ", this.markingon );
 
-      if (this.markingOn) {
+      if (this.markingon) {
+        console.log("Trying to subscribe to markings " , this.document.marking);
         this.document.marking.getMarkingNames$().subscribe(markingNames => markingNames.forEach(markingName => {
-          Object.keys(this.markingOn).forEach(key => {
-            let xolumns: Array<string> = this.markingOn[key];
+          console.log("Subscribing to marking name: " , markingName);
+          Object.keys(this.markingon).forEach(key => {
+            let xolumns: Array<string> = this.markingon[key];
             const tName = key;
             if (xolumns.length === 1 && xolumns[0] === '*') {
               xolumns = Object.keys(tables[tName]);
@@ -454,7 +461,7 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
         this.storSvc.set('page', this.form.get('page').value);
         this.storSvc.set('cust', onlyTrueProps(this.customization));
         this.storSvc.set('flts', this.filters);
-        this.storSvc.set('mark', this.markingOn);
+        this.storSvc.set('mark', this.markingon);
       }
       this.openPath(this.path);
     } else if (isD('page')) {
