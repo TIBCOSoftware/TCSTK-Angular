@@ -77,3 +77,5 @@
   </div>
 </div-->
 <div style="height: 500px" #spot></div>
+<div class="err" *ngIf="errorMessages.length > 0">{{errorMessages|json}}</div>
+<div class="err" *ngIf="possibleValues">{{possibleValues}}</div>

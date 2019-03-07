@@ -1,0 +1,29 @@
+{
+  "name":"testappjs.recentcases.tibcolabs.client.context.PRIVATE",
+  "content":{
+    "json":"{\"maxSize\":10,\"caseRefs\":[\"205451\",\"205501\",\"205221\",\"205301\"],\"uniqueKey\":\"caseReference\"}"
+  },
+  "type":"PRIVATE",
+  "description":"",
+  "sandboxId":"31",
+  "scope":"",
+  "attributes":[
+
+  ],
+  "roles":[
+
+  ],
+  "links":[
+
+  ],
+  "id":"5628",
+  "createdById":"265",
+  "createdByName":"Guest SEG",
+  "createdDate":1546512076399,
+  "modifiedById":"265",
+  "modifiedByName":"Guest SEG",
+  "modifiedDate":1550498699898,
+  "isOrphaned":false,
+  "isAbandoned":false
+}
+]
