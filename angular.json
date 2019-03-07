@@ -317,6 +317,41 @@
           }
         }
       }
+    },
+    "tc-spotfire-play-lib": {
+      "root": "projects/tc-spotfire-play-lib",
+      "sourceRoot": "projects/tc-spotfire-play-lib/src",
+      "projectType": "library",
+      "prefix": "tcsp",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tc-spotfire-play-lib/tsconfig.lib.json",
+            "project": "projects/tc-spotfire-play-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tc-spotfire-play-lib/src/test.ts",
+            "tsConfig": "projects/tc-spotfire-play-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tc-spotfire-play-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tc-spotfire-play-lib/tsconfig.lib.json",
+              "projects/tc-spotfire-play-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tc-liveapps"

@@ -79,6 +79,15 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
     }
   }
 
+  /*
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.url && changes.url.previousValue !== undefined && !changes.url.isFirstChange()) {
+      this.openWebPlayer(changes.url.currentValue, changes.path.currentValue, new SpotfireCustomization());
+    } else if (this.app && changes.page && changes.page.previousValue !== undefined && !changes.page.isFirstChange()) {
+      this.openPage(changes.page.currentValue);
+    }
+  }*/
+
   stopPropagation = (e) => e.stopPropagation();
   private get isMarkingWiredUp() { return this.markingEvent.observers.length > 0; }
   private get isFilteringWiredUp() { return this.filteringEvent.observers.length > 0; }
