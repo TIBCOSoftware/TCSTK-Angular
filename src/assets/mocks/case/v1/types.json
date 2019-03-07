@@ -1,6 +1,146 @@
 {
     "mockedResponses": {
-        "/case/v1/types?$sandbox=31&$select=b": [
+        "/case/v1/types?$sandbox=31&$select=b&$top=50": [
+            {
+                "id": "1",
+                "name": "ArticlesReactivation",
+                "label": "Articles Reactivation",
+                "isCase": true,
+                "applicationId": "769",
+                "applicationName": "Articles Reactivation",
+                "applicationInternalName": "ArticlesReactivation",
+                "applicationVersion": 7
+            },
+            {
+                "id": "1",
+                "name": "AssetMarketPlace1",
+                "label": "AssetMarketPlace",
+                "isCase": true,
+                "applicationId": "740",
+                "applicationName": "AssetMarketPlace",
+                "applicationInternalName": "AssetMarketPlace",
+                "applicationVersion": 15
+            },
+            {
+                "id": "1",
+                "name": "Checkworkflowmonitor1",
+                "label": "Check workflow monitor",
+                "isCase": true,
+                "applicationId": "2476",
+                "applicationName": "Check workflow monitor",
+                "applicationInternalName": "Checkworkflowmonitor",
+                "applicationVersion": 1
+            },
+            {
+                "id": "1",
+                "name": "CustomerCampaign",
+                "label": "Customer Campaign",
+                "isCase": true,
+                "applicationId": "704",
+                "applicationName": "Customer Campaign",
+                "applicationInternalName": "Promotions",
+                "applicationVersion": 2
+            },
+            {
+                "id": "1",
+                "name": "CustomerComplaint1",
+                "label": "Customer Complaint",
+                "isCase": true,
+                "applicationId": "193",
+                "applicationName": "Customer Complaint",
+                "applicationInternalName": "CustomerComplaint1",
+                "applicationVersion": 4
+            },
+            {
+                "id": "1",
+                "name": "CustomerOnboarding1",
+                "label": "Customer Onboarding",
+                "isCase": true,
+                "applicationId": "473",
+                "applicationName": "Customer Onboarding",
+                "applicationInternalName": "CustomerOnboarding1",
+                "applicationVersion": 3
+            },
+            {
+                "id": "1",
+                "name": "CustomerRequest1",
+                "label": "Customer Request",
+                "isCase": true,
+                "applicationId": "2356",
+                "applicationName": "Customer Request",
+                "applicationInternalName": "CustomerRequest",
+                "applicationVersion": 1
+            },
+            {
+                "id": "1",
+                "name": "FiberatHome1",
+                "label": "Fiber at Home",
+                "isCase": true,
+                "applicationId": "62",
+                "applicationName": "Fiber at Home",
+                "applicationInternalName": "FiberatHome1",
+                "applicationVersion": 3
+            },
+            {
+                "id": "1",
+                "name": "FraudInvestigation1",
+                "label": "Fraud Investigation",
+                "isCase": true,
+                "applicationId": "561",
+                "applicationName": "Fraud Investigation",
+                "applicationInternalName": "BlankApplication1",
+                "applicationVersion": 16
+            },
+            {
+                "id": "1",
+                "name": "GDPRInformation1",
+                "label": "GDPR Information",
+                "isCase": true,
+                "applicationId": "332",
+                "applicationName": "GDPR Information",
+                "applicationInternalName": "GDPRInformation1",
+                "applicationVersion": 4
+            },
+            {
+                "id": "1",
+                "name": "HRJobDescriptions",
+                "label": "HR Job Descriptions",
+                "isCase": true,
+                "applicationId": "1169",
+                "applicationName": "HR Job Descriptions",
+                "applicationInternalName": "HRJobDescriptions",
+                "applicationVersion": 4
+            },
+            {
+                "id": "1",
+                "name": "KnowledgeBaseTracker",
+                "label": "Knowledge-Base Tracker",
+                "isCase": true,
+                "applicationId": "1495",
+                "applicationName": "Knowledge-Base Tracker",
+                "applicationInternalName": "KnowledgeBaseTracker",
+                "applicationVersion": 5
+            },
+            {
+                "id": "1",
+                "name": "NPSSurveyLending",
+                "label": "NPS Survey (Lending)",
+                "isCase": true,
+                "applicationId": "931",
+                "applicationName": "NPS Survey (Lending)",
+                "applicationInternalName": "NPSSurveyLending",
+                "applicationVersion": 2
+            },
+            {
+                "id": "1",
+                "name": "Opportunity",
+                "label": "Opportunity Tracking",
+                "isCase": true,
+                "applicationId": "755",
+                "applicationName": "Opportunity Tracking",
+                "applicationInternalName": "Opportunity",
+                "applicationVersion": 11
+            },
             {
                 "id": "1",
                 "name": "PartnerRequest",
@@ -9,6 +149,86 @@
                 "applicationId": "1742",
                 "applicationName": "Partner Request",
                 "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 2
+            },
+            {
+                "id": "1",
+                "name": "Patterns",
+                "label": "Patterns",
+                "isCase": true,
+                "applicationId": "691",
+                "applicationName": "Patterns",
+                "applicationInternalName": "Patterns",
+                "applicationVersion": 6
+            },
+            {
+                "id": "1",
+                "name": "ProductReturns1",
+                "label": "Product Returns",
+                "isCase": true,
+                "applicationId": "51",
+                "applicationName": "Product Returns",
+                "applicationInternalName": "ProductReturns1",
+                "applicationVersion": 6
+            },
+            {
+                "id": "1",
+                "name": "RiskInvestigation",
+                "label": "Risk Investigation",
+                "isCase": true,
+                "applicationId": "2505",
+                "applicationName": "Risk Investigation",
+                "applicationInternalName": "RiskInvestigation",
+                "applicationVersion": 1
+            },
+            {
+                "id": "1",
+                "name": "RoomManagement1",
+                "label": "Room Management",
+                "isCase": true,
+                "applicationId": "1671",
+                "applicationName": "Room Management",
+                "applicationInternalName": "RoomManagement",
+                "applicationVersion": 1
+            },
+            {
+                "id": "1",
+                "name": "SIMOnly1",
+                "label": "SIM Only",
+                "isCase": true,
+                "applicationId": "1545",
+                "applicationName": "SIM Only",
+                "applicationInternalName": "SIMOnly",
+                "applicationVersion": 1
+            },
+            {
+                "id": "1",
+                "name": "SmartCaseCustomerComplaint",
+                "label": "SmartCase Customer Complaint",
+                "isCase": true,
+                "applicationId": "1841",
+                "applicationName": "SmartCase Customer Complaint",
+                "applicationInternalName": "SmartCaseCustomerComplaint",
+                "applicationVersion": 8
+            },
+            {
+                "id": "1",
+                "name": "VehiclePurchase",
+                "label": "Vehicle Purchase",
+                "isCase": true,
+                "applicationId": "302",
+                "applicationName": "Vehicle Purchase",
+                "applicationInternalName": "VehiclePurchase1",
+                "applicationVersion": 3
+            },
+            {
+                "id": "1",
+                "name": "WellAlertsManagement1",
+                "label": "Well Alerts Management",
+                "isCase": true,
+                "applicationId": "50",
+                "applicationName": "Well Alerts Management",
+                "applicationInternalName": "WellAlertsManagement1",
                 "applicationVersion": 1
             }
         ],
@@ -68,6 +288,1034 @@
                         "label": "Resolved",
                         "value": "Resolved",
                         "isTerminal": true
+                    }
+                ]
+            }
+        ],
+        "/case/v1/types?$sandbox=31&$select=b,js,c,ac,a&$top=100&$filter=applicationId eq 1742": [
+            {
+                "id": "35",
+                "name": "CaseMetrics_v1",
+                "label": "Case Metrics",
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 2,
+                "attributes": [
+                    {
+                        "name": "Priority_v1",
+                        "label": "Priority",
+                        "type": "Number",
+                        "constraints": {
+                            "decimalPlaces": 0
+                        }
+                    },
+                    {
+                        "name": "DueDate_v1",
+                        "label": "Due Date",
+                        "type": "Date"
+                    },
+                    {
+                        "name": "Owner_v1",
+                        "label": "Request Owner",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "RequestOwnerEmail_v1",
+                        "label": "Request Owner Email",
+                        "type": "Email"
+                    },
+                    {
+                        "name": "RequestOwnerSMS_v1",
+                        "label": "Request Owner SMS",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "PartnerContactEmail_v1",
+                        "label": "Partner Contact Email",
+                        "type": "Email"
+                    }
+                ]
+            },
+            {
+                "id": "11",
+                "name": "Customer_v1",
+                "label": "Customer",
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 2,
+                "attributes": [
+                    {
+                        "name": "Name_v1",
+                        "label": "Name",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "CustomerReference_v1",
+                        "label": "Customer Reference",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "CustomerDetailsExtract_v1",
+                        "label": "Customer Details Extract",
+                        "type": "Text",
+                        "displayPreferences": {
+                            "multiLine": true
+                        }
+                    },
+                    {
+                        "name": "CustomerEmail_v1",
+                        "label": "Customer Email",
+                        "type": "Email"
+                    }
+                ]
+            },
+            {
+                "id": "31",
+                "name": "IssueLog_v1",
+                "label": "Issue Log",
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 2,
+                "attributes": [
+                    {
+                        "name": "LogEntry_v1",
+                        "label": "Log Entry",
+                        "type": "Text",
+                        "displayPreferences": {
+                            "multiLine": true
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "14",
+                "name": "RequestDetails_v1",
+                "label": "Order Details",
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 2,
+                "attributes": [
+                    {
+                        "name": "PartReference_v1",
+                        "label": "Part Reference",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "PartName_v1",
+                        "label": "Part Name",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "PartDescription_v1",
+                        "label": "Part Description",
+                        "type": "Text",
+                        "displayPreferences": {
+                            "multiLine": true
+                        }
+                    },
+                    {
+                        "name": "OrderReference_v1",
+                        "label": "Order Reference",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "IssueLog_v1",
+                        "label": "Issue Log",
+                        "type": "31",
+                        "isArray": true,
+                        "isStructuredType": true
+                    }
+                ]
+            },
+            {
+                "id": "18",
+                "name": "PartnerInvestigation_v1",
+                "label": "Partner Investigation",
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 2,
+                "attributes": [
+                    {
+                        "name": "Status_v1",
+                        "label": "Status Comment",
+                        "type": "Text",
+                        "displayPreferences": {
+                            "multiLine": true
+                        }
+                    },
+                    {
+                        "name": "Assignee_v1",
+                        "label": "Assignee",
+                        "type": "User"
+                    }
+                ]
+            },
+            {
+                "id": "1",
+                "name": "PartnerRequest",
+                "label": "Partner Request",
+                "isCase": true,
+                "applicationId": "1742",
+                "applicationName": "Partner Request",
+                "applicationInternalName": "PartnerRequest",
+                "applicationVersion": 2,
+                "attributes": [
+                    {
+                        "name": "state",
+                        "label": "State",
+                        "type": "Text",
+                        "isState": true
+                    },
+                    {
+                        "name": "CaseId_v1",
+                        "label": "Case Id",
+                        "type": "Text",
+                        "isIdentifier": true,
+                        "isMandatory": true
+                    },
+                    {
+                        "name": "PartnerReference_v1",
+                        "label": "Partner Reference",
+                        "type": "Text",
+                        "displayPreferences": {
+                            "multiLine": true
+                        }
+                    },
+                    {
+                        "name": "RequestDescription_v1",
+                        "label": "Request Details",
+                        "type": "Text",
+                        "displayPreferences": {
+                            "multiLine": true
+                        }
+                    },
+                    {
+                        "name": "RequestType_v1",
+                        "label": "Request Type",
+                        "type": "Text"
+                    },
+                    {
+                        "name": "Customer_v1",
+                        "label": "Customer",
+                        "type": "11",
+                        "isStructuredType": true
+                    },
+                    {
+                        "name": "Resolution_v1",
+                        "label": "Resolution",
+                        "type": "Text",
+                        "displayPreferences": {
+                            "multiLine": true
+                        }
+                    },
+                    {
+                        "name": "RequestDetails_v1",
+                        "label": "Order Details",
+                        "type": "14",
+                        "isStructuredType": true
+                    },
+                    {
+                        "name": "recentCustomerOrders_v1",
+                        "label": "Recent Customer Orders",
+                        "type": "14",
+                        "isArray": true,
+                        "isStructuredType": true
+                    },
+                    {
+                        "name": "Investigation_v1",
+                        "label": "Investigation",
+                        "type": "18",
+                        "isStructuredType": true
+                    },
+                    {
+                        "name": "CaseMetrics_v1",
+                        "label": "Request Metrics",
+                        "type": "35",
+                        "isStructuredType": true
+                    }
+                ],
+                "jsonSchema": {
+                    "type": "object",
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "definitions": {
+                        "Customer_v1": {
+                            "type": "object",
+                            "properties": {
+                                "Name_v1": {
+                                    "type": "string",
+                                    "maxLength": 80,
+                                    "title": "Name"
+                                },
+                                "CustomerReference_v1": {
+                                    "type": "string",
+                                    "maxLength": 10,
+                                    "title": "Customer Reference"
+                                },
+                                "CustomerDetailsExtract_v1": {
+                                    "type": "string",
+                                    "maxLength": 400,
+                                    "title": "Customer Details Extract"
+                                },
+                                "CustomerEmail_v1": {
+                                    "type": "string",
+                                    "format": "email",
+                                    "maxLength": 254,
+                                    "title": "Customer Email"
+                                }
+                            }
+                        },
+                        "IssueLog_v1": {
+                            "type": "object",
+                            "properties": {
+                                "LogEntry_v1": {
+                                    "type": "string",
+                                    "maxLength": 250,
+                                    "title": "Log Entry"
+                                }
+                            }
+                        },
+                        "RequestDetails_v1": {
+                            "type": "object",
+                            "properties": {
+                                "PartReference_v1": {
+                                    "type": "string",
+                                    "maxLength": 10,
+                                    "title": "Part Reference"
+                                },
+                                "PartName_v1": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "title": "Part Name"
+                                },
+                                "PartDescription_v1": {
+                                    "type": "string",
+                                    "maxLength": 400,
+                                    "title": "Part Description"
+                                },
+                                "OrderReference_v1": {
+                                    "type": "string",
+                                    "maxLength": 10,
+                                    "title": "Order Reference"
+                                },
+                                "IssueLog_v1": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/definitions/IssueLog_v1"
+                                    },
+                                    "title": "Issue Log"
+                                }
+                            }
+                        },
+                        "PartnerInvestigation_v1": {
+                            "type": "object",
+                            "properties": {
+                                "Status_v1": {
+                                    "type": "string",
+                                    "maxLength": 400,
+                                    "title": "Status Comment"
+                                },
+                                "Assignee_v1": {
+                                    "type": "object",
+                                    "title": "Assignee",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "title": "id"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "title": "name"
+                                        },
+                                        "firstName": {
+                                            "type": "string",
+                                            "title": "firstName"
+                                        },
+                                        "lastName": {
+                                            "type": "string",
+                                            "title": "lastName"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "title": "email"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "CaseMetrics_v1": {
+                            "type": "object",
+                            "properties": {
+                                "Priority_v1": {
+                                    "type": "integer",
+                                    "description": "Priority of Request - LOW 1 -> HIGH 5",
+                                    "minimum": 1.0,
+                                    "title": "Priority",
+                                    "maximum": 5.0
+                                },
+                                "DueDate_v1": {
+                                    "type": "string",
+                                    "format": "date",
+                                    "title": "Due Date"
+                                },
+                                "Owner_v1": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "title": "Request Owner"
+                                },
+                                "RequestOwnerEmail_v1": {
+                                    "type": "string",
+                                    "format": "email",
+                                    "maxLength": 254,
+                                    "title": "Request Owner Email"
+                                },
+                                "RequestOwnerSMS_v1": {
+                                    "type": "string",
+                                    "maxLength": 50,
+                                    "title": "Request Owner SMS"
+                                },
+                                "PartnerContactEmail_v1": {
+                                    "type": "string",
+                                    "format": "email",
+                                    "maxLength": 254,
+                                    "title": "Partner Contact Email"
+                                }
+                            }
+                        }
+                    },
+                    "properties": {
+                        "state": {
+                            "type": "string",
+                            "title": "State",
+                            "enum": [
+                                "Created",
+                                "Review",
+                                "Information Required",
+                                "Investigate",
+                                "Responded",
+                                "Canceled",
+                                "Resolved"
+                            ]
+                        },
+                        "CaseId_v1": {
+                            "type": "string",
+                            "maxLength": 19,
+                            "title": "Case Id"
+                        },
+                        "PartnerReference_v1": {
+                            "type": "string",
+                            "maxLength": 10,
+                            "title": "Partner Reference"
+                        },
+                        "RequestDescription_v1": {
+                            "type": "string",
+                            "maxLength": 400,
+                            "title": "Request Details"
+                        },
+                        "RequestType_v1": {
+                            "type": "string",
+                            "maxLength": 23,
+                            "title": "Request Type",
+                            "enum": [
+                                "Account Enquiry",
+                                "Shipping & Tracking",
+                                "Packaging Supplies",
+                                "Rates & Transit Times",
+                                "Invoice & Payments",
+                                "Order Enquiry",
+                                "Product Details Enquiry",
+                                "Open an Account",
+                                "General Enquiry",
+                                "Claims"
+                            ]
+                        },
+                        "Customer_v1": {
+                            "type": "object",
+                            "title": "Customer",
+                            "$ref": "#/definitions/Customer_v1"
+                        },
+                        "Resolution_v1": {
+                            "type": "string",
+                            "maxLength": 400,
+                            "title": "Resolution"
+                        },
+                        "RequestDetails_v1": {
+                            "type": "object",
+                            "title": "Order Details",
+                            "$ref": "#/definitions/RequestDetails_v1"
+                        },
+                        "recentCustomerOrders_v1": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "#/definitions/RequestDetails_v1"
+                            },
+                            "title": "Recent Customer Orders"
+                        },
+                        "Investigation_v1": {
+                            "type": "object",
+                            "title": "Investigation",
+                            "$ref": "#/definitions/PartnerInvestigation_v1"
+                        },
+                        "CaseMetrics_v1": {
+                            "type": "object",
+                            "title": "Request Metrics",
+                            "$ref": "#/definitions/CaseMetrics_v1"
+                        }
+                    }
+                },
+                "creators": [
+                    {
+                        "id": "7915",
+                        "name": "Create Information Request",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "definitions": {
+                                "Customer_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Name_v1": {
+                                            "type": "string",
+                                            "maxLength": 80,
+                                            "title": "Name"
+                                        },
+                                        "CustomerReference_v1": {
+                                            "type": "string",
+                                            "maxLength": 10,
+                                            "title": "Customer Reference"
+                                        }
+                                    }
+                                },
+                                "RequestDetails_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "PartReference_v1": {
+                                            "type": "string",
+                                            "maxLength": 10,
+                                            "title": "Part Reference"
+                                        },
+                                        "OrderReference_v1": {
+                                            "type": "string",
+                                            "maxLength": 10,
+                                            "title": "Order Reference"
+                                        }
+                                    }
+                                },
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "properties": {
+                                        "RequestType_v1": {
+                                            "type": "string",
+                                            "maxLength": 23,
+                                            "title": "Request Type",
+                                            "enum": [
+                                                "Account Enquiry",
+                                                "Shipping & Tracking",
+                                                "Packaging Supplies",
+                                                "Rates & Transit Times",
+                                                "Invoice & Payments",
+                                                "Order Enquiry",
+                                                "Product Details Enquiry",
+                                                "Open an Account",
+                                                "General Enquiry",
+                                                "Claims"
+                                            ]
+                                        },
+                                        "RequestDescription_v1": {
+                                            "type": "string",
+                                            "maxLength": 400,
+                                            "title": "Request Details"
+                                        },
+                                        "Customer_v1": {
+                                            "type": "object",
+                                            "title": "Customer",
+                                            "$ref": "#/definitions/Customer_v1"
+                                        },
+                                        "RequestDetails_v1": {
+                                            "type": "object",
+                                            "title": "Order Details",
+                                            "$ref": "#/definitions/RequestDetails_v1"
+                                        }
+                                    },
+                                    "required": [
+                                        "RequestType_v1",
+                                        "RequestDescription_v1"
+                                    ]
+                                }
+                            },
+                            "properties": {
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "title": "Partner Request",
+                                    "$ref": "#/definitions/PartnerRequest"
+                                }
+                            },
+                            "required": [
+                                "PartnerRequest"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "7925",
+                        "name": "New Product Notification",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "definitions": {
+                                "CaseMetrics_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Priority_v1": {
+                                            "type": "integer",
+                                            "description": "Priority of Request - LOW 1 -> HIGH 5",
+                                            "minimum": 1.0,
+                                            "title": "Priority",
+                                            "maximum": 5.0
+                                        },
+                                        "DueDate_v1": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "title": "Due Date"
+                                        },
+                                        "Owner_v1": {
+                                            "type": "string",
+                                            "maxLength": 50,
+                                            "title": "Request Owner"
+                                        },
+                                        "RequestOwnerEmail_v1": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "maxLength": 254,
+                                            "title": "Request Owner Email"
+                                        },
+                                        "RequestOwnerSMS_v1": {
+                                            "type": "string",
+                                            "maxLength": 50,
+                                            "title": "Request Owner SMS"
+                                        },
+                                        "PartnerContactEmail_v1": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "maxLength": 254,
+                                            "title": "Partner Contact Email"
+                                        }
+                                    }
+                                },
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "properties": {
+                                        "CaseMetrics_v1": {
+                                            "type": "object",
+                                            "title": "Request Metrics",
+                                            "$ref": "#/definitions/CaseMetrics_v1"
+                                        }
+                                    }
+                                }
+                            },
+                            "properties": {
+                                "ProductDetails_v1": {
+                                    "type": "string",
+                                    "maxLength": 400,
+                                    "title": "Product Details"
+                                },
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "title": "Partner Request",
+                                    "$ref": "#/definitions/PartnerRequest"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "7924",
+                        "name": "Product Recall Notification",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "definitions": {
+                                "CaseMetrics_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Priority_v1": {
+                                            "type": "integer",
+                                            "description": "Priority of Request - LOW 1 -> HIGH 5",
+                                            "minimum": 1.0,
+                                            "title": "Priority",
+                                            "maximum": 5.0
+                                        },
+                                        "DueDate_v1": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "title": "Due Date"
+                                        },
+                                        "Owner_v1": {
+                                            "type": "string",
+                                            "maxLength": 50,
+                                            "title": "Request Owner"
+                                        },
+                                        "RequestOwnerEmail_v1": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "maxLength": 254,
+                                            "title": "Request Owner Email"
+                                        },
+                                        "RequestOwnerSMS_v1": {
+                                            "type": "string",
+                                            "maxLength": 50,
+                                            "title": "Request Owner SMS"
+                                        },
+                                        "PartnerContactEmail_v1": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "maxLength": 254,
+                                            "title": "Partner Contact Email"
+                                        }
+                                    }
+                                },
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "properties": {
+                                        "CaseMetrics_v1": {
+                                            "type": "object",
+                                            "title": "Request Metrics",
+                                            "$ref": "#/definitions/CaseMetrics_v1"
+                                        },
+                                        "RequestDescription_v1": {
+                                            "type": "string",
+                                            "maxLength": 400,
+                                            "title": "Request Details"
+                                        }
+                                    }
+                                }
+                            },
+                            "properties": {
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "title": "Partner Request",
+                                    "$ref": "#/definitions/PartnerRequest"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "actions": [
+                    {
+                        "id": "7920",
+                        "name": "Close Request",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "properties": {
+                                "FinalState_v1": {
+                                    "type": "string",
+                                    "maxLength": 17,
+                                    "title": "Final State",
+                                    "enum": [
+                                        "Resolved",
+                                        "Canceled"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "7921",
+                        "name": "Create Request Reminder",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "properties": {
+                                "DueDate_v1": {
+                                    "type": "string",
+                                    "description": "Reminder Due Date",
+                                    "format": "date",
+                                    "title": "Due Date"
+                                },
+                                "DueTime_v1": {
+                                    "type": "string",
+                                    "description": "Reminder Due Time",
+                                    "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                    "title": "Due Time"
+                                },
+                                "todo_v1": {
+                                    "type": "string",
+                                    "description": "What needs to be done on Reminder expiry?",
+                                    "maxLength": 400,
+                                    "title": "todo"
+                                }
+                            },
+                            "required": [
+                                "DueDate_v1",
+                                "todo_v1"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "7923",
+                        "name": "Recall Request",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "properties": {
+                                "Note_v1": {
+                                    "type": "string",
+                                    "maxLength": 400,
+                                    "title": "Note"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "7917",
+                        "name": "Respond to Request",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "definitions": {
+                                "IssueLog_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "LogEntry_v1": {
+                                            "type": "string",
+                                            "maxLength": 250,
+                                            "title": "Log Entry"
+                                        }
+                                    }
+                                },
+                                "RequestDetails_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "IssueLog_v1": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "$ref": "#/definitions/IssueLog_v1"
+                                            },
+                                            "title": "Issue Log"
+                                        }
+                                    }
+                                },
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Resolution_v1": {
+                                            "type": "string",
+                                            "maxLength": 400,
+                                            "title": "Resolution"
+                                        },
+                                        "RequestDetails_v1": {
+                                            "type": "object",
+                                            "title": "Order Details",
+                                            "$ref": "#/definitions/RequestDetails_v1"
+                                        }
+                                    },
+                                    "required": [
+                                        "Resolution_v1"
+                                    ]
+                                }
+                            },
+                            "properties": {
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "title": "Partner Request",
+                                    "$ref": "#/definitions/PartnerRequest"
+                                }
+                            },
+                            "required": [
+                                "PartnerRequest"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "7919",
+                        "name": "Submit Request for Review",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "properties": {
+                                "ReviewInstruction_v1": {
+                                    "type": "string",
+                                    "maxLength": 400,
+                                    "title": "Review Instruction"
+                                }
+                            },
+                            "required": [
+                                "ReviewInstruction_v1"
+                            ]
+                        }
+                    },
+                    {
+                        "id": "7916",
+                        "name": "Update Request Metrics",
+                        "jsonSchema": {
+                            "type": "object",
+                            "$schema": "http://json-schema.org/draft-04/schema#",
+                            "definitions": {
+                                "Customer_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Name_v1": {
+                                            "type": "string",
+                                            "maxLength": 80,
+                                            "title": "Name"
+                                        },
+                                        "CustomerReference_v1": {
+                                            "type": "string",
+                                            "maxLength": 10,
+                                            "title": "Customer Reference"
+                                        },
+                                        "CustomerDetailsExtract_v1": {
+                                            "type": "string",
+                                            "maxLength": 400,
+                                            "title": "Customer Details Extract"
+                                        },
+                                        "CustomerEmail_v1": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "maxLength": 254,
+                                            "title": "Customer Email"
+                                        }
+                                    }
+                                },
+                                "IssueLog_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "LogEntry_v1": {
+                                            "type": "string",
+                                            "maxLength": 250,
+                                            "title": "Log Entry"
+                                        }
+                                    }
+                                },
+                                "RequestDetails_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "PartReference_v1": {
+                                            "type": "string",
+                                            "maxLength": 10,
+                                            "title": "Part Reference"
+                                        },
+                                        "PartName_v1": {
+                                            "type": "string",
+                                            "maxLength": 50,
+                                            "title": "Part Name"
+                                        },
+                                        "PartDescription_v1": {
+                                            "type": "string",
+                                            "maxLength": 400,
+                                            "title": "Part Description"
+                                        },
+                                        "OrderReference_v1": {
+                                            "type": "string",
+                                            "maxLength": 10,
+                                            "title": "Order Reference"
+                                        },
+                                        "IssueLog_v1": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "$ref": "#/definitions/IssueLog_v1"
+                                            },
+                                            "title": "Issue Log"
+                                        }
+                                    }
+                                },
+                                "CaseMetrics_v1": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Priority_v1": {
+                                            "type": "integer",
+                                            "description": "Priority of Request - LOW 1 -> HIGH 5",
+                                            "minimum": 1.0,
+                                            "title": "Priority",
+                                            "maximum": 5.0
+                                        },
+                                        "DueDate_v1": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "title": "Due Date"
+                                        },
+                                        "Owner_v1": {
+                                            "type": "string",
+                                            "maxLength": 50,
+                                            "title": "Request Owner"
+                                        },
+                                        "RequestOwnerEmail_v1": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "maxLength": 254,
+                                            "title": "Request Owner Email"
+                                        },
+                                        "RequestOwnerSMS_v1": {
+                                            "type": "string",
+                                            "maxLength": 50,
+                                            "title": "Request Owner SMS"
+                                        },
+                                        "PartnerContactEmail_v1": {
+                                            "type": "string",
+                                            "format": "email",
+                                            "maxLength": 254,
+                                            "title": "Partner Contact Email"
+                                        }
+                                    }
+                                },
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "properties": {
+                                        "RequestType_v1": {
+                                            "type": "string",
+                                            "maxLength": 23,
+                                            "title": "Request Type",
+                                            "enum": [
+                                                "Account Enquiry",
+                                                "Shipping & Tracking",
+                                                "Packaging Supplies",
+                                                "Rates & Transit Times",
+                                                "Invoice & Payments",
+                                                "Order Enquiry",
+                                                "Product Details Enquiry",
+                                                "Open an Account",
+                                                "General Enquiry",
+                                                "Claims"
+                                            ]
+                                        },
+                                        "RequestDescription_v1": {
+                                            "type": "string",
+                                            "maxLength": 400,
+                                            "title": "Request Details"
+                                        },
+                                        "Customer_v1": {
+                                            "type": "object",
+                                            "title": "Customer",
+                                            "$ref": "#/definitions/Customer_v1"
+                                        },
+                                        "RequestDetails_v1": {
+                                            "type": "object",
+                                            "title": "Order Details",
+                                            "$ref": "#/definitions/RequestDetails_v1"
+                                        },
+                                        "CaseMetrics_v1": {
+                                            "type": "object",
+                                            "title": "Request Metrics",
+                                            "$ref": "#/definitions/CaseMetrics_v1"
+                                        }
+                                    }
+                                }
+                            },
+                            "properties": {
+                                "PartnerRequest": {
+                                    "type": "object",
+                                    "title": "Partner Request",
+                                    "$ref": "#/definitions/PartnerRequest"
+                                }
+                            }
+                        }
                     }
                 ]
             }

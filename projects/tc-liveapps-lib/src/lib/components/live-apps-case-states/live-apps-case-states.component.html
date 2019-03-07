@@ -1,1 +1,15 @@
-<pre>Case States: {{ states | json }}</pre>
+<div fxFlex class="starters-case-states-container" fxLayout="row" fxLayoutAlign="start center">
+  <div *ngIf="tracker && tracker.valid">
+    <span class="tc-milestone-title" fxLayoutAlign="start center">Milestones</span>
+    <div fxFlex class="starters-milestone-trailer" fxLayout="row wrap">
+      <div class="starters-ms-wrapper" *ngFor="let trackerState of tracker.states; first as isFirst; last as isLast" ngclass="{'starters-milestone-first-section': isFirst, 'starters-milestone-mid-section': (!isFirst && !isLast), 'starters-milestone-end-section': isLast}">
+        <tcla-live-apps-milestone [isFirst]="isFirst" [isLast]="isLast" [isTerminal]="trackerState.isTerminal" [label]="trackerState.label" [phase]="trackerState.phase" [previousPhase]="trackerState.previousPhase" [status]="trackerState.status" [matTooltip]="getToolTipText(trackerState)" matTooltipShowDelay="1000" matTooltipPosition="below"></tcla-live-apps-milestone>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="tracker && !tracker.valid">
+    <span class="tc-milestone-title">Milestone data not available</span>
+  </div>
+</div>
+
+

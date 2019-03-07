@@ -1,0 +1,21 @@
+{
+    "mockedResponses": {
+        "/case/v1/cases/205201?$sandbox=31": {
+            "caseReference": "205201",
+            "casedata": "{\n  \"RequestDescription_v1\" : \"Please close my account\",\n  \"RequestType_v1\" : \"Account Enquiry\",\n  \"Customer_v1\" : {\n    \"Name_v1\" : \"Sarah Thomas\",\n    \"CustomerReference_v1\" : \"CST-10293\"\n  },\n  \"RequestDetails_v1\" : {\n    \"PartReference_v1\" : \"PRT-12121\",\n    \"OrderReference_v1\" : \"ORD-12121\"\n  },\n  \"CaseMetrics_v1\" : {\n    \"Priority_v1\" : 3,\n    \"DueDate_v1\" : \"2019-01-29\",\n    \"PartnerContactEmail_v1\" : \"jsmith@tibco.com\"\n  },\n  \"state\" : \"Review\",\n  \"PartnerReference_v1\" : \"99000123\",\n  \"CaseId_v1\" : \"PNR-18\"\n}",
+            "untaggedCasedata": "{\"RequestDescription_v1\":\"Please close my account\",\"RequestType_v1\":\"Account Enquiry\",\"Customer_v1\":{\"Name_v1\":\"Sarah Thomas\",\"CustomerReference_v1\":\"CST-10293\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"PRT-12121\",\"OrderReference_v1\":\"ORD-12121\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2019-01-29\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Review\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-18\"}",
+            "summary": "{\"state\":\"Review\",\"CaseId_v1\":\"PNR-18\",\"RequestDescription_v1\":\"Please close my account\",\"RequestType_v1\":\"Account Enquiry\"}",
+            "metadata": {
+                "createdBy": "265",
+                "creationTimestamp": "2019-01-29T10:57:27.859Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-03-04T13:25:57.450Z",
+                "lockType": "1",
+                "msLockExpiry": "1551705957560",
+                "msSystemTime": "1551710498094",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
+    }
+}

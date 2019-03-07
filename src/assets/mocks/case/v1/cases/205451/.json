@@ -1,0 +1,19 @@
+{
+    "mockedResponses": {
+        "/case/v1/cases/205451/?$sandbox=31&$select=uc, m, s": {
+            "untaggedCasedata": "{\"CaseMetrics_v1\":{\"Priority_v1\":3},\"state\":\"Responded\",\"RequestType_v1\":\"Account Enquiry\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-29\",\"RequestDescription_v1\":\"Please call me back\",\"Customer_v1\":{},\"RequestDetails_v1\":{\"IssueLog_v1\":[{\"LogEntry_v1\":\"Customer wrong perpection\"}]},\"Resolution_v1\":\"All OK\"}",
+            "summary": "{\"state\":\"Responded\",\"CaseId_v1\":\"PNR-29\",\"RequestDescription_v1\":\"Please call me back\",\"RequestType_v1\":\"Account Enquiry\"}",
+            "metadata": {
+                "createdBy": "265",
+                "creationTimestamp": "2019-01-30T15:04:02.958Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-03-04T13:26:39.442Z",
+                "lockType": "1",
+                "msLockExpiry": "1551705999487",
+                "msSystemTime": "1551706985525",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
+    }
+}

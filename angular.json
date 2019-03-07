@@ -282,6 +282,41 @@
           }
         }
       }
+    },
+    "tc-process-discovery-lib": {
+      "root": "projects/tc-process-discovery-lib",
+      "sourceRoot": "projects/tc-process-discovery-lib/src",
+      "projectType": "library",
+      "prefix": "tcpd",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tc-process-discovery-lib/tsconfig.lib.json",
+            "project": "projects/tc-process-discovery-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tc-process-discovery-lib/src/test.ts",
+            "tsConfig": "projects/tc-process-discovery-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tc-process-discovery-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tc-process-discovery-lib/tsconfig.lib.json",
+              "projects/tc-process-discovery-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tc-liveapps"

@@ -1,9 +1,10 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {AuditEvent} from '../../models/liveappsdata';
+import {AuditEvent} from '../../models/tc-case-audit';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {TcCaseStatesService} from '../../services/tc-case-states.service';
+import {StateAuditEvent} from '../../models/tc-case-states';
 
 @Component({
   selector: 'tcla-live-apps-case-state-audit',
@@ -14,24 +15,29 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
 
   @Input() caseRef: string;
   @Input() sandboxId: number;
+  @Input() appId: string;
 
-  public auditEvents: AuditEvent[];
+  public auditEvents: StateAuditEvent[];
   public errorMessage: string;
 
+
+  constructor(private caseStatesService: TcCaseStatesService) {
+    super();
+  }
+
   public refresh = () => {
-    this.liveapps.getCaseStateAudit(this.caseRef, this.sandboxId)
+    this.caseStatesService.getCaseStateAuditWithTerminal(this.caseRef, this.sandboxId, this.appId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
         map(auditeventlist => {
-          this.auditEvents = auditeventlist.auditevents;
+          this.auditEvents = auditeventlist.auditEvents;
+          if (!this.auditEvents || this.auditEvents.length <= 0) {
+            console.error('Unable to create states audit view. Case Audit likely removed due to subscription retention period.');
+          }
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg; });
-  }
-
-  constructor(private liveapps: LiveAppsService) {
-    super();
   }
 
   ngOnInit() {

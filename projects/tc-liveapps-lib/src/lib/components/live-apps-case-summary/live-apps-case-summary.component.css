@@ -44,6 +44,21 @@
   border-radius: 3px;
 }
 
+.tcs-case-summary-static-list-card {
+  padding: 0px;
+  height: 50px;
+  min-height: 50px;
+  background-color: #ffffff;
+  /*padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;*/
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+
+
 .tcs-case-summary-mini-card-right-content {
   padding-left: 5px;
   padding-right: 5px;
@@ -68,6 +83,11 @@
 .tcs-case-summary-list-card:hover {
   box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
   border-radius: 3px;
+}
+
+.tcs-case-summary-static-list-card:hover {
+  /* box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
+  border-radius: 3px; */
 }
 
 .tcs-case-summary-header {
@@ -145,7 +165,7 @@
 }
 
 .tcs-case-summary-creation-text {
-  height: 15px;
+  /* height: 15px; */
   min-height: 15px;
 }
 

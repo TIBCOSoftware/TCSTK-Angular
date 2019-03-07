@@ -34,12 +34,12 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
 // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChild(LiveAppsCaseSummaryComponent) caseSummaryComponent: LiveAppsCaseSummaryComponent;
   @ViewChild(LiveAppsCaseDataComponent) caseDataComponent: LiveAppsCaseDataComponent;
-  @ViewChild(LiveAppsCaseStatesComponent) caseStatesComponent: LiveAppsCaseStatesComponent;
   @ViewChild(LiveAppsCaseActionsComponent) caseActionsComponent: LiveAppsCaseActionsComponent;
   @ViewChild(LiveAppsCaseAuditComponent) caseAuditComponent: LiveAppsCaseAuditComponent;
-  @ViewChild(LiveAppsCaseStateAuditComponent) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
   @ViewChild(LiveAppsDocumentsComponent) caseDocumentsComponent: LiveAppsDocumentsComponent;
   @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsCaseStatesComponent) caseStatesComponent: LiveAppsCaseStatesComponent;
+  @ViewChild(LiveAppsCaseStateAuditComponent) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
   @ViewChild('dataTabGroup') dataTabGroups: MatTabGroup;
 
   isFavorite: boolean;
@@ -110,6 +110,9 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
     }
     if (this.caseAuditComponent) {
       this.caseAuditComponent.refresh();
+    }
+    if (this.caseStateAuditComponent) {
+      this.caseStateAuditComponent.refresh();
     }
     if (this.caseStatesComponent) {
       this.caseStatesComponent.refresh();

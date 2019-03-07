@@ -1,0 +1,19 @@
+{
+    "mockedResponses": {
+        "/case/v1/cases/205221/?$sandbox=31&$select=uc, m, s": {
+            "untaggedCasedata": "{\"RequestDescription_v1\":\"How much for a 100cmx100cmx100cm box weighing 1KG\",\"RequestType_v1\":\"Packaging Supplies\",\"Customer_v1\":{\"Name_v1\":\"James King\",\"CustomerReference_v1\":\"CST-2933\"},\"RequestDetails_v1\":{\"PartReference_v1\":\"PRT-12121\",\"OrderReference_v1\":\"ORD-1111\"},\"CaseMetrics_v1\":{\"Priority_v1\":3,\"DueDate_v1\":\"2019-01-29\",\"PartnerContactEmail_v1\":\"jsmith@tibco.com\"},\"state\":\"Created\",\"PartnerReference_v1\":\"99000123\",\"CaseId_v1\":\"PNR-20\"}",
+            "summary": "{\"state\":\"Created\",\"CaseId_v1\":\"PNR-20\",\"RequestDescription_v1\":\"How much for a 100cmx100cmx100cm box weighing 1KG\",\"RequestType_v1\":\"Packaging Supplies\"}",
+            "metadata": {
+                "createdBy": "265",
+                "creationTimestamp": "2019-01-29T11:00:02.067Z",
+                "modifiedBy": "265",
+                "modificationTimestamp": "2019-01-29T11:00:02.067Z",
+                "lockType": "1",
+                "msLockExpiry": "0",
+                "msSystemTime": "1551707730730",
+                "applicationId": "1742",
+                "typeId": "1"
+            }
+        }
+    }
+}

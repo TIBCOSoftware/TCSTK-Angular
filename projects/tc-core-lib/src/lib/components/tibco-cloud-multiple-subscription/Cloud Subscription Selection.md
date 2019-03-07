@@ -10,8 +10,11 @@ Screenshot Image of the Subscription Selection Dialog
 This component is required if user is in multiple subscriptions - they must select a subscription to complete login.
 
 ```html
-<tc-tibco-cloud-multiple-subscription></tc-tibco-cloud-multiple-subscription>
+<tcla-tibco-cloud-multiple-subscription *ngIf="subRequired && !loggedIn" [subscriptions]="subscriptions"
+     [token]="token" (subscriptionSelection)="handleLoggedIn($event)"></tcla-tibco-cloud-multiple-subscription>
 ```
+
+A user will use this component when they have multiple subscriptions. The component is passed a list of subscriptions. The user must choose a subscription, then the user is logged in against that subscription.
 
 #### Inputs
 available Attributes
@@ -21,11 +24,12 @@ available Attributes
 | subscriptions   | any             |               | List of Subscriptions |
 | token           | AccessToken     |               | Cloud AccessToken     |
 
-#### Inputs
+#### Outputs
 available Attributes
 
 | Attribute              | Type            | Default Value | Comments              |
 | ---------------------- |:--------------- |:------------- |:--------------------- |
+| loggedIn               | boolean         |               | user is logged in ok  |
 | subscriptionSelection  |                 |               | selected Subscription |
 
 #### Demos
@@ -34,6 +38,6 @@ live Showcase
 <tc-tibco-cloud-multiple-subscription></tc-tibco-cloud-multiple-subscription>
 <script type="text/javascript" src="http://host/cust-component/cust-element.js"></script>
 
-> Showcase connected to Mock Service
+> Showcase connected to Mock Service 
 
 
