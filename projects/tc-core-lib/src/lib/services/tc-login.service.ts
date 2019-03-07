@@ -47,7 +47,7 @@ export class TcLoginService {
 
   // Provide ability to authorize against live apps (note tenantId: bpm)
   public laAuthorize(accessToken: AccessToken, accountId): Observable<AuthInfo> {
-    const url = '/idm/v1/login-oauth';
+    const url = '/idm/v2/login-oauth';
     const body = new HttpParams()
       .set('AccessToken', accessToken.access_token)
       .set('TenantId', 'bpm')

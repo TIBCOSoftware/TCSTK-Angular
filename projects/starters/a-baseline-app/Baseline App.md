@@ -10,4 +10,4 @@ TIBCO Cloud LiveApps Baseline App, containing all core and essential Case Manage
 more Details will follow here soon ...
 
 #### Source
-All Source on GitHub here: [github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/a-baseline-app/src](https://github.com/TIBCOSoftware/TCSDK-Angular/projects/starters/a-baseline-app/src)
+All Source on GitHub here: [github.com/TIBCOSoftware/TCST-Angular/projects/starters/a-baseline-app/src](https://github.com/TIBCOSoftware/TCST-Angular/projects/starters/a-baseline-app/src)

@@ -1,7 +1,7 @@
 {
     "mockedResponses": {
-      "/collaboration/notifications?$filter=collectionName=%27CASE_APP_150481%27%20and%20entityId=265":
-        []    
+      "/collaboration/notifications?$filter=collectionName='CASE_APP_150481' and entityId=265": [],
+      "/collaboration/v1/notifications?$filter=collectionName='CASE_APP_205201' and entityId=265": []
     }
 }
   

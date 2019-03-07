@@ -12,6 +12,7 @@
     "build_lib": "ng build tc-liveapps-lib",
     "build_all_libs_old": "cp tsconfig.build.json tsconfig.json && ng build tc-core-lib && ng build tc-liveapps-lib && ng build tc-forms-lib && ng build tc-handsontable-lib && ng build tc-spotfire-lib && ng build tc-integration-lib && cp tsconfig.debug.json tsconfig.json",
     "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build tc-core-lib && ng build tc-forms-lib && ng build tc-liveapps-lib && ng build tc-handsontable-lib && cp tsconfig.debug.json tsconfig.json",
+    "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build tc-core-lib && ng build tc-liveapps-lib && ng build tc-forms-lib && ng build tc-handsontable-lib && ng build tc-process-discovery-lib && cp tsconfig.debug.json tsconfig.json",
     "npm_pack": "cd dist/tc-liveapps-lib && npm pack",
     "package": "npm run build_lib && npm run npm_pack"
   },

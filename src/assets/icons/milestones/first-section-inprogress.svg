@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">
+    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M93.42 0C87.176 3.675 83 10.361 83 18c0 7.639 4.176 14.325 10.42 18H0c6.36-3.675 10.614-10.361 10.614-18C10.614 10.361 6.36 3.675 0 0h93.42z"/>
+    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">
+        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>
+    </text>
+</svg>

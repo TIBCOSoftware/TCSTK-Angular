@@ -142,5 +142,45 @@ export class AppComponent {
       'tcs-close-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-close.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-case-state-audit-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-case-state-audit.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-milestone-completed',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-completed.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-milestone-completed-terminal',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-completed-terminal.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-milestone-inprogress',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-inprogress.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-milestone-inprogress-terminal',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-inprogress-terminal.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-milestone-pending',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-pending.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-milestone-pending-terminal',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-milestone-pending-terminal.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-mini-state-completed',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-completed.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-mini-state-current',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-current.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-mini-state-terminal-completed',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-terminal-completed.svg'))
+    );
   }
 }
