@@ -1,0 +1,50 @@
+<p>
+  spotfire-play
+</p>
+<!--
+<tcla-spotfire-viz
+  [sid]="123435"
+  [url]="'https://spotfire-next.cloud.tibco.com'"
+  [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
+  [customization]="{ showAbout: true, showPageNavigation: true }"
+>
+  <!- [customization]="{ showAbout: true, showPageNavigation: true }" ->
+</tcla-spotfire-viz>
+-->
+
+<tcla-spotfire-viz
+  url="https://spotfire-next.cloud.tibco.com"
+  path="/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard"
+  marking-on='{"SpotfireExpenseAnalyzer": [ "Type", "Department"]}'
+  (markingEvent)="marking($event)"
+  [sid]="'myID'"
+  id="id1"
+  [customization]="{ showAbout: true, showPageNavigation: true }"
+
+
+
+
+>
+
+</tcla-spotfire-viz>
+<!--
+ customization='{
+          "showAbout": true,
+          "showAnalysisInformationTool": true,
+          "showAuthor": true,
+          "showClose": true,
+          "showCustomizableHeader": true,
+          "showDodPanel": true,
+          "showExportFile": true,
+          "showExportVisualization": true,
+          "showFilterPanel": true,
+          "showHelp": true,
+          "showLogout": true,
+          "showPageNavigation": true,
+          "showAnalysisInfo": true,
+          "showReloadAnalysis": true,
+          "showStatusBar": true,
+          "showToolBar": true,
+          "showUndoRedo": true}'
+
+-->

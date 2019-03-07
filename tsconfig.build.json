@@ -57,6 +57,13 @@
       ],
       "tc-process-discovery-lib/*": [
         "dist/tc-process-discovery-lib/*"
+      ],
+      "tc-spotfire-play-lib": [
+        //"projects/tc-spotfire-play-lib/src/public_api",
+         "dist/tc-spotfire-play-lib"
+      ],
+      "tc-spotfire-play-lib/*": [
+        "dist/tc-spotfire-play-lib/*"
       ]
     }
   }

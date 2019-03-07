@@ -1,0 +1,28 @@
+{
+  "name":"testappjs.config.tibcolabs.client.context.PUBLIC",
+  "content":{
+    "json":"{\"id\":\"5639\",\"userId\":\"256\",\"applicationId\":\"1742\",\"typeId\":\"1\",\"uiAppId\":\"testappjs\",\"caseIconsFolderId\":\"ServiceRequest_Icons\",\"caseTypeLabel\":\"Partner Request\",\"sandboxId\":\"31\"}"
+  },
+  "type":"PUBLIC",
+  "description":null,
+  "sandboxId":"31",
+  "scope":"",
+  "attributes":[
+
+  ],
+  "roles":[
+
+  ],
+  "links":[
+
+  ],
+  "id":"5639",
+  "createdById":"265",
+  "createdByName":"Guest SEG",
+  "createdDate":1546617445967,
+  "modifiedById":"265",
+  "modifiedByName":"Guest SEG",
+  "modifiedDate":1546617446080,
+  "isOrphaned":false,
+  "isAbandoned":false
+}
