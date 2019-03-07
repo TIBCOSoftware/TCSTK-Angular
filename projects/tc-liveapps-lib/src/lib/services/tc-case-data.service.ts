@@ -5,13 +5,14 @@ import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';
 import {CaseInfoWithSchema} from '../models/tc-case-data';
 import {map, mergeMap, tap} from 'rxjs/operators';
+import {TcCaseCardConfigService} from './tc-case-card-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TcCaseDataService {
 
-  constructor(private http: HttpClient, private liveAppsService: LiveAppsService) { }
+  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private caseCardConfigService: TcCaseCardConfigService) { }
 
   public getCaseState(caseRef: string, sandboxId: number): Observable<string> {
     const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=s';
@@ -50,8 +51,8 @@ export class TcCaseDataService {
       .pipe(
         tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfo => {
-          let caseinf = new CaseInfo().deserialize(caseinfo);
-          caseinf = this.liveAppsService.parseCaseInfo(
+          const caseinf = new CaseInfo().deserialize(caseinfo);
+          this.caseCardConfigService.parseCaseInfo(
             caseinf,
             sandboxId,
             caseinf.metadata.applicationId,

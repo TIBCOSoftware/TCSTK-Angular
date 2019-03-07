@@ -28,7 +28,6 @@ import {
   LiveAppsDocumentsComponent,
   LiveAppsDocumentUploadDialogComponent
 } from './components/live-apps-documents/live-apps-documents.component';
-import {LiveAppsCaseStateConfigComponent} from './components/live-apps-case-state-config/live-apps-case-state-config.component';
 import {LiveAppsCaseStatesComponent} from './components/live-apps-case-states/live-apps-case-states.component';
 import {
   LiveAppsApplicationConfigurationComponent,
@@ -61,6 +60,7 @@ import { LiveAppsCaseDataDisplayComponent } from './components/live-apps-case-da
 import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpit/live-apps-case-cockpit.component';
 import {TcCaseProcessesService} from './services/tc-case-processes.service';
 import { LiveAppsMilestoneComponent } from './components/live-apps-milestone/live-apps-milestone.component';
+import {TcDocumentService} from './services/tc-document.service';
 
 @NgModule({
   declarations: [
@@ -81,7 +81,6 @@ import { LiveAppsMilestoneComponent } from './components/live-apps-milestone/liv
     LiveAppsDocumentUploadDialogComponent,
     LiveAppsCaseSummaryComponent,
     LiveAppsStateIconComponent,
-    LiveAppsCaseStateConfigComponent,
     LiveAppsApplicationConfigurationComponent,
     LiveAppsStateIconUploadDialogComponent,
     LiveAppsCaseListComponent,
@@ -142,7 +141,6 @@ import { LiveAppsMilestoneComponent } from './components/live-apps-milestone/liv
     LiveAppsDocumentUploadDialogComponent,
     LiveAppsCaseSummaryComponent,
     LiveAppsStateIconComponent,
-    LiveAppsCaseStateConfigComponent,
     LiveAppsApplicationConfigurationComponent,
     LiveAppsStateIconUploadDialogComponent,
     LiveAppsCaseListComponent,
@@ -171,7 +169,7 @@ export class TcLiveappsLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcLiveappsLibModule,
-      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService ]
+      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService ]
     };
   }
 }

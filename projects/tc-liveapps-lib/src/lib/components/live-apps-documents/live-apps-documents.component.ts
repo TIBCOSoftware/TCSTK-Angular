@@ -2,9 +2,10 @@ import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output} from 
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import { DocumentList, Document } from '../../models/liveappsdata';
+import { DocumentList, Document } from '../../models/tc-document';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {TcDocumentService} from '../../services/tc-document.service';
 
 @Component({
   selector: 'tcla-live-apps-documents',
@@ -13,7 +14,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 })
 export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnInit {
 
-  constructor(private liveapps: LiveAppsService, public dialog: MatDialog) {
+  constructor(private liveapps: LiveAppsService, private documentsService: TcDocumentService, public dialog: MatDialog) {
     super();
   }
   @Input() sandboxId: number;
@@ -33,7 +34,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   }
 
   public listDocuments = () => {
-    this.liveapps.listDocuments(this.folderType, this.folderId, this.sandboxId, this.filter)
+    this.documentsService.listDocuments(this.folderType, this.folderId, this.sandboxId, this.filter)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -47,7 +48,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   }
 
   public removeDocument = (doc) => {
-    this.liveapps.deleteDocument(this.folderType, this.folderId, doc.name, this.sandboxId)
+    this.documentsService.deleteDocument(this.folderType, this.folderId, doc.name, this.sandboxId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -61,7 +62,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   }
 
   public downloadDocument = (doc) => {
-    this.liveapps.downloadDocument(this.folderType, this.folderId, doc.name, doc.artifactVersion, this.sandboxId)
+    this.documentsService.downloadDocument(this.folderType, this.folderId, doc.name, doc.artifactVersion, this.sandboxId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -91,7 +92,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
     this.fileToUpload = fileToUpload;
     this.fileDescription = description;
     if (this.fileToUpload) {
-      this.liveapps.uploadDocument(this.folderType, this.folderId, this.sandboxId,
+      this.documentsService.uploadDocument(this.folderType, this.folderId, this.sandboxId,
         this.fileToUpload, this.fileToUpload.name, this.fileDescription)
         .pipe(
           map(val => {

@@ -14,3 +14,12 @@ export class UiAppConfig implements Deserializable {
     return this;
   }
 }
+
+
+export class UiAppIdConfig implements  Deserializable {
+  uiAppId: string;
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
+}

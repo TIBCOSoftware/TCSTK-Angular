@@ -1,6 +1,0 @@
-<form class="state-config-form" #appStateConfigForm="ngForm" fxFlex fxLayout="column" *ngIf="appStateConfigJson">
-  <mat-form-field fxFlex>
-    <textarea matInput name="appStateConfig" type="text" [rows]="4" [(ngModel)]="appStateConfigJson"></textarea>
-  </mat-form-field>
-  <button mat-button (click)="saveStateConfig()" type="submit">Save</button>
-</form>

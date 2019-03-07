@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
 import { Observable, of } from 'rxjs';
-import {UiAppConfig} from '../models/tc-app-config';
-import {flatMap, map, mergeMap} from 'rxjs/operators';
+import {UiAppConfig, UiAppIdConfig} from '../models/tc-app-config';
+import {flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
 import {TcSharedStateService} from '../services/tc-shared-state.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -10,9 +10,11 @@ import {HttpClient} from '@angular/common/http';
 export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
   DEFAULT_CONFIG_URL = '/assets/config/defaultAppConfig.json';
+  APP_ID_URL = '/assets/config/appId.json';
 
   private sandboxId: number;
   public defaultAppConfig: UiAppConfig;
+  private uiAppId: string;
 
   constructor(private tcSharedState: TcSharedStateService, private http: HttpClient) {}
   // note appConfigResolver will need sandboxId to create app config state record.
@@ -27,19 +29,29 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
     return this.http.get(this.DEFAULT_CONFIG_URL);
   }
 
+  // loads uiAppId from json file in assets (appId.json)
+  private getAppId = (): Observable<UiAppIdConfig> => {
+    return this.http.get(this.APP_ID_URL).pipe(
+      map(uiAppId => {
+        const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
+        this.uiAppId = uiAppIdConfig.uiAppId;
+        return uiAppIdConfig;
+        }
+      )
+    );
+  }
+
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
-
-    // todo: get uiAppId - where from?
-
-    const appConfig = this.tcSharedState.getUiAppConfig('testappjs', true, false)
+    const appConfig = this.getAppId().pipe(
+      switchMap(uiAppId => this.tcSharedState.getUiAppConfig(uiAppId.uiAppId, true, false)
       .pipe(
         mergeMap(
           uiAppConfig => {
             if (uiAppConfig === undefined) {
-
               return this.getDefaultAppConfig().pipe(
                 flatMap(config => {
                   this.defaultAppConfig = new UiAppConfig().deserialize(config);
+                  this.defaultAppConfig.uiAppId = this.uiAppId;
                   return this.tcSharedState.createUiAppConfig(
                     this.defaultAppConfig.sandboxId,
                     this.defaultAppConfig,
@@ -57,7 +69,7 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
                             result).subscribe(
                             // trigger a read to flush the cache since we changed it
                             updatedConf => {
-                              this.tcSharedState.getUiAppConfig('testappjs', true, true).subscribe();
+                              this.tcSharedState.getUiAppConfig(this.uiAppId, true, true).subscribe();
                             }
                           );
                           return newAppConfig;
@@ -70,8 +82,9 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
             }
           }
         )
-      );
-
+      )
+      )
+    )
     return appConfig;
   }
 

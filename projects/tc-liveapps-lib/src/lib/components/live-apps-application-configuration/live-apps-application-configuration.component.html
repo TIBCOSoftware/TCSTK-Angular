@@ -24,7 +24,7 @@
           <div class="tcs-case-card-customization-section-text">Configure Icons</div>
         </div>
         <div fxFlex>
-          <div fxFlex class="tcs-case-states-list" *ngIf="appStateConfig && states" fxLayout="column" fxLayoutAlign="center center">
+          <div fxFlex class="tcs-case-states-list" *ngIf="caseCardConfig.cardConfig && caseCardConfig.states" fxLayout="column" fxLayoutAlign="center center">
             <div class="tcs-case-states-list-inner">
               <!-- case type icon -->
               <div class="tcs-case-states-list-row">
@@ -44,7 +44,7 @@
               </div>
               <div class="tcs-case-states-icon-divider"></div>
               <!-- case state icons -->
-              <div *ngFor="let state of states" class="tcs-case-states-list-row" (click)="selectState(state)">
+              <div *ngFor="let state of caseCardConfig.states" class="tcs-case-states-list-row" (click)="selectState(state)">
                 <div *ngIf="getConfigForState(state); let stateConfig;">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div fxLayoutAlign="start center" style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>
