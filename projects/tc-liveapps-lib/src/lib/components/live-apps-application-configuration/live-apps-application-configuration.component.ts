@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {AppConfig, CaseTypeState, IconMap} from '../../models/liveappsdata';
+import {CardConfig, CaseTypeState, IconMap} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
@@ -12,6 +12,9 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsDocumentUploadDialogComponent} from '../live-apps-documents/live-apps-documents.component';
 import { Location } from '@angular/common';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {CaseCardConfig} from '../../models/tc-case-card-config';
+import {TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
+import {TcDocumentService} from '../../services/tc-document.service';
 
 @Component({
   selector: 'tcla-live-apps-application-configuration',
@@ -30,9 +33,8 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   @Input() folderId: string;
   @Output() configChanged = new EventEmitter();
 
-  public states: CaseTypeState[];
   public errorMessage: string;
-  public appStateConfig: AppConfig;
+  public caseCardConfig: CaseCardConfig;
   public selectedStateConfig: IconMap;
   public caseTypeIcon: string;
   public caseTypeColor: string;
@@ -52,8 +54,8 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public getConfigForState = (state: CaseTypeState): IconMap => {
     let reqIconMap: IconMap;
-    if (this.appStateConfig && this.appStateConfig.stateMap) {
-      this.appStateConfig.stateMap.forEach((stateMap) => {
+    if (this.caseCardConfig.cardConfig && this.caseCardConfig.cardConfig.stateMap) {
+      this.caseCardConfig.cardConfig.stateMap.forEach((stateMap) => {
         if (stateMap.state === state.value) {
           reqIconMap = stateMap;
         }
@@ -64,8 +66,8 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public getConfigForCaseType = (caseTypeId: string): IconMap => {
     let reqIconMap: IconMap;
-    if (this.appStateConfig && this.appStateConfig.stateMap) {
-      this.appStateConfig.stateMap.forEach((stateMap) => {
+    if (this.caseCardConfig.cardConfig && this.caseCardConfig.cardConfig.stateMap) {
+      this.caseCardConfig.cardConfig.stateMap.forEach((stateMap) => {
         if (stateMap.state === caseTypeId) {
           reqIconMap = stateMap;
         }
@@ -77,8 +79,8 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   public updateIconMap = (stateConfig: IconMap) => {
     let foundMap: IconMap;
     let updatedMap: IconMap;
-    if (this.appStateConfig && this.appStateConfig.stateMap) {
-      this.appStateConfig.stateMap.forEach(function(stateMap) {
+    if (this.caseCardConfig.cardConfig && this.caseCardConfig.cardConfig.stateMap) {
+      this.caseCardConfig.cardConfig.stateMap.forEach(function(stateMap) {
         if (stateMap.state === stateConfig.state) {
           foundMap = stateConfig;
           stateMap.state = stateConfig.state;
@@ -89,11 +91,11 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
       if (foundMap) {
         foundMap = stateConfig;
       } else {
-        this.appStateConfig.stateMap.push(stateConfig);
+        this.caseCardConfig.cardConfig.stateMap.push(stateConfig);
       }
     } else {
-      this.appStateConfig.stateMap = [];
-      this.appStateConfig.stateMap.push(stateConfig);
+      this.caseCardConfig.cardConfig.stateMap = [];
+      this.caseCardConfig.cardConfig.stateMap.push(stateConfig);
     }
   }
 
@@ -123,16 +125,14 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   }
 
   public saveConfig = () => {
-    this.liveapps.updateAppConfig(this.sandboxId, this.appId, this.uiAppId, this.appStateConfig, this.appStateConfig.id)
+    this.caseCardConfigService.updateCaseCardConfig(this.sandboxId, this.appId, this.uiAppId, this.caseCardConfig)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
-        map( val => {
-            // trigger cache flush
-            this.liveapps.getAppConfig(this.appId, this.uiAppId, true, true)
-              .subscribe(appconfig => this.configChanged.emit(this.appStateConfig));
-          })
-      ).subscribe(null, error => { console.log('Unable to retrieve icon: ' + error.errorMsg); }
+        map(caseCardConfig => {
+          this.caseCardConfig = caseCardConfig;
+        })
+      ).subscribe(null, error => { console.log('Unable to update case card config: ' + error.errorMsg); }
     );
   }
 
@@ -180,15 +180,16 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   public uploadFile(file: File, state: CaseTypeState, isStateIcon: boolean) {
     if (file) {
       const url = 'webresource/v1/orgFolders/' + this.folderId + '/' + file.name;
+      const dlUrl = 'webresource/orgFolders/' + this.folderId + '/' + file.name;
       this.liveapps.clearFromIconSVGTextCache(url);
-      this.liveapps.uploadDocument('orgFolders', this.folderId, this.sandboxId,
+      this.documentsService.uploadDocument('orgFolders', this.folderId, this.sandboxId,
         file, file.name, '')
         .pipe(
           map(val => {
             if (!isStateIcon) {
-              this.setNewStateIcon(url);
+              this.setNewStateIcon(dlUrl);
             } else {
-              this.setNewCaseTypeIcon(url);
+              this.setNewCaseTypeIcon(dlUrl);
             }
           })
         )
@@ -198,50 +199,31 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     }
   }
 
+  public refresh = () => {
+    // need states & cardConfig
+    this.caseCardConfigService.getCaseCardConfig(this.sandboxId, this.appId, this.uiAppId, this.appTypeLabel, this.DEFAULT_CASE_TYPE_COLOR, this.DEFAULT_CASE_TYPE_ICON, this.DEFAULT_CASE_STATE_COLOR, this.DEFAULT_CASE_STATE_ICON).pipe(
+      take(1),
+      takeUntil(this._destroyed$),
+      map(caseCardConfig => {
+        this.caseCardConfig = caseCardConfig;
+        // set default selected to case type
+        this.selectedStateConfig = this.caseCardConfig.cardConfig.stateMap.find(function(stateMap) {
+          return stateMap.isCaseType;
+        });
+        this.caseTypeIcon = this.selectedStateConfig.icon;
+        this.caseTypeColor = this.selectedStateConfig.fill;
+      })
+    ).subscribe(
+      null, error => { this.errorMessage = 'Error retrieving case card config: ' + error.error.errorMsg; });
+  }
+
   constructor(private http: HttpClient, private sanitizer: DomSanitizer,
-              private liveapps: LiveAppsService, public dialog: MatDialog, private location: Location) {
+              private liveapps: LiveAppsService, public caseCardConfigService: TcCaseCardConfigService, private documentsService: TcDocumentService, public dialog: MatDialog, private location: Location) {
     super();
   }
 
   ngOnInit() {
-    // get states for application
-    this.liveapps.getCaseTypeStates(this.sandboxId, this.appId, 50)
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(states => this.states = states.states)
-      ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving case type states: ' + error.error.errorMsg; });
-
-    this.liveapps.getAppConfig(this.appId, this.uiAppId, true, false)
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(config => {
-          this.appStateConfig = config;
-          if (this.appStateConfig && this.appStateConfig.stateMap && this.appStateConfig.stateMap.length > 0) {
-            this.appStateConfig.stateMap.forEach((stateMap) => {
-              if (stateMap.isCaseType) {
-                this.caseTypeIcon = stateMap.icon;
-                this.caseTypeColor = stateMap.fill;
-              } else {
-                if (!this.selectedStateConfig) {
-                  this.selectedStateConfig = stateMap;
-                }
-              }
-            });
-          }
-            // defaults
-          if (!this.caseTypeIcon) {
-            this.caseTypeIcon = this.DEFAULT_CASE_TYPE_ICON;
-          }
-          if (!this.caseTypeColor) {
-            this.caseTypeColor = this.DEFAULT_CASE_TYPE_COLOR;
-          }
-          return config;
-        })
-      ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving application config: ' + error.error.errorMsg; });
+    this.refresh();
   }
 }
 

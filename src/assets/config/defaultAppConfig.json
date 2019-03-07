@@ -3,7 +3,6 @@
   "userId": "265",
   "applicationId": "1742",
   "typeId": "1",
-  "uiAppId": "testappjs",
-  "caseIconsFolderId": "ServiceRequest_Icons",
+  "caseIconsFolderId": "ServiceRequestTest_Icons",
   "caseTypeLabel": "Partner Request"
 }

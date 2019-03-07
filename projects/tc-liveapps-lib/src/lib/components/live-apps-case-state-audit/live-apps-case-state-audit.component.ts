@@ -43,5 +43,4 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
   ngOnInit() {
     this.refresh();
   }
-
 }

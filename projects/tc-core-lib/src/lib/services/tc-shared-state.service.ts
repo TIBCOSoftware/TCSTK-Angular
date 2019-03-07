@@ -30,16 +30,17 @@ import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
 })
 export class TcSharedStateService {
 
-  constructor(private http: HttpClient, private location: Location) { }
+  constructor(private http: HttpClient, private location: Location) {
+  }
 
   public createSharedState(name: string,
-                            type: string,
-                            description: string,
-                            sandboxId: number,
-                            attributes: string[],
-                            roles: string[],
-                            links: string[],
-                            content: SharedStateContent): Observable<string> {
+                           type: string,
+                           description: string,
+                           sandboxId: number,
+                           attributes: string[],
+                           roles: string[],
+                           links: string[],
+                           content: SharedStateContent): Observable<string> {
     const url = '/clientstate/v1/states';
 
     const body = {
@@ -55,9 +56,9 @@ export class TcSharedStateService {
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    return this.http.post(url, bodyStr, { headers })
+    return this.http.post(url, bodyStr, {headers})
       .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(result => {
           return result.toString();
         })
@@ -71,14 +72,14 @@ export class TcSharedStateService {
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    return this.http.put(url, bodyStr, { headers })
+    return this.http.put(url, bodyStr, {headers})
       .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(updatedSharedStateList => new SharedStateList().deserialize(updatedSharedStateList))
       );
   }
 
-  public getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean): Observable<SharedStateList>  {
+  public getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean): Observable<SharedStateList> {
     const url = '/clientstate/v1/states?$filter=type=' + type
       + ' and name=\'' + name + '\'';
     let options = {}
@@ -90,11 +91,11 @@ export class TcSharedStateService {
     if (flushCache) {
       headers = headers.set('flushCache', 'true');
     }
-    options = { headers: headers };
+    options = {headers: headers};
 
-    return this.http.get(url, options )
+    return this.http.get(url, options)
       .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(sharedStateList => new SharedStateList().deserialize(sharedStateList)));
   }
 
@@ -106,7 +107,7 @@ export class TcSharedStateService {
 
     return this.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
       .pipe(
-        map( value => {
+        map(value => {
             if (value.sharedStateEntries.length > 0) {
               const ssresult = new UiAppConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
               ssresult.id = value.sharedStateEntries[0].id;
@@ -151,5 +152,4 @@ export class TcSharedStateService {
   }
 
   /* UI App Config */
-
 }

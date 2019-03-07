@@ -16,7 +16,6 @@ export * from './lib/components/live-apps-case-data/live-apps-case-data.componen
 export * from './lib/components/live-apps-case-list/live-apps-case-list.component';
 export * from './lib/components/live-apps-case-schema-list/live-apps-case-schema-list.component';
 export * from './lib/components/live-apps-case-state-audit/live-apps-case-state-audit.component';
-export * from './lib/components/live-apps-case-state-config/live-apps-case-state-config.component';
 export * from './lib/components/live-apps-case-states/live-apps-case-states.component';
 export * from './lib/components/live-apps-case-summary/live-apps-case-summary.component';
 export * from './lib/components/live-apps-documents/live-apps-documents.component';
@@ -39,11 +38,13 @@ export * from './lib/components/live-apps-case-cockpit/live-apps-case-cockpit.co
 export * from './lib/models/liveappsdata';
 export * from './lib/models/tc-case-data';
 export * from './lib/models/tc-case-processes';
+export * from './lib/models/tc-document';
 
 // service
 export * from './lib/services/live-apps.service';
 export * from './lib/services/tc-case-data.service';
 export * from './lib/services/tc-case-processes.service';
+export * from './lib/services/tc-document.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';

@@ -12,26 +12,39 @@ import {Claim} from '../models/liveappsdata';
 import {ClaimsResolver} from '../resolvers/claims.resolver';
 import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';
+import {TcDocumentService} from '../services/tc-document.service';
 
 @Injectable()
 export class LaConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
-  constructor(private tcSharedState: TcSharedStateService, private http: HttpClient, private liveAppsService: LiveAppsService) {}
+  constructor(private tcSharedState: TcSharedStateService, private documentService: TcDocumentService, private http: HttpClient, private liveAppsService: LiveAppsService) {}
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
 
-    const configResolver = new ConfigResolver(this.tcSharedState, this.http);
-    const claimResolver = new ClaimsResolver(this.liveAppsService).resolve().pipe(
+    const configResolver$ = new ConfigResolver(this.tcSharedState, this.http);
+    const claimResolver$ = new ClaimsResolver(this.liveAppsService).resolve().pipe(
       flatMap(value => {
           const sandboxId = value.primaryProductionSandbox.id;
-          configResolver.setSandbox(Number(sandboxId));
-          const config = configResolver.resolve(routeSnapshot);
+          configResolver$.setSandbox(Number(sandboxId));
+          const config = configResolver$.resolve(routeSnapshot);
           return config;
         }
         )
     );
 
-    return claimResolver;
+    const resolveResp$ = claimResolver$.pipe(
+      flatMap(uiAppConf => {
+        return this.documentService.initOrgFolder(uiAppConf.caseIconsFolderId).pipe(
+          map(
+            apiResponse => {
+              return uiAppConf;
+            }
+          )
+        );
+      })
+    )
+
+    return resolveResp$;
   }
 
 }

@@ -11,12 +11,13 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {AppConfig, CaseInfo, Metadata} from '../../models/liveappsdata';
+import {CardConfig, CaseInfo, Metadata} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
 
 @Component({
   selector: 'tcla-live-apps-case-summary',
@@ -49,7 +50,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   public summaryKeys: string[];
   public summaryValues: string[];
   public metadata: Metadata;
-  public appStateConfig: AppConfig;
+  public appStateConfig: CardConfig;
   public errorMessage;
   color: string;
 
@@ -71,7 +72,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
 
   public refresh = () => {
     if (!this.configMode) {
-      this.liveapps.getCaseWithSummary(this.caseReference, this.sandboxId, this.uiAppId)
+      this.caseCardConfigService.getCaseWithSummary(this.caseReference, this.sandboxId, this.uiAppId)
         .pipe(
           take(1),
           takeUntil(this._destroyed$),
@@ -127,7 +128,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
     }
   }
 
-  constructor(private liveapps: LiveAppsService, private sanitizer: DomSanitizer) {
+  constructor(private liveapps: LiveAppsService, private caseCardConfigService: TcCaseCardConfigService, private sanitizer: DomSanitizer) {
     super();
   }
 

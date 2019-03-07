@@ -10,7 +10,7 @@ export class StateAuditEvent implements Deserializable {
   messageId: AuditEvent;
   principalName: AuditEvent;
   creationTime: AuditEvent;
-  isTerminal: boolean
+  isTerminal: boolean;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;

@@ -288,43 +288,19 @@ export class CaseList implements Deserializable {
   }
 }
 
-export class Document implements Deserializable {
-  artifactCheckSum: string;
-  artifactRef: string;
-  artifactVersion: string;
-  author: number;
-  authorDetails: UserInfo;
-  creationDate: Date;
-  description: string;
-  id: string;
-  lastModifiedBy: string;
-  lastModifiedByDetails: UserInfo;
-  lastModifiedDate: Date;
-  mimeType: string;
-  name: string;
-  ownerApp: string;
-  size: string;
-  fileSize: string;
-  extension: string;
-  fileIcon: string;
+export class ApiResponseText implements Deserializable {
+  message: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
   }
 }
 
-export class DocumentList implements Deserializable {
-  documents: Document[];
+export class ApiResponseError implements Deserializable {
+  errorMsg: string;
+  errorCode: string;
+  contextAttributes: string[];
   deserialize(input: any): this {
-    this.documents = [];
-    Object.assign(this.documents, input);
-    return this;
-  }
-}
-
-export class ApiResponseText implements Deserializable {
-  message: string;
-  deserialize(input: any) {
     Object.assign(this, input);
     return this;
   }
@@ -454,7 +430,7 @@ export class IconMap {
   ) {}
 }
 
-export class AppConfig implements Deserializable {
+export class CardConfig implements Deserializable {
   id: string;
   stateMap: IconMap[];
   deserialize(input: any): this {
