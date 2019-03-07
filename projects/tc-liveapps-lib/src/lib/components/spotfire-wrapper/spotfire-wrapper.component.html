@@ -1,4 +1,4 @@
-<!--div class="flip-container" [class.flipit]="edit">
+<div class="flip-container" [class.flipit]="edit">
   <div class="flipper">
     <div *ngIf="form && metadata && dataTables" class="back" [formGroup]="form" (click)="stopPropagation($event)">
       <div class="header">
@@ -53,13 +53,12 @@
               </mat-select>
             </mat-form-field>
           </div>
-        </div-->
-        <!--
+        </div>
+
         <pre>{{markingOn|json}}</pre>
         <pre>{{dataTables|json}}</pre>
         <pre>{{form.value|json}}</pre>
-        -->
-      <!--/div>
+      </div>
       <div style='border-top:1px solid #ccc; padding: 20px 30px; text-align:right'>
         <button mat-flat-button (click)="edit=!edit;stopPropagation($event)">Close</button>
         &nbsp;&nbsp;
@@ -75,6 +74,13 @@
       </div>
     </div>
   </div>
-</div-->
+</div>
+<!--
+--- SPOTFIRE ERRROR ---
+<div class="err" *ngIf="errorMessages.length > 0">{{errorMessages|json}}</div>
+<div class="err" *ngIf="possibleValues">{{possibleValues}}</div>
+-----------------------
+
 <script src="https://s3-us-west-2.amazonaws.com/cec-library/spotfire-wrapper.js" type="text/javascript"></script>
-<div style="height: 100%" #spot></div>
+ <div style="height: 100%" #spot></div>-->
+
