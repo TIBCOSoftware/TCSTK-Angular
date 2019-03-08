@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {CaseRoute} from '../../models/liveappsdata';
 
 @Component({
   selector: 'tcla-live-apps-favorite-cases',
@@ -12,14 +13,14 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
-  @Output() clickCase = new EventEmitter;
+  @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public displayType = 'miniCard';
   public favoriteCases: string[];
   public errorMessage: string;
 
-  public clickCaseAction = (caseinfo) => {
-    this.clickCase.emit(caseinfo);
+  public clickCaseAction = (caseRoute: CaseRoute) => {
+    this.clickCase.emit(caseRoute);
   }
 
   public refresh = () => {

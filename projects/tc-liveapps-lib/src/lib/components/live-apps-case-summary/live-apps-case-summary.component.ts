@@ -11,7 +11,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {CardConfig, CaseInfo, Metadata} from '../../models/liveappsdata';
+import {CardConfig, CaseInfo, CaseRoute, Metadata} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
@@ -43,7 +43,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   @Input() typeBar: boolean;
   @Input() uiAppId: string;
   @Input() highlight: string;
-  @Output() clickCase = new EventEmitter;
+  @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public casedata: any;
   public summary: any;
@@ -56,7 +56,8 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   color: string;
 
   public clickCaseAction = () => {
-    this.clickCase.emit({ caseRef: this.caseReference, appId: this.appId });
+    const caseRoute = new CaseRoute(this.caseReference, this.appId);
+    this.clickCase.emit(caseRoute);
   }
 
   public restylePreview = (icon, fill) => {
