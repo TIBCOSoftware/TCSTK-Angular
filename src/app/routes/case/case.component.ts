@@ -28,6 +28,7 @@ export class CaseComponent implements OnInit {
   public claims: Claim;
   public sandbox: Sandbox;
   public caseRef: string;
+  public appId: string;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -37,6 +38,7 @@ export class CaseComponent implements OnInit {
     this.claims = this.route.snapshot.data.claims;
     this.sandbox = this.claims.primaryProductionSandbox;
     this.caseRef = this.route.snapshot.params['caseRef'];
+    this.appId = this.route.snapshot.params['appId'];
   }
 
 }

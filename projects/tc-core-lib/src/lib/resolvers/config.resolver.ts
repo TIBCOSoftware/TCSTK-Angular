@@ -10,7 +10,7 @@ import {HttpClient} from '@angular/common/http';
 export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
   DEFAULT_CONFIG_URL = '/assets/config/defaultAppConfig.json';
-  APP_ID_URL = '/assets/config/appId.json';
+  APP_ID_URL = '/assets/config/uiAppId.json';
 
   private sandboxId: number;
   public defaultAppConfig: UiAppConfig;
@@ -51,6 +51,7 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
               return this.getDefaultAppConfig().pipe(
                 flatMap(config => {
                   this.defaultAppConfig = new UiAppConfig().deserialize(config);
+                  this.defaultAppConfig.caseIconsFolderId = this.defaultAppConfig.caseIconsFolderId ? this.defaultAppConfig.caseIconsFolderId : this.uiAppId + '_Icons';
                   this.defaultAppConfig.uiAppId = this.uiAppId;
                   return this.tcSharedState.createUiAppConfig(
                     this.defaultAppConfig.sandboxId,

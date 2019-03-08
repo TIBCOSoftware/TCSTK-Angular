@@ -18,8 +18,8 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
   public recentCases: string[];
   public errorMessage: string;
 
-  public clickCaseAction = (caseReference) => {
-    this.clickCase.emit(caseReference);
+  public clickCaseAction = (caseinfo) => {
+    this.clickCase.emit(caseinfo);
   }
 
   public refresh = () => {

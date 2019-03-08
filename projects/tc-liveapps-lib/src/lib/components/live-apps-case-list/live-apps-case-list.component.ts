@@ -21,8 +21,8 @@ export class LiveAppsCaseListComponent extends LiveAppsComponent implements OnIn
 
   public errorMessage: string;
 
-  public clickCaseAction = (caseReference) => {
-    this.clickCase.emit(caseReference);
+  public clickCaseAction = (caseinfo) => {
+    this.clickCase.emit(caseinfo);
   }
 
   constructor(private liveapps: LiveAppsService) {

@@ -78,9 +78,13 @@ export class LiveAppsService {
         map ( sandboxList => new SandboxList().deserialize(sandboxList)));
   }
 
-  public getApplications(sandboxId: number, top: number): Observable<CaseTypesList> {
+  public getApplications(sandboxId: number, appIds: string[], top: number): Observable<CaseTypesList> {
     const select = 'b';
-    const url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+    let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+
+    if (appIds && appIds.length > 0) {
+      url = url + '&$filter=applicationId in(' + appIds.toString() + ') and isCase eq TRUE';
+    }
 
     return this.http.get(url)
       .pipe(

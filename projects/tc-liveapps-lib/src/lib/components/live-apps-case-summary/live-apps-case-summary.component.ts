@@ -52,10 +52,11 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   public metadata: Metadata;
   public appStateConfig: CardConfig;
   public errorMessage;
+  public appId: string;
   color: string;
 
   public clickCaseAction = () => {
-    this.clickCase.emit(this.caseReference);
+    this.clickCase.emit({ caseRef: this.caseReference, appId: this.appId });
   }
 
   public restylePreview = (icon, fill) => {
@@ -77,6 +78,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
           take(1),
           takeUntil(this._destroyed$),
           map(caseinfo => {
+            this.appId = caseinfo.metadata.applicationId;
             this.casedata = caseinfo.untaggedCasedataObj;
             this.metadata = caseinfo.metadata;
             this.summary = caseinfo.summaryObj;

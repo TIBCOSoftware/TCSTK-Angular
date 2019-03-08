@@ -13,6 +13,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
   @ViewChild('searchBox') searchBox: ElementRef;
   @Input() sandboxId: number;
+  @Input() appIds: string[];
   // @Input() appId: string;
   // @Input() typeId: string;
   @Output() foundRefs: EventEmitter<CaseSearchResults> = new EventEmitter<CaseSearchResults>();

@@ -10,6 +10,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
+  @Input() appIds: string[];
   @Output() caseSelected: EventEmitter<string> = new EventEmitter<string>();
 
   // case search

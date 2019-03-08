@@ -34,7 +34,7 @@ export class LaConfigResolver implements Resolve<Observable<UiAppConfig>> {
 
     const resolveResp$ = claimResolver$.pipe(
       flatMap(uiAppConf => {
-        return this.documentService.initOrgFolder(uiAppConf.caseIconsFolderId).pipe(
+        return this.documentService.initOrgFolder(uiAppConf.uiAppId + '_Icons').pipe(
           map(
             apiResponse => {
               return uiAppConf;
