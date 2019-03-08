@@ -85,6 +85,7 @@ export class LiveAppsService {
     if (appIds && appIds.length > 0) {
       url = url + '&$filter=applicationId in(' + appIds.toString() + ') and isCase eq TRUE';
     }
+    // note: since this is cached it will require a reload to see new apps
     const headers = new HttpHeaders().set('cacheResponse', 'true');
 
     return this.http.get(url, { headers })
