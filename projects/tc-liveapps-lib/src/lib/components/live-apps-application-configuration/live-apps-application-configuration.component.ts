@@ -137,6 +137,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   }
 
   public openDialog(state: CaseTypeState, isCaseType: boolean): void {
+
     if (!isCaseType) {
       this.selectState(state);
     } else {
@@ -206,12 +207,14 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
       takeUntil(this._destroyed$),
       map(caseCardConfig => {
         this.caseCardConfig = caseCardConfig;
-        // set default selected to case type
-        this.selectedStateConfig = this.caseCardConfig.cardConfig.stateMap.find(function(stateMap) {
+        // set default selected to first state for this case type (0 is case type)
+        this.selectedStateConfig = this.caseCardConfig.cardConfig.stateMap[1];
+        const caseTypeRec = this.caseCardConfig.cardConfig.stateMap.find(function(stateMap) {
           return stateMap.isCaseType;
         });
-        this.caseTypeIcon = this.selectedStateConfig.icon;
-        this.caseTypeColor = this.selectedStateConfig.fill;
+
+        this.caseTypeIcon = caseTypeRec.icon;
+        this.caseTypeColor = caseTypeRec.fill;
       })
     ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case card config: ' + error.error.errorMsg; });
