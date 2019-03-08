@@ -82,8 +82,8 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
   }*/
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log("CHANGES");
-    console.log(changes);
+    //console.log("CHANGES");
+    //console.log(changes);
     if (changes.url && changes.url.previousValue !== undefined && !changes.url.isFirstChange()) {
       this.openWebPlayer(changes.url.currentValue, changes.path.currentValue, new SpotfireCustomization());
     } else if (this.app && changes.page && changes.page.previousValue !== undefined && !changes.page.isFirstChange()) {
@@ -333,12 +333,12 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
           frm.addControl(cname, new FormControl(flt2 ? flt2.filterSettings.values : null));
         });
       });
-      console.log("this.markingon: ", this.markingon );
+     // console.log("this.markingon: ", this.markingon );
 
       if (this.markingon) {
-        console.log("Trying to subscribe to markings " , this.document.marking);
+       // console.log("Trying to subscribe to markings " , this.document.marking);
         this.document.marking.getMarkingNames$().subscribe(markingNames => markingNames.forEach(markingName => {
-          console.log("Subscribing to marking name: " , markingName);
+          //console.log("Subscribing to marking name: " , markingName);
           Object.keys(this.markingon).forEach(key => {
             let xolumns: Array<string> = this.markingon[key];
             const tName = key;
