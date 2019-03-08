@@ -85,8 +85,9 @@ export class LiveAppsService {
     if (appIds && appIds.length > 0) {
       url = url + '&$filter=applicationId in(' + appIds.toString() + ') and isCase eq TRUE';
     }
+    const headers = new HttpHeaders().set('cacheResponse', 'true');
 
-    return this.http.get(url)
+    return this.http.get(url, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(casetypes => new CaseTypesList().deserialize(casetypes)));

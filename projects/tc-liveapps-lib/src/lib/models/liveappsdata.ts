@@ -12,6 +12,12 @@ export class NoteThread {
   }
 }
 
+export class CaseRoute {
+  constructor(public caseRef: string,
+              public appId: string
+  ) {}
+}
+
 export class NotificationCollection {
   constructor(
     public collectionName: string,

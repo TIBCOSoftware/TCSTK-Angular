@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UiAppConfig} from 'tc-core-lib';
-import {CaseType, Claim} from 'tc-liveapps-lib';
+import {CaseRoute, CaseType, Claim} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',
@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
-  clickCaseAction = (caseinfo) => {
+  clickCaseAction = (caseRoute: CaseRoute) => {
     // case clicked - navigate to case - note need to pass appId and caseId
-    this.router.navigate(['/starterApp/case/' + caseinfo.appId + '/' + caseinfo.caseRef], {queryParams: {} });
+    this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.caseRef], {queryParams: {} });
   }
 
   ngOnInit() {
