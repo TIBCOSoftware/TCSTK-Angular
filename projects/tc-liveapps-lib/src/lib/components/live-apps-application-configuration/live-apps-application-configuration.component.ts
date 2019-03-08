@@ -1,4 +1,30 @@
-import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
+
+/*
+*     Case Type icons are stored in an orgFolder specified in defaultAppConfig.json (pushed to shared state)
+*     Icon Name will be appId.filename.svg
+*     Icon svg should contain <DYNAMICFILL> this will be set according to the color selected in this component
+*
+*     eg: 1742.ic-created.svg for Partner Portal Live Apps App (appId: 1742) 'Created' state
+*
+*     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+*        <path fill="<DYNAMICFILL>" class="svg-content" fill-rule="evenodd" d="M7 14A7 7 0 1 1 7 0a7 7 0 0 1 0 14zm3.474-6.472a.527.527 0 0 0 0-1.053H7.526V3.527a.525.525 0 1 0-1.052 0v2.948H3.526a.527.527 0 0 0 0 1.053h2.948v2.948a.525.525 0 0 0 .898.373.525.525 0 0 0 .154-.373V7.528h2.948z"/>
+*      </svg>
+*
+*
+ */
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  QueryList, SimpleChanges,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {CardConfig, CaseTypeState, IconMap} from '../../models/liveappsdata';
@@ -21,7 +47,7 @@ import {TcDocumentService} from '../../services/tc-document.service';
   templateUrl: './live-apps-application-configuration.component.html',
   styleUrls: ['./live-apps-application-configuration.component.css']
 })
-export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent implements OnInit {
+export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent implements OnChanges {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChildren('iconcomp') stateIconComponents: QueryList<LiveAppsStateIconComponent>;
   @ViewChildren(LiveAppsCaseSummaryComponent) caseSummaryComponent: QueryList<LiveAppsCaseSummaryComponent>;
@@ -180,11 +206,11 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public uploadFile(file: File, state: CaseTypeState, isStateIcon: boolean) {
     if (file) {
-      const url = 'webresource/v1/orgFolders/' + this.folderId + '/' + file.name;
-      const dlUrl = 'webresource/orgFolders/' + this.folderId + '/' + file.name;
+      const url = 'webresource/v1/orgFolders/' + this.folderId + '/' + this.appId + '.' + file.name;
+      const dlUrl = 'webresource/orgFolders/' + this.folderId + '/' + this.appId + '.' + file.name;
       this.liveapps.clearFromIconSVGTextCache(url);
       this.documentsService.uploadDocument('orgFolders', this.folderId, this.sandboxId,
-        file, file.name, '')
+        file, (this.appId + '.' + file.name), '')
         .pipe(
           map(val => {
             if (!isStateIcon) {
@@ -225,9 +251,13 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     super();
   }
 
-  ngOnInit() {
-    this.refresh();
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.appId && (changes.appId.currentValue !== changes.appId.previousValue)) {
+      this.refresh();
+    }
   }
+
+
 }
 
 @Component({

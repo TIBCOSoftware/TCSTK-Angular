@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UiAppConfig} from 'tc-core-lib';
-import {Claim} from 'tc-liveapps-lib';
+import {CaseType, Claim} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',
@@ -11,26 +11,22 @@ import {Claim} from 'tc-liveapps-lib';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private appConfig: UiAppConfig;
+  public appConfig: UiAppConfig;
   private claims: Claim;
-  private sandboxId: number;
+  public sandboxId: number;
+  public selectedAppConfig: CaseType;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
-  clickCaseAction = (caseId: string) => {
-    // case clicked - navigate to case
-    this.router.navigate(['/starterApp/case/' + caseId], {queryParams: {} });
+  clickCaseAction = (caseinfo) => {
+    // case clicked - navigate to case - note need to pass appId and caseId
+    this.router.navigate(['/starterApp/case/' + caseinfo.appId + '/' + caseinfo.caseRef], {queryParams: {} });
   }
-
 
   ngOnInit() {
     this.appConfig = this.route.snapshot.data.appConfig;
     this.claims = this.route.snapshot.data.claims;
     this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
   }
-  /*
-  mark(){
-    con
-  }*/
 
 }

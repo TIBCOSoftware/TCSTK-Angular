@@ -61,6 +61,7 @@ import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpi
 import {TcCaseProcessesService} from './services/tc-case-processes.service';
 import { LiveAppsMilestoneComponent } from './components/live-apps-milestone/live-apps-milestone.component';
 import {TcDocumentService} from './services/tc-document.service';
+import { LiveAppsAppConfigurationWidgetComponent } from './components/live-apps-app-configuration-widget/live-apps-app-configuration-widget.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import {TcDocumentService} from './services/tc-document.service';
     LiveAppsActionsComponent,
     LiveAppsCaseDataDisplayComponent,
     LiveAppsCaseCockpitComponent,
-    LiveAppsMilestoneComponent
+    LiveAppsMilestoneComponent,
+    LiveAppsAppConfigurationWidgetComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -154,7 +156,8 @@ import {TcDocumentService} from './services/tc-document.service';
     LiveAppsActionsComponent,
     SpotfireWrapperComponent,
     LiveAppsCaseDataDisplayComponent,
-    LiveAppsCaseCockpitComponent
+    LiveAppsCaseCockpitComponent,
+    LiveAppsAppConfigurationWidgetComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent],
   providers: [

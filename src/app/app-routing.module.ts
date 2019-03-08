@@ -44,7 +44,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'case/:caseRef',
+        path: 'case/:appId/:caseRef',
         component: CaseComponent,
         canActivate: [AuthGuard, CaseGuard],
         resolve: {
