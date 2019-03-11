@@ -49,7 +49,7 @@ export class AppComponent {
 
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private liveapps: LiveAppsService, private logger: LogService ) {
     logger.level = LogLevel.Debug;
-    logger.info("My Cloud Starter Online...")
+    logger.info('My Cloud Starter Online...')
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-reply',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-reply.svg'))
@@ -109,6 +109,10 @@ export class AppComponent {
     this.matIconRegistry.addSvgIcon(
       'tcs-favorites-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-favorite.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-config-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-settings.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-refresh-icon',

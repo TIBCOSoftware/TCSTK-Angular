@@ -78,7 +78,7 @@ export class LiveAppsService {
         map ( sandboxList => new SandboxList().deserialize(sandboxList)));
   }
 
-  public getApplications(sandboxId: number, appIds: string[], top: number): Observable<CaseTypesList> {
+  public getApplications(sandboxId: number, appIds: string[], top: number, useCache: boolean): Observable<CaseTypesList> {
     const select = 'b';
     let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
 
@@ -86,7 +86,13 @@ export class LiveAppsService {
       url = url + '&$filter=applicationId in(' + appIds.toString() + ') and isCase eq TRUE';
     }
     // note: since this is cached it will require a reload to see new apps
-    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    let headers;
+    if (useCache) {
+      headers = new HttpHeaders().set('cacheResponse', 'true');
+    } else {
+      headers = new HttpHeaders();
+    }
+
 
     return this.http.get(url, { headers })
       .pipe(
