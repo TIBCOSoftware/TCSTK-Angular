@@ -11,7 +11,7 @@
   <mat-tab label="Config">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
-      <tcla-live-apps-app-configuration-widget [sandboxId]="sandboxId" [appIds]="[appConfig.applicationId]" [uiAppId]="appConfig.uiAppId" [folderId]="appConfig.caseIconsFolderId"></tcla-live-apps-app-configuration-widget>
+      <tcla-live-apps-app-configuration-widget [sandboxId]="sandboxId" [appIds]="appConfig.applicationIds" [uiAppId]="appConfig.uiAppId" [folderId]="appConfig.caseIconsFolderId"></tcla-live-apps-app-configuration-widget>
     </ng-template>
   </mat-tab>
 
@@ -32,14 +32,15 @@
   <mat-tab label="Search">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
-      <tcla-live-apps-search-widget [appIds]="[appConfig.applicationId]" [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
+      <tcla-live-apps-search-widget [appIds]="appConfig.applicationIds" [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
     </ng-template>
   </mat-tab>
 
   <mat-tab label="Creators">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
-      <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
+      <!--tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators-->
+      <tcla-live-apps-case-creator-widget [appIds]="appConfig.applicationIds" [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId"></tcla-live-apps-case-creator-widget>
     </ng-template>
   </mat-tab>
 

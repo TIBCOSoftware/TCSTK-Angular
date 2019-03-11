@@ -33,6 +33,7 @@ export class LiveAppsCreatorsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.applicationId);
   }
 
 }
