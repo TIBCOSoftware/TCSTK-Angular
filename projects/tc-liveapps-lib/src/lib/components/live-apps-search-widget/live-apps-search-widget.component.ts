@@ -14,7 +14,7 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   @Output() caseSelected: EventEmitter<string> = new EventEmitter<string>();
 
   // case search
-  matchedRefs: string[];
+  matchedRefs: string[] = [];
   searchString: string;
 
   constructor() {
