@@ -35,6 +35,7 @@ export * from './lib/components/live-apps-case-data-display/live-apps-case-data-
 export * from './lib/components/live-apps-case-cockpit/live-apps-case-cockpit.component';
 export * from './lib/components/live-apps-app-configuration-widget/live-apps-app-configuration-widget.component';
 export * from './lib/components/live-apps-case-creator-widget/live-apps-case-creator-widget.component';
+export * from './lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component';
 
 // data
 export * from './lib/models/liveappsdata';

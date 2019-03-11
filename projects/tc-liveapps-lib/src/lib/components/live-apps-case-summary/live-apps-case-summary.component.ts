@@ -56,7 +56,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   color: string;
 
   public clickCaseAction = () => {
-    const caseRoute = new CaseRoute(this.caseReference, this.appId);
+    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseReference, appId: this.appId});
     this.clickCase.emit(caseRoute);
   }
 
