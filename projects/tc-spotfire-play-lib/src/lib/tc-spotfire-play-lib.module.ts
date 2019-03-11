@@ -3,11 +3,20 @@ import {TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule, MatDialogModule,
+  MatCheckboxModule,
+  MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule
+  MatListModule,
+  MatMenuModule,
+  MatOptionModule, MatProgressSpinnerModule,
+  MatSelectModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -17,10 +26,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ColorPickerModule} from 'ngx-color-picker';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.component';
+import { TableComponent } from './components/table/table.component';
 
 
 @NgModule({
-  declarations: [SpotfirePlayComponent],
+  declarations: [SpotfirePlayComponent, TableComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -45,8 +55,20 @@ import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.
     ColorPickerModule,
     ScrollingModule,
     ReactiveFormsModule,
-    TcLiveappsLibModule
+    TcLiveappsLibModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSortModule,
+    MatTableModule
   ],
-  exports: [SpotfirePlayComponent]
+  exports: [SpotfirePlayComponent,
+            TableComponent]
 })
 export class TcSpotfirePlayLibModule { }

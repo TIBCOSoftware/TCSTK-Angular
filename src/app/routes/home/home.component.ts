@@ -5,9 +5,9 @@ import {CaseRoute, CaseType, Claim} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',
-  templateUrl: './templates/home.component.liveapps.html',
+  // templateUrl: './templates/home.component.liveapps.html',
   // templateUrl: './templates/home.component.processdiscovery.html',
-  // templateUrl: './templates/home.component.spotfireplay.html',
+  templateUrl: './templates/home.component.spotfireplay.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
