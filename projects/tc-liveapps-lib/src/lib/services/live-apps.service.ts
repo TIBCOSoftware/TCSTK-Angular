@@ -91,7 +91,22 @@ export class LiveAppsService {
     return this.http.get(url, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(casetypes => new CaseTypesList().deserialize(casetypes)));
+        map(casetypes => {
+          if (appIds && appIds.length > 0) {
+            // This is to workaround a bug where non case type types are returned when > 1 appId
+            const tmpCaseTypes = new CaseTypesList().deserialize(casetypes);
+            const filteredCaseTypes = new CaseTypesList().deserialize( { casetypes: [] });
+
+            tmpCaseTypes.casetypes.forEach(ctype => {
+              if (ctype.id === '1') {
+                filteredCaseTypes.casetypes.push(ctype);
+              }
+            });
+            return filteredCaseTypes;
+          } else {
+            return new CaseTypesList().deserialize(casetypes);
+          }
+        }));
   }
 
   public getClaims(): Observable<Claim> {

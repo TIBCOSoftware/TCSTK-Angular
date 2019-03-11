@@ -74,7 +74,11 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
       this.schema = changes.process.currentValue.process.jsonSchema;
     }
     if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
-      this.layout = changes.layou.currentValue;
+      this.layout = changes.layout.currentValue;
+    }
+    if (changes.applicationId && (changes.applicationId.currentValue !== changes.applicationId.previousValue)) {
+      // appId has changed: make sure no process selected/form displayed
+      this.process = undefined;
     }
   }
 
