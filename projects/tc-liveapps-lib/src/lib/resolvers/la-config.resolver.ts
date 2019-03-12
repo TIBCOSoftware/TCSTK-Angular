@@ -13,20 +13,21 @@ import {ClaimsResolver} from '../resolvers/claims.resolver';
 import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';
 import {TcDocumentService} from '../services/tc-document.service';
-import {LiveAppsConfigHolder} from '../models/tc-liveapps-config';
+import {LiveAppsConfig, LiveAppsConfigHolder} from '../models/tc-liveapps-config';
 import {LiveAppsConfigResolver} from './liveapps-config.resolver';
 import {TcLiveAppsConfigService} from '../services/tc-live-apps-config.service';
+import {TcCaseCardConfigService} from '../services/tc-case-card-config.service';
 
 @Injectable()
 export class LaConfigResolver implements Resolve<Observable<LiveAppsConfigHolder>> {
 
-  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private liveAppsConfigService: TcLiveAppsConfigService, private documentService: TcDocumentService, private http: HttpClient, private liveAppsService: LiveAppsService) {}
+  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private liveAppsConfigService: TcLiveAppsConfigService, private documentService: TcDocumentService, private http: HttpClient, private liveAppsService: LiveAppsService, private caseCardConfigService: TcCaseCardConfigService) {}
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<LiveAppsConfigHolder> {
     // we will return a holder object that contains both general config and live apps config
 
     const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http);
-    const liveAppsConfigResolver = new LiveAppsConfigResolver(this.sharedStateService, this.liveAppsConfigService, this.http);
+    const liveAppsConfigResolver = new LiveAppsConfigResolver(this.sharedStateService, this.liveAppsConfigService, this.caseCardConfigService, this.http);
 
     const claimResolver$ = new ClaimsResolver(this.liveAppsService).resolve().pipe(
       flatMap(value => {
