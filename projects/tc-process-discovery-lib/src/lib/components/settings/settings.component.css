@@ -1,90 +1,11 @@
-.cloud-starter-app .underlying-capability-text {
-    font-family: SourceSansPro;
-    font-size: 16px;
-    font-weight: 600;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 0.3px;
-    color: #062e79;
-}
-
-.cloud-starter-app .underlying-capability-link {
-    font-family: SourceSansPro;
-    font-size: 14px;
+.tc-home-welcome-text {
+    font-family: Source Sans Pro;
+    font-size: 30px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
-    letter-spacing: 0.3px;
-    color: #0081cb;
-    padding-bottom: 20px;
-    padding-left: 32px;
-}
-
-.cloud-starter-app .underlying-capability-icon {
-    margin-right: 8px;
-}
-
-.cloud-starter-app .underlying-capability-icon svg path {
-    fill: #062e79;
-}
-
-.cloud-starter-app .underlying-capability-save-button {
-    width: 137px;
-    height: 40px;
-    border-radius: 3px;
-    background-color: #0081cb;
-    font-family: SourceSansPro;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: 0.3px;
-    text-align: center;
-    color: #ffffff;
-}
-
-/* Nav Switch button */
-
-.cloud-starter-app .nav-switch-bar {
-border-radius: 100px;
-background-color: #ffffff;
-border: solid 1px #b6b6b6;
-}
-.cloud-starter-app .nav-switch {
-font-family: SourceSansPro;
-font-size: 16px;
-font-weight: 200;
-font-style: normal;
-font-stretch: normal;
-line-height: normal;
-letter-spacing: 0.3px;
-text-align: center;
-}
-.cloud-starter-app .nav-switch .nav-switch-on-label {
-color: #ffffff;
-border-radius: 100px;
-background-color: #062e79;
-border: solid 1px #062e79;
-padding-left: 11px;
-padding-right: 11px;
-}
-.cloud-starter-app .nav-switch .nav-switch-off-label {
-color: #727272;
-border-radius: 100px;
-background-color: #ffffff;
-padding-left: 11px;
-padding-right: 11px;
-}
-.cloud-starter-app .nav-switch .nav-switch-off-label:hover {
-color: #0081cb;
-}
-.cloud-starter-app .nav-switch .nav-switch-off-label:active {
-color: #055daa;
-}
-
-.cloud-starter-app .app-settings md-input-container {
-    margin: 9px 0;
-}
+    letter-spacing: normal;
+    color: #212121;
+  }
+  
