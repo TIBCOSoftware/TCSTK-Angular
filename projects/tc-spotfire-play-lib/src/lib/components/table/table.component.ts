@@ -1,18 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {MatSort} from '@angular/material';
 
 @Component({
   selector: 'tcsp-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
 
+
+
+export class TableComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  // ViewChild(MatSort) sort: MatSort;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+    // this.dataSource.sort = this.sort;
   }
 
 }
