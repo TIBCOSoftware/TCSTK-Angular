@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CaseSearchResults} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {LiveAppsCaseSearchComponent} from '../live-apps-case-search/live-apps-case-search.component';
 
 @Component({
   selector: 'tcla-live-apps-search-widget',
@@ -13,8 +14,9 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   @Input() appIds: string[];
   @Output() caseSelected: EventEmitter<string> = new EventEmitter<string>();
 
+  @ViewChild(LiveAppsCaseSearchComponent) caseSearchComponent: LiveAppsCaseSearchComponent;
   // case search
-  matchedRefs: string[];
+  matchedRefs: string[] = [];
   searchString: string;
 
   constructor() {
@@ -30,6 +32,12 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   // case clicked
   public clickCaseAction = (caseReference) => {
     this.caseSelected.emit(caseReference);
+  }
+
+  public refresh = () => {
+    if (this.caseSearchComponent) {
+      this.caseSearchComponent.refresh();
+    }
   }
 
 }

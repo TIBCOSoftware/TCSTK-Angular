@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsComponent} from '../../components/live-apps-component/live-apps-component.component';
@@ -12,7 +12,7 @@ import {MatSelect} from '@angular/material';
   templateUrl: './live-apps-creator-selector.component.html',
   styleUrls: ['./live-apps-creator-selector.component.css']
 })
-export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implements OnInit {
+export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implements OnChanges {
   @ViewChild('creatorSelector') creatorSelector: MatSelect;
   @Input() sandboxId: number;
   @Input() appId: string;
@@ -46,13 +46,8 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
     return caseIdAttrib;
   }
 
-
-  constructor(private liveapps: LiveAppsService) {
-    super();
-  }
-
-  ngOnInit() {
-// retrieve the schema for this case type so we can display case creators and case actions for this case type
+  public refresh = () => {
+    // retrieve the schema for this case type so we can display case creators and case actions for this case type
     this.liveapps.getCaseTypeSchema(this.sandboxId, this.appId, 100).pipe(
       map(schema => {
           this.appSchema = schema;
@@ -72,5 +67,16 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
         }
       )
     ).subscribe();
+  }
+
+
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.appId && (changes.appId.currentValue !== changes.appId.previousValue)) {
+      this.refresh();
+    }
   }
 }

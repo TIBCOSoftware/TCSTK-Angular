@@ -34,21 +34,26 @@ export * from './lib/components/live-apps-actions/live-apps-actions.component';
 export * from './lib/components/live-apps-case-data-display/live-apps-case-data-display.component';
 export * from './lib/components/live-apps-case-cockpit/live-apps-case-cockpit.component';
 export * from './lib/components/live-apps-app-configuration-widget/live-apps-app-configuration-widget.component';
+export * from './lib/components/live-apps-case-creator-widget/live-apps-case-creator-widget.component';
+export * from './lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component';
+export * from './lib/components/live-apps-application-list/live-apps-application-list.component';
 
 // data
 export * from './lib/models/liveappsdata';
 export * from './lib/models/tc-case-data';
 export * from './lib/models/tc-case-processes';
 export * from './lib/models/tc-document';
+export * from './lib/models/tc-liveapps-config';
 
 // service
 export * from './lib/services/live-apps.service';
 export * from './lib/services/tc-case-data.service';
 export * from './lib/services/tc-case-processes.service';
 export * from './lib/services/tc-document.service';
-
+export * from './lib/services/tc-live-apps-config.service';
 // resolvers
 export * from './lib/resolvers/claims.resolver';
+export * from './lib/resolvers/liveapps-config.resolver';
 export * from './lib/resolvers/la-config.resolver';
 
 // guards

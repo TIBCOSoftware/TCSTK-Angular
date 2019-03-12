@@ -14,7 +14,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTooltipModule
+  MatListModule, MatMenuModule, MatOptionModule, MatPaginatorModule, MatSelectModule, MatSortModule, MatTableModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -35,6 +35,11 @@ import { TibcoCloudMenuBarComponent } from './components/tibco-cloud-menu-bar/ti
 import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
 import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
 import { OnCreateDirective } from './directives/on-create.directive';
+import {TcGeneralConfigService} from './services/tc-general-config.service';
+import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-cloud-table.component';
+
+
+// import {DataSource} from '@angular/cdk/collections';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,8 @@ import { OnCreateDirective } from './directives/on-create.directive';
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudMenuBarComponent,
     TibcoCloudErrorComponent,
-    OnCreateDirective
+    OnCreateDirective,
+    TibcoCloudTableComponent
   ],
   imports: [
     HttpClientModule,
@@ -72,7 +78,10 @@ import { OnCreateDirective } from './directives/on-create.directive';
     FlexLayoutModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     TibcoCloudNavbarComponent,
@@ -86,7 +95,8 @@ import { OnCreateDirective } from './directives/on-create.directive';
     ReversePipe,
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudErrorComponent,
-    OnCreateDirective
+    OnCreateDirective,
+    TibcoCloudTableComponent
 
   ],
   providers: [
@@ -106,7 +116,7 @@ export class TcCoreLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcCoreLibModule,
-      providers: [ TcSharedStateService ]
+      providers: [ TcSharedStateService, TcGeneralConfigService ]
     };
   }
 }

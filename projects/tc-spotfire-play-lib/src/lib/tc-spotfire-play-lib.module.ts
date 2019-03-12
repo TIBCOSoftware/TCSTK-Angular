@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {TcLiveappsLibModule} from 'tc-liveapps-lib';
+import {TcCoreLibModule} from 'tc-core-lib';
 import {
   MatButtonModule,
   MatCardModule,
@@ -16,7 +16,7 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule, MatPaginatorModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -26,10 +26,15 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ColorPickerModule} from 'ngx-color-picker';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.component';
+import { TableComponent } from './components/table/table.component';
+import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.component';
+import { DataTableExampleComponent } from './components/data-table-example/data-table-example.component';
+import {TcLiveappsLibModule} from 'tc-liveapps-lib';
+
 
 
 @NgModule({
-  declarations: [SpotfirePlayComponent],
+  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent, DataTableExampleComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -54,7 +59,6 @@ import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.
     ColorPickerModule,
     ScrollingModule,
     ReactiveFormsModule,
-    TcLiveappsLibModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatMenuModule,
@@ -65,8 +69,16 @@ import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.
     MatInputModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    TcCoreLibModule,
+    TcLiveappsLibModule
   ],
-  exports: [SpotfirePlayComponent]
+  exports: [SpotfirePlayComponent,
+            TableComponent,
+            MatSortModule,
+            SpotfireTabsComponent,
+            DataTableExampleComponent
+            ]
 })
 export class TcSpotfirePlayLibModule { }
