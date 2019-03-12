@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ConfigResolver } from 'tc-core-lib';
 import { ClaimsResolver } from 'tc-liveapps-lib';
 import { LaConfigResolver } from 'tc-liveapps-lib';
 import { PdProcessMiningComponent } from './components/pd-process-mining/pd-process-mining.component';
