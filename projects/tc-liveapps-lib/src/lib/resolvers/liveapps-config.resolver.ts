@@ -44,19 +44,22 @@ export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig
     );
   }
 
+  private triggerCardConfigFetch = (liveAppsConfig: LiveAppsConfig) => {
+    // optimization: I want to avoid reading the card config when we display a large list of cards in the calling app
+    // therefore we can trigger of a read of the card configs for each app in the config to ensure they are cached by
+    // http interceptor
+    const laConfig = new LiveAppsConfig().deserialize(liveAppsConfig);
+    laConfig.applicationIds.forEach(appId => {
+      this.caseCardConfigService.getCardConfig(this.uiAppId, appId, true, false).subscribe();
+    });
+  }
+
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<LiveAppsConfig> {
     const appConfig = this.getAppId().pipe(
       switchMap(uiAppId => this.liveAppsConfigService.getLiveAppsConfig(uiAppId.uiAppId, true, false)
         .pipe(
           mergeMap(
             liveAppsConfig => {
-              // optimization: I want to avoid reading the card config when we display a large list of cards in the calling app
-              // therefore we can trigger of a read of the card configs for each app in the config to ensure they are cached by
-              // http interceptor
-              const laConfig = new LiveAppsConfig().deserialize(liveAppsConfig);
-              laConfig.applicationIds.forEach(appId => {
-                this.caseCardConfigService.getCardConfig(this.uiAppId, appId, true, false).subscribe();
-              });
               if (liveAppsConfig === undefined) {
                 return this.getDefaultAppConfig().pipe(
                   flatMap(config => {
@@ -81,12 +84,14 @@ export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig
                                 this.liveAppsConfigService.getLiveAppsConfig(this.uiAppId, true, true).subscribe();
                               }
                             );
+                            this.triggerCardConfigFetch(newAppConfig);
                             return newAppConfig;
                           })
                       );
                   })
                 );
               } else {
+                this.triggerCardConfigFetch(liveAppsConfig);
                 return of(liveAppsConfig);
               }
             }
