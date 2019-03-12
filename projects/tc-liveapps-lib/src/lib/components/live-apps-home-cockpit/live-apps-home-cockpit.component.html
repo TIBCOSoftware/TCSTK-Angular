@@ -1,7 +1,10 @@
 <div fxLayout="column">
   <div>
     <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
-      <span class="tc-home-welcome-text">Overview - {{title}}</span>
+      <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <span class="tc-home-welcome-text">Overview - {{title}}</span>
+        <tcla-live-apps-application-create-button style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds"></tcla-live-apps-application-create-button>
+      </div>
     </tc-tibco-cloud-menu-bar>
   </div>
 

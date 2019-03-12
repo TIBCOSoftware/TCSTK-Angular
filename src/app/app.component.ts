@@ -111,6 +111,10 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-favorite.svg'))
     );
     this.matIconRegistry.addSvgIcon(
+      'tcs-case-start-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-add.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
       'tcs-config-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-settings.svg'))
     );
