@@ -5,6 +5,7 @@
       (markingEvent)="marking($event)"
       [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
       [url]="'https://spotfire-next.cloud.tibco.com'"
+
       customization='{"showAbout": true,
                       "showAnalysisInformationTool": true,
                       "showAuthor": true,
@@ -24,7 +25,7 @@
                       "showUndoRedo": false}'
       id="id1"
       markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'
-      [maxRows]='5'>
+      [maxRows]='1000'>
     </tcla-spotfire-viz>
   </div>
   <div  fxFlex fxLayoutGap="20px">
@@ -36,6 +37,7 @@
           <p>
             <b>Marking Data Table: </b> {{markingDataTables[i]}}
           </p>
+          <!--
           <table>
             <thead >
             <th  *ngFor="let mh of markingHeaders[i]">{{mh}}</th>
@@ -49,7 +51,7 @@
             </tr>
 
             </tbody>
-          </table>
+          </table> -->
 
 <!--
                     <table mat-table [dataSource]="dataSourceJson[i]" class="mat-elevation-z8">
@@ -63,9 +65,9 @@
                     </table>
 -->
 
-          <mat-table #table [dataSource]="dataSourceJson[i]">
+          <mat-table #table [dataSource]="dataSourceJson[i]" >
             <ng-container *ngFor="let column of columDefArray[i]"  [matColumnDef]='column.columnDef'>
-              <mat-header-cell *matHeaderCellDef>{{ column.header }}</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef ><!--<button>SELECT</button>-->{{ column.header }}</mat-header-cell>
               <mat-cell *matCellDef="let row">{{ column.cell(row) }}</mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="markingHeaders[i]"></mat-header-row>
