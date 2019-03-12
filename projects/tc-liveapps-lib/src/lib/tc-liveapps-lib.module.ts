@@ -63,6 +63,9 @@ import { LiveAppsMilestoneComponent } from './components/live-apps-milestone/liv
 import {TcDocumentService} from './services/tc-document.service';
 import { LiveAppsAppConfigurationWidgetComponent } from './components/live-apps-app-configuration-widget/live-apps-app-configuration-widget.component';
 import { LiveAppsCaseCreatorWidgetComponent } from './components/live-apps-case-creator-widget/live-apps-case-creator-widget.component';
+import { LiveAppsHomeCockpitComponent } from './components/live-apps-home-cockpit/live-apps-home-cockpit.component';
+import {TcLiveappsConfigService} from './services/tc-liveapps-config.service';
+import { LiveAppsApplicationListComponent } from './components/live-apps-application-list/live-apps-application-list.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +102,9 @@ import { LiveAppsCaseCreatorWidgetComponent } from './components/live-apps-case-
     LiveAppsCaseCockpitComponent,
     LiveAppsMilestoneComponent,
     LiveAppsAppConfigurationWidgetComponent,
-    LiveAppsCaseCreatorWidgetComponent
+    LiveAppsCaseCreatorWidgetComponent,
+    LiveAppsHomeCockpitComponent,
+    LiveAppsApplicationListComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -160,7 +165,9 @@ import { LiveAppsCaseCreatorWidgetComponent } from './components/live-apps-case-
     LiveAppsCaseDataDisplayComponent,
     LiveAppsCaseCockpitComponent,
     LiveAppsAppConfigurationWidgetComponent,
-    LiveAppsCaseCreatorWidgetComponent
+    LiveAppsCaseCreatorWidgetComponent,
+    LiveAppsHomeCockpitComponent,
+    LiveAppsApplicationListComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent],
   providers: [
@@ -175,7 +182,7 @@ export class TcLiveappsLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcLiveappsLibModule,
-      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService ]
+      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveappsConfigService ]
     };
   }
 }

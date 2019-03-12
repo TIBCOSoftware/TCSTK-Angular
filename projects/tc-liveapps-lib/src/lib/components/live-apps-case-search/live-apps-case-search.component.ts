@@ -3,6 +3,7 @@ import {Observable, Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {CaseInfoList, CaseSearchResults, CaseType} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {LiveAppsApplicationsComponent} from '../live-apps-applications/live-apps-applications.component';
 
 @Component({
   selector: 'tcla-live-apps-case-search',
@@ -14,9 +15,9 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
   @ViewChild('searchBox') searchBox: ElementRef;
   @Input() sandboxId: number;
   @Input() appIds: string[];
-  // @Input() appId: string;
-  // @Input() typeId: string;
   @Output() foundRefs: EventEmitter<CaseSearchResults> = new EventEmitter<CaseSearchResults>();
+
+  @ViewChild(LiveAppsApplicationsComponent) applicationsComponent: LiveAppsApplicationsComponent;
 
   searchTerm$: Subject<string>;
   searchValue: Observable<String>;
@@ -27,6 +28,12 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
 
   constructor(private liveapps: LiveAppsService) {
     super();
+  }
+
+  public refresh = () => {
+    if (this.applicationsComponent) {
+      this.applicationsComponent.refresh(true);
+    }
   }
 
   // handle search app selection
