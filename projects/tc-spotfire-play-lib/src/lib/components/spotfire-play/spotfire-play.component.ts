@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
 import { of } from 'rxjs';
+import {MatSort} from '@angular/material';
 
 
 @Component({
@@ -12,7 +13,9 @@ import { of } from 'rxjs';
 
 
 
-export class SpotfirePlayComponent implements OnInit {
+export class SpotfirePlayComponent implements OnInit, AfterViewInit {
+
+  @ViewChild(MatSort) sort: MatSort;
 
   markingdata: any;
 
@@ -23,26 +26,23 @@ export class SpotfirePlayComponent implements OnInit {
   dataSourceJson = new Array();
   columDefArray = new Array();
 
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-
-  columns = [
-    { columnDef: 'position', header: 'No.',    cell: (element: Element) => `${element.position}` },
-    { columnDef: 'name',     header: 'Name',   cell: (element: Element) => `${element.name}`     },
-    { columnDef: 'weight',   header: 'Weight', cell: (element: Element) => `${element['weight']}`   },
-    { columnDef: 'symbol',   header: 'Symbol', cell: (element: Element) => `${element.symbol}`   },
-  ];
-
-  displayedColumns = this.columns.map(c => c.columnDef);
-  dataSourceSample = new ExampleDataSource();
 
 
+
+  // dataSourceSample = new ExampleDataSource();
+
+
+  // dataSource = new MyDataSource(this.dataSourceJson[0]);
 
   constructor() { }
 
   ngOnInit() {
 
 
+  }
+
+  ngAfterViewInit(): void {
+   // this.dataSource.sort = this.sort;
   }
 
   public marking(data) {
@@ -120,52 +120,44 @@ export class SpotfirePlayComponent implements OnInit {
             const prepDataSource = this.markingData[this.markingData.length - 1];
             console.log('prepDataSource: ', prepDataSource);
             console.log('Headers: ', this.markingHeaders[this.markingHeaders.length - 1]);
-            const prepDataSourchWithHeaders = prepDataSource.slice();
-            prepDataSourchWithHeaders.unshift(this.markingHeaders[this.markingHeaders.length - 1]);
-            console.log('prepDataSourchWithHeaders: ', prepDataSourchWithHeaders);
+            const prepDataSourcehWithHeaders = prepDataSource.slice();
+            prepDataSourcehWithHeaders.unshift(this.markingHeaders[this.markingHeaders.length - 1]);
+            console.log('prepDataSourchWithHeaders: ', prepDataSourcehWithHeaders);
             // .unshift(this.markingHeaders[this.markingHeaders.length - 1]
-            this.dataSourceJson.push(this.convertToJSON(prepDataSourchWithHeaders));
+            this.dataSourceJson.push(this.convertToJSON(prepDataSourcehWithHeaders));
             console.log('dataSourceJSON: ' , this.dataSourceJson);
-
-
-
-
           }
-
         }
-
-
-
-
-        // this.markingData.push(mData);
       }
     }
 
     console.log('Marking Headers: ' , this.markingHeaders);
     console.log('Marking Data: ', this.markingData);
+    // console.log('colums: ' , this.columns);
 
-    console.log('colums: ' , this.columns);
 
-
-    for(let k = 0; k < this.markingHeaders.length; k++) {
-      var myColumns = [];
+    for (let k = 0; k < this.markingHeaders.length; k++) {
+      const myColumns = [];
       for (let m = 0; m < this.markingHeaders[k].length; m++) {
         const mh = this.markingHeaders[k][m];
         console.log('mh: ', mh);
         myColumns[m] = {};
         myColumns[m]['columnDef'] = mh;
         myColumns[m]['header'] = mh;
-        var set = "myColumns[m].cell = function(element) {return `${element['" + mh + "']}` };";
-        eval(set);
-
+        // let set = 'myColumns[m].cell = function(element) {return `${element[\'' + mh + '\']}` };';
+        // eval(set);
+        myColumns[m].cell = function(element) {return `${element[mh]}`; };
       }
       console.log('myColums:', myColumns);
       this.columDefArray.push(myColumns);
+      // this.dataSource = new MyDataSource(this.dataSourceJson[0]);
 
     }
     console.log('this.columDefArray:', this.columDefArray);
 
+
   }
+
 
   private convertToJSON(array) {
     const objArray = [];
@@ -199,56 +191,31 @@ export class SpotfirePlayComponent implements OnInit {
 
 }
 
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 
-const data: Element[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
-  {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
-  {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
-  {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
-  {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
-  {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
-  {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
-  {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
-  {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
-  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
-];
+/*
 
+export class MyDataSource extends DataSource<any> {
+  // Connect function called by the table to retrieve one stream containing the data to render.
 
-export class ExampleDataSource extends DataSource<any> {
-  /** Connect function called by the table to retrieve one stream containing the data to render. */
-  connect(): Observable<Element[]> {
-    return of(data);
+  data: any;
+
+  constructor(private d){
+    super();
+    this.data = d;
+
+  }
+
+  connect(): Observable<any[]> {
+    return of(this.data);
   }
 
   disconnect() {}
+
+
+  public sort(){
+    console.log('Sorting....');
+  }
 }
+
+*/

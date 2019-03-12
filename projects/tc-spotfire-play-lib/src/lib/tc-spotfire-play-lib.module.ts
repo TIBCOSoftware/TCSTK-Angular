@@ -27,10 +27,11 @@ import {ColorPickerModule} from 'ngx-color-picker';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.component';
 import { TableComponent } from './components/table/table.component';
+import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.component';
 
 
 @NgModule({
-  declarations: [SpotfirePlayComponent, TableComponent],
+  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -69,6 +70,8 @@ import { TableComponent } from './components/table/table.component';
     MatTableModule
   ],
   exports: [SpotfirePlayComponent,
-            TableComponent]
+            TableComponent,
+            MatSortModule,
+            SpotfireTabsComponent]
 })
 export class TcSpotfirePlayLibModule { }
