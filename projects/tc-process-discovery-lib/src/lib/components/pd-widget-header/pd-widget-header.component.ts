@@ -8,25 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./pd-widget-header.component.css']
 })
 export class PdWidgetHeaderComponent extends TibcoCloudWidgetHeaderComponent {
-    @Input() username : string;
-    @Input() currentRole : string;
-    @Input() activeView : string;
+    @Input() userName : string;
     @Input() sandboxId : number;
-    @Input() applicationId : number;
+    @Input() applicationIds : number[];
     @Input() typeId : string;
-    @Input() viewsButtons: ToolbarButton[];
+    @Input() viewButtons: ToolbarButton[];
+    @Input() toolbarButtons: ToolbarButton[];
     @Output() viewButtonEvent: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(private router: Router){
         super();
     }
 
-    viewButtonClick(id) {
-        this.viewButtonEvent.emit(id);
-    }
-
     handleToolbarButtonEvent(id){
-        
+        this.viewButtonEvent.emit(id);
     }
     
     toggleSidenav(id){
