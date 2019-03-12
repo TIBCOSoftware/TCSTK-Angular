@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {TcLiveappsLibModule} from 'tc-liveapps-lib';
+import {TcCoreLibModule} from 'tc-core-lib';
 import {
   MatButtonModule,
   MatCardModule,
@@ -16,7 +16,7 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule, MatPaginatorModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -28,10 +28,13 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.component';
 import { TableComponent } from './components/table/table.component';
 import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.component';
+import { DataTableExampleComponent } from './components/data-table-example/data-table-example.component';
+import {TcLiveappsLibModule} from 'tc-liveapps-lib';
+
 
 
 @NgModule({
-  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent],
+  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent, DataTableExampleComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -56,7 +59,6 @@ import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.
     ColorPickerModule,
     ScrollingModule,
     ReactiveFormsModule,
-    TcLiveappsLibModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatMenuModule,
@@ -67,11 +69,16 @@ import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.
     MatInputModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    TcCoreLibModule,
+    TcLiveappsLibModule
   ],
   exports: [SpotfirePlayComponent,
             TableComponent,
             MatSortModule,
-            SpotfireTabsComponent]
+            SpotfireTabsComponent,
+            DataTableExampleComponent
+            ]
 })
 export class TcSpotfirePlayLibModule { }

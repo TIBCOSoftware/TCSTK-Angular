@@ -147,6 +147,7 @@ export class SpotfirePlayComponent implements OnInit, AfterViewInit {
         // let set = 'myColumns[m].cell = function(element) {return `${element[\'' + mh + '\']}` };';
         // eval(set);
         myColumns[m].cell = function(element) {return `${element[mh]}`; };
+
       }
       console.log('myColums:', myColumns);
       this.columDefArray.push(myColumns);
