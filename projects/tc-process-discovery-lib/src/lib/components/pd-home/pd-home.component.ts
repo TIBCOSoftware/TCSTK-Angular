@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToolbarButton, TcButtonsHelperService, GeneralConfig } from 'tc-core-lib';
+import { LiveAppsConfig, Claim, CaseType, RouteAction, CaseRoute } from 'tc-liveapps-lib';
 
 @Component({
     selector: 'tcpd-pd-home',
@@ -9,42 +10,63 @@ import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
 })
 export class PdHomeComponent implements OnInit {
 
-    @Input() username : string;
-    @Input() email: string;
-    @Input() sandboxId: string;
-    @Input() applicationId : number;
-    @Input() typeId : string;
-    viewsButtons: ToolbarButton[];
-    @Output() caseCreated = new EventEmitter;
+    public generalConfig: GeneralConfig;
+    public liveAppsConfig: LiveAppsConfig;
+    private claims: Claim;
+    public sandboxId: number;
+    // public selectedAppConfig: CaseType;
+    public userName: string;
+    public toolbarButtons: ToolbarButton[];
+    public viewButtons: ToolbarButton[];
 
-    private currentView : string;
-    private currentRole : string;
+    constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private route: ActivatedRoute) { }
 
-    constructor(private router: Router, protected buttonsHelper: TcButtonsHelperService) { }
+    handleRouteAction = (routeAction: any) => {
+        if (routeAction.action === 'caseClicked') {
+            const caseRoute = new CaseRoute().deserialize(routeAction.context);
+            // case clicked - navigate to case - note need to pass appId and caseId
+            this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.typeId + '/' + caseRoute.caseRef]);
+        }
+        if (routeAction.action === 'configClicked') {
+            console.log('Config button clicked');
+            // route to config page
+        }
 
-    ngOnInit() {
-        this.viewsButtons = this.createToolbarButtons();
+        if (routeAction.value === "Process Mining View"){
+            this.router.navigate(['/starterApp/pd/process-mining-view']);
+        }
 
-    }
-
-    handleCaseCreation = (caseId: string) => {
-        // case clicked - navigate to case
-        // this.router.navigate(['/starterApp/case/' + caseId], {queryParams: {} });
-        console.log("OK for handleCaseCreation");
-      }
-
-    public handleViewButtonEvent = (id : string) => {
-        var id = id.toLocaleLowerCase().split(' ').join('-');
-        console.log("ID: " + id);
-        this.router.navigate(['/starterApp/pd/' + id], {});
-        this.currentView = id;
+        if (routeAction.value === "Case View"){
+            this.router.navigate(['/starterApp/pd/case-view']);
+        }
     }
 
     protected createToolbarButtons = (): ToolbarButton[] => {
-        const processMiningViewButton = this.buttonsHelper.createButton('1', '', true, 'Process Mining View', true, true);
-        const caseViewButton = this.buttonsHelper.createButton('2', 'tcs-refresh-icon', true, 'Case View', true, true);
-        const buttons = [ processMiningViewButton, caseViewButton ];
+        const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
+        const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
+        const buttons = [ configButton, refreshButton ];
         return buttons;
-      }
+    }
     
+    protected createViewButtons = (): ToolbarButton[] => {
+        const processMiningView = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Process Mining View', true, true);
+        const caseView = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Case View', true, true);
+        const buttons = [ processMiningView, caseView ];
+        return buttons;
+    }
+
+    ngOnInit() {
+        this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
+        this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
+        this.claims = this.route.snapshot.data.claims;
+        this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
+        this.userName = this.claims.firstName + ' ' + this.claims.lastName;
+        //   this.email = this.claims.email;
+        //   this.userId = this.claims.id;
+        this.toolbarButtons = this.createToolbarButtons();
+        this.viewButtons = this.createViewButtons();
+    }
+
+
 }
+
