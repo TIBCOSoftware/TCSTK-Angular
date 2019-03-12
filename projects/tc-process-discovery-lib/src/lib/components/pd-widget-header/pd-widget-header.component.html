@@ -1,53 +1,14 @@
-<div  fxLayout="column" fxLayoutAlign="space-between stretch"> <!-- fxFill -->
-    <tc-tibco-cloud-menu-bar class="pd-widget" [toolbarButtons]="" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
-        <!-- this is content projection. Tibco cloud menu bar contains ng-template and content here is projected inside the ng-content -->
-            <mat-toolbar fxFlex class="tib-toolbar tib-toolbar-primary  animate-show md-whiteframe-z1 cm-overview cm-toolbar"
-            md-theme="tibcloudtheme">
-        
-            <!-- <mat-icon ng-show="pageConfig.businessComponentConfig.searchSidebar"
-                    class="starters-secondary-action-button starters-button-right-margin" md-svg-icon="burger" aria-label="Menu"
-                    (click)="toggleSidenav('nav')"></mat-icon> -->
-            <!-- <mat-icon class="starters-secondary-action-button starters-button-right-margin" svgIcon="tcs-burger"
-                aria-label="Menu" (click)="toggleSidenav('nav')"></mat-icon> -->
-        
-            <div>Welcome - {{username}} </div>
-            <div> Viewing as  </div>
-            <div >
-                <!-- <mat-form-field>
-                    <mat-select [(value)]="currentRole">
-                        <mat-option value="Business Analyst">Business Analyst</mat-option>
-                        <mat-option value="Requestor">Requestor</mat-option>
-                        <mat-option value="Management">Management</mat-option>
-                    </mat-select>
-                </mat-form-field> -->
-                <!-- <starters-role-switcher possible-roles="possibleRoles" current-role="currentRole"></starters-role-switcher> -->
-            </div>
-        
-            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                <mat-button-toggle *ngFor="let view of toolbarButtons" value="bold" (change)="viewButtonClick(view.tooltip)">{{view.tooltip}}</mat-button-toggle>
+<div>
+    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="tc-home-welcome-text">Welcome - {{userName}}</span>
+            <!-- <tcla-live-apps-application-create-button style="margin-right: 20px; margin-left: 20px"
+                    [sandboxId]="sandboxId" [appIds]="appIds"></tcla-live-apps-application-create-button> -->
+        </div>
+        <div>
+            <mat-button-toggle-group name="view" aria-label="Font Style" (change)="handleToolbarButtonEvent($event)">
+                <mat-button-toggle *ngFor="let view of viewButtons" value="{{view.tooltip}}">{{view.tooltip}}</mat-button-toggle>
             </mat-button-toggle-group>
-            <!-- <div layout="column" class="nav-switch-bar" layout-align="start left">
-                <div layout="row" class="nav-switch">
-                    <div class="nav-switch-off-label" (click)="switchView('ProcessMiningView')">Process Mining View</div>
-                    <div class="nav-switch-off-label" (click)="switchView('CaseView')">Case view</div>
-                    <div class="nav-switch-on-label" (click)="switchView('DashboardsView')">Dashboards view</div>
-                </div>
-            </div> -->
-            <!-- <div class="tcs-widget-toolbar" fxLayout="row" fxLayoutAlign="end, center">
-                <div class="tcs-widget-toolbar-button-div" *ngFor="let toolbarButton of toolbarButtons">
-                  <mat-icon *ngIf="toolbarButton.visible" (click)="toolbarButtonClick(toolbarButton.id)" class="tcs-widget-toolbar-button" [matTooltip]="toolbarButton.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000" [svgIcon]="toolbarButton.icon"></mat-icon>
-                </div>
-            </div> -->
-            
-        
-        
-            <tcpd-pd-case-creators [sandboxId]="sandboxId" [applicationId]="applicationId" [typeId]="typeId" (caseCreated)="handleCaseCreation($event)"></tcpd-pd-case-creators>
-
-            <!-- Configure option -->
-            <!-- <button mat-button >Configure</button> -->
-            <button mat-icon-button (click)="goSettings()">
-                <mat-icon svgIcon="tcs-create"></mat-icon><span class="starters-create-case-button-text"></span>
-            </button>
-        </mat-toolbar> 
-   </tc-tibco-cloud-menu-bar>
+        </div>
+    </tc-tibco-cloud-menu-bar>
 </div>
