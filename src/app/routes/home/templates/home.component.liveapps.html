@@ -11,8 +11,7 @@
   <mat-tab label="Config">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
-      <tcla-live-apps-application-configuration [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" [appId]="appConfig.applicationId" [folderId]="appConfig.caseIconsFolderId" [appTypeLabel]="appConfig.caseTypeLabel"></tcla-live-apps-application-configuration>
-      <!--tcla-live-apps-documents style="padding: 30px;" [folderId]="'ServiceRequest_Icons'" [folderDescription]="'Case Icons'" [folderType]="'orgFolders'"></tcla-live-apps-documents-->
+      <tcla-live-apps-app-configuration-widget [sandboxId]="sandboxId" [appIds]="appConfig.applicationIds" [uiAppId]="appConfig.uiAppId" [folderId]="appConfig.caseIconsFolderId"></tcla-live-apps-app-configuration-widget>
     </ng-template>
   </mat-tab>
 
@@ -33,14 +32,15 @@
   <mat-tab label="Search">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
-      <tcla-live-apps-search-widget [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
+      <tcla-live-apps-search-widget [appIds]="appConfig.applicationIds" [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
     </ng-template>
   </mat-tab>
 
   <mat-tab label="Creators">
     <!-- using ng-template makes sure the tabs are lazy loaded -->
     <ng-template matTabContent>
-      <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
+      <!--tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="appConfig.applicationId" [typeId]="appConfig.typeId" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators-->
+      <tcla-live-apps-case-creator-widget [appIds]="appConfig.applicationIds" [sandboxId]="sandboxId" [uiAppId]="appConfig.uiAppId"></tcla-live-apps-case-creator-widget>
     </ng-template>
   </mat-tab>
 
@@ -52,8 +52,8 @@
           <tcla-live-apps-case-summary [uiAppId]="appConfig.uiAppId" [sandboxId]="sandboxId" [caseReference]="'205301'" [displayType]="'list'" [typeBar]="true"></tcla-live-apps-case-summary>
         </div>
         <div fxLayout="row" fxLayoutAlign="start start">
-          <tcla-live-apps-case-summary style="margin: 20px;" [uiAppId]="appConfig.uiAppId" [sandboxId]="sandboxId" [caseReference]="'205301'" [displayType]="'card'" [typeBar]="true"></tcla-live-apps-case-summary>
-          <tcla-live-apps-case-summary style="margin: 20px;" [uiAppId]="appConfig.uiAppId" [sandboxId]="sandboxId" [caseReference]="'205301'" [displayType]="'miniCard'" [typeBar]="true"></tcla-live-apps-case-summary>
+          <tcla-live-apps-case-summary style="margin: 20px;"  [uiAppId]="appConfig.uiAppId" [sandboxId]="sandboxId" [caseReference]="'205301'" [displayType]="'card'" [typeBar]="true"></tcla-live-apps-case-summary>
+          <tcla-live-apps-case-summary style="margin: 20px;"  [uiAppId]="appConfig.uiAppId" [sandboxId]="sandboxId" [caseReference]="'205301'" [displayType]="'miniCard'" [typeBar]="true"></tcla-live-apps-case-summary>
         </div>
 
         <div fxFlex fxLayout="row" fxLayoutGap="20px">

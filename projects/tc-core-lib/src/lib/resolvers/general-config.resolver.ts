@@ -5,18 +5,20 @@ import {UiAppConfig, UiAppIdConfig} from '../models/tc-app-config';
 import {flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
 import {TcSharedStateService} from '../services/tc-shared-state.service';
 import {HttpClient} from '@angular/common/http';
+import {TcGeneralConfigService} from '../services/tc-general-config.service';
+import {GeneralConfig} from '../models/tc-general-config';
 
 @Injectable()
-export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
+export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>> {
 
-  DEFAULT_CONFIG_URL = '/assets/config/defaultAppConfig.json';
-  APP_ID_URL = '/assets/config/appId.json';
+  DEFAULT_CONFIG_URL = '/assets/config/generalAppConfig.json';
+  APP_ID_URL = '/assets/config/uiAppId.json';
 
   private sandboxId: number;
-  public defaultAppConfig: UiAppConfig;
+  public defaultAppConfig: GeneralConfig;
   private uiAppId: string;
 
-  constructor(private tcSharedState: TcSharedStateService, private http: HttpClient) {}
+  constructor(private tcSharedState: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient) {}
   // note appConfigResolver will need sandboxId to create app config state record.
   // So we expect this to have been set by caller (done by tc-liveapps-lib/laConfigResolver).
 
@@ -41,35 +43,34 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
     );
   }
 
-  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
+  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<GeneralConfig> {
     const appConfig = this.getAppId().pipe(
-      switchMap(uiAppId => this.tcSharedState.getUiAppConfig(uiAppId.uiAppId, true, false)
+      switchMap(uiAppId => this.generalConfigService.getGeneralConfig(uiAppId.uiAppId, true, false)
       .pipe(
         mergeMap(
-          uiAppConfig => {
-            if (uiAppConfig === undefined) {
+          generalConfig => {
+            if (generalConfig === undefined) {
               return this.getDefaultAppConfig().pipe(
                 flatMap(config => {
-                  this.defaultAppConfig = new UiAppConfig().deserialize(config);
+                  this.defaultAppConfig = new GeneralConfig().deserialize(config);
                   this.defaultAppConfig.uiAppId = this.uiAppId;
-                  return this.tcSharedState.createUiAppConfig(
-                    this.defaultAppConfig.sandboxId,
-                    this.defaultAppConfig,
-                    this.defaultAppConfig.uiAppId)
+                  return this.generalConfigService.createGeneralConfig(
+                    this.sandboxId,
+                    this.defaultAppConfig.uiAppId,
+                    this.defaultAppConfig)
                     .pipe(
                       map(
                         result => {
                           const newAppConfig = this.defaultAppConfig;
                           newAppConfig.id = result;
-                          newAppConfig.sandboxId = this.sandboxId;
-                          this.tcSharedState.updateUiAppConfig(
-                            newAppConfig.sandboxId,
-                            newAppConfig,
+                          this.generalConfigService.updateGeneralConfig(
+                            this.sandboxId,
                             newAppConfig.uiAppId,
+                            newAppConfig,
                             result).subscribe(
                             // trigger a read to flush the cache since we changed it
                             updatedConf => {
-                              this.tcSharedState.getUiAppConfig(this.uiAppId, true, true).subscribe();
+                              this.generalConfigService.getGeneralConfig(this.uiAppId, true, true).subscribe();
                             }
                           );
                           return newAppConfig;
@@ -78,7 +79,7 @@ export class ConfigResolver implements Resolve<Observable<UiAppConfig>> {
                 })
               );
              } else {
-              return of(uiAppConfig);
+              return of(generalConfig);
             }
           }
         )

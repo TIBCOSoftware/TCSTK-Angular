@@ -18,6 +18,7 @@ export * from './lib/services/tc-shared-state.service';
 export * from './lib/services/request-cache.service';
 export * from './lib/services/tc-logging.service';
 export * from './lib/services/tc-buttons-helper.service';
+export * from './lib/services/tc-general-config.service';
 
 // models
 export * from './lib/models/tc-login';
@@ -25,6 +26,7 @@ export * from './lib/models/tc-shared-state';
 export * from './lib/models/deserializable';
 export * from './lib/models/tc-app-config';
 export * from './lib/models/tc-widget-header';
+export * from './lib/models/tc-general-config';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';
@@ -34,7 +36,7 @@ export * from './lib/interceptors/mocking-interceptor';
 export * from './lib/guards/auth.guard';
 
 // resolvers
-export * from './lib/resolvers/config.resolver';
+export * from './lib/resolvers/general-config.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';

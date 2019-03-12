@@ -2,9 +2,8 @@ import {Deserializable} from '../models/deserializable';
 
 export class UiAppConfig implements Deserializable {
   id: string;
-  userId: string;
   sandboxId: number;
-  applicationId: string;
+  applicationIds: number[];
   typeId: string;
   uiAppId: string;
   caseIconsFolderId: string;

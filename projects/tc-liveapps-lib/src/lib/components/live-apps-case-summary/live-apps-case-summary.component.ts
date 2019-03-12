@@ -11,7 +11,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {CardConfig, CaseInfo, Metadata} from '../../models/liveappsdata';
+import {CardConfig, CaseInfo, CaseRoute, Metadata} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
@@ -43,7 +43,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   @Input() typeBar: boolean;
   @Input() uiAppId: string;
   @Input() highlight: string;
-  @Output() clickCase = new EventEmitter;
+  @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public casedata: any;
   public summary: any;
@@ -52,10 +52,13 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   public metadata: Metadata;
   public appStateConfig: CardConfig;
   public errorMessage;
+  public appId: string;
+  public typeId: string;
   color: string;
 
   public clickCaseAction = () => {
-    this.clickCase.emit(this.caseReference);
+    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseReference, appId: this.appId, typeId: this.typeId});
+    this.clickCase.emit(caseRoute);
   }
 
   public restylePreview = (icon, fill) => {
@@ -77,6 +80,8 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
           take(1),
           takeUntil(this._destroyed$),
           map(caseinfo => {
+            this.appId = caseinfo.metadata.applicationId;
+            this.typeId = caseinfo.metadata.typeId;
             this.casedata = caseinfo.untaggedCasedataObj;
             this.metadata = caseinfo.metadata;
             this.summary = caseinfo.summaryObj;

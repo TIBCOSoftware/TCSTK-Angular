@@ -4,14 +4,14 @@ import { LoginComponent } from './components/login/login.component';
 import {AuthGuard, TcSharedStateService} from 'tc-core-lib';
 import { HomeComponent } from './routes/home/home.component';
 import { StarterAppComponent } from './routes/starter-app/starter-app.component';
-import { ConfigResolver } from 'tc-core-lib';
-import {Claim, ClaimsResolver, LiveAppsService} from 'tc-liveapps-lib';
+import {Claim, ClaimsResolver, LiveAppsConfigHolder, LiveAppsService} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
 import {LaConfigResolver} from 'tc-liveapps-lib';
 import {CaseComponent} from './routes/case/case.component';
 import {CaseGuard} from 'tc-liveapps-lib';
 import {TibcoCloudErrorComponent} from 'tc-core-lib';
+import {LiveAppsConfigResolver} from 'tc-liveapps-lib';
 
 const routes: Routes = [
   {
@@ -40,15 +40,15 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         resolve: {
           claims: ClaimsResolver,
-          appConfig: LaConfigResolver
+          laConfigHolder: LaConfigResolver
         }
       },
       {
-        path: 'case/:caseRef',
+        path: 'case/:appId/:typeId/:caseRef',
         component: CaseComponent,
         canActivate: [AuthGuard, CaseGuard],
         resolve: {
-          appConfig: LaConfigResolver,
+          laConfigHolder: LaConfigResolver,
           claims: ClaimsResolver
         }
       }
@@ -66,7 +66,7 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     ClaimsResolver,
-    ConfigResolver,
+    LiveAppsConfigResolver,
     LaConfigResolver
     ]
 })

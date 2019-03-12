@@ -1,0 +1,19 @@
+{
+  "applicationTitle": "Case Manager App",
+  "roles": [
+    {
+      "id": "role1",
+      "display": "My role 1",
+      "welcome": "welcome",
+      "imageURL": "http://sdfnsf"
+    },
+    {
+      "id": "role2",
+      "display": "My role 2",
+      "welcome": "welcome",
+      "imageURL": "http://sdfnsf"
+    }
+  ],
+  "displayName": true,
+  "documentationURL": "http:/blabla"
+}

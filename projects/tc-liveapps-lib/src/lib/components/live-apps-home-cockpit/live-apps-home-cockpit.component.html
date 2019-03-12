@@ -1,0 +1,23 @@
+<div fxLayout="column">
+  <div>
+    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+      <span class="tc-home-welcome-text">Overview - {{title}}</span>
+    </tc-tibco-cloud-menu-bar>
+  </div>
+
+  <div class="searchCasesWidget">
+    <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
+  </div>
+
+  <div fxFlex fxLayout="row" fxLayoutGap="20px" style="margin-left: 20px; margin-right: 20px">
+    <div fxFlex class="favoriteCasesWidget">
+      <tcla-live-apps-favorite-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
+    </div>
+
+    <div fxFlex class="recentCasesWidget">
+      <tcla-live-apps-recent-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
+    </div>
+  </div>
+</div>
+
+
