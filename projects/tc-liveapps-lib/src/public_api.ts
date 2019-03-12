@@ -50,9 +50,10 @@ export * from './lib/services/live-apps.service';
 export * from './lib/services/tc-case-data.service';
 export * from './lib/services/tc-case-processes.service';
 export * from './lib/services/tc-document.service';
-export * from './lib/services/tc-liveapps-config.service';
+export * from './lib/services/tc-live-apps-config.service';
 // resolvers
 export * from './lib/resolvers/claims.resolver';
+export * from './lib/resolvers/liveapps-config.resolver';
 export * from './lib/resolvers/la-config.resolver';
 
 // guards

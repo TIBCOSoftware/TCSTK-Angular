@@ -36,7 +36,7 @@ export * from './lib/interceptors/mocking-interceptor';
 export * from './lib/guards/auth.guard';
 
 // resolvers
-export * from './lib/resolvers/config.resolver';
+export * from './lib/resolvers/general-config.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';

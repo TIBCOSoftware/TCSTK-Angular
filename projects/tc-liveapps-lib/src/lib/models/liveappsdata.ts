@@ -15,6 +15,7 @@ export class NoteThread {
 export class CaseRoute {
   public caseRef: string;
   public appId: string;
+  public typeId: string;
   deserialize(input: any): this {
     Object.assign(this, input);
     return this;

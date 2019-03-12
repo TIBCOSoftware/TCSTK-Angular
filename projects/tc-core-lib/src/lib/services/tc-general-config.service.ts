@@ -16,7 +16,7 @@ export class TcGeneralConfigService {
   }
 
   public createGeneralConfig(sandboxId: number, uiAppId: string, generalConfig: GeneralConfig) {
-    const ssName = uiAppId + 'general.config.tibcolabs.client.context.PUBLIC';
+    const ssName = uiAppId + '.general.config.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
     content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(generalConfig));
 
@@ -28,7 +28,7 @@ export class TcGeneralConfigService {
 
   public getGeneralConfig(uiAppId: string, useCache: boolean, flushCache: boolean): Observable<GeneralConfig> {
     // if useCache is false this will trigger the service to update the cached version with latest
-    const ssName = uiAppId + 'general.config.tibcolabs.client.context.PUBLIC';
+    const ssName = uiAppId + '.general.config.tibcolabs.client.context.PUBLIC';
 
     return this.sharedStateService.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
       .pipe(
@@ -45,10 +45,10 @@ export class TcGeneralConfigService {
       );
   }
 
-  public updateGeneralConfig(sandboxId: number, generalConfig: GeneralConfig, uiAppId: string, id: string) {
-    const ssName = uiAppId + 'general.config.tibcolabs.client.context.PUBLIC';
+  public updateGeneralConfig(sandboxId: number, uiAppId: string, generalConfig: GeneralConfig, id: string) {
+    const ssName = uiAppId + '.general.config.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
-    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(GeneralConfig));
+    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(generalConfig));
     const entry: SharedStateEntry = new SharedStateEntry();
     entry.content = content;
     entry.sandboxId = sandboxId;

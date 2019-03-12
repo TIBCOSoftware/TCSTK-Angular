@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UiAppConfig} from 'tc-core-lib';
-import {CaseRoute, CaseType, Claim, RouteAction} from 'tc-liveapps-lib';
+import {GeneralConfig, UiAppConfig} from 'tc-core-lib';
+import {CaseRoute, CaseType, Claim, LiveAppsConfig, RouteAction} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',
@@ -12,7 +12,8 @@ import {CaseRoute, CaseType, Claim, RouteAction} from 'tc-liveapps-lib';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public appConfig: UiAppConfig;
+  public generalConfig: GeneralConfig;
+  public liveAppsConfig: LiveAppsConfig;
   private claims: Claim;
   public sandboxId: number;
   public selectedAppConfig: CaseType;
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
     if (routeAction.action === 'caseClicked') {
       const caseRoute = new CaseRoute().deserialize(routeAction.context);
       // case clicked - navigate to case - note need to pass appId and caseId
-      this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.caseRef]);
+      this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.typeId + '/' + caseRoute.caseRef]);
     }
     if (routeAction.action === 'configClicked') {
       console.log('Config button clicked');
@@ -36,7 +37,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appConfig = this.route.snapshot.data.appConfig;
+    this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
+    this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.claims = this.route.snapshot.data.claims;
     this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
     this.userName = this.claims.firstName + ' ' + this.claims.lastName;
