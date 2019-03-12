@@ -22,13 +22,14 @@ export class PdHomeComponent implements OnInit {
     constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private route: ActivatedRoute) { }
 
     handleRouteAction = (routeAction: any) => {
-        if (routeAction.action === 'caseClicked') {
+        if (routeAction === 'caseClicked') {
             const caseRoute = new CaseRoute().deserialize(routeAction.context);
             // case clicked - navigate to case - note need to pass appId and caseId
             this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.typeId + '/' + caseRoute.caseRef]);
         }
-        if (routeAction.action === 'configClicked') {
+        if (routeAction === 'config') {
             console.log('Config button clicked');
+            this.router.navigate(['/starterApp/settings/general-application-settings']);
             // route to config page
         }
 
