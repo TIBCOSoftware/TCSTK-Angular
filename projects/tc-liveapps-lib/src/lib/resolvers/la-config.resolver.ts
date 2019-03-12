@@ -4,8 +4,8 @@
 
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
-import { Observable, of } from 'rxjs';
-import {ConfigResolver, UiAppConfig} from 'tc-core-lib';
+import {forkJoin, Observable, of} from 'rxjs';
+import {GeneralConfigResolver, UiAppConfig, GeneralConfig, TcGeneralConfigService} from 'tc-core-lib';
 import {flatMap, map, mergeMap} from 'rxjs/operators';
 import {TcSharedStateService} from 'tc-core-lib';
 import {Claim} from '../models/liveappsdata';
@@ -13,31 +13,44 @@ import {ClaimsResolver} from '../resolvers/claims.resolver';
 import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';
 import {TcDocumentService} from '../services/tc-document.service';
+import {LiveAppsConfigHolder} from '../models/tc-liveapps-config';
+import {LiveAppsConfigResolver} from './liveapps-config.resolver';
+import {TcLiveAppsConfigService} from '../services/tc-live-apps-config.service';
 
 @Injectable()
-export class LaConfigResolver implements Resolve<Observable<UiAppConfig>> {
+export class LaConfigResolver implements Resolve<Observable<LiveAppsConfigHolder>> {
 
-  constructor(private tcSharedState: TcSharedStateService, private documentService: TcDocumentService, private http: HttpClient, private liveAppsService: LiveAppsService) {}
+  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private liveAppsConfigService: TcLiveAppsConfigService, private documentService: TcDocumentService, private http: HttpClient, private liveAppsService: LiveAppsService) {}
 
-  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<UiAppConfig> {
+  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<LiveAppsConfigHolder> {
+    // we will return a holder object that contains both general config and live apps config
 
-    const configResolver$ = new ConfigResolver(this.tcSharedState, this.http);
+    const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http);
+    const liveAppsConfigResolver = new LiveAppsConfigResolver(this.sharedStateService, this.liveAppsConfigService, this.http);
+
     const claimResolver$ = new ClaimsResolver(this.liveAppsService).resolve().pipe(
       flatMap(value => {
           const sandboxId = value.primaryProductionSandbox.id;
-          configResolver$.setSandbox(Number(sandboxId));
-          const config = configResolver$.resolve(routeSnapshot);
-          return config;
+          generalConfigResolver.setSandbox(Number(sandboxId));
+          liveAppsConfigResolver.setSandbox(Number(sandboxId));
+
+          const generalConfig$ = generalConfigResolver.resolve(routeSnapshot);
+          const liveAppsConfig$ = liveAppsConfigResolver.resolve(routeSnapshot);
+          const forkJoinArray = [generalConfig$, liveAppsConfig$];
+          return forkJoin(forkJoinArray).pipe(
+            map(resultArr => {
+              return new LiveAppsConfigHolder().deserialize({ generalConfig: resultArr[0], liveAppsConfig: resultArr[1] });
+            }));
         }
         )
     );
 
     const resolveResp$ = claimResolver$.pipe(
-      flatMap(uiAppConf => {
-        return this.documentService.initOrgFolder(uiAppConf.uiAppId + '_Icons').pipe(
+      flatMap(liveAppsConfigHolder => {
+        return this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId + '_Icons').pipe(
           map(
             apiResponse => {
-              return uiAppConf;
+              return liveAppsConfigHolder;
             }
           )
         );

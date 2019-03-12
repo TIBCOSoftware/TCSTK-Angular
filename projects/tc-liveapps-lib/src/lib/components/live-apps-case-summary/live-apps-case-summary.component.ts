@@ -53,10 +53,11 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   public appStateConfig: CardConfig;
   public errorMessage;
   public appId: string;
+  public typeId: string;
   color: string;
 
   public clickCaseAction = () => {
-    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseReference, appId: this.appId});
+    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseReference, appId: this.appId, typeId: this.typeId});
     this.clickCase.emit(caseRoute);
   }
 
@@ -80,6 +81,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
           takeUntil(this._destroyed$),
           map(caseinfo => {
             this.appId = caseinfo.metadata.applicationId;
+            this.typeId = caseinfo.metadata.typeId;
             this.casedata = caseinfo.untaggedCasedataObj;
             this.metadata = caseinfo.metadata;
             this.summary = caseinfo.summaryObj;

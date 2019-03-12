@@ -8,13 +8,13 @@ import {LiveAppsConfig} from '../models/tc-liveapps-config';
 @Injectable({
   providedIn: 'root'
 })
-export class TcLiveappsConfigService {
+export class TcLiveAppsConfigService {
 
   constructor(private location: Location, private sharedStateService: TcSharedStateService) {
   }
 
-  public createGeneralConfig(sandboxId: number, uiAppId: string, liveappsConfig: LiveAppsConfig) {
-    const ssName = uiAppId + 'liveapps.config.tibcolabs.client.context.PUBLIC';
+  public createLiveAppsConfig(sandboxId: number, uiAppId: string, liveappsConfig: LiveAppsConfig) {
+    const ssName = uiAppId + '.liveapps.config.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
     content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(liveappsConfig));
 
@@ -24,9 +24,9 @@ export class TcLiveappsConfigService {
       );
   }
 
-  public getGeneralConfig(uiAppId: string, useCache: boolean, flushCache: boolean): Observable<LiveAppsConfig> {
+  public getLiveAppsConfig(uiAppId: string, useCache: boolean, flushCache: boolean): Observable<LiveAppsConfig> {
     // if useCache is false this will trigger the service to update the cached version with latest
-    const ssName = uiAppId + 'liveapps.config.tibcolabs.client.context.PUBLIC';
+    const ssName = uiAppId + '.liveapps.config.tibcolabs.client.context.PUBLIC';
 
     return this.sharedStateService.getSharedState(ssName, 'PUBLIC', useCache, flushCache)
       .pipe(
@@ -43,10 +43,10 @@ export class TcLiveappsConfigService {
       );
   }
 
-  public updateGeneralConfig(sandboxId: number, liveappsConfig: LiveAppsConfig, uiAppId: string, id: string) {
-    const ssName = uiAppId + 'liveapps.config.tibcolabs.client.context.PUBLIC';
+  public updateLiveAppsConfig(sandboxId: number, uiAppId: string, liveappsConfig: LiveAppsConfig, id: string) {
+    const ssName = uiAppId + '.liveapps.config.tibcolabs.client.context.PUBLIC';
     const content: SharedStateContent = new SharedStateContent();
-    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(LiveAppsConfig));
+    content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(liveappsConfig));
     const entry: SharedStateEntry = new SharedStateEntry();
     entry.content = content;
     entry.sandboxId = sandboxId;

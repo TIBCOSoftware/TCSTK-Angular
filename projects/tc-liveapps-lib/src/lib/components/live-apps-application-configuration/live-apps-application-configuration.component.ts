@@ -1,6 +1,6 @@
 
 /*
-*     Case Type icons are stored in an orgFolder specified in defaultAppConfig.json (pushed to shared state)
+*     Case Type icons are stored in an orgFolder specified in liveAppsConfig.json (pushed to shared state)
 *     Icon Name will be appId.filename.svg
 *     Icon svg should contain <DYNAMICFILL> this will be set according to the color selected in this component
 *
