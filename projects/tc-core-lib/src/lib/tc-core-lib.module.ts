@@ -35,6 +35,7 @@ import { TibcoCloudMenuBarComponent } from './components/tibco-cloud-menu-bar/ti
 import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
 import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
 import { OnCreateDirective } from './directives/on-create.directive';
+import {TcGeneralConfigService} from './services/tc-general-config.service';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,7 @@ export class TcCoreLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcCoreLibModule,
-      providers: [ TcSharedStateService ]
+      providers: [ TcSharedStateService, TcGeneralConfigService ]
     };
   }
 }
