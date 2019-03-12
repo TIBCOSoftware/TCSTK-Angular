@@ -1,0 +1,145 @@
+<!-- 
+<md-toolbar class="tib-toolbar tib-toolbar-primary animate-show md-whiteframe-z1 cm-overview cm-toolbar"
+    md-theme="{{theme.val ? theme.val : 'tibcloudtheme'}}">
+    <div class="md-toolbar-tools">
+
+        <span flex class="title" translate="{{$root.appConfig.appId}}.CmApp.analyticsHome"
+            translate-default="Manage Capabilities"></span>
+
+        <div layout="row" class="nav-switch-bar">
+            <div layout="row" class="nav-switch">
+                <div class="nav-switch-off-label" ng-click="switchToPage('initialisation')">Landing view</div>
+                <div ng-if="starterId=='risk-investigation'" class="nav-switch-off-label"
+                    ng-click="switchToPage('analytics')">Analytics view</div>
+                <div class="nav-switch-off-label" ng-click="switchToPage('cases.overview')">Cases view</div>
+                <div class="nav-switch-on-label" ng-click="switchToPage('settings')">Manage Capabilities</div>
+            </div>
+        </div>
+
+    </div>
+</md-toolbar>
+ -->
+
+<div fxFlex>
+    <div layout="column" layout-align="start center" fxFlex="10"></div>
+
+    <!-- <div layout="column" layout-align="start" fxFlex="20">
+        <tcpd-setting-menu-entry [icon]="'tcs-starters'" [title]="'General Application'" [options]="['Settings']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+        <tcpd-setting-menu-entry [icon]="'tcs-liveapps'" [title]="'Live Apps'" [options]="['Configure','Cards']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+        <tcpd-setting-menu-entry [icon]="'tcs-spotfire'" [title]="'Spotfire'" [options]="['Configure']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+        <tcpd-setting-menu-entry [icon]="'tcs-integration'" [title]="'Integration'" [options]="['Configure']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+        <tcpd-setting-menu-entry [icon]="'tcs-integration'" [title]="'Process Discovery'" [options]="['Settings','Configure']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+    </div> -->
+    <div layout="column" layout-align="start" fxFlex="20">
+        <tcpd-setting-menu-entry *ngFor="let menu of configMenu" [icon]="'tcs-starters'" [title]="menu.entry" [options]="menu.options" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+    </div>
+
+    <!-- configure Box -->
+    <div fxFlex="60" layout="column" layout-align="start stretch">
+        <div flex class="starters-custom-layout" layout="row" layout-align="space-between center" layout-margin>
+            <div flex class="starters-custom-layout-bottom-box ng-scope flex">
+                <div class="starters-custom-layout-box-header layout-align-start-center layout-row" layout="row"
+                    layout-align="start center">
+                    <!-- <md-icon flex="none" md-svg-icon="ic-capabilities"
+                        class="starters-custom-layout-panel-icon md-default-theme flex-none"></md-icon> -->
+                    <div class="starters-custom-layout-text starters-custom-layout-panel-text flex" flex>Current
+                        {{showConfigName}} Configuration</div>
+                </div>
+                <div style="padding: 10px;">
+                    <router-outlet></router-outlet>
+                    <!-- <starters-configure-general ng-if="(configGeneral !=undefined) && (showConfigName=='General')"
+                        path-to-configuration="pathToConfigurationGeneral" configuration="configGeneral"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)"></starters-configure-general>
+                    <starters-configure-tci ng-if="(configTci !=undefined) && (showConfigName=='Integration')"
+                        path-to-configuration="pathToConfigurationTci" configuration="configTci"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)"></starters-configure-tci>
+                    <starters-configure-spotfire ng-if="(configSpotfire !=undefined) && (showConfigName=='Spotfire')"
+                        path-to-configuration="pathToConfigurationSpotfire" configuration="configSpotfire"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)"></starters-configure-spotfire>
+                    <starters-configure-liveapps ng-if="(configLiveApp !=undefined) && (showConfigName=='LiveApps')"
+                        path-to-configuration="pathToConfigurationLiveApp" configuration="configLiveApp"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)" case-types-config="caseTypesConfig">
+                    </starters-configure-liveapps> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div layout="column" layout-align="start center" fxFlex="10">
+        <a href="https://community.tibco.com/wiki/tibco-labs" target="_blank">
+            <img title="discover TIBCO LABS on TIBCO Community" width="64" border="0" src="assets/images/TIBCOLabs.png">
+        </a>
+    </div>
+    
+ </div>
+ <!-- <div class="app-settings" style="padding-top: 30px;" layout="row">
+    <div layout="column" layout-align="start center" flex="10">
+    </div>
+    <div layout="column" layout-align="start" flex="20">
+        <!-Spotfire->
+        <div layout="row" ng-if="configSpotfire !=undefined">
+            <div layout="column">
+                <md-icon class="underlying-capability-icon" md-svg-icon="spotfire"></md-icon>
+            </div>
+            <div layout="column">
+                <div class="underlying-capability-text">Spotfire</div>
+            </div>
+        </div>
+        <div layout="row" ng-if="configSpotfire !=undefined">
+            <div layout="column">
+                <div class="underlying-capability-link"><span ng-click="showConfig('Spotfire')">Configure</span></div>
+            </div>
+        </div>
+        <!-TCI->
+        <div layout="row" ng-if="configTci !=undefined">
+            <div layout="column">
+                <md-icon class="underlying-capability-icon" md-svg-icon="integration"></md-icon>
+            </div>
+            <div layout="column">
+                <div class="underlying-capability-text">Integration</div>
+            </div>
+        </div>
+        <div layout="row" ng-if="configTci !=undefined">
+            <div layout="column">
+                <div class="underlying-capability-link"><span ng-click="showConfig('Integration')">Configure</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <--configure Box->
+    <div flex="60" layout="column" layout-align="start stretch">
+        <div flex class="starters-custom-layout" layout="row" layout-align="space-between center" layout-margin>
+            <div flex class="starters-custom-layout-bottom-box ng-scope flex">
+                <div class="starters-custom-layout-box-header layout-align-start-center layout-row" layout="row"
+                    layout-align="start center">
+                    <md-icon flex="none" md-svg-icon="ic-capabilities"
+                        class="starters-custom-layout-panel-icon md-default-theme flex-none"></md-icon>
+                    <div class="starters-custom-layout-text starters-custom-layout-panel-text flex" flex>Current
+                        {{showConfigName}} Configuration</div>
+                </div>
+                <div style="padding: 10px;">
+                    <starters-configure-general ng-if="(configGeneral !=undefined) && (showConfigName=='General')"
+                        path-to-configuration="pathToConfigurationGeneral" configuration="configGeneral"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)"></starters-configure-general>
+                    <starters-configure-tci ng-if="(configTci !=undefined) && (showConfigName=='Integration')"
+                        path-to-configuration="pathToConfigurationTci" configuration="configTci"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)"></starters-configure-tci>
+                    <starters-configure-spotfire ng-if="(configSpotfire !=undefined) && (showConfigName=='Spotfire')"
+                        path-to-configuration="pathToConfigurationSpotfire" configuration="configSpotfire"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)"></starters-configure-spotfire>
+                    <starters-configure-liveapps ng-if="(configLiveApp !=undefined) && (showConfigName=='LiveApps')"
+                        path-to-configuration="pathToConfigurationLiveApp" configuration="configLiveApp"
+                        save-fn="mySaveFn(dataToSave,pathToConfiguration)" case-types-config="caseTypesConfig">
+                    </starters-configure-liveapps>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div layout="column" layout-align="start center" flex="10">
+        <a href="https://community.tibco.com/wiki/tibco-labs" target="_blank"><img
+                title="discover TIBCO LABS on TIBCO Community" width="64" border="0"
+                src="images/TIBCOLabs.png"></img></a>
+    </div>
+</div> -->

@@ -1,0 +1,37 @@
+<mat-toolbar fxFlex class="tib-toolbar tib-toolbar-primary  animate-show md-whiteframe-z1 cm-overview cm-toolbar"
+    md-theme="tibcloudtheme">
+
+    <!-- <mat-icon ng-show="pageConfig.businessComponentConfig.searchSidebar"
+            class="starters-secondary-action-button starters-button-right-margin" md-svg-icon="burger" aria-label="Menu"
+            (click)="toggleSidenav('nav')"></mat-icon> -->
+    <mat-icon class="starters-secondary-action-button starters-button-right-margin" svgIcon="tcs-burger"
+        aria-label="Menu" (click)="toggleSidenav('nav')"></mat-icon>
+
+    <div title="{{email}}">Welcome - {{username}}</div>
+    <div title="{{email}}">Your Cases</div>
+    <div style="margin-left: 20px; padding-right: 28px;">
+        <mat-form-field>
+            <mat-select placeholder="Roles" [(value)]="currentRole">
+                <mat-option value="Business Analyst">Business Analyst</mat-option>
+                <mat-option value="Requestor">Requestor</mat-option>
+                <mat-option value="Management">Management</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <starters-role-switcher possible-roles="possibleRoles" current-role="currentRole"></starters-role-switcher> -->
+    </div>
+
+
+    <button mat-button *ngIf="currentRole === 'Business Analyst'" (click)="switchView('ProcessMiningView')">Process Mining View</button>
+    <button mat-button *ngIf="currentRole === 'Business Analyst' || currentRole ==='Requestor'" (click)="switchView('CaseView')">Case view</button>
+    <button mat-button (click)="switchView('DashboardsView')">Dashboards view</button>
+    <!-- <div layout="column" class="nav-switch-bar" layout-align="start left">
+        <div layout="row" class="nav-switch">
+            <div class="nav-switch-off-label" (click)="switchView('ProcessMiningView')">Process Mining View</div>
+            <div class="nav-switch-off-label" (click)="switchView('CaseView')">Case view</div>
+            <div class="nav-switch-on-label" (click)="switchView('DashboardsView')">Dashboards view</div>
+        </div>
+    </div> -->
+
+
+    <tcpd-pd-case-creators [sandboxId]="sandboxId" [applicationId]="applicationId" [typeId]="typeId" (caseCreated)="handleCaseCreation($event)"></tcpd-pd-case-creators>
+</mat-toolbar>
