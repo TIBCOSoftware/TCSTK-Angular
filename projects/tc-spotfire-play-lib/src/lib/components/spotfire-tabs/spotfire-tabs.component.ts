@@ -15,10 +15,10 @@ export class SpotfireTabsComponent implements OnInit {
     this.activepage = 'Introduction';
   }
 
-  private tabChange($event){
+  public tabChange($event) {
     console.log('tab change: ', $event);
     console.log($event.index);
-    switch($event.index) {
+    switch ($event.index) {
       case 0:
         this.activepage = 'Introduction';
         break;
