@@ -44,8 +44,8 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
     this.selection.emit(selectionEvent.source.value);
   }
 
-  public refresh = () => {
-    this.liveapps.getApplications(this.sandboxId, this.appIds, 100)
+  public refresh = (bypassCache: boolean) => {
+    this.liveapps.getApplications(this.sandboxId, this.appIds, 100, bypassCache)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -62,7 +62,7 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   }
 
   ngOnInit(): void {
-    this.refresh();
+    this.refresh(false);
 
   }
 

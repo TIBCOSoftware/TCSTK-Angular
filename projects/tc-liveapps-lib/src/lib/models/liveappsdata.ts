@@ -13,8 +13,17 @@ export class NoteThread {
 }
 
 export class CaseRoute {
-  constructor(public caseRef: string,
-              public appId: string
+  public caseRef: string;
+  public appId: string;
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class RouteAction {
+  constructor(public action: string,
+              public context: any
   ) {}
 }
 

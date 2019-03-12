@@ -16,6 +16,7 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
 import {MatTab, MatTabGroup} from '@angular/material';
 import {QueryList} from '@angular/core';
 import { OnCreateDirective} from 'tc-core-lib';
+import {RouteAction} from '../../models/liveappsdata';
 
 @Component({
   selector: 'tcla-live-apps-case-cockpit',
@@ -29,7 +30,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   @Input() sandboxId;
   @Input() caseRef;
   @Input() userId;
-  @Input() closeRoute;
+  @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
 // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChild(LiveAppsCaseSummaryComponent) caseSummaryComponent: LiveAppsCaseSummaryComponent;
@@ -70,7 +71,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
       this.refresh();
     }
     if (buttonId === 'close') {
-      this.router.navigate([this.closeRoute], {queryParams: {} });
+      this.routeAction.emit(new RouteAction('backClicked', null));
     }
   }
 

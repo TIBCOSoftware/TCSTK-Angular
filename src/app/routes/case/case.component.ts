@@ -10,7 +10,7 @@ import {
   LiveAppsNotesComponent,
   LiveAppsDocumentsComponent,
   Claim,
-  Sandbox
+  Sandbox, RouteAction, CaseRoute
 } from 'tc-liveapps-lib';
 
 import {map, take, takeUntil} from 'rxjs/operators';
@@ -31,6 +31,13 @@ export class CaseComponent implements OnInit {
   public appId: string;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
+
+  handleRouteAction = (routeAction: RouteAction) => {
+    if (routeAction.action === 'backClicked') {
+      // back clicked - navigate to home
+      this.router.navigate(['/starterApp/home/']);
+    }
+  }
 
   ngOnInit() {
     // read resolved config params
