@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import {TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {
-  MatButtonModule,
+  MatButtonModule, MatButtonToggleModule,
   MatCardModule,
   MatCheckboxModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule
+  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatSnackBarModule, MatTabsModule, MatTooltipModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -17,9 +17,14 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ColorPickerModule} from 'ngx-color-picker';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RecentPdCasesComponent } from './components/recent-pd-cases/recent-pd-cases.component';
+import { FileToServiceComponent } from './components/file-to-service/file-to-service.component';
+import { PdHomePageComponent } from './components/pd-home-page/pd-home-page.component';
+import { SelectServiceDisplayComponent } from './components/select-service-display/select-service-display.component';
+import { PreviewDataDialogComponent } from './components/preview-data-dialog/preview-data-dialog.component';
+import { NotificationSnackBarComponent } from './components/notification-snack-bar/notification-snack-bar.component';
 
 @NgModule({
-  declarations: [RecentPdCasesComponent],
+  declarations: [RecentPdCasesComponent, FileToServiceComponent, PdHomePageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, NotificationSnackBarComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -39,6 +44,8 @@ import { RecentPdCasesComponent } from './components/recent-pd-cases/recent-pd-c
     MatCardModule,
     MatTooltipModule,
     MatTabsModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,
@@ -46,6 +53,9 @@ import { RecentPdCasesComponent } from './components/recent-pd-cases/recent-pd-c
     ReactiveFormsModule,
     TcLiveappsLibModule
   ],
-  exports: [RecentPdCasesComponent]
+  entryComponents : [PreviewDataDialogComponent, NotificationSnackBarComponent],
+  exports: [RecentPdCasesComponent, FileToServiceComponent, PdHomePageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, NotificationSnackBarComponent]
 })
-export class TcProcessDiscoveryLibModule { }
+export class TcProcessDiscoveryLibModule {
+
+}
