@@ -1,0 +1,40 @@
+/* Nav Switch button */
+
+.cloud-starter-app .nav-switch-bar {
+    border-radius: 100px;
+    background-color: #ffffff;
+    border: solid 1px #b6b6b6;
+}
+.cloud-starter-app .nav-switch {
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+.cloud-starter-app .nav-switch .nav-switch-on-label {
+    color: #ffffff;
+    border-radius: 100px;
+    background-color: #062e79;
+    border: solid 1px #062e79;
+    padding-left: 11px;
+    padding-right: 11px;
+}
+.cloud-starter-app .nav-switch .nav-switch-off-label {
+    color: #727272;
+    border-radius: 100px;
+    background-color: #ffffff;
+    padding-left: 11px;
+    padding-right: 11px;
+}
+.cloud-starter-app .nav-switch .nav-switch-off-label:hover {
+    color: #0081cb;
+}
+.cloud-starter-app .nav-switch .nav-switch-off-label:active {
+    color: #055daa;
+}
+
+

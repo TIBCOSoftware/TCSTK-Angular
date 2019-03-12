@@ -1,0 +1,32 @@
+
+:host ::ng-deep .pd-widget .tcs-menu-bar-pane {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+:host ::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    color: #727272;
+    border-radius: 100px;
+    background-color: #ffffff;
+    padding-left: 11px;
+    padding-right: 11px;
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.cloud-starter-app .nav-switch {
+    font-family: SourceSansPro;
+    font-size: 16px;
+    font-weight: 200;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: center;
+}

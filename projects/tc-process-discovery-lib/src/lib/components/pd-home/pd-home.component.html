@@ -1,0 +1,21 @@
+<div fxFill>
+    <tcpd-pd-widget-header 
+        [activeView]="'sfd'" 
+        [currentRole]= "'Business Analyst'" 
+        [applicationId]="applicationId" 
+        [typeId]="typeId" 
+        [sandboxId]="sandboxId" 
+        [username]="username" 
+        [toolbarButtons]="viewsButtons" 
+        (viewButtonEvent)="handleViewButtonEvent($event)">
+    <!-- [uiAppId]="uiAppId"  [caseRef]="caseRef" [userId]="userId" -->
+    </tcpd-pd-widget-header>
+    <router-outlet></router-outlet>
+</div>
+
+<!-- Other components -->
+
+
+
+
+

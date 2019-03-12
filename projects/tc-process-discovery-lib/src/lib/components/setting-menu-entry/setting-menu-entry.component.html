@@ -1,0 +1,13 @@
+<div layout="row">
+    <div layout="column">
+        <mat-icon class="underlying-capability-icon" svgIcon="{{icon}}"></mat-icon>
+    </div>
+    <div layout="column">
+        <div class="underlying-capability-text">{{title}}</div>
+    </div>
+    <div layout="row">
+        <div layout="column" *ngFor="let option of options">
+            <div class="underlying-capability-link" (click)="viewButtonClick(title + ' ' + option)"><span>{{option}}</span></div>
+        </div>
+    </div>
+</div>

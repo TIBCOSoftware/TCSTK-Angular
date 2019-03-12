@@ -1,0 +1,38 @@
+<!-- 
+        [url]="'https://spotfire-next.cloud.tibco.com'" [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
+-->
+
+<div>
+    <mat-tab-group class="cloud-starter-app" (selectedTabChange)="tabChange($event)">
+        <mat-tab *ngFor="let page of allowedPages" label="{{page}}"></mat-tab>
+    </mat-tab-group>
+</div>
+
+<div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
+    <div fxFlex fxLayoutGap="20px">
+        <tcla-spotfire-viz [url]="'https://23.22.187.212'"
+            [path]="'/TIBCO Labs/ProcessMining_final'" (markingEvent)="marking($event)"
+            [page]="activePage" 
+            customization='{
+                "showAbout": false,
+                "showAnalysisInformationTool": false,
+                "showAuthor": false,
+                "showClose": false,
+                "showCustomizableHeader": false,
+                "showDodPanel": false,
+                "showExportFile": false,
+                "showExportVisualization": false,
+                "showFilterPanel": false,
+                "showHelp": false,
+                "showLogout": false,
+                "showPageNavigation": false,
+                "showAnalysisInfo": false,
+                "showReloadAnalysis": false,
+                "showStatusBar": false,
+                "showToolBar": false,
+                "showUndoRedo": false
+            }' id="id1" markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'>
+        </tcla-spotfire-viz>
+    </div>
+
+</div>
