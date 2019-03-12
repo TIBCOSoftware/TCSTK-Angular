@@ -1,0 +1,11 @@
+import { Component, OnInit } from '@angular/core';
+import {LiveAppsApplicationsComponent} from '../../components/live-apps-applications/live-apps-applications.component';
+
+@Component({
+  selector: 'tcla-live-apps-application-create-button',
+  templateUrl: './live-apps-application-create-button.component.html',
+  styleUrls: ['./live-apps-application-create-button.component.css']
+})
+export class LiveAppsApplicationCreateButtonComponent extends LiveAppsApplicationsComponent {
+
+}
