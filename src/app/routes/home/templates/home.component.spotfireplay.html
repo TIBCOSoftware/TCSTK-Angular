@@ -1,9 +1,36 @@
 <h1>This is the Spotfire Play Home Page</h1>
 
 <mat-tab-group style="margin-top: 30px; height: 100%;">
-  <mat-tab label="Spotfire Play">
-
-    <tcsp-spotfire-play> </tcsp-spotfire-play>
-
+  <mat-tab label="Data Table Example">
+    <ng-template matTabContent>
+      <tcsp-data-table-example></tcsp-data-table-example>
+    </ng-template>
   </mat-tab>
+
+  <mat-tab label="Tibco Cloud Table Component">
+    <ng-template matTabContent>
+      <tc-tibco-cloud-table></tc-tibco-cloud-table>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="Spotfire Tabs">
+    <ng-template matTabContent>
+    <tcsp-spotfire-tabs></tcsp-spotfire-tabs>
+    </ng-template>
+  </mat-tab>
+<!--
+  <mat-tab label="Table">
+
+  <tcsp-table></tcsp-table>
+
+  </mat-tab> -->
+  <mat-tab label="Spotfire Markings">
+    <ng-template matTabContent>
+    <tcsp-spotfire-play> </tcsp-spotfire-play>
+    </ng-template>
+  </mat-tab>
+
+
+
+
 </mat-tab-group>

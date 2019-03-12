@@ -1,43 +1,31 @@
 <div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
   <div  fxFlex fxLayoutGap="20px">
-    <!--
-    <tcla-spotfire-viz
-      [sid]="123435"
-      [url]="'https://spotfire-next.cloud.tibco.com'"
-      [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
-      [customization]="{ showAbout: true, showPageNavigation: true }"
-    >
-      <!- [customization]="{ showAbout: true, showPageNavigation: true }" ->
-    </tcla-spotfire-viz>
-    -->
-    <!--
-          url="https://spotfire-next.cloud.tibco.com"
-          path="/Users/af6ivxgr5bw7lanlbwyqklonloxpkvqu/Public/RugbyWorldCup"
-     -->
+
     <tcla-spotfire-viz
       (markingEvent)="marking($event)"
       [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
       [url]="'https://spotfire-next.cloud.tibco.com'"
-      customization='{
-"showAbout": true,
-"showAnalysisInformationTool": true,
-"showAuthor": true,
-"showClose": true,
-"showCustomizableHeader": true,
-"showDodPanel": true,
-"showExportFile": true,
-"showExportVisualization": true,
-"showFilterPanel": true,
-"showHelp": true,
-"showLogout": false,
-"showPageNavigation": true,
-"showAnalysisInfo": true,
-"showReloadAnalysis": true,
-"showStatusBar": true,
-"showToolBar": true,
-"showUndoRedo": false}'
+
+      customization='{"showAbout": true,
+                      "showAnalysisInformationTool": true,
+                      "showAuthor": true,
+                      "showClose": true,
+                      "showCustomizableHeader": true,
+                      "showDodPanel": true,
+                      "showExportFile": true,
+                      "showExportVisualization": true,
+                      "showFilterPanel": true,
+                      "showHelp": true,
+                      "showLogout": false,
+                      "showPageNavigation": true,
+                      "showAnalysisInfo": true,
+                      "showReloadAnalysis": true,
+                      "showStatusBar": true,
+                      "showToolBar": true,
+                      "showUndoRedo": false}'
       id="id1"
-      markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'>
+      markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'
+      [maxRows]='1000'>
     </tcla-spotfire-viz>
   </div>
   <div  fxFlex fxLayoutGap="20px">
@@ -49,28 +37,7 @@
           <p>
             <b>Marking Data Table: </b> {{markingDataTables[i]}}
           </p>
-<!--
-          <table>
-
-            <tr *ngFor="let mh of markingHeaders[i] let j = index">
-              <td   >
-                <b>{{mh}}</b>
-              </td>
-              <div *ngFor="let mdf of markingData[i][j]">
-                <td *ngFor="let mdd of mdf">
-                  {{mdd}}
-                </td>
-
-              </div>
-
-
-            </tr>
-
-
-          </table>
-          -->
-
-
+          <!--
           <table>
             <thead >
             <th  *ngFor="let mh of markingHeaders[i]">{{mh}}</th>
@@ -84,7 +51,28 @@
             </tr>
 
             </tbody>
-          </table>
+          </table> -->
+
+<!--
+                    <table mat-table [dataSource]="dataSourceJson[i]" class="mat-elevation-z8">
+
+                      <ng-container *ngFor="let mh of markingHeaders[i]; let k = index" matColumnDef="{{mh}}">
+                        <th mat-header-cell *matHeaderCellDef> {{mh}} </th>
+                        <td mat-cell *matCellDef="let element"> {{element.{{mh}}}} </td>
+                      </ng-container>
+                      <tr mat-header-row *matHeaderRowDef="markingHeaders[i]"></tr>
+                      <tr mat-row *matRowDef="let row; columns: markingHeaders[i];"></tr>
+                    </table>
+-->
+
+          <mat-table #table [dataSource]="dataSourceJson[i]" >
+            <ng-container *ngFor="let column of columDefArray[i]"  [matColumnDef]='column.columnDef'>
+              <mat-header-cell *matHeaderCellDef ><!--<button>SELECT</button>-->{{ column.header }}</mat-header-cell>
+              <mat-cell *matCellDef="let row">{{ column.cell(row) }}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="markingHeaders[i]"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: markingHeaders[i];"></mat-row>
+          </mat-table>
           <!--
           <mat-table #table [dataSource]="markingData[i]" matSort>
             <ng-container matColumnDef="{{column}}" *ngFor="let column of columnNames">

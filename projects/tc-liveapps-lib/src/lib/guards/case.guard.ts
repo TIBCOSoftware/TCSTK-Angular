@@ -4,7 +4,6 @@
 
 import {Inject, Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {ConfigResolver} from 'tc-core-lib';
 import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient, HttpHandler} from '@angular/common/http';
 import {catchError, flatMap, map, mergeMap} from 'rxjs/operators';

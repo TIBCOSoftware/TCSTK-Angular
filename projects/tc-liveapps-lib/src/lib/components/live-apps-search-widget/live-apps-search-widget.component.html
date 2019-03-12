@@ -4,7 +4,7 @@
   </div>
 
   <br>
-  <div fxLayout="row" fxLayoutAlign="space-around start" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px;">
+  <div *ngIf="matchedRefs.length>0" fxLayout="row" fxLayoutAlign="space-around start" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px;">
     <tcla-live-apps-case-list fxFlex [sandboxId]="sandboxId" [uiAppId]="uiAppId" [caseRefs]="matchedRefs" [displayType]="'list'" [headerText]="'Matching Cases'" [highlight]="searchString" (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-list>
   </div>
 </div>
