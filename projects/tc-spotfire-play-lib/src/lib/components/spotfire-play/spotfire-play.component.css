@@ -1,8 +1,19 @@
 table, th, td {
   border: 1px solid black;
 }
+/*
+table {
+  width: 100%;
+}*/
 
 table {
   width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
 }
 
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px;
+}
