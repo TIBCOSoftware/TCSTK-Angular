@@ -1,4 +1,4 @@
-<div class="tcs-case-card-customization" fxLayout="column">
+<div *ngIf="appId" class="tcs-case-card-customization" fxLayout="column">
   <div class="tcs-case-card-customization-header" fxLayout="row" fxLayoutAlign="space-between stretch">
     <div fxLayoutAlign="start center">
       <mat-icon class="tcs-icon tcs-customization-icon" svgIcon="tcs-customization-icon"></mat-icon>
@@ -24,7 +24,7 @@
           <div class="tcs-case-card-customization-section-text">Configure Icons</div>
         </div>
         <div fxFlex>
-          <div fxFlex class="tcs-case-states-list" *ngIf="caseCardConfig.cardConfig && caseCardConfig.states" fxLayout="column" fxLayoutAlign="center center">
+          <div fxFlex class="tcs-case-states-list" *ngIf="caseCardConfig && caseCardConfig.cardConfig && caseCardConfig.states" fxLayout="column" fxLayoutAlign="center center">
             <div class="tcs-case-states-list-inner">
               <!-- case type icon -->
               <div class="tcs-case-states-list-row">
@@ -32,7 +32,7 @@
                   <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div fxLayoutAlign="start center" style="min-width: 170px;">Case Type Icon</div>
                     <tcla-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="appTypeLabel" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"
-                                              [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setCaseTypeFill($event, stateConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="'-40%'"
+                                               [appId]="appId" [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setCaseTypeFill($event, stateConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="'-40%'"
                                               matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">
                     </tcla-live-apps-state-icon>
                     <mat-icon (click)="openDialog(null, true)" class="tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button" svgIcon="tcs-document-upload"
@@ -49,7 +49,7 @@
                   <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div fxLayoutAlign="start center" style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>
                     <tcla-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"
-                                              [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="'-40%'"
+                                               [appId]="appId" [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="'-40%'"
                                               matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">
                     </tcla-live-apps-state-icon>
                     <mat-icon (click)="openDialog(state, false)" class="tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button" svgIcon="tcs-document-upload"

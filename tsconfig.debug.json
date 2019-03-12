@@ -52,14 +52,14 @@
         "dist/tc-handsontable-lib/*"
       ],
       "tc-process-discovery-lib": [
-        "projects/tc-process-discovery-lib/src/public_api",
+        "projects/tc-process-discovery-lib/src/public_api"
         // "dist/tc-process-discovery-lib"
       ],
       "tc-process-discovery-lib/*": [
         "dist/tc-process-discovery-lib/*"
       ],
       "tc-spotfire-play-lib": [
-        "projects/tc-spotfire-play-lib/src/public_api",
+        "projects/tc-spotfire-play-lib/src/public_api"
         // "dist/tc-process-discovery-lib"
       ],
       "tc-spotfire-play-lib/*": [

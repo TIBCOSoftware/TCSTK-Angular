@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
+import {CaseRoute} from '../../models/liveappsdata';
 
 @Component({
   selector: 'tcla-live-apps-case-list',
@@ -17,12 +18,12 @@ export class LiveAppsCaseListComponent extends LiveAppsComponent implements OnIn
   @Input() uiAppId: string;
   @Input() caseRefs: string[];
   @Input() highlight: string;
-  @Output() clickCase = new EventEmitter;
+  @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public errorMessage: string;
 
-  public clickCaseAction = (caseReference) => {
-    this.clickCase.emit(caseReference);
+  public clickCaseAction = (caseRoute: CaseRoute) => {
+    this.clickCase.emit(caseRoute);
   }
 
   constructor(private liveapps: LiveAppsService) {

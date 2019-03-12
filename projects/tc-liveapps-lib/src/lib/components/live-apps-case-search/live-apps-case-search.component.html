@@ -1,5 +1,5 @@
 <div class="tcs-search-box" fxlayout="row" fxLayoutAlign="space-around center" fxFlex>
-  <tcla-live-apps-applications fxLayout="row" fxLayoutAlign="start center" class="tcs-search-application-selector" [sandboxId]="sandboxId" (selection)="handleSearchAppSelection($event)"></tcla-live-apps-applications>
+  <tcla-live-apps-applications fxLayout="row" fxLayoutAlign="start center" class="tcs-search-application-selector" [appIds]="appIds" [sandboxId]="sandboxId" (selection)="handleSearchAppSelection($event)"></tcla-live-apps-applications>
   <div class="tcs-search-input-container" fxFlex>
     <input #searchBox class="tcs-search-input" placeholder="{{ selectedApp.applicationName ? 'Search within ' + selectedApp.applicationName + ' cases' : 'Select a case type to search cases' }}" (keyup)="searchTerm$.next($event.target.value)" [disabled]="!selectedApp.applicationId" fxFlex>
     <div fxLayoutAlign="center end">

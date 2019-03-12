@@ -61,6 +61,11 @@ import { LiveAppsCaseCockpitComponent } from './components/live-apps-case-cockpi
 import {TcCaseProcessesService} from './services/tc-case-processes.service';
 import { LiveAppsMilestoneComponent } from './components/live-apps-milestone/live-apps-milestone.component';
 import {TcDocumentService} from './services/tc-document.service';
+import { LiveAppsAppConfigurationWidgetComponent } from './components/live-apps-app-configuration-widget/live-apps-app-configuration-widget.component';
+import { LiveAppsCaseCreatorWidgetComponent } from './components/live-apps-case-creator-widget/live-apps-case-creator-widget.component';
+import { LiveAppsHomeCockpitComponent } from './components/live-apps-home-cockpit/live-apps-home-cockpit.component';
+import {TcLiveAppsConfigService} from './services/tc-live-apps-config.service';
+import { LiveAppsApplicationListComponent } from './components/live-apps-application-list/live-apps-application-list.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +100,11 @@ import {TcDocumentService} from './services/tc-document.service';
     LiveAppsActionsComponent,
     LiveAppsCaseDataDisplayComponent,
     LiveAppsCaseCockpitComponent,
-    LiveAppsMilestoneComponent
+    LiveAppsMilestoneComponent,
+    LiveAppsAppConfigurationWidgetComponent,
+    LiveAppsCaseCreatorWidgetComponent,
+    LiveAppsHomeCockpitComponent,
+    LiveAppsApplicationListComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -154,7 +163,11 @@ import {TcDocumentService} from './services/tc-document.service';
     LiveAppsActionsComponent,
     SpotfireWrapperComponent,
     LiveAppsCaseDataDisplayComponent,
-    LiveAppsCaseCockpitComponent
+    LiveAppsCaseCockpitComponent,
+    LiveAppsAppConfigurationWidgetComponent,
+    LiveAppsCaseCreatorWidgetComponent,
+    LiveAppsHomeCockpitComponent,
+    LiveAppsApplicationListComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent],
   providers: [
@@ -169,7 +182,7 @@ export class TcLiveappsLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcLiveappsLibModule,
-      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService ]
+      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService ]
     };
   }
 }

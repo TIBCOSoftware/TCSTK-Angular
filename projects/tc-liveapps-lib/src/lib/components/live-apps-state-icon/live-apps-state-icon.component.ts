@@ -17,6 +17,7 @@ export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnI
   @Input() iconPath: string;
   @Input() color: string;
   @Input() iconHostURL: string;
+  @Input() appId: string;
 
   public iconSVG: SafeHtml;
   public svgcontents: string = undefined;

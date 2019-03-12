@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angula
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {CaseList} from '../../models/liveappsdata';
+import {CaseList, CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
@@ -13,13 +13,13 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
-  @Output() clickCase = new EventEmitter;
+  @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public recentCases: string[];
   public errorMessage: string;
 
-  public clickCaseAction = (caseReference) => {
-    this.clickCase.emit(caseReference);
+  public clickCaseAction = (caseRoute: CaseRoute) => {
+    this.clickCase.emit(caseRoute);
   }
 
   public refresh = () => {

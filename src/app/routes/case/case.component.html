@@ -1,4 +1,4 @@
-<tcla-live-apps-case-cockpit fxFill [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [uiAppId]="appConfig.uiAppId" [sandboxId]="sandbox.id" [caseRef]="caseRef" [userId]="appConfig.userId" [closeRoute]="'/starterApp/home'" ></tcla-live-apps-case-cockpit>
+<tcla-live-apps-case-cockpit fxFill [typeId]="typeId" [appId]="appId" [uiAppId]="generalConfig.uiAppId" [sandboxId]="sandbox.id" [caseRef]="caseRef" [userId]="claims.id" (routeAction)="handleRouteAction($event)" ></tcla-live-apps-case-cockpit>
 <!--laapp-case-cockpit fxFill [typeId]="appConfig.typeId" [appId]="appConfig.applicationId" [uiAppId]="appConfig.uiAppId" [sandboxId]="sandbox.id" [caseRef]="caseRef" [userId]="appConfig.userId" ></laapp-case-cockpit-->
 
 
