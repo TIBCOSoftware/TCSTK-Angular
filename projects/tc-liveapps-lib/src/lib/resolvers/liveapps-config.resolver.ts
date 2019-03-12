@@ -7,6 +7,7 @@ import {TcSharedStateService} from 'tc-core-lib';
 import {HttpClient} from '@angular/common/http';
 import {TcLiveAppsConfigService} from '../services/tc-live-apps-config.service';
 import {LiveAppsConfig} from '../models/tc-liveapps-config';
+import {TcCaseCardConfigService} from '../services/tc-case-card-config.service';
 
 @Injectable()
 export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig>> {
@@ -18,7 +19,7 @@ export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig
   public defaultAppConfig: LiveAppsConfig;
   private uiAppId: string;
 
-  constructor(private tcSharedState: TcSharedStateService, private liveAppsConfigService: TcLiveAppsConfigService, private http: HttpClient) {}
+  constructor(private tcSharedState: TcSharedStateService, private liveAppsConfigService: TcLiveAppsConfigService, private caseCardConfigService: TcCaseCardConfigService, private http: HttpClient) {}
   // note appConfigResolver will need sandboxId to create app config state record.
   // So we expect this to have been set by caller (done by tc-liveapps-lib/laConfigResolver).
 
@@ -49,6 +50,13 @@ export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig
         .pipe(
           mergeMap(
             liveAppsConfig => {
+              // optimization: I want to avoid reading the card config when we display a large list of cards in the calling app
+              // therefore we can trigger of a read of the card configs for each app in the config to ensure they are cached by
+              // http interceptor
+              const laConfig = new LiveAppsConfig().deserialize(liveAppsConfig);
+              laConfig.applicationIds.forEach(appId => {
+                this.caseCardConfigService.getCardConfig(this.uiAppId, appId, true, false).subscribe();
+              });
               if (liveAppsConfig === undefined) {
                 return this.getDefaultAppConfig().pipe(
                   flatMap(config => {
