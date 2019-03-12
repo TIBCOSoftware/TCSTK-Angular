@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Route } from '@angular/router';
 import { Location } from '@angular/common';
+import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
 
 @Component({
     selector: 'tcpd-settings',
@@ -11,24 +12,23 @@ export class SettingsComponent implements OnInit {
 
     showConfigName: string;
     configMenu = [];
-    constructor(private router: Router, private location: Location) { }
+    viewButtons: ToolbarButton[];
+    constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private location: Location) { }
 
     ngOnInit() {
         this.getSettingRoutes(location.pathname.split('/'));
+        this.viewButtons = this.createViewButtons();
     }
 
-    // printpath(parent: String, config: Route[]) {
-    //     for (let i = 0; i < config.length; i++) {
-    //         let route = config[i];
-    //         console.log(parent + '/' + route.path);
-    //         if (route.children) {
-    //             const currentPath = route.path ? parent + '/' + route.path : parent;
-    //             this.printpath(currentPath, route.children);
-    //         }
-    //     }
-    // }
+    protected createViewButtons = (): ToolbarButton[] => {
+        const landingview = this.buttonsHelper.createButton('landingview', 'tcs-config-icon', true, 'Landing View', true, true);
+        const processmimingview = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Process Miming View', true, true);
+        const caseView = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Case View', true, true);
+        const buttons = [ landingview, processmimingview, caseView ];
+        return buttons;
+    }
 
-    getSettingRoutes = (path: string[]) => {
+    private getSettingRoutes = (path: string[]) => {
         //        let path: string[] = location.pathname.split('/');
         let routerConfig: Route[] = this.router.config;
         let configRoute: Route;
