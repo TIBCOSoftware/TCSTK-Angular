@@ -1,23 +1,26 @@
-<div fxLayout="column" fxLayoutAlign="start stretch" fxFlex>
+<div fxLayout="column">
 
     <p>You can some of the default Application Settings here.</p>
     <br>
     <!-- Application specifics -->
     <div fxLayout="row">
-        <mat-form-field  fxFlex="45">
+        <mat-form-field fxFlex="45">
             <input matInput placeholder="Application Title" value="{{applicationTitle}}">
         </mat-form-field>
     </div>
 
     <!-- Advanced Settings (all Optional from Shared State) -->
-    <p style="padding-bottom: 24px;">Advanced Settings</p>
-    <div fxLayout="row">
-        <mat-checkbox ng-model="configuration.adv.noName">show no Username in App Header</mat-checkbox>
-    </div>
-    <mat-form-field fxFlex="90">
-        <input matInput placeholder="This Application Documentation URL" value="{{documentationURL}}">
-    </mat-form-field>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Advanced Settings</mat-panel-title>
+            </mat-expansion-panel-header>
 
+            <mat-form-field>
+                <input matInput placeholder="Application Documentation URL" value="{{documentationURL}}">
+            </mat-form-field>
+        </mat-expansion-panel>
+    </mat-accordion>
     <div fxLayout="row" fxLayoutAlign="space-between center">
         <button mat-button class="underlying-capability-save-button" (click)="runSaveFuntion()">Save</button>
     </div>

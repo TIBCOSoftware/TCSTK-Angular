@@ -23,10 +23,23 @@ export class SettingsComponent implements OnInit {
 
     protected createViewButtons = (): ToolbarButton[] => {
         const landingview = this.buttonsHelper.createButton('landingview', 'tcs-config-icon', true, 'Landing View', true, true);
-        const processmimingview = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Process Miming View', true, true);
-        const caseView = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Case View', true, true);
+        const processmimingview = this.buttonsHelper.createButton('process-mining-view', 'tcs-refresh-icon', true, 'Process Mining View', true, true);
+        const caseView = this.buttonsHelper.createButton('case-view', 'tcs-refresh-icon', true, 'Case View', true, true);
         const buttons = [ landingview, processmimingview, caseView ];
         return buttons;
+    }
+
+    public handleToolbarButtonEvent = (id) => {
+        console.log("Selected option: " + id);
+    }
+
+    public handleSelectionEvent = (id: string) => {
+
+        this.showConfigName = id;
+        let url = 'starterApp/settings/' + id.toLowerCase().split(' ').join('-');
+        console.log("************* " + url);
+
+        this.router.navigate([url]);
     }
 
     private getSettingRoutes = (path: string[]) => {
@@ -88,16 +101,5 @@ export class SettingsComponent implements OnInit {
         console.log("Setting selected: " + option);
     }
     
-    public handleToolbarButtonEvent = (id) => {
-
-    }
-    public handleSelectionEvent = (id: string) => {
-
-        this.showConfigName = id;
-        let url = 'starterApp/settings/' + id.toLowerCase().split(' ').join('-');
-        console.log("************* " + url);
-
-        this.router.navigate([url]);
-    }
 
 }
