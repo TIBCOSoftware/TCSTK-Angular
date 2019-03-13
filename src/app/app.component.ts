@@ -111,12 +111,12 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-favorite.svg'))
     );
     this.matIconRegistry.addSvgIcon(
-      'tcs-case-start-icon',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-add.svg'))
-    );
-    this.matIconRegistry.addSvgIcon(
       'tcs-config-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-settings.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-case-start-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-add.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-refresh-icon',
@@ -190,29 +190,5 @@ export class AppComponent {
       'tcs-mini-state-terminal-completed',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-terminal-completed.svg'))
     );
-    this.matIconRegistry.addSvgIcon(
-        'tcs-burger',
-        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/burger.svg'))
-    );
-    this.matIconRegistry.addSvgIcon(
-        'tcs-create',
-        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-create.svg'))
-    );
-    this.matIconRegistry.addSvgIcon(
-        'tcs-starters',
-        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-starters.svg'))
-    );
-    this.matIconRegistry.addSvgIcon(
-        'tcs-liveapps',
-        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-liveapps-sm.svg'))
-    );
-    this.matIconRegistry.addSvgIcon(
-        'tcs-spotfire',
-        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-spotfire.svg'))
-    );
-    this.matIconRegistry.addSvgIcon(
-        'tcs-integration',
-        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-integration.svg'))
-    );
-    }
+  }
 }

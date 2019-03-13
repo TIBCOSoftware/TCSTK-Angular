@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {CaseRoute, RouteAction} from '../../models/liveappsdata';
+import {CaseRoute, CaseType, RouteAction} from '../../models/liveappsdata';
 import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
 import {LiveAppsFavoriteCasesComponent} from '../live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsRecentCasesComponent} from '../live-apps-recent-cases/live-apps-recent-cases.component';
@@ -47,6 +47,10 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     if (buttonId === 'refresh') {
       this.refresh();
     }
+  }
+
+  public handleCreatorAppSelection = (application: CaseType) => {
+    console.log(application.applicationName);
   }
 
   public refresh = () => {

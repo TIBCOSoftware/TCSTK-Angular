@@ -14,7 +14,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatPaginatorModule, MatSelectModule, MatSortModule, MatTableModule, MatTooltipModule
+  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -36,10 +36,6 @@ import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
 import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
 import { OnCreateDirective } from './directives/on-create.directive';
 import {TcGeneralConfigService} from './services/tc-general-config.service';
-import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-cloud-table.component';
-
-
-// import {DataSource} from '@angular/cdk/collections';
 
 @NgModule({
   declarations: [
@@ -54,8 +50,7 @@ import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-clo
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudMenuBarComponent,
     TibcoCloudErrorComponent,
-    OnCreateDirective,
-    TibcoCloudTableComponent
+    OnCreateDirective
   ],
   imports: [
     HttpClientModule,
@@ -78,10 +73,7 @@ import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-clo
     FlexLayoutModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule,
-    MatSortModule,
-    MatTableModule,
-    MatPaginatorModule
+    ReactiveFormsModule
   ],
   exports: [
     TibcoCloudNavbarComponent,
@@ -95,8 +87,7 @@ import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-clo
     ReversePipe,
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudErrorComponent,
-    OnCreateDirective,
-    TibcoCloudTableComponent
+    OnCreateDirective
 
   ],
   providers: [
