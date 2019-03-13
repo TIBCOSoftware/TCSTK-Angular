@@ -8,25 +8,36 @@ import {catchError, retry} from 'rxjs/operators';
 })
 export class ServiceHandlerService {
 
-  private headers: HttpHeaders;
+  private postHeaders: HttpHeaders;
 
   constructor(private http: HttpClient) {
-     this.headers = new HttpHeaders();
-     this.headers.set('Content-Type', 'application/json');
-     this.headers.set( 'Accept', 'application/json');
+     this.postHeaders = new HttpHeaders();
+     this.postHeaders.set('Content-Type', 'application/json');
+     this.postHeaders.set( 'Accept', 'application/json');
 
   }
 
 
 
   postService(apiUrl, data): Observable<any> {
-    const headers = this.headers;
+    const headers = this.postHeaders;
     return this.http.post<any>(apiUrl, data, {headers})
       .pipe(
-        retry(1),
+        retry(0),
         catchError(this.handleError)
       );
   }
+
+
+
+  purgeAllCaseService(apiUrl, params): Observable<any> {
+    return this.http.delete<any>(apiUrl +  params)
+      .pipe(
+        retry(0),
+        catchError(this.handleError)
+      );
+  }
+
 
   handleError(error) {
     let errorMessage = '';

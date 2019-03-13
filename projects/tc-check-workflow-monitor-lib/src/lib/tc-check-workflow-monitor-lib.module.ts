@@ -17,14 +17,14 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ColorPickerModule} from 'ngx-color-picker';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { FileToServiceComponent } from './components/file-to-service/file-to-service.component';
-import { PdHomePageComponent } from './components/pd-home-page/pd-home-page.component';
+import { UploadPageComponent } from './components/upload-page/upload-page.component';
 import { SelectServiceDisplayComponent } from './components/select-service-display/select-service-display.component';
 import { PreviewDataDialogComponent } from './components/preview-data-dialog/preview-data-dialog.component';
 import {TcCoreLibModule} from 'tc-core-lib';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, PdHomePageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -55,6 +55,6 @@ import {TcCoreLibModule} from 'tc-core-lib';
     TcCoreLibModule
   ],
   entryComponents : [PreviewDataDialogComponent],
-  exports: [ FileToServiceComponent, PdHomePageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent]
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent]
 })
 export class TcCheckWorkflowMonitorLibModule {}
