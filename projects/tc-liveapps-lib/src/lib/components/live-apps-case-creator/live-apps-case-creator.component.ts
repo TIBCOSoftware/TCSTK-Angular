@@ -21,6 +21,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   data: any;
   schema: any;
   layout: any[];
+  options: any;
 
   handleSubmit = (data, caseRef) => {
     // run the process
@@ -66,6 +67,11 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   }
 
   ngOnInit() {
+    this.options = {
+      defaultOptions: {
+        'appearance': 'legacy'
+      }
+    };
   }
 
   ngOnChanges(changes: SimpleChanges) {

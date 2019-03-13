@@ -58,7 +58,11 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
 
   openCreatorDialog = (application: CaseType, initialData, sandboxId) => {
     const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
-      width: '500px',
+      width: '60%',
+      height: '80%',
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      panelClass: 'tcs-style-dialog',
       data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
     });
 
