@@ -2,7 +2,7 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {TibcoCloudNavbarComponent} from './components/tibco-cloud-navbar/tibco-cloud-navbar.component';
 import {
   TibcoCloudMultipleSubscriptionComponent
-  } from './components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
+} from './components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-login/tibco-cloud-login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -14,7 +14,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTooltipModule
+  MatListModule, MatMenuModule, MatOptionModule, MatPaginatorModule, MatSelectModule, MatSortModule, MatTableModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -36,6 +36,10 @@ import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
 import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
 import { OnCreateDirective } from './directives/on-create.directive';
 import {TcGeneralConfigService} from './services/tc-general-config.service';
+import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-cloud-table.component';
+
+
+// import {DataSource} from '@angular/cdk/collections';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,8 @@ import {TcGeneralConfigService} from './services/tc-general-config.service';
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudMenuBarComponent,
     TibcoCloudErrorComponent,
-    OnCreateDirective
+    OnCreateDirective,
+    TibcoCloudTableComponent
   ],
   imports: [
     HttpClientModule,
@@ -73,7 +78,10 @@ import {TcGeneralConfigService} from './services/tc-general-config.service';
     FlexLayoutModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     TibcoCloudNavbarComponent,
@@ -87,7 +95,8 @@ import {TcGeneralConfigService} from './services/tc-general-config.service';
     ReversePipe,
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudErrorComponent,
-    OnCreateDirective
+    OnCreateDirective,
+    TibcoCloudTableComponent
 
   ],
   providers: [
@@ -111,3 +120,4 @@ export class TcCoreLibModule {
     };
   }
 }
+
