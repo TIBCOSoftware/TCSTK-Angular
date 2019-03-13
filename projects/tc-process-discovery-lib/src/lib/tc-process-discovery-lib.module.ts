@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { RecentPdCasesComponent } from './components/recent-pd-cases/recent-pd-cases.component';
 import { PdHomeComponent } from './components/pd-home/pd-home.component';
 import { PdCaseCreatorsComponent } from './components/pd-case-creators/pd-case-creators.component';
 import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-creator-selector.component';
@@ -37,7 +36,6 @@ import {PdAdministrationCaseSummaryComponent} from './components/pd-administrati
 
 @NgModule({
     declarations: [
-        RecentPdCasesComponent,
         PdHomeComponent,
         PdCaseCreatorsComponent,
         PdCreatorSelectorComponent,
