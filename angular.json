@@ -352,6 +352,41 @@
           }
         }
       }
+    },
+    "tc-check-workflow-monitor-lib": {
+      "root": "projects/tc-check-workflow-monitor-lib",
+      "sourceRoot": "projects/tc-check-workflow-monitor-lib/src",
+      "projectType": "library",
+      "prefix": "tccwm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tc-check-workflow-monitor-lib/tsconfig.lib.json",
+            "project": "projects/tc-check-workflow-monitor-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tc-check-workflow-monitor-lib/src/test.ts",
+            "tsConfig": "projects/tc-check-workflow-monitor-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tc-check-workflow-monitor-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tc-check-workflow-monitor-lib/tsconfig.lib.json",
+              "projects/tc-check-workflow-monitor-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tc-liveapps"

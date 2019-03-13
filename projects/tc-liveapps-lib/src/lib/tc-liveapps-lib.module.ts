@@ -66,7 +66,6 @@ import { LiveAppsCaseCreatorWidgetComponent } from './components/live-apps-case-
 import { LiveAppsHomeCockpitComponent } from './components/live-apps-home-cockpit/live-apps-home-cockpit.component';
 import {TcLiveAppsConfigService} from './services/tc-live-apps-config.service';
 import { LiveAppsApplicationListComponent } from './components/live-apps-application-list/live-apps-application-list.component';
-import { LiveAppsApplicationCreateButtonComponent } from './components/live-apps-application-create-button/live-apps-application-create-button.component';
 
 @NgModule({
   declarations: [
@@ -105,8 +104,7 @@ import { LiveAppsApplicationCreateButtonComponent } from './components/live-apps
     LiveAppsAppConfigurationWidgetComponent,
     LiveAppsCaseCreatorWidgetComponent,
     LiveAppsHomeCockpitComponent,
-    LiveAppsApplicationListComponent,
-    LiveAppsApplicationCreateButtonComponent
+    LiveAppsApplicationListComponent
   ],
   imports: [
     TcCoreLibModule,
