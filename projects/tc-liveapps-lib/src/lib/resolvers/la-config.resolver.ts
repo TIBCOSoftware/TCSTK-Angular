@@ -17,17 +17,18 @@ import {LiveAppsConfig, LiveAppsConfigHolder} from '../models/tc-liveapps-config
 import {LiveAppsConfigResolver} from './liveapps-config.resolver';
 import {TcLiveAppsConfigService} from '../services/tc-live-apps-config.service';
 import {TcCaseCardConfigService} from '../services/tc-case-card-config.service';
+import {Location} from '@angular/common';
 
 @Injectable()
 export class LaConfigResolver implements Resolve<Observable<LiveAppsConfigHolder>> {
 
-  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private liveAppsConfigService: TcLiveAppsConfigService, private documentService: TcDocumentService, private http: HttpClient, private liveAppsService: LiveAppsService, private caseCardConfigService: TcCaseCardConfigService) {}
+  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private liveAppsConfigService: TcLiveAppsConfigService, private documentService: TcDocumentService, private http: HttpClient, private liveAppsService: LiveAppsService, private caseCardConfigService: TcCaseCardConfigService, private location: Location) {}
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<LiveAppsConfigHolder> {
     // we will return a holder object that contains both general config and live apps config
 
-    const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http);
-    const liveAppsConfigResolver = new LiveAppsConfigResolver(this.sharedStateService, this.liveAppsConfigService, this.caseCardConfigService, this.http);
+    const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location);
+    const liveAppsConfigResolver = new LiveAppsConfigResolver(this.sharedStateService, this.liveAppsConfigService, this.caseCardConfigService, this.http, this.location);
 
     const claimResolver$ = new ClaimsResolver(this.liveAppsService).resolve().pipe(
       flatMap(value => {

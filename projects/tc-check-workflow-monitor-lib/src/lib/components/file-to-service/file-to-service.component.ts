@@ -1,17 +1,20 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Location} from '@angular/common';
-import {TcSharedStateService} from 'tc-core-lib';
+
 import {Observable} from 'rxjs';
-import {SandboxList} from 'tc-liveapps-lib';
+
 import {map, tap} from 'rxjs/operators';
-import {ServiceDetails} from '../../../../../tc-process-discovery-lib/src/lib/models/process-discovery';
+
 import {MatDialog, MatDialogConfig, MatSnackBar} from '@angular/material';
+import {ServiceDetails} from '../../models/service-details';
+
+
 import {PreviewDataDialogComponent} from '../preview-data-dialog/preview-data-dialog.component';
-import {NotificationSnackBarComponent} from '../notification-snack-bar/notification-snack-bar.component';
+
+
 
 @Component({
-  selector: 'tcpd-file-to-service',
+  selector: 'tccwm-file-to-service',
   templateUrl: './file-to-service.component.html',
   styleUrls: ['./file-to-service.component.css']
 })
@@ -21,12 +24,9 @@ export class FileToServiceComponent implements OnInit, OnChanges {
 
   @Input()  serviceDetails: ServiceDetails;
 
+   constructor(private http: HttpClient, private dialog: MatDialog, private snackBar: MatSnackBar) {
 
 
-
-
-
-  constructor(private http: HttpClient, private dialog: MatDialog, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -60,12 +60,12 @@ export class FileToServiceComponent implements OnInit, OnChanges {
     dialogConfig.height = '80%';
     dialogConfig.width = '80%';
 
-
     const dialogRef = this.dialog.open(PreviewDataDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(
+
+     dialogRef.afterClosed().subscribe(
        data => this.handleDialogClose(data, jsonDataFromFile)
-    );
+     );
   }
 
   handleDialogClose (data, jsonDataFromFile) {
@@ -96,8 +96,8 @@ export class FileToServiceComponent implements OnInit, OnChanges {
     const message = 'File imported correctly : ' + result.nbCreated + ' lines created';
     const actionButtonLabel = 'Close';
 
-    this.snackBar.open( message, actionButtonLabel , {
-    });
+     this.snackBar.open( message, actionButtonLabel , {
+     });
   }
 
 
