@@ -7,18 +7,19 @@ import {TcSharedStateService} from '../services/tc-shared-state.service';
 import {HttpClient} from '@angular/common/http';
 import {TcGeneralConfigService} from '../services/tc-general-config.service';
 import {GeneralConfig} from '../models/tc-general-config';
+import {Location} from '@angular/common';
 
 @Injectable()
 export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>> {
 
-  DEFAULT_CONFIG_URL = '/assets/config/generalAppConfig.json';
-  APP_ID_URL = '/assets/config/uiAppId.json';
+  DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/generalAppConfig.json');
+  APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
 
   private sandboxId: number;
   public defaultAppConfig: GeneralConfig;
   private uiAppId: string;
 
-  constructor(private tcSharedState: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient) {}
+  constructor(private tcSharedState: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private location: Location) {}
   // note appConfigResolver will need sandboxId to create app config state record.
   // So we expect this to have been set by caller (done by tc-liveapps-lib/laConfigResolver).
 

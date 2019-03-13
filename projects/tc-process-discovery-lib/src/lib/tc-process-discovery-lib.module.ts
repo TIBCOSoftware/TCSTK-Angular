@@ -4,12 +4,13 @@ import { TcLiveappsLibModule } from 'tc-liveapps-lib';
 import {
     MatButtonModule,
     MatCardModule,
-    MatCheckboxModule, MatDialogModule,
+    MatCheckboxModule, 
+    MatDialogModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule
+    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { PdHomeComponent } from './components/pd-home/pd-home.component';
+import { PdHomeComponent,PdChangeDatasourceDialog } from './components/pd-home/pd-home.component';
 import { PdCaseCreatorsComponent } from './components/pd-case-creators/pd-case-creators.component';
 import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-creator-selector.component';
 import { PdWidgetHeaderComponent } from './components/pd-widget-header/pd-widget-header.component';
@@ -32,7 +33,8 @@ import { SettingsSpotfireComponent } from './components/settings-spotfire/settin
 import { SettingsGeneralComponent } from './components/settings-general/settings-general.component';
 import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
 import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
-import {PdAdministrationCaseSummaryComponent} from './components/pd-administration-case-summary/pd-administration-case-summary.component';
+import { PdAdministrationCaseSummaryComponent } from './components/pd-administration-case-summary/pd-administration-case-summary.component';
+
 
 @NgModule({
     declarations: [
@@ -49,7 +51,8 @@ import {PdAdministrationCaseSummaryComponent} from './components/pd-administrati
         SettingsGeneralComponent,
         PdCaseViewComponent,
         PdSettingsAdministrationComponent,
-        PdAdministrationCaseSummaryComponent
+        PdAdministrationCaseSummaryComponent,
+        PdChangeDatasourceDialog
     ],
     imports: [
         CommonModule,
@@ -72,6 +75,7 @@ import {PdAdministrationCaseSummaryComponent} from './components/pd-administrati
         MatTooltipModule,
         MatTabsModule,
         MatButtonToggleModule,
+        MatExpansionModule,
         FormsModule,
         FlexLayoutModule,
         ColorPickerModule,
@@ -81,6 +85,7 @@ import {PdAdministrationCaseSummaryComponent} from './components/pd-administrati
         TcCoreLibModule,
         TcProcessDiscoveryLibRoutingModule
     ],
-    exports: [ PdHomeComponent]
+    exports: [ PdHomeComponent ],
+    entryComponents: [ PdChangeDatasourceDialog ]
 })
 export class TcProcessDiscoveryLibModule { }

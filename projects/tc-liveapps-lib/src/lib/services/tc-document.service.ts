@@ -16,7 +16,7 @@ export class TcDocumentService {
   }
 
   public createOrgFolder(name: string): Observable<ApiResponseText> {
-    const url = 'webresource/v1/orgFolders/';
+    const url = '/webresource/v1/orgFolders/';
     const body = new OrgFolder().deserialize({ name: name });
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
@@ -28,7 +28,7 @@ export class TcDocumentService {
   }
 
   public getOrgFolder(name: string, useCache: boolean, flushCache: boolean): Observable<OrgFolder> {
-    const url = 'webresource/v1/orgFolders/' + name + '/';
+    const url = '/webresource/v1/orgFolders/' + name + '/';
     let headers: HttpHeaders = new HttpHeaders();
     if (useCache) {
       headers = headers.set('cacheResponse', 'true');
