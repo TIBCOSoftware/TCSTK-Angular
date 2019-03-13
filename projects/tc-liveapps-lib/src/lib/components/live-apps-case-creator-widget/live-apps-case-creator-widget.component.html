@@ -1,10 +1,6 @@
 <div>
   <div fxLayout="row" fxLayout="start stretch">
-    <span style="width: 185px">Select Live Apps Application: </span>
-    <tcla-live-apps-applications fxLayout="row" fxLayoutAlign="start center" class="tcs-search-application-selector" [appIds]="appIds" [sandboxId]="sandboxId" (selection)="handleAppSelection($event)"></tcla-live-apps-applications>
-  </div>
-  <div fxLayout="row" fxLayout="start stretch">
     <span style="width: 185px">Select Case Creator: </span>
-    <tcla-live-apps-creators fxFlex [sandboxId]="sandboxId" [applicationId]="selectedApp.applicationId" [typeId]="selectedApp.id" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
+    <tcla-live-apps-creators fxFlex [sandboxId]="sandboxId" [applicationId]="application.id" [typeId]="application.id" (caseCreated)="handleCaseCreation($event)"></tcla-live-apps-creators>
   </div>
 </div>

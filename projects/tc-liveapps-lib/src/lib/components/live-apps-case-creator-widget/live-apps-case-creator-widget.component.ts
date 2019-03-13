@@ -8,19 +8,13 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
   styleUrls: ['./live-apps-case-creator-widget.component.css']
 })
 export class LiveAppsCaseCreatorWidgetComponent implements OnInit {
-  @Input() appIds: string[];
+  @Input() application: CaseType;
   @Input() sandboxId: number;
   @Input() uiAppId: string;
+  @Input() initialData: any;
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
-  public selectedApp: CaseType = undefined;
-
-
   constructor() { }
-  // handle selection of application
-  public handleAppSelection = (application: CaseType) => {
-    this.selectedApp = application;
-  }
 
   // handle case created
   public handleCaseCreation = (processId: ProcessId) => {
@@ -28,8 +22,6 @@ export class LiveAppsCaseCreatorWidgetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.appIds);
-    console.log(this.selectedApp);
   }
 
 }

@@ -2,7 +2,7 @@
 <div style="margin: 20px" fxLayout="column">
   <div fxLayout="row" fxLayoutAlign="start center">
     <span>Configure Live App Summary Cards for:</span>
-    <tcla-live-apps-applications style="width: 150px; max-width: 150px; margin-left: 10px;" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleConfigAppSelection($event)"></tcla-live-apps-applications>
+    <tcla-live-apps-applications style="width: 150px; max-width: 150px; margin-left: 10px;" [sandboxId]="sandboxId" [appIds]="appIds" [selectFirstApp]="true" (selection)="handleConfigAppSelection($event)"></tcla-live-apps-applications>
   </div>
   <tcla-live-apps-application-configuration style="margin-top: 20px" *ngIf="selectedAppConfig" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="selectedAppConfig.applicationId" [folderId]="folderId" [appTypeLabel]="selectedAppConfig.label"></tcla-live-apps-application-configuration>
 </div>

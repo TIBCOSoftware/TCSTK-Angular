@@ -1,9 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CaseRoute, CaseType, RouteAction} from '../../models/liveappsdata';
 import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
 import {LiveAppsFavoriteCasesComponent} from '../live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsRecentCasesComponent} from '../live-apps-recent-cases/live-apps-recent-cases.component';
 import {LiveAppsSearchWidgetComponent} from '../live-apps-search-widget/live-apps-search-widget.component';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {LiveAppsCreatorDialogComponent} from '../live-apps-creator-dialog/live-apps-creator-dialog.component';
+import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -31,7 +34,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     this.routeAction.emit(new RouteAction('caseClicked', caseRoute));
   }
 
-  constructor(protected buttonsHelper: TcButtonsHelperService) { }
+  constructor(protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog) { }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
     const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
@@ -50,7 +53,18 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   }
 
   public handleCreatorAppSelection = (application: CaseType) => {
-    console.log(application.applicationName);
+    this.openCreatorDialog(application, undefined, this.sandboxId);
+  }
+
+  openCreatorDialog = (application: CaseType, initialData, sandboxId) => {
+    const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
+      width: '500px',
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   public refresh = () => {
