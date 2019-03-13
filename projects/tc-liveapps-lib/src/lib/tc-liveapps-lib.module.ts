@@ -7,7 +7,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule,
-  MatSelectModule, MatTabsModule, MatTooltipModule
+  MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -130,6 +130,7 @@ import { LiveAppsCreatorDialogComponent } from './components/live-apps-creator-d
     MatCardModule,
     MatTooltipModule,
     MatTabsModule,
+    MatToolbarModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,

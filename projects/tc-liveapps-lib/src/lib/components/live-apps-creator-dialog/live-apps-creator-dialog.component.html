@@ -1,3 +1,7 @@
-<p>
-  live-apps-creator-dialog works!
-</p>
+<div class="tcs-case-creation-dialog">
+  <mat-toolbar class="tcs-case-creation-dialog-toolbar">Create New {{application.applicationName}}</mat-toolbar>
+  <div class="tcs-case-creation-dialog-details">
+    <span class="tcs-case-creation-dialog-instruction">Select a case creator</span>
+      <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="application.applicationId" [typeId]="application.id" [dataOverride]="initialData"></tcla-live-apps-creators>
+  </div>
+</div>
