@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClaimsResolver } from 'tc-liveapps-lib';
 import { LaConfigResolver } from 'tc-liveapps-lib';
 import { PdProcessMiningComponent } from './components/pd-process-mining/pd-process-mining.component';
-import { RecentPdCasesComponent } from './components/recent-pd-cases/recent-pd-cases.component';
 
 const routes: Routes = [
 ];
