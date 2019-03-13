@@ -31,6 +31,8 @@ import { SettingsLiveappsComponent } from './components/settings-liveapps/settin
 import { SettingsIntegrationComponent } from './components/settings-integration/settings-integration.component';
 import { SettingsSpotfireComponent } from './components/settings-spotfire/settings-spotfire.component';
 import { SettingsGeneralComponent } from './components/settings-general/settings-general.component';
+import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
+import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +47,7 @@ import { SettingsGeneralComponent } from './components/settings-general/settings
         SettingsLiveappsComponent, 
         SettingsIntegrationComponent, 
         SettingsSpotfireComponent, 
-        SettingsGeneralComponent
+        SettingsGeneralComponent, PdCaseViewComponent, PdSettingsAdministrationComponent
     ],
     imports: [
         CommonModule,

@@ -1,54 +1,53 @@
- <div  fxLayout="column">
-     <div>
-        <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+<div  fxLayout="column">
+    <div>
+        <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons"
+            (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
             <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
                 <span class="tc-home-welcome-text">Manage Capabilities</span>
             </div>
             <div>
-                <mat-button-toggle-group name="view" aria-label="Font Style" (change)="handleToolbarButtonEvent($event)">
-                    <mat-button-toggle *ngFor="let view of viewButtons" value="{{view.tooltip}}">{{view.tooltip}}</mat-button-toggle>
+                <mat-button-toggle-group name="view" aria-label="Font Style"
+                    (change)="handleToolbarButtonEvent($event)">
+                    <mat-button-toggle *ngFor="let view of viewButtons" value="{{view.tooltip}}">{{view.tooltip}}
+                    </mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
         </tc-tibco-cloud-menu-bar>
 
     </div>
-<div fxFlex>
-    <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10"></div>
 
-    <!-- <div layout="column" layout-align="start" fxFlex="20">
-        <tcpd-setting-menu-entry [icon]="'tcs-starters'" [title]="'General Application'" [options]="['Settings']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
-        <tcpd-setting-menu-entry [icon]="'tcs-liveapps'" [title]="'Live Apps'" [options]="['Configure','Cards']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
-        <tcpd-setting-menu-entry [icon]="'tcs-spotfire'" [title]="'Spotfire'" [options]="['Configure']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
-        <tcpd-setting-menu-entry [icon]="'tcs-integration'" [title]="'Integration'" [options]="['Configure']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
-        <tcpd-setting-menu-entry [icon]="'tcs-integration'" [title]="'Process Discovery'" [options]="['Settings','Configure']" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
-    </div> -->
-    <div fxLayout="column" fxLayoutAlign="start" fxFlex="20">
-        <tcpd-setting-menu-entry *ngFor="let menu of configMenu" [icon]="'tcs-starters'" [title]="menu.entry" [options]="menu.options" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
-    </div>
+    <div >        
+        <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10"></div>
 
-    <!-- configure Box -->
-    <div fxFlex="60" fxLayout="column" fxLayoutAlign="start stretch">
-        <div flex class="starters-custom-layout" layout="row" layout-align="space-between center" layout-margin>
-            <div flex class="starters-custom-layout-bottom-box ng-scope flex">
-                <div class="starters-custom-layout-box-header layout-align-start-center layout-row" layout="row"
-                    layout-align="start center">
-                    <!-- <md-icon flex="none" md-svg-icon="ic-capabilities"
-                        class="starters-custom-layout-panel-icon md-default-theme flex-none"></md-icon> -->
-                    <div class="starters-custom-layout-text starters-custom-layout-panel-text flex" flex>Current
-                        {{showConfigName}} Configuration</div>
-                </div>
-                <div style="padding: 10px;">
-                    <router-outlet></router-outlet>
+         <div fxLayout="column" fxLayoutAlign="start" fxFlex="20">
+            <tcpd-setting-menu-entry *ngFor="let menu of configMenu" [icon]="'tcs-starters'" [title]="menu.entry"
+                [options]="menu.options" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+        </div>
+
+        <!-- configure Box -->
+        <div fxFlex="60" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxFlex class="starters-custom-layout" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutMargin>
+                <div flex class="starters-custom-layout-bottom-box ng-scope flex">
+                    <div class="starters-custom-layout-box-header layout-align-start-center layout-row" fxLayout="row"
+                    fxLayoutAlign="start center">
+                        <mat-icon fxFlex="none" svgIcon="ic-capabilities"
+                        class="starters-custom-layout-panel-icon md-default-theme flex-none"></mat-icon>
+                        <div class="starters-custom-layout-text starters-custom-layout-panel-text flex" fxFlex>Current
+                            {{showConfigName}} Configuration</div>
+                    </div>
+                    <div style="padding: 10px;">
+                        <router-outlet></router-outlet>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10">
+            <a href="https://community.tibco.com/wiki/tibco-labs" target="_blank">
+                <img title="discover TIBCO LABS on TIBCO Community" width="64" border="0"
+                    src="assets/images/TIBCOLabs.png">
+            </a>
+        </div>
+
     </div>
-    
-    <div layout="column" layout-align="start center" fxFlex="10">
-        <a href="https://community.tibco.com/wiki/tibco-labs" target="_blank">
-            <img title="discover TIBCO LABS on TIBCO Community" width="64" border="0" src="assets/images/TIBCOLabs.png">
-        </a>
-    </div>
-    
- </div>
- </div>
+</div>

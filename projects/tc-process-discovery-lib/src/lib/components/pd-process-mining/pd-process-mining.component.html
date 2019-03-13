@@ -1,9 +1,5 @@
-<!-- 
-        [url]="'https://spotfire-next.cloud.tibco.com'" [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
--->
-
 <div>
-    <mat-tab-group class="cloud-starter-app" (selectedTabChange)="tabChange($event)">
+    <mat-tab-group (selectedTabChange)="tabChange($event)">
         <mat-tab *ngFor="let page of allowedPages" label="{{page}}"></mat-tab>
     </mat-tab-group>
 </div>

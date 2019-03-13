@@ -18,6 +18,7 @@ export class PdHomeComponent implements OnInit {
     public userName: string;
     public toolbarButtons: ToolbarButton[];
     public viewButtons: ToolbarButton[];
+    public applicationIds = [];
 
     constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private route: ActivatedRoute) { }
 

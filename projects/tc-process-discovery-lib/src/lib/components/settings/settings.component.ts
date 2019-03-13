@@ -13,6 +13,7 @@ export class SettingsComponent implements OnInit {
     showConfigName: string;
     configMenu = [];
     viewButtons: ToolbarButton[];
+    toolbarButtons: ToolbarButton[];
     constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private location: Location) { }
 
     ngOnInit() {
@@ -86,8 +87,11 @@ export class SettingsComponent implements OnInit {
         this.showConfigName = option;
         console.log("Setting selected: " + option);
     }
+    
+    public handleToolbarButtonEvent = (id) => {
 
-    handleSelectionEvent = (id: string) => {
+    }
+    public handleSelectionEvent = (id: string) => {
 
         this.showConfigName = id;
         let url = 'starterApp/settings/' + id.toLowerCase().split(' ').join('-');
