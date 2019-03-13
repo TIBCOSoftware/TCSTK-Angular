@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
-import {CaseType} from 'tc-liveapps-lib';
+import {CaseType} from '../../models/liveappsdata';
 
 @Component({
   selector: 'tcla-live-apps-creator-dialog',
