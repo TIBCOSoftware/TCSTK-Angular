@@ -28,10 +28,12 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.component';
 import { TableComponent } from './components/table/table.component';
 import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.component';
+import {TcCoreLibModule} from 'tc-core-lib';
+import {DataTableExampleComponent} from './components/data-table-example/data-table-example.component';
 
 
 @NgModule({
-  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent],
+  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent, DataTableExampleComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -67,11 +69,13 @@ import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.
     MatInputModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    TcCoreLibModule
   ],
   exports: [SpotfirePlayComponent,
             TableComponent,
             MatSortModule,
-            SpotfireTabsComponent]
+            SpotfireTabsComponent,
+            DataTableExampleComponent]
 })
 export class TcSpotfirePlayLibModule { }

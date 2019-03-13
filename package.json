@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "ng serve --proxy-config proxy.conf.prod.json --ssl true --source-map",
+    "serve": "ng serve --proxy-config proxy.conf.prod.json --ssl true --source-map --aot",
     "build_lib": "ng build tc-liveapps-lib",
     "build_all_libs_old": "cp tsconfig.build.json tsconfig.json && ng build tc-core-lib && ng build tc-liveapps-lib && ng build tc-forms-lib && ng build tc-handsontable-lib && ng build tc-spotfire-lib && ng build tc-integration-lib && cp tsconfig.debug.json tsconfig.json",
     "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build tc-core-lib && ng build tc-forms-lib && ng build tc-liveapps-lib && ng build tc-handsontable-lib && ng build tc-process-discovery-lib && ng build tc-spotfire-play-lib && ng build tc-check-workflow-monitor-lib && cp tsconfig.debug.json tsconfig.json",
