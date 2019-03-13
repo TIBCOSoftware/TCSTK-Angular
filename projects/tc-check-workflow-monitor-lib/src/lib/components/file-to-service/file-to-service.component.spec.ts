@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CaseCockpitComponent } from './case-cockpit.component';
+import { FileToServiceComponent } from './file-to-service.component';
 
-describe('CaseCockpitComponent', () => {
-  let component: CaseCockpitComponent;
-  let fixture: ComponentFixture<CaseCockpitComponent>;
+describe('FileToServiceComponent', () => {
+  let component: FileToServiceComponent;
+  let fixture: ComponentFixture<FileToServiceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CaseCockpitComponent ]
+      declarations: [ FileToServiceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CaseCockpitComponent);
+    fixture = TestBed.createComponent(FileToServiceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

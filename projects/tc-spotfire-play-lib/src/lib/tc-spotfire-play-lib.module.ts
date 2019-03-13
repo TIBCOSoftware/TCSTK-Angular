@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {TcCoreLibModule} from 'tc-core-lib';
+import {TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {
   MatButtonModule,
   MatCardModule,
@@ -16,7 +16,7 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule, MatPaginatorModule
+  MatTooltipModule
 } from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -28,13 +28,10 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.component';
 import { TableComponent } from './components/table/table.component';
 import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.component';
-import { DataTableExampleComponent } from './components/data-table-example/data-table-example.component';
-import {TcLiveappsLibModule} from 'tc-liveapps-lib';
-
 
 
 @NgModule({
-  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent, DataTableExampleComponent],
+  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -59,6 +56,7 @@ import {TcLiveappsLibModule} from 'tc-liveapps-lib';
     ColorPickerModule,
     ScrollingModule,
     ReactiveFormsModule,
+    TcLiveappsLibModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatMenuModule,
@@ -69,16 +67,11 @@ import {TcLiveappsLibModule} from 'tc-liveapps-lib';
     MatInputModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule,
-    MatPaginatorModule,
-    TcCoreLibModule,
-    TcLiveappsLibModule
+    MatTableModule
   ],
   exports: [SpotfirePlayComponent,
             TableComponent,
             MatSortModule,
-            SpotfireTabsComponent,
-            DataTableExampleComponent
-            ]
+            SpotfireTabsComponent]
 })
 export class TcSpotfirePlayLibModule { }

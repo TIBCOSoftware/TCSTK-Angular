@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'tc-tibco-cloud-error',
+  selector: 'laapp-error',
   templateUrl: './tibco-cloud-error.component.html',
   styleUrls: ['./tibco-cloud-error.component.css']
 })
@@ -17,7 +17,7 @@ export class TibcoCloudErrorComponent implements OnInit {
       console.log(params['errorMessage?']);
       if (params['errorCode'] != null) {
         this.code = params['errorCode'];
-        this.message = this.knownErrorList.find(x => x.errorCode === this.code).errorMessage;
+        this.message = this.knownErrorList.find(x => x.errorCode == this.code).errorMessage;
       } else {
         this.code = 'Unknown Error Code';
       }
