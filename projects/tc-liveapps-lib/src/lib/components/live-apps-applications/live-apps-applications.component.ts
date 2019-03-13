@@ -29,6 +29,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsApplicationsComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() appIds: string[];
+  @Input() selectFirstApp: boolean;
   @Output() selection: EventEmitter<CaseType> = new EventEmitter<CaseType>();
 
   applications: CaseTypesList = new CaseTypesList();
@@ -52,7 +53,7 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
         map(applicationList => {
           this.applications = applicationList;
           // select first as default
-          if (applicationList.casetypes.length > 0) {
+          if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
             this.selectedApp = applicationList.casetypes[0];
             this.selection.emit(applicationList.casetypes[0]);
           }

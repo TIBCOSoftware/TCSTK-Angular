@@ -38,6 +38,7 @@ export * from './lib/components/live-apps-case-creator-widget/live-apps-case-cre
 export * from './lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component';
 export * from './lib/components/live-apps-application-list/live-apps-application-list.component';
 export * from './lib/components/live-apps-application-create-button/live-apps-application-create-button.component';
+export * from './lib/components/live-apps-creator-dialog/live-apps-creator-dialog.component';
 
 // data
 export * from './lib/models/liveappsdata';

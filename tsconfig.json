@@ -21,7 +21,7 @@
     "paths": {
       "tc-liveapps-lib": [
         "projects/tc-liveapps-lib/src/public_api"
-        // "dist/tc-liveapps/lib"
+        // "dist/tc-liveapps-lib"
       ],
       "tc-liveapps-lib/*": [
         "dist/tc-liveapps-lib/*"
@@ -30,7 +30,7 @@
         // use projects/tc-core-lib/src/public_api to debug in chrome with source maps (.ts files)
         // use dist/tc-core-lib to build tc-liveapps-lib
         "projects/tc-core-lib/src/public_api"
-        //"dist/tc-core-lib"
+        // "dist/tc-core-lib"
       ],
       "tc-core-lib/*": [
         "dist/tc-core-lib/*"
@@ -51,11 +51,19 @@
       "tc-handsontable-lib/*": [
         "dist/tc-handsontable-lib/*"
       ],
-      "tc-check-workflow-monitor-lib": [
-        "projects/tc-check-workflow-monitor-lib"
+      "tc-process-discovery-lib": [
+        "projects/tc-process-discovery-lib/src/public_api"
+        // "dist/tc-process-discovery-lib"
       ],
-      "tc-check-workflow-monitor-lib/*": [
-        "dist/tc-check-workflow-monitor-lib/*"
+      "tc-process-discovery-lib/*": [
+        "dist/tc-process-discovery-lib/*"
+      ],
+      "tc-spotfire-play-lib": [
+        "projects/tc-spotfire-play-lib/src/public_api"
+        // "dist/tc-process-discovery-lib"
+      ],
+      "tc-spotfire-play-lib/*": [
+        "dist/tc-spotfire-play-lib/*"
       ]
     }
   }
