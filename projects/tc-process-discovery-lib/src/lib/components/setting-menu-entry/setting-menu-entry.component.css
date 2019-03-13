@@ -1,0 +1,25 @@
+.starters-custom-layout-box-option:hover {
+    cursor: pointer;
+}
+
+.underlying-capability-text {
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #062e79;
+}
+
+.underlying-capability-link {
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #0081cb;
+    padding-bottom: 20px;
+    padding-left: 16px;
+}
