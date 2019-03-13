@@ -16,7 +16,6 @@ import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {TcFormsLibModule} from 'tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
 import {TcHandsontableLibModule} from 'tc-handsontable-lib';
-import { CaseCockpitComponent } from './components/case-cockpit/case-cockpit.component';
 import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
 import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
 
@@ -26,8 +25,7 @@ import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
     LoginComponent,
     StarterAppComponent,
     HomeComponent,
-    CaseComponent,
-    CaseCockpitComponent
+    CaseComponent
 
   ],
   imports: [
