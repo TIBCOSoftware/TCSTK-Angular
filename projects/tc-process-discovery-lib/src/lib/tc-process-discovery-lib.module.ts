@@ -81,6 +81,6 @@ import {PdAdministrationCaseSummaryComponent} from './components/pd-administrati
         TcCoreLibModule,
         TcProcessDiscoveryLibRoutingModule
     ],
-    exports: [RecentPdCasesComponent, PdHomeComponent]
+    exports: [ PdHomeComponent]
 })
 export class TcProcessDiscoveryLibModule { }
