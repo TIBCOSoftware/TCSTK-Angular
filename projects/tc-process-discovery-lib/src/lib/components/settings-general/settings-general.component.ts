@@ -13,6 +13,7 @@ export class SettingsGeneralComponent implements OnInit {
     public roles;
     public displayName: boolean;
     public documentationURL: string;
+    public panelOpenState = false;
 
     constructor(private route: ActivatedRoute) { }
 

@@ -1,58 +1,42 @@
-<div layout="column" layout-align="start stretch" flex>
+<div fxLayout="column" layout-align="start stretch" flex>
 
     <p>You can update the values used by TIBCO Cloud Spotfire Application Integration.</p>
     <br>
 
-    <!-- <md-input-container>
-        <label>Spotfire Server</label>
-        <input ng-model="configuration.spotfireServer">
-    </md-input-container><br>
-    <span style="padding-left: 20px; position: relative; top: -50px; " class="activeLink"><a
-            href="{{configuration.spotfireServer}}" target="_blank"> <i class="fa fa-link"></i> open Spotfire
-            Library</a></span>
-
-    <md-input-container>
-        <label>Analysis Path</label>
-        <input ng-model="configuration.analysisPath">
-    </md-input-container>
-
-    <div layout="row" layout-align="space-between center">
-        <md-input-container flex="45">
-            <label>Table Name</label>
-            <input ng-model="configuration.tableName">
-        </md-input-container>
-
-        <md-input-container flex="45">
-            <label>Active Page for Home</label>
-            <input ng-model="configuration.activePageHome">
-        </md-input-container>
-
-        <md-input-container flex="45">
-            <label>Active Page for Details</label>
-            <input ng-model="configuration.activePageDetails">
-        </md-input-container>
-
-        <md-input-container flex="45">
-            <label>Marking Name</label>
-            <input ng-model="configuration.markingName">
-        </md-input-container>
-
-        <md-input-container flex="45">
-            <label>Max Markings</label>
-            <input ng-model="configuration.maxMarkings">
-        </md-input-container>
+    <div fxLayout="column">
+        <mat-form-field>
+            <input matInput placeholder="Spotfire Server" value="{{spotfireServer}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Analysis Path" value="{{analysisPath}}">
+        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+            <mat-form-field>
+                <input matInput placeholder="Table Name" value="{{tableName}}">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Active Page for Home" value="{{activePageForHome}}">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Active Page for Details" value="{{activePageForDetails}}">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Marking Name" value="{{markingName}}">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Max Markings" value="{{maxMarkings}}">
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="Allowed Pages" value="{{allowedPages}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Column Names" value="{{columnNames}}">
+        </mat-form-field>
+    
     </div>
 
-    <md-input-container>
-        <label>Allowed Pages</label>
-        <input ng-model="configuration.allowedPages">
-    </md-input-container>
-
-    <md-input-container>
-        <label>Column Names</label>
-        <input ng-model="configuration.columnNames">
-    </md-input-container>
-
+<!--
     <md-button class="underlying-capability-save-button" ng-click="runSaveFuntion()">Save</md-button>
 
     <div ng-if="alertData" layout="row" style="padding-top: 20px" layout-align="space-between center">
@@ -63,6 +47,7 @@
                 <div>some details</div>
             </tcc-alert-description>
         </tcc-alert>
-    </div> -->
+    </div> 
+-->
 
 </div>
