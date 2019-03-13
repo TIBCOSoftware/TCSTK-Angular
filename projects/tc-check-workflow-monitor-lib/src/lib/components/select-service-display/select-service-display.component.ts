@@ -10,6 +10,7 @@ import {ServiceDetails} from '../../models/service-details';
 export class SelectServiceDisplayComponent implements OnInit {
 
   @Input()  serviceDetailsList: Array<ServiceDetails>;
+  @Input()  curServiceDetails: ServiceDetails;
 
 
   @Output() selectServiceEvent: EventEmitter<ServiceDetails> = new EventEmitter<ServiceDetails>();
@@ -22,8 +23,6 @@ export class SelectServiceDisplayComponent implements OnInit {
 
   public selectService = (serviceDetail) => {
     this.selectServiceEvent.emit(serviceDetail);
-
-
   }
 
 

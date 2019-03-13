@@ -1,6 +1,8 @@
 <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center">
   <div *ngFor="let serviceDetails of serviceDetailsList">
-    <button mat-raised-button color="primary" (click)="selectService(serviceDetails)" >{{serviceDetails.label}}</button>
+    <button mat-raised-button color="primary"
+            (click)="selectService(serviceDetails)"
+            [color]="curServiceDetails.label ==  serviceDetails.label ? 'accent' : 'primary'">{{serviceDetails.label}}</button>
   </div>
 
 </div>
