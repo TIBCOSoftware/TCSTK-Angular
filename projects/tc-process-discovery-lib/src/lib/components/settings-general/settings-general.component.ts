@@ -1,21 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GeneralConfig } from 'tc-core-lib';
 
 @Component({
-  selector: 'tcpd-settings-general',
-  templateUrl: './settings-general.component.html',
-  styleUrls: ['./settings-general.component.css']
+    selector: 'tcpd-settings-general',
+    templateUrl: './settings-general.component.html',
+    styleUrls: ['./settings-general.component.css']
 })
 export class SettingsGeneralComponent implements OnInit {
 
-  constructor() { }
+    public applicationTitle: string;
+    public roles;
+    public displayName: boolean;
+    public documentationURL: string;
 
-  ngOnInit() {
-  }
+    constructor(private route: ActivatedRoute) { }
 
-// caseApp5.generic.config.tibcolabs.client.context.PUBLIC
-// caseApp5.generic.config.tibcolabs.client.context.PUBLIC
-// caseApp5.liveapps.config.tibcolabs.client.context.PUBLIC
-// caseApp5.spotfire.config.tibcolabs.client.context.PUBLIC
-// caseApp5.mrwhippy.config.tibcolabs.client.context.PUBLIC
+    ngOnInit() {
+        var generalConfig = this.route.snapshot.data.generalConfigHolder;
+
+        this.applicationTitle = generalConfig.applicationTitle;
+        this.roles = generalConfig.roles;
+        this.displayName = generalConfig.displayName;
+        this.documentationURL = generalConfig.documentationURL;
+    }
+
+    public runSaveFuntion = () => {
+        
+    }
 
 }
