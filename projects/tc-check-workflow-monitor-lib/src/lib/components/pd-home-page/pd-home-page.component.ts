@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceDetails} from '../../../../../tc-process-discovery-lib/src/lib/models/process-discovery';
+import {ServiceDetails} from '../../models/service-details';
+
 
 
 export interface Element {
@@ -10,7 +11,7 @@ export interface Element {
 }
 
 @Component({
-  selector: 'tcpd-pd-home-page',
+  selector: 'tccwm-pd-home-page',
   templateUrl: './pd-home-page.component.html',
   styleUrls: ['./pd-home-page.component.css']
 })
