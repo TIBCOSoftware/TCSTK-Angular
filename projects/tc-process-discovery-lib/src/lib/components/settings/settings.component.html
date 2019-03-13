@@ -1,39 +1,32 @@
-<div  fxLayout="column">
+<div fxFill fxLayout="column">
     <div>
-        <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons"
-            (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+        <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
             <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
                 <span class="tc-home-welcome-text">Manage Capabilities</span>
             </div>
             <div>
-                <mat-button-toggle-group name="view" aria-label="Font Style"
-                    (change)="handleToolbarButtonEvent($event)">
-                    <mat-button-toggle *ngFor="let view of viewButtons" value="{{view.tooltip}}">{{view.tooltip}}
-                    </mat-button-toggle>
+                <mat-button-toggle-group name="view" (change)="handleToolbarButtonEvent($event)">
+                    <mat-button-toggle *ngFor="let view of viewButtons" value="{{view.tooltip}}">{{view.tooltip}}</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
         </tc-tibco-cloud-menu-bar>
 
     </div>
 
-    <div >        
+    <div fxFlex style="padding: 40px">        
         <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10"></div>
 
-         <div fxLayout="column" fxLayoutAlign="start" fxFlex="20">
-            <tcpd-setting-menu-entry *ngFor="let menu of configMenu" [icon]="'tcs-starters'" [title]="menu.entry"
-                [options]="menu.options" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
+         <div fxLayout="column" fxLayoutAlign="start start" fxFlex="20" fxLayoutGap>
+            <tcpd-setting-menu-entry style="padding-bottom: 20px" *ngFor="let menu of configMenu" [icon]="'tcs-starters'" [title]="menu.entry" [options]="menu.options" (configureOption)="handleSelectionEvent($event)"></tcpd-setting-menu-entry>
         </div>
 
         <!-- configure Box -->
-        <div fxFlex="60" fxLayout="column" fxLayoutAlign="start stretch">
-            <div fxFlex class="starters-custom-layout" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutMargin>
-                <div flex class="starters-custom-layout-bottom-box ng-scope flex">
-                    <div class="starters-custom-layout-box-header layout-align-start-center layout-row" fxLayout="row"
-                    fxLayoutAlign="start center">
-                        <mat-icon fxFlex="none" svgIcon="ic-capabilities"
-                        class="starters-custom-layout-panel-icon md-default-theme flex-none"></mat-icon>
-                        <div class="starters-custom-layout-text starters-custom-layout-panel-text flex" fxFlex>Current
-                            {{showConfigName}} Configuration</div>
+        <div fxFlex="60">
+            <div fxFill> 
+                <div>
+                    <div class="starters-custom-layout-box-header">
+                        <mat-icon fxFlex="none" svgIcon="tcs-capabilities" class="starters-custom-layout-panel-icon md-default-theme flex-none"></mat-icon>
+                        <div class="starters-custom-layout-text starters-custom-layout-panel-text">Current {{showConfigName}} Configuration</div>
                     </div>
                     <div style="padding: 10px;">
                         <router-outlet></router-outlet>
