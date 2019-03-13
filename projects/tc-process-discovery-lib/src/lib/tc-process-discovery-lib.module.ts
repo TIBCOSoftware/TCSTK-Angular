@@ -33,21 +33,25 @@ import { SettingsSpotfireComponent } from './components/settings-spotfire/settin
 import { SettingsGeneralComponent } from './components/settings-general/settings-general.component';
 import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
 import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
+import {PdAdministrationCaseSummaryComponent} from './components/pd-administration-case-summary/pd-administration-case-summary.component';
 
 @NgModule({
     declarations: [
-        RecentPdCasesComponent, 
-        PdHomeComponent, 
-        PdCaseCreatorsComponent, 
-        PdCreatorSelectorComponent, 
-        PdWidgetHeaderComponent, 
-        PdProcessMiningComponent, 
-        SettingsComponent, 
-        SettingMenuEntryComponent, 
-        SettingsLiveappsComponent, 
-        SettingsIntegrationComponent, 
-        SettingsSpotfireComponent, 
-        SettingsGeneralComponent, PdCaseViewComponent, PdSettingsAdministrationComponent
+        RecentPdCasesComponent,
+        PdHomeComponent,
+        PdCaseCreatorsComponent,
+        PdCreatorSelectorComponent,
+        PdWidgetHeaderComponent,
+        PdProcessMiningComponent,
+        SettingsComponent,
+        SettingMenuEntryComponent,
+        SettingsLiveappsComponent,
+        SettingsIntegrationComponent,
+        SettingsSpotfireComponent,
+        SettingsGeneralComponent,
+        PdCaseViewComponent,
+        PdSettingsAdministrationComponent,
+        PdAdministrationCaseSummaryComponent
     ],
     imports: [
         CommonModule,
