@@ -64,6 +64,12 @@
       ],
       "tc-spotfire-play-lib/*": [
         "dist/tc-spotfire-play-lib/*"
+      ],
+      "tc-check-workflow-monitor-lib": [
+        "dist/tc-check-workflow-monitor-lib"
+      ],
+      "tc-check-workflow-monitor-lib/*": [
+        "dist/tc-check-workflow-monitor-lib/*"
       ]
     }
   }
