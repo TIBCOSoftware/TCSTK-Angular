@@ -190,5 +190,10 @@ export class AppComponent {
       'tcs-mini-state-terminal-completed',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/milestones/ic-mini-state-terminal-completed.svg'))
     );
-  }
+    this.matIconRegistry.addSvgIcon(
+        'tcs-capabilities',
+        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-capabilities.svg'))
+      );
+  
+}
 }

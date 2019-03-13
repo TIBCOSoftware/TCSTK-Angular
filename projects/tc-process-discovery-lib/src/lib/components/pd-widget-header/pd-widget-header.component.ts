@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./pd-widget-header.component.css']
 })
 export class PdWidgetHeaderComponent extends TibcoCloudWidgetHeaderComponent {
-    @Input() userName : string;
+    @Input() datasource : string;
     @Input() sandboxId : number;
     @Input() applicationIds : number[];
     @Input() typeId : string;
