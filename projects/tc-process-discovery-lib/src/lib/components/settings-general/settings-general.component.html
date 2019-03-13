@@ -1,131 +1,24 @@
-<div layout="column" layout-align="start stretch" flex>
+<div fxLayout="column" fxLayoutAlign="start stretch" fxFlex>
 
     <p>You can some of the default Application Settings here.</p>
     <br>
     <!-- Application specifics -->
-    <div layout="row">
-        <mat-form-field  flex="45">
-            <!-- <label>Application Title</label>
-            <input maxlength="25" ng-model="configuration.portal.title"> -->
-            <input matInput placeholder="Application Title" value="Process Discovery App">
+    <div fxLayout="row">
+        <mat-form-field  fxFlex="45">
+            <input matInput placeholder="Application Title" value="{{applicationTitle}}">
         </mat-form-field>
     </div>
 
-    <!-- PP Role specific section -->
-    <!-- <div ng-if="configuration.welcome.Internal.title" layout-align="space-between center">
-
-        <div layout="row">
-            <md-input-container flex="50" ng-if="configuration.welcome.Internal.title">
-                <label>Internals Welcome</label>
-                <input maxlength="50" ng-model="configuration.welcome.Internal.title">
-            </md-input-container>
-        </div>
-        <div layout="row">
-            <md-input-container flex="90" ng-if="configuration.welcome.Internal.imageUrl">
-                <label>Internals Image URL</label>
-                <input ng-model="configuration.welcome.Internal.imageUrl">
-            </md-input-container>
-            <div flex>
-                <div class="context-hint">
-                    <div flex>select one, or define an custom URL</div>
-                </div>
-            </div>
-            <img src="../partner-portal-configuration/images/starter.png"
-                ng-click="changeImage('Internal','../partner-portal-configuration/images/starter.png')"
-                class="conf-imagepreview" border="1px">
-            <img src="../partner-portal-configuration/images/splash.jpg"
-                ng-click="changeImage('Internal','../partner-portal-configuration/images/splash.jpg')"
-                class="conf-imagepreview" border="1px">
-
-        </div>
-        <div layout="row">
-            <md-input-container flex="50" ng-if="configuration.welcome.External.title">
-                <label>Externals Welcome</label>
-                <input maxlength="50" ng-model="configuration.welcome.External.title">
-            </md-input-container>
-        </div>
-        <div layout="row">
-            <md-input-container flex="90" ng-if="configuration.welcome.External.imageUrl">
-                <label>Externals Image URL</label>
-                <input ng-model="configuration.welcome.External.imageUrl">
-            </md-input-container>
-            <img src="../partner-portal-configuration/images/starter.png"
-                ng-click="changeImage('External','../partner-portal-configuration/images/starter.png')"
-                class="conf-imagepreview" border="1px">
-            <img src="../partner-portal-configuration/images/catena.jpg"
-                ng-click="changeImage('External','../partner-portal-configuration/images/catena.jpg')"
-                class="conf-imagepreview" border="1px">
-        </div>
-
-    </div> -->
-    <!-- RI Role specific section -->
-    <!-- <div ng-if="configuration.welcome['Risk Analyst'].title" layout-align="space-between center">
-
-        <div layout="row">
-            <md-input-container flex="50" ng-if="configuration.welcome['Risk Analyst'].title">
-                <label>Risk Analyst Welcome</label>
-                <input maxlength="50" ng-model="configuration.welcome['Risk Analyst'].title">
-            </md-input-container>
-        </div>
-        <div layout="row">
-            <md-input-container flex="90" ng-if="configuration.welcome['Risk Analyst'].imageUrl">
-                <label>Risk Analyst Image URL</label>
-                <input ng-model="configuration.welcome['Risk Analyst'].imageUrl">
-            </md-input-container>
-            <div flex>
-                <div class="context-hint">
-                    <div flex>select one, or define an custom URL</div>
-                </div>
-            </div>
-            <img src="../risk-investigation-configuration/images/starter.png"
-                ng-click="changeImage('Risk Analyst','../risk-investigation-configuration/images/starter.png')"
-                class="conf-imagepreview" border="1px">
-            <img src="../risk-investigation-configuration/images/RiskAnalyst.jpg"
-                ng-click="changeImage('Risk Analyst','../risk-investigation-configuration/images/RiskAnalyst.jpg')"
-                class="conf-imagepreview" border="1px">
-        </div>
-        <div layout="row">
-            <md-input-container flex="50" ng-if="configuration.welcome['Risk Manager'].title">
-                <label>Risk Manager Welcome</label>
-                <input maxlength="50" ng-model="configuration.welcome['Risk Manager'].title">
-            </md-input-container>
-        </div>
-        <div layout="row">
-            <md-input-container flex="90" ng-if="configuration.welcome['Risk Manager'].imageUrl">
-                <label>Risk Manager Image URL</label>
-                <input ng-model="configuration.welcome['Risk Manager'].imageUrl">
-            </md-input-container>
-            <img src="../risk-investigation-configuration/images/starter.png"
-                ng-click="changeImage('Risk Manager','../risk-investigation-configuration/images/starter.png')"
-                class="conf-imagepreview" border="1px">
-            <img src="../risk-investigation-configuration/images/RiskManagement.jpg"
-                ng-click="changeImage('Risk Manager','../risk-investigation-configuration/images/RiskManagement.jpg')"
-                class="conf-imagepreview" border="1px">
-        </div>
-    </div> -->
-
     <!-- Advanced Settings (all Optional from Shared State) -->
-    <!-- <p style="padding-bottom: 24px;">Advanced Settings</p>
-    <div layout="row">
-        <md-checkbox ng-model="configuration.adv.noName">show no Username in App Header</md-checkbox>
+    <p style="padding-bottom: 24px;">Advanced Settings</p>
+    <div fxLayout="row">
+        <mat-checkbox ng-model="configuration.adv.noName">show no Username in App Header</mat-checkbox>
     </div>
-    <md-input-container flex="90">
-        <label>this Application Documentation URL</label>
-        <input ng-model="configuration.adv.nimbusUrl">
-    </md-input-container>
+    <mat-form-field fxFlex="90">
+        <input matInput placeholder="This Application Documentation URL" value="{{documentationURL}}">
+    </mat-form-field>
 
-    <div layout="row" layout-align="space-between center">
-        <md-button class="underlying-capability-save-button" ng-click="runSaveFuntion()">Save</md-button>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <button mat-button class="underlying-capability-save-button" (click)="runSaveFuntion()">Save</button>
     </div>
-
-    <div ng-if="alertData" layout="row" style="padding-top: 20px" layout-align="space-between center">
-        <tcc-alert alert-type="alertData.alertType" title="alertData.title" description="alertData.description"
-            more-info="false" icon="alertData.icon" close-alert="false" auto-close-flag="alertData.autoCloseFlag"
-            auto-close-val="alertData.autoCloseVal" inline=true full-width=true modal-flag=false stand-alone=false>
-            <tcc-alert-description>
-                <div>some details</div>
-            </tcc-alert-description>
-        </tcc-alert>
-    </div> -->
-
 </div>
