@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PdHomePageComponent } from './pd-home-page.component';
+import { UploadPageComponent } from './pd-home-page.component';
 
 describe('PdHomePageComponent', () => {
-  let component: PdHomePageComponent;
-  let fixture: ComponentFixture<PdHomePageComponent>;
+  let component: UploadPageComponent;
+  let fixture: ComponentFixture<UploadPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PdHomePageComponent ]
+      declarations: [ UploadPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PdHomePageComponent);
+    fixture = TestBed.createComponent(UploadPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

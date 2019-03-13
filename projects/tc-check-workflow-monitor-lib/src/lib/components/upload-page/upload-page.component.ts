@@ -14,11 +14,11 @@ export interface Element {
 }
 
 @Component({
-  selector: 'tccwm-pd-home-page',
-  templateUrl: './pd-home-page.component.html',
-  styleUrls: ['./pd-home-page.component.css']
+  selector: 'tccwm-upload-page',
+  templateUrl: './upload-page.component.html',
+  styleUrls: ['./upload-page.component.css']
 })
-export class PdHomePageComponent implements OnInit {
+export class UploadPageComponent implements OnInit {
   public curServiceDetails: ServiceDetails;
 
   public serviceDetailsList = new Array();
@@ -42,7 +42,7 @@ export class PdHomePageComponent implements OnInit {
     this.curServiceDetails = serviceDetails;
 
 
-    serviceDetails = new ServiceDetails().deserialize({label: 'Update From Docapost (TODO)', rootObjectName : 'cases',
+    serviceDetails = new ServiceDetails().deserialize({label: 'Update From Docapost', rootObjectName : 'cases',
       operation : '/UpdateLACasesFromDocapost',
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
     this.serviceDetailsList.push(serviceDetails);
@@ -86,6 +86,23 @@ export class PdHomePageComponent implements OnInit {
             this.openSnackBar(error);
           });
     }
+  }
+
+  purgeAllCases () {
+    const apiUrl = 'https://localhost:4200/case/cases/?';
+    const params = '$sandbox=1930&$filter=applicationId%20eq%202550%20and%20typeId%20eq%201%20and%20purgeable%20eq%20TRUE%20and%20modificationTimestamp%20le%202019-03-30T22:59:59.999Z';
+    const serviceObservable = this.serviceHandler.purgeAllCaseService(apiUrl, params);
+    serviceObservable.subscribe( result => {
+        this.openSnackBar(result);
+
+      },
+      error => {
+        this.openSnackBar(error);
+      });
+
+
+
+
   }
 
 
