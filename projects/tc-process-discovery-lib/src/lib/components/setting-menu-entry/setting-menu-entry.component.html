@@ -1,0 +1,7 @@
+<div fxLayout="row">
+    <mat-icon svgIcon="{{icon}}"></mat-icon>
+    <div>{{title}}</div>
+</div>
+<div fxLayout="row" *ngFor="let option of options">
+    <div (click)="viewButtonClick(title + ' ' + option)"><span>{{option}}</span></div>
+</div>

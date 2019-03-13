@@ -17,14 +17,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ColorPickerModule} from 'ngx-color-picker';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RecentPdCasesComponent } from './components/recent-pd-cases/recent-pd-cases.component';
-import { FileToServiceComponent } from './components/file-to-service/file-to-service.component';
-import { PdHomePageComponent } from './components/pd-home-page/pd-home-page.component';
-import { SelectServiceDisplayComponent } from './components/select-service-display/select-service-display.component';
-import { PreviewDataDialogComponent } from './components/preview-data-dialog/preview-data-dialog.component';
-import { NotificationSnackBarComponent } from './components/notification-snack-bar/notification-snack-bar.component';
 
 @NgModule({
-  declarations: [RecentPdCasesComponent, FileToServiceComponent, PdHomePageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, NotificationSnackBarComponent],
+  declarations: [RecentPdCasesComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -53,8 +48,8 @@ import { NotificationSnackBarComponent } from './components/notification-snack-b
     ReactiveFormsModule,
     TcLiveappsLibModule
   ],
-  entryComponents : [PreviewDataDialogComponent, NotificationSnackBarComponent],
-  exports: [RecentPdCasesComponent, FileToServiceComponent, PdHomePageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, NotificationSnackBarComponent]
+  entryComponents : [],
+  exports: [RecentPdCasesComponent]
 })
 export class TcProcessDiscoveryLibModule {
 
