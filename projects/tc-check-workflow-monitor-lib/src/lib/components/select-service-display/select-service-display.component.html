@@ -1,0 +1,9 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center">
+  <div *ngFor="let serviceDetails of serviceDetailsList">
+    <button mat-raised-button color="primary" (click)="selectService(serviceDetails)" >{{serviceDetails.label}}</button>
+  </div>
+
+</div>
+
+
+

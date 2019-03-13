@@ -64,11 +64,11 @@ export class TibcoCloudTableDataSource extends DataSource<any> {
 
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
-      switch (this.sort.active) {
-        // TODO: Look at sorts...
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
-        default: return 0;
+      // console.log('Sort ON: ' + this.sort.active + ' A Has Property: ' + a.hasOwnProperty(this.sort.active) + ' B Has Property: ' + b.hasOwnProperty(this.sort.active) ) ;
+      if (a.hasOwnProperty(this.sort.active) && b.hasOwnProperty(this.sort.active)) {
+        return compare(a[this.sort.active], b[this.sort.active], isAsc);
+      } else {
+        return 0;
       }
     });
   }

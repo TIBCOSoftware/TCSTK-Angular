@@ -11,7 +11,6 @@ export * from './lib/components/tibco-cloud-multiple-subscription/tibco-cloud-mu
 export * from './lib/components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
 export * from './lib/components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
 export * from './lib/components/tibco-cloud-error/tibco-cloud-error.component';
-export * from './lib/components/tibco-cloud-table/tibco-cloud-table.component';
 
 // services
 export * from './lib/services/tc-login.service';
