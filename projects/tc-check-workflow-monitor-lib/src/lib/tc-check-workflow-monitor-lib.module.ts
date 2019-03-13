@@ -20,6 +20,7 @@ import { FileToServiceComponent } from './components/file-to-service/file-to-ser
 import { PdHomePageComponent } from './components/pd-home-page/pd-home-page.component';
 import { SelectServiceDisplayComponent } from './components/select-service-display/select-service-display.component';
 import { PreviewDataDialogComponent } from './components/preview-data-dialog/preview-data-dialog.component';
+import {TcCoreLibModule} from 'tc-core-lib';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { PreviewDataDialogComponent } from './components/preview-data-dialog/pre
     ColorPickerModule,
     ScrollingModule,
     ReactiveFormsModule,
-    TcLiveappsLibModule
+    TcLiveappsLibModule,
+    TcCoreLibModule
   ],
   entryComponents : [PreviewDataDialogComponent],
   exports: [ FileToServiceComponent, PdHomePageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent]

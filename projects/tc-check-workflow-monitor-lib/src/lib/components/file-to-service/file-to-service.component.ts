@@ -10,6 +10,7 @@ import {ServiceDetails} from '../../models/service-details';
 
 
 import {PreviewDataDialogComponent} from '../preview-data-dialog/preview-data-dialog.component';
+import {ServiceHandlerService} from '../../services/service-handler.service';
 
 
 
@@ -24,7 +25,7 @@ export class FileToServiceComponent implements OnInit, OnChanges {
 
   @Input()  serviceDetails: ServiceDetails;
 
-   constructor(private http: HttpClient, private dialog: MatDialog, private snackBar: MatSnackBar) {
+   constructor(private serviceHandler: ServiceHandlerService, private dialog: MatDialog, private snackBar: MatSnackBar) {
 
 
   }
@@ -79,18 +80,25 @@ export class FileToServiceComponent implements OnInit, OnChanges {
 
 
   public callService(serviceBody: String): Observable<any> {
-    const headers = new HttpHeaders();
-    headers.set('Content-Type', 'application/json');
-    headers.set( 'Accept', 'application/json');
 
+    return this.serviceHandler.postService(this.serviceFullUrl, serviceBody)
+      .pipe(
+      map ( result => {
+          this.openSnackBar(result);
 
+        },
+        error => {
+          this.openSnackBar(error);
+        }));
 
-
-    return this.http.post(this.serviceFullUrl, serviceBody, {headers})
+    /*return this.http.post(this.serviceFullUrl, serviceBody, {headers})
       .pipe(
         map ( result => this.openSnackBar(result)));
+        */
   }
 
+
+  // TODO refactor : it appears twice
   openSnackBar(result: any) {
     // TODO handle error
     const message = 'File imported correctly : ' + result.nbCreated + ' lines created';
@@ -106,11 +114,14 @@ export class FileToServiceComponent implements OnInit, OnChanges {
     console.log('Array Obj : ' + JSON.stringify(objArray, null, 2 ));
     serviceInput[this.serviceDetails.rootObjectName] = objArray;
     console.log('serviceInput : ' + JSON.stringify(serviceInput, null, 2 ));
+
+
     // Call service
-    // TODO handle error
-    // TODO handle OK confirmation
     const serviceObservable = this.callService(JSON.stringify(serviceInput));
     serviceObservable.subscribe();
+
+
+
 
 
   }

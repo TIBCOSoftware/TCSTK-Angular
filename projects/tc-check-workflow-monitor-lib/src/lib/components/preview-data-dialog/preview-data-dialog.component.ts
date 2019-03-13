@@ -12,12 +12,16 @@ export class PreviewDataDialogComponent {
   description: string;
   jsonData: Array<any>;
 
+  jsonDataString : string;
+
   constructor(
     public dialogRef: MatDialogRef<PreviewDataDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data) {
 
     this.description = data.description;
     this.jsonData = data.jsonData;
+
+    this.jsonDataString =  JSON.stringify(data.jsonData);
 
   }
 
