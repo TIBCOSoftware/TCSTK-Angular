@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Select the new datasource</h1>
+<div mat-dialog-content>
+  <p>Datasource name:</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.datasource">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.datasource" cdkFocusInitial>Ok</button>
+</div>
