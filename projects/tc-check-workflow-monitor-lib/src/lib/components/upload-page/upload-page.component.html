@@ -1,6 +1,6 @@
 
 
-<tccwm-select-service-display [serviceDetailsList]="serviceDetailsList" (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
+<tccwm-select-service-display [curServiceDetails]="curServiceDetails" [serviceDetailsList]="serviceDetailsList" (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
 <br>
 <br>
 <button (click)="purgeAllCases()">Purge All Cases</button>
