@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LiveAppsApplicationsComponent} from '../../components/live-apps-applications/live-apps-applications.component';
+import {CaseType} from '../../models/liveappsdata';
 
 @Component({
   selector: 'tcla-live-apps-application-create-button',
@@ -7,5 +8,9 @@ import {LiveAppsApplicationsComponent} from '../../components/live-apps-applicat
   styleUrls: ['./live-apps-application-create-button.component.css']
 })
 export class LiveAppsApplicationCreateButtonComponent extends LiveAppsApplicationsComponent {
+
+  public handleCreatorAppSelection = (application: CaseType) => {
+    this.selection.emit(application);
+  }
 
 }
