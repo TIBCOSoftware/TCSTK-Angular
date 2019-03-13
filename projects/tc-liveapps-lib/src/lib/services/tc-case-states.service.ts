@@ -6,6 +6,7 @@ import {map, tap} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {StateTrackerData, StateTracker, TrackerState, StateAuditEventList, StateAuditEvent} from '../models/tc-case-states';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {Location} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class TcCaseStatesService {
   constructor(private http: HttpClient,
               private liveAppsService: LiveAppsService,
               private caseDataService: TcCaseDataService,
-              private sanitizer: DomSanitizer) { }
+              private sanitizer: DomSanitizer,
+              private location: Location) { }
 
   private getTrackerData = (caseRef: string, sandboxId: number, appId: string): Observable<StateTrackerData> => {
     // merge the result of these three API calls into one object
@@ -123,7 +125,7 @@ export class TcCaseStatesService {
   }
 
   public getMilestoneSectionSvg(stateLabel: string, labelClass: string, bgClass: string, svgFileName: string): Observable<SafeHtml> {
-    return this.liveAppsService.getIconSVGText('/assets/icons/milestones/' + svgFileName).pipe(
+    return this.liveAppsService.getIconSVGText(this.location.prepareExternalUrl('assets/icons/milestones/' + svgFileName)).pipe(
       map(svgcontents => {
         let updatedsvg = svgcontents.replace('{{milestoneLabel}}', stateLabel);
         updatedsvg = updatedsvg.replace('{{milestoneBgClass}}', bgClass);

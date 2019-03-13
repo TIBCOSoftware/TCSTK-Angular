@@ -2,18 +2,18 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
-  selector: 'tcpd-preview-data-dialog',
+  selector: 'tccwm-preview-data-dialog',
   templateUrl: './preview-data-dialog.component.html',
   styleUrls: ['./preview-data-dialog.component.css']
 })
-export class PreviewDataDialogComponent implements OnInit {
+export class PreviewDataDialogComponent {
 
 
   description: string;
   jsonData: Array<any>;
 
   constructor(
-    private dialogRef: MatDialogRef<PreviewDataDialogComponent>,
+    public dialogRef: MatDialogRef<PreviewDataDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data) {
 
     this.description = data.description;
@@ -21,9 +21,7 @@ export class PreviewDataDialogComponent implements OnInit {
 
   }
 
-  ngOnInit() {
 
-  }
 
   save() {
     this.dialogRef.close('save');

@@ -8,18 +8,19 @@ import {HttpClient} from '@angular/common/http';
 import {TcLiveAppsConfigService} from '../services/tc-live-apps-config.service';
 import {LiveAppsConfig} from '../models/tc-liveapps-config';
 import {TcCaseCardConfigService} from '../services/tc-case-card-config.service';
+import {Location} from '@angular/common';
 
 @Injectable()
 export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig>> {
 
-  DEFAULT_CONFIG_URL = '/assets/config/liveAppsConfig.json';
-  APP_ID_URL = '/assets/config/uiAppId.json';
+  DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/liveAppsConfig.json');
+  APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
 
   private sandboxId: number;
   public defaultAppConfig: LiveAppsConfig;
   private uiAppId: string;
 
-  constructor(private tcSharedState: TcSharedStateService, private liveAppsConfigService: TcLiveAppsConfigService, private caseCardConfigService: TcCaseCardConfigService, private http: HttpClient) {}
+  constructor(private tcSharedState: TcSharedStateService, private liveAppsConfigService: TcLiveAppsConfigService, private caseCardConfigService: TcCaseCardConfigService, private http: HttpClient, private location: Location) {}
   // note appConfigResolver will need sandboxId to create app config state record.
   // So we expect this to have been set by caller (done by tc-liveapps-lib/laConfigResolver).
 
