@@ -6,8 +6,8 @@
 
 <div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
     <div fxFlex fxLayoutGap="20px">
-        <tcla-spotfire-viz [url]="'https://23.22.187.212'"
-            [path]="'/TIBCO Labs/ProcessMining_final'" (markingEvent)="marking($event)"
+        <tcla-spotfire-viz [url]="spotfireServer"
+            [path]="analysisPath" (markingEvent)="marking($event)"
             [page]="activePage" 
             customization='{
                 "showAbout": false,
