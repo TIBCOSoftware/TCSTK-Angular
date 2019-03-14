@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingsLiveappsComponent } from './settings-liveapps.component';
+import { LiveAppsSettingsComponent } from './live-apps-settings.component';
 
-describe('SettingsLiveappsComponent', () => {
-  let component: SettingsLiveappsComponent;
-  let fixture: ComponentFixture<SettingsLiveappsComponent>;
+describe('LiveAppsComponentSettings', () => {
+  let component: LiveAppsSettingsComponent;
+  let fixture: ComponentFixture<LiveAppsSettingsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SettingsLiveappsComponent ]
+      declarations: [ LiveAppsSettingsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingsLiveappsComponent);
+    fixture = TestBed.createComponent(LiveAppsSettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

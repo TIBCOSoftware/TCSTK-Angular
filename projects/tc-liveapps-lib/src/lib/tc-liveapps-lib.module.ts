@@ -68,6 +68,7 @@ import {TcLiveAppsConfigService} from './services/tc-live-apps-config.service';
 import { LiveAppsApplicationListComponent } from './components/live-apps-application-list/live-apps-application-list.component';
 import {LiveAppsApplicationCreateButtonComponent} from './components/live-apps-application-create-button/live-apps-application-create-button.component';
 import { LiveAppsCreatorDialogComponent } from './components/live-apps-creator-dialog/live-apps-creator-dialog.component';
+import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-apps-settings.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { LiveAppsCreatorDialogComponent } from './components/live-apps-creator-d
     LiveAppsHomeCockpitComponent,
     LiveAppsApplicationListComponent,
     LiveAppsApplicationCreateButtonComponent,
-    LiveAppsCreatorDialogComponent
+    LiveAppsCreatorDialogComponent,
+    LiveAppsSettingsComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -174,7 +176,8 @@ import { LiveAppsCreatorDialogComponent } from './components/live-apps-creator-d
     LiveAppsHomeCockpitComponent,
     LiveAppsApplicationListComponent,
     LiveAppsApplicationCreateButtonComponent,
-    LiveAppsCreatorDialogComponent
+    LiveAppsCreatorDialogComponent,
+    LiveAppsSettingsComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsCreatorDialogComponent],
   providers: [
