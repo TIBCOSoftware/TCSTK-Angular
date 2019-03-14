@@ -20,49 +20,49 @@
     ],
     "paths": {
       "tc-liveapps-lib": [
-        "dist/tc-liveapps-lib"
+        "projects/tc-liveapps-lib/src/public_api"
       ],
       "tc-liveapps-lib/*": [
         "dist/tc-liveapps-lib/*"
       ],
       "tc-core-lib": [
-        "dist/tc-core-lib"
+        "projects/tc-core-lib/src/public_api"
       ],
       "tc-core-lib/*": [
         "dist/tc-core-lib/*"
       ],
       "tc-forms-lib": [
-        "dist/tc-forms-lib"
+        "projects/tc-forms-lib/src/public_api"
       ],
       "tc-forms-lib/*": [
         "dist/tc-forms-lib/*"
       ],
       "tc-handsontable-lib": [
-        "dist/tc-handsontable-lib"
+        "projects/tc-handsontable-lib/src/public_api"
       ],
       "tc-handsontable-lib/*": [
         "dist/tc-handsontable-lib/*"
       ],
       "tc-process-discovery-lib": [
-        "dist/tc-process-discovery-lib"
+        "projects/tc-process-discovery-lib/src/public_api"
       ],
       "tc-process-discovery-lib/*": [
         "dist/tc-process-discovery-lib/*"
       ],
       "tc-spotfire-play-lib": [
-         "dist/tc-spotfire-play-lib"
+        "projects/tc-spotfire-play-lib/src/public_api"
       ],
       "tc-spotfire-play-lib/*": [
         "dist/tc-spotfire-play-lib/*"
       ],
       "tc-check-workflow-monitor-lib": [
-        "dist/tc-check-workflow-monitor-lib"
+        "projects/tc-check-workflow-monitor-lib/src/public_api"
       ],
       "tc-check-workflow-monitor-lib/*": [
         "dist/tc-check-workflow-monitor-lib/*"
       ],
       "tc-spotfire-lib": [
-        "dist/tc-spotfire-lib"
+        "projects/tc-spotfire-lib/src/public_api"
       ],
       "tc-spotfire-lib/*": [
         "dist/tc-spotfire-lib/*"
