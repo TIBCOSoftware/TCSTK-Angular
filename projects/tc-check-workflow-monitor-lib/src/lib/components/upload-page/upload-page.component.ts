@@ -25,6 +25,7 @@ export class UploadPageComponent implements OnInit {
   public curServiceDetails: ServiceDetails;
 
   public serviceDetailsList = new Array();
+  public debugServiceDetailsList = new Array();
 
   public title = 'Upload Page';
 
@@ -51,12 +52,13 @@ export class UploadPageComponent implements OnInit {
 
   public handleToolbarButtonEvent = (buttonId: string) => {
     if (buttonId === 'config') {
-      // this.routeAction.emit(new RouteAction('configClicked', null));
+      this.router.navigate(['/starterApp/settings/general-application-settings']);
+
     }
 
     if (buttonId === 'home') {
       this.router.navigate(['/starterApp/home']);
-      // this.routeAction.emit(new RouteAction('uploadClicked', null));
+
     }
 
     if (buttonId === 'refresh') {
@@ -92,15 +94,20 @@ export class UploadPageComponent implements OnInit {
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
     this.serviceDetailsList.push(serviceDetails);
 
+
+
+
+
+
     serviceDetails = new ServiceDetails().deserialize({label: 'Initialisation', fileLabel: '????????', rootObjectName : 'cases',
       operation : '/CreateCasesFromBordereaux',
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-    this.serviceDetailsList.push(serviceDetails);
+    this.debugServiceDetailsList.push(serviceDetails);
 
-    serviceDetails = new ServiceDetails().deserialize({label: 'Delete All', rootObjectName : null,
+    serviceDetails = new ServiceDetails().deserialize({label: 'Cloture Tous', rootObjectName : null,
       operation : '/closeAllCase',
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-    this.serviceDetailsList.push(serviceDetails);
+    this.debugServiceDetailsList.push(serviceDetails);
 
 
   }
