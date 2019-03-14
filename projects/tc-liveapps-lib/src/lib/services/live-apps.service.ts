@@ -151,7 +151,6 @@ export class LiveAppsService {
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfo => new CaseInfo().deserialize(caseinfo))
       );
-
   }
 
   public getCase(caseRef: string, sandboxId: number, appId: string, typeId: string ): Observable<CaseInfo> {
@@ -172,11 +171,14 @@ export class LiveAppsService {
       );
   }
 
-  private caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
-      const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+  public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
+      let url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
         + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top
-        + '&$select=cr'
-        + '&$search=' + term;
+        + '&$select=cr';
+      if (term) {
+        url = url + '&$search=' + term;
+      }
+
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
