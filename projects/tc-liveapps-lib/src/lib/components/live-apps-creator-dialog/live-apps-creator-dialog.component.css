@@ -1,8 +1,21 @@
+.tcs-dialog-outer-div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tcs-spacer {
+  flex-grow: 1;
+}
+
 .tcs-case-creation-dialog-toolbar {
   padding-left: 20px;
   padding-right: 20px;
   background-color: #ffffff;
   border-bottom: 1px solid #dcdcdc;
+}
+
+.tcs-case-creation-dialog-toolbar-text {
   font-family: Source Sans Pro;
   font-size: 18px;
   font-weight: 600;
@@ -27,10 +40,6 @@
   color:#727272;
 }
 
-.tcs-case-created-confirmation-details {
-  padding: 20px
-}
-
 .tcs-case-created-confirmation-text {
   font-family: Source Sans Pro;
   font-size: 16px;
@@ -44,4 +53,31 @@
 
 .tcs-case-creation-dialog-actions {
   padding: 20px;
+}
+
+:host ::ng-deep .tcs-dialog-actions.mat-dialog-actions {
+  margin-bottom: 0px;
+  padding: 20px;
+}
+
+.tcs-case-creation-dialog.mat-dialog-content {
+  padding: 0px;
+  margin: 0px;
+}
+
+.tcs-case-created-confirmation-details {
+  margin-top: 20px;
+}
+
+.tcs-case-creation-dialog-icons {
+  height: 16px;
+  width: 16px;
+}
+
+.tcs-case-creation-dialog-icons:hover {
+  cursor: pointer;
+}
+
+:host ::ng-deep .tcs-case-creation-dialog-icons:hover .svg-content {
+  fill: #0081cb;
 }
