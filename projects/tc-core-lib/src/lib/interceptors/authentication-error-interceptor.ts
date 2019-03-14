@@ -14,7 +14,8 @@ import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/rout
 
 @Injectable()
 export class AuthErrorInterceptor implements HttpInterceptor {
-
+  private TIBCO_CLOUD_DOMAIN = 'cloud.tibco.com';
+  private TIBCO_TEST_DOMAIN = 'tenant-integration.tcie.pro';
   constructor(private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -32,7 +33,14 @@ export class AuthErrorInterceptor implements HttpInterceptor {
               // timed out
               // should only be used if not on tibco cloud (and hence using our login route)
               // TODO: Externalize redirect URL
-              this.router.navigate(['/login'], {queryParams: {} });
+              // check if we are hosted on tibco.cloud.com
+              const host = window.location.hostname.split('.');
+              const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
+              if (hostDomain === this.TIBCO_CLOUD_DOMAIN || hostDomain === this.TIBCO_TEST_DOMAIN) {
+                // on tibco cloud - let tibco cloud handle it
+              } else {
+                this.router.navigate(['/login'], {queryParams: {}});
+              }
             } else {
               throw err;
             }
