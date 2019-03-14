@@ -18,6 +18,7 @@ import {CaseComponent} from './routes/case/case.component';
 import {TcHandsontableLibModule} from 'tc-handsontable-lib';
 import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
 import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
+import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
     TcCoreLibModule,
     TcFormsLibModule,
     TcHandsontableLibModule,
+    TcSpotfireLibModule,
     TcProcessDiscoveryLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,

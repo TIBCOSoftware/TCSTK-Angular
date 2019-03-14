@@ -13,7 +13,7 @@ export class TcSpotfireConfigService {
     DEFAULT_PREFIX = '.spotfire.config.tibcolabs.client.context.PUBLIC';
 
     constructor(
-        private location: Location, 
+        private location: Location,
         private sharedStateService: TcSharedStateService
     ) {}
 
