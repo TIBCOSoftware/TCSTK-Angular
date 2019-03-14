@@ -1,14 +1,28 @@
+<div fxLayout="column">
+  <div>
+    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+      <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+        <span class="tc-home-welcome-text">Overview - {{title}}</span>
+      </div>
+    </tc-tibco-cloud-menu-bar>
+  </div>
+  <br>
+  <br>
+  <div>
+    <tccwm-select-service-display [curServiceDetails]="curServiceDetails" [serviceDetailsList]="serviceDetailsList"
+                                  (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
+    <br>
+    <br>
+    <button (click)="purgeAllCases()">Purge All Cases</button>
 
+    <br>
 
-<tccwm-select-service-display [curServiceDetails]="curServiceDetails" [serviceDetailsList]="serviceDetailsList" (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
-<br>
-<br>
-<button (click)="purgeAllCases()">Purge All Cases</button>
+    <br>
+    <br>
+    <br><br>
+  </div>
+  <div>
+    <tccwm-file-to-service [serviceDetails]="curServiceDetails"></tccwm-file-to-service>
+  </div>
 
-<br>
-
-<br>
-<br>
-<br><br>
-
-<tccwm-file-to-service [serviceDetails]="curServiceDetails"></tccwm-file-to-service>
+</div>
