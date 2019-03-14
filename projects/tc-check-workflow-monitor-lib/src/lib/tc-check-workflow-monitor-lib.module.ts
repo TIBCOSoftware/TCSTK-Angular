@@ -21,10 +21,11 @@ import { UploadPageComponent } from './components/upload-page/upload-page.compon
 import { SelectServiceDisplayComponent } from './components/select-service-display/select-service-display.component';
 import { PreviewDataDialogComponent } from './components/preview-data-dialog/preview-data-dialog.component';
 import {TcCoreLibModule} from 'tc-core-lib';
+import { HomeCockpitComponent } from './components/home-cockpit/home-cockpit.component';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -55,6 +56,6 @@ import {TcCoreLibModule} from 'tc-core-lib';
     TcCoreLibModule
   ],
   entryComponents : [PreviewDataDialogComponent],
-  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent]
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent]
 })
 export class TcCheckWorkflowMonitorLibModule {}

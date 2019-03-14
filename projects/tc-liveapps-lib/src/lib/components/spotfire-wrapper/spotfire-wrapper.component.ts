@@ -45,7 +45,7 @@ export class SpotfireWrapperComponent implements AfterViewInit, OnChanges {
   pages = [];
 
   // Optional configuration block
-  private parameters = '';
+  @Input() parameters: string; 
   private reloadAnalysisInstance = false;
   private document: Document;
   private app: Application;
