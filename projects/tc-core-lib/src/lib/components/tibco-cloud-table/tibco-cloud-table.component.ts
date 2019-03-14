@@ -11,15 +11,14 @@ export class TibcoCloudTableComponent implements OnInit {
   @Input() jsonSource: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: TibcoCloudTableDataSource;
 
+  dataSource: TibcoCloudTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [];
   columns = [];
 
   ngOnInit() {
-
     console.log('JSONSource: ', this.jsonSource);
     const parsedJsonSource = JSON.parse(this.jsonSource);
     console.log('Parsed JSON Source: ', parsedJsonSource);

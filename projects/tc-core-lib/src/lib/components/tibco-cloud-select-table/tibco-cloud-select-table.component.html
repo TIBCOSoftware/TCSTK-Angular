@@ -1,11 +1,16 @@
+
 <div class="mat-elevation-z8 data-table">
   <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
     <ng-container *ngFor="let column of columns" [matColumnDef]='column.columnDef'>
       <mat-header-cell *matHeaderCellDef mat-sort-header><!--<button>SELECT</button>-->{{ column.header }}</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ column.cell(row) }}</mat-cell>
+      <mat-cell *matCellDef="let row" >{{ column.cell(row) }}</mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <!--
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="clicked(row)"></mat-row> -->
+    <mat-row *matRowDef="let row; columns: displayedColumns;"
+             [ngClass]="{hovered: row.hovered, highlighted: row.highlighted}"
+             (click)="row.highlighted = !row.highlighted; clicked(row);" (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"></mat-row>
   </table>
   <mat-paginator #paginator
                  [length]="dataSource.data.length"
@@ -14,3 +19,7 @@
                  [pageSizeOptions]="[5, 10, 20, 25]">
   </mat-paginator>
 </div>
+
+<p>
+  <b>SELECTED:</b>{{selected}}
+</p>
