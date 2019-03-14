@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ServiceDetails} from '../../models/service-details';
+import {ServiceDetails, ServiceDetailsConfig} from '../../models/service-details';
 import {ServiceHandlerService} from '../../services/service-handler.service';
 import {map} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material';
@@ -79,7 +79,7 @@ export class UploadPageComponent implements OnInit {
 
     this.serviceDetailsConfig = this.route.snapshot.data.serviceDetailsConfigResolver;
 
-    alert("aaa" + JSON.stringify(this.serviceDetailsConfig));
+    // alert("aaa" + JSON.stringify(this.serviceDetailsConfig));
 
 
 
