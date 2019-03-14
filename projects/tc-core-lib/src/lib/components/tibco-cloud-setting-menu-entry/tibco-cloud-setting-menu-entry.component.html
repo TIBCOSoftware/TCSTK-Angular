@@ -1,8 +1,8 @@
-<div fxLayout="row">
+<div fxLayout="row" fxLayoutAlign="start start">
     <div>
         <mat-icon svgIcon="{{icon}}"></mat-icon>
     </div>
-    <div fxLayout="column">
+    <div fxLayout="column" fxLayoutAlign="start start">
         <div class="underlying-capability-text">{{title}}</div>
         <div class="starters-custom-layout-box-option" *ngFor="let option of options" (click)="viewButtonClick(title + ' ' + option)">
             <span class="underlying-capability-link">{{option}}</span>

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { GeneralConfig } from 'tc-core-lib';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-    selector: 'tcpd-settings-general',
-    templateUrl: './settings-general.component.html',
-    styleUrls: ['./settings-general.component.css']
+    selector: 'tc-tibco-cloud-settings-general',
+    templateUrl: './tibco-cloud-settings-general.component.html',
+    styleUrls: ['./tibco-cloud-settings-general.component.css']
 })
-export class SettingsGeneralComponent implements OnInit {
+export class TibcoCloudSettingsGeneralComponent implements OnInit {
 
     public applicationTitle: string;
     public roles;
@@ -18,7 +17,7 @@ export class SettingsGeneralComponent implements OnInit {
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit() {
-        var generalConfig = this.route.snapshot.data.generalConfigHolder;
+        const generalConfig = this.route.snapshot.data.generalConfigHolder;
 
         this.applicationTitle = generalConfig.applicationTitle;
         this.roles = generalConfig.roles;
@@ -27,7 +26,7 @@ export class SettingsGeneralComponent implements OnInit {
     }
 
     public runSaveFuntion = () => {
-        
+
     }
 
 }

@@ -8,13 +8,22 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatButtonModule,
+  MatButtonModule, MatButtonToggleModule,
   MatCardModule,
-  MatCheckboxModule, MatDialogModule,
+  MatCheckboxModule,
+  MatDialogModule, MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatPaginatorModule, MatSelectModule, MatSortModule, MatTableModule, MatTooltipModule
+  MatListModule,
+  MatMenuModule,
+  MatOptionModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule, MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -38,6 +47,8 @@ import { OnCreateDirective } from './directives/on-create.directive';
 import {TcGeneralConfigService} from './services/tc-general-config.service';
 import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-cloud-table.component';
 import { TibcoCloudSelectTableComponent } from './components/tibco-cloud-select-table/tibco-cloud-select-table.component';
+import {TibcoCloudSettingMenuEntryComponent} from './components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
+import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
 
 
 // import {DataSource} from '@angular/cdk/collections';
@@ -57,7 +68,9 @@ import { TibcoCloudSelectTableComponent } from './components/tibco-cloud-select-
     TibcoCloudErrorComponent,
     OnCreateDirective,
     TibcoCloudTableComponent,
-    TibcoCloudSelectTableComponent
+    TibcoCloudSelectTableComponent,
+    TibcoCloudSettingMenuEntryComponent,
+    TibcoCloudSettingsGeneralComponent
   ],
   imports: [
     HttpClientModule,
@@ -76,6 +89,23 @@ import { TibcoCloudSelectTableComponent } from './components/tibco-cloud-select-
     MatMenuModule,
     MatCardModule,
     MatTooltipModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatButtonToggleModule,
     FormsModule,
     FlexLayoutModule,
     ScrollingModule,
@@ -99,8 +129,9 @@ import { TibcoCloudSelectTableComponent } from './components/tibco-cloud-select-
     TibcoCloudErrorComponent,
     OnCreateDirective,
     TibcoCloudTableComponent,
-    TibcoCloudSelectTableComponent
-
+    TibcoCloudSelectTableComponent,
+    TibcoCloudSettingMenuEntryComponent,
+    TibcoCloudSettingsGeneralComponent
   ],
   providers: [
     RequestCacheService,

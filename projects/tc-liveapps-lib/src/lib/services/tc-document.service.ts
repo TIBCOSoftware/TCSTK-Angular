@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ApiResponseError, ApiResponseText} from '../models/liveappsdata';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Document, DocumentList, OrgFolder} from '../models/tc-document';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, flatMap, map, tap} from 'rxjs/operators';
 import {TcCoreCommonFunctions} from 'tc-core-lib';
 
 @Injectable({
@@ -40,6 +40,19 @@ export class TcDocumentService {
     return this.http.get(url, options).pipe(
       map(response => {
         return new OrgFolder().deserialize(response);
+      }),
+      catchError(error => {
+        const apiError = new ApiResponseError().deserialize(error.error);
+        if (apiError.errorCode === 'WR_FOLDER_DOES_NOT_EXIST') {
+          return this.createOrgFolder(name).pipe(
+            flatMap(newOrgFolder => {
+              // trigger cache flush
+              return this.getOrgFolder(name, true, true);
+            })
+          );
+        } else {
+          throwError(error);
+        }
       })
     );
   }

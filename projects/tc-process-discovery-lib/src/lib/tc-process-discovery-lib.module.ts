@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { TcCoreLibModule } from 'tc-core-lib';
+import {TcCoreLibModule} from 'tc-core-lib';
 import { TcLiveappsLibModule } from 'tc-liveapps-lib';
 import {
     MatButtonModule,
@@ -25,12 +25,9 @@ import { PdWidgetHeaderComponent } from './components/pd-widget-header/pd-widget
 import { PdProcessMiningComponent } from './components/pd-process-mining/pd-process-mining.component';
 import { TcProcessDiscoveryLibRoutingModule } from './tc-process-discovery-routing.module';
 import { CommonModule } from '@angular/common';
-import { SettingsComponent } from './components/settings/settings.component';
-import { SettingMenuEntryComponent } from './components/setting-menu-entry/setting-menu-entry.component';
 import { SettingsLiveappsComponent } from './components/settings-liveapps/settings-liveapps.component';
 import { SettingsIntegrationComponent } from './components/settings-integration/settings-integration.component';
 import { SettingsSpotfireComponent } from './components/settings-spotfire/settings-spotfire.component';
-import { SettingsGeneralComponent } from './components/settings-general/settings-general.component';
 import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
 import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
 import { PdAdministrationCaseSummaryComponent } from './components/pd-administration-case-summary/pd-administration-case-summary.component';
@@ -44,12 +41,9 @@ import {TcSpotfireLibModule} from 'tc-spotfire-lib';
         PdCreatorSelectorComponent,
         PdWidgetHeaderComponent,
         PdProcessMiningComponent,
-        SettingsComponent,
-        SettingMenuEntryComponent,
         SettingsLiveappsComponent,
         SettingsIntegrationComponent,
         SettingsSpotfireComponent,
-        SettingsGeneralComponent,
         PdCaseViewComponent,
         PdSettingsAdministrationComponent,
         PdAdministrationCaseSummaryComponent,
@@ -85,7 +79,7 @@ import {TcSpotfireLibModule} from 'tc-spotfire-lib';
         TcLiveappsLibModule,
         TcCoreLibModule,
         TcSpotfireLibModule,
-        TcProcessDiscoveryLibRoutingModule,
+        TcProcessDiscoveryLibRoutingModule
     ],
     exports: [ PdHomeComponent ],
     entryComponents: [ PdChangeDatasourceDialog ]

@@ -7,7 +7,15 @@ import {Location} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatTabsModule} from '@angular/material';
+import {
+  MatButtonModule, MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule, MatDialogModule,
+  MatExpansionModule,
+  MatFormFieldModule, MatIconModule, MatInputModule,
+  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule,
+  MatTabsModule, MatToolbarModule, MatTooltipModule
+} from '@angular/material';
 import {LogService, TcCoreLibModule} from 'tc-core-lib';
 import {LoginComponent} from './components/login/login.component';
 import {HomeComponent} from './routes/home/home.component';
@@ -20,6 +28,7 @@ import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
 import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
 import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from 'tc-spotfire-lib';
+import {SettingsComponent} from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +36,8 @@ import {TcSpotfireLibModule} from 'tc-spotfire-lib';
     LoginComponent,
     StarterAppComponent,
     HomeComponent,
-    CaseComponent
+    CaseComponent,
+    SettingsComponent
 
   ],
   imports: [
@@ -42,11 +52,27 @@ import {TcSpotfireLibModule} from 'tc-spotfire-lib';
     BrowserModule,
     FormsModule,
     MatTabsModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatButtonToggleModule,
     ReactiveFormsModule,
     TcSpotfirePlayLibModule,
     TcProcessDiscoveryLibModule,
     TcCheckWorkflowMonitorLibModule
-
   ],
   providers: [LogService],
   bootstrap: [AppComponent]

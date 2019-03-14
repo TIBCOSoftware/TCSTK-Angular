@@ -13,6 +13,8 @@ export * from './lib/components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.compon
 export * from './lib/components/tibco-cloud-error/tibco-cloud-error.component';
 export * from './lib/components/tibco-cloud-table/tibco-cloud-table.component';
 export * from './lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component';
+export * from './lib/components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
+export * from './lib/components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
 
 
 // services

@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'tcpd-setting-menu-entry',
-    templateUrl: './setting-menu-entry.component.html',
-    styleUrls: ['./setting-menu-entry.component.css']
+    selector: 'tc-tibco-cloud-setting-menu-entry',
+    templateUrl: './tibco-cloud-setting-menu-entry.component.html',
+    styleUrls: ['./tibco-cloud-setting-menu-entry.component.css']
 })
-export class SettingMenuEntryComponent implements OnInit {
+export class TibcoCloudSettingMenuEntryComponent implements OnInit {
 
     @Input() icon: string;
     @Input() title: string;
