@@ -54,7 +54,7 @@ export class FileToServiceComponent implements OnInit, OnChanges {
 
     dialogConfig.data = {
       id: 1,
-      description: 'You are using service details for : ' + this.serviceDetails.label,
+      description: 'Integration d\'un fichier : ' + this.serviceDetails.fileLabel,
       jsonData: jsonDataFromFile
     };
 
