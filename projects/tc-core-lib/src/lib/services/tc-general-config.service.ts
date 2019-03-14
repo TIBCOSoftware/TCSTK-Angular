@@ -62,6 +62,8 @@ export class TcGeneralConfigService {
     return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
       .pipe(
         map(value => {
+          // flush the cache
+          this.getGeneralConfig(uiAppId, true, true).subscribe();
           return new GeneralConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
         })
       );
