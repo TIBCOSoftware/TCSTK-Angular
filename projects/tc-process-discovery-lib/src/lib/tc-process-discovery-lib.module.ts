@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { PdHomeComponent,PdChangeDatasourceDialog } from './components/pd-home/pd-home.component';
+import { PdHomeComponent, PdChangeDatasourceDialog } from './components/pd-home/pd-home.component';
 import { PdCaseCreatorsComponent } from './components/pd-case-creators/pd-case-creators.component';
 import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-creator-selector.component';
 import { PdWidgetHeaderComponent } from './components/pd-widget-header/pd-widget-header.component';
@@ -34,6 +34,7 @@ import { SettingsGeneralComponent } from './components/settings-general/settings
 import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
 import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
 import { PdAdministrationCaseSummaryComponent } from './components/pd-administration-case-summary/pd-administration-case-summary.component';
+import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { PdAdministrationCaseSummaryComponent } from './components/pd-administra
         ReactiveFormsModule,
         TcLiveappsLibModule,
         TcCoreLibModule,
-        TcProcessDiscoveryLibRoutingModule
+        TcSpotfireLibModule,
+        TcProcessDiscoveryLibRoutingModule,
     ],
     exports: [ PdHomeComponent ],
     entryComponents: [ PdChangeDatasourceDialog ]
