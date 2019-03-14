@@ -13,7 +13,7 @@
                                   (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
     <br>
     <br>
-    <button (click)="purgeAllCases()">Purge All Cases</button>
+
 
     <br>
 
@@ -23,6 +23,17 @@
   </div>
   <div>
     <tccwm-file-to-service [serviceDetails]="curServiceDetails"></tccwm-file-to-service>
+  </div>
+  <div>
+
+    <br>
+    <br>
+    <br><br>
+    <tccwm-select-service-display [curServiceDetails]="curServiceDetails" [serviceDetailsList]="debugServiceDetailsList"
+                                  (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center" >
+    <button mat-raised-button color="primary" (click)="purgeAllCases()">Purge tous les dossiers en phase cloturée</button>
   </div>
 
 </div>
