@@ -41,3 +41,11 @@
   padding-right: 20px;
   height: 35px;
 }
+
+:host ::ng-deep .tcs-search-icon:hover .svg-content  {
+  fill: #0081cb;
+}
+
+.tcs-search-icon:hover {
+  cursor: pointer;
+}

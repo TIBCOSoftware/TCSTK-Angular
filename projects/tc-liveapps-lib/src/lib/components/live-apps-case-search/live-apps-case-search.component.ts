@@ -42,6 +42,14 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
     this.doSearch();
   }
 
+  private forceSearch = () => {
+    this.liveapps.caseSearchEntries(this.searchBox.nativeElement.value, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, 0, 1000).subscribe(
+      results => {
+        this.foundRefs.emit(results);
+      }
+    );
+  }
+
   private doSearch = () => {
     this.searchBox.nativeElement.value = '';
     const blankres = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
