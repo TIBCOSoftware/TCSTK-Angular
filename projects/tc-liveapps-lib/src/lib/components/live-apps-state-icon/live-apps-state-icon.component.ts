@@ -38,7 +38,7 @@ export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnI
       url = '/' + icon;
     } else {
       // use generic icon
-      this.location.prepareExternalUrl('/assets/icons/ic-generic-state.svg');
+      this.location.prepareExternalUrl('assets/icons/ic-generic-state.svg');
     }
     this.liveapps.getIconSVGText(url)
       .pipe(
