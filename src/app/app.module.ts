@@ -28,7 +28,7 @@ import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
 import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
 import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from 'tc-spotfire-lib';
-import {SettingsComponent} from './components/settings/settings.component';
+import {SettingsComponent} from './routes/settings/settings.component';
 
 @NgModule({
   declarations: [
