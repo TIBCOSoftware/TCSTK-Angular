@@ -7,6 +7,7 @@ import {LiveAppsSearchWidgetComponent} from '../live-apps-search-widget/live-app
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsCreatorDialogComponent} from '../live-apps-creator-dialog/live-apps-creator-dialog.component';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
+import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -26,6 +27,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;
   @ViewChild(LiveAppsRecentCasesComponent) recentsComponent: LiveAppsRecentCasesComponent;
   @ViewChild(LiveAppsSearchWidgetComponent) searchComponent: LiveAppsSearchWidgetComponent;
+  @ViewChild(LiveAppsNotesComponent) collaborationComponent: LiveAppsNotesComponent;
 
   public toolbarButtons: ToolbarButton[];
 
@@ -82,6 +84,9 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
     if (this.searchComponent) {
       this.searchComponent.refresh();
+    }
+    if (this.collaborationComponent) {
+      this.collaborationComponent.refresh();
     }
   }
 

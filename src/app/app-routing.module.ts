@@ -1,9 +1,14 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {Routes, RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import {AuthGuard, TcSharedStateService} from 'tc-core-lib';
-import { HomeComponent } from './routes/home/home.component';
-import { StarterAppComponent } from './routes/starter-app/starter-app.component';
+import {LoginComponent} from './components/login/login.component';
+import {
+  AuthGuard,
+  GeneralConfigResolver,
+  TcSharedStateService,
+  TibcoCloudSettingsGeneralComponent
+} from 'tc-core-lib';
+import {HomeComponent} from './routes/home/home.component';
+import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {Claim, ClaimsResolver, LiveAppsConfigHolder, LiveAppsService} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
@@ -12,7 +17,7 @@ import {CaseComponent} from './routes/case/case.component';
 import {CaseGuard} from 'tc-liveapps-lib';
 import {TibcoCloudErrorComponent} from 'tc-core-lib';
 import {LiveAppsConfigResolver} from 'tc-liveapps-lib';
-
+import {SettingsComponent} from './components/settings/settings.component';
 
 
 const routes: Routes = [
@@ -53,7 +58,19 @@ const routes: Routes = [
           laConfigHolder: LaConfigResolver,
           claims: ClaimsResolver
         }
-      }
+      },
+      {
+        path: 'settings', component: SettingsComponent, canActivate: [AuthGuard],
+        children: [
+          {
+            path: 'general-application-settings',
+            component: TibcoCloudSettingsGeneralComponent,
+            resolve: {
+              generalConfigHolder: GeneralConfigResolver
+            }
+          }
+        ]
+      },
     ]
   },
   {
@@ -69,9 +86,10 @@ const routes: Routes = [
     HomeComponent,
     ClaimsResolver,
     LiveAppsConfigResolver,
-    LaConfigResolver
-    ]
+    LaConfigResolver,
+    GeneralConfigResolver
+  ]
 })
 
 export class AppRoutingModule {
-  }
+}
