@@ -18,7 +18,10 @@ import {CaseGuard} from 'tc-liveapps-lib';
 import {TibcoCloudErrorComponent} from 'tc-core-lib';
 import {LiveAppsConfigResolver} from 'tc-liveapps-lib';
 import {SettingsComponent} from './routes/settings/settings.component';
-import {UploadPageComponent} from 'tc-check-workflow-monitor-lib';
+import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
+
+
+
 
 
 const routes: Routes = [
@@ -66,7 +69,8 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         resolve: {
           laConfigHolder: LaConfigResolver,
-          claims: ClaimsResolver
+          claims: ClaimsResolver,
+          serviceDetailsConfigResolver: ServiceDetailsConfigResolver
         }
       },
       {
@@ -85,6 +89,13 @@ const routes: Routes = [
             component: LiveAppsSettingsComponent,
             resolve: {
               generalConfigHolder: GeneralConfigResolver
+            }
+          },
+          {
+            path: 'upload-services-settings',
+            component: SettingsCwmServicesComponent,
+            resolve: {
+              serviceDetailsConfigResolver: ServiceDetailsConfigResolver
             }
           }
         ]
@@ -105,7 +116,8 @@ const routes: Routes = [
     ClaimsResolver,
     LiveAppsConfigResolver,
     LaConfigResolver,
-    GeneralConfigResolver
+    GeneralConfigResolver,
+    ServiceDetailsConfigResolver
   ]
 })
 
