@@ -9,7 +9,7 @@ import {
 } from 'tc-core-lib';
 import {HomeComponent} from './routes/home/home.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
-import {Claim, ClaimsResolver, LiveAppsConfigHolder, LiveAppsService} from 'tc-liveapps-lib';
+import {Claim, ClaimsResolver, LiveAppsConfigHolder, LiveAppsService, LiveAppsSettingsComponent} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
 import {LaConfigResolver} from 'tc-liveapps-lib';
@@ -18,6 +18,7 @@ import {CaseGuard} from 'tc-liveapps-lib';
 import {TibcoCloudErrorComponent} from 'tc-core-lib';
 import {LiveAppsConfigResolver} from 'tc-liveapps-lib';
 import {SettingsComponent} from './components/settings/settings.component';
+import {UploadPageComponent} from 'tc-check-workflow-monitor-lib';
 
 
 const routes: Routes = [
@@ -60,11 +61,28 @@ const routes: Routes = [
         }
       },
       {
+        path: 'upload',
+        component: UploadPageComponent,
+        canActivate: [AuthGuard],
+        resolve: {
+          laConfigHolder: LaConfigResolver,
+          claims: ClaimsResolver
+        }
+      },
+      {
         path: 'settings', component: SettingsComponent, canActivate: [AuthGuard],
         children: [
           {
             path: 'general-application-settings',
             component: TibcoCloudSettingsGeneralComponent,
+            resolve: {
+              liveAppsConfig: LaConfigResolver,
+              generalConfigHolder: GeneralConfigResolver
+            }
+          },
+          {
+            path: 'live-apps-settings',
+            component: LiveAppsSettingsComponent,
             resolve: {
               generalConfigHolder: GeneralConfigResolver
             }
