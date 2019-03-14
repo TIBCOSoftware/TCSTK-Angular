@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SpotfireConfig } from 'projects/tc-spotfire-lib/src/lib/models/tc-spotfire-config';
-import { TcSpotfireConfigService } from 'projects/tc-spotfire-lib/src/lib/services/tc-spotfire-config.service';
+import { SpotfireConfig } from 'tc-spotfire-lib';
+import { TcSpotfireConfigService } from 'tc-spotfire-lib';
 
 @Component({
   selector: 'tcpd-settings-spotfire',
