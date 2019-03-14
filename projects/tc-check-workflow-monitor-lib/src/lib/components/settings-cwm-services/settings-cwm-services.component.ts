@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SpotfireConfig } from 'tc-spotfire-lib';
-import { TcSpotfireConfigService } from 'tc-spotfire-lib';
-import {ServiceDetails} from '../../models/service-details';
+import {ServiceDetails, ServiceDetailsConfig} from '../../models/service-details';
+import {CwmSettingsConfigServiceService} from '../../services/cwm-settings-config-service.service';
+import {SpotfireConfig} from 'tc-spotfire-lib';
+
+
 
 @Component({
   selector: 'tccwm-settings-spotfire',
@@ -11,55 +13,16 @@ import {ServiceDetails} from '../../models/service-details';
 })
 export class SettingsCwmServicesComponent implements OnInit {
 
-    public createService: ServiceDetails;
-    public updateServiceFromPartner: ServiceDetails;
-    public updateServiceFromBpm: ServiceDetails;
-
-    public initiateService: ServiceDetails;
-    public setTerminalStateService: ServiceDetails;
-
-
-
+    public serviceDetailsConfig: ServiceDetailsConfig;
 
     constructor(
         private route: ActivatedRoute,
-        private spotfireConfigService: TcSpotfireConfigService
+        private cwmSettingsConfigServiceService: CwmSettingsConfigServiceService
     ) { }
 
     ngOnInit() {
-        this.refresh();
 
-
-// TODO to update from shared services
-
-
-      this.createService = new ServiceDetails().deserialize({label: 'Creation à partir de Bordereaux', fileLabel: 'Borderaux', rootObjectName : 'cases',
-        operation : '/CreateCasesFromBordereaux',
-        apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-
-      this.updateServiceFromPartner = new ServiceDetails().deserialize({label: 'Mise à jour Docapost', fileLabel: 'CR Docapost', rootObjectName : 'cases',
-        operation : '/UpdateLACasesFromDocapost',
-        apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-
-
-
-      this.updateServiceFromBpm = new ServiceDetails().deserialize({label: 'Mise à jour From BPM (X)', fileLabel: 'Export BPM', rootObjectName : 'cases',
-        operation : '/CreateCasesFromBordereaux',
-        apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-
-
-
-      this.initiateService = new ServiceDetails().deserialize({label: 'Initialisation', fileLabel: '????????', rootObjectName : 'cases',
-        operation : '/CreateCasesFromBordereaux',
-        apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-
-
-      this.setTerminalStateService = new ServiceDetails().deserialize({label: 'Cloture Tous', rootObjectName : null,
-        operation : '/closeAllCase',
-        apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-
-
-
+       this.serviceDetailsConfig = this.route.snapshot.data.serviceDetailsConfigResolver;
 
     }
 
@@ -68,6 +31,11 @@ export class SettingsCwmServicesComponent implements OnInit {
     }
 
     public runSaveFuntion = (): void => {
+
+// TOdo BECARFULL CHANGE NAM APp
+      this.cwmSettingsConfigServiceService.updateServiceSettingConfig(1930, 'NamApp', this.serviceDetailsConfig, this.serviceDetailsConfig.id).subscribe();
+
+
     }
 
 }

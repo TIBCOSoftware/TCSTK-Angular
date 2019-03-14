@@ -13,3 +13,21 @@ export class ServiceDetails implements Deserializable {
     return this;
   }
 }
+
+
+
+export class ServiceDetailsConfig implements Deserializable {
+  id: string;
+  uiAppId: string;
+  createService: ServiceDetails;
+  updateServiceFromPartner: ServiceDetails;
+  updateServiceFromBpm: ServiceDetails;
+
+  initiateService: ServiceDetails;
+  setTerminalStateService: ServiceDetails;
+
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}

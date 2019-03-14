@@ -5,7 +5,7 @@ import {map} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material';
 import {RouteAction, TcCaseDataService} from 'tc-liveapps-lib';
 import {TcButtonsHelperService, ToolbarButton} from 'tc-core-lib';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 
@@ -27,6 +27,9 @@ export class UploadPageComponent implements OnInit {
   public serviceDetailsList = new Array();
   public debugServiceDetailsList = new Array();
 
+
+  public serviceDetailsConfig: ServiceDetailsConfig;
+
   public title = 'Upload Page';
 
   public toolbarButtons: ToolbarButton[];
@@ -34,7 +37,7 @@ export class UploadPageComponent implements OnInit {
 
 
 
-  constructor(private serviceHandler: ServiceHandlerService, private snackBar: MatSnackBar, private caseDataService: TcCaseDataService, protected buttonsHelper: TcButtonsHelperService, private router: Router) {
+  constructor(private serviceHandler: ServiceHandlerService, private snackBar: MatSnackBar, private caseDataService: TcCaseDataService, protected buttonsHelper: TcButtonsHelperService, private router: Router, private route: ActivatedRoute) {
 
 
 
@@ -71,6 +74,15 @@ export class UploadPageComponent implements OnInit {
 
   ngOnInit() {
     this.toolbarButtons = this.createToolbarButtons();
+
+
+
+    this.serviceDetailsConfig = this.route.snapshot.data.serviceDetailsConfigResolver;
+
+    alert("aaa" + JSON.stringify(this.serviceDetailsConfig));
+
+
+
 
     let serviceDetails;
 
