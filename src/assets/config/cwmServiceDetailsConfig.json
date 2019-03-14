@@ -1,0 +1,43 @@
+{
+  "createService": {
+    "label": "Creation à partir de Bordereaux",
+    "fileLabel": "Borderaux",
+    "rootObjectName": "cases",
+    "operation": "/CreateCasesFromBordereaux",
+    "apiUrl": "https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3"
+  },
+  "updateServiceFromPartner": {
+    "label": "Mise à jour Docapost",
+    "fileLabel": "CR Docapost",
+    "rootObjectName": "cases",
+    "operation": "/UpdateLACasesFromDocapost",
+    "apiUrl": "https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3"
+  },
+  "updateServiceFromBpm": {
+    "label": "Mise à jour From BPM (X)",
+    "fileLabel": "Export BPM",
+    "rootObjectName": "cases",
+    "operation": "/CreateCasesFromBordereaux",
+    "apiUrl": "https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3"
+  },
+  "initiateService": {
+    "label": "Initialisation",
+    "fileLabel": "????????",
+    "rootObjectName": "cases",
+    "operation": "/CreateCasesFromBordereaux",
+    "apiUrl": "https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3"
+  },
+  "setTerminalStateService": {
+    "label": "Cloture Tous",
+    "rootObjectName": "",
+    "operation": "/closeAllCase",
+    "apiUrl": "https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3"
+  }
+}
+
+
+
+
+
+
+
