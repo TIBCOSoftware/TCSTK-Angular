@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveAppsConfig } from 'tc-liveapps-lib';
+import { LiveAppsConfig } from '../../models/tc-liveapps-config';
 import { ActivatedRoute } from '@angular/router';
 import { GeneralConfig } from 'tc-core-lib';
 
