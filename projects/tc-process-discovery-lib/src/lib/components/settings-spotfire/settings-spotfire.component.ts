@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SpotfireConfig } from 'tc-spotfire-lib';
+import { TcSpotfireConfigService } from 'tc-spotfire-lib';
 
 @Component({
   selector: 'tcpd-settings-spotfire',
@@ -16,23 +19,58 @@ export class SettingsSpotfireComponent implements OnInit {
     public maxMarkings : number;
     public allowedPages: string;
     public columnNames: string;
+    private id: string;
+    private uiAppId: string;
+    private sandboxId: number;
 
-  constructor() { }
+    constructor(
+        private route: ActivatedRoute,
+        private spotfireConfigService: TcSpotfireConfigService
+    ) { }
 
-  ngOnInit() {
-      this.spotfireServer = "https://spotfire-next.cloud.tibco.com/spotfire/wp";
-      this.analysisPath = "/Teams/TIB_SUB_01BB7F22MGX01K6MQK0TD02DYV/Risk Investigation Analytics Template V3";
+    ngOnInit() {
+        this.refresh();
+    }
 
-      this.tableName = "newtransactionsscoredwstate";
+    private refresh = (): void => {
+        var spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
+        this.sandboxId = this.route.snapshot.data.claimsHolder.primaryProductionSandbox.id;
 
-      this.activePageForHome = "Transaction Map";
-      this.activePageForDetails = "Create Cases";
-    
-      this.markingName = "Case Marking";
-      this.maxMarkings = 20;
+        this.spotfireServer = spotfireConfig.spotfireServer;
+        this.analysisPath = spotfireConfig.analysisPath;
 
-      this.allowedPages = "View Score Distribution,Set Thresholds,Transaction Map,Create Cases,Track Cases";
-      this.columnNames = "id,oddity,fraud_probability";
-  }
+        this.tableName = spotfireConfig.tableName;
+
+        this.activePageForHome = spotfireConfig.activePageForHome;
+        this.activePageForDetails = spotfireConfig.activePageForDetails;
+
+        this.markingName = spotfireConfig.markingName;
+        this.maxMarkings = spotfireConfig.maxMarkings;
+
+        this.allowedPages = spotfireConfig.allowedPages.join(','); 
+        this.columnNames = spotfireConfig.columnNames.join(',');
+
+        this.id = spotfireConfig.id;
+        this.uiAppId = spotfireConfig.uiAppId;
+    }
+
+    public runSaveFuntion = ():void => {
+       
+        var spotfireConfig = new SpotfireConfig().deserialize({
+            spotfireServer: this.spotfireServer,
+            analysisPath: this.analysisPath,
+            tableName: this.tableName,
+            activePageForHome: this.activePageForHome,
+            activePageForDetails: this.activePageForDetails,
+            markingName: this.markingName,
+            naxMarkings: this.maxMarkings,
+            allowedPages: this.allowedPages.split(','),
+            columnNames: this.columnNames.split(',')
+        });
+
+        this.spotfireConfigService.updateSpotfireConfig(this.sandboxId, "caseApp5", spotfireConfig, this.id).subscribe();
+
+
+    }
 
 }

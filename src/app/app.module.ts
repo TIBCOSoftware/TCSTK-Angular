@@ -19,6 +19,7 @@ import {TcHandsontableLibModule} from 'tc-handsontable-lib';
 import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
 import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
 import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
+import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
     TcCoreLibModule,
     TcFormsLibModule,
     TcHandsontableLibModule,
+    TcSpotfireLibModule,
     TcProcessDiscoveryLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,

@@ -1,0 +1,11 @@
+{
+    "spotfireServer": "https://spotfire-next.cloud.tibco.com/spotfire/wp",
+    "analysisPath": "/Teams/TIB_SUB_01BB7F22MGX01K6MQK0TD02DYV/Risk Investigation Analytics Template V3",
+    "tableName": "cases",
+    "activePageForHome": "Overview",
+    "activePageForDetails": "Overview",
+    "markingName": "Cases",
+    "maxMarkings": 20,
+    "allowedPages":  ["Overview", "Process Map", "Variants", "Compliance", "Filters"],
+    "columnNames": ["case_id"]
+}
