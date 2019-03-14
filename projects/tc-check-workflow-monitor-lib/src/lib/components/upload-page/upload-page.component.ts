@@ -3,6 +3,9 @@ import {ServiceDetails} from '../../models/service-details';
 import {ServiceHandlerService} from '../../services/service-handler.service';
 import {map} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material';
+import {RouteAction, TcCaseDataService} from 'tc-liveapps-lib';
+import {TcButtonsHelperService, ToolbarButton} from 'tc-core-lib';
+import {Router} from '@angular/router';
 
 
 
@@ -23,14 +26,50 @@ export class UploadPageComponent implements OnInit {
 
   public serviceDetailsList = new Array();
 
+  public title = 'Upload Page';
 
-  constructor(private serviceHandler: ServiceHandlerService, private snackBar: MatSnackBar) {
+  public toolbarButtons: ToolbarButton[];
+
+
+
+
+  constructor(private serviceHandler: ServiceHandlerService, private snackBar: MatSnackBar, private caseDataService: TcCaseDataService, protected buttonsHelper: TcButtonsHelperService, private router: Router) {
 
 
 
   }
 
+
+  protected createToolbarButtons = (): ToolbarButton[] => {
+    const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
+    const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
+    const homeButton = this.buttonsHelper.createButton('home', 'tcs-home', true, 'home Page', true, true);
+    const buttons = [ homeButton, configButton, refreshButton ];
+    return buttons;
+  }
+
+
+  public handleToolbarButtonEvent = (buttonId: string) => {
+    if (buttonId === 'config') {
+      // this.routeAction.emit(new RouteAction('configClicked', null));
+    }
+
+    if (buttonId === 'home') {
+      this.router.navigate(['/starterApp/home']);
+      // this.routeAction.emit(new RouteAction('uploadClicked', null));
+    }
+
+    if (buttonId === 'refresh') {
+      // this.refresh();
+    }
+  }
+
+
+
+
   ngOnInit() {
+    this.toolbarButtons = this.createToolbarButtons();
+
     let serviceDetails;
 
     serviceDetails = new ServiceDetails().deserialize({label: 'Create from Bordereaux', rootObjectName : 'cases',
@@ -89,16 +128,13 @@ export class UploadPageComponent implements OnInit {
   }
 
   purgeAllCases () {
-    const apiUrl = 'https://localhost:4200/case/cases/?';
-    const params = '$sandbox=1930&$filter=applicationId%20eq%202550%20and%20typeId%20eq%201%20and%20purgeable%20eq%20TRUE%20and%20modificationTimestamp%20le%202019-03-30T22:59:59.999Z';
-    const serviceObservable = this.serviceHandler.purgeAllCaseService(apiUrl, params);
-    serviceObservable.subscribe( result => {
-        this.openSnackBar(result);
+    const sandboxId = 1930;
+    const applicationId = '2550';
+    const type = '1';
 
-      },
-      error => {
-        this.openSnackBar(error);
-      });
+    this.caseDataService.purgeAllCases(applicationId, type, sandboxId).subscribe( result => {
+      this.openSnackBar(result);
+    });
 
 
 

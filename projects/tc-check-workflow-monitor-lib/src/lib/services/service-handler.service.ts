@@ -30,14 +30,6 @@ export class ServiceHandlerService {
 
 
 
-  purgeAllCaseService(apiUrl, params): Observable<any> {
-    return this.http.delete<any>(apiUrl +  params)
-      .pipe(
-        retry(0),
-        catchError(this.handleError)
-      );
-  }
-
 
   handleError(error) {
     let errorMessage = '';

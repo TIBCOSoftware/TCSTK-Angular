@@ -194,6 +194,11 @@ export class AppComponent {
         'tcs-capabilities',
         this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-capabilities.svg'))
       );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-home',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-home.svg'))
+    );
+
   
 }
 }
