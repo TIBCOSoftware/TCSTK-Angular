@@ -25,7 +25,7 @@ import { PdWidgetHeaderComponent } from './components/pd-widget-header/pd-widget
 import { PdProcessMiningComponent } from './components/pd-process-mining/pd-process-mining.component';
 import { TcProcessDiscoveryLibRoutingModule } from './tc-process-discovery-routing.module';
 import { CommonModule } from '@angular/common';
-import { SettingsLiveappsComponent } from './components/settings-liveapps/settings-liveapps.component';
+
 import { SettingsIntegrationComponent } from './components/settings-integration/settings-integration.component';
 import { SettingsSpotfireComponent } from './components/settings-spotfire/settings-spotfire.component';
 import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
@@ -41,7 +41,6 @@ import {TcSpotfireLibModule} from 'tc-spotfire-lib';
         PdCreatorSelectorComponent,
         PdWidgetHeaderComponent,
         PdProcessMiningComponent,
-        SettingsLiveappsComponent,
         SettingsIntegrationComponent,
         SettingsSpotfireComponent,
         PdCaseViewComponent,
