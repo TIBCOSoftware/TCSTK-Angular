@@ -1,7 +1,15 @@
-<div class="tcs-case-creation-dialog">
-  <mat-toolbar class="tcs-case-creation-dialog-toolbar">Create New {{application.applicationName}}</mat-toolbar>
-  <div class="tcs-case-creation-dialog-details">
-    <span class="tcs-case-creation-dialog-instruction">Select a case creator</span>
-      <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="application.applicationId" [typeId]="application.id" [dataOverride]="initialData"></tcla-live-apps-creators>
+  <div class="tcs-case-creation-dialog" fxLayout="column">
+    <mat-toolbar class="tcs-case-creation-dialog-toolbar">Create New {{application.applicationName}}</mat-toolbar>
+    <div *ngIf="!createdCase" class="tcs-case-creation-dialog-details">
+      <span class="tcs-case-creation-dialog-instruction">Select a case creator</span>
+      <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="application.applicationId" [typeId]="application.id" [dataOverride]="initialData" (caseCreated)="handleCaseCreated($event)"></tcla-live-apps-creators>
+    </div>
+    <div *ngIf="createdCase" class="tcs-case-created-confirmation-details" fxFlex fxLayout="column">
+      <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+        <span class="tcs-case-created-confirmation-text">New {{application.applicationName}} case successfully submitted</span>
+      </div>
+    </div>
   </div>
-</div>
+<mat-dialog-actions *ngIf="createdCase">
+  <button mat-button (click)="openCase()">Open Case</button>
+</mat-dialog-actions>
