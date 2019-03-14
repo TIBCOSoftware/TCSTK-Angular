@@ -32,6 +32,7 @@ import {TcCoreLibModule} from 'tc-core-lib';
 import {DataTableExampleComponent} from './components/data-table-example/data-table-example.component';
 
 
+
 @NgModule({
   declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent, DataTableExampleComponent],
   imports: [

@@ -37,6 +37,7 @@ import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-clo
 import { OnCreateDirective } from './directives/on-create.directive';
 import {TcGeneralConfigService} from './services/tc-general-config.service';
 import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-cloud-table.component';
+import { TibcoCloudSelectTableComponent } from './components/tibco-cloud-select-table/tibco-cloud-select-table.component';
 
 
 // import {DataSource} from '@angular/cdk/collections';
@@ -55,7 +56,8 @@ import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-clo
     TibcoCloudMenuBarComponent,
     TibcoCloudErrorComponent,
     OnCreateDirective,
-    TibcoCloudTableComponent
+    TibcoCloudTableComponent,
+    TibcoCloudSelectTableComponent
   ],
   imports: [
     HttpClientModule,
@@ -96,7 +98,8 @@ import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-clo
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudErrorComponent,
     OnCreateDirective,
-    TibcoCloudTableComponent
+    TibcoCloudTableComponent,
+    TibcoCloudSelectTableComponent
 
   ],
   providers: [

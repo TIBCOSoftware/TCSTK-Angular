@@ -14,6 +14,7 @@ export class TibcoCloudTableDataSource extends DataSource<any> {
   constructor(private paginator: MatPaginator, private sort: MatSort, private d) {
     super();
     this.data = d;
+
   }
 
   /**
