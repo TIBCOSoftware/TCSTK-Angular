@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {
   MatButtonModule, MatButtonToggleModule,
@@ -9,7 +9,7 @@ import {
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatSnackBarModule, MatTabsModule, MatTooltipModule
 } from '@angular/material';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,9 +20,11 @@ import { FileToServiceComponent } from './components/file-to-service/file-to-ser
 import { UploadPageComponent } from './components/upload-page/upload-page.component';
 import { SelectServiceDisplayComponent } from './components/select-service-display/select-service-display.component';
 import { PreviewDataDialogComponent } from './components/preview-data-dialog/preview-data-dialog.component';
-import {TcCoreLibModule} from 'tc-core-lib';
+import {CachingInterceptor, TcCoreLibModule} from 'tc-core-lib';
 import { HomeCockpitComponent } from './components/home-cockpit/home-cockpit.component';
 import {SettingsCwmServicesComponent} from './components/settings-cwm-services/settings-cwm-services.component';
+
+import {CwmSettingsConfigServiceService} from './services/cwm-settings-config-service.service';
 
 
 @NgModule({
@@ -57,6 +59,21 @@ import {SettingsCwmServicesComponent} from './components/settings-cwm-services/s
     TcCoreLibModule
   ],
   entryComponents : [PreviewDataDialogComponent],
-  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent]
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
+  ]
 })
-export class TcCheckWorkflowMonitorLibModule {}
+export class TcCheckWorkflowMonitorLibModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: TcCheckWorkflowMonitorLibModule,
+      providers: [ CwmSettingsConfigServiceService ]
+    };
+  }
+}
+
+
+
+

@@ -14,5 +14,6 @@ export * from './lib/components/select-service-display/select-service-display.co
 export * from './lib/components/home-cockpit/home-cockpit.component';
 export * from './lib/components/settings-cwm-services/settings-cwm-services.component';
 
-
+// export * from './lib/services/cwm-settings-config-service.service';
+export * from './lib/resolvers/service-details-config.resolver';
 
