@@ -1,48 +1,164 @@
 <div fxLayout="column" layout-align="start stretch" flex>
 
-    <p>You can update the values used by the Upload Page .</p>
-    <br>
+  <p>You can update the values used by the Upload Page .</p>
+  <br>
 
-    <div fxLayout="column">
+  <div fxLayout="column">
 
-      <!--
-        <mat-form-field>
-            <input matInput placeholder="Spotfire Server" [(ngModel)]="spotfireServer">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Analysis Path" [(ngModel)]="analysisPath">
-        </mat-form-field>
-        <div fxLayout="row" fxLayoutAlign="space-between stretch">
-            <mat-form-field>
-                <input matInput placeholder="Table Name" [(ngModel)]="tableName">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Active Page for Home" [(ngModel)]="activePageForHome">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Active Page for Details" [(ngModel)]="activePageForDetails">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Marking Name" [(ngModel)]="markingName">
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Max Markings" [(ngModel)]="maxMarkings">
-            </mat-form-field>
-        </div>
-        <mat-form-field>
-            <input matInput placeholder="Allowed Pages" [(ngModel)]="allowedPages">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Column Names" [(ngModel)]="columnNames">
-        </mat-form-field>
+    <div fxLayout="column" fxLayoutAlign="space-around stretch">
 
-        -->
-    
-        <div fxLayout="row" fxLayoutAlign="space-between center">
-            <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
-        </div>        
+      <div>
+
+        <h3>Create Service</h3>
+        <mat-divider></mat-divider>
+        <br>
+      </div>
+
+      <mat-form-field>
+        <input matInput placeholder="Label" [(ngModel)]="createService.label">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="File Label" [(ngModel)]="createService.fileLabel">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Root Object Name" [(ngModel)]="createService.rootObjectName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Api URL" [(ngModel)]="createService.apiUrl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Operation" [(ngModel)]="createService.operation">
+      </mat-form-field>
+
+
+
+
+      <div>
+
+        <h3>Update service from partner</h3>
+        <mat-divider></mat-divider>
+        <br>
+      </div>
+
+      <mat-form-field>
+        <input matInput placeholder="Label" [(ngModel)]="updateServiceFromPartner.label">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="File Label" [(ngModel)]="updateServiceFromPartner.fileLabel">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Root Object Name" [(ngModel)]="updateServiceFromPartner.rootObjectName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Api URL" [(ngModel)]="updateServiceFromPartner.apiUrl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Operation" [(ngModel)]="updateServiceFromPartner.operation">
+      </mat-form-field>
+
+
+
+      <div>
+
+        <h3>Update Service from BPM</h3>
+        <mat-divider></mat-divider>
+        <br>
+      </div>
+
+      <mat-form-field>
+        <input matInput placeholder="Label" [(ngModel)]="updateServiceFromBpm.label">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="File Label" [(ngModel)]="updateServiceFromBpm.fileLabel">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Root Object Name" [(ngModel)]="updateServiceFromBpm.rootObjectName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Api URL" [(ngModel)]="updateServiceFromBpm.apiUrl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Operation" [(ngModel)]="updateServiceFromBpm.operation">
+      </mat-form-field>
+
+
+
+      <div>
+
+        <h3>Initiate Service</h3>
+        <mat-divider></mat-divider>
+        <br>
+      </div>
+
+      <mat-form-field>
+        <input matInput placeholder="Label" [(ngModel)]="initiateService.label">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="File Label" [(ngModel)]="initiateService.fileLabel">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Root Object Name" [(ngModel)]="initiateService.rootObjectName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Api URL" [(ngModel)]="initiateService.apiUrl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Operation" [(ngModel)]="initiateService.operation">
+      </mat-form-field>
+
+
+
+      <div>
+
+        <h3>Set Terminal state to all cases</h3>
+        <mat-divider></mat-divider>
+        <br>
+      </div>
+
+      <mat-form-field>
+        <input matInput placeholder="Label" [(ngModel)]="setTerminalStateService.label">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="File Label" [(ngModel)]="setTerminalStateService.fileLabel">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Root Object Name" [(ngModel)]="setTerminalStateService.rootObjectName">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Api URL" [(ngModel)]="setTerminalStateService.apiUrl">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Operation" [(ngModel)]="setTerminalStateService.operation">
+      </mat-form-field>
+
+
     </div>
 
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
+    </div>
+  </div>
 
 
 </div>
