@@ -72,7 +72,7 @@ export class UploadPageComponent implements OnInit {
 
     let serviceDetails;
 
-    serviceDetails = new ServiceDetails().deserialize({label: 'Create from Bordereaux', rootObjectName : 'cases',
+    serviceDetails = new ServiceDetails().deserialize({label: 'Creation à partir de Bordereaux', fileLabel: 'Borderaux', rootObjectName : 'cases',
       operation : '/CreateCasesFromBordereaux',
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
     this.serviceDetailsList.push(serviceDetails);
@@ -81,25 +81,21 @@ export class UploadPageComponent implements OnInit {
     this.curServiceDetails = serviceDetails;
 
 
-    serviceDetails = new ServiceDetails().deserialize({label: 'Update From Docapost', rootObjectName : 'cases',
+    serviceDetails = new ServiceDetails().deserialize({label: 'Mise à jour Docapost', fileLabel: 'CR Docapost', rootObjectName : 'cases',
       operation : '/UpdateLACasesFromDocapost',
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
     this.serviceDetailsList.push(serviceDetails);
 
 
-
-
-    serviceDetails = new ServiceDetails().deserialize({label: 'Create From BOT (TODO)', rootObjectName : 'cases',
+    serviceDetails = new ServiceDetails().deserialize({label: 'Mise à jour From BPM (X)', fileLabel: 'Export BPM', rootObjectName : 'cases',
       operation : '/CreateCasesFromBordereaux',
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
     this.serviceDetailsList.push(serviceDetails);
 
-    serviceDetails = new ServiceDetails().deserialize({label: 'Update From BPM (TODO)', rootObjectName : 'cases',
+    serviceDetails = new ServiceDetails().deserialize({label: 'Initialisation', fileLabel: '????????', rootObjectName : 'cases',
       operation : '/CreateCasesFromBordereaux',
       apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
     this.serviceDetailsList.push(serviceDetails);
-
-
 
     serviceDetails = new ServiceDetails().deserialize({label: 'Delete All', rootObjectName : null,
       operation : '/closeAllCase',
