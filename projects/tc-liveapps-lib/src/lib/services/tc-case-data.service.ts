@@ -3,7 +3,7 @@ import {forkJoin, Observable, of, zip} from 'rxjs';
 import {CaseInfo, CaseType, JsonSchema} from '../models/liveappsdata';
 import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';
-import {CaseInfoWithSchema} from '../models/tc-case-data';
+import {CaseInfoWithSchema, PurgeResult} from '../models/tc-case-data';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {TcCaseCardConfigService} from './tc-case-card-config.service';
 
@@ -26,6 +26,21 @@ export class TcCaseDataService {
         })
       );
   }
+
+
+  public purgeAllCases(applicationId: string, typeId: string, sandboxId: number): Observable<PurgeResult> {
+    const url = '/case/v1/cases/?$sandbox=1930&$filter=applicationId eq 2550 and typeId eq 1 and purgeable eq TRUE';
+    return this.http.delete(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(result => {
+          return new PurgeResult().deserialize(result);
+        })
+      );
+  }
+
+
+
 
   public getCaseWithSchema(
     caseRef: string, sandboxId: number, appId: string, typeId: string, uiAppId: string): Observable<CaseInfoWithSchema> {
