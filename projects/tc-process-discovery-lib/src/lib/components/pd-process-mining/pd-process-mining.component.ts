@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'tcpd-pd-process-mining',
@@ -16,13 +16,31 @@ export class PdProcessMiningComponent implements OnInit {
     @Output() caseCreated = new EventEmitter;
     private currentView : string;
     private currentRole : string;
-    public allowedPages = ['Overview', 'Process Map', 'Variants', 'Compliance', 'Filters'];
-    activePage = "Overview";
 
-    constructor(private router: Router) { }
+    public spotfireServer: string;
+    public analysisPath: string;
+    public allowedPages : string[];
+    activePage : string;
+
+    constructor(private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit() {
+        var spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
 
+        this.spotfireServer = spotfireConfig.spotfireServer;
+        this.analysisPath = spotfireConfig.analysisPath;
+
+        this.allowedPages = spotfireConfig.allowedPages; 
+        this.activePage = spotfireConfig.activePageForHome;
+
+        // this.markingName = spotfireConfig.markingName;
+        // this.maxMarkings = spotfireConfig.maxMarkings;
+
+// Table Name : cases
+// Active Page for Details : Overview (for now)
+// Marking Name : Cases
+// Column Names : case_id
+// Plus you need to pass ‘AnalysisId = “DIS_000002”;’ in the “parameters” argument of the spotfire.webplayer.createApplication function (called in the spotfirewrapper)
     }
 
     handleCaseCreation = (caseId: string) => {
