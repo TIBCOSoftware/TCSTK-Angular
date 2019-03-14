@@ -18,6 +18,7 @@ import {CaseComponent} from './routes/case/case.component';
 import {TcHandsontableLibModule} from 'tc-handsontable-lib';
 import {TcProcessDiscoveryLibModule} from 'tc-process-discovery-lib';
 import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
+import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,10 @@ import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
     FormsModule,
     MatTabsModule,
     ReactiveFormsModule,
-    TcSpotfirePlayLibModule
+    TcSpotfirePlayLibModule,
+    TcProcessDiscoveryLibModule,
+    TcCheckWorkflowMonitorLibModule
+
   ],
   providers: [LogService],
   bootstrap: [AppComponent]
