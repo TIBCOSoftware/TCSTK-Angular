@@ -60,6 +60,8 @@ export class TcLiveAppsConfigService {
     return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
       .pipe(
         map(value => {
+          // flush the cache
+          this.getLiveAppsConfig(uiAppId, true, true).subscribe();
           return new LiveAppsConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
         })
       );
