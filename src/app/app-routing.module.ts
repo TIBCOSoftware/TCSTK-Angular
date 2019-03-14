@@ -17,7 +17,7 @@ import {CaseComponent} from './routes/case/case.component';
 import {CaseGuard} from 'tc-liveapps-lib';
 import {TibcoCloudErrorComponent} from 'tc-core-lib';
 import {LiveAppsConfigResolver} from 'tc-liveapps-lib';
-import {SettingsComponent} from './components/settings/settings.component';
+import {SettingsComponent} from './routes/settings/settings.component';
 import {UploadPageComponent} from 'tc-check-workflow-monitor-lib';
 
 
