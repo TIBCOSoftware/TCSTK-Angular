@@ -33,5 +33,9 @@ export class LiveAppsCreatorDialogComponent {
     this.dialogRef.close(caseRoute);
   }
 
+  closeDialog = () => {
+    this.dialogRef.close();
+  }
+
 }
 

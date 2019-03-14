@@ -67,7 +67,9 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.routeAction.emit(new RouteAction('caseClicked', result));
+      if (result) {
+        this.routeAction.emit(new RouteAction('caseClicked', result));
+      }
     });
   }
 
