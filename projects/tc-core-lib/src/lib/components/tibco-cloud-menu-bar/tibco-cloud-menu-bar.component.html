@@ -1,5 +1,12 @@
 <div class="tcs-menu-bar-pane" fxLayout="row" fxLayoutAlign="space-between center">
-  <ng-content fxFlex></ng-content>
+  <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+    <div *ngIf="headerText" fxLayoutAlign="start center">
+      <mat-icon class="tcs-widget-header-icon" svgIcon="{{icon}}"></mat-icon>
+      <div class="tcs-widget-header-text">{{headerText}}</div>
+    </div>
+    <ng-content fxFlex></ng-content>
+  </div>
+
   <div class="tcs-button-toolbar" fxLayout="row" fxLayoutAlign="center, center">
     <div class="tcs-toolbar-button-div" *ngFor="let toolbarButton of toolbarButtons" fxLayout="row" fxLayoutAlign="center, center">
       <mat-icon *ngIf="toolbarButton.visible" (click)="toolbarButtonClick(toolbarButton.id)" class="tcs-toolbar-button" [ngClass]="toolbarButton.filled ? 'tcs-button-filled' : 'tcs-button-not-filled'" [matTooltip]="toolbarButton.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000" [svgIcon]="toolbarButton.icon"></mat-icon>

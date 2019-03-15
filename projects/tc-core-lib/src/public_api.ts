@@ -15,6 +15,7 @@ export * from './lib/components/tibco-cloud-table/tibco-cloud-table.component';
 export * from './lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component';
 export * from './lib/components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
 export * from './lib/components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
+export * from './lib/components/tibco-cloud-configuration/tibco-cloud-configuration.component';
 
 
 // services
@@ -32,6 +33,7 @@ export * from './lib/models/deserializable';
 export * from './lib/models/tc-app-config';
 export * from './lib/models/tc-widget-header';
 export * from './lib/models/tc-general-config';
+export * from './lib/models/tc-routing-actions';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';

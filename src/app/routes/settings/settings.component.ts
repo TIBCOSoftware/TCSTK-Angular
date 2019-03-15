@@ -30,21 +30,21 @@ export class SettingsComponent implements OnInit {
     }
 
     public handleToolbarButtonEvent = (id) => {
-        console.log("Selected option: " + id);
+        console.log('Selected option: ' + id);
     }
 
     public handleSelectionEvent = (id: string) => {
 
         this.showConfigName = id;
-        let url = 'starterApp/settings/' + id.toLowerCase().split(' ').join('-');
-        console.log("************* " + url);
+        const url = 'starterApp/settings/' + id.toLowerCase().split(' ').join('-');
+        console.log('************* ' + url);
 
         this.router.navigate([url]);
     }
 
     private getSettingRoutes = (path: string[]) => {
         //        let path: string[] = location.pathname.split('/');
-        let routerConfig: Route[] = this.router.config;
+        const routerConfig: Route[] = this.router.config;
         let configRoute: Route;
 
         const element = path[1];
@@ -73,10 +73,10 @@ export class SettingsComponent implements OnInit {
 
             const option = entry.slice(lastIndex + 1);
 
-            var menu = this.configMenu.find( x => x.entry === menuEntry );
+            const menu = this.configMenu.find( x => x.entry === menuEntry );
             if (menuEntry !== '') {
               if (menu == null) {
-                this.configMenu.push({entry: menuEntry, options: [option]})
+                this.configMenu.push({entry: menuEntry, options: [option]});
               } else {
                 menu.options.push(option);
               }
@@ -85,23 +85,23 @@ export class SettingsComponent implements OnInit {
     }
 
     private camelize = (str: string): string => {
-        var newStr = "";
-        var newArr = [];
+        let newStr = '';
+        let newArr = [];
 
-        if (str.indexOf("-") != -1) {
-            newArr = str.split("-");
-            for (var i = 0; i < newArr.length; i++) {
+        if (str.indexOf('-') != -1) {
+            newArr = str.split('-');
+            for (let i = 0; i < newArr.length; i++) {
                 newArr[i] = newArr[i].charAt(0).toUpperCase() + newArr[i].substr(1);
             }
-            newStr = newArr.join(" ");
+            newStr = newArr.join(' ');
         }
         return newStr;
     }
 
     showConfig = (option: string) => {
         this.showConfigName = option;
-        console.log("Setting selected: " + option);
+        console.log('Setting selected: ' + option);
     }
-    
+
 
 }
