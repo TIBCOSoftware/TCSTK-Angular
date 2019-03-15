@@ -15,8 +15,7 @@ import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {MatTab, MatTabGroup} from '@angular/material';
 import {QueryList} from '@angular/core';
-import { OnCreateDirective} from 'tc-core-lib';
-import {RouteAction} from '../../models/liveappsdata';
+import { RouteAction } from 'tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-cockpit',

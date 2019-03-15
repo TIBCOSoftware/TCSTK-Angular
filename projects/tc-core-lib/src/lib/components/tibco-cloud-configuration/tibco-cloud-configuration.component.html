@@ -1,0 +1,43 @@
+<div fxFill fxLayout="column">
+  <div>
+    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="'Manage Capabilities'" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+      <ng-content fxFlex></ng-content>
+    </tc-tibco-cloud-menu-bar>
+  </div>
+
+  <div fxFlex style="padding: 40px">
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10"></div>
+
+    <div fxLayout="column" fxLayoutAlign="start start" fxFlex="20" fxLayoutGap>
+      <tc-tibco-cloud-setting-menu-entry style="padding-bottom: 20px" *ngFor="let menu of configMenu"
+                                         [icon]="'tcs-starters-icon'" [title]="menu.entry" [options]="menu.options"
+                                         (configureOption)="handleSelectionEvent($event)"></tc-tibco-cloud-setting-menu-entry>
+    </div>
+
+    <!-- configure Box -->
+    <div fxFlex="60">
+      <div fxFill>
+        <div fxFill fxLayout="column">
+          <div class="starters-custom-layout-box-header">
+            <mat-icon fxFlex="none" svgIcon="tcs-capabilities"
+                      class="starters-custom-layout-panel-icon md-default-theme flex-none"></mat-icon>
+            <div class="starters-custom-layout-text starters-custom-layout-panel-text">Current {{showConfigName}}
+              Configuration
+            </div>
+          </div>
+          <div class="tcs-configuration-router-pane" fxFlex style="padding: 10px;">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10">
+      <a href="https://community.tibco.com/wiki/tibco-labs" target="_blank">
+        <img title="discover TIBCO LABS on TIBCO Community" width="64" border="0"
+             src="assets/images/TIBCOLabs.png">
+      </a>
+    </div>
+
+  </div>
+</div>

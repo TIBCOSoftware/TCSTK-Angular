@@ -10,12 +10,12 @@ import {
   LiveAppsNotesComponent,
   LiveAppsDocumentsComponent,
   Claim,
-  Sandbox, RouteAction, CaseRoute, LiveAppsConfig
+  Sandbox, CaseRoute, LiveAppsConfig
 } from 'tc-liveapps-lib';
 
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {GeneralConfig} from 'tc-core-lib';
+import {GeneralConfig, RouteAction} from 'tc-core-lib';
 
 @Component({
   selector: 'laapp-case',
@@ -41,7 +41,7 @@ export class CaseComponent implements OnInit {
     }
     if (routeAction.action === 'configClicked') {
       // config clicked - route to config
-      this.router.navigate(['/starterApp/settings/']);
+      this.router.navigate(['/starterApp/configuration/']);
     }
   }
 

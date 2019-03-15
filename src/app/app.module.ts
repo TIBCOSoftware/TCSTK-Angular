@@ -29,6 +29,7 @@ import {TcSpotfirePlayLibModule} from 'tc-spotfire-play-lib';
 import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 import {SettingsComponent} from './routes/settings/settings.component';
+import { ConfigurationComponent } from './routes/configuration/configuration.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {SettingsComponent} from './routes/settings/settings.component';
     StarterAppComponent,
     HomeComponent,
     CaseComponent,
-    SettingsComponent
+    SettingsComponent,
+    ConfigurationComponent
 
   ],
   imports: [

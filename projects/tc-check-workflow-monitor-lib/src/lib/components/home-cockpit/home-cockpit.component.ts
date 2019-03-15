@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LiveAppsHomeCockpitComponent, RouteAction} from 'tc-liveapps-lib';
-import {ToolbarButton} from 'tc-core-lib';
+import {LiveAppsHomeCockpitComponent} from 'tc-liveapps-lib';
+import {ToolbarButton, RouteAction} from 'tc-core-lib';
 
 @Component({
   selector: 'tccwm-home-cockpit',

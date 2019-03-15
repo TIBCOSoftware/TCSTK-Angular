@@ -19,6 +19,8 @@ import {TibcoCloudErrorComponent} from 'tc-core-lib';
 import {LiveAppsConfigResolver} from 'tc-liveapps-lib';
 import {SettingsComponent} from './routes/settings/settings.component';
 import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
+import {TibcoCloudConfigurationComponent} from 'tc-core-lib';
+import {ConfigurationComponent} from './routes/configuration/configuration.component';
 
 
 
@@ -74,7 +76,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'settings', component: SettingsComponent, canActivate: [AuthGuard],
+        path: 'configuration', component: ConfigurationComponent, canActivate: [AuthGuard],
         children: [
           {
             path: 'general-application-settings',
@@ -99,7 +101,7 @@ const routes: Routes = [
             }
           },
           {
-            path: '**', redirectTo: '/starterApp/settings/general-application-settings'
+            path: '**', redirectTo: '/starterApp/configuration/general-application-settings'
           }
         ]
       },

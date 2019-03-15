@@ -3,8 +3,8 @@ import {ServiceDetails, ServiceDetailsConfig} from '../../models/service-details
 import {ServiceHandlerService} from '../../services/service-handler.service';
 import {map} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material';
-import {RouteAction, TcCaseDataService} from 'tc-liveapps-lib';
-import {TcButtonsHelperService, ToolbarButton} from 'tc-core-lib';
+import {TcCaseDataService} from 'tc-liveapps-lib';
+import {TcButtonsHelperService, ToolbarButton, RouteAction} from 'tc-core-lib';
 import {ActivatedRoute, Router} from '@angular/router';
 
 

@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GeneralConfig, UiAppConfig} from 'tc-core-lib';
-import {CaseRoute, CaseType, Claim, LiveAppsConfig, RouteAction} from 'tc-liveapps-lib';
+import {GeneralConfig, UiAppConfig, RouteAction} from 'tc-core-lib';
+import {CaseRoute, CaseType, Claim, LiveAppsConfig} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     }
     if (routeAction.action === 'configClicked') {
       // route to config page
-      this.router.navigate(['/starterApp/settings/']);
+      this.router.navigate(['/starterApp/configuration/']);
     }
 
   }
