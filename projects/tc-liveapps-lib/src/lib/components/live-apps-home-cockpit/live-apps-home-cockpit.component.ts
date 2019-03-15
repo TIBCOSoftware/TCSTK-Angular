@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {CaseRoute, CaseType, RouteAction} from '../../models/liveappsdata';
-import {ToolbarButton, TcButtonsHelperService} from 'tc-core-lib';
+import {CaseRoute, CaseType} from '../../models/liveappsdata';
+import {ToolbarButton, TcButtonsHelperService, RouteAction} from 'tc-core-lib';
 import {LiveAppsFavoriteCasesComponent} from '../live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsRecentCasesComponent} from '../live-apps-recent-cases/live-apps-recent-cases.component';
 import {LiveAppsSearchWidgetComponent} from '../live-apps-search-widget/live-apps-search-widget.component';

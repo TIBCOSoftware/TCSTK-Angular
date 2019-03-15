@@ -22,12 +22,6 @@ export class CaseRoute {
   }
 }
 
-export class RouteAction {
-  constructor(public action: string,
-              public context: any
-  ) {}
-}
-
 export class NotificationCollection {
   constructor(
     public collectionName: string,

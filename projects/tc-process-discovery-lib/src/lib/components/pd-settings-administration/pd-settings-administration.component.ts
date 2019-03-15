@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProcessDiscoveryCaseRoute } from '../../models/pd-liveappsdata';
-import { RouteAction } from 'tc-liveapps-lib';
+import { RouteAction } from 'tc-core-lib';
 import { Router } from '@angular/router';
 
 @Component({

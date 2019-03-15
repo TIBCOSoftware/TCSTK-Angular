@@ -49,6 +49,8 @@ import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-clo
 import { TibcoCloudSelectTableComponent } from './components/tibco-cloud-select-table/tibco-cloud-select-table.component';
 import {TibcoCloudSettingMenuEntryComponent} from './components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
 import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
+import { TibcoCloudConfigurationComponent } from './components/tibco-cloud-configuration/tibco-cloud-configuration.component';
+import {RouterModule} from '@angular/router';
 
 
 // import {DataSource} from '@angular/cdk/collections';
@@ -70,9 +72,11 @@ import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-setti
     TibcoCloudTableComponent,
     TibcoCloudSelectTableComponent,
     TibcoCloudSettingMenuEntryComponent,
-    TibcoCloudSettingsGeneralComponent
+    TibcoCloudSettingsGeneralComponent,
+    TibcoCloudConfigurationComponent
   ],
   imports: [
+    RouterModule,
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -131,7 +135,8 @@ import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-setti
     TibcoCloudTableComponent,
     TibcoCloudSelectTableComponent,
     TibcoCloudSettingMenuEntryComponent,
-    TibcoCloudSettingsGeneralComponent
+    TibcoCloudSettingsGeneralComponent,
+    TibcoCloudConfigurationComponent
   ],
   providers: [
     RequestCacheService,

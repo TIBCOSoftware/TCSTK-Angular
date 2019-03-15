@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToolbarButton, TcButtonsHelperService, GeneralConfig } from 'tc-core-lib';
-import { LiveAppsConfig, Claim, CaseType, RouteAction, CaseRoute } from 'tc-liveapps-lib';
+import { ToolbarButton, TcButtonsHelperService, GeneralConfig, RouteAction } from 'tc-core-lib';
+import { LiveAppsConfig, Claim, CaseType, CaseRoute } from 'tc-liveapps-lib';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'tcpd-pd-home',
@@ -25,8 +26,13 @@ export class PdHomeComponent implements OnInit {
         private router: Router, 
         private buttonsHelper: TcButtonsHelperService, 
         private route: ActivatedRoute,
-        public dialog: MatDialog
-    ) { }
+        public dialog: MatDialog,
+        private location: Location
+    ) {
+        router.routeReuseStrategy.shouldReuseRoute = function () {
+            return false;
+        }; 
+    }
 
     handleRouteAction = (routeAction: any) => {
         if (routeAction === 'caseClicked') {
@@ -46,7 +52,7 @@ export class PdHomeComponent implements OnInit {
         }
 
         if (routeAction.value === "Process Mining View"){
-            this.router.navigate(['/starterApp/pd/process-mining-view']);
+            // this.router.navigate(['/starterApp/pd/process-mining-view'], { state: { hello: this.datasource } });
         }
 
         if (routeAction.value === "Case View"){
@@ -75,24 +81,31 @@ export class PdHomeComponent implements OnInit {
         this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
         this.claims = this.route.snapshot.data.claims;
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
-        this.datasource = 'DIS_000002';
         //   this.email = this.claims.email;
         //   this.userId = this.claims.id;
         this.toolbarButtons = this.createToolbarButtons();
         this.viewButtons = this.createViewButtons();
+        if (this.location.path().startsWith('/starterApp/pd/process-mining-view/')){
+            const parsedURL = this.location.path().split('/');
+            this.datasource = parsedURL[parsedURL.length-1];
+        }      
     }
 
-    animal: string;
-    name: string;
-  
     openDialog = (): void => {
         const dialogRef = this.dialog.open(PdChangeDatasourceDialog, {
             width: '500px',
             data: {datasource: this.datasource }
           });
       
+
           dialogRef.afterClosed().subscribe(result => {
-            this.datasource = result;
+              if (this.datasource != result){
+                this.datasource = result;
+                const path: string = this.location.path();
+                if (this.location.path().startsWith('/starterApp/pd/process-mining-view/')){
+                    this.router.navigate(['/starterApp/pd/process-mining-view/' + this.datasource]);
+                }
+              }
           });
         }
 }
