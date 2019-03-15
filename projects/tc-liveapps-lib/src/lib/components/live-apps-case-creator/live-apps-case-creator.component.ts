@@ -16,6 +16,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   @Input() applicationId: string;
   @Input() typeId: string;
   @Input() process: LaProcessSelection;
+  @Input() dataOverride: any;
   @Output() caseChanged: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   data: any;
@@ -84,6 +85,9 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     }
     if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
       this.layout = changes.layout.currentValue;
+    }
+    if (changes.dataOverride && (changes.dataOverride.currentValue !== changes.dataOverride.previousValue)) {
+      this.data = this.dataOverride;
     }
   }
 
