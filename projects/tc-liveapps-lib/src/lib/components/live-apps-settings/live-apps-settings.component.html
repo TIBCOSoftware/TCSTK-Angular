@@ -1,19 +1,32 @@
 <div layout="column" layout-align="start stretch" flex>
 
-    <p>You can choose one TIBCO Cloud Live Apps Application to be linked with your Portal Web Application.</p>
+  <mat-tab-group style="margin-top: 30px; height: 100%;">
+    <mat-tab label="Live App Config">
+      <!-- using ng-template makes sure the tabs are lazy loaded -->
+      <ng-template matTabContent>
+        <p>You can choose one TIBCO Cloud Live Apps Application to be linked with your Portal Web Application.</p>
 
-    <!-- Application Case Type -->
-    <div layout="row" layout-align="space-between center">
+        <!-- Application Case Type -->
+        <div layout="row" layout-align="space-between center">
 
-        <mat-form-field fxFlex="45">
+          <mat-form-field fxFlex="45">
             <input matInput placeholder="Case Type Label" value="Investigations">
-        </mat-form-field>
-        <mat-form-field fxFlex="45">
+          </mat-form-field>
+          <mat-form-field fxFlex="45">
             <input matInput placeholder="Case Type Label Singular" value="Investigation">
-        </mat-form-field>
+          </mat-form-field>
+        </div>
+      </ng-template>
+    </mat-tab>
 
-    </div> 
-
+    <mat-tab label="Summary Cards">
+      <!-- using ng-template makes sure the tabs are lazy loaded -->
+      <ng-template matTabContent>
+      <tcla-live-apps-app-configuration-widget [sandboxId]="sandbox.id" [appIds]="liveAppsConfig.applicationIds" [uiAppId]="generalConfig.uiAppId" [folderId]="liveAppsConfig.caseIconsFolderId"></tcla-live-apps-app-configuration-widget>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>
     <!-- TODO NAM : check this  no dependcies to Specifc in CORE -->
     <!-- <bpm-case-types case-types="caseTypes" config="caseTypesConfig"
         template-path="../starters-components/starters-configure-liveapps/template/case-types-app-configurator.html"
@@ -33,4 +46,3 @@
         </tcc-alert>
     </div> -->
 
-</div>
