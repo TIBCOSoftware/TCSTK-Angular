@@ -167,15 +167,15 @@ export class LiveAppsService {
       .pipe(
         debounceTime(500),
         distinctUntilChanged(),
-        switchMap(term => this.caseSearchEntries(term, sandboxId, appId, typeId, skip, top))
+        switchMap(term => this.caseSearchEntries(term, sandboxId, appId, typeId, false, skip, top))
       );
   }
 
-  public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
+  public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, force: boolean, skip: number, top: number): Observable<CaseSearchResults> {
       let url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
         + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top
         + '&$select=cr';
-      if (term) {
+      if (term || (!term && !force)) {
         url = url + '&$search=' + term;
       }
 

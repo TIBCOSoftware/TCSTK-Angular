@@ -4,6 +4,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {CaseInfoList, CaseSearchResults, CaseType} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {LiveAppsApplicationsComponent} from '../live-apps-applications/live-apps-applications.component';
+import {map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'tcla-live-apps-case-search',
@@ -22,6 +23,7 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
   searchTerm$: Subject<string>;
   searchValue: Observable<String>;
   searchString: string;
+  forcedSearch = false;
 
   // case type selector
   public selectedApp: CaseType = new CaseType();
@@ -42,8 +44,18 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
     this.doSearch();
   }
 
+  // clear search results
+  public clearResults = () => {
+    this.forcedSearch = false;
+    this.searchString = '';
+    this.searchBox.nativeElement.value = '';
+    const result = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
+    this.foundRefs.emit(result);
+  }
+
   public forceSearch = () => {
-    this.liveapps.caseSearchEntries(this.searchBox.nativeElement.value, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, 0, 1000).subscribe(
+    this.forcedSearch = true;
+    this.liveapps.caseSearchEntries(this.searchBox.nativeElement.value, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, true, 0, 1000).subscribe(
       results => {
         this.foundRefs.emit(results);
       }
@@ -52,9 +64,13 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
 
   private doSearch = () => {
     this.searchBox.nativeElement.value = '';
-    const blankres = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
-    this.foundRefs.emit(blankres);
+    const result = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
+    this.foundRefs.emit(result);
     this.searchTerm$ = new Subject<string>();
+    this.searchTerm$.subscribe(next => {
+      this.searchString = next;
+      return next;
+    })
     this.searchValue = this.searchTerm$.asObservable();
     if (this.selectedApp.applicationId && this.selectedApp.id && this.sandboxId) {
       const skip = 0;
