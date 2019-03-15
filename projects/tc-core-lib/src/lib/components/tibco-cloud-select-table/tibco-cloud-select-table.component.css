@@ -1,7 +1,6 @@
-.full-width-table {
+.tcst-full-width-table {
   width: 100%;
 }
-
 
 .mat-row.hovered {
   background: #eee;
@@ -12,13 +11,15 @@
   background: #999;
 }
 
-.header{
+.tcst-header{
   background-color: #d0d5e2;
-  font-size: 20px;
+  font-size: 16px;
 }
 
-.header:hover{
+.tcst-header:hover{
   background-color: #bbc2d4;
 }
 
-.gray { background-color: #f5f5f5 }
+.tcstgray {
+  background-color: #f5f5f5;
+}
