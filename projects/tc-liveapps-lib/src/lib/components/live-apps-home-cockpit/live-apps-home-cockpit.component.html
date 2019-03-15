@@ -8,7 +8,7 @@
     </tc-tibco-cloud-menu-bar>
   </div>
 
-  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" style="margin-left: 20px; margin-right: 20px;">
+  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" style="margin-left: 20px; margin-right: 20px; margin-top: 10px;">
 
     <div class="searchCasesWidget">
       <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
@@ -30,7 +30,7 @@
       </div>
 
       <div fxFlex class="documentWidget">
-        <!--tcla-live-apps-documents [sandboxId]="sandboxId" [folderId]="uiAppId" [folderType]="'orgFolder'" [folderDescription]="'Document Library'"></tcla-live-apps-documents-->
+        <tcla-live-apps-documents [sandboxId]="sandboxId" [folderId]="uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
       </div>
     </div>
   </div>
