@@ -1,16 +1,22 @@
 <div class="mat-elevation-z8 data-table">
   <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
     <ng-container *ngFor="let column of columns" [matColumnDef]='column.columnDef'>
-      <mat-header-cell *matHeaderCellDef mat-sort-header><!--<button>SELECT</button>-->{{ column.header }}</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef class="header"  mat-sort-header><!--<button>SELECT</button>-->{{camelCaseTW(column.header)}}</mat-header-cell>
       <mat-cell *matCellDef="let row">{{ column.cell(row) }}</mat-cell>
     </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns"  ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;
+                         let even = even;
+                         columns: displayedColumns;"
+             [ngClass]="{gray: even}"></mat-row>
   </table>
-  <mat-paginator #paginator
+  <!--
+  <ng-template *ngIf="dataSource.data.length > 10"> -->
+  <mat-paginator  #paginator
                  [length]="dataSource.data.length"
                  [pageIndex]="0"
                  [pageSize]="10"
                  [pageSizeOptions]="[5, 10, 20, 25]">
   </mat-paginator>
+  <!-- </ng-template> -->
 </div>
