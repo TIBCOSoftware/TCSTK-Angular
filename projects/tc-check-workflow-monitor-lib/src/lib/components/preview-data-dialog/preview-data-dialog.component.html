@@ -1,20 +1,18 @@
-<div fxLayout="column" fxLayoutAlign="space-between stretch" >
+<div fxLayout="column" fxLayoutAlign="start stretch" fxFill>
 
 
-<div mat-dialog-title>{{description}}</div>
+  <div mat-dialog-title >{{description}}</div>
 
-<mat-dialog-content>
+  <mat-dialog-content>
 
-<tc-tibco-cloud-table  [jsonSource]='jsonDataString'></tc-tibco-cloud-table>
+    <tc-tibco-cloud-table [jsonSource]='jsonDataString'></tc-tibco-cloud-table>
 
-
-
-</mat-dialog-content>
+  </mat-dialog-content>
 
 
-<mat-dialog-actions>
-  <button class="mat-raised-button"(click)="close()" >Close</button>
-  <button class="mat-raised-button mat-primary"(click)="save()" >Save</button>
-</mat-dialog-actions>
+  <mat-dialog-actions >
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+  </mat-dialog-actions>
 </div>
 
