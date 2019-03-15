@@ -1,39 +1,35 @@
-<div fxLayout="column">
-  <div>
+<div fxLayout="column" fxFill fxLayoutAlign="space-around stretch">
+
+
+  <div fxLayout="column">
     <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
-      <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
         <span class="tc-home-welcome-text">{{title}}</span>
       </div>
     </tc-tibco-cloud-menu-bar>
   </div>
-  <br>
-  <br>
-  <div>
-    <tccwm-select-service-display [curServiceDetails]="curServiceDetails" [serviceDetailsList]="serviceDetailsList"
-                                  (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
-    <br>
-    <br>
 
 
-    <br>
 
-    <br>
-    <br>
-    <br><br>
-  </div>
-  <div>
-    <tccwm-file-to-service [serviceDetails]="curServiceDetails"></tccwm-file-to-service>
-  </div>
-  <div>
+  <div fxLayout="column" fxFlex fxLayoutAlign="space-between stretch">
+    <div>
+      <tccwm-select-service-display [curServiceDetails]="curServiceDetails" [serviceDetailsList]="serviceDetailsList"
+                                    (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
 
-    <br>
-    <br>
-    <br><br>
-    <tccwm-select-service-display [curServiceDetails]="curServiceDetails" [serviceDetailsList]="debugServiceDetailsList"
-                                  (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-around center" >
-    <button mat-raised-button color="primary" (click)="purgeAllCases()">Purge tous les dossiers en phase cloturée</button>
+    </div>
+    <div>
+      <tccwm-file-to-service [serviceDetails]="curServiceDetails"></tccwm-file-to-service>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around stretch">
+      <div>
+      <tccwm-select-service-display [curServiceDetails]="curServiceDetails"
+                                    [serviceDetailsList]="debugServiceDetailsList"
+                                    (selectServiceEvent)="handleSelectedService($event)"></tccwm-select-service-display>
+      </div>
+      <button class="tccwm-service-selector" mat-raised-button color="primary" (click)="purgeAllCases()">Purge tous les dossiers en phase cloturée
+      </button>
+    </div>
+
   </div>
 
 </div>
