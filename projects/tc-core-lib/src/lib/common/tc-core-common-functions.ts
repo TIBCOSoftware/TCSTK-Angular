@@ -12,10 +12,12 @@ export class TcCoreCommonFunctions {
   }
 
   public static camelCaseToWords(str){
-    return str.match(/^[a-z]+|[A-Z][a-z]*/g).map(function(x){
-      return x[0].toUpperCase() + x.substr(1).toLowerCase();
-    }).join(' ');
-  };
+
+    var re=  str.replace(/([a-z])([A-Z])/g, '$1 $2')
+      .replace(/([A-Z])([a-z])/g, ' $1$2')
+      .replace(/\ +/g, ' ');
+    return re;
+  }
 
 
   public static convertToJSON(array) {
