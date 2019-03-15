@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TibcoCloudTableComponent} from '../tibco-cloud-table/tibco-cloud-table.component';
 import {LogService} from '../../services/tc-logging.service';
-import {CaseRoute} from 'tc-liveapps-lib';
 // import {TcFunctionsService} from '../../services/tc-functions.service';
 
 @Component({
@@ -26,12 +25,12 @@ export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
 
 
   public clicked(row) {
-    console.log(row);
+    // console.log(row);
     let myData = JSON.parse(JSON.stringify(this.dataSource.data));
-    console.log(this.dataSource);
+    // console.log(this.dataSource);
     let selectedArray = new Array();
     for (let line of myData) {
-      console.log('s:' , line);
+      // console.log('s:' , line);
       if (line.highlighted) {
         delete line['hovered'];
         delete line['highlighted'];
@@ -39,7 +38,7 @@ export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
       }
 
     }
-    console.log('Selected Array: ' , selectedArray);
+    // console.log('Selected Array: ' , selectedArray);
     this.selected = JSON.stringify(selectedArray);
     this.selectedlines.emit(this.selected);
   }
