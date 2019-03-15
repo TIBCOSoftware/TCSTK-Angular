@@ -25,10 +25,11 @@ import { HomeCockpitComponent } from './components/home-cockpit/home-cockpit.com
 import {SettingsCwmServicesComponent} from './components/settings-cwm-services/settings-cwm-services.component';
 
 import {CwmSettingsConfigServiceService} from './services/cwm-settings-config-service.service';
+import { ServiceHandlerSnackbarComponent } from './components/service-handler-snackbar/service-handler-snackbar.component';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -58,8 +59,8 @@ import {CwmSettingsConfigServiceService} from './services/cwm-settings-config-se
     TcLiveappsLibModule,
     TcCoreLibModule
   ],
-  entryComponents : [PreviewDataDialogComponent],
-  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent],
+  entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent],
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }

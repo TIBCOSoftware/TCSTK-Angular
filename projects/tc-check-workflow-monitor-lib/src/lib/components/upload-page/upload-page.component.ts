@@ -6,6 +6,7 @@ import {MatSnackBar} from '@angular/material';
 import {TcCaseDataService} from 'tc-liveapps-lib';
 import {TcButtonsHelperService, ToolbarButton, RouteAction} from 'tc-core-lib';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ServiceHandlerSnackbarComponent} from '../../components/service-handler-snackbar/service-handler-snackbar.component';
 
 
 
@@ -125,11 +126,7 @@ export class UploadPageComponent implements OnInit {
 
   // TODO refactor : it appears twice
   openSnackBar(result: any) {
-    // TODO handle error
-    const message = 'File imported correctly : ' + result.nbTransmitted + ' lines transmitted';
-    const actionButtonLabel = 'Close';
-
-    this.snackBar.open( message, actionButtonLabel , {
+    this.snackBar.openFromComponent( ServiceHandlerSnackbarComponent , { data: result
     });
   }
 
