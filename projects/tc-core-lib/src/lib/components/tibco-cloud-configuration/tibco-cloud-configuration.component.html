@@ -9,7 +9,7 @@
     <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10"></div>
 
     <div fxLayout="column" fxLayoutAlign="start start" fxFlex="20" fxLayoutGap>
-      <tc-tibco-cloud-setting-menu-entry style="padding-bottom: 20px" *ngFor="let menu of configMenu"
+      <tc-tibco-cloud-setting-menu-entry style="padding-bottom: 20px" *ngFor="let menu of configMenuPages"
                                          [icon]="'tcs-starters-icon'" [title]="menu.entry" [options]="menu.options"
                                          (configureOption)="handleSelectionEvent($event)"></tc-tibco-cloud-setting-menu-entry>
     </div>

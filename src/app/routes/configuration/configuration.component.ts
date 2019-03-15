@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class ConfigurationComponent implements OnInit {
 
   viewButtons: ToolbarButton[];
+  configMenuPages: any[];
 
   constructor(private buttonsHelper: TcButtonsHelperService, private router: Router) { }
 
@@ -23,7 +24,7 @@ export class ConfigurationComponent implements OnInit {
 
   /* This is for PD usecase where you want navbar */
   /* un-comment if you want it */
-  /*
+/*
   protected createViewButtons = (): ToolbarButton[] => {
     const landingview = this.buttonsHelper.createButton('landingview', 'tcs-config-icon', true, 'Landing View', true, true);
     const processmimingview = this.buttonsHelper.createButton('process-mining-view', 'tcs-refresh-icon', true, 'Process Mining View', true, true);
@@ -37,6 +38,21 @@ export class ConfigurationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.configMenuPages = [
+      {
+        entry: 'General Application',
+        options: ['Settings']
+      },
+      {
+        entry: 'Live Apps',
+        options: ['Settings']
+      }
+      /* ,{
+        entry: 'Upload Services',
+        options: ['Settings']
+      } */
+    ];
+
     /* This is for PD usecase where you want navbar */
     /* un-comment if you want it */
     /* this.viewButtons = this.createViewButtons(); */

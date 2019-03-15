@@ -13,9 +13,9 @@ import {RouteAction} from '../../models/tc-routing-actions';
 })
 export class TibcoCloudConfigurationComponent implements OnInit {
   @Input() baseRoute: string;
+  @Input() configMenuPages: any[];
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
   showConfigName: string;
-  configMenu = [];
   toolbarButtons: ToolbarButton[];
 
   constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private location: Location) { }
@@ -38,6 +38,7 @@ export class TibcoCloudConfigurationComponent implements OnInit {
     }
   }
 
+  /*
   private getSettingRoutes = (path: string[]) => {
     //        let path: string[] = location.pathname.split('/');
     const routerConfig: Route[] = this.router.config;
@@ -78,7 +79,7 @@ export class TibcoCloudConfigurationComponent implements OnInit {
         }
       }
     }
-  }
+  }*/
 
   showConfig = (option: string) => {
     this.showConfigName = option;
@@ -88,7 +89,7 @@ export class TibcoCloudConfigurationComponent implements OnInit {
 
   ngOnInit() {
     this.toolbarButtons = this.createToolbarButtons();
-    this.getSettingRoutes(location.pathname.split('/'));
+    // this.getSettingRoutes(location.pathname.split('/'));
   }
 
 }
