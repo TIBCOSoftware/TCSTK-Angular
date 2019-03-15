@@ -26,7 +26,7 @@
     <!-- configure Box -->
     <div fxFlex="60">
       <div fxFill>
-        <div>
+        <div fxFill fxLayout="column">
           <div class="starters-custom-layout-box-header">
             <mat-icon fxFlex="none" svgIcon="tcs-capabilities"
                       class="starters-custom-layout-panel-icon md-default-theme flex-none"></mat-icon>
@@ -34,7 +34,7 @@
               Configuration
             </div>
           </div>
-          <div style="padding: 10px;">
+          <div class="tcs-configuration-router-pane" fxFlex style="padding: 10px;">
             <router-outlet></router-outlet>
           </div>
         </div>

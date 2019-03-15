@@ -40,3 +40,7 @@
 .starters-custom-layout-panel-icon {
     padding: 4px;
 }
+
+.tcs-configuration-router-pane {
+  overflow: auto;
+}
