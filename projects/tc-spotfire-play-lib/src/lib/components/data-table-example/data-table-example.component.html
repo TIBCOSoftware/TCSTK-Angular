@@ -5,19 +5,12 @@
   {"id": 2, "name": "Helium"},
   {"id": 3, "name": "Lithium"},
   {"id": 4, "name": "Beryllium"},
-  {"id": 5, "name": "Boron2"}]'>
+  {"id": 5, "name": "Boron2"}]' (selectedlines)="changeSelection($event)">
 </tc-tibco-cloud-select-table>
+<p>
+  <b>SELECTED:</b>{{mySelection}}
+</p>
 
-
-<!--
-<tc-tibco-cloud-table  jsonSource='[
-  {"id": 1, "name": "Hydrogen"},
-  {"id": 2, "name": "Helium"},
-  {"id": 3, "name": "Lithium"},
-  {"id": 4, "name": "Beryllium"},
-  {"id": 5, "name": "Boron"}]'></tc-tibco-cloud-table>
--->
-<!--
 <tc-tibco-cloud-table  jsonSource='[
 	{
 		"color": "red",
@@ -48,10 +41,12 @@
 		"value": "#000"
 	}
 ]'></tc-tibco-cloud-table>
--->
 
-<!--
-<tc-tibco-cloud-table  jsonSource='[{
+<p>
+  <b>BIG SELECTED:</b>{{myBigSelection}}
+</p>
+
+<tc-tibco-cloud-select-table (selectedlines)="changeSelectionBig($event)"  jsonSource='[{
 "name": "Ted",
 "surname": "Smith",
 "position": "Java Developer",
@@ -249,5 +244,6 @@
 "age": 32,
 "education": "High School Of Cambridge",
 "knownledge": ""
-}]'></tc-tibco-cloud-table>
--->
+}]'></tc-tibco-cloud-select-table>
+
+
