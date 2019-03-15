@@ -1,8 +1,22 @@
-.full-width-table {
+.tct-full-width-table {
   width: 100%;
 }
+.tct-header{
+  /*
+  background-color: #d0d5e2;
+  font-size: 16px;
+*/
+  background: #0081cb;
+  color:white;
+  padding:5px 30px;
+  display:flex;
+  align-items: center;
+}
 
-.data-table{
-  width: 80%;
-  margin: 20px auto;
+.tct-header:hover{
+  background-color: #229be0;
+}
+
+.tctgray {
+  background-color: #f5f5f5;
 }

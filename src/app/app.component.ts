@@ -202,6 +202,10 @@ export class AppComponent {
       'tcs-starters-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-starters.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-info-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-info.svg'))
+    );
 
   
 }

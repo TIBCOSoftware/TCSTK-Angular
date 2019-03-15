@@ -3,6 +3,7 @@ import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
+
 /**
  * Data source for the TibcoCloudTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
@@ -16,6 +17,8 @@ export class TibcoCloudTableDataSource extends DataSource<any> {
     this.data = d;
 
   }
+
+
 
   /**
    * Connect this data source to the table. The table will only update when

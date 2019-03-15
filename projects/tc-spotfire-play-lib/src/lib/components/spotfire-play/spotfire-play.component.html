@@ -1,5 +1,73 @@
 <div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
   <div  fxFlex fxLayoutGap="20px">
+
+    <mat-tab-group style="margin-top: 30px; height: 100%;">
+
+      <mat-tab label="Working">
+        <ng-template matTabContent>
+          <tcla-spotfire-viz
+            (markingEvent)="marking($event)"
+            [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
+            [url]="'https://spotfire-next.cloud.tibco.com'"
+
+            customization='{"showAbout": true,
+                      "showAnalysisInformationTool": true,
+                      "showAuthor": true,
+                      "showClose": true,
+                      "showCustomizableHeader": true,
+                      "showDodPanel": true,
+                      "showExportFile": true,
+                      "showExportVisualization": true,
+                      "showFilterPanel": true,
+                      "showHelp": true,
+                      "showLogout": false,
+                      "showPageNavigation": true,
+                      "showAnalysisInfo": true,
+                      "showReloadAnalysis": true,
+                      "showStatusBar": true,
+                      "showToolBar": true,
+                      "showUndoRedo": false}'
+            id="id1"
+            markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'
+            [maxRows]='1000'>
+          </tcla-spotfire-viz>
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="Not Working">
+        <ng-template matTabContent>
+          <div style = 'overflow: visible' >
+          <tcla-spotfire-viz
+            (markingEvent)="marking($event)"
+            [path]="'/TIBCO Labs/ProcessMining_custom_queries_final'"
+            [url]="'https://23.22.187.212/'"
+
+            customization='{"showAbout": true,
+                      "showAnalysisInformationTool": true,
+                      "showAuthor": true,
+                      "showClose": true,
+                      "showCustomizableHeader": true,
+                      "showDodPanel": true,
+                      "showExportFile": true,
+                      "showExportVisualization": true,
+                      "showFilterPanel": true,
+                      "showHelp": true,
+                      "showLogout": false,
+                      "showPageNavigation": true,
+                      "showAnalysisInfo": true,
+                      "showReloadAnalysis": true,
+                      "showStatusBar": true,
+                      "showToolBar": true,
+                      "showUndoRedo": false}'
+            id="id1"
+            markingon='{"cases": [ "Started" ]}'
+            [maxRows]='1000'>
+          </tcla-spotfire-viz>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+<!--
     <tcla-spotfire-viz
       (markingEvent)="marking($event)"
       [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
@@ -26,6 +94,36 @@
       markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'
       [maxRows]='1000'>
     </tcla-spotfire-viz>
+
+
+    <tcla-spotfire-viz
+      (markingEvent)="marking($event)"
+      [path]="'/TIBCO Labs/ProcessMining_custom_queries_final'"
+      [url]="'https://23.22.187.212/'"
+
+      customization='{"showAbout": true,
+                      "showAnalysisInformationTool": true,
+                      "showAuthor": true,
+                      "showClose": true,
+                      "showCustomizableHeader": true,
+                      "showDodPanel": true,
+                      "showExportFile": true,
+                      "showExportVisualization": true,
+                      "showFilterPanel": true,
+                      "showHelp": true,
+                      "showLogout": false,
+                      "showPageNavigation": true,
+                      "showAnalysisInfo": true,
+                      "showReloadAnalysis": true,
+                      "showStatusBar": true,
+                      "showToolBar": true,
+                      "showUndoRedo": false}'
+      id="id1"
+      markingon='{"cases": [ "Started" ]}'
+      [maxRows]='1000'>
+    </tcla-spotfire-viz>
+-->
+
   </div>
   <div  fxFlex fxLayoutGap="20px">
 
