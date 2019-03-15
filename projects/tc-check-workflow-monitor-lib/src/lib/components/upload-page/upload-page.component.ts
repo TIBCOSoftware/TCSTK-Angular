@@ -30,7 +30,7 @@ export class UploadPageComponent implements OnInit {
 
   public serviceDetailsConfig: ServiceDetailsConfig;
 
-  public title = 'Upload Page';
+  public title = 'Intégration de fichier';
 
   public toolbarButtons: ToolbarButton[];
 
@@ -55,7 +55,7 @@ export class UploadPageComponent implements OnInit {
 
   public handleToolbarButtonEvent = (buttonId: string) => {
     if (buttonId === 'config') {
-      this.router.navigate(['/starterApp/settings/general-application-settings']);
+      this.router.navigate(['/starterApp/settings/upload-services-settings']);
 
     }
 
