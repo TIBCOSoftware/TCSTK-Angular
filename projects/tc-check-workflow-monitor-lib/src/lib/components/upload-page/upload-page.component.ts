@@ -6,6 +6,7 @@ import {MatSnackBar} from '@angular/material';
 import {TcCaseDataService} from 'tc-liveapps-lib';
 import {TcButtonsHelperService, ToolbarButton, RouteAction} from 'tc-core-lib';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ServiceHandlerSnackbarComponent} from '../../components/service-handler-snackbar/service-handler-snackbar.component';
 
 
 
@@ -55,7 +56,7 @@ export class UploadPageComponent implements OnInit {
 
   public handleToolbarButtonEvent = (buttonId: string) => {
     if (buttonId === 'config') {
-      this.router.navigate(['/starterApp/settings/upload-services-settings']);
+      this.router.navigate(['/starterApp/configuration/upload-services-settings']);
 
     }
 
@@ -86,6 +87,7 @@ export class UploadPageComponent implements OnInit {
     this.serviceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.updateServiceFromBpm));
 
     this.debugServiceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.initiateService));
+
     this.debugServiceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.setTerminalStateService));
 
   }
@@ -96,7 +98,7 @@ export class UploadPageComponent implements OnInit {
   handleSelectedService (serviceDetails) {
     this.curServiceDetails = serviceDetails;
 
-    if (this.curServiceDetails.rootObjectName === null) {
+    if (this.curServiceDetails.rootObjectName === '') {
       const serviceObservable = this.serviceHandler.postService(serviceDetails.apiUrl + serviceDetails.operation, null);
       serviceObservable.subscribe( result => {
             this.openSnackBar(result);
@@ -125,11 +127,7 @@ export class UploadPageComponent implements OnInit {
 
   // TODO refactor : it appears twice
   openSnackBar(result: any) {
-    // TODO handle error
-    const message = 'File imported correctly : ' + result.nbTransmitted + ' lines transmitted';
-    const actionButtonLabel = 'Close';
-
-    this.snackBar.open( message, actionButtonLabel , {
+    this.snackBar.openFromComponent( ServiceHandlerSnackbarComponent , { data: result
     });
   }
 
