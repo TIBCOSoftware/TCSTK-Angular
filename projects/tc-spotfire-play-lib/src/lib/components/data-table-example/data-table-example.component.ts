@@ -12,4 +12,8 @@ export class DataTableExampleComponent implements OnInit {
 
   }
 
+  changeSelection($event){
+    console.log('Selection Changed: ', $event);
+  }
+
 }
