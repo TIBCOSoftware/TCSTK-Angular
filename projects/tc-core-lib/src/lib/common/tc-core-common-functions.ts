@@ -11,6 +11,13 @@ export class TcCoreCommonFunctions {
     return +(size / Math.pow(1e3, e)).toFixed(2) + ' ' + ('kMGTPEZY'[e - 1] || '') + 'B';
   }
 
+  public static camelCaseToWords(str){
+    return str.match(/^[a-z]+|[A-Z][a-z]*/g).map(function(x){
+      return x[0].toUpperCase() + x.substr(1).toLowerCase();
+    }).join(' ');
+  };
+
+
   public static convertToJSON(array) {
     const objArray = [];
     for (let i = 1; i < array.length; i++) {
