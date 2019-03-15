@@ -80,7 +80,6 @@ const routes: Routes = [
             path: 'general-application-settings',
             component: TibcoCloudSettingsGeneralComponent,
             resolve: {
-              liveAppsConfig: LaConfigResolver,
               generalConfigHolder: GeneralConfigResolver
             }
           },
@@ -88,6 +87,7 @@ const routes: Routes = [
             path: 'live-apps-settings',
             component: LiveAppsSettingsComponent,
             resolve: {
+              laConfigHolder: LaConfigResolver,
               generalConfigHolder: GeneralConfigResolver
             }
           },
@@ -97,6 +97,9 @@ const routes: Routes = [
             resolve: {
               serviceDetailsConfigResolver: ServiceDetailsConfigResolver
             }
+          },
+          {
+            path: '**', redirectTo: '/starterApp/settings/general-application-settings'
           }
         ]
       },

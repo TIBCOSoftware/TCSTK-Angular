@@ -30,8 +30,9 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.typeId + '/' + caseRoute.caseRef]);
     }
     if (routeAction.action === 'configClicked') {
-      console.log('Config button clicked');
       // route to config page
+      this.router.navigate(['/starterApp/settings/']);
+
     }
 
   }
