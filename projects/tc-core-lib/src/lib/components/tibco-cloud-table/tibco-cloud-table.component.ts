@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort} from '@angular/material';
 import {TibcoCloudTableDataSource} from './tibco-cloud-table-datasource';
+import {TcCoreCommonFunctions} from './../../common/tc-core-common-functions';
 
 @Component({
   selector: 'tc-tibco-cloud-table',
@@ -56,4 +57,10 @@ export class TibcoCloudTableComponent implements OnInit {
     console.log('TIBCO CLOUD TABLE] ' , m);
   }*/
 
+  camelCaseTW(header: string | any) {
+
+      return TcCoreCommonFunctions.camelCaseToWords(header);
+
+
+  }
 }
