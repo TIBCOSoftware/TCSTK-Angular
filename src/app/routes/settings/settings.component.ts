@@ -74,10 +74,12 @@ export class SettingsComponent implements OnInit {
             const option = entry.slice(lastIndex + 1);
 
             var menu = this.configMenu.find( x => x.entry === menuEntry );
-            if ( menu == null ) {
-                this.configMenu.push({ entry: menuEntry, options: [option]})
-            } else {
+            if (menuEntry !== '') {
+              if (menu == null) {
+                this.configMenu.push({entry: menuEntry, options: [option]})
+              } else {
                 menu.options.push(option);
+              }
             }
         }
     }
