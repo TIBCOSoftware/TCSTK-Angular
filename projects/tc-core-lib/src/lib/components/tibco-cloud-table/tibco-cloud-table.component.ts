@@ -19,20 +19,20 @@ export class TibcoCloudTableComponent implements OnInit {
   columns = [];
 
   ngOnInit() {
-    console.log('JSONSource: ', this.jsonSource);
+    // console.log('JSONSource: ', this.jsonSource);
     const parsedJsonSource = JSON.parse(this.jsonSource);
-    console.log('Parsed JSON Source: ', parsedJsonSource);
+    // console.log('Parsed JSON Source: ', parsedJsonSource);
     this.dataSource = new TibcoCloudTableDataSource(this.paginator, this.sort, parsedJsonSource);
     const myColumns = [];
     if (parsedJsonSource.length != null) {
       if (parsedJsonSource.length > 0) {
-        console.log(parsedJsonSource[0]);
+        // console.log(parsedJsonSource[0]);
         if (parsedJsonSource[0] != null) {
           const myColumns = [];
           let m = 0;
           for (const headerName in parsedJsonSource[0]) {
             if (parsedJsonSource[0].hasOwnProperty(headerName)) {
-              console.log(m + ' headerName:', headerName);
+              // console.log(m + ' headerName:', headerName);
               this.displayedColumns.push(headerName);
               myColumns[m] = {};
               myColumns[m]['columnDef'] = headerName;
@@ -45,8 +45,8 @@ export class TibcoCloudTableComponent implements OnInit {
             m++;
           }
        }
-        console.log('myColums:', this.columns);
-        //this.columDefArray = this.columns;
+        // console.log('myColums:', this.columns);
+        // this.columDefArray = this.columns;
       }
     }
 
@@ -55,5 +55,5 @@ export class TibcoCloudTableComponent implements OnInit {
   private log(...m){
     console.log('TIBCO CLOUD TABLE] ' , m);
   }*/
-  
+
 }
