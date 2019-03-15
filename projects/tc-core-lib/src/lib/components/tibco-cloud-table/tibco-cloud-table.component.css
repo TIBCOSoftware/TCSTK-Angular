@@ -2,12 +2,19 @@
   width: 100%;
 }
 .tct-header{
+  /*
   background-color: #d0d5e2;
   font-size: 16px;
+*/
+  background: #0081cb;
+  color:white;
+  padding:5px 30px;
+  display:flex;
+  align-items: center;
 }
 
 .tct-header:hover{
-  background-color: #bbc2d4;
+  background-color: #229be0;
 }
 
 .tctgray {
