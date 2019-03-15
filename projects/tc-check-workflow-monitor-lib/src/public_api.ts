@@ -16,4 +16,5 @@ export * from './lib/components/settings-cwm-services/settings-cwm-services.comp
 
 // export * from './lib/services/cwm-settings-config-service.service';
 export * from './lib/resolvers/service-details-config.resolver';
+export * from './lib/components/service-handler-snackbar/service-handler-snackbar.component';
 
