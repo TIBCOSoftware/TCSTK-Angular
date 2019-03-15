@@ -8,7 +8,7 @@
     <div fxLayout="column" fxLayoutAlign="space-around stretch">
 
 
-      <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxLayoutAlign="center center">
         <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
       </div>
 
@@ -155,6 +155,10 @@
       <mat-form-field>
         <input matInput placeholder="Operation" [(ngModel)]="serviceDetailsConfig.setTerminalStateService.operation">
       </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
+      </div>
 
 
     </div>
