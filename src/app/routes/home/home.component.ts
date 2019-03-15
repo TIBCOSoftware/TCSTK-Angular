@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
     if (routeAction.action === 'configClicked') {
       // route to config page
       this.router.navigate(['/starterApp/settings/']);
-
     }
 
   }

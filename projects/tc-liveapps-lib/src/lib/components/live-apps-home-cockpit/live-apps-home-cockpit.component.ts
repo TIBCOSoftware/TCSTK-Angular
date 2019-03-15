@@ -8,6 +8,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsCreatorDialogComponent} from '../live-apps-creator-dialog/live-apps-creator-dialog.component';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
+import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-documents.component';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -28,6 +29,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @ViewChild(LiveAppsRecentCasesComponent) recentsComponent: LiveAppsRecentCasesComponent;
   @ViewChild(LiveAppsSearchWidgetComponent) searchComponent: LiveAppsSearchWidgetComponent;
   @ViewChild(LiveAppsNotesComponent) collaborationComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsDocumentsComponent) documentsComponent: LiveAppsDocumentsComponent;
 
   public toolbarButtons: ToolbarButton[];
 
@@ -39,7 +41,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   constructor(protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog) { }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
-    const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
+    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
     const buttons = [ configButton, refreshButton ];
     return buttons;
@@ -102,6 +104,9 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
     if (this.collaborationComponent) {
       this.collaborationComponent.refresh();
+    }
+    if (this.documentsComponent) {
+      this.documentsComponent.refresh();
     }
   }
 

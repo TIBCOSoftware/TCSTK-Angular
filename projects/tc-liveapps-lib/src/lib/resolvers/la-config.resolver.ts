@@ -47,11 +47,16 @@ export class LaConfigResolver implements Resolve<Observable<LiveAppsConfigHolder
         )
     );
 
+
+
     const resolveResp$ = claimResolver$.pipe(
       flatMap(liveAppsConfigHolder => {
-        return this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId + '_Icons').pipe(
+        const iconsFolder$ = this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId + '_Icons');
+        const docsFolder$ = this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId + '_Docs');
+        const forkJoinArray = [iconsFolder$, docsFolder$];
+        return forkJoin(forkJoinArray).pipe(
           map(
-            apiResponse => {
+            resultArr => {
               return liveAppsConfigHolder;
             }
           )
