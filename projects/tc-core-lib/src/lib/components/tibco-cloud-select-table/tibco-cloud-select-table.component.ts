@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TibcoCloudTableComponent} from '../tibco-cloud-table/tibco-cloud-table.component';
 import {LogService} from '../../services/tc-logging.service';
+import {CaseRoute} from 'tc-liveapps-lib';
 // import {TcFunctionsService} from '../../services/tc-functions.service';
 
 @Component({
@@ -9,6 +10,8 @@ import {LogService} from '../../services/tc-logging.service';
   styleUrls: ['./tibco-cloud-select-table.component.css']
 })
 export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
+
+  @Output() selectedlines: EventEmitter<any> = new EventEmitter<any>();
 
   selected = {};
 
@@ -38,6 +41,7 @@ export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
     }
     console.log('Selected Array: ' , selectedArray);
     this.selected = JSON.stringify(selectedArray);
+    this.selectedlines.emit(this.selected);
   }
 
 
