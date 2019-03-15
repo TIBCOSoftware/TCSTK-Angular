@@ -39,6 +39,10 @@ export class CaseComponent implements OnInit {
       // back clicked - navigate to home
       this.router.navigate(['/starterApp/home/']);
     }
+    if (routeAction.action === 'configClicked') {
+      // config clicked - route to config
+      this.router.navigate(['/starterApp/settings/']);
+    }
   }
 
   ngOnInit() {

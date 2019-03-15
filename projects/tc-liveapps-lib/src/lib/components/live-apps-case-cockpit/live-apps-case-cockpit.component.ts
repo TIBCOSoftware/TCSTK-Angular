@@ -56,10 +56,11 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
+    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
     const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
     const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
-    const buttons = [ favButton, refreshButton, homeButton ];
+    const buttons = [ configButton, favButton, refreshButton, homeButton ];
     return buttons;
   }
 
@@ -72,6 +73,9 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
     }
     if (buttonId === 'close') {
       this.routeAction.emit(new RouteAction('backClicked', null));
+    }
+    if (buttonId === 'config') {
+      this.routeAction.emit(new RouteAction('configClicked', null));
     }
   }
 

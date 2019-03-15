@@ -41,7 +41,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   constructor(protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog) { }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
-    const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
+    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
     const buttons = [ configButton, refreshButton ];
     return buttons;
