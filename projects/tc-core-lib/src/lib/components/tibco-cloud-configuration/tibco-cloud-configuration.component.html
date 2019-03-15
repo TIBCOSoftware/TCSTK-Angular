@@ -6,16 +6,16 @@
   </div>
 
   <div fxFlex style="padding: 40px">
-    <div fxLayout="column" fxLayoutAlign="start center" fxFlex="10"></div>
+    <!--div fxLayout="column" fxLayoutAlign="start center" fxFlex="10"></div-->
 
-    <div fxLayout="column" fxLayoutAlign="start start" fxFlex="20" fxLayoutGap>
+    <div fxLayout="column" fxLayoutAlign="start start" style="width: 220px;" fxLayoutGap>
       <tc-tibco-cloud-setting-menu-entry style="padding-bottom: 20px" *ngFor="let menu of configMenuPages"
                                          [icon]="'tcs-starters-icon'" [title]="menu.entry" [options]="menu.options"
                                          (configureOption)="handleSelectionEvent($event)"></tc-tibco-cloud-setting-menu-entry>
     </div>
 
     <!-- configure Box -->
-    <div fxFlex="60">
+    <div fxFlex>
       <div fxFill>
         <div fxFill fxLayout="column">
           <div class="starters-custom-layout-box-header">

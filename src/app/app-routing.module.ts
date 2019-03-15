@@ -89,6 +89,7 @@ const routes: Routes = [
             path: 'live-apps-settings',
             component: LiveAppsSettingsComponent,
             resolve: {
+              claims: ClaimsResolver,
               laConfigHolder: LaConfigResolver,
               generalConfigHolder: GeneralConfigResolver
             }
