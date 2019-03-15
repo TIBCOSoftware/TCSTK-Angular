@@ -11,6 +11,7 @@ import {ServiceDetails} from '../../models/service-details';
 
 import {PreviewDataDialogComponent} from '../preview-data-dialog/preview-data-dialog.component';
 import {ServiceHandlerService} from '../../services/service-handler.service';
+import {ServiceHandlerSnackbarComponent} from '../../components/service-handler-snackbar/service-handler-snackbar.component';
 
 
 
@@ -40,7 +41,6 @@ export class FileToServiceComponent implements OnInit, OnChanges {
 
     }
   }
-
 
 
   openDialog(jsonDataFromFile) {
@@ -98,14 +98,9 @@ export class FileToServiceComponent implements OnInit, OnChanges {
   }
 
 
-  // TODO refactor : it appears twice
   openSnackBar(result: any) {
-    // TODO handle error
-    const message = 'File imported correctly : ' + result.nbCreated + ' lines created';
-    const actionButtonLabel = 'Close';
-
-     this.snackBar.open( message, actionButtonLabel , {
-     });
+    this.snackBar.openFromComponent( ServiceHandlerSnackbarComponent , { data: result
+    });
   }
 
 

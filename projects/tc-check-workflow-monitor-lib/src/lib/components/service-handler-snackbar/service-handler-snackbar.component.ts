@@ -19,10 +19,25 @@ export class ServiceHandlerSnackbarComponent implements OnInit {
   ngOnInit() {
     console.log('SnackBar data : ' + JSON.stringify(this.result, null, 2));
 
+    // TODO to put this back to specific calls
+
     // Handling purge
      if (this.result.mfpCount !== undefined  ) {
        this.message = this.result.mfpCount + ' cases ont été purgés';
      }
+
+     // Handling created
+       if (this.result.nbCreated !== undefined  ) {
+         this.message = this.result.nbCreated + ' cases ont été créés';
+       }
+
+    // Handling treated
+    if (this.result.nbTreated !== undefined  ) {
+      this.message = this.result.nbTreated + ' cases ont été traités';
+    }
+
+
+
 
 
   }
