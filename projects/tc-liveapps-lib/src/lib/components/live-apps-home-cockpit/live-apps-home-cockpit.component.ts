@@ -55,6 +55,21 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   }
 
   public handleCreatorAppSelection = (application: CaseType) => {
+    const EXAMPLE_INITIAL_DATA = {
+      PartnerRequest: {
+        Customer_v1: {
+          CustomerReference_v1: 'CST-1111',
+          Name_v1: 'Roger Willis',
+        },
+        RequestDescription_v1: 'Where is my order?',
+        RequestDetails_v1: {
+          OrderReference_v1: 'ORD-55333',
+          PartReference_v1: 'PRT-102020',
+        },
+        RequestType_v1: 'Packaging Supplies'
+      }
+    }
+    // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
     this.openCreatorDialog(application, undefined, this.sandboxId);
   }
 
