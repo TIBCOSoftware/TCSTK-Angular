@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_SNACK_BAR_DATA} from '@angular/material';
+import {MAT_SNACK_BAR_DATA, MatSnackBarRef} from '@angular/material';
 
 @Component({
   selector: 'tccwm-service-handler-snackbar',
@@ -11,8 +11,9 @@ export class ServiceHandlerSnackbarComponent implements OnInit {
   public message: string;
   private result: any;
 
-  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) {
+  constructor(private snackBarRef: MatSnackBarRef<ServiceHandlerSnackbarComponent>, @Inject(MAT_SNACK_BAR_DATA) public data: any) {
     this.result = data;
+
   }
 
   ngOnInit() {
@@ -24,6 +25,10 @@ export class ServiceHandlerSnackbarComponent implements OnInit {
      }
 
 
+  }
+
+  closeSnack() {
+    this.snackBarRef.dismiss();
   }
 
 }
