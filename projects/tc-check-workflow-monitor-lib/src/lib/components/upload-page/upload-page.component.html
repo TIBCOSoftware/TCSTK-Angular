@@ -1,9 +1,9 @@
-<div fxLayout="column" fxFill fxLayoutAlign="space-around stretch">
+<div fxLayout="column" fxFill>
 
 
   <div fxLayout="column">
     <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
-      <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+      <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
         <span class="tc-home-welcome-text">{{title}}</span>
       </div>
     </tc-tibco-cloud-menu-bar>

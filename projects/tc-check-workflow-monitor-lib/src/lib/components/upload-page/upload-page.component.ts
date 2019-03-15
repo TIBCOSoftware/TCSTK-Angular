@@ -56,7 +56,7 @@ export class UploadPageComponent implements OnInit {
 
   public handleToolbarButtonEvent = (buttonId: string) => {
     if (buttonId === 'config') {
-      this.router.navigate(['/starterApp/settings/upload-services-settings']);
+      this.router.navigate(['/starterApp/configuration/upload-services-settings']);
 
     }
 
