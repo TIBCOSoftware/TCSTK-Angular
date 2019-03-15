@@ -87,6 +87,7 @@ export class UploadPageComponent implements OnInit {
     this.serviceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.updateServiceFromBpm));
 
     this.debugServiceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.initiateService));
+
     this.debugServiceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.setTerminalStateService));
 
   }
@@ -97,7 +98,7 @@ export class UploadPageComponent implements OnInit {
   handleSelectedService (serviceDetails) {
     this.curServiceDetails = serviceDetails;
 
-    if (this.curServiceDetails.rootObjectName === null) {
+    if (this.curServiceDetails.rootObjectName === '') {
       const serviceObservable = this.serviceHandler.postService(serviceDetails.apiUrl + serviceDetails.operation, null);
       serviceObservable.subscribe( result => {
             this.openSnackBar(result);
