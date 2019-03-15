@@ -75,52 +75,18 @@ export class UploadPageComponent implements OnInit {
   ngOnInit() {
     this.toolbarButtons = this.createToolbarButtons();
 
-
-
     this.serviceDetailsConfig = this.route.snapshot.data.serviceDetailsConfigResolver;
 
-    // alert("aaa" + JSON.stringify(this.serviceDetailsConfig));
+    const serviceDetails = new ServiceDetails().deserialize(this.serviceDetailsConfig.createService);
 
-
-
-
-    let serviceDetails;
-
-    serviceDetails = new ServiceDetails().deserialize({label: 'Creation à partir de Bordereaux', fileLabel: 'Borderaux', rootObjectName : 'cases',
-      operation : '/CreateCasesFromBordereaux',
-      apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
     this.serviceDetailsList.push(serviceDetails);
-
-    // pick the first one
     this.curServiceDetails = serviceDetails;
 
+    this.serviceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.updateServiceFromPartner));
+    this.serviceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.updateServiceFromBpm));
 
-    serviceDetails = new ServiceDetails().deserialize({label: 'Mise à jour Docapost', fileLabel: 'CR Docapost', rootObjectName : 'cases',
-      operation : '/UpdateLACasesFromDocapost',
-      apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-    this.serviceDetailsList.push(serviceDetails);
-
-
-    serviceDetails = new ServiceDetails().deserialize({label: 'Mise à jour From BPM (X)', fileLabel: 'Export BPM', rootObjectName : 'cases',
-      operation : '/CreateCasesFromBordereaux',
-      apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-    this.serviceDetailsList.push(serviceDetails);
-
-
-
-
-
-
-    serviceDetails = new ServiceDetails().deserialize({label: 'Initialisation', fileLabel: '????????', rootObjectName : 'cases',
-      operation : '/CreateCasesFromBordereaux',
-      apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-    this.debugServiceDetailsList.push(serviceDetails);
-
-    serviceDetails = new ServiceDetails().deserialize({label: 'Cloture Tous', rootObjectName : null,
-      operation : '/closeAllCase',
-      apiUrl: 'https://eu-west-1.integration.cloud.tibcoapps.com/zwwupj46ttb7alnauy7exvxwihssu2y3'});
-    this.debugServiceDetailsList.push(serviceDetails);
-
+    this.debugServiceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.initiateService));
+    this.debugServiceDetailsList.push(new ServiceDetails().deserialize(this.serviceDetailsConfig.setTerminalStateService));
 
   }
 
