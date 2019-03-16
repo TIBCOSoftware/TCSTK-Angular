@@ -38,19 +38,37 @@ export class ConfigurationComponent implements OnInit {
   }
 
   ngOnInit() {
+     //  const uiAppId = this.route.snapshot.data.uiAppIdConfigHolder.uiAppId;
     this.configMenuPages = [
       {
         entry: 'General Application',
+        icon: 'tcs-starters-icon',
+        options: ['Settings']
+      },
+      {
+        entry: 'Integration',
+        icon: 'tcs-integration-icon',
         options: ['Settings']
       },
       {
         entry: 'Live Apps',
+        icon: 'tcs-liveapps-sm-icon',
         options: ['Settings']
-      }
+      },
+      {
+        entry: 'Spotfire',
+        icon: 'tcs-spotfire-icon',
+        options: ['Settings']
+      },
       /* ,{
         entry: 'Upload Services',
         options: ['Settings']
       } */
+      {
+          entry: 'Process Discovery', 
+          icon: 'tcs-starters-icon',
+          options: ['Configuration', 'Administration']
+      }
     ];
 
     /* This is for PD usecase where you want navbar */
