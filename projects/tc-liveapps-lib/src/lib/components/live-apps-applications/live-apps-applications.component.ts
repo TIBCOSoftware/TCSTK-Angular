@@ -3,7 +3,7 @@
  * @name liveAppsApplicationsComponent
  *
  * @description
- * `<tcla-live-apps-applications-component>` is a component providing the ability to list and select an application.
+ * `<tcla-live-apps-applications>` is a component providing the ability to list and select an application.
  *
  * @param {function callback} selection Notify parent that an application has been selected.
  *
