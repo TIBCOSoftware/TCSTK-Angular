@@ -1,0 +1,21 @@
+<div fxLayout="column" layout-align="start stretch" flex>
+
+    <p>You can update the values used by Process Discovery Application.</p>
+    <br>
+
+    <div fxLayout="column">
+        <mat-form-field>
+            <input matInput placeholder="Datasources application" [(ngModel)]="datasourceAppId">
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <input matInput placeholder="Default datasource" [(ngModel)]="'defaultDatasource'">
+        </mat-form-field> -->
+        <tcla-live-apps-applications [sandboxId]="sandbox.id"  [selectFirstApp]="'false'" (selection)="selectApplication($event)" ></tcla-live-apps-applications>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
+        </div>  
+        <!-- Applications to work with app -->
+        
+      
+    </div>
+</div>
