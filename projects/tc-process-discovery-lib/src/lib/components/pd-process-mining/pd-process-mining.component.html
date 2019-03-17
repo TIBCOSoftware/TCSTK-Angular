@@ -9,26 +9,30 @@
         <tcla-spotfire-viz [url]="spotfireServer"
             [path]="analysisPath" (markingEvent)="marking($event)"
             [page]="activePage" 
-            customization='{
-                "showAbout": false,
-                "showAnalysisInformationTool": false,
-                "showAuthor": false,
-                "showClose": false,
-                "showCustomizableHeader": false,
-                "showDodPanel": false,
-                "showExportFile": false,
-                "showExportVisualization": false,
-                "showFilterPanel": false,
-                "showHelp": false,
-                "showLogout": false,
-                "showPageNavigation": false,
-                "showAnalysisInfo": false,
-                "showReloadAnalysis": false,
-                "showStatusBar": false,
-                "showToolBar": false,
-                "showUndoRedo": false
-            }' id="id1" markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'>
+            [parameters]="parameters"
+            [customization]="configuration" id="id1" markingon='{"cases": [ "*" ]}' [maxRows]='1000'>
         </tcla-spotfire-viz>
+    <!-- <tcla-spotfire-viz (markingEvent)="marking($event)" [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
+    [url]="'https://spotfire-next.cloud.tibco.com'" id="id1" markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}' [maxRows]='1000'
+    customization='{"showAbout": true,
+                    "showAnalysisInformationTool": true,
+                    "showAuthor": true,
+                    "showClose": true,
+                    "showCustomizableHeader": true,
+                    "showDodPanel": true,
+                    "showExportFile": true,
+                    "showExportVisualization": true,
+                    "showFilterPanel": true,
+                    "showHelp": true,
+                    "showLogout": false,
+                    "showPageNavigation": true,
+                    "showAnalysisInfo": true,
+                    "showReloadAnalysis": true,
+                    "showStatusBar": true,
+                    "showToolBar": true,
+                    "showUndoRedo": false}'
+    >
+  </tcla-spotfire-viz> -->
     </div>
 
 </div>
