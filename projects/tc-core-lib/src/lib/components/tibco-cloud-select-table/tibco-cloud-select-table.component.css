@@ -29,3 +29,7 @@
 .tcstgray {
   background-color: #f5f5f5;
 }
+
+.tcst-hide{
+  display: none;
+}
