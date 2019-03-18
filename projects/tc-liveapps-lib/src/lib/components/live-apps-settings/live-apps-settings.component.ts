@@ -15,15 +15,21 @@ export class LiveAppsSettingsComponent implements OnInit {
   public generalConfig: GeneralConfig;
   public claims: Claim;
   public sandbox: Sandbox;
+  public selectedAppIds: string[];
 
   constructor(private route: ActivatedRoute) { }
+
+  public handleAppIdSelection(appIds: string[]) {
+    console.log('Selected: ', appIds);
+    this.selectedAppIds = appIds;
+  }
 
   ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.claims = this.route.snapshot.data.claims;
     this.sandbox = this.claims.primaryProductionSandbox;
-
+    this.selectedAppIds = this.liveAppsConfig.applicationIds;
   }
 
 }
