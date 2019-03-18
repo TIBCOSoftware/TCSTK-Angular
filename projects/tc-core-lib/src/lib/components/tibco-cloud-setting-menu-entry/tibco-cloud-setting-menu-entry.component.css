@@ -22,3 +22,7 @@
     color: #0081cb;
     padding-bottom: 20px;
 }
+
+:host ::ng-deep .padding-icon{
+    padding-right: 15px;
+}
