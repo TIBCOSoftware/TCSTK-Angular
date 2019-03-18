@@ -29,11 +29,13 @@ export class LiveAppsApplicationListComponent extends LiveAppsApplicationsCompon
   handleSelectAll = () => {
     this.mySelectedOptions = this.applications.casetypes;
     this.appIdsSelected.emit(this.getAppIds(this.mySelectedOptions));
+    this.appsSelected.emit(this.applications.casetypes);
   }
 
   handleDeselectAll = () => {
     this.mySelectedOptions = [];
     this.appIdsSelected.emit([]);
+    this.appsSelected.emit([]);
   }
 
   private getAppIds = (casetypes: CaseType[]): string[] => {
