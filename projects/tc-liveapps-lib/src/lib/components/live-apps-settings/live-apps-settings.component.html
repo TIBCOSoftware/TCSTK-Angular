@@ -4,11 +4,8 @@
     <mat-tab label="Live App Config">
       <!-- using ng-template makes sure the tabs are lazy loaded -->
       <ng-template matTabContent>
-        <p>You can choose one TIBCO Cloud Live Apps Application to be linked with your Portal Web Application.</p>
 
-        <!-- Application Case Type -->
         <div layout="row" layout-align="space-between center">
-
           <mat-form-field fxFlex="45">
             <input matInput placeholder="Case Type Label" value="Investigations">
           </mat-form-field>
@@ -16,6 +13,11 @@
             <input matInput placeholder="Case Type Label Singular" value="Investigation">
           </mat-form-field>
         </div>
+
+
+        <p>Choose the TIBCO Cloud Live Apps Applications to be used within this application:</p>
+        <tcla-live-apps-application-list [sandboxId]="sandbox.id" [selectedAppIds]="selectedAppIds" (appIdsSelected)="handleAppIdSelection($event)"></tcla-live-apps-application-list>
+
       </ng-template>
     </mat-tab>
 
