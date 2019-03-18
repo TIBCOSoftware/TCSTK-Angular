@@ -30,10 +30,11 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   @Input() sandboxId: number;
   @Input() appIds: string[];
   @Input() selectFirstApp: boolean;
+  @Input() selectedApp: CaseType = this.selectedApp ? this.selectedApp : new CaseType();
   @Output() selection: EventEmitter<CaseType> = new EventEmitter<CaseType>();
 
   applications: CaseTypesList = new CaseTypesList();
-  selectedApp: CaseType = new CaseType();
+  // selectedApp: CaseType = new CaseType();
   errorMessage: string;
 
   constructor(private liveapps: LiveAppsService) {
@@ -52,10 +53,16 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
         takeUntil(this._destroyed$),
         map(applicationList => {
           this.applications = applicationList;
+          if (this.selectedApp.applicationId) {
+            this.selectedApp = applicationList.casetypes.find((casetype) => {
+              return casetype.applicationId === this.selectedApp.applicationId;
+            });
+            // this.selection.emit(this.selectedApp);
+          } else
           // select first as default
-          if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
-            this.selectedApp = applicationList.casetypes[0];
-            this.selection.emit(applicationList.casetypes[0]);
+            if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
+              this.selectedApp = applicationList.casetypes[0];
+              this.selection.emit(applicationList.casetypes[0]);
           }
         })
       )
