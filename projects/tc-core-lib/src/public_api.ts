@@ -44,6 +44,7 @@ export * from './lib/guards/auth.guard';
 
 // resolvers
 export * from './lib/resolvers/general-config.resolver';
+export * from './lib/resolvers/configurationMenu-config.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';
