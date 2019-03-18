@@ -37,7 +37,7 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   // selectedApp: CaseType = new CaseType();
   errorMessage: string;
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 
@@ -71,7 +71,6 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
 
   ngOnInit(): void {
     this.refresh(false);
-
   }
 
 }

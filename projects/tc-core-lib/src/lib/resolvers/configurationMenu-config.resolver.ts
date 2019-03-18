@@ -31,7 +31,7 @@ export class ConfigurationMenuConfigResolver implements Resolve<Observable<Confi
     }
 
     resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<ConfigurationMenuConfig> {
-        const configurationMenuConfig$ = 
+        const configurationMenuConfig$ =
             this.getAppId().pipe(
                 flatMap(uiAppId => {
                     return this.getConfigurationMenuConfig(uiAppId.uiAppId).pipe(
