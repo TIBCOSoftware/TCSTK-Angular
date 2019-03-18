@@ -10,7 +10,7 @@
                          columns: displayedColumns;"
              [ngClass]="{gray: even}"></mat-row>
   </table>
-  <mat-paginator  #paginator
+  <mat-paginator [ngClass]="{'tct-hide': dataSource.data.length < 10}" #paginator
                  [length]="dataSource.data.length"
                  [pageIndex]="0"
                  [pageSize]="10"

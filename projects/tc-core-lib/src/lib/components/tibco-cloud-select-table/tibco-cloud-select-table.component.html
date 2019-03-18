@@ -10,11 +10,13 @@
              (click)="row.highlighted = !row.highlighted; clicked(row);" (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"></mat-row>
 
 
-  </table>
-  <mat-paginator #paginator
+  </table> <!-- *ngIf="dataSource.data.length > 10" -->
+<!-- <div class='' ngClass="{'tcst-hide': dataSource.data.length < 10}"> -->
+  <mat-paginator [ngClass]="{'tcst-hide': dataSource.data.length < 10}"  #paginator
                  [length]="dataSource.data.length"
                  [pageIndex]="0"
                  [pageSize]="10"
                  [pageSizeOptions]="[5, 10, 20, 25]">
   </mat-paginator>
 </div>
+<!--</div>-->
