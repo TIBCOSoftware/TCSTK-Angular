@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material';
+import {SpotfireCustomization} from 'spotfire-webplayer/lib/spotfire-customization';
 
 @Component({
   selector: 'tcsp-spotfire-play',
@@ -18,12 +19,58 @@ export class SpotfirePlayComponent implements OnInit {
   markingData = new Array(new Array(new Array()));
   dataSourceJson = new Array();
   columDefArray = new Array();
+  myMarkingOn = "*";
 
   constructor() { }
 
   ngOnInit() {
 
   }
+  /*
+  ngOnInit() {
+    var spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
+    this.datasource = this.route.snapshot.params['datasource'];
+
+    this.spotfireServer = spotfireConfig.spotfireServer;
+    this.analysisPath = spotfireConfig.analysisPath;
+
+    this.allowedPages = spotfireConfig.allowedPages;
+    this.activePage = "Filters"; //spotfireConfig.activePageForHome;
+
+    this.parameters = 'AnalysisId = "' + this.datasource + '";';
+
+    const value = true;
+    this.configuration = {
+      "showAbout": value,
+      "showAnalysisInformationTool": value,
+      "showAuthor": value,
+      "showClose": value,
+      "showCustomizableHeader": value,
+      "showDodPanel": value,
+      "showExportFile": value,
+      "showExportVisualization": value,
+      "showFilterPanel": value,
+      "showHelp": value,
+      "showLogout": value,
+      "showPageNavigation": value,
+      "showAnalysisInfo": value,
+      "showReloadAnalysis": value,
+      "showStatusBar": value,
+      "showToolBar": value,
+      "showUndoRedo": value
+    } as SpotfireCustomization;
+    this.markingOn = '*';
+
+    // this.markingName = spotfireConfig.markingName;
+    // this.maxMarkings = spotfireConfig.maxMarkings;
+
+    // this.spotfireServer = "https://spotfire-next.cloud.tibco.com";
+    // this.analysisPath = "Samples/Sales and Marketing";
+    // this.allowedPages = ['Sales performance', 'Territory analysis', 'Effect of promotions'];
+    this.configuration = { showAuthor: true, showFilterPanel: true, showToolBar: true } as SpotfireCustomization;
+    // this.markingOn = '{"SalesAndMarketing": ["*"]}';
+
+  }*/
 
   public marking(data) {
     // console.log('Marking: ' + JSON.stringify(data, null, 2));
