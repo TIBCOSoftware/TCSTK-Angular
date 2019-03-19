@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SpotfireCustomization } from 'spotfire-webplayer/lib/spotfire-customization';
 
 @Component({
   selector: 'tcpd-pd-process-mining',
@@ -25,6 +26,7 @@ export class PdProcessMiningComponent implements OnInit {
     activePage : string;
     public test: any;
     public configuration;
+    public markingOn;
 
     constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -36,14 +38,11 @@ export class PdProcessMiningComponent implements OnInit {
         this.analysisPath = spotfireConfig.analysisPath;
 
         this.allowedPages = spotfireConfig.allowedPages; 
-        this.activePage = spotfireConfig.activePageForHome;
+        this.activePage = "Filters"; //spotfireConfig.activePageForHome;
 
         this.parameters = 'AnalysisId = "' + this.datasource + '";';
 
-        this.test = { "cases": [ "*" ], "events": [ "*"] };
-// markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'
-
-        const value = false;
+        const value = true;
         this.configuration = {
             "showAbout": value,
             "showAnalysisInformationTool": value,
@@ -62,16 +61,18 @@ export class PdProcessMiningComponent implements OnInit {
             "showStatusBar": value,
             "showToolBar": value,
             "showUndoRedo": value
-        };
+        } as SpotfireCustomization;
+        this.markingOn = '*';
 
         // this.markingName = spotfireConfig.markingName;
         // this.maxMarkings = spotfireConfig.maxMarkings;
 
-// Table Name : cases
-// Active Page for Details : Overview (for now)
-// Marking Name : Cases
-// Column Names : case_id
-// Plus you need to pass ‘AnalysisId = “DIS_000002”;’ in the “parameters” argument of the spotfire.webplayer.createApplication function (called in the spotfirewrapper)
+        // this.spotfireServer = "https://spotfire-next.cloud.tibco.com";
+        // this.analysisPath = "Samples/Sales and Marketing";
+        // this.allowedPages = ['Sales performance', 'Territory analysis', 'Effect of promotions'];
+        this.configuration = { showAuthor: true, showFilterPanel: true, showToolBar: true } as SpotfireCustomization;
+        // this.markingOn = '{"SalesAndMarketing": ["*"]}';
+
     }
 
     handleCaseCreation = (caseId: string) => {
@@ -100,6 +101,7 @@ export class PdProcessMiningComponent implements OnInit {
     
     public tabChange = ($event: any): void => {
         console.log('tab change: ', $event);
+        console.log("********** " + this.allowedPages[$event.index]);
         this.activePage = this.allowedPages[$event.index];
     }
 
