@@ -1,4 +1,4 @@
-<div>
+<div style="padding: 10px;">
     <div fxLayout="row">
         <button mat-button (click)="handleSelectAll()">
             <mat-icon class="app-list-select-all-icon"></mat-icon><span>Select All</span>
@@ -9,9 +9,12 @@
     </div>
     <cdk-virtual-scroll-viewport itemSize="50" class="starters-scrolling-viewport">
         <mat-selection-list #selectedApps [(ngModel)]="mySelectedOptions" (ngModelChange)="handleAppSelection($event)">
-            <mat-list-option checkboxPosition="before" *ngFor="let casetype of applications.casetypes"
+            <mat-list-option class="tcs-application-option" checkboxPosition="before" *ngFor="let casetype of applications.casetypes"
                 [value]="casetype">
-                {{casetype.label}}
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <span>{{casetype.label}}</span>
+                  <mat-icon class="tcs-hover-link" [svgIcon]="'tcs-application-edit'" (click)="handleEditLiveAppClick(casetype.applicationId)" matTooltip="Edit this app in Live Apps Designer" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
+                </div>
             </mat-list-option>
         </mat-selection-list>
     </cdk-virtual-scroll-viewport>

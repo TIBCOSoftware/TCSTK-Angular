@@ -1,10 +1,7 @@
 <div layout="column" layout-align="start stretch" flex>
-
         <p>Choose the TIBCO Cloud Live Apps Applications to be used within this application:</p>
-        <tcla-live-apps-application-list [sandboxId]="sandboxId" [selectedAppIds]="selectedAppIds" (appIdsSelected)="handleAppIdSelection($event)"></tcla-live-apps-application-list>
- 
+        <tcla-live-apps-application-list [sandboxId]="sandboxId" [selectedAppIds]="selectedAppIds" [showDesignerLink]="true" (appIdsSelected)="handleAppIdSelection($event)"></tcla-live-apps-application-list>
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
         </div>
-
 </div>
