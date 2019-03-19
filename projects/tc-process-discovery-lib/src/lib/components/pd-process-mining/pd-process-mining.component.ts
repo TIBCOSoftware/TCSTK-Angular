@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SpotfireCustomization } from 'spotfire-webplayer/lib/spotfire-customization';
+import { McSpotfireWrapperComponent } from 'tc-spotfire-lib';
 
 @Component({
   selector: 'tcpd-pd-process-mining',
@@ -16,8 +17,8 @@ export class PdProcessMiningComponent implements OnInit {
     @Input() typeId : string;
     @Output() datasource: string;
     @Output() caseCreated = new EventEmitter; 
-    private currentView : string;
-    private currentRole : string;
+    
+    @ViewChild(McSpotfireWrapperComponent) spotfireWrapperComponent: McSpotfireWrapperComponent;
 
     public spotfireServer: string;
     public analysisPath: string;
@@ -38,11 +39,11 @@ export class PdProcessMiningComponent implements OnInit {
         this.analysisPath = spotfireConfig.analysisPath;
 
         this.allowedPages = spotfireConfig.allowedPages; 
-        this.activePage = "Filters"; //spotfireConfig.activePageForHome;
+        this.activePage = spotfireConfig.activePageForHome;
 
-        this.parameters = 'AnalysisId = "' + this.datasource + '";';
+        // this.parameters = 'AnalysisId = "' + this.datasource + '";';
 
-        const value = true;
+        const value = false;
         this.configuration = {
             "showAbout": value,
             "showAnalysisInformationTool": value,
@@ -70,7 +71,8 @@ export class PdProcessMiningComponent implements OnInit {
         // this.spotfireServer = "https://spotfire-next.cloud.tibco.com";
         // this.analysisPath = "Samples/Sales and Marketing";
         // this.allowedPages = ['Sales performance', 'Territory analysis', 'Effect of promotions'];
-        this.configuration = { showAuthor: true, showFilterPanel: true, showToolBar: true } as SpotfireCustomization;
+        // this.activePage = 'Sales performance'; 
+        // this.configuration = { showAuthor: true, showFilterPanel: true, showToolBar: true } as SpotfireCustomization;
         // this.markingOn = '{"SalesAndMarketing": ["*"]}';
 
     }
@@ -83,7 +85,6 @@ export class PdProcessMiningComponent implements OnInit {
 
     public handleViewButtonEvent = (id : string) => {
         console.log("ID: " + id);
-        this.currentView = id;
         switch (id) {
             case "ProcessMiningView":
                 this.router.navigate(['/starterApp/process-mining'], {});   
@@ -101,8 +102,7 @@ export class PdProcessMiningComponent implements OnInit {
     
     public tabChange = ($event: any): void => {
         console.log('tab change: ', $event);
-        console.log("********** " + this.allowedPages[$event.index]);
-        this.activePage = this.allowedPages[$event.index];
+        this.spotfireWrapperComponent.openPage(this.allowedPages[$event.index]);
     }
 
     public marking = ($event: any): void  => {

@@ -1,7 +1,6 @@
 <div>
     <mat-tab-group (selectedTabChange)="tabChange($event)">
         <mat-tab *ngFor="let page of allowedPages" label="{{page}}"></mat-tab>
-        <mat-tab  label="{{activePage}}"></mat-tab>
     </mat-tab-group>
 </div>
 
@@ -16,5 +15,4 @@
                                     (markingEvent)="marking($event)">
         </tcsf-mc-spotfire-wrapper>
     </div>
->
 </div>
