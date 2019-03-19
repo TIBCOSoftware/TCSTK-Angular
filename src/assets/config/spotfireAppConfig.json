@@ -1,6 +1,6 @@
 {
-    "spotfireServer": "https://spotfire-next.cloud.tibco.com/spotfire/wp",
-    "analysisPath": "/Teams/TIB_SUB_01BB7F22MGX01K6MQK0TD02DYV/Risk Investigation Analytics Template V3",
+    "spotfireServer": "https://23.22.187.212",
+    "analysisPath": "/TIBCO Labs/ProcessMining_custom_queries_final",
     "tableName": "cases",
     "activePageForHome": "Overview",
     "activePageForDetails": "Overview",

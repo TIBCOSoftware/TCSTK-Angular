@@ -1,0 +1,14 @@
+.nav-switch-bar{
+    border-radius: 100px;
+    border: solid 1px #b6b6b6;
+    background-color: #ffffff;
+}
+
+.mat-button-toggle-checked{
+    color: #ffffff;
+    border-radius: 100px;
+    background-color: #062e79;
+    border: solid 1px #062e79;
+    padding-left: 11px;
+    padding-right: 11px;
+}

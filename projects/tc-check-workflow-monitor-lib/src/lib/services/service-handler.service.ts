@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {catchError, retry} from 'rxjs/operators';
+import {catchError, map, retry, tap} from 'rxjs/operators';
+import {CaseInfoList} from 'tc-liveapps-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,20 @@ export class ServiceHandlerService {
         catchError(this.handleError)
       );
   }
+
+
+
+
+  public getCases(sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseInfoList> {
+    const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+      + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top;
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(caseinfos => new CaseInfoList().deserialize(caseinfos)));
+  }
+
+
 
 
 
