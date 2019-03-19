@@ -26,10 +26,12 @@ import {SettingsCwmServicesComponent} from './components/settings-cwm-services/s
 
 import {CwmSettingsConfigServiceService} from './services/cwm-settings-config-service.service';
 import { ServiceHandlerSnackbarComponent } from './components/service-handler-snackbar/service-handler-snackbar.component';
+import {DecisionCockpitComponent} from './components/decision-cockpit/decision-cockpit.component';
+import { CreateFileToDownloadComponent } from './components/create-file-to-download/create-file-to-download.component';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -60,7 +62,7 @@ import { ServiceHandlerSnackbarComponent } from './components/service-handler-sn
     TcCoreLibModule
   ],
   entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent],
-  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent],
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent,CreateFileToDownloadComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }

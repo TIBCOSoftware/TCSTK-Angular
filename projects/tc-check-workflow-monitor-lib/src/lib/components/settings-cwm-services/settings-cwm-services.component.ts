@@ -33,7 +33,7 @@ export class SettingsCwmServicesComponent implements OnInit {
     public runSaveFuntion = (): void => {
 
 // TOdo BECARFULL CHANGE NAM APp
-      this.cwmSettingsConfigServiceService.updateServiceSettingConfig(1930, 'NamApp', this.serviceDetailsConfig, this.serviceDetailsConfig.id).subscribe();
+      this.cwmSettingsConfigServiceService.updateServiceSettingConfig(1930, 'cwm', this.serviceDetailsConfig, this.serviceDetailsConfig.id).subscribe();
 
 
     }

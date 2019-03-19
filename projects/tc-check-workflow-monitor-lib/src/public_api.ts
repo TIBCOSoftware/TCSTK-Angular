@@ -12,7 +12,9 @@ export * from './lib/components/upload-page/upload-page.component';
 export * from './lib/components/file-to-service/file-to-service.component';
 export * from './lib/components/select-service-display/select-service-display.component';
 export * from './lib/components/home-cockpit/home-cockpit.component';
+export * from './lib/components/decision-cockpit/decision-cockpit.component';
 export * from './lib/components/settings-cwm-services/settings-cwm-services.component';
+export * from './lib/components/create-file-to-download/create-file-to-download.component';
 
 // export * from './lib/services/cwm-settings-config-service.service';
 export * from './lib/resolvers/service-details-config.resolver';
