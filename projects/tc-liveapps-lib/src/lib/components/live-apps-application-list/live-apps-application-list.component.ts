@@ -12,8 +12,11 @@ import {MatSelectionList} from '@angular/material';
 export class LiveAppsApplicationListComponent extends LiveAppsApplicationsComponent implements OnInit, OnChanges {
   @ViewChild (MatSelectionList) appSelectionList: MatSelectionList;
   @Input() selectedAppIds: string[] = [];
+  @Input() showDesignerLink: boolean;
   @Output() appsSelected: EventEmitter<CaseType[]> = new EventEmitter<CaseType[]>();
   @Output() appIdsSelected: EventEmitter<string[]> = new EventEmitter<string[]>();
+
+  LIVE_APPS_URL = '/apps/dt-app/index.html#/application-content/';
 
   public mySelectedOptions: CaseType[];
 
@@ -36,6 +39,12 @@ export class LiveAppsApplicationListComponent extends LiveAppsApplicationsCompon
     this.mySelectedOptions = [];
     this.appIdsSelected.emit([]);
     this.appsSelected.emit([]);
+  }
+
+  handleEditLiveAppClick = (applicationId: string) => {
+    // window.open(this.LIVE_APPS_URL + applicationId);
+    // currently no public API to get the appId version for design time to populate the URL
+    window.open(this.LIVE_APPS_URL);
   }
 
   private getAppIds = (casetypes: CaseType[]): string[] => {
