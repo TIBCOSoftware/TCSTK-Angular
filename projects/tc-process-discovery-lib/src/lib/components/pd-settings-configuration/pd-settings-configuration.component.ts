@@ -16,7 +16,7 @@ export class PdSettingsConfigurationComponent implements OnInit {
     // public liveAppsConfig: LiveAppsConfig;
     // public generalConfig: GeneralConfig;
     public claims: Claim;
-    public sandbox: Sandbox;
+    public sandboxId: number;
     public selectedApp: CaseType;
   
     constructor(private liveapps: LiveAppsService, private route: ActivatedRoute) { }
@@ -26,7 +26,7 @@ export class PdSettingsConfigurationComponent implements OnInit {
         // this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
         // this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
         this.claims = this.route.snapshot.data.claims;
-        this.sandbox = this.claims.primaryProductionSandbox;
+        this.sandboxId = Number(this.claims.primaryProductionSandbox.id).valueOf();
 
         this.datasourceAppId="2504";
         this.refresh(true);
@@ -42,15 +42,10 @@ export class PdSettingsConfigurationComponent implements OnInit {
 
         let appIds = [ this.datasourceAppId ];
 
-        this.liveapps.getApplications(Number(this.sandbox.id), appIds, 100, bypassCache)
+        this.liveapps.getApplications(Number(this.sandboxId), appIds, 100, bypassCache)
             .pipe(
             map(applicationList => {
-                // this.applications = applicationList;
-                // // select first as default
-                // if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
                     this.selectedApp = applicationList.casetypes[0];
-//                    this.selection.emit(applicationList.casetypes[0]);
-                // }
             })
             )
             .subscribe(null, error => { console.log("***** error "); }) //this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; });          
