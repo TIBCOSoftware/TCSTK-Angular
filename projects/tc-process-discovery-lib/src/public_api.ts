@@ -17,3 +17,6 @@ export * from './lib/components/pd-widget-header/pd-widget-header.component';
 export * from './lib/components/settings-integration/settings-integration.component';
 export * from './lib/components/settings-spotfire/settings-spotfire.component';
 
+// Resolvers
+export * from './lib/resolvers/process-discovery-config.resolver';
+
