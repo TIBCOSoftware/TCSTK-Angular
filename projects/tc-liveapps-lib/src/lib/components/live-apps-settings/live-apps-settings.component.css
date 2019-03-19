@@ -1,0 +1,16 @@
+.tcs-designer-link {
+  margin-bottom: 10px;
+}
+
+.tcs-designer-link:hover {
+  fill: #0081cb;
+  cursor: pointer;
+}
+
+.tcs-live-apps-settings-pane {
+  overflow: hidden;
+}
+
+.tcs-app-selection-list-widget {
+  overflow: hidden;
+}

@@ -1,9 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Router, Route } from '@angular/router';
+import {Router, Route, ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
 import { ToolbarButton } from '../../models/tc-widget-header';
 import { TcButtonsHelperService } from '../../services/tc-buttons-helper.service';
-import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 import {RouteAction} from '../../models/tc-routing-actions';
 import {ConfigurationMenuConfig} from '../../models/tc-configuration-menu-config';
 
@@ -19,7 +18,7 @@ export class TibcoCloudConfigurationComponent implements OnInit {
   configName: string;
   toolbarButtons: ToolbarButton[];
 
-  constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private location: Location) { }
+  constructor(private router: Router, private route: ActivatedRoute, private buttonsHelper: TcButtonsHelperService, private location: Location) { }
 
   private createToolbarButtons = (): ToolbarButton[] => {
     const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
@@ -46,7 +45,7 @@ export class TibcoCloudConfigurationComponent implements OnInit {
 
   ngOnInit() {
     this.toolbarButtons = this.createToolbarButtons();
-    // this.getSettingRoutes(location.pathname.split('/'));
+    // this.configName = this.route.component;
   }
 
 }
