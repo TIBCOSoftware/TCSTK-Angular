@@ -1,0 +1,18 @@
+<div fxLayout="column" layout-align="start stretch" flex>
+
+    <p>You can update the values used by Process Discovery Application.</p>
+    <br>
+
+    <div fxLayout="column">
+        <div fxLayout="row">
+            <span>Datasource Application</span>
+        <tcla-live-apps-applications [sandboxId]="sandboxId"  [selectFirstApp]="false" (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
+        </div>  
+        <!-- Applications to work with app -->
+        
+      
+    </div>
+</div>

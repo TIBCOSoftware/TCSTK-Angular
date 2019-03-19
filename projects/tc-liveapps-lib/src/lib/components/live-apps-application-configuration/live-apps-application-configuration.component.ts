@@ -66,9 +66,9 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   public caseTypeColor: string;
 
   // prepareExternalUrl will add the base href
-  public DEFAULT_CASE_TYPE_ICON = this.location.prepareExternalUrl('/assets/icons/ic-generic-casetype.svg');
+  public DEFAULT_CASE_TYPE_ICON = this.location.prepareExternalUrl('assets/icons/ic-generic-casetype.svg');
   public DEFAULT_CASE_TYPE_COLOR = '#8197c0';
-  public DEFAULT_CASE_STATE_ICON = this.location.prepareExternalUrl('/assets/icons/ic-generic-state.svg');
+  public DEFAULT_CASE_STATE_ICON = this.location.prepareExternalUrl('assets/icons/ic-generic-state.svg');
   public DEFAULT_CASE_STATE_COLOR = '#8197c0';
   public DEFAULT_COLOR_PALETTE = [
     '#3E94C0', '#49B3D3', '#76C6CF', '#A9DACD', '#DCECC9',

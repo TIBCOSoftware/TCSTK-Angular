@@ -9,9 +9,9 @@ import {
   LiveAppsService,
   LiveAppsNotesComponent,
   LiveAppsDocumentsComponent,
-  Claim,
-  Sandbox, CaseRoute, LiveAppsConfig
+  CaseRoute, LiveAppsConfig
 } from 'tc-liveapps-lib';
+import { Claim, Sandbox } from 'tc-core-lib';
 
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';

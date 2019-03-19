@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpotfireWrapperComponent } from './spotfire-wrapper.component';
+import { McSpotfireWrapperComponent } from './mc-spotfire-wrapper.component';
 
-describe('SpotfireWrapperComponent', () => {
-  let component: SpotfireWrapperComponent;
-  let fixture: ComponentFixture<SpotfireWrapperComponent>;
+describe('McSpotfireWrapperComponent', () => {
+  let component: McSpotfireWrapperComponent;
+  let fixture: ComponentFixture<McSpotfireWrapperComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpotfireWrapperComponent ]
+      declarations: [ McSpotfireWrapperComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpotfireWrapperComponent);
+    fixture = TestBed.createComponent(McSpotfireWrapperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

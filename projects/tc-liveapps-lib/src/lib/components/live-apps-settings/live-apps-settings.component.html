@@ -1,36 +1,7 @@
 <div layout="column" layout-align="start stretch" flex>
-
-    <p>You can choose one TIBCO Cloud Live Apps Application to be linked with your Portal Web Application.</p>
-
-    <!-- Application Case Type -->
-    <div layout="row" layout-align="space-between center">
-
-        <mat-form-field fxFlex="45">
-            <input matInput placeholder="Case Type Label" value="Investigations">
-        </mat-form-field>
-        <mat-form-field fxFlex="45">
-            <input matInput placeholder="Case Type Label Singular" value="Investigation">
-        </mat-form-field>
-
-    </div> 
-
-    <!-- TODO NAM : check this  no dependcies to Specifc in CORE -->
-    <!-- <bpm-case-types case-types="caseTypes" config="caseTypesConfig"
-        template-path="../starters-components/starters-configure-liveapps/template/case-types-app-configurator.html"
-        flex></bpm-case-types> -->
-
-    <!--<input ng-model="applicationIdArray">-->
-
-    <!-- <md-button class="underlying-capability-save-button" ng-click="runSaveFuntion(caseTypes)">Save</md-button>
-
-    <div ng-if="alertData" layout="row" style="padding-top: 20px" layout-align="space-between center">
-        <tcc-alert alert-type="alertData.alertType" title="alertData.title" description="alertData.description"
-            more-info="false" icon="alertData.icon" close-alert="false" auto-close-flag="alertData.autoCloseFlag"
-            auto-close-val="alertData.autoCloseVal" inline=true full-width=true modal-flag=false stand-alone=false>
-            <tcc-alert-description>
-                <div>some details</div>
-            </tcc-alert-description>
-        </tcc-alert>
-    </div> -->
-
+        <p>Choose the TIBCO Cloud Live Apps Applications to be used within this application:</p>
+        <tcla-live-apps-application-list [sandboxId]="sandboxId" [selectedAppIds]="selectedAppIds" [showDesignerLink]="true" (appIdsSelected)="handleAppIdSelection($event)"></tcla-live-apps-application-list>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+        </div>
 </div>

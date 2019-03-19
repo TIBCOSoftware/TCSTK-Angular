@@ -3,7 +3,8 @@
   <div class="tcs-search-input-container" fxFlex>
     <input #searchBox class="tcs-search-input" placeholder="{{ selectedApp.applicationName ? 'Search within ' + selectedApp.applicationName + ' cases' : 'Select a case type to search cases' }}" (keyup)="searchTerm$.next($event.target.value)" [disabled]="!selectedApp.applicationId" fxFlex>
     <div fxLayoutAlign="center end">
-      <mat-icon class="tcs-icon tcs-search-icon" svgIcon="tcs-search-icon" (click)="forceSearch()"></mat-icon>
+      <mat-icon *ngIf="forcedSearch || searchString" class="tcs-icon tcs-close-icon" svgIcon="tcs-close-icon" (click)="clearResults()"></mat-icon>
+      <mat-icon *ngIf="!forcedSearch && !searchString" class="tcs-icon tcs-search-icon" svgIcon="tcs-search-icon" (click)="forceSearch()"></mat-icon>
     </div>
   </div>
 </div>

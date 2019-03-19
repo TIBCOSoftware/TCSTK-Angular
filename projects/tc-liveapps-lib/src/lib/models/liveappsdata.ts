@@ -1,4 +1,4 @@
-import {AccessToken, AuthInfo, Deserializable} from 'tc-core-lib';
+import {AccessToken, AuthInfo, Deserializable, Claim} from 'tc-core-lib';
 
 export class NoteThread {
   constructor(public threadId: string,
@@ -65,33 +65,6 @@ export class ThreadList implements Deserializable {
   }
 }
 
-export class Group {
-  constructor(public id: string,
-              public type: string
-              ) {
-  }
-}
-
-export class Sandbox {
-  constructor(public groups: Group[],
-              public id: string,
-              public type: string,
-              public name: string,
-              public subscriptionId: string,
-              public ownerId: string,
-              ) {
-  }
-}
-
-export class SandboxList {
-  sandboxes: Sandbox[];
-  deserialize(input: any): this {
-    this.sandboxes = [];
-    Object.assign(this.sandboxes, input);
-    return this;
-  }
-}
-
 export class Metadata {
   constructor(public createdBy:	string,
               public creationTimestamp:	string,
@@ -113,22 +86,6 @@ export class Metadata {
               public caseTypeColor: string,
               public caseTypeIcon: string
             ) {
-  }
-}
-
-export class Claim implements Deserializable {
-  email: string;
-  firstName: string;
-  id: string;
-  lastName: string;
-  sandboxes: Sandbox[];
-  subscriptionId: string;
-  username: string;
-  primaryProductionSandbox: Sandbox;
-
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
   }
 }
 

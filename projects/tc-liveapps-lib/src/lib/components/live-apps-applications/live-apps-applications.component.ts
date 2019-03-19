@@ -3,7 +3,7 @@
  * @name liveAppsApplicationsComponent
  *
  * @description
- * `<tcla-live-apps-applications-component>` is a component providing the ability to list and select an application.
+ * `<tcla-live-apps-applications>` is a component providing the ability to list and select an application.
  *
  * @param {function callback} selection Notify parent that an application has been selected.
  *
@@ -30,13 +30,14 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   @Input() sandboxId: number;
   @Input() appIds: string[];
   @Input() selectFirstApp: boolean;
+  @Input() selectedApp: CaseType = this.selectedApp ? this.selectedApp : new CaseType();
   @Output() selection: EventEmitter<CaseType> = new EventEmitter<CaseType>();
 
   applications: CaseTypesList = new CaseTypesList();
-  selectedApp: CaseType = new CaseType();
+  // selectedApp: CaseType = new CaseType();
   errorMessage: string;
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 
@@ -52,10 +53,16 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
         takeUntil(this._destroyed$),
         map(applicationList => {
           this.applications = applicationList;
+          if (this.selectedApp.applicationId) {
+            this.selectedApp = applicationList.casetypes.find((casetype) => {
+              return casetype.applicationId === this.selectedApp.applicationId;
+            });
+            // this.selection.emit(this.selectedApp);
+          } else
           // select first as default
-          if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
-            this.selectedApp = applicationList.casetypes[0];
-            this.selection.emit(applicationList.casetypes[0]);
+            if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
+              this.selectedApp = applicationList.casetypes[0];
+              this.selection.emit(applicationList.casetypes[0]);
           }
         })
       )
@@ -64,7 +71,6 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
 
   ngOnInit(): void {
     this.refresh(false);
-
   }
 
 }

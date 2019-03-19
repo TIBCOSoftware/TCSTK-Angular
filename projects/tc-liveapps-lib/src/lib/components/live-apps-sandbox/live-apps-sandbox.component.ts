@@ -27,7 +27,7 @@
 
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {SandboxList} from '../../models/liveappsdata';
+import {SandboxList} from 'tc-core-lib';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
