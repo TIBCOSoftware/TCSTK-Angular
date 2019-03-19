@@ -31,4 +31,8 @@ export class PdCaseViewComponent implements OnInit {
         this.userId = this.claims.id;
     }
 
+    clickCaseAction = ($event: any): void => {
+        
+    }
+
 }
