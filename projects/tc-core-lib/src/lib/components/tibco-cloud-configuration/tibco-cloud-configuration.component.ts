@@ -5,6 +5,7 @@ import { ToolbarButton } from '../../models/tc-widget-header';
 import { TcButtonsHelperService } from '../../services/tc-buttons-helper.service';
 import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 import {RouteAction} from '../../models/tc-routing-actions';
+import {ConfigurationMenuConfig} from '../../models/tc-configuration-menu-config';
 
 @Component({
   selector: 'tc-tibco-cloud-configuration',
@@ -13,9 +14,9 @@ import {RouteAction} from '../../models/tc-routing-actions';
 })
 export class TibcoCloudConfigurationComponent implements OnInit {
   @Input() baseRoute: string;
-  @Input() configMenuPages: any[];
+  @Input() configMenuPages: ConfigurationMenuConfig[];
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
-  showConfigName: string;
+  configName: string;
   toolbarButtons: ToolbarButton[];
 
   constructor(private router: Router, private buttonsHelper: TcButtonsHelperService, private location: Location) { }
@@ -27,7 +28,7 @@ export class TibcoCloudConfigurationComponent implements OnInit {
   }
 
   public handleSelectionEvent = (id: string) => {
-    this.showConfigName = id;
+    this.configName = id;
     const url = this.baseRoute + id.toLowerCase().split(' ').join('-');
     this.router.navigate([url]);
   }
@@ -38,54 +39,10 @@ export class TibcoCloudConfigurationComponent implements OnInit {
     }
   }
 
-  /*
-  private getSettingRoutes = (path: string[]) => {
-    //        let path: string[] = location.pathname.split('/');
-    const routerConfig: Route[] = this.router.config;
-    let configRoute: Route;
-
-    const element = path[1];
-    let parentRoute: Route;
-    for (let index = 0; index < routerConfig.length; index++) {
-      parentRoute = routerConfig[index];
-      if (element === parentRoute.path) {
-        // this is the parent route
-        for (let j = 2; j < path.length - 1; j++) {
-          const newElement = path[j];
-          for (let k = 0; k < parentRoute.children.length; k++) {
-            if (newElement === parentRoute.children[k].path) {
-              configRoute = parentRoute.children[k];
-              break;
-            }
-          }
-
-        }
-      }
-    }
-
-    for (let index = 0; index < configRoute.children.length; index++) {
-      const entry = TcCoreCommonFunctions.camelize(configRoute.children[index].path);
-      const lastIndex = entry.lastIndexOf(' ');
-      const menuEntry = entry.slice(0, lastIndex);
-
-      const option = entry.slice(lastIndex + 1);
-
-      const menu = this.configMenu.find( x => x.entry === menuEntry );
-      if (menuEntry !== '') {
-        if (menu == null) {
-          this.configMenu.push({entry: menuEntry, options: [option]});
-        } else {
-          menu.options.push(option);
-        }
-      }
-    }
-  }*/
-
   showConfig = (option: string) => {
-    this.showConfigName = option;
+    this.configName = option;
     console.log('Setting selected: ' + option);
   }
-
 
   ngOnInit() {
     this.toolbarButtons = this.createToolbarButtons();

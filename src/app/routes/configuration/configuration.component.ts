@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TcButtonsHelperService, ToolbarButton} from 'tc-core-lib';
 import {RouteAction} from 'tc-core-lib';
 import {Router, ActivatedRoute} from '@angular/router';
+import {ConfigurationMenuConfig} from 'tc-core-lib';
 
 @Component({
   selector: 'laapp-configuration',
@@ -11,7 +12,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class ConfigurationComponent implements OnInit {
 
   viewButtons: ToolbarButton[];
-  configMenuPages: any[];
+  configMenuPages: ConfigurationMenuConfig[];
 
   constructor(private buttonsHelper: TcButtonsHelperService, private router: Router, private route: ActivatedRoute) { }
 

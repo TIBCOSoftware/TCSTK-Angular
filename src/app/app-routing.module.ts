@@ -6,11 +6,12 @@ import {
   GeneralConfigResolver,
   TcSharedStateService,
   TibcoCloudSettingsGeneralComponent,
-  ConfigurationMenuConfigResolver
+  ConfigurationMenuConfigResolver,
+  Claim
 } from 'tc-core-lib';
 import {HomeComponent} from './routes/home/home.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
-import {Claim, ClaimsResolver, LiveAppsConfigHolder, LiveAppsService, LiveAppsSettingsComponent} from 'tc-liveapps-lib';
+import {ClaimsResolver, LiveAppsConfigHolder, LiveAppsService, LiveAppsSettingsComponent, LiveAppsSettingsSummaryCardsComponent} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
 import {LaConfigResolver} from 'tc-liveapps-lib';
@@ -44,7 +45,8 @@ const routes: Routes = [
     component: StarterAppComponent,
     canActivate: [AuthGuard],
     resolve: {
-      claims: ClaimsResolver
+      claims: ClaimsResolver,
+      config: GeneralConfigResolver
     },
     children: [
       {
@@ -93,12 +95,22 @@ const routes: Routes = [
             path: 'general-application-settings',
             component: TibcoCloudSettingsGeneralComponent,
             resolve: {
+              generalConfigHolder: GeneralConfigResolver,
+              claims: ClaimsResolver
+            }
+          },
+          {
+            path: 'live-apps-app-selection',
+            component: LiveAppsSettingsComponent,
+            resolve: {
+              claims: ClaimsResolver,
+              laConfigHolder: LaConfigResolver,
               generalConfigHolder: GeneralConfigResolver
             }
           },
           {
-            path: 'live-apps-settings',
-            component: LiveAppsSettingsComponent,
+            path: 'live-apps-summary-cards',
+            component: LiveAppsSettingsSummaryCardsComponent,
             resolve: {
               claims: ClaimsResolver,
               laConfigHolder: LaConfigResolver,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
-import {Claim} from '../models/liveappsdata';
+import {Claim} from 'tc-core-lib';
 import {map, mergeMap} from 'rxjs/operators';
 
 @Injectable()

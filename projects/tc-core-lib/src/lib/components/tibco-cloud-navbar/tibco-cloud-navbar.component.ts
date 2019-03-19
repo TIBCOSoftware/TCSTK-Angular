@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild, ElementRef, Input} from '@angular/core';
+import {Location} from '@angular/common';
 
 declare var GlobalNavbar: any;
 
@@ -10,8 +11,9 @@ declare var GlobalNavbar: any;
 export class TibcoCloudNavbarComponent implements OnInit {
   @ViewChild('navbar') private navbarRef: ElementRef;
   @Input() appName: string;
+  @Input() docUrl: string;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
 
@@ -26,6 +28,10 @@ export class TibcoCloudNavbarComponent implements OnInit {
       // call function
     });
     */
+
+    if (this.docUrl && (this.docUrl.slice(0, 4).toLowerCase() !== 'http')) {
+      this.docUrl = this.location.prepareExternalUrl(this.docUrl);
+    }
 
     const navbar = new GlobalNavbar({
       container: '#navbar',
@@ -53,7 +59,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
     });
 
     navbar.load();
-    navbar.customizePanel('help', '<embed src="/assets/help.html" style="height: 100%; width: 100%">');  // set HTML string
+    navbar.customizePanel('help', '<embed src="' + this.docUrl + '" style="height: 100%; width: 100%">');  // set HTML string
 
     /*navbar.subscribeEvent('CLICK_ICON_MENU_NOTIFICATIONS', function(event) {
       console.log('Logout ', event);
