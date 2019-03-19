@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { UiAppIdConfig } from '../models/tc-app-config';
 import { map, flatMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { ConfigurationMenuConfig } from '../models/tc-configurationMenu-config';
+import { ConfigurationMenuConfig } from '../models/tc-configuration-menu-config';
 import { Location } from '@angular/common';
 
 @Injectable()

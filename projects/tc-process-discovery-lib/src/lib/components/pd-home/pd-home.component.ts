@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToolbarButton, TcButtonsHelperService, GeneralConfig, RouteAction } from 'tc-core-lib';
-import { LiveAppsConfig, Claim, CaseType, CaseRoute } from 'tc-liveapps-lib';
+import { ToolbarButton, TcButtonsHelperService, GeneralConfig, RouteAction, Claim } from 'tc-core-lib';
+import { LiveAppsConfig, CaseType, CaseRoute } from 'tc-liveapps-lib';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Location } from '@angular/common';
 

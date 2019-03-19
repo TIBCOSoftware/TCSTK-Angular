@@ -8,7 +8,7 @@ import {forkJoin, Observable, of} from 'rxjs';
 import {GeneralConfigResolver, UiAppConfig, GeneralConfig, TcGeneralConfigService} from 'tc-core-lib';
 import {flatMap, map, mergeMap} from 'rxjs/operators';
 import {TcSharedStateService} from 'tc-core-lib';
-import {Claim} from '../models/liveappsdata';
+import {Claim} from 'tc-core-lib';
 import {ClaimsResolver} from '../resolvers/claims.resolver';
 import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';

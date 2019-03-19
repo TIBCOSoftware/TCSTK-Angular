@@ -30,7 +30,7 @@ import { TableComponent } from './components/table/table.component';
 import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.component';
 import {TcCoreLibModule} from 'tc-core-lib';
 import {DataTableExampleComponent} from './components/data-table-example/data-table-example.component';
-
+import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 
 
 @NgModule({
@@ -71,7 +71,8 @@ import {DataTableExampleComponent} from './components/data-table-example/data-ta
     MatSelectModule,
     MatSortModule,
     MatTableModule,
-    TcCoreLibModule
+    TcCoreLibModule,
+    TcSpotfireLibModule
   ],
   exports: [SpotfirePlayComponent,
             TableComponent,

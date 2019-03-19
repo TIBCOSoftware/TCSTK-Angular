@@ -39,6 +39,7 @@ export * from './lib/components/live-apps-application-list/live-apps-application
 export * from './lib/components/live-apps-application-create-button/live-apps-application-create-button.component';
 export * from './lib/components/live-apps-creator-dialog/live-apps-creator-dialog.component';
 export * from './lib/components/live-apps-settings/live-apps-settings.component';
+export * from './lib/components/live-apps-settings-summary-cards/live-apps-settings-summary-cards.component';
 
 // data
 export * from './lib/models/liveappsdata';

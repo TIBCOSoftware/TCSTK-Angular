@@ -9,7 +9,7 @@ import {HttpClient, HttpHandler} from '@angular/common/http';
 import {catchError, flatMap, map, mergeMap} from 'rxjs/operators';
 import {Observable, of, throwError} from 'rxjs';
 import {ClaimsResolver} from '../resolvers/claims.resolver';
-import {Claim} from '../models/liveappsdata';
+import {Claim} from 'tc-core-lib';
 
 @Injectable()
 export class CaseGuard implements CanActivate {

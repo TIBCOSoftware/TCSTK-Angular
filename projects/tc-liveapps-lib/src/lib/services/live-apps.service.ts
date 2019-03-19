@@ -3,13 +3,9 @@ import {forkJoin, Observable, of, throwError} from 'rxjs';
 import { HttpClientModule, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import {
-  Group,
-  Claim,
-  Sandbox,
   CaseInfo,
   CaseInfoList,
   CaseTypesList,
-  SandboxList,
   CaseTypeStatesList,
   CaseActionsList,
   CaseList,
@@ -37,7 +33,11 @@ import {
   SharedStateContent,
   TcSharedStateService,
   UiAppConfig,
-  TcCoreCommonFunctions
+  TcCoreCommonFunctions,
+  Group,
+  Claim,
+  Sandbox,
+  SandboxList
 } from 'tc-core-lib';
 import {
   catchError,
