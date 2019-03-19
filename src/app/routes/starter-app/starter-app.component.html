@@ -1,10 +1,8 @@
 <!-- make case screen full height-->
 <div fxFill fxLayout="column">
-  <tc-tibco-cloud-navbar class="tcla-cloud-navbar" [appName]="'Custom Case App (TIBCO LABS™)'"></tc-tibco-cloud-navbar>
+  <tc-tibco-cloud-navbar class="tcla-cloud-navbar" [appName]="config.applicationTitle" [docUrl]="config.documentationUrl"></tc-tibco-cloud-navbar>
   <!-- this is now full height '-' size of header -->
   <div fxFlex fxLayout="row" fxLayoutAlign="start, stretch">
     <router-outlet></router-outlet>
   </div>
 </div>
-
-

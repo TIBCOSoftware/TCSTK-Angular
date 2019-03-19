@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LiveAppsConfig } from '../../models/tc-liveapps-config';
 import { ActivatedRoute } from '@angular/router';
-import { GeneralConfig } from 'tc-core-lib';
-import { Claim, Sandbox } from '../../models/liveappsdata';
+import { GeneralConfig, Claim, Sandbox } from 'tc-core-lib';
 import { TcLiveAppsConfigService } from '../../services/tc-live-apps-config.service';
 
 @Component({
@@ -35,7 +34,7 @@ export class LiveAppsSettingsComponent implements OnInit {
 
     public runSaveFunction = (): void => {
 
-        var liveAppsConfig = new LiveAppsConfig().deserialize({
+        const liveAppsConfig = new LiveAppsConfig().deserialize({
             applicationIds: this.selectedAppIds,
             caseIconsFolderId: this.liveAppsConfig.caseIconsFolderId,
             documentAppId: this.liveAppsConfig.documentAppId,

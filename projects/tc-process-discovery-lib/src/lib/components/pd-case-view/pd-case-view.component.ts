@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CaseType } from 'tc-liveapps-lib/public_api';
-import { Claim, LiveAppsConfig } from 'tc-liveapps-lib';
-import { GeneralConfig } from 'tc-core-lib';
+import { LiveAppsConfig } from 'tc-liveapps-lib';
+import { GeneralConfig, Claim } from 'tc-core-lib';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

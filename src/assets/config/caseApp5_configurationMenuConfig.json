@@ -13,7 +13,7 @@
         {
           "entry": "Live Apps",
           "icon": "tcs-liveapps-sm-icon",
-          "options": ["Settings"]
+          "options": ["Applications", "Summary Cards"]
         },
         {
           "entry": "Spotfire",

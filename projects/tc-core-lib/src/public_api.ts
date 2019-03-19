@@ -34,6 +34,7 @@ export * from './lib/models/tc-app-config';
 export * from './lib/models/tc-widget-header';
 export * from './lib/models/tc-general-config';
 export * from './lib/models/tc-routing-actions';
+export * from './lib/models/tc-configuration-menu-config';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';
@@ -44,7 +45,7 @@ export * from './lib/guards/auth.guard';
 
 // resolvers
 export * from './lib/resolvers/general-config.resolver';
-export * from './lib/resolvers/configurationMenu-config.resolver';
+export * from './lib/resolvers/configuration-menu-config.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';
