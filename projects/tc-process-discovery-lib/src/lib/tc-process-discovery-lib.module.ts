@@ -30,7 +30,6 @@ import { SettingsIntegrationComponent } from './components/settings-integration/
 import { SettingsSpotfireComponent } from './components/settings-spotfire/settings-spotfire.component';
 import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
 import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
-import { PdAdministrationCaseSummaryComponent } from './components/pd-administration-case-summary/pd-administration-case-summary.component';
 import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 import { PdSettingsConfigurationComponent } from './components/pd-settings-configuration/pd-settings-configuration.component';
 import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-cockpit.component';
@@ -47,7 +46,6 @@ import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-coc
         SettingsSpotfireComponent,
         PdCaseViewComponent,
         PdSettingsAdministrationComponent,
-        PdAdministrationCaseSummaryComponent,
         PdChangeDatasourceDialog,
         PdSettingsConfigurationComponent,
         PdHomeCockpitComponent
