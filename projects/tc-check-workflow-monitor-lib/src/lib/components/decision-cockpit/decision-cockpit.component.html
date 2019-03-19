@@ -1,0 +1,17 @@
+<div fxLayout="column" fxFlex>
+  <div>
+    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="'Overview -' + title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+      <tcla-live-apps-application-create-button style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
+    </tc-tibco-cloud-menu-bar>
+  </div>
+
+  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" style="margin-left: 20px; margin-right: 20px; margin-top: 10px;">
+
+    <tccwm-create-file-to-download></tccwm-create-file-to-download>
+
+
+
+  </div>
+</div>
+
+
