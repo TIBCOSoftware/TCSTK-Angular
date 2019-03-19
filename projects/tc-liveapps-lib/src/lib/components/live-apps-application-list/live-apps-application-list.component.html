@@ -1,15 +1,18 @@
 <div>
-  <div fxLayout="row">
-      <button mat-button (click)="handleSelectAll()">
-        <mat-icon class="app-list-select-all-icon"></mat-icon><span>Select All</span>
-      </button>
-      <button mat-button (click)="handleDeselectAll()">
-        <mat-icon app-list-deselect-all-icon></mat-icon><span>Deselect All</span>
-      </button>
-  </div>
-  <mat-selection-list #selectedApps [(ngModel)]="mySelectedOptions" (ngModelChange)="handleAppSelection($event)">
-    <mat-list-option checkboxPosition="before" *ngFor="let casetype of applications.casetypes" [value]="casetype">
-      {{casetype.label}}
-    </mat-list-option>
-  </mat-selection-list>
+    <div fxLayout="row">
+        <button mat-button (click)="handleSelectAll()">
+            <mat-icon class="app-list-select-all-icon"></mat-icon><span>Select All</span>
+        </button>
+        <button mat-button (click)="handleDeselectAll()">
+            <mat-icon app-list-deselect-all-icon></mat-icon><span>Deselect All</span>
+        </button>
+    </div>
+    <cdk-virtual-scroll-viewport itemSize="50" class="starters-scrolling-viewport">
+        <mat-selection-list #selectedApps [(ngModel)]="mySelectedOptions" (ngModelChange)="handleAppSelection($event)">
+            <mat-list-option checkboxPosition="before" *ngFor="let casetype of applications.casetypes"
+                [value]="casetype">
+                {{casetype.label}}
+            </mat-list-option>
+        </mat-selection-list>
+    </cdk-virtual-scroll-viewport>
 </div>
