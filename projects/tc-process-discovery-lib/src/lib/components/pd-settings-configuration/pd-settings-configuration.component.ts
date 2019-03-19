@@ -3,6 +3,8 @@ import { LiveAppsService, CaseType } from 'tc-liveapps-lib';
 import { Sandbox, Claim } from 'tc-core-lib';
 import { ActivatedRoute } from '@angular/router';
 import { take, takeUntil, map } from 'rxjs/operators';
+import { ProcessDiscoveryConfig } from '../../models/tc-process-discovery-config';
+import { PdProcessDiscoveryConfigService } from '../../services/pd-process-discovery-config.service';
 
 @Component({
     selector: 'tcpd-pd-settings-configuration',
@@ -11,48 +13,49 @@ import { take, takeUntil, map } from 'rxjs/operators';
 })
 export class PdSettingsConfigurationComponent implements OnInit {
 
-    public datasourceAppId: string;
 
     // public liveAppsConfig: LiveAppsConfig;
     // public generalConfig: GeneralConfig;
     public claims: Claim;
     public sandboxId: number;
     public selectedApp: CaseType;
+    public processDiscoveryConfig: ProcessDiscoveryConfig;
+    public datasourceId: string;
   
-    constructor(private liveapps: LiveAppsService, private route: ActivatedRoute) { }
+    constructor(private processDiscoveryConfigService: PdProcessDiscoveryConfigService, private liveapps: LiveAppsService, private route: ActivatedRoute) { }
 
 
     ngOnInit() {
-        // this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
-        // this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
+
         this.claims = this.route.snapshot.data.claims;
         this.sandboxId = Number(this.claims.primaryProductionSandbox.id).valueOf();
+        this.processDiscoveryConfig = this.route.snapshot.data.processDiscovery;
+        this.datasourceId = this.route.snapshot.data.processDiscovery.datasourceAppId.valueOf();
 
-        this.datasourceAppId="2504";
         this.refresh(true);
-        // this.defaultDatasource="DIS_000002";
+
     }
 
     selectApplication = ($event: any): void =>{
         console.log("******** " + $event);
-        this.datasourceAppId = $event.applicationId;
+        this.processDiscoveryConfig.datasourceAppId = $event.applicationId;
     }
 
     public refresh = (bypassCache: boolean): void => {
 
-        let appIds = [ this.datasourceAppId ];
+        let appIds: string[] = [ this.datasourceId ];
 
-        this.liveapps.getApplications(Number(this.sandboxId), appIds, 100, bypassCache)
+        this.liveapps.getApplications(this.sandboxId, appIds, 100, bypassCache)
             .pipe(
-            map(applicationList => {
+                map(applicationList => {
                     this.selectedApp = applicationList.casetypes[0];
-            })
+                })
             )
-            .subscribe(null, error => { console.log("***** error "); }) //this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; });          
+            .subscribe(null, error => { console.log("***** error " + error.error.errorMsg); }) //this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; });          
     }
 
     runSaveFuntion = () =>{
-
+        var processDiscoveryConfig = this.processDiscoveryConfig;
+        this.processDiscoveryConfigService.updateProcessDiscoveryConfig(this.sandboxId, "caseApp5", processDiscoveryConfig, this.processDiscoveryConfig.id).subscribe();
     }
-
 }
