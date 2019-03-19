@@ -1,6 +1,6 @@
-<div fxLayout="column">
+<div fxLayout="column" fxFill>
   <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'General Configuration'"></tc-tibco-cloud-widget-header>
-  <div style="padding: 20px;">
+  <div style="padding: 20px;" fxLayout="column" fxFlex>
     <p>You can some of the default Application Settings here.</p>
     <br>
     <!-- Application specifics -->
@@ -22,8 +22,9 @@
             </mat-form-field>
         </mat-expansion-panel>
     </mat-accordion>
-    <div fxLayout="row" fxLayoutAlign="space-between center">
-        <button mat-button class="underlying-capability-save-button" (click)="runSaveFunction()">Save</button>
+    <div fxFlex class="tcs-filler-panel"></div>
+    <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+      <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
     </div>
   </div>
 </div>
