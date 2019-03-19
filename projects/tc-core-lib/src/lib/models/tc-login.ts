@@ -1,5 +1,48 @@
 import { Deserializable} from './deserializable';
 
+export class Group {
+  constructor(public id: string,
+              public type: string
+  ) {
+  }
+}
+
+export class Claim implements Deserializable {
+  email: string;
+  firstName: string;
+  id: string;
+  lastName: string;
+  sandboxes: Sandbox[];
+  subscriptionId: string;
+  username: string;
+  primaryProductionSandbox: Sandbox;
+
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class Sandbox {
+  constructor(public groups: Group[],
+              public id: string,
+              public type: string,
+              public name: string,
+              public subscriptionId: string,
+              public ownerId: string,
+  ) {
+  }
+}
+
+export class SandboxList {
+  sandboxes: Sandbox[];
+  deserialize(input: any): this {
+    this.sandboxes = [];
+    Object.assign(this.sandboxes, input);
+    return this;
+  }
+}
+
 export class AccessToken implements Deserializable {
   access_token: string;
   token_type: string;

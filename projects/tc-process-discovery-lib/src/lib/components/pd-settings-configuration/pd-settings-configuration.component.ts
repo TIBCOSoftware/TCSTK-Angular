@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Sandbox, Claim, LiveAppsService, CaseType } from 'tc-liveapps-lib';
+import { LiveAppsService, CaseType } from 'tc-liveapps-lib';
+import { Sandbox, Claim } from 'tc-core-lib';
 import { ActivatedRoute } from '@angular/router';
 import { take, takeUntil, map } from 'rxjs/operators';
 
