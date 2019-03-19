@@ -7,7 +7,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatSnackBarModule, MatTabsModule, MatTooltipModule
+  MatListModule, MatMenuModule, MatOptionModule, MatRadioModule, MatSelectModule, MatSnackBarModule, MatTabsModule, MatTooltipModule
 } from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -28,10 +28,11 @@ import {CwmSettingsConfigServiceService} from './services/cwm-settings-config-se
 import { ServiceHandlerSnackbarComponent } from './components/service-handler-snackbar/service-handler-snackbar.component';
 import {DecisionCockpitComponent} from './components/decision-cockpit/decision-cockpit.component';
 import { CreateFileToDownloadComponent } from './components/create-file-to-download/create-file-to-download.component';
+import { DoubleListForSelectionComponent } from './components/double-list-for-selection/double-list-for-selection.component';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -53,6 +54,7 @@ import { CreateFileToDownloadComponent } from './components/create-file-to-downl
     MatTabsModule,
     MatButtonToggleModule,
     MatSnackBarModule,
+    MatRadioModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,
@@ -62,7 +64,7 @@ import { CreateFileToDownloadComponent } from './components/create-file-to-downl
     TcCoreLibModule
   ],
   entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent],
-  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent,CreateFileToDownloadComponent],
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
