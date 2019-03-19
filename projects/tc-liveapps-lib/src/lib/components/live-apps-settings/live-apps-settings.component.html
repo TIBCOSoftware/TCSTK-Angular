@@ -16,7 +16,11 @@
 
 
         <p>Choose the TIBCO Cloud Live Apps Applications to be used within this application:</p>
-        <tcla-live-apps-application-list [sandboxId]="sandbox.id" [selectedAppIds]="selectedAppIds" (appIdsSelected)="handleAppIdSelection($event)"></tcla-live-apps-application-list>
+        <tcla-live-apps-application-list [sandboxId]="sandboxId" [selectedAppIds]="selectedAppIds" (appIdsSelected)="handleAppIdSelection($event)"></tcla-live-apps-application-list>
+ 
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
+        </div>
 
       </ng-template>
     </mat-tab>
@@ -24,7 +28,7 @@
     <mat-tab label="Summary Cards">
       <!-- using ng-template makes sure the tabs are lazy loaded -->
       <ng-template matTabContent>
-      <tcla-live-apps-app-configuration-widget [sandboxId]="sandbox.id" [appIds]="liveAppsConfig.applicationIds" [uiAppId]="generalConfig.uiAppId" [folderId]="liveAppsConfig.caseIconsFolderId"></tcla-live-apps-app-configuration-widget>
+      <tcla-live-apps-app-configuration-widget [sandboxId]="sandboxId" [appIds]="liveAppsConfig.applicationIds" [uiAppId]="generalConfig.uiAppId" [folderId]="liveAppsConfig.caseIconsFolderId"></tcla-live-apps-app-configuration-widget>
       </ng-template>
     </mat-tab>
   </mat-tab-group>
