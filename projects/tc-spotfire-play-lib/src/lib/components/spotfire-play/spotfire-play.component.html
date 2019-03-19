@@ -1,152 +1,76 @@
 <div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
   <div  fxFlex fxLayoutGap="20px">
-
     <mat-tab-group style="margin-top: 30px; height: 100%;">
-<!--
-      <mat-tab label="New App">
-        <spotfire-viewer
-          url="https://spotfire-next.cloud.tibco.com"
-          path="Samples/Introduction to Spotfire"
-          page="Example dashboard"></spotfire-viewer>
-      </mat-tab>
--->
-
       <mat-tab label="Working">
         <ng-template matTabContent>
-          <!--tcla-spotfire-viz
-            (markingEvent)="marking($event)"
-            [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
-            [url]="'https://spotfire-next.cloud.tibco.com'"
-
-            customization='{"showAbout": true,
-                      "showAnalysisInformationTool": true,
-                      "showAuthor": true,
-                      "showClose": true,
-                      "showCustomizableHeader": true,
-                      "showDodPanel": true,
-                      "showExportFile": true,
-                      "showExportVisualization": true,
-                      "showFilterPanel": true,
-                      "showHelp": true,
-                      "showLogout": false,
-                      "showPageNavigation": true,
-                      "showAnalysisInfo": true,
-                      "showReloadAnalysis": true,
-                      "showStatusBar": true,
-                      "showToolBar": true,
-                      "showUndoRedo": false}'
-            id="id1"
-            markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'
-            [maxRows]='1000'>
-          </tcla-spotfire-viz-->
+          <tcsf-mc-spotfire-wrapper   [url]="'https://spotfire-next.cloud.tibco.com'"
+                                      [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
+                                      [customization]='{"showAbout": true,
+                                                        "showAnalysisInformationTool": true,
+                                                        "showAuthor": true,
+                                                        "showClose": true,
+                                                        "showCustomizableHeader": true,
+                                                        "showDodPanel": true,
+                                                        "showExportFile": true,
+                                                        "showExportVisualization": true,
+                                                        "showFilterPanel": true,
+                                                        "showHelp": true,
+                                                        "showLogout": false,
+                                                        "showPageNavigation": true,
+                                                        "showAnalysisInfo": true,
+                                                        "showReloadAnalysis": true,
+                                                        "showStatusBar": true,
+                                                        "showToolBar": true,
+                                                        "showUndoRedo": false}'
+                                      [markingOn]="myMarkingOn"
+                                      (markingEvent)="marking($event)"
+                                      [maxRows]='1000'
+                                      id="id1">
+          </tcsf-mc-spotfire-wrapper>
         </ng-template>
       </mat-tab>
 
       <mat-tab label="Not Working">
         <ng-template matTabContent>
-          <div style = 'overflow: visible' >
-          <!--tcla-spotfire-viz
-            (markingEvent)="marking($event)"
-            [path]="'/TIBCO Labs/ProcessMining_custom_queries_final'"
-            [url]="'https://23.22.187.212/'"
-
-            customization='{"showAbout": true,
-                      "showAnalysisInformationTool": true,
-                      "showAuthor": true,
-                      "showClose": true,
-                      "showCustomizableHeader": true,
-                      "showDodPanel": true,
-                      "showExportFile": true,
-                      "showExportVisualization": true,
-                      "showFilterPanel": true,
-                      "showHelp": true,
-                      "showLogout": false,
-                      "showPageNavigation": true,
-                      "showAnalysisInfo": true,
-                      "showReloadAnalysis": true,
-                      "showStatusBar": true,
-                      "showToolBar": true,
-                      "showUndoRedo": false}'
-            id="id1"
-            markingon='{"cases": [ "Started" ]}'
-            [maxRows]='1000'>
-          </tcla-spotfire-viz-->
-          </div>
+            <tcsf-mc-spotfire-wrapper
+              (markingEvent)="marking($event)"
+              [path]="'/TIBCO Labs/ProcessMining_custom_queries_final'"
+              [url]="'https://23.22.187.212/'"
+              customization='{"showAbout": true,
+                        "showAnalysisInformationTool": true,
+                        "showAuthor": true,
+                        "showClose": true,
+                        "showCustomizableHeader": true,
+                        "showDodPanel": true,
+                        "showExportFile": true,
+                        "showExportVisualization": true,
+                        "showFilterPanel": true,
+                        "showHelp": true,
+                        "showLogout": false,
+                        "showPageNavigation": true,
+                        "showAnalysisInfo": true,
+                        "showReloadAnalysis": true,
+                        "showStatusBar": true,
+                        "showToolBar": true,
+                        "showUndoRedo": false}'
+              id="id1"
+              [markingOn]="myMarkingOn"
+              [maxRows]='1000'>
+            </tcsf-mc-spotfire-wrapper>
         </ng-template>
       </mat-tab>
     </mat-tab-group>
-<!--
-    <tcla-spotfire-viz
-      (markingEvent)="marking($event)"
-      [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
-      [url]="'https://spotfire-next.cloud.tibco.com'"
-
-      customization='{"showAbout": true,
-                      "showAnalysisInformationTool": true,
-                      "showAuthor": true,
-                      "showClose": true,
-                      "showCustomizableHeader": true,
-                      "showDodPanel": true,
-                      "showExportFile": true,
-                      "showExportVisualization": true,
-                      "showFilterPanel": true,
-                      "showHelp": true,
-                      "showLogout": false,
-                      "showPageNavigation": true,
-                      "showAnalysisInfo": true,
-                      "showReloadAnalysis": true,
-                      "showStatusBar": true,
-                      "showToolBar": true,
-                      "showUndoRedo": false}'
-      id="id1"
-      markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'
-      [maxRows]='1000'>
-    </tcla-spotfire-viz>
-
-
-    <tcla-spotfire-viz
-      (markingEvent)="marking($event)"
-      [path]="'/TIBCO Labs/ProcessMining_custom_queries_final'"
-      [url]="'https://23.22.187.212/'"
-
-      customization='{"showAbout": true,
-                      "showAnalysisInformationTool": true,
-                      "showAuthor": true,
-                      "showClose": true,
-                      "showCustomizableHeader": true,
-                      "showDodPanel": true,
-                      "showExportFile": true,
-                      "showExportVisualization": true,
-                      "showFilterPanel": true,
-                      "showHelp": true,
-                      "showLogout": false,
-                      "showPageNavigation": true,
-                      "showAnalysisInfo": true,
-                      "showReloadAnalysis": true,
-                      "showStatusBar": true,
-                      "showToolBar": true,
-                      "showUndoRedo": false}'
-      id="id1"
-      markingon='{"cases": [ "Started" ]}'
-      [maxRows]='1000'>
-    </tcla-spotfire-viz>
--->
-
   </div>
   <div  fxFlex fxLayoutGap="20px">
-
     <div *ngIf="markingdata">
-
       <mat-tab-group style="margin-top: 30px; height: 100%;" >
         <mat-tab  *ngFor="let mt of markingTitles; let i = index" label="{{mt}}">
           <p>
             <b>Marking Data Table: </b> {{markingDataTables[i]}}
           </p>
-          <!--<tc-tibco-cloud-table jsonSource="{{dataSourceJson[i]}}"></tc-tibco-cloud-table>-->
           <tc-tibco-cloud-select-table jsonSource="{{dataSourceJson[i]}}"></tc-tibco-cloud-select-table>
         </mat-tab>
       </mat-tab-group>
     </div>
   </div>
-
 </div>
