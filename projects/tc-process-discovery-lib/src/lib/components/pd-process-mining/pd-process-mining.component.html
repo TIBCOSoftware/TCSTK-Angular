@@ -1,34 +1,20 @@
 <div>
     <mat-tab-group (selectedTabChange)="tabChange($event)">
         <mat-tab *ngFor="let page of allowedPages" label="{{page}}"></mat-tab>
+        <mat-tab  label="{{activePage}}"></mat-tab>
     </mat-tab-group>
 </div>
 
 <div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
     <div fxFlex fxLayoutGap="20px">
-        <tcla-spotfire-viz [url]="spotfireServer"
-            [path]="analysisPath" (markingEvent)="marking($event)"
-            [page]="activePage" 
-            customization='{
-                "showAbout": false,
-                "showAnalysisInformationTool": false,
-                "showAuthor": false,
-                "showClose": false,
-                "showCustomizableHeader": false,
-                "showDodPanel": false,
-                "showExportFile": false,
-                "showExportVisualization": false,
-                "showFilterPanel": false,
-                "showHelp": false,
-                "showLogout": false,
-                "showPageNavigation": false,
-                "showAnalysisInfo": false,
-                "showReloadAnalysis": false,
-                "showStatusBar": false,
-                "showToolBar": false,
-                "showUndoRedo": false
-            }' id="id1" markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}'>
-        </tcla-spotfire-viz>
+        <tcsf-mc-spotfire-wrapper   [url]="spotfireServer" 
+                                    [path]="analysisPath" 
+                                    [page]="activePage" 
+                                    [parameters]="parameters" 
+                                    [customization]="configuration"
+                                    [markingOn]="markingOn"
+                                    (markingEvent)="marking($event)">
+        </tcsf-mc-spotfire-wrapper>
     </div>
-
+>
 </div>

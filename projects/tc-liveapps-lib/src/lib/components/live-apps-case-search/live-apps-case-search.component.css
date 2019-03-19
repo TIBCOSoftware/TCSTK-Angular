@@ -46,6 +46,14 @@
   fill: #0081cb;
 }
 
+:host ::ng-deep .tcs-close-icon:hover .svg-content  {
+  fill: #0081cb;
+}
+
 .tcs-search-icon:hover {
+  cursor: pointer;
+}
+
+.tcs-close-icon:hover {
   cursor: pointer;
 }

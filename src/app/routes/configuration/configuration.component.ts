@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TcButtonsHelperService, ToolbarButton} from 'tc-core-lib';
 import {RouteAction} from 'tc-core-lib';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import {ConfigurationMenuConfig} from 'tc-core-lib';
 
 @Component({
   selector: 'laapp-configuration',
@@ -11,9 +12,9 @@ import {Router} from '@angular/router';
 export class ConfigurationComponent implements OnInit {
 
   viewButtons: ToolbarButton[];
-  configMenuPages: any[];
+  configMenuPages: ConfigurationMenuConfig[];
 
-  constructor(private buttonsHelper: TcButtonsHelperService, private router: Router) { }
+  constructor(private buttonsHelper: TcButtonsHelperService, private router: Router, private route: ActivatedRoute) { }
 
   handleRouteAction = (routeAction: RouteAction) => {
     if (routeAction.action === 'backClicked') {
@@ -22,40 +23,13 @@ export class ConfigurationComponent implements OnInit {
     }
   }
 
-  /* This is for PD usecase where you want navbar */
-  /* un-comment if you want it */
-/*
-  protected createViewButtons = (): ToolbarButton[] => {
-    const landingview = this.buttonsHelper.createButton('landingview', 'tcs-config-icon', true, 'Landing View', true, true);
-    const processmimingview = this.buttonsHelper.createButton('process-mining-view', 'tcs-refresh-icon', true, 'Process Mining View', true, true);
-    const caseView = this.buttonsHelper.createButton('case-view', 'tcs-refresh-icon', true, 'Case View', true, true);
-    const buttons = [ landingview, processmimingview, caseView ];
-    return buttons;
-  }*/
-
   public handleToolbarButtonEvent = (id) => {
     console.log('Selected option: ' + id);
   }
 
   ngOnInit() {
-    this.configMenuPages = [
-      {
-        entry: 'General Application',
-        options: ['Settings']
-      },
-      {
-        entry: 'Live Apps',
-        options: ['Settings']
-      }
-      /* ,{
-        entry: 'Upload Services',
-        options: ['Settings']
-      } */
-    ];
-
-    /* This is for PD usecase where you want navbar */
-    /* un-comment if you want it */
-    /* this.viewButtons = this.createViewButtons(); */
+    const configurationMenu = this.route.snapshot.data.configurationMenuHolder;
+    this.configMenuPages = configurationMenu.menu;
   }
 
 }

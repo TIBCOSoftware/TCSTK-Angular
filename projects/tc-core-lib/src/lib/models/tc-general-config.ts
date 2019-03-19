@@ -14,8 +14,8 @@ export class RoleAttribute {
 export class GeneralConfig implements Deserializable {
   id: string;
   uiAppId: string;
-  appTitle: string;
-  displayName: string;
+  applicationTitle: string;
+  displayName: boolean;
   documentationUrl: string;
   roleAttributes: RoleAttribute[];
   deserialize(input: any) {

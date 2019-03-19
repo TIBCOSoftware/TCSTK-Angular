@@ -59,6 +59,10 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-delete.svg'))
     );
     this.matIconRegistry.addSvgIcon(
+      'tcs-application-edit',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-edit.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-edit',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-edit.svg'))
     );
@@ -203,6 +207,18 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-starters.svg'))
     );
     this.matIconRegistry.addSvgIcon(
+        'tcs-spotfire-icon',
+        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-spotfire.svg'))
+      );
+      this.matIconRegistry.addSvgIcon(
+        'tcs-liveapps-sm-icon',
+        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-liveapps-sm.svg'))
+      );
+      this.matIconRegistry.addSvgIcon(
+        'tcs-integration-icon',
+        this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-integration.svg'))
+      );
+      this.matIconRegistry.addSvgIcon(
       'tcs-info-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-info.svg'))
     );

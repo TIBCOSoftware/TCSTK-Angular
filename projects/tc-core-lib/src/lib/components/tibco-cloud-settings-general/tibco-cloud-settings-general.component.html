@@ -4,8 +4,8 @@
     <br>
     <!-- Application specifics -->
     <div fxLayout="row">
-        <mat-form-field fxFlex="45">
-            <input matInput placeholder="Application Title" value="{{applicationTitle}}">
+        <mat-form-field style="min-width: 400px">
+            <input matInput placeholder="Application Title" [(ngModel)]="generalConfig.applicationTitle">
         </mat-form-field>
     </div>
 
@@ -16,12 +16,12 @@
                 <mat-panel-title>Advanced Settings</mat-panel-title>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-                <input matInput placeholder="Application Documentation URL" value="{{documentationURL}}">
+            <mat-form-field style="min-width: 400px">
+                <input matInput placeholder="Application Documentation URL" [(ngModel)]="generalConfig.documentationUrl">
             </mat-form-field>
         </mat-expansion-panel>
     </mat-accordion>
     <div fxLayout="row" fxLayoutAlign="space-between center">
-        <button mat-button class="underlying-capability-save-button" (click)="runSaveFuntion()">Save</button>
+        <button mat-button class="underlying-capability-save-button" (click)="runSaveFunction()">Save</button>
     </div>
 </div>
