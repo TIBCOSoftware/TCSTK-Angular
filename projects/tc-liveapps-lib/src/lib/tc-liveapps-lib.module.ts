@@ -9,6 +9,7 @@ import {
   MatListModule, MatMenuModule, MatOptionModule,
   MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
@@ -45,7 +46,6 @@ import {LiveAppsService} from './services/live-apps.service';
 import { LiveAppsLoginComponent } from './components/live-apps-login/live-apps-login.component';
 import { LiveAppsSearchWidgetComponent } from './components/live-apps-search-widget/live-apps-search-widget.component';
 import { LiveAppsComponent } from './components/live-apps-component/live-apps-component.component';
-import {SpotfireWrapperComponent} from './components/spotfire-wrapper/spotfire-wrapper.component';
 import {MockingInterceptor} from 'tc-core-lib';
 import { LiveAppsCaseCreatorComponent } from './components/live-apps-case-creator/live-apps-case-creator.component';
 import { LiveAppsCreatorSelectorComponent } from './components/live-apps-creator-selector/live-apps-creator-selector.component';
@@ -95,7 +95,6 @@ import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-ap
     LiveAppsCaseSearchComponent,
     LiveAppsSearchWidgetComponent,
     LiveAppsComponent,
-    SpotfireWrapperComponent,
     LiveAppsCaseCreatorComponent,
     LiveAppsCreatorSelectorComponent,
     LiveAppsCreatorsComponent,
@@ -133,6 +132,7 @@ import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-ap
     MatTooltipModule,
     MatTabsModule,
     MatToolbarModule,
+      ScrollDispatchModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,
@@ -168,7 +168,6 @@ import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-ap
     LiveAppsCreatorsComponent,
     LiveAppsCaseActionComponent,
     LiveAppsActionsComponent,
-    SpotfireWrapperComponent,
     LiveAppsCaseDataDisplayComponent,
     LiveAppsCaseCockpitComponent,
     LiveAppsAppConfigurationWidgetComponent,
