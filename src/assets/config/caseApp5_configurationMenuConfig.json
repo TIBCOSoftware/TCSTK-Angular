@@ -1,29 +1,41 @@
 {
-    "menu": [
-        {
-          "entry": "General Application",
-          "icon": "tcs-starters-icon",
-          "options": ["Settings"]
-        },
-        {
-          "entry": "Integration",
-          "icon": "tcs-integration-icon",
-          "options": ["Settings"]
-        },
-        {
-          "entry": "Live Apps",
-          "icon": "tcs-liveapps-sm-icon",
-          "options": ["App Selection", "Summary Cards"]
-        },
-        {
-          "entry": "Spotfire",
-          "icon": "tcs-spotfire-icon",
-          "options": ["Settings"]
-        },
-        {
-            "entry": "Process Discovery", 
-            "icon": "tcs-starters-icon",
-            "options": ["Configuration", "Administration"]
-        }
+  "menu": [
+    {
+      "entry": "General Application",
+      "icon": "tcs-starters-icon",
+      "options": [
+        "Settings"
       ]
+    },
+    {
+      "entry": "Integration",
+      "icon": "tcs-integration-icon",
+      "options": [
+        "Settings"
+      ]
+    },
+    {
+      "entry": "Live Apps",
+      "icon": "tcs-liveapps-sm-icon",
+      "options": [
+        "App Selection",
+        "Summary Cards"
+      ]
+    },
+    {
+      "entry": "Spotfire",
+      "icon": "tcs-spotfire-icon",
+      "options": [
+        "Settings"
+      ]
+    },
+    {
+      "entry": "Process Discovery",
+      "icon": "tcs-starters-icon",
+      "options": [
+        "Configuration",
+        "Administration"
+      ]
+    }
+  ]
 }

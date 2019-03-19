@@ -1,12 +1,11 @@
- .starters-scrolling-viewport {
-  height: 300px;
-  width: 600px;
-}
-
- .tcs-hover-link {
-   visibility: hidden;
+ .tcs-application-option {
+   max-width: 320px;
  }
 
- .tcs-application-option:hover .tcs-hover-link {
-   visibility: visible;
+ .tcs-application-list {
+   overflow: auto;
+ }
+
+ .tcs-application-list-buttons {
+   min-height: 40px;
  }

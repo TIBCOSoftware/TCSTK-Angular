@@ -60,7 +60,7 @@ export class AppComponent {
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-application-edit',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-edit.svg'))
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-link.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-collaboration-edit',
