@@ -25,7 +25,6 @@ export * from './lib/components/live-apps-notes-editor/live-apps-notes-editor.co
 export * from './lib/components/live-apps-recent-cases/live-apps-recent-cases.component';
 export * from './lib/components/live-apps-sandbox/live-apps-sandbox.component';
 export * from './lib/components/live-apps-state-icon/live-apps-state-icon.component';
-export * from './lib/components/spotfire-wrapper/spotfire-wrapper.component';
 export * from './lib/components/live-apps-case-creator/live-apps-case-creator.component';
 export * from './lib/components/live-apps-creator-selector/live-apps-creator-selector.component';
 export * from './lib/components/live-apps-creators/live-apps-creators.component';

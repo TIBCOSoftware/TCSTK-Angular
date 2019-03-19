@@ -33,7 +33,7 @@ export class LiveAppsSettingsComponent implements OnInit {
         this.selectedAppIds = this.liveAppsConfig.applicationIds;
     }
 
-    public runSaveFuntion = (): void => {
+    public runSaveFunction = (): void => {
 
         var liveAppsConfig = new LiveAppsConfig().deserialize({
             applicationIds: this.selectedAppIds,
@@ -42,7 +42,7 @@ export class LiveAppsSettingsComponent implements OnInit {
             collaborationAppId: this.liveAppsConfig.documentAppId
         });
 
-        this.liveAppsConfigService.updateLiveAppsConfig(this.sandboxId, "caseApp5", liveAppsConfig, this.liveAppsConfig.id).subscribe();
+        this.liveAppsConfigService.updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe();
     }
 }
 
