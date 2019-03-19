@@ -1,38 +1,20 @@
 <div>
     <mat-tab-group (selectedTabChange)="tabChange($event)">
         <mat-tab *ngFor="let page of allowedPages" label="{{page}}"></mat-tab>
+        <mat-tab  label="{{activePage}}"></mat-tab>
     </mat-tab-group>
 </div>
 
 <div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
     <div fxFlex fxLayoutGap="20px">
-        <tcla-spotfire-viz [url]="spotfireServer"
-            [path]="analysisPath" (markingEvent)="marking($event)"
-            [page]="activePage" 
-            [parameters]="parameters"
-            [customization]="configuration" id="id1" markingon='{"cases": [ "*" ]}' [maxRows]='1000'>
-        </tcla-spotfire-viz>
-    <!-- <tcla-spotfire-viz (markingEvent)="marking($event)" [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
-    [url]="'https://spotfire-next.cloud.tibco.com'" id="id1" markingon='{"SpotfireExpenseAnalyzer": [ "*" ]}' [maxRows]='1000'
-    customization='{"showAbout": true,
-                    "showAnalysisInformationTool": true,
-                    "showAuthor": true,
-                    "showClose": true,
-                    "showCustomizableHeader": true,
-                    "showDodPanel": true,
-                    "showExportFile": true,
-                    "showExportVisualization": true,
-                    "showFilterPanel": true,
-                    "showHelp": true,
-                    "showLogout": false,
-                    "showPageNavigation": true,
-                    "showAnalysisInfo": true,
-                    "showReloadAnalysis": true,
-                    "showStatusBar": true,
-                    "showToolBar": true,
-                    "showUndoRedo": false}'
-    >
-  </tcla-spotfire-viz> -->
+        <tcsf-mc-spotfire-wrapper   [url]="spotfireServer" 
+                                    [path]="analysisPath" 
+                                    [page]="activePage" 
+                                    [parameters]="parameters" 
+                                    [customization]="configuration"
+                                    [markingOn]="markingOn"
+                                    (markingEvent)="marking($event)">
+        </tcsf-mc-spotfire-wrapper>
     </div>
-
+>
 </div>
