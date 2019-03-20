@@ -1,3 +1,7 @@
+::ng-deep .tcs-application-selector .mat-form-field-underline {
+  display: none;
+}
+
 .la-applications-div {
   margin-top: 50px;
 }
