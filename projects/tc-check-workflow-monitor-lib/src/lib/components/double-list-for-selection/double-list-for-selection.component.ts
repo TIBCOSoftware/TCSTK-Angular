@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-// import {ServiceHandlerService} from '../../services/service-handler.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {ServiceHandlerService} from '../../services/service-handler.service';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'tccwm-double-list-for-selection',
@@ -8,20 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoubleListForSelectionComponent implements OnInit {
 
-  public objList = [{"caseName" : "1", "amount" : 1000, "flag": "true"},
-    {"caseName" : "2", "amount" : 300, "flag": "true"},
-    {"caseName" : "3", "amount" : 1000, "flag": "false"},
-    {"caseName" : "4", "amount" : 1000, "flag": "false"}];
+ // @Input() appIds: string[];
+  @Input() sandboxId: number;
+
+
+  public objList = [];
 
   public caseList;
+
+  private serviceHandler: ServiceHandlerService;
+
+  displayedColumns: string[] = ['DemandeID', 'Numrodechque', 'Select'];
+  selectionDisplayedColumns: string[] = ['DemandeID', 'Numrodechque', 'Decision', 'Select'];
+
+  public dataSource;
+  public selectionDataSource;
 
 
   public selectionList = [];
 
-  constructor() { }
+  constructor(serviceHandler: ServiceHandlerService) {
+    this.serviceHandler = serviceHandler;
+  }
 
   ngOnInit() {
+    // TODO remove hard coded stuffs
+    const serviceObservable = this.serviceHandler.getCases( this.sandboxId, '2550', '1', 0, 900);
+    serviceObservable.subscribe( result => {
+        console.log('CASES : ' + result);
 
+        this.objList = result.caseinfos;
+        for (let obj of this.objList) {
+          obj.casedataObj = JSON.parse(obj.casedata);
+        }
+
+
+        this.dataSource = new MatTableDataSource(this.objList);
+        this.selectionDataSource = new MatTableDataSource(this.selectionList);
+
+
+      },
+      error => {
+        alert('ERROR GETTING CASE');
+      });
 
   }
 
@@ -29,9 +59,11 @@ export class DoubleListForSelectionComponent implements OnInit {
   onAreaListControlChanged(obj, index) {
     // determine selected options
     this.objList.splice(index, 1);
+    this.dataSource._updateChangeSubscription();
 
     obj.selectedForDecision = true;
     this.selectionList.push(obj);
+    this.selectionDataSource._updateChangeSubscription();
   }
 
 
@@ -39,9 +71,11 @@ export class DoubleListForSelectionComponent implements OnInit {
   onSelectionListControlChanged(obj, index) {
     // determine selected options
     this.selectionList.splice(index, 1);
+    this.selectionDataSource._updateChangeSubscription();
 
     obj.selectedForDecision = false;
-    this.objList.push(obj);
+    this.objList.unshift(obj);
+    this.dataSource._updateChangeSubscription();
   }
 
 }
