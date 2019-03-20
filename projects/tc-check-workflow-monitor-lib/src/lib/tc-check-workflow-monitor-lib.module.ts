@@ -1,13 +1,23 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {
-  MatButtonModule, MatButtonToggleModule,
+  MatButtonModule,
+  MatButtonToggleModule,
   MatCardModule,
-  MatCheckboxModule, MatDialogModule,
+  MatCheckboxModule,
+  MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatRadioModule, MatSelectModule, MatSnackBarModule, MatTabsModule, MatTooltipModule
+  MatListModule,
+  MatMenuModule,
+  MatOptionModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSnackBarModule,
+  MatTableModule,
+  MatTabsModule,
+  MatTooltipModule
 } from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -52,6 +62,7 @@ import { DoubleListForSelectionComponent } from './components/double-list-for-se
     MatCardModule,
     MatTooltipModule,
     MatTabsModule,
+    MatTableModule,
     MatButtonToggleModule,
     MatSnackBarModule,
     MatRadioModule,
