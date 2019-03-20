@@ -1,51 +1,91 @@
-<div fxLayout="row" fxLayoutAlign="space-around stretch" >
+<div fxLayout="row" fxLayoutAlign="space-around stretch" fxFill >
 
 
-  <div>
+  <div fxFlex="50">
     <mat-selection-list>
       <mat-list-option *ngFor="let curobj of objList ; index as i" (click)="onAreaListControlChanged(curobj, i)">
-        {{curobj.caseName}}  -- {{curobj.amount}} -- {{curobj.flag}}
+        <div fxLayout="row" fxLayoutAlign="space-around start" >
+            <div>
+              {{curobj.casedataObj.DemandeID}}
+            </div>
+          <div>
+            {{curobj.casedataObj.Numrodechque}}
+          </div>
+          <div>
+            {{curobj.casedataObj.Montant}}
+          </div>
+          <div>
+            {{curobj.casedataObj.Banque}}
+          </div>
+          <div>
+            {{curobj.casedataObj.Payeur}}
+          </div>
+
+
+        </div>
+
       </mat-list-option>
     </mat-selection-list>
 
     <br><br>
-    <pre>
+ <!--   <pre>
 {{objList | json}}
-  </pre>
+  </pre>-->
 
 
   </div>
 
 
-  <div>
+  <div fxFlex="50">
 
 
 
     <mat-list>
-      <mat-list-item *ngFor="let curobj of selectionList ; index as i"
-                        >
-        {{curobj.caseName}} -- {{i}}
+      <mat-list-item *ngFor="let curobj of selectionList ; index as i">
+        <div fxLayout="row" fxLayoutAlign="space-around start" >
+          <div>
+            {{curobj.casedataObj.DemandeID}}
+          </div>
+          <div>
+            {{curobj.casedataObj.Numrodechque}}
+          </div>
+          <div>
+            {{curobj.casedataObj.Montant}}
+          </div>
+          <div>
+            {{curobj.casedataObj.Banque}}
+          </div>
+          <div>
+            {{curobj.casedataObj.Payeur}}
+          </div>
+          <div>
+            <mat-radio-group
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+              [(ngModel)]="curobj.decision">
+              <mat-radio-button class="example-radio-button" value="cash">
+                Cash IN
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button"  value="destroy">
+                Destroy
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+          <mat-button-toggle (click)="onSelectionListControlChanged(curobj, i)">Deselect</mat-button-toggle>
+          </div>
+        </div>
 
 
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="curobj.decision">
-          <mat-radio-button class="example-radio-button" value="cash">
-            Cash IN
-          </mat-radio-button>
-          <mat-radio-button class="example-radio-button"  value="destroy">
-            Destroy
-          </mat-radio-button>
-        </mat-radio-group>
-        <mat-button-toggle (click)="onSelectionListControlChanged(curobj, i)">Deselect</mat-button-toggle>
+
+
       </mat-list-item>
     </mat-list>
     <br><br>
 
-    <pre>
+  <!--  <pre>
 {{selectionList | json}}
-  </pre>
+  </pre>-->
   </div>
 
 </div>

@@ -34,7 +34,7 @@ export class ServiceHandlerService {
 
   public getCases(sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseInfoList> {
     const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
-      + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top;
+      + appId + ' and typeId eq ' + typeId + ' and stateId eq 1 &$skip=' + skip + '&$top=' + top;
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
