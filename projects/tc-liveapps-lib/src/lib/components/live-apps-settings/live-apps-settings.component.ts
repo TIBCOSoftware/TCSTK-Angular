@@ -3,13 +3,14 @@ import {LiveAppsConfig} from '../../models/tc-liveapps-config';
 import {ActivatedRoute} from '@angular/router';
 import {GeneralConfig, Claim, Sandbox} from 'tc-core-lib';
 import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.service';
+import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 @Component({
   selector: 'tcla-live-apps-settings',
   templateUrl: './live-apps-settings.component.html',
   styleUrls: ['./live-apps-settings.component.css']
 })
-export class LiveAppsSettingsComponent implements OnInit {
+export class LiveAppsSettingsComponent extends LiveAppsComponent implements OnInit {
 
   LIVE_APPS_URL = '/apps/dt-app/index.html#/application-content/';
 
@@ -20,6 +21,7 @@ export class LiveAppsSettingsComponent implements OnInit {
   public claims: Claim;
 
   constructor(private route: ActivatedRoute, private liveAppsConfigService: TcLiveAppsConfigService) {
+    super();
   }
 
   public handleAppIdSelection(appIds: string[]) {
@@ -42,15 +44,13 @@ export class LiveAppsSettingsComponent implements OnInit {
   }
 
   public runSaveFunction = (): void => {
-
     const liveAppsConfig = new LiveAppsConfig().deserialize({
       applicationIds: this.selectedAppIds,
       caseIconsFolderId: this.liveAppsConfig.caseIconsFolderId,
       documentAppId: this.liveAppsConfig.documentAppId,
       collaborationAppId: this.liveAppsConfig.documentAppId
     });
-
     this.liveAppsConfigService.updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe();
-  };
+  }
 }
 
