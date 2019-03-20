@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ServiceHandlerService} from '../../services/service-handler.service';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'tccwm-double-list-for-selection',
@@ -17,6 +18,12 @@ export class DoubleListForSelectionComponent implements OnInit {
   public caseList;
 
   private serviceHandler: ServiceHandlerService;
+
+  displayedColumns: string[] = ['DemandeID', 'Numrodechque', 'Select'];
+  selectionDisplayedColumns: string[] = ['DemandeID', 'Numrodechque', 'Decision', 'Select'];
+
+  public dataSource;
+  public selectionDataSource;
 
 
   public selectionList = [];
@@ -37,6 +44,9 @@ export class DoubleListForSelectionComponent implements OnInit {
         }
 
 
+        this.dataSource = new MatTableDataSource(this.objList);
+        this.selectionDataSource = new MatTableDataSource(this.selectionList);
+
 
       },
       error => {
@@ -49,9 +59,11 @@ export class DoubleListForSelectionComponent implements OnInit {
   onAreaListControlChanged(obj, index) {
     // determine selected options
     this.objList.splice(index, 1);
+    this.dataSource._updateChangeSubscription();
 
     obj.selectedForDecision = true;
     this.selectionList.push(obj);
+    this.selectionDataSource._updateChangeSubscription();
   }
 
 
@@ -59,9 +71,11 @@ export class DoubleListForSelectionComponent implements OnInit {
   onSelectionListControlChanged(obj, index) {
     // determine selected options
     this.selectionList.splice(index, 1);
+    this.selectionDataSource._updateChangeSubscription();
 
     obj.selectedForDecision = false;
-    this.objList.push(obj);
+    this.objList.unshift(obj);
+    this.dataSource._updateChangeSubscription();
   }
 
 }
