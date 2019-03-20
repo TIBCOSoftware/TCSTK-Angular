@@ -1,20 +1,34 @@
-<div fxLayout="column" layout-align="start stretch" flex>
-  <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Process Discovery Settings Configuration'"></tc-tibco-cloud-widget-header>
-  <div style="padding: 20px;">
-    <p>You can update the values used by Process Discovery Application.</p>
-    <br>
-
-    <div fxLayout="column">
-        <div fxLayout="row">
-            <span>Datasource Application</span>
-        <tcla-live-apps-applications [sandboxId]="sandboxId"  [selectFirstApp]="false" (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
+<div fxLayout="column" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Process Discovery Settings Configuration'"></tc-tibco-cloud-widget-header>
+    <div style="padding: 20px;" fxLayout="column" fxFlex>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+            <p>Choose the TIBCO Cloud Process Discovery Configuration to be used within this application:</p>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="column">
+            <div>Datasource Application</div>
+            <tcla-live-apps-applications [sandboxId]="sandboxId" [selectFirstApp]="false"
+                (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
+        </div>
+        <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
             <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
-        </div>  
-        <!-- Applications to work with app -->
-        
-      
+        </div>
     </div>
-  </div>
 </div>
+
+<!-- 
+<div fxLayout="column" class="tcpd-configuration-settings-pane" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Live Apps App Selection Configuration'"></tc-tibco-cloud-widget-header>
+    <div style="padding: 20px;" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+            <p>Choose the TIBCO Cloud Live Apps Applications to be used within this application:</p>
+            <mat-icon class="tcs-designer-link" [svgIcon]="'tcs-application-edit'" (click)="handleEditLiveAppClick()"
+                matTooltip="Open Live Apps Designer" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
+        </div>
+        <tcla-live-apps-application-list class="tcs-app-selection-list-widget" fxFlex="grow" [sandboxId]="sandboxId"
+            [selectedAppIds]="selectedAppIds" (appIdsSelected)="handleAppIdSelection($event)">
+        </tcla-live-apps-application-list>
+    </div>
+</div> -->
