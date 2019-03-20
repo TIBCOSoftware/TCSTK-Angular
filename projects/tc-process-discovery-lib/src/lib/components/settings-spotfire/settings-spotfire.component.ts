@@ -54,7 +54,7 @@ export class SettingsSpotfireComponent implements OnInit {
         this.uiAppId = spotfireConfig.uiAppId;
     }
 
-    public runSaveFuntion = ():void => {
+    public runSaveFunction = ():void => {
        
         var spotfireConfig = new SpotfireConfig().deserialize({
             spotfireServer: this.spotfireServer,

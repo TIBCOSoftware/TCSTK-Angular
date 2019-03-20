@@ -1,17 +1,38 @@
-<div class="tcs-case-favorites-box" fxLayout="column" fxFlex>
-    <div class="tcs-case-favorites-header" fxLayout="row" fxLayoutAlign="space-between center">
-        <div fxLayoutAlign="start center">
-            <!-- <mat-icon class="tcs-icon tcs-favorites-icon" svgIcon="tcs-favorites-icon"></mat-icon> -->
-            <div class="tcs-case-favorites-header-text">Datasources</div>
+<div fxLayout="column" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Process Discovery Administration Configuration'"></tc-tibco-cloud-widget-header>
+    <div style="padding: 20px;" fxLayout="column" fxFlex>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+            <p>Choose the TIBCO Cloud Process Discovery Configuration to be used within this application:</p>
         </div>
-        <!-- <mat-icon (click)="clearFavoriteCases()" class="tcs-icon tcs-icon-active tcs-clear-favorite-icon" svgIcon="tcs-clear-icon" matTooltip="Clear Favorites" matTooltipPosition="left" matTooltipShowDelay="1000"></mat-icon> -->
-    </div>
-    <div class="tcs-case-favorites-flow-list" fxLayout="column" fxLayout="row wrap">
-        <div class="tcs-case-favorite-item-box" *ngFor="let case of cases" fxFlex>
-            <tcla-live-apps-case-summary [uiAppId]="datasourceId" [typeBar]="true" [borderCard]="false"
-                [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case"
-                (clickCaseWithOption)="clickCaseAction($event)"></tcla-live-apps-case-summary>
-            <div class="tcs-case-summary-line"></div>
+        <div fxLayout="column" fxLayout="row wrap">
+            <div *ngFor="let case of cases" fxFlex>
+                <tcla-live-apps-case-summary [uiAppId]="datasourceId" [typeBar]="true" [borderCard]="false"
+                    [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case"
+                    (clickCaseWithOption)="clickCaseAction($event)"></tcla-live-apps-case-summary>
+                <div class="tcs-case-summary-line"></div>
+            </div>
         </div>
+        <div fxFlex class="tcs-filler-panel"></div>
     </div>
 </div>
+
+<!-- 
+<div>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Process Discovery Settings Configuration'"></tc-tibco-cloud-widget-header>
+    <div style="padding: 20px;" fxLayout="column" fxFlex>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+            <p>Choose the TIBCO Cloud Process Discovery Configuration to be used within this application:</p>
+        </div>
+        <div fxLayout="column">
+            <div>Datasource Application</div>
+            <tcla-live-apps-applications [sandboxId]="sandboxId" [selectFirstApp]="false"
+                (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
+        </div>
+        <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+            <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
+        </div>
+    </div>
+</div> -->
