@@ -31,7 +31,7 @@
 }
 
 .tcs-configuration-router-pane {
-  overflow: auto;
+  overflow: hidden;
 }
 
 .tcs-configuration-outer-pane {
@@ -39,4 +39,5 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
   background-color: #ffffff;
   border: solid 1px #dedede;
+  overflow: hidden;
 }

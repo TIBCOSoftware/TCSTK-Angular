@@ -1,21 +1,18 @@
-<div style="padding: 10px;">
-    <div fxLayout="row">
-        <button mat-button (click)="handleSelectAll()">
-            <mat-icon class="app-list-select-all-icon"></mat-icon><span>Select All</span>
-        </button>
-        <button mat-button (click)="handleDeselectAll()">
-            <mat-icon app-list-deselect-all-icon></mat-icon><span>Deselect All</span>
-        </button>
-    </div>
-    <cdk-virtual-scroll-viewport itemSize="50" class="starters-scrolling-viewport">
-        <mat-selection-list #selectedApps [(ngModel)]="mySelectedOptions" (ngModelChange)="handleAppSelection($event)">
-            <mat-list-option class="tcs-application-option" checkboxPosition="before" *ngFor="let casetype of applications.casetypes"
-                [value]="casetype">
-                <div fxLayout="row" fxLayoutGap="10px">
-                  <span>{{casetype.label}}</span>
-                  <mat-icon class="tcs-hover-link" [svgIcon]="'tcs-application-edit'" (click)="handleEditLiveAppClick(casetype.applicationId)" matTooltip="Edit this app in Live Apps Designer" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
-                </div>
-            </mat-list-option>
-        </mat-selection-list>
-    </cdk-virtual-scroll-viewport>
+<div fxFlex style="padding: 10px;" fxLayout="column">
+  <div fxLayout="row" class="tcs-application-list-buttons">
+    <button mat-button (click)="handleSelectAll()">
+      <span>Select All</span>
+    </button>
+    <button mat-button (click)="handleDeselectAll()">
+      <span>Deselect All</span>
+    </button>
+  </div>
+  <mat-selection-list class="tcs-application-list" #selectedApps [(ngModel)]="mySelectedOptions" (ngModelChange)="handleAppSelection($event)"
+                      fxLayout="column" fxLayout="row wrap">
+    <mat-list-option class="tcs-application-option" checkboxPosition="before"
+                     *ngFor="let casetype of applications.casetypes"
+                     [value]="casetype">
+      <span>{{casetype.label}}</span>
+    </mat-list-option>
+  </mat-selection-list>
 </div>

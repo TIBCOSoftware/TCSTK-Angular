@@ -15,11 +15,10 @@ export class TibcoCloudSettingMenuEntryComponent implements OnInit {
     constructor() { }
 
     viewButtonClick(id) {
-        this.configureOption.emit(id);
+      this.configureOption.emit(id);
     }
 
     ngOnInit() {
-
     }
 
 }
