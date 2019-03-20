@@ -35,7 +35,13 @@ export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnI
   public refresh = (icon, fill) => {
     let url: string;
     if (icon) {
-      url = '/' + icon;
+      console.log(icon.slice(0, 13));
+      if (icon.slice(0, 13) === 'assets/icons/') {
+        // if icon is in assets folder we need to prepare the Url
+        url = this.location.prepareExternalUrl(icon);
+      } else {
+        url = '/' + icon;
+      }
     } else {
       // use generic icon
       this.location.prepareExternalUrl('assets/icons/ic-generic-state.svg');
