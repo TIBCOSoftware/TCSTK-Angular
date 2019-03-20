@@ -1,8 +1,8 @@
 .tcs-case-card-customization {
-  width: 900px;
-  height: 500px;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  min-width: 775px;
+  min-height: 370px;
+  /* border-radius: 3px; */
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);*/
   background-color: #ffffff;
 }
 
@@ -64,11 +64,10 @@
   line-height: normal;
   letter-spacing: normal;
   color: black;
-  margin-top: 20px;
 }
 
 .tcs-case-states-list {
-  margin: 20px;
+  margin: 5px;
 }
 
 .tcs-case-states-list-inner {

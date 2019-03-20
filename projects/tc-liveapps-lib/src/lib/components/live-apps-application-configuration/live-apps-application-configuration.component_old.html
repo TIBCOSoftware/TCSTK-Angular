@@ -1,23 +1,30 @@
 <div *ngIf="appId" class="tcs-case-card-customization" fxLayout="column">
+  <div class="tcs-case-card-customization-header" fxLayout="row" fxLayoutAlign="space-between stretch">
+    <div fxLayoutAlign="start center">
+      <mat-icon class="tcs-icon tcs-customization-icon" svgIcon="tcs-customization-icon"></mat-icon>
+      <div class="tcs-case-card-customization-header-text">Configure Case Cards</div>
+    </div>
+  </div>
+  <div class="tcs-case-card-customization-content" fxFlex>
     <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFlex>
-      <div fxLayout="column" fxLayoutAlign="start center" fxFlex>
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex>
         <div fxLayout="column" fxLayoutAlign="start center">
           <div class="tcs-case-card-customization-section-text">Preview</div>
         </div>
-        <div class="tcs-case-card-customization-preview" fxLayout="column" fxLayoutAlign="start center" fxFlex>
-          <div *ngIf="selectedStateConfig && caseTypeColor && caseTypeIcon" style="border-radius: 3px; margin: 5px;" fxLayout="column" fxLayoutAlign="space-around center">
+        <div class="tcs-case-card-customization-preview" fxLayout="column" fxLayoutAlign="center center" fxFlex>
+          <div *ngIf="selectedStateConfig && caseTypeColor && caseTypeIcon" style="border-radius: 3px; background-color: #fbfbfb; padding: 25px;" fxLayout="column" fxLayoutAlign="space-around center">
             <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="'card'" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>
             <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="'miniCard'" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>
           </div>
         </div>
       </div>
       <div class="tcs-case-card-customization-divider"></div>
-      <div fxLayout="column" fxLayoutAlign="start center" fxFlex>
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex>
         <div fxLayout="column" fxLayoutAlign="start center">
           <div class="tcs-case-card-customization-section-text">Configure Icons</div>
         </div>
         <div fxFlex>
-          <div fxFlex class="tcs-case-states-list" *ngIf="caseCardConfig && caseCardConfig.cardConfig && caseCardConfig.states" fxLayout="column" fxLayoutAlign="start center">
+          <div fxFlex class="tcs-case-states-list" *ngIf="caseCardConfig && caseCardConfig.cardConfig && caseCardConfig.states" fxLayout="column" fxLayoutAlign="center center">
             <div class="tcs-case-states-list-inner">
               <!-- case type icon -->
               <div class="tcs-case-states-list-row">
@@ -57,10 +64,10 @@
         </div>
       </div>
     </div>
-
-  <!--div class="tcs-case-card-customization-footer" fxLayout="column" fxLayoutAlign="end stretch">
+  </div>
+  <div class="tcs-case-card-customization-footer" fxLayout="column" fxLayoutAlign="end stretch">
     <div class="tcs-case-card-customization-action-buttons" fxLayout="row" fxLayoutAlign="center center">
       <button class="tcs-save-app-config-button" mat-button (click)="saveConfig()" type="submit">Save Configuration</button>
     </div>
-  </div-->
+  </div>
 </div>

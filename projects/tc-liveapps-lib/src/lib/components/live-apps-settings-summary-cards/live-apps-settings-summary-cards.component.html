@@ -1,10 +1,12 @@
-<div layout="column" layout-align="start stretch" flex>
+<div fxLayout="column" class="tcs-live-apps-summary-cards-settings" fxFill>
   <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Live Apps Summary Card Configuration'"></tc-tibco-cloud-widget-header>
 
-  <!--div fxLayout="row" fxLayoutAlign="space-between center">
-    <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
-  </div-->
-
-  <tcla-live-apps-app-configuration-widget [sandboxId]="sandboxId" [appIds]="liveAppsConfig.applicationIds" [uiAppId]="generalConfig.uiAppId" [folderId]="liveAppsConfig.caseIconsFolderId"></tcla-live-apps-app-configuration-widget>
-
+  <div style="padding: 20px 20px 20px 20px;" fxLayout="column" fxFlex>
+    <div class="tcs-card-config-widget-pane" fxFlex>
+      <tcla-live-apps-app-configuration-widget fxFlex="grow" [sandboxId]="sandboxId" [appIds]="liveAppsConfig.applicationIds" [uiAppId]="generalConfig.uiAppId" [folderId]="liveAppsConfig.caseIconsFolderId" (configChanged)="handleConfigChanged($event)" (appSelected)="handleAppSelection($event)"></tcla-live-apps-app-configuration-widget>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+      <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+    </div>
+  </div>
 </div>

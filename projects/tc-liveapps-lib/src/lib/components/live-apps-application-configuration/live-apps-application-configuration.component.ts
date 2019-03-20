@@ -57,7 +57,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   @Input() sandboxId: number;
   @Input() uiAppId: string;
   @Input() folderId: string;
-  @Output() configChanged = new EventEmitter();
+  @Output() configChanged: EventEmitter<CaseCardConfig> = new EventEmitter<CaseCardConfig>();
 
   public errorMessage: string;
   public caseCardConfig: CaseCardConfig;
@@ -123,6 +123,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
       this.caseCardConfig.cardConfig.stateMap = [];
       this.caseCardConfig.cardConfig.stateMap.push(stateConfig);
     }
+    this.configChanged.emit(this.caseCardConfig);
   }
 
   public setFill = (fill, stateConfig: IconMap) => {
@@ -132,6 +133,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     this.stateIconComponents.find(function(comp) {
       return comp.id === stateConfig.state;
     }).refillSVG(fill);
+    this.configChanged.emit(this.caseCardConfig);
   }
 
   public setCaseTypeFill = (fill, stateConfig: IconMap) => {
@@ -141,6 +143,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     this.stateIconComponents.find(function(comp) {
       return (comp.id === stateConfig.state && stateConfig.isCaseType);
     }).refillSVG(fill);
+    this.configChanged.emit(this.caseCardConfig);
   }
 
   public selectState = (state: CaseTypeState) => {
@@ -150,7 +153,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     });
   }
 
-  public saveConfig = () => {
+  /*public saveConfig = () => {
     this.caseCardConfigService.updateCaseCardConfig(this.sandboxId, this.appId, this.uiAppId, this.caseCardConfig)
       .pipe(
         take(1),
@@ -160,7 +163,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
         })
       ).subscribe(null, error => { console.log('Unable to update case card config: ' + error.errorMsg); }
     );
-  }
+  }*/
 
   public openDialog(state: CaseTypeState, isCaseType: boolean): void {
 
