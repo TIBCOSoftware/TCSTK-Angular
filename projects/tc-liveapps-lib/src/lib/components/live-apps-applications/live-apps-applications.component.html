@@ -1,9 +1,12 @@
-<div fxFlex style="width: 150px; max-width: 150px; margin-left: 10px;">
-  <mat-select *ngIf="selectedApp" class="tcs-application-selector-option" [disableOptionCentering]="true" placeholder="Application" [(value)]="selectedApp" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
-    <mat-option *ngFor="let application of applications.casetypes" [value]="application">
-      <span>{{application.label}}</span>
-    </mat-option>
-  </mat-select>
+<div class="tcs-application-selector" fxFlex style="margin-left: 10px;">
+  <mat-form-field>
+    <mat-label></mat-label>
+    <mat-select *ngIf="selectedApp" class="tcs-application-selector-option" [disableOptionCentering]="true" placeholder="Application" [(value)]="selectedApp" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
+      <mat-option *ngFor="let application of applications.casetypes" [value]="application">
+        {{application.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 
 
