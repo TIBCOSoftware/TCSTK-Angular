@@ -62,6 +62,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   public errorMessage: string;
   public caseCardConfig: CaseCardConfig;
   public selectedStateConfig: IconMap;
+  public selectedCaseTypeConfig: IconMap;
   public caseTypeIcon: string;
   public caseTypeColor: string;
 
@@ -94,7 +95,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     let reqIconMap: IconMap;
     if (this.caseCardConfig.cardConfig && this.caseCardConfig.cardConfig.stateMap) {
       this.caseCardConfig.cardConfig.stateMap.forEach((stateMap) => {
-        if (stateMap.state === caseTypeId) {
+        if (stateMap.isCaseType) {
           reqIconMap = stateMap;
         }
       });
@@ -231,6 +232,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public refresh = () => {
     // need states & cardConfig
+    this.selectedCaseTypeConfig = null;
     this.caseCardConfigService.getCaseCardConfig(this.sandboxId, this.appId, this.uiAppId, this.appTypeLabel, this.DEFAULT_CASE_TYPE_COLOR, this.DEFAULT_CASE_TYPE_ICON, this.DEFAULT_CASE_STATE_COLOR, this.DEFAULT_CASE_STATE_ICON).pipe(
       take(1),
       takeUntil(this._destroyed$),
@@ -244,6 +246,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
         this.caseTypeIcon = caseTypeRec.icon;
         this.caseTypeColor = caseTypeRec.fill;
+        this.selectedCaseTypeConfig = this.getConfigForCaseType(this.appTypeLabel);
       })
     ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case card config: ' + error.error.errorMsg; });

@@ -21,11 +21,10 @@
             <div class="tcs-case-states-list-inner">
               <!-- case type icon -->
               <div class="tcs-case-states-list-row">
-                <div *ngIf="getConfigForCaseType(appTypeLabel); let stateConfig;">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div fxLayoutAlign="start center" style="min-width: 170px;">Case Type Icon</div>
-                    <tcla-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="appTypeLabel" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"
-                                               [appId]="appId" [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setCaseTypeFill($event, stateConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="'-40%'"
+                    <tcla-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="appTypeLabel" [iconPath]="selectedCaseTypeConfig.icon" [color]="selectedCaseTypeConfig.fill"
+                                               [appId]="appId" [(colorPicker)]="selectedCaseTypeConfig.fill" (colorPickerChange)="setCaseTypeFill($event, selectedCaseTypeConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="'-40%'"
                                               matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">
                     </tcla-live-apps-state-icon>
                     <mat-icon (click)="openDialog(null, true)" class="tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button" svgIcon="tcs-document-upload"
@@ -33,7 +32,6 @@
                     </mat-icon>
                     <mat-icon class="tcs-icon tcs-icon-active tcs-config-button-placeholder"></mat-icon>
                   </div>
-                </div>
               </div>
               <div class="tcs-case-states-icon-divider"></div>
               <!-- case state icons -->
