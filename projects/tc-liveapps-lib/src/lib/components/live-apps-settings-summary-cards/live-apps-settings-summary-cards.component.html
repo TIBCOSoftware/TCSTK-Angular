@@ -6,7 +6,7 @@
       <tcla-live-apps-app-configuration-widget fxFlex="grow" [sandboxId]="sandboxId" [appIds]="liveAppsConfig.applicationIds" [uiAppId]="generalConfig.uiAppId" [folderId]="liveAppsConfig.caseIconsFolderId" (configChanged)="handleConfigChanged($event)" (appSelected)="handleAppSelection($event)"></tcla-live-apps-app-configuration-widget>
     </div>
     <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
-      <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+      <button mat-raised-button color="primary" (click)="runSaveFunction()" [disabled]="!caseCardConfig || !selectedApp">Save</button>
     </div>
   </div>
 </div>
