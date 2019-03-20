@@ -1,20 +1,20 @@
-<div fxLayout="column" layout-align="start stretch" flex>
-  <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Process Discovery Settings Configuration'"></tc-tibco-cloud-widget-header>
-  <div style="padding: 20px;">
-    <p>You can update the values used by Process Discovery Application.</p>
-    <br>
-
-    <div fxLayout="column">
-        <div fxLayout="row">
-            <span>Datasource Application</span>
-        <tcla-live-apps-applications [sandboxId]="sandboxId"  [selectFirstApp]="false" (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
+<div fxLayout="column" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Process Discovery Settings Configuration'"></tc-tibco-cloud-widget-header>
+    <div style="padding: 20px;" fxLayout="column" fxFlex>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+            <p>Choose the TIBCO Cloud Process Discovery Configuration to be used within this application:</p>
         </div>
-        <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div style="margin: 20px" fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <span>Configure the TIBCO Live Apps application with the datasources:</span>
+                <tcla-live-apps-applications style="width: 300px; max-width: 300px; margin-left: 10px;" [sandboxId]="sandboxId" [selectFirstApp]="false"
+                (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
+            </div>
+        </div>
+        <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
             <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
-        </div>  
-        <!-- Applications to work with app -->
-        
-      
+        </div>
     </div>
-  </div>
 </div>
