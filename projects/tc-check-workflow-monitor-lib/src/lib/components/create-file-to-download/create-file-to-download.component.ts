@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, DoCheck, Input, OnChanges, OnInit, SimpleChange, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'tccwm-create-file-to-download',
   templateUrl: './create-file-to-download.component.html',
   styleUrls: ['./create-file-to-download.component.css']
 })
-export class CreateFileToDownloadComponent implements OnInit {
+export class CreateFileToDownloadComponent implements OnInit, OnChanges, DoCheck {
 
-  constructor() { }
+  @Input() objList;
+
+  private oldSelectionListLength = 0;
+
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+
+    console.log(this.objList);
 
     const CSV = [
       '"1","val1","val2","val3","val4"',
@@ -34,6 +40,18 @@ export class CreateFileToDownloadComponent implements OnInit {
 
     divParent.appendChild(a);
 
+  }
+
+  ngOnChanges() {
+    console.log(this.objList);
+  }
+
+  ngDoCheck() {
+    if (this.objList.length !== this.oldSelectionListLength ) {
+      this.cd.markForCheck();
+      this.oldSelectionListLength = this.objList.length;
+
+    }
   }
 
 

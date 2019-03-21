@@ -1,21 +1,30 @@
 <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFill >
 
 
-  <div fxFlex="50">
+  <div fxFlex="70">
 
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table fxFlex="90" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 
       <ng-container matColumnDef="DemandeID">
-        <th mat-header-cell *matHeaderCellDef> Demande ID </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Demande ID </th>
         <td mat-cell *matCellDef="let element"> {{element.casedataObj.DemandeID}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="Payeur">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Payeur </th>
+        <td mat-cell *matCellDef="let element"> {{element.casedataObj.Payeur}} </td>
+      </ng-container>
 
-      <ng-container matColumnDef="Numrodechque">
-        <th mat-header-cell *matHeaderCellDef> Numero Cheque </th>
-        <td mat-cell *matCellDef="let element"> {{element.casedataObj.Numrodechque}} </td>
+      <ng-container matColumnDef="NumeroDossier" mat-sort-header >
+        <th mat-header-cell *matHeaderCellDef> Numero de dossier </th>
+        <td mat-cell *matCellDef="let element"> {{element.casedataObj.Dossier.Numrodedemande}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="StatutDemande" mat-sort-header >
+        <th mat-header-cell *matHeaderCellDef> Statut demande </th>
+        <td mat-cell *matCellDef="let element"> {{element.casedataObj.Dossier.Statut}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Select">
@@ -67,7 +76,25 @@
   </div>
 
 
-  <div fxFlex="50">
+  <div fxFlex="30">
+
+    <div fxLayout="row" fxLayoutAlign="space-around center" >
+
+      <mat-button-toggle> cash in all</mat-button-toggle>
+      <mat-button-toggle (click)="unselectAll()"> unselect all</mat-button-toggle>
+
+      XXX{{selectionList.length}}XX
+
+      <tccwm-create-file-to-download [objList]="selectionList"></tccwm-create-file-to-download>
+
+      <br><br>
+
+    </div>
+
+
+
+
+
 
     <table mat-table [dataSource]="selectionDataSource" class="mat-elevation-z8">
 
