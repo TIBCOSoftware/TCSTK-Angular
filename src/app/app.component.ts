@@ -251,6 +251,10 @@ export class AppComponent {
       'tcs-cloud-download',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-cloud-download.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-visibility',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-visibility.svg'))
+    );
 
 
 
