@@ -6,18 +6,19 @@ import { map, flatMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { ConfigurationMenuConfig } from '../models/tc-configuration-menu-config';
 import { Location } from '@angular/common';
+import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
 
 @Injectable()
 export class ConfigurationMenuConfigResolver implements Resolve<Observable<ConfigurationMenuConfig>> {
 
     DEFAULT_CONFIG_URL = 'assets/config/<uiAppId>_configurationMenuConfig.json';
-    APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
+    APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     constructor(private http: HttpClient, private location: Location) { }
 
     // can be used to load defaultAppConfig from a JSON config
     private getConfigurationMenuConfig = (uiAppId: string) => {
-        return this.http.get(this.location.prepareExternalUrl(this.DEFAULT_CONFIG_URL.replace('<uiAppId>', uiAppId)));
+        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL.replace('<uiAppId>', uiAppId)));
     }
 
     // loads uiAppId from json file in assets (appId.json)

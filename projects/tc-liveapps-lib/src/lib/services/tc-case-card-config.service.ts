@@ -164,13 +164,13 @@ export class TcCaseCardConfigService {
             caseinfo.metadata.stateColor = '#8197c0';
           }
           if (!caseinfo.metadata.stateIcon) {
-            caseinfo.metadata.stateIcon = this.location.prepareExternalUrl('assets/icons/ic-generic-state.svg');
+            caseinfo.metadata.stateIcon = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-generic-state.svg');
           }
           if (!caseinfo.metadata.caseTypeColor) {
             caseinfo.metadata.caseTypeColor = '#8197c0';
           }
           if (!caseinfo.metadata.caseTypeIcon) {
-            caseinfo.metadata.caseTypeIcon = this.location.prepareExternalUrl('assets/icons/ic-generic-casetype.svg');
+            caseinfo.metadata.caseTypeIcon = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-generic-casetype.svg');
           }
         }
       ));
