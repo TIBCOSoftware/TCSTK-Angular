@@ -1,10 +1,14 @@
-<button mat-button class="tcs-case-action-button" *ngFor="let action of caseactions| slice:0:maxActions"
-        matTooltip="{{action.label}}" matTooltipShowDelay="1000" matTooltipPosition="above"
-        (click)="selectAction(action)">
-  {{action.label | ellipsis: 30 }}
-</button>
-<mat-select *ngIf="caseactions && caseactions.length > maxActions" class="tcs-case-action-option" [disableOptionCentering]="true" placeholder="More" matTooltip="" matTooltipShowDelay="1000" matTooltipPosition="below">
-  <mat-option *ngFor="let action of caseactions | slice:maxActions:caseactions.length" [value]="action" (click)="selectAction(action)">
-    <span>{{action.label}}</span>
-  </mat-option>
-</mat-select>
+<div fxLayout="row">
+  <button mat-button class="tcs-case-action-button" *ngFor="let action of caseactions| slice:0:maxActions"
+          matTooltip="{{action.label}}" matTooltipShowDelay="1000" matTooltipPosition="above"
+          (click)="selectAction(action)">
+    {{action.label | ellipsis: 30 }}
+  </button>
+  <div fxLayout="row" fxLayoutAlign="center center" style="width: 75px" *ngIf="caseactions && caseactions.length > maxActions">
+    <mat-select class="tcs-case-action-option" [disableOptionCentering]="true" placeholder="More" matTooltip="" matTooltipShowDelay="1000" matTooltipPosition="below">
+      <mat-option *ngFor="let action of caseactions | slice:maxActions:caseactions.length" [value]="" (click)="selectAction(action)">
+        <span>{{action.label}}</span>
+      </mat-option>
+    </mat-select>
+  </div>
+</div>
