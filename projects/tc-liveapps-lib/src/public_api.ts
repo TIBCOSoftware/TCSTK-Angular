@@ -47,6 +47,7 @@ export * from './lib/models/tc-case-data';
 export * from './lib/models/tc-case-processes';
 export * from './lib/models/tc-document';
 export * from './lib/models/tc-liveapps-config';
+export * from './lib/models/tc-case-creator';
 
 // service
 export * from './lib/services/live-apps.service';
