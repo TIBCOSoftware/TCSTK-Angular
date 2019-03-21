@@ -1,11 +1,11 @@
 import {
   Component,
   EventEmitter,
-  Input,
+  Input, OnChanges,
   OnDestroy,
   OnInit,
   Output,
-  QueryList,
+  QueryList, SimpleChanges,
   ViewChild,
   ViewChildren,
   ViewEncapsulation
@@ -25,7 +25,7 @@ import {TcCaseCardConfigService} from '../../services/tc-case-card-config.servic
   styleUrls: ['./live-apps-case-summary.component.css']
 })
 
-export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit {
+export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit, OnChanges {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChild('caseStateIcon') stateIconComponent: LiveAppsStateIconComponent;
   @ViewChild('caseTypeIcon') caseTypeIconComponent: LiveAppsStateIconComponent;
@@ -139,6 +139,12 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
 
   ngOnInit() {
     this.refresh();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.configModeAppTypeLabel && !changes.configModeAppTypeLabel.isFirstChange() && (changes.configModeAppTypeLabel.currentValue !== changes.configModeAppTypeLabel.previousValue)) {
+      this.refresh();
+    }
   }
 
 }
