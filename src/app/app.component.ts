@@ -230,6 +230,17 @@ export class AppComponent {
       'tcs-chevron-left',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-chevron-left.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-delete-sweep',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-delete-sweep.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-euro-symbol',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-euro-symbol.svg'))
+    );
+
+
+
 
   
 }
