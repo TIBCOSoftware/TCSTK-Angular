@@ -15,6 +15,7 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatSnackBarModule,
+  MatPaginatorModule,
   MatTableModule,
   MatTabsModule,
   MatTooltipModule
@@ -72,7 +73,8 @@ import { DoubleListForSelectionComponent } from './components/double-list-for-se
     ScrollingModule,
     ReactiveFormsModule,
     TcLiveappsLibModule,
-    TcCoreLibModule
+    TcCoreLibModule,
+    MatPaginatorModule
   ],
   entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent],
   exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent],
