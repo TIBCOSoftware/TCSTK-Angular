@@ -46,7 +46,7 @@ export class PdProcessDiscoveryService {
     }
 
     public updateProcessDiscoveryUserConfig(sandboxId: number, uiAppId: string, ssType: string, processDiscoveryUserConfig: ProcessDiscoveryUserConfig, id: string) {
-        const ssName = uiAppId + this.DEFAULT_PREFIX;
+        const ssName = uiAppId + this.DEFAULT_PREFIX + ssType;
         const content: SharedStateContent = new SharedStateContent();
         content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(processDiscoveryUserConfig));
         const entry: SharedStateEntry = new SharedStateEntry();
@@ -75,9 +75,9 @@ export class PdProcessDiscoveryService {
             .pipe(
                 map(value => {
                     const userPredefinedDatasource = new UserPredefinedDatasource().deserialize({
-                        "datasourceId": "string",
-                        "description": "string",
-                        "caseRef": "string"
+                        "datasourceId": value.summaryObj.AnalysisID,
+                        "description": value.summaryObj.AnalysisName,
+                        "caseRef": value.caseReference
                     });
                     return userPredefinedDatasource;
                 })
