@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ServiceHandlerService} from '../../services/service-handler.service';
-import {MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
@@ -12,6 +12,10 @@ export class DoubleListForSelectionComponent implements OnInit {
 
  // @Input() appIds: string[];
   @Input() sandboxId: number;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  private csvSeparator = ';';
 
 
   public objList = [];
@@ -51,6 +55,8 @@ export class DoubleListForSelectionComponent implements OnInit {
 
 
         this.dataSource = new MatTableDataSource(this.objList);
+        this.dataSource.paginator = this.paginator;
+
         this.selectionDataSource = new MatTableDataSource(this.selectionList);
 
 
@@ -62,9 +68,16 @@ export class DoubleListForSelectionComponent implements OnInit {
   }
 
 
+
+  private getRealIndex (paginator: MatPaginator, index) {
+    return (this.paginator.pageIndex * this.paginator.pageSize) + index;
+  }
+
+
   onAreaListControlChanged(obj, index) {
     // determine selected options
-    this.objList.splice(index, 1);
+    const realIndex = this.getRealIndex(this.paginator, index);
+    this.objList.splice(realIndex, 1);
     this.dataSource._updateChangeSubscription();
 
     obj.selectedForDecision = true;
@@ -139,7 +152,23 @@ export class DoubleListForSelectionComponent implements OnInit {
 
 
   debugSelection() {
-    alert(JSON.stringify(this.selectionList[0].casedataObj, null, 2));
+     console.log(JSON.stringify(this.selectionList[0].casedataObj, null, 2));
+    let csvContent = 'Banque;Compte d\'encaissement (bénéficiaire);Date accord encaissement;N du chêque client;ZONE 3;ZONE 2;Montant du chêque;Contrat';
+    for (const obj of this.selectionList) {
+      csvContent = csvContent + '\\n';
+      const casedataObj = obj.casedataObj;
+      const curLine = casedataObj.Banque + this.csvSeparator +
+                      '???' + this.csvSeparator +
+                      '???' + this.csvSeparator +
+                      casedataObj.Numrodechque + this.csvSeparator +
+                      '???' + this.csvSeparator +
+                      '???' + this.csvSeparator +
+                      casedataObj.Montant + this.csvSeparator +
+                      '???' + this.csvSeparator;
+      csvContent = csvContent + curLine;
+    }
+    console.log(csvContent);
+
   }
 
 }
