@@ -19,52 +19,53 @@ export class PdHomeComponent implements OnInit {
     private generalConfig: GeneralConfig;
     private liveAppsConfig: LiveAppsConfig;
     private claims: Claim;
-    private sandboxId: number;
+    public sandboxId: number;
     private selectedAppConfig: CaseType;
     private datasource: UserPredefinedDatasource;
     private processDiscovery: ProcessDiscoveryConfig;
+    private processDiscoveryConfig: ProcessDiscoveryUserConfig;
     public title;
+    public appIds: string[];
 
     constructor(
         private router: Router,
-        private buttonsHelper: TcButtonsHelperService,
         private route: ActivatedRoute,
         public dialog: MatDialog,
         private location: Location,
         private processDiscoveryService: PdProcessDiscoveryService
     ) {
-        // router.routeReuseStrategy.shouldReuseRoute = function () {
-        //     return false;
-        // };
+        router.routeReuseStrategy.shouldReuseRoute = function () {
+            return false;
+        };
     }
 
     ngOnInit() {
         this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
         this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
-        const processDiscoveryConfig: ProcessDiscoveryUserConfig = this.route.snapshot.data.processDiscoveryUserConfigHolder;
+        this.processDiscoveryConfig = this.route.snapshot.data.processDiscoveryUserConfigHolder;
         this.processDiscovery = this.route.snapshot.data.processDiscovery;
         this.claims = this.route.snapshot.data.claims;
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
-        // this.userName = this.claims.firstName + ' ' + this.claims.lastName;
-        // this.email = this.claims.email;
-        // this.userId = this.claims.id;
-        // this.datasource = 'DIS_000002';
-        // this.datasource = { id: 'DIS_000002', description: 'whatever' };
-        if (processDiscoveryConfig.datasourceCaseRef != ""){
-            this.processDiscoveryService.getUserPredefinedDatasource(this.sandboxId, processDiscoveryConfig.datasourceCaseRef)
-            .pipe(
-                map(value => {
-                    this.title = value.datasourceId + '-' + value.description;
-                    this.datasource =  value;
-                })
-            );
+        this.appIds = this.liveAppsConfig.applicationIds;
+
+        if (sessionStorage.getItem('currentDatasource')){
+            this.datasource = JSON.parse(sessionStorage.getItem('currentDatasource'));
+            this.title = this.datasource.datasourceId + '-' + this.datasource.description;
         } else {
-            this.datasource = new UserPredefinedDatasource().deserialize({
-                caseRef: '',
-                datasourceId: '',
-                description: ''
-            });
-            this.title = 'Not predefined datasource';
+            if (this.processDiscoveryConfig.datasourceCaseRef != ""){
+                this.processDiscoveryService.getUserPredefinedDatasource(this.sandboxId, this.processDiscoveryConfig.datasourceCaseRef)
+                    .subscribe(value => {
+                        this.title = value.datasourceId + '-' + value.description;
+                        this.datasource =  value;
+                    });
+            } else {
+                this.datasource = new UserPredefinedDatasource().deserialize({
+                    caseRef: '',
+                    datasourceId: '',
+                    description: ''
+                });
+                this.title = 'Not predefined datasource';
+            }
         }
     }
 
@@ -78,10 +79,22 @@ export class PdHomeComponent implements OnInit {
 
         if (routeAction.action === 'changedatasourceClicked') {
             this.processDiscoveryService.getDatasources(this.sandboxId, this.processDiscovery.datasourceAppId, ['Ready'])
-                .subscribe( 
+                .subscribe(
                     value => {
                         this.openDialog(value);
                     });
+            // this.processDiscoveryService.getDatasources(this.sandboxId, this.processDiscovery.datasourceAppId, ['Ready'])
+            //     .pipe( 
+            //         map(
+            //             posibleDatasources => {
+            //                 this.processDiscoveryService.getProcessDiscoveryUserConfig(this.processDiscovery.uiAppId, 'PRIVATE', true, true)
+            //                 .subscribe(
+            //                     userConfig => {
+            //                         this.openDialog(posibleDatasources, userConfig);
+            //                     }
+            //                 )
+            //             }
+            //         );
         }
 
         if (routeAction.action === 'changeViewClicked'){
@@ -111,7 +124,7 @@ export class PdHomeComponent implements OnInit {
                 posibleDatasources: posibleDatasources,
                 sandboxId: this.sandboxId,
                 uiAppId: this.generalConfig.uiAppId,
-                id: this.processDiscovery.id
+                id: this.processDiscoveryConfig.id
             }
         });
 
@@ -120,6 +133,7 @@ export class PdHomeComponent implements OnInit {
             if (this.datasource != result) {
                 this.title = result.datasourceId + '-' + result.description;
                 this.datasource = result;
+                sessionStorage.setItem('currentDatasource', JSON.stringify(result));
                 const path: string = this.location.path();
                 if (this.location.path().startsWith('/starterApp/pd/process-mining-view/')) {
                     this.router.navigate(['/starterApp/pd/process-mining-view/' + this.datasource.datasourceId]);
@@ -133,6 +147,7 @@ export class PdHomeComponent implements OnInit {
 export interface DialogData {
     currentDatasource: UserPredefinedDatasource;
     posibleDatasources: UserPredefinedDatasource[],
+    predefinedDatasource: ProcessDiscoveryUserConfig,
     sandboxId: number,
     uiAppId: string,
     id: string
@@ -140,6 +155,7 @@ export interface DialogData {
 @Component({
     selector: 'pd-change-datasource-dialog',
     templateUrl: 'pd-change-datasource-dialog.html',
+    styleUrls: ['./pd-change-datasource-dialog.css']
 })
 export class PdChangeDatasourceDialog {
 
@@ -147,7 +163,14 @@ export class PdChangeDatasourceDialog {
 
     saveDefaultDatasource = (): void => {
         alert("dfisnf");
-        // this.processDiscoveryService.updateProcessDiscoveryUserConfig(this.data.sandboxId, this.data.uiAppId, 'PRIVATE', this.data.currentDatasource, this.data.id);
+        const newDefaultDatasource = new ProcessDiscoveryUserConfig().deserialize({
+            'datasourceCaseRef': this.data.currentDatasource.caseRef
+        });
+        this.processDiscoveryService.updateProcessDiscoveryUserConfig(this.data.sandboxId, this.data.uiAppId, 'PRIVATE', newDefaultDatasource, this.data.id).subscribe(
+            result => {
+                console.log("******** OK " + result);
+            }
+        );
 
     }
 }
