@@ -26,7 +26,7 @@
   <div fxLayout="row" fxLayoutAlign="space-around stretch">
 
 
-    <div fxFlex="60">
+    <div fxLayout="column" fxFlex="60">
 
 
       <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -64,7 +64,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr  mat-row *matRowDef="let row; columns: displayedColumns;let element" [ngClass]="{'cwm-preco-row': element.casedataObj.preco}"></tr>
       </table>
-
+      <mat-paginator [pageSizeOptions]="[12]" showFirstLastButtons></mat-paginator>
 
       <!--
       <mat-selection-list>
