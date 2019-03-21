@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" fxFill>
+
+
+  <div mat-dialog-title >{{description}}</div>
+
+  <mat-dialog-content>
+
+
+    <!-- TODO remove all hardcoded values
+    <tcla-live-apps-case-cockpit fxFill [typeId]="typeId" [appId]="appId" [uiAppId]="generalConfig.uiAppId" [sandboxId]="sandbox.id" [caseRef]="caseRef" [userId]="claims.id" (routeAction)="handleRouteAction($event)" ></tcla-live-apps-case-cockpit>-->
+
+  </mat-dialog-content>
+
+
+  <mat-dialog-actions >
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+  </mat-dialog-actions>
+</div>
+
