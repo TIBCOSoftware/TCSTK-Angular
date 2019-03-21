@@ -20,7 +20,7 @@ export class DoubleListForSelectionComponent implements OnInit {
   private serviceHandler: ServiceHandlerService;
 
   displayedColumns: string[] = ['DemandeID', 'Payeur', 'NumeroDossier', 'StatutDemande',  'Select'];
-  selectionDisplayedColumns: string[] = ['DemandeID', 'Numrodechque', 'Decision', 'Select'];
+  selectionDisplayedColumns: string[] = ['Select', 'DemandeID', 'Decision'];
 
   public dataSource;
   public selectionDataSource;
