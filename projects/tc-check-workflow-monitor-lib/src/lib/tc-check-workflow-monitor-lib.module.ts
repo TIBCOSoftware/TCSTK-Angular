@@ -41,10 +41,11 @@ import {DecisionCockpitComponent} from './components/decision-cockpit/decision-c
 import { CreateFileToDownloadComponent } from './components/create-file-to-download/create-file-to-download.component';
 import { DoubleListForSelectionComponent } from './components/double-list-for-selection/double-list-for-selection.component';
 import { CaseDetailsDialogComponent } from './components/case-details-dialog/case-details-dialog.component';
+import { CwmCaseCockpitComponent } from './components/cwm-case-cockpit/cwm-case-cockpit.component';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent, CwmCaseCockpitComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
