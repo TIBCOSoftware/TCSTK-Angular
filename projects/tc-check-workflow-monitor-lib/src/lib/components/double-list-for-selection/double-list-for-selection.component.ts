@@ -96,6 +96,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
 
   selectAllPreco() {
+    alert('TO TEST WHEN RAN TwICE');
     let index = 0;
     let refreshTable = false;
     for (const obj of this.objList) {
@@ -117,8 +118,13 @@ export class DoubleListForSelectionComponent implements OnInit {
     for (const obj of this.selectionList) {
       obj.casedataObj.decision = decisionValue;
     }
-    this.selectionDataSource._updateChangeSubscription();
+    //  this.selectionDataSource._updateChangeSubscription();
 
+  }
+
+
+  debugSelection() {
+    alert(JSON.stringify(this.selectionList[0].casedataObj,null,2));
   }
 
 }
