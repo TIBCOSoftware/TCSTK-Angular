@@ -1,5 +1,7 @@
 {
+  "browserTitle": "Tibco Cloud App",
   "applicationTitle": "Case Manager App (TIBCO LABS™)",
+  "welcomeMessage": "Welcome to the Case Manager App",
   "roles": [
     {
       "id": "role1",
