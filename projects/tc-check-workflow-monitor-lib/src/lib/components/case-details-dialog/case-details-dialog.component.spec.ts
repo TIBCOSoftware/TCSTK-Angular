@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PdCreatorSelectorComponent } from './pd-creator-selector.component';
+import { CaseDetailsDialogComponent } from './case-details-dialog.component';
 
-describe('PdCreatorSelectorComponent', () => {
-  let component: PdCreatorSelectorComponent;
-  let fixture: ComponentFixture<PdCreatorSelectorComponent>;
+describe('CaseDetailsDialogComponent', () => {
+  let component: CaseDetailsDialogComponent;
+  let fixture: ComponentFixture<CaseDetailsDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PdCreatorSelectorComponent ]
+      declarations: [ CaseDetailsDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PdCreatorSelectorComponent);
+    fixture = TestBed.createComponent(CaseDetailsDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
