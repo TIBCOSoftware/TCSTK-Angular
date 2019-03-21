@@ -8,9 +8,10 @@
     </div>
     <div fxFlex="40" fxLayout="row" fxLayoutAlign="space-around center">
 
+      <button mat-raised-button color="primary" (click)="unselectAll()"><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-chevron-left'"></mat-icon></button>
+      <button mat-raised-button color="primary" (click)="decisionForAll('encaisser')"><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-euro-symbol'"></mat-icon></button>
+      <button mat-raised-button color="primary" (click)="decisionForAll('detruire')"><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-delete-sweep'"></mat-icon></button>
 
-      <button mat-raised-button color="primary" (click)="decisionForAll('encaisser')">Tout encaisser</button>
-      <button mat-raised-button color="primary" (click)="unselectAll()">Tout déselectionner</button>
       <button mat-raised-button color="primary" (click)="debugSelection()">debug</button>
 
 
@@ -123,7 +124,7 @@
         </ng-container>
 
         <ng-container matColumnDef="Decision">
-          <th mat-header-cell *matHeaderCellDef> decision</th>
+          <th mat-header-cell *matHeaderCellDef> Decision</th>
           <td mat-cell *matCellDef="let element">
             <mat-radio-group
               aria-labelledby="example-radio-group-label"

@@ -21,3 +21,8 @@
   width:24px;
   padding-left: 5px !important;
 }
+
+:host ::ng-deep .cwm-button-icon .svg-content {
+  fill : white;
+}
+
