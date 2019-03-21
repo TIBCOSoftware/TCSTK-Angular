@@ -239,6 +239,15 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-euro-symbol.svg'))
     );
 
+    this.matIconRegistry.addSvgIcon(
+      'tcs-flash-on',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-flash-on.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-incandescent',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-incandescent.svg'))
+    );
+
 
 
 
