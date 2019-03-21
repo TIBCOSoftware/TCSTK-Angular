@@ -1,4 +1,4 @@
-import { Location } from '@angular/common';
+import {HashLocationStrategy, Location} from '@angular/common';
 
 // @dynamic
 export class TcCoreCommonFunctions {
@@ -63,10 +63,8 @@ export class TcCoreCommonFunctions {
   }
 
   public static prepareUrlForStaticResource = (location: Location, str: string): string => {
-    // todo: JS is there a better way to detect hash location strategy?
     // @ts-ignore
-    if (location._platformStrategy._platformLocation.hash) {
-      console.log('*** path:', str);
+    if (location._platformStrategy instanceof HashLocationStrategy) {
       return str;
     } else {
       return location.prepareExternalUrl(str);
