@@ -42,13 +42,12 @@ export class PdSettingsAdministrationComponent implements OnInit {
     }
 
     clickCaseAction = ($event: any) => {
-        if ($event.option === 'set') {
+        this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef]);
+    }
 
-        }
-        if ($event.option === 'open') {
-            // case clicked - tell parent (will pass caseRef and appId)
-            this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef]);
-        }
+    addNewDatasource = (): void => {
+
     }
 
 }
+// to use to investigate process mining issues

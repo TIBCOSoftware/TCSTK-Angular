@@ -4,7 +4,7 @@
 
 export * from './lib/tc-process-discovery-lib.module';
 
-// components
+// Components
 
 export * from './lib/components/pd-case-creators/pd-case-creators.component';
 export * from './lib/components/pd-case-view/pd-case-view.component';
@@ -22,4 +22,5 @@ export * from './lib/services/pd-process-discovery.service';
 
 // Resolvers
 export * from './lib/resolvers/process-discovery-config.resolver';
+export * from './lib/resolvers/process-discovery-user-configuration.resolver';
 

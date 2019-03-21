@@ -9,30 +9,13 @@
             <div *ngFor="let case of cases" fxFlex>
                 <tcla-live-apps-case-summary [uiAppId]="datasourceId" [typeBar]="true" [borderCard]="false"
                     [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case"
-                    (clickCaseWithOption)="clickCaseAction($event)"></tcla-live-apps-case-summary>
+                    (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-summary>
                 <div class="tcs-case-summary-line"></div>
             </div>
         </div>
         <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+            <button mat-raised-button color="primary" (click)="addNewDatasource()">Add new datasource</button>
+        </div>
     </div>
 </div>
-
-<!-- 
-<div>
-    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
-        [headerText]="'Process Discovery Settings Configuration'"></tc-tibco-cloud-widget-header>
-    <div style="padding: 20px;" fxLayout="column" fxFlex>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
-            <p>Choose the TIBCO Cloud Process Discovery Configuration to be used within this application:</p>
-        </div>
-        <div fxLayout="column">
-            <div>Datasource Application</div>
-            <tcla-live-apps-applications [sandboxId]="sandboxId" [selectFirstApp]="false"
-                (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
-        </div>
-        <div fxFlex class="tcs-filler-panel"></div>
-        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
-            <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
-        </div>
-    </div>
-</div> -->
