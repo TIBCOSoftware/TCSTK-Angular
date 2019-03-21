@@ -1,10 +1,17 @@
 <h1 mat-dialog-title>Select the new datasource</h1>
 <div mat-dialog-content>
-  <p>Datasource name:</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.datasource">
-  </mat-form-field>
+    <div fxFlex fxLayout="column">
+        <mat-form-field>
+            <mat-label>Datasource</mat-label>
+            <mat-select [(value)]="data.currentDatasource">
+                <mat-option *ngFor="let posibleDatasource of data.posibleDatasources" [value]="posibleDatasource">
+                    {{posibleDatasource.datasourceId}}-{{posibleDatasource.description}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="data.datasource" cdkFocusInitial>Ok</button>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
+    <button mat-raised-button (click)="saveDefaultDatasource()">Save as default datasource</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="data.currentDatasource" cdkFocusInitial>Ok</button>
 </div>

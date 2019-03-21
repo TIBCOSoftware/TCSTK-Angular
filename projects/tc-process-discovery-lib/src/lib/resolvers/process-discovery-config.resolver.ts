@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { flatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
-import { TcSharedStateService, UiAppIdConfig } from 'tc-core-lib';
+import { UiAppIdConfig } from 'tc-core-lib';
 import { ProcessDiscoveryConfig } from '../models/tc-process-discovery-config';
 import { PdProcessDiscoveryConfigService } from '../services/pd-process-discovery-config.service';
 
@@ -19,7 +19,6 @@ export class ProcessDiscoveryConfigResolver implements Resolve<Observable<Proces
     private uiAppId: string;
 
     constructor(
-        private tcSharedState: TcSharedStateService, 
         private processDiscoveryConfigService: PdProcessDiscoveryConfigService, 
         private http: HttpClient, 
         private location: Location

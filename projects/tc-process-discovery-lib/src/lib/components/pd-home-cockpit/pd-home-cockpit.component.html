@@ -1,6 +1,6 @@
 <div fxLayout="column" fxFlex>
     <div>
-        <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="'Overview - ' + title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+        <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
             <div>
                 <mat-button-toggle-group class="nav-switch-bar" name="view" aria-label="Font Style" (change)="handleViewButtonEvent($event)">
                     <mat-button-toggle *ngFor="let view of viewButtons" name="{{view.tooltip}}" value="{{view.id}}">{{view.tooltip}}</mat-button-toggle>
@@ -10,35 +10,8 @@
         </tc-tibco-cloud-menu-bar>
     </div>
     <div style="height: 100%">
-    <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
     </div>
-    <!-- <div class="tcs-home-content" fxLayout="column" fxFlex="grow" style="margin-left: 20px; margin-right: 20px; margin-top: 10px;">
-    
-        <div class="searchCasesWidget">
-        <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
-        </div>
-    
-        <div fxLayout="row" fxLayoutGap="20px" style="margin-bottom: 20px; min-height: 367px">
-        <div class="favoriteCasesWidget" fxFlex>
-            <tcla-live-apps-favorite-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
-        </div>
-    
-        <div class="recentCasesWidget" fxFlex>
-            <tcla-live-apps-recent-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
-        </div>
-        </div>
-    
-        <div fxLayout="row" fxLayoutGap="20px" style="margin-bottom: 20px; min-height: 367px">
-        <div fxFlex class="collaborationWidget">
-            <tcla-live-apps-notes [userId]="userId" [relatedItemId]="uiAppId" [relatedItemType]="'CASE_APP'"></tcla-live-apps-notes>
-        </div>
-    
-        <div fxFlex class="documentWidget">
-            <tcla-live-apps-documents [sandboxId]="sandboxId" [folderId]="uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
-        </div>
-        </div>
-    </div> -->
-
 </div>
       
       
