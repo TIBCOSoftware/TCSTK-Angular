@@ -222,6 +222,14 @@ export class AppComponent {
       'tcs-info-icon',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-info.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-chevron-right',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-chevron-right.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-chevron-left',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-chevron-left.svg'))
+    );
 
   
 }
