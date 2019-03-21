@@ -8,9 +8,9 @@
       <tcla-live-apps-case-states fxFlex [sandboxId]="sandboxId" [caseRef]="caseRef" [appId]="appId"></tcla-live-apps-case-states>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="end center" class="tcs-actions-bar">
+  <!--  <div fxLayout="row" fxLayoutAlign="end center" class="tcs-actions-bar">
       <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseReference]="caseRef" [caseState]="'Created'" [maxActions]="5" (actionClicked)="handleActionSelection($event)"></tcla-live-apps-case-actions>
-    </div>
+    </div>-->
     <div fxLayout="row" fxFlex>
       <div fxFlex fxLayoutGap="20px">
         <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
@@ -29,18 +29,24 @@
         </div>
         <div fxLayout="column" fxFlex fxLayoutGap="20px">
           <mat-tab-group fxFlex>
+            <mat-tab label="Documents">
+              <a href="">Lien vers les documents</a>
+            </mat-tab>
             <mat-tab label="Notes">
+              <tcla-live-apps-notes class="live-apps-widget" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>
+            </mat-tab>
+            <!--<mat-tab label="Notes">
               <tcla-live-apps-notes class="live-apps-widget" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>
             </mat-tab>
             <mat-tab label="Documents">
               <tcla-live-apps-documents class="live-apps-widget" [sandboxId]="sandboxId" [folderId]="caseRef" [folderType]="'caseFolders'"></tcla-live-apps-documents>
-            </mat-tab>
+            </mat-tab>-->
             <mat-tab label="States">
               <tcla-live-apps-case-state-audit [caseRef]="caseRef" [sandboxId]="sandboxId" [appId]="appId"></tcla-live-apps-case-state-audit>
             </mat-tab>
-            <mat-tab label="Audit">
+            <!--<mat-tab label="Audit">
               <tcla-live-apps-case-audit [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-audit>
-            </mat-tab>
+            </mat-tab>-->
           </mat-tab-group>
         </div>
       </div>
