@@ -19,8 +19,8 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   private serviceHandler: ServiceHandlerService;
 
-  displayedColumns: string[] = ['DemandeID', 'Numrodechque', 'Select'];
-  selectionDisplayedColumns: string[] = ['DemandeID', 'Numrodechque', 'Decision', 'Select'];
+  displayedColumns: string[] = ['DemandeID', 'Payeur', 'NumeroDossier', 'StatutDemande',  'Select'];
+  selectionDisplayedColumns: string[] = ['Select', 'DemandeID', 'Decision'];
 
   public dataSource;
   public selectionDataSource;
@@ -76,6 +76,10 @@ export class DoubleListForSelectionComponent implements OnInit {
     obj.selectedForDecision = false;
     this.objList.unshift(obj);
     this.dataSource._updateChangeSubscription();
+  }
+
+  unselectAll() {
+
   }
 
 }
