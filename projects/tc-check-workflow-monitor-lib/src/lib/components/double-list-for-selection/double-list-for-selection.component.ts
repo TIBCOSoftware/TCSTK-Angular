@@ -13,7 +13,8 @@ export class DoubleListForSelectionComponent implements OnInit {
  // @Input() appIds: string[];
   @Input() sandboxId: number;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('paginator') paginator: MatPaginator;
+  @ViewChild('selectionPaginator') selectionPaginator: MatPaginator;
 
   private csvSeparator = ';';
 
@@ -58,6 +59,7 @@ export class DoubleListForSelectionComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
 
         this.selectionDataSource = new MatTableDataSource(this.selectionList);
+        this.selectionDataSource.paginator =  this.selectionPaginator;
 
 
       },
@@ -70,7 +72,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
 
   private getRealIndex (paginator: MatPaginator, index) {
-    return (this.paginator.pageIndex * this.paginator.pageSize) + index;
+    return (paginator.pageIndex * paginator.pageSize) + index;
   }
 
 
@@ -87,7 +89,8 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   onSelectionListControlChanged(obj, index) {
     // determine selected options
-    this.selectionList.splice(index, 1);
+    const realIndex = this.getRealIndex(this.selectionPaginator, index);
+    this.selectionList.splice(realIndex, 1);
     this.selectionDataSource._updateChangeSubscription();
 
     obj.selectedForDecision = false;
