@@ -3,10 +3,21 @@
 }
 
 .cwm-preco-row {
-  background-color: #3cba54;
+  background-color: #DCEDC8 ;
 }
 
 
 .cwm-decision-cell {
   font-size: 12px;
+}
+
+
+.cwm-decision-icon-cell-right {
+  width:24px;
+  padding-right: 5px !important;
+}
+
+.cwm-decision-icon-cell-left {
+  width:24px;
+  padding-left: 5px !important;
 }
