@@ -13,6 +13,12 @@
   color: #0081cb;
 }
 
+:host ::ng-deep .mat-select-value {
+  min-width: 100px;
+  max-width: 100%;
+  width: auto;
+}
+
 .tcs-creators-box {
   width: 200px;
   height: 44px;
