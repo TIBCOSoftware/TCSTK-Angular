@@ -12,10 +12,7 @@
       <button mat-raised-button color="primary" (click)="decisionForAll('encaisser')"><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-euro-symbol'"></mat-icon></button>
       <button mat-raised-button color="primary" (click)="decisionForAll('detruire')"><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-delete-sweep'"></mat-icon></button>
 
-      <button mat-raised-button color="primary" (click)="debugSelection()">debug</button>
-
-
-      <tccwm-create-file-to-download [objList]="selectionList"></tccwm-create-file-to-download>
+      <button mat-raised-button color="primary" (click)="downloadFile()"><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-cloud-download'"></mat-icon></button>
 
 
     </div>

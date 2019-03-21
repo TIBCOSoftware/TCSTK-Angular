@@ -152,7 +152,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
 
   createCsvStringFromSelection() {
-     console.log(JSON.stringify(this.selectionList[0].casedataObj, null, 2));
+
     let csvContent = 'Banque;Compte d\'encaissement (bénéficiaire);Date accord encaissement;' +
                      'N du chèque client;ZONE 3;ZONE 2;Montant du chèque;Contrat';
     for (const obj of this.selectionList) {
@@ -172,13 +172,30 @@ export class DoubleListForSelectionComponent implements OnInit {
     return csvContent;
   }
 
-  debugSelection() {
-    const data = this.createCsvStringFromSelection();
-    const blob = new Blob([data], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    window.open(url, '_blank');
+  downloadFile() {
+    if (this.selectionList.length === 0) {
+      alert('Merci de selectionner des dossiers');
+    } else  {
+
+      let validDecisions = true;
+      for (const obj of this.selectionList) {
+        if (!(!!obj.casedataObj.decision)) {
+          validDecisions = false;
+        }
+      }
+
+      if (validDecisions) {
+        const data = this.createCsvStringFromSelection();
+        const blob = new Blob([data], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        window.open(url, '_blank');
+      } else {
+        alert('Merci de prendre une decision sur tous les  dossiers');
+      }
 
 
+
+    }
 
 
   }
