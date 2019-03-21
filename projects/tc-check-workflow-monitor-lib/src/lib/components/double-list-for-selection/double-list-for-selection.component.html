@@ -1,165 +1,199 @@
-<div fxLayout="row" fxLayoutAlign="space-around stretch" fxFill >
+<div fxLayout="column" fxLayoutAlign="start stretch">
+
+  <!-- Button Header -->
+  <div class="double-selection-button-header" fxLayout="row" fxLayoutAlign="space-around stretch">
+    <div fxFlex="70">
+      <button mat-raised-button color="primary">Selectionner toutes les preconisations</button>
+      <button mat-raised-button color="primary">Tout selectionner</button>
+    </div>
+    <div fxFlex="30" fxLayout="row" fxLayoutAlign="space-around center">
 
 
-  <div fxFlex="50">
+      <button mat-raised-button color="primary">Tout encaisser</button>
+      <button mat-raised-button color="primary" (click)="unselectAll()">Tout déselectionner</button>
+
+      XXX{{selectionList.length}}XX
+
+      <tccwm-create-file-to-download [objList]="selectionList"></tccwm-create-file-to-download>
 
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-
-      <ng-container matColumnDef="DemandeID">
-        <th mat-header-cell *matHeaderCellDef> Demande ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.casedataObj.DemandeID}} </td>
-      </ng-container>
-
-
-      <ng-container matColumnDef="Numrodechque">
-        <th mat-header-cell *matHeaderCellDef> Numero Cheque </th>
-        <td mat-cell *matCellDef="let element"> {{element.casedataObj.Numrodechque}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Select">
-        <th mat-header-cell *matHeaderCellDef> select </th>
-        <td mat-cell *matCellDef="let element; let i = index"> <mat-button-toggle (click)="onAreaListControlChanged(element, i)">select</mat-button-toggle></td>
-      </ng-container>
-
-
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-
-
-    <!--
-    <mat-selection-list>
-      <mat-list-option *ngFor="let curobj of objList ; index as i" (click)="onAreaListControlChanged(curobj, i)">
-        <div fxLayout="row" fxLayoutAlign="space-around start" >
-            <div>
-              {{curobj.casedataObj.DemandeID}}
-            </div>
-          <div>
-            {{curobj.casedataObj.Numrodechque}}
-          </div>
-          <div>
-            {{curobj.casedataObj.Montant}}
-          </div>
-          <div>
-            {{curobj.casedataObj.Banque}}
-          </div>
-          <div>
-            {{curobj.casedataObj.Payeur}}
-          </div>
-
-
-        </div>
-
-      </mat-list-option>
-    </mat-selection-list>
-
-    -->
-
-    <br><br>
- <!--   <pre>
-{{objList | json}}
-  </pre>-->
-
-
+    </div>
   </div>
 
+  <!-- Content -->
 
-  <div fxFlex="50">
-
-    <table mat-table [dataSource]="selectionDataSource" class="mat-elevation-z8">
-
-
-      <ng-container matColumnDef="DemandeID">
-        <th mat-header-cell *matHeaderCellDef> Demande ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.casedataObj.DemandeID}} </td>
-      </ng-container>
+  <div fxLayout="row" fxLayoutAlign="space-around stretch">
 
 
-      <ng-container matColumnDef="Numrodechque">
-        <th mat-header-cell *matHeaderCellDef> Numero Cheque </th>
-        <td mat-cell *matCellDef="let element"> {{element.casedataObj.Numrodechque}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Select">
-        <th mat-header-cell *matHeaderCellDef> select </th>
-        <td mat-cell *matCellDef="let element; let i = index"> <mat-button-toggle (click)="onSelectionListControlChanged(element, i)">select</mat-button-toggle></td>
-      </ng-container>
-
-      <ng-container matColumnDef="Decision">
-        <th mat-header-cell *matHeaderCellDef> decision </th>
-        <td mat-cell *matCellDef="let element">
-          <mat-radio-group
-            aria-labelledby="example-radio-group-label"
-            class="example-radio-group"
-            [(ngModel)]="element.decision">
-            <mat-radio-button class="example-radio-button" value="cash">
-              Cash IN
-            </mat-radio-button>
-            <mat-radio-button class="example-radio-button"  value="destroy">
-              Destroy
-            </mat-radio-button>
-          </mat-radio-group>
-
-        </td>
-      </ng-container>
+    <div fxFlex="70">
 
 
-
-      <tr mat-header-row *matHeaderRowDef="selectionDisplayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: selectionDisplayedColumns;"></tr>
-    </table>
+      <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 
-<!--
-    <mat-list>
-      <mat-list-item *ngFor="let curobj of selectionList ; index as i">
-        <div fxLayout="row" fxLayoutAlign="space-around start" >
-          <div>
-            {{curobj.casedataObj.DemandeID}}
+        <ng-container matColumnDef="DemandeID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Demande ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.casedataObj.DemandeID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Payeur">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payeur</th>
+          <td mat-cell *matCellDef="let element"> {{element.casedataObj.Payeur}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="NumeroDossier" mat-sort-header>
+          <th mat-header-cell *matHeaderCellDef> Numero de dossier</th>
+          <td mat-cell *matCellDef="let element"> {{element.casedataObj.Dossier.Numrodedemande}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="StatutDemande" mat-sort-header>
+          <th mat-header-cell *matHeaderCellDef> Statut demande</th>
+          <td mat-cell *matCellDef="let element"> {{element.casedataObj.Dossier.Statut}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Select">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <mat-icon [svgIcon]="'tcs-chevron-right'" (click)="onAreaListControlChanged(element, i)"></mat-icon>
+
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+      <!--
+      <mat-selection-list>
+        <mat-list-option *ngFor="let curobj of objList ; index as i" (click)="onAreaListControlChanged(curobj, i)">
+          <div fxLayout="row" fxLayoutAlign="space-around start" >
+              <div>
+                {{curobj.casedataObj.DemandeID}}
+              </div>
+            <div>
+              {{curobj.casedataObj.Numrodechque}}
+            </div>
+            <div>
+              {{curobj.casedataObj.Montant}}
+            </div>
+            <div>
+              {{curobj.casedataObj.Banque}}
+            </div>
+            <div>
+              {{curobj.casedataObj.Payeur}}
+            </div>
+
+
           </div>
-          <div>
-            {{curobj.casedataObj.Numrodechque}}
-          </div>
-          <div>
-            {{curobj.casedataObj.Montant}}
-          </div>
-          <div>
-            {{curobj.casedataObj.Banque}}
-          </div>
-          <div>
-            {{curobj.casedataObj.Payeur}}
-          </div>
-          <div>
+
+        </mat-list-option>
+      </mat-selection-list>
+
+      -->
+
+      <br><br>
+      <!--   <pre>
+     {{objList | json}}
+       </pre>-->
+
+
+    </div>
+
+
+    <div fxFlex="30">
+
+
+      <table fxFlex mat-table [dataSource]="selectionDataSource" class="mat-elevation-z8">
+
+
+        <ng-container matColumnDef="DemandeID">
+          <th mat-header-cell *matHeaderCellDef> Demande ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.casedataObj.DemandeID}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Select">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <mat-icon [svgIcon]="'tcs-chevron-left'" (click)="onSelectionListControlChanged(element, i)"></mat-icon>
+
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Decision">
+          <th mat-header-cell *matHeaderCellDef> decision</th>
+          <td mat-cell *matCellDef="let element">
             <mat-radio-group
               aria-labelledby="example-radio-group-label"
               class="example-radio-group"
-              [(ngModel)]="curobj.decision">
-              <mat-radio-button class="example-radio-button" value="cash">
-                Cash IN
+              [(ngModel)]="element.decision">
+              <mat-radio-button value="encaisser">
+                <mat-icon [svgIcon]="'tcs-euro-symbol'"></mat-icon>
               </mat-radio-button>
-              <mat-radio-button class="example-radio-button"  value="destroy">
-                Destroy
+              <mat-radio-button value="detruire">
+                <mat-icon [svgIcon]="'tcs-delete-sweep'"></mat-icon>
               </mat-radio-button>
             </mat-radio-group>
-          </div>
-          <div>
-          <mat-button-toggle (click)="onSelectionListControlChanged(curobj, i)">Deselect</mat-button-toggle>
-          </div>
-        </div>
+
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="selectionDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: selectionDisplayedColumns;"></tr>
+      </table>
+
+
+      <!--
+          <mat-list>
+            <mat-list-item *ngFor="let curobj of selectionList ; index as i">
+              <div fxLayout="row" fxLayoutAlign="space-around start" >
+                <div>
+                  {{curobj.casedataObj.DemandeID}}
+                </div>
+                <div>
+                  {{curobj.casedataObj.Numrodechque}}
+                </div>
+                <div>
+                  {{curobj.casedataObj.Montant}}
+                </div>
+                <div>
+                  {{curobj.casedataObj.Banque}}
+                </div>
+                <div>
+                  {{curobj.casedataObj.Payeur}}
+                </div>
+                <div>
+                  <mat-radio-group
+                    aria-labelledby="example-radio-group-label"
+                    class="example-radio-group"
+                    [(ngModel)]="curobj.decision">
+                    <mat-radio-button class="example-radio-button" value="cash">
+                      Cash IN
+                    </mat-radio-button>
+                    <mat-radio-button class="example-radio-button"  value="destroy">
+                      Destroy
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div>
+                <mat-button-toggle (click)="onSelectionListControlChanged(curobj, i)">Deselect</mat-button-toggle>
+                </div>
+              </div>
 
 
 
 
-      </mat-list-item>
-    </mat-list>
-    <br><br>-->
+            </mat-list-item>
+          </mat-list>
+          <br><br>-->
 
-  <!--  <pre>
-{{selectionList | json}}
-  </pre>-->
+      <!--  <pre>
+    {{selectionList | json}}
+      </pre>-->
+    </div>
+
   </div>
-
 </div>
