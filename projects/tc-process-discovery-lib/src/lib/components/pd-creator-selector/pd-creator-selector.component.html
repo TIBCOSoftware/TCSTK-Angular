@@ -1,8 +1,0 @@
-<button mat-icon-button [matMenuTriggerFor]="menuCreateCase">
-    <mat-icon svgIcon="tcs-create"></mat-icon><span class="starters-create-case-button-text">CREATE CASE</span>
-</button>
-<mat-menu #menuCreateCase="matMenu">
-    <button mat-menu-item *ngFor="let creator of caseCreatorList" [value]="creator" (click)="selectProcess(creator.name)">
-        <span>{{creator.name}}</span>
-    </button>
-</mat-menu>
