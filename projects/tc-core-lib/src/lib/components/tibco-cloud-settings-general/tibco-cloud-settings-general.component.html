@@ -14,6 +14,11 @@
             <input matInput placeholder="Application Title" [(ngModel)]="generalConfig.applicationTitle">
         </mat-form-field>
     </div>
+    <div fxLayout="row">
+    <mat-form-field style="min-width: 400px">
+      <input matInput placeholder="Welcome Message" [(ngModel)]="generalConfig.welcomeMessage">
+    </mat-form-field>
+  </div>
 
     <!-- Advanced Settings (all Optional from Shared State) -->
     <mat-accordion>

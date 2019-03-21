@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   public userId: string;
   public email: string;
 
+  public welcomeMessage: string;
+
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   handleRouteAction = (routeAction: RouteAction) => {
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit {
     this.userName = this.claims.firstName + ' ' + this.claims.lastName;
     this.email = this.claims.email;
     this.userId = this.claims.id;
+    this.welcomeMessage = this.generalConfig.welcomeMessage ? this.generalConfig.welcomeMessage : 'Welcome to Case Manager';
   }
 
 }
