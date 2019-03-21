@@ -7,12 +7,13 @@ import { TcSpotfireConfigService } from '../services/tc-spotfire-config.service'
 import { SpotfireConfig } from '../models/tc-spotfire-config';
 import { Location } from '@angular/common';
 import { TcSharedStateService, UiAppIdConfig } from 'tc-core-lib';
+import { TcCoreCommonFunctions } from 'tc-core-lib';
 
 @Injectable()
 export class SpotfireConfigResolver implements Resolve<Observable<SpotfireConfig>> {
 
-    DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/spotfireAppConfig.json');
-    APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
+    DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/spotfireAppConfig.json');
+    APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     private sandboxId: number;
     public defaultSpotfireConfig: SpotfireConfig;

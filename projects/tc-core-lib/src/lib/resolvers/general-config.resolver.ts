@@ -8,12 +8,13 @@ import {HttpClient} from '@angular/common/http';
 import {TcGeneralConfigService} from '../services/tc-general-config.service';
 import {GeneralConfig} from '../models/tc-general-config';
 import {Location} from '@angular/common';
+import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
 
 @Injectable()
 export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>> {
 
-  DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/generalAppConfig.json');
-  APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
+  DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/generalAppConfig.json');
+  APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
   private sandboxId: number;
   public defaultAppConfig: GeneralConfig;

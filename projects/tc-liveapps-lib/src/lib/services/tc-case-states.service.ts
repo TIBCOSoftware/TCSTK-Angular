@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 import {StateTrackerData, StateTracker, TrackerState, StateAuditEventList, StateAuditEvent} from '../models/tc-case-states';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {Location} from '@angular/common';
+import {TcCoreCommonFunctions} from 'tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -125,7 +126,7 @@ export class TcCaseStatesService {
   }
 
   public getMilestoneSectionSvg(stateLabel: string, labelClass: string, bgClass: string, svgFileName: string): Observable<SafeHtml> {
-    return this.liveAppsService.getIconSVGText(this.location.prepareExternalUrl('assets/icons/milestones/' + svgFileName)).pipe(
+    return this.liveAppsService.getIconSVGText(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/milestones/' + svgFileName)).pipe(
       map(svgcontents => {
         let updatedsvg = svgcontents.replace('{{milestoneLabel}}', stateLabel);
         updatedsvg = updatedsvg.replace('{{milestoneBgClass}}', bgClass);
