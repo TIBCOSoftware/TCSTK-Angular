@@ -225,7 +225,7 @@ export class DoubleListForSelectionComponent implements OnInit {
     };
 
     dialogConfig.height = '90%';
-    dialogConfig.width = '90%';
+    dialogConfig.width = '98%';
 
     const dialogRef = this.dialog.open(CaseDetailsDialogComponent, dialogConfig);
 
