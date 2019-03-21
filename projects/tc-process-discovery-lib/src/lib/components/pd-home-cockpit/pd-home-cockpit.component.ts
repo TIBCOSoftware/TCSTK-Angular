@@ -1,8 +1,9 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
-import { LiveAppsHomeCockpitComponent } from 'tc-liveapps-lib';
+import { LiveAppsHomeCockpitComponent, CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext } from 'tc-liveapps-lib';
 import { RouteAction, ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+import { CaseRoute } from 'tc-liveapps-lib/public_api';
 
 @Component({
   selector: 'tcpd-pd-home-cockpit',
@@ -50,6 +51,40 @@ export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
          this.routeAction.emit(new RouteAction('changeViewClicked', event.value));
     }
   
+    public handleCreatorAppSelection = (application: CaseType): void => {
+        console.log("****** trying to start a creator");
+        const EXAMPLE_INITIAL_DATA = {
+            DiscoverCompliance: {
+                Type: 'Compliance',
+                ShortDescription: 'this.selectedVariant',
+                Context: {
+                    ContextType: 'Case',
+                    ContextID: 'this.selectedVariantID'
+                }
+            }
+
+        };
+        console.log('Sandbox ID: ' , '31');
+        this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, '31');    
+    }
+
+    openCreatorDialog = (application: CaseType, initialData, sandboxId) => {
+        const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
+            width: '60%',
+            height: '80%',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
+            panelClass: 'tcs-style-dialog',
+            data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                console.log(result);
+                this.router.navigate(['/starterApp/case/' + result.appId + '/' + result.typeId + '/' + result.caseRef], {});
+            }
+        });
+    }
 
     ngOnInit() {
         super.ngOnInit();
