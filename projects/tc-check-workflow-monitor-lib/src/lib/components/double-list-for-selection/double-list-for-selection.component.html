@@ -49,6 +49,14 @@
           <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.Dossier.Statut}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="View">
+          <th class="cwm-decision-icon-cell-right" mat-header-cell *matHeaderCellDef></th>
+          <td class="cwm-decision-icon-cell-right" mat-cell *matCellDef="let element">
+            <mat-icon [svgIcon]="'tcs-visibility'" (click)="openCase(element)"></mat-icon>
+
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="Select">
           <th class="cwm-decision-icon-cell-right" mat-header-cell *matHeaderCellDef></th>
           <td class="cwm-decision-icon-cell-right" mat-cell *matCellDef="let element; let i = index">

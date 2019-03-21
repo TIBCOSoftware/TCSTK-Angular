@@ -40,10 +40,11 @@ import { ServiceHandlerSnackbarComponent } from './components/service-handler-sn
 import {DecisionCockpitComponent} from './components/decision-cockpit/decision-cockpit.component';
 import { CreateFileToDownloadComponent } from './components/create-file-to-download/create-file-to-download.component';
 import { DoubleListForSelectionComponent } from './components/double-list-for-selection/double-list-for-selection.component';
+import { CaseDetailsDialogComponent } from './components/case-details-dialog/case-details-dialog.component';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -76,8 +77,8 @@ import { DoubleListForSelectionComponent } from './components/double-list-for-se
     TcCoreLibModule,
     MatPaginatorModule
   ],
-  entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent],
-  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent],
+  entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent, CaseDetailsDialogComponent],
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
