@@ -153,7 +153,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   debugSelection() {
      console.log(JSON.stringify(this.selectionList[0].casedataObj, null, 2));
-    let csvContent = 'Banque;Compte d\'encaissement (bénéficiaire);Date accord encaissement;N du chêque client;ZONE 3;ZONE 2;Montant du chêque;Contrat';
+    let csvContent = 'Banque;Compte d\'encaissement (bénéficiaire);Date accord encaissement;N du chèque client;ZONE 3;ZONE 2;Montant du chèque;Contrat';
     for (const obj of this.selectionList) {
       csvContent = csvContent + '\\n';
       const casedataObj = obj.casedataObj;
