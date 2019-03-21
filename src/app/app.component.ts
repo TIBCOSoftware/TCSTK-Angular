@@ -247,6 +247,10 @@ export class AppComponent {
       'tcs-incandescent',
       this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-incandescent.svg'))
     );
+    this.matIconRegistry.addSvgIcon(
+      'tcs-cloud-download',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-cloud-download.svg'))
+    );
 
 
 
