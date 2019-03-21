@@ -10,14 +10,6 @@ import { McSpotfireWrapperComponent } from 'tc-spotfire-lib';
 })
 export class PdProcessMiningComponent implements OnInit {
 
-    @Input() username : string;
-    @Input() email: string;
-    @Input() sandboxId: string;
-    @Input() applicationId : number;
-    @Input() typeId : string;
-    @Output() datasource: string;
-    @Output() caseCreated = new EventEmitter; 
-    
     @ViewChild(McSpotfireWrapperComponent) spotfireWrapperComponent: McSpotfireWrapperComponent;
 
     public spotfireServer: string;
@@ -28,6 +20,7 @@ export class PdProcessMiningComponent implements OnInit {
     public test: any;
     public configuration;
     public markingOn;
+    private datasource: string;
 
     constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -40,8 +33,6 @@ export class PdProcessMiningComponent implements OnInit {
 
         this.allowedPages = spotfireConfig.allowedPages; 
         this.activePage = spotfireConfig.activePageForHome;
-
-        // this.parameters = 'AnalysisId = "' + this.datasource + '";';
 
         const value = false;
         this.configuration = {
@@ -77,12 +68,6 @@ export class PdProcessMiningComponent implements OnInit {
 
     }
 
-    handleCaseCreation = (caseId: string) => {
-        // case clicked - navigate to case
-        // this.router.navigate(['/starterApp/case/' + caseId], {queryParams: {} });
-        console.log("OK");
-      }
-
     public handleViewButtonEvent = (id : string) => {
         console.log("ID: " + id);
         switch (id) {
@@ -105,8 +90,25 @@ export class PdProcessMiningComponent implements OnInit {
         this.spotfireWrapperComponent.openPage(this.allowedPages[$event.index]);
     }
 
-    public marking = ($event: any): void  => {
-        console.log("*********** " + JSON.stringify($event));
-    }
+    // public marking = ($event: any): void  => {
+    //     console.log("*********** " + JSON.stringify($event));
+    // }
+    selectedVariant = '';
+    selectedVariantID = '';
 
+    public marking(data) {
+        var mName = 'Marking';
+
+        if (data[mName] != null) {
+            if (data[mName]['cases'] != null) {
+                if (data[mName]['cases']['case_id'] != null) {
+                    console.log('Selected CaseID: ', data[mName]['cases']['case_id']);
+                    this.selectedVariantID = data[mName]['cases']['case_id'].toString();
+                    this.selectedVariant = 'Compliance case at ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
+                }
+            }
+        }
+
+     //   this.markingdataText = JSON.stringify(data, null, 2);
+    }
 }
