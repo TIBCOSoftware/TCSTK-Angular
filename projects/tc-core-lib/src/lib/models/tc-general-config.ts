@@ -16,6 +16,7 @@ export class GeneralConfig implements Deserializable {
   uiAppId: string;
   browserTitle: string;
   applicationTitle: string;
+  welcomeMessage: string;
   displayName: boolean;
   documentationUrl: string;
   roleAttributes: RoleAttribute[];
