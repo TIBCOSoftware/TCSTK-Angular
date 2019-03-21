@@ -19,8 +19,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PdHomeComponent, PdChangeDatasourceDialog } from './components/pd-home/pd-home.component';
-import { PdCaseCreatorsComponent } from './components/pd-case-creators/pd-case-creators.component';
-import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-creator-selector.component';
 import { PdProcessMiningComponent } from './components/pd-process-mining/pd-process-mining.component';
 import { TcProcessDiscoveryLibRoutingModule } from './tc-process-discovery-routing.module';
 import { CommonModule } from '@angular/common';
@@ -37,8 +35,6 @@ import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-coc
 @NgModule({
     declarations: [
         PdHomeComponent,
-        PdCaseCreatorsComponent,
-        PdCreatorSelectorComponent,
         PdProcessMiningComponent,
         SettingsIntegrationComponent,
         SettingsSpotfireComponent,
