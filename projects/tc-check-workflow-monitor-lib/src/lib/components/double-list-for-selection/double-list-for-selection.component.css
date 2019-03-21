@@ -1,3 +1,12 @@
 .double-selection-button-header {
   margin-bottom: 20px;
 }
+
+.cwm-preco-row {
+  background-color: #3cba54;
+}
+
+
+.cwm-decision-cell {
+  font-size: 12px;
+}
