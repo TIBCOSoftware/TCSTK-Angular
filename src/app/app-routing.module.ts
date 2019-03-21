@@ -35,7 +35,6 @@ const routes: Routes = [
   {
     path: 'errorHandler/:errorCode/:errorMessage?',
     component: TibcoCloudErrorComponent
-
   },
   {
     // starterApp only provides the global nav bar at present - but will be a useful place to do stuff that applies to all routes
@@ -135,12 +134,16 @@ const routes: Routes = [
     ]
   },
   {
+    path: '', redirectTo: '/starterApp/home', pathMatch: 'full'
+  },
+  {
     path: '**', redirectTo: '/starterApp/home'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  // imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [
     LoginComponent,

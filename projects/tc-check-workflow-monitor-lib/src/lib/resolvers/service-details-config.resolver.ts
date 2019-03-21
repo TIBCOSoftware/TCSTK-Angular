@@ -5,15 +5,15 @@ import { flatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 import { Location } from '@angular/common';
-import { TcSharedStateService, UiAppIdConfig } from 'tc-core-lib';
+import {TcCoreCommonFunctions, TcSharedStateService, UiAppIdConfig} from 'tc-core-lib';
 import {ServiceDetailsConfig} from '../models/service-details';
 import {CwmSettingsConfigServiceService} from '../services/cwm-settings-config-service.service';
 
 @Injectable()
 export class ServiceDetailsConfigResolver implements Resolve<Observable<ServiceDetailsConfig>> {
 
-    DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/cwmServiceDetailsConfig.json');
-    APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
+    DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/cwmServiceDetailsConfig.json');
+    APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     private sandboxId: number;
     public defaultServiceDetailsConfig: ServiceDetailsConfig;

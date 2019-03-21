@@ -6,6 +6,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Location} from '@angular/common';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {TcCoreCommonFunctions} from 'tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-state-icon',
@@ -37,13 +38,13 @@ export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnI
     if (icon) {
       if (icon.slice(0, 13) === 'assets/icons/') {
         // if icon is in assets folder we need to prepare the Url
-        url = this.location.prepareExternalUrl(icon);
+        url = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, icon);
       } else {
         url = '/' + icon;
       }
     } else {
       // use generic icon
-      this.location.prepareExternalUrl('assets/icons/ic-generic-state.svg');
+      TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-generic-state.svg');
     }
     this.liveapps.getIconSVGText(url)
       .pipe(
