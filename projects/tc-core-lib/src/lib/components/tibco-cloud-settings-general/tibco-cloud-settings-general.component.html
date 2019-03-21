@@ -5,6 +5,11 @@
     <br>
     <!-- Application specifics -->
     <div fxLayout="row">
+      <mat-form-field style="min-width: 400px">
+        <input matInput placeholder="Browser Tab Title" [(ngModel)]="generalConfig.browserTitle">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
         <mat-form-field style="min-width: 400px">
             <input matInput placeholder="Application Title" [(ngModel)]="generalConfig.applicationTitle">
         </mat-form-field>
@@ -16,7 +21,6 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>Advanced Settings</mat-panel-title>
             </mat-expansion-panel-header>
-
             <mat-form-field style="min-width: 400px">
                 <input matInput placeholder="Application Documentation URL" [(ngModel)]="generalConfig.documentationUrl">
             </mat-form-field>
