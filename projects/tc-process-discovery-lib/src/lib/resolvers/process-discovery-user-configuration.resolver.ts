@@ -5,21 +5,21 @@ import { flatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { UiAppIdConfig } from 'tc-core-lib';
-import { ProcessDiscoveryConfig } from '../models/tc-process-discovery-config';
-import { PdProcessDiscoveryConfigService } from '../services/pd-process-discovery-config.service';
+import { ProcessDiscoveryUserConfig } from '../models/tc-process-discovery';
+import { PdProcessDiscoveryService } from '../services/pd-process-discovery.service';
 
 @Injectable()
-export class ProcessDiscoveryConfigResolver implements Resolve<Observable<ProcessDiscoveryConfig>> {
+export class ProcessDiscoveryUserConfigResolver implements Resolve<Observable<ProcessDiscoveryUserConfig>> {
 
-    DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/processDiscoveryConfig.json');
+    DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/processDiscoveryConfig_private.json');
     APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
 
     private sandboxId: number;
-    public defaultProcessDiscoveryConfig: ProcessDiscoveryConfig;
+    public defaultProcessDiscoveryUserConfig: ProcessDiscoveryUserConfig;
     private uiAppId: string;
 
     constructor(
-        private processDiscoveryConfigService: PdProcessDiscoveryConfigService, 
+        private processDiscoveryService: PdProcessDiscoveryService, 
         private http: HttpClient, 
         private location: Location
     ) {}
@@ -29,7 +29,7 @@ export class ProcessDiscoveryConfigResolver implements Resolve<Observable<Proces
     }
 
     // can be used to load defaultProcessDiscoveryConfig from a JSON config
-    private getDefaultProcessDiscoveryConfig = () => {
+    private getDefaultProcessDiscoveryUserConfig = () => {
         return this.http.get(this.DEFAULT_CONFIG_URL);
     }
 
@@ -45,31 +45,31 @@ export class ProcessDiscoveryConfigResolver implements Resolve<Observable<Proces
         );
     }
 
-    resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<ProcessDiscoveryConfig> {
-        const processDiscoveryConfig = this.getAppId().pipe(
-            switchMap(uiAppId => this.processDiscoveryConfigService.getProcessDiscoveryConfig(uiAppId.uiAppId, false, false)
+    resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<ProcessDiscoveryUserConfig> {
+        const processDiscoveryUserConfig = this.getAppId().pipe(
+            switchMap(uiAppId => this.processDiscoveryService.getProcessDiscoveryUserConfig(uiAppId.uiAppId, 'PRIVATE', false, false)
             .pipe(
                 mergeMap(
                     processDiscoveryConfig => {
                         if (processDiscoveryConfig === undefined) {
-                            return this.getDefaultProcessDiscoveryConfig().pipe(
+                            return this.getDefaultProcessDiscoveryUserConfig().pipe(
                                 flatMap(config => {
-                                    this.defaultProcessDiscoveryConfig = new ProcessDiscoveryConfig().deserialize(config);
-                                    this.defaultProcessDiscoveryConfig.uiAppId = this.uiAppId;
-                                    return this.processDiscoveryConfigService.createProcessDiscoveryConfig(this.sandboxId, this.defaultProcessDiscoveryConfig.uiAppId, this.defaultProcessDiscoveryConfig)
+                                    this.defaultProcessDiscoveryUserConfig = new ProcessDiscoveryUserConfig().deserialize(config);
+                                    this.defaultProcessDiscoveryUserConfig.uiAppId = this.uiAppId;
+                                    return this.processDiscoveryService.createProcessDiscoveryUserConfig(this.sandboxId, this.defaultProcessDiscoveryUserConfig.uiAppId, 'PRIVATE', this.defaultProcessDiscoveryUserConfig)
                                     .pipe(
                                     map(
                                         result => {
-                                            const newProcessDiscoveryConfig = this.defaultProcessDiscoveryConfig;
-                                            newProcessDiscoveryConfig.id = result;
-                                            this.processDiscoveryConfigService.updateProcessDiscoveryConfig(this.sandboxId, newProcessDiscoveryConfig.uiAppId, newProcessDiscoveryConfig, result).
+                                            const newProcessDiscoveryUserConfig = this.defaultProcessDiscoveryUserConfig;
+                                            newProcessDiscoveryUserConfig.id = result;
+                                            this.processDiscoveryService.updateProcessDiscoveryUserConfig(this.sandboxId, newProcessDiscoveryUserConfig.uiAppId, 'PRIVATE', newProcessDiscoveryUserConfig, result).
                                         subscribe(
                                             // trigger a read to flush the cache since we changed it
                                             updatedConf => {
-                                                this.processDiscoveryConfigService.getProcessDiscoveryConfig(this.uiAppId, true, true).subscribe();
+                                                this.processDiscoveryService.getProcessDiscoveryUserConfig(this.uiAppId, 'PRIVATE', true, true).subscribe();
                                             }
                                         );
-                                            return newProcessDiscoveryConfig;
+                                            return newProcessDiscoveryUserConfig;
                                         })
                                     );
                                 })
@@ -82,7 +82,6 @@ export class ProcessDiscoveryConfigResolver implements Resolve<Observable<Proces
             )
             )   
         )
-        return processDiscoveryConfig;
+        return processDiscoveryUserConfig;
     }
-
 }

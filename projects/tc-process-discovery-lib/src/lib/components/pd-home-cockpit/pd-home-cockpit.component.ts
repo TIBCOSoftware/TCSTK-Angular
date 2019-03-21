@@ -19,7 +19,7 @@ export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
     }
 
     protected createToolbarButtons = (): ToolbarButton[] => {
-        const changeDatasourceButton = this.buttonsHelper.createButton('changedatasource', 'tcs-config-icon', true, 'Change datasource', false, true);
+        const changeDatasourceButton = this.buttonsHelper.createButton('changedatasource', 'tcs-config-icon', true, 'Change datasource', true, true);
         const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
         const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
         const buttons = [ changeDatasourceButton, configButton, refreshButton ];
@@ -47,12 +47,7 @@ export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
 
   
      public handleViewButtonEvent = (event: MatButtonToggleChange) => {
-        let url = '/starterApp/pd/' + event.value;
-        if (event.value === 'process-mining-view'){
-            url += '/' + 'datasource';
-        }
-        console.log("******* URL: " + url);
-        this.router.navigate([url], {});
+         this.routeAction.emit(new RouteAction('changeViewClicked', event.value));
     }
   
 
