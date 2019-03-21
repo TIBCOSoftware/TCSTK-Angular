@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ServiceHandlerService} from '../../services/service-handler.service';
 import {MatTableDataSource} from '@angular/material';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'tccwm-double-list-for-selection',
@@ -39,8 +40,13 @@ export class DoubleListForSelectionComponent implements OnInit {
         console.log('CASES : ' + result);
 
         this.objList = result.caseinfos;
-        for (let obj of this.objList) {
+        for (const obj of this.objList) {
           obj.casedataObj = JSON.parse(obj.casedata);
+          if (obj.casedataObj.Dossier && obj.casedataObj.Dossier.Statut === "Saisie en cours - complet") {
+            obj.casedataObj.preco = true;
+          } else {
+            obj.casedataObj.preco = false;
+          }
         }
 
 
@@ -66,8 +72,6 @@ export class DoubleListForSelectionComponent implements OnInit {
     this.selectionDataSource._updateChangeSubscription();
   }
 
-
-
   onSelectionListControlChanged(obj, index) {
     // determine selected options
     this.selectionList.splice(index, 1);
@@ -79,6 +83,41 @@ export class DoubleListForSelectionComponent implements OnInit {
   }
 
   unselectAll() {
+    for (const obj of this.selectionList) {
+      this.objList.unshift(obj);
+    }
+    // this.objList.concat(this.selectionList);
+    this.selectionList.splice(0, this.selectionList.length);
+
+    this.dataSource._updateChangeSubscription();
+    this.selectionDataSource._updateChangeSubscription();
+
+  }
+
+
+  selectAllPreco() {
+    let index = 0;
+    let refreshTable = false;
+    for (const obj of this.objList) {
+      if (obj.casedataObj.preco) {
+        this.objList.splice(index, 1);
+        this.selectionList.push(obj);
+        refreshTable = true;
+      }
+      index ++;
+    }
+    if (refreshTable) {
+      this.dataSource._updateChangeSubscription();
+      this.selectionDataSource._updateChangeSubscription();
+
+    }
+  }
+
+  decisionForAll(decisionValue: string) {
+    for (const obj of this.selectionList) {
+      obj.casedataObj.decision = decisionValue;
+    }
+    this.selectionDataSource._updateChangeSubscription();
 
   }
 
