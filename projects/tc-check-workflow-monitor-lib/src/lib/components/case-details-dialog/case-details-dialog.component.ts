@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
@@ -10,13 +10,31 @@ export class CaseDetailsDialogComponent implements OnInit {
 
   public description;
 
+  public uiAppId;
+  public appId;
+  public sandboxId;
+  public userName;
+  public userId;
+  public typeId;
+
+  public caseRef;
+
   constructor(
     public dialogRef: MatDialogRef<CaseDetailsDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) data) { }
+    @Inject(MAT_DIALOG_DATA) data) {
+    this.uiAppId = data.uiAppId;
+    this.appId = data.appId;
+    this.sandboxId = data.sandboxId;
+    this.userName = data.userName;
+    this.userId = data.userId;
+
+    this.typeId = '1';
+
+    this.caseRef = data.caseRef.caseReference;
+  }
 
   ngOnInit() {
   }
-
 
 
   save() {

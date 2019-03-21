@@ -216,11 +216,16 @@ export class DoubleListForSelectionComponent implements OnInit {
     dialogConfig.data = {
       id: 1,
       description: 'Case Details',
-      jsonData: obj
+      uiAppId : this.uiAppId,
+      appId : this.appIds[0],
+      sandboxId : this.sandboxId,
+      userName : this.userName,
+      userId : this.userId,
+      caseRef: obj
     };
 
-    dialogConfig.height = '80%';
-    dialogConfig.width = '80%';
+    dialogConfig.height = '90%';
+    dialogConfig.width = '90%';
 
     const dialogRef = this.dialog.open(CaseDetailsDialogComponent, dialogConfig);
 
