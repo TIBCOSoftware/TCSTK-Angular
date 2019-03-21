@@ -294,8 +294,8 @@ export class LiveAppsService {
         url = url.substr(1, url.length - 1);
       }
       if (!this.iconSVGTextCacheMap.get(url)) {
-        const fixedUrl = window.location.protocol + '//' + window.location.host  + url;
-        const cacheEntry$ = this.getIconSVGTextCache(fixedUrl)
+        // const fixedUrl = window.location.protocol + '//' + window.location.host  + url;
+        const cacheEntry$ = this.getIconSVGTextCache(url)
           .pipe(
             shareReplay(1)
           );

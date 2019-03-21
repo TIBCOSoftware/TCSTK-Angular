@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
 import { Observable, of } from 'rxjs';
-import {UiAppConfig, UiAppIdConfig} from 'tc-core-lib';
+import {TcCoreCommonFunctions, UiAppConfig, UiAppIdConfig} from 'tc-core-lib';
 import {flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
 import {TcSharedStateService} from 'tc-core-lib';
 import {HttpClient} from '@angular/common/http';
@@ -13,8 +13,8 @@ import {Location} from '@angular/common';
 @Injectable()
 export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig>> {
 
-  DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/liveAppsConfig.json');
-  APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
+  DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/liveAppsConfig.json');
+  APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
   private sandboxId: number;
   public defaultAppConfig: LiveAppsConfig;

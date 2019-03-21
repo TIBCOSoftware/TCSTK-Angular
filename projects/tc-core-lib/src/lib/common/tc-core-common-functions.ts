@@ -1,3 +1,5 @@
+import { Location } from '@angular/common';
+
 // @dynamic
 export class TcCoreCommonFunctions {
 
@@ -11,9 +13,9 @@ export class TcCoreCommonFunctions {
     return +(size / Math.pow(1e3, e)).toFixed(2) + ' ' + ('kMGTPEZY'[e - 1] || '') + 'B';
   }
 
-  public static camelCaseToWords(str){
+  public static camelCaseToWords(str) {
 
-    var re=  str.replace(/([a-z])([A-Z])/g, '$1 $2')
+    const re =  str.replace(/([a-z])([A-Z])/g, '$1 $2')
       .replace(/([A-Z])([a-z])/g, ' $1$2')
       .replace(/\ +/g, ' ');
     return re;
@@ -58,6 +60,17 @@ export class TcCoreCommonFunctions {
       newStr = newArr.join(' ');
     }
     return newStr;
+  }
+
+  public static prepareUrlForStaticResource = (location: Location, str: string): string => {
+    // todo: JS is there a better way to detect hash location strategy?
+    // @ts-ignore
+    if (location._platformStrategy._platformLocation.hash) {
+      console.log('*** path:', str);
+      return str;
+    } else {
+      return location.prepareExternalUrl(str);
+    }
   }
 
 }

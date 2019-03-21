@@ -7,12 +7,13 @@ import { Location } from '@angular/common';
 import { UiAppIdConfig } from 'tc-core-lib';
 import { ProcessDiscoveryUserConfig } from '../models/tc-process-discovery';
 import { PdProcessDiscoveryService } from '../services/pd-process-discovery.service';
+import { TcCoreCommonFunctions} from 'tc-core-lib';
 
 @Injectable()
 export class ProcessDiscoveryUserConfigResolver implements Resolve<Observable<ProcessDiscoveryUserConfig>> {
 
-    DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/processDiscoveryConfig_private.json');
-    APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
+    DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/processDiscoveryConfig_private.json');
+    APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     private sandboxId: number;
     public defaultProcessDiscoveryUserConfig: ProcessDiscoveryUserConfig;
