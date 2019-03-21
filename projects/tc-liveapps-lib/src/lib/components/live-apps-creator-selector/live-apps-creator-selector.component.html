@@ -1,7 +1,8 @@
-<div fxFlex style="width: 150px; max-width: 150px; margin-left: 10px;">
-  <mat-select #creatorSelector class="tcs-creator-selector-option" [disableOptionCentering]="true" placeholder="Case Creators" (selectionChange)="selectProcess($event.value)">
-    <mat-option *ngFor="let creator of caseCreatorList" [value]="creator">
-      <span>{{creator.name}}</span>
-    </mat-option>
-  </mat-select>
+<div fxFlex style="margin-left: 10px;">
+    <mat-select #creatorSelector class="tcs-creator-selector-option" [disableOptionCentering]="true"
+                placeholder="Case Creators" (selectionChange)="selectProcess($event.value)">
+      <mat-option *ngFor="let creator of caseCreatorList" [value]="creator">
+        <span>{{creator.name}}</span>
+      </mat-option>
+    </mat-select>
 </div>
