@@ -2,9 +2,9 @@
 
   <!-- Button Header -->
   <div class="double-selection-button-header" fxLayout="row" fxLayoutAlign="space-around stretch">
-    <div fxFlex="60">
-      <button mat-raised-button color="primary" (click)="selectAllPreco()" >Selectionner toutes les preconisations</button>
-      <button mat-raised-button color="primary">Tout selectionner</button>
+    <div fxFlex="60" fxLayout="row" fxLayoutAlign="space-around center">
+      <button mat-raised-button color="primary" (click)="selectAllPreco()" ><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-flash-on'"></mat-icon></button>
+      <button mat-raised-button color="primary" (click)="selectAll()"><mat-icon class="cwm-button-icon" [svgIcon]="'tcs-chevron-right'"></mat-icon></button>
     </div>
     <div fxFlex="40" fxLayout="row" fxLayoutAlign="space-around center">
 

@@ -42,7 +42,7 @@ export class DoubleListForSelectionComponent implements OnInit {
         this.objList = result.caseinfos;
         for (const obj of this.objList) {
           obj.casedataObj = JSON.parse(obj.casedata);
-          if (obj.casedataObj.Dossier && obj.casedataObj.Dossier.Statut === "Saisie en cours - complet") {
+          if (obj.casedataObj.Dossier && obj.casedataObj.Dossier.Statut === 'Saisie en cours - complet') {
             obj.casedataObj.preco = true;
           } else {
             obj.casedataObj.preco = false;
@@ -82,6 +82,12 @@ export class DoubleListForSelectionComponent implements OnInit {
     this.dataSource._updateChangeSubscription();
   }
 
+
+  private refreshDataSources () {
+    this.dataSource._updateChangeSubscription();
+    this.selectionDataSource._updateChangeSubscription();
+  }
+
   unselectAll() {
     for (const obj of this.selectionList) {
       this.objList.unshift(obj);
@@ -89,29 +95,38 @@ export class DoubleListForSelectionComponent implements OnInit {
     // this.objList.concat(this.selectionList);
     this.selectionList.splice(0, this.selectionList.length);
 
-    this.dataSource._updateChangeSubscription();
-    this.selectionDataSource._updateChangeSubscription();
+    this.refreshDataSources();
 
   }
 
 
   selectAllPreco() {
-    alert('TO TEST WHEN RAN TwICE');
     let index = 0;
+    const indexToSplice = [];
     let refreshTable = false;
     for (const obj of this.objList) {
       if (obj.casedataObj.preco) {
-        this.objList.splice(index, 1);
         this.selectionList.push(obj);
         refreshTable = true;
+        indexToSplice.unshift(index);
       }
-      index ++;
+        index ++;
     }
     if (refreshTable) {
-      this.dataSource._updateChangeSubscription();
-      this.selectionDataSource._updateChangeSubscription();
-
+      for (const curI of indexToSplice) {
+        this.objList.splice(curI, 1);
+      }
+      this.refreshDataSources();
     }
+  }
+
+
+  selectAll() {
+    for (const obj of this.objList) {
+      this.selectionList.push(obj);
+    }
+    this.objList.splice(0, this.objList.length);
+    this.refreshDataSources();
   }
 
   decisionForAll(decisionValue: string) {
@@ -124,7 +139,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
 
   debugSelection() {
-    alert(JSON.stringify(this.selectionList[0].casedataObj,null,2));
+    alert(JSON.stringify(this.selectionList[0].casedataObj, null, 2));
   }
 
 }
