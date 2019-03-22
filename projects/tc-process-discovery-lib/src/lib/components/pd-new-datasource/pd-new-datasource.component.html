@@ -1,0 +1,26 @@
+<div fxLayout="column" class="tcs-spotfire-settings-pane" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Spotfire Settings Configuration'"></tc-tibco-cloud-widget-header>
+    <div style="padding: 20px;" fxLayout="column" fxFlex>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+            <p>Choose the TIBCO Cloud Spotfire configuration to be used within this application:</p>
+        </div>
+        <div fxFlex fxLayout="row">
+            <div fxFlex fxLayout="row" fxFill>
+                <mat-form-field fxFlex>
+                    <input matInput placeholder="Use first row as header" [(ngModel)]="useFirstRowAsHeader">
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                    <input matInput placeholder="Column separator" [(ngModel)]="columnSeparator">
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                    <input matInput placeholder="Number of rows for preview" [(ngModel)]="numberRowsForPreview">
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+            <button mat-raised-button color="primary">Save</button>
+        </div>
+    </div>
+</div>
