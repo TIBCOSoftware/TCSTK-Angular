@@ -16,7 +16,7 @@
         <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
           <mat-tab-group #dataTabGroup>
             <mat-tab label="Case Data">
-              <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [showHeader]="false"></tcla-live-apps-case-data>
+              <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false"></tcla-live-apps-case-data>
             </mat-tab>
             <mat-tab #actionTab *ngIf="actionSelection">
               <ng-template mat-tab-label fxLayout="row" fxFlex>
