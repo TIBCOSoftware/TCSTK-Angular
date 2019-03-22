@@ -11,6 +11,9 @@ export class DecisionCockpitComponent extends LiveAppsHomeCockpitComponent {
 
 
 
+
+
+
   protected createToolbarButtons = (): ToolbarButton[] => {
     const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
