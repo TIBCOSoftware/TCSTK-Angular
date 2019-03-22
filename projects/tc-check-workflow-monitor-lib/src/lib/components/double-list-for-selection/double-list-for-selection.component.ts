@@ -3,6 +3,7 @@ import {ServiceHandlerService} from '../../services/service-handler.service';
 import {MatDialog, MatDialogConfig, MatPaginator, MatTableDataSource} from '@angular/material';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
 import {CaseDetailsDialogComponent} from '../case-details-dialog/case-details-dialog.component';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'tccwm-double-list-for-selection',
@@ -23,6 +24,7 @@ export class DoubleListForSelectionComponent implements OnInit {
   private csvSeparator = ';';
 
 
+
   public objList = [];
 
   public caseList;
@@ -38,7 +40,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   public selectionList = [];
 
-  constructor(serviceHandler: ServiceHandlerService, private dialog: MatDialog) {
+  constructor(serviceHandler: ServiceHandlerService, private dialog: MatDialog, private location: Location) {
     this.serviceHandler = serviceHandler;
   }
 
@@ -206,7 +208,13 @@ export class DoubleListForSelectionComponent implements OnInit {
   }
 
   openCase(obj) {
-    const dialogConfig = new MatDialogConfig();
+    window.open(this.location.prepareExternalUrl('starterApp/case/' + this.appIds[0] + '/1/' + obj.caseReference));
+    //alert();
+
+    // path: 'case/:appId/:typeId/:caseRef',
+
+
+    /*const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -228,7 +236,7 @@ export class DoubleListForSelectionComponent implements OnInit {
     dialogConfig.width = '98%';
 
     const dialogRef = this.dialog.open(CaseDetailsDialogComponent, dialogConfig);
-
+*/
 
 
 
