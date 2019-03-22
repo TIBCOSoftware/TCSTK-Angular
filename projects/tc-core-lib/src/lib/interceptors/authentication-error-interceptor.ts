@@ -16,6 +16,8 @@ import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/rout
 export class AuthErrorInterceptor implements HttpInterceptor {
   private TIBCO_CLOUD_DOMAIN = 'cloud.tibco.com';
   private TIBCO_TEST_DOMAIN = 'tenant-integration.tcie.pro';
+  private TIBCO_CLOUD_LOGIN = 'https://account.cloud.tibco.com/idm/v1/login-saml?relayState=';
+
   constructor(private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -37,7 +39,11 @@ export class AuthErrorInterceptor implements HttpInterceptor {
               const host = window.location.hostname.split('.');
               const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
               if (hostDomain === this.TIBCO_CLOUD_DOMAIN || hostDomain === this.TIBCO_TEST_DOMAIN) {
-                // on tibco cloud - let tibco cloud handle it
+                // redirect to Tibco Cloud Login
+                // supply base64 encoded redirect string
+                const reauthUrl = btoa('{ "resumeURL":"' + window.location.href + '", "tenantId":"BPM" }');
+                console.log('redirecting to: ' + this.TIBCO_CLOUD_LOGIN + reauthUrl);
+                window.location.href = this.TIBCO_CLOUD_LOGIN + reauthUrl;
               } else {
                 this.router.navigate(['/login'], {queryParams: {}});
               }

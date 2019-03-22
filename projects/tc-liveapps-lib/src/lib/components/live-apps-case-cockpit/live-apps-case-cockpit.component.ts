@@ -23,6 +23,14 @@ import { RouteAction } from 'tc-core-lib';
   styleUrls: ['./live-apps-case-cockpit.component.css']
 })
 export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
+
+  // this default layout displays all data but will hide buttons
+  DEFAULT_CASE_DATA_LAYOUT = [
+    '*',
+    { type: 'submit', title: 'Save', condition: '1===2' },
+    { type: 'actions', title: 'Hidden', condition: '1===2' }
+  ];
+
   @Input() uiAppId;
   @Input() appId;
   @Input() typeId;
@@ -46,7 +54,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   valid = false;
   toolbarButtons: ToolbarButton[];
   actionSelection: LaProcessSelection;
-  layout: any[] = undefined;
+  layout: any[] = this.DEFAULT_CASE_DATA_LAYOUT;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   protected _destroyed$ = new Subject();
