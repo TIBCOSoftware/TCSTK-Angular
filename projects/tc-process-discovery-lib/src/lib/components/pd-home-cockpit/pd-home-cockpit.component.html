@@ -2,7 +2,7 @@
     <div>
         <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
             <div fxFlex fxLayout="row" fxLayoutAlign="end end">
-                <mat-button-toggle-group class="nav-switch-bar" name="view" aria-label="Font Style" (change)="handleViewButtonEvent($event)">
+                <mat-button-toggle-group class="nav-switch-bar" name="view" aria-label="Font Style" [value]="selectedOption" (change)="handleViewButtonEvent($event)">
                     <mat-button-toggle *ngFor="let view of viewButtons" name="{{view.tooltip}}" value="{{view.id}}">{{view.tooltip}}</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
