@@ -30,6 +30,7 @@ import { PdSettingsAdministrationComponent } from './components/pd-settings-admi
 import { TcSpotfireLibModule } from 'tc-spotfire-lib';
 import { PdSettingsConfigurationComponent } from './components/pd-settings-configuration/pd-settings-configuration.component';
 import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-cockpit.component';
+import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-datasource.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-coc
         PdSettingsAdministrationComponent,
         PdChangeDatasourceDialog,
         PdSettingsConfigurationComponent,
-        PdHomeCockpitComponent
+        PdHomeCockpitComponent,
+        PdNewDatasourceComponent
     ],
     imports: [
         CommonModule,
