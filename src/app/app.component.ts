@@ -250,11 +250,11 @@ export class AppComponent {
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-cloud-download',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-cloud-download.svg'))
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-cloud-download.svg'))
     );
     this.matIconRegistry.addSvgIcon(
       'tcs-visibility',
-      this.domSanitizer.bypassSecurityTrustResourceUrl(this.location.prepareExternalUrl('assets/icons/ic-visibility.svg'))
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-visibility.svg'))
     );
 
 
