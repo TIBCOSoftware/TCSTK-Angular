@@ -42,6 +42,7 @@
     "handsontable": "^6.2.2",
     "ngx-color-picker": "^7.3.0",
     "npm": "^6.9.0",
+    "papaparse": "^4.6.3",
     "rxjs": "~6.4.0",
     "spotfire-webplayer": "https://s3-us-west-2.amazonaws.com/cec-library/spotfire-wrapper.tgz",
     "tslib": "^1.9.3",
