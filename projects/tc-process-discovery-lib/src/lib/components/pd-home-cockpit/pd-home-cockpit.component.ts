@@ -2,8 +2,9 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { LiveAppsHomeCockpitComponent, CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext } from 'tc-liveapps-lib';
 import { RouteAction, ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CaseRoute } from 'tc-liveapps-lib/public_api';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'tcpd-pd-home-cockpit',
@@ -13,10 +14,15 @@ import { CaseRoute } from 'tc-liveapps-lib/public_api';
 export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
 
     public viewButtons;
-    // @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
+    @Input() selectedOption: string;
 
-    constructor(private router: Router, protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog) {
+    constructor(private location: Location, private router: Router, protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog) {
         super(buttonsHelper, dialog);
+    }
+
+    ngOnInit() {
+        super.ngOnInit();
+        this.viewButtons = this.createViewButtons();
     }
 
     protected createToolbarButtons = (): ToolbarButton[] => {
@@ -64,8 +70,8 @@ export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
             }
 
         };
-        console.log('Sandbox ID: ' , '31');
-        this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, '31');    
+        console.log('Sandbox ID: ' , this.sandboxId);
+        this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);    
     }
 
     openCreatorDialog = (application: CaseType, initialData, sandboxId) => {
@@ -85,9 +91,4 @@ export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
             }
         });
     }
-
-    ngOnInit() {
-        super.ngOnInit();
-        this.viewButtons = this.createViewButtons();
-      }
 }
