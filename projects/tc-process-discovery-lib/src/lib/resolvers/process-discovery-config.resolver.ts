@@ -4,15 +4,15 @@ import { Observable, of } from 'rxjs';
 import { flatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
-import { UiAppIdConfig } from 'tc-core-lib';
+import { UiAppIdConfig, TcCoreCommonFunctions } from 'tc-core-lib';
 import { ProcessDiscoveryConfig } from '../models/tc-process-discovery-config';
 import { PdProcessDiscoveryConfigService } from '../services/pd-process-discovery-config.service';
 
 @Injectable()
 export class ProcessDiscoveryConfigResolver implements Resolve<Observable<ProcessDiscoveryConfig>> {
 
-    DEFAULT_CONFIG_URL = this.location.prepareExternalUrl('assets/config/processDiscoveryConfig.json');
-    APP_ID_URL = this.location.prepareExternalUrl('assets/config/uiAppId.json');
+    DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/processDiscoveryConfig.json');
+    APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     private sandboxId: number;
     public defaultProcessDiscoveryConfig: ProcessDiscoveryConfig;
