@@ -46,6 +46,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   valid = false;
   toolbarButtons: ToolbarButton[];
   actionSelection: LaProcessSelection;
+  layout: any[] = undefined;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   protected _destroyed$ = new Subject();

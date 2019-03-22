@@ -8,10 +8,18 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
   styleUrls: ['./live-apps-case-data-display.component.css']
 })
 export class LiveAppsCaseDataDisplayComponent implements OnInit {
+
+  DEFAULT_CASE_DATA_LAYOUT = [
+    '*',
+    { type: 'submit', title: 'Save', condition: '1===2' },
+    { type: 'actions', title: 'hello', condition: '1===2' }
+
+  ];
+
   @Input() caseData: string;
   @Input() schema: JsonSchema;
+  @Input() layout: any[] = this.layout ? this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
 
-  layout: any[];
   options;
 
   constructor() { }
@@ -26,12 +34,6 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
       },
       'validateOnRender': false
     };
-    this.layout = [
-      '*',
-      { type: 'submit', title: 'Save', condition: '1===2' },
-      { type: 'actions', title: 'hello', condition: '1===2' }
-
-    ]
     console.log(this.schema);
   }
 
