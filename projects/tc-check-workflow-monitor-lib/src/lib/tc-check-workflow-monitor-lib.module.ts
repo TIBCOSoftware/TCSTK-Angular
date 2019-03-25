@@ -18,7 +18,8 @@ import {
   MatPaginatorModule,
   MatTableModule,
   MatTabsModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatSortModule
 } from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
@@ -76,7 +77,8 @@ import { CwmCaseCockpitComponent } from './components/cwm-case-cockpit/cwm-case-
     ReactiveFormsModule,
     TcLiveappsLibModule,
     TcCoreLibModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ],
   entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent, CaseDetailsDialogComponent],
   exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent, CwmCaseCockpitComponent],

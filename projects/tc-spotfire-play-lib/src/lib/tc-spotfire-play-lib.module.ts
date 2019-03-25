@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {TcCoreLibModule} from 'tc-core-lib';
 import {TcLiveappsLibModule} from 'tc-liveapps-lib';
 import {
   MatButtonModule,
@@ -28,13 +29,14 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { SpotfirePlayComponent } from './components/spotfire-play/spotfire-play.component';
 import { TableComponent } from './components/table/table.component';
 import { SpotfireTabsComponent } from './components/spotfire-tabs/spotfire-tabs.component';
-import {TcCoreLibModule} from 'tc-core-lib';
+
 import {DataTableExampleComponent} from './components/data-table-example/data-table-example.component';
 import {TcSpotfireLibModule} from 'tc-spotfire-lib';
+import { TwoTablesComponent } from './components/two-tables/two-tables.component';
 
 
 @NgModule({
-  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent, DataTableExampleComponent],
+  declarations: [SpotfirePlayComponent, TableComponent, SpotfireTabsComponent, DataTableExampleComponent, TwoTablesComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -75,9 +77,10 @@ import {TcSpotfireLibModule} from 'tc-spotfire-lib';
     TcSpotfireLibModule
   ],
   exports: [SpotfirePlayComponent,
-            TableComponent,
-            MatSortModule,
-            SpotfireTabsComponent,
-            DataTableExampleComponent]
+    TableComponent,
+    MatSortModule,
+    SpotfireTabsComponent,
+    DataTableExampleComponent,
+    TwoTablesComponent]
 })
 export class TcSpotfirePlayLibModule { }

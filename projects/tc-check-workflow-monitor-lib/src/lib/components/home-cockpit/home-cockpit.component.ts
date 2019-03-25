@@ -12,10 +12,12 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent {
 
 
   protected createToolbarButtons = (): ToolbarButton[] => {
+
+
     const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
-    const uploadButton = this.buttonsHelper.createButton('upload', 'tcs-document-upload', true, 'Upload Page', true, true);
-    const buttons = [ uploadButton, configButton, refreshButton ];
+    const homeButton = this.buttonsHelper.createButton('home', 'tcs-home', true, 'Home', true, true);
+    const buttons = [ homeButton, configButton, refreshButton ];
     return buttons;
   }
 
@@ -28,6 +30,16 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent {
     if (buttonId === 'upload') {
       this.routeAction.emit(new RouteAction('uploadClicked', null));
     }
+
+    if (buttonId === 'casecockpit') {
+      this.routeAction.emit(new RouteAction('casecockpitClicked', null));
+    }
+
+    if (buttonId === 'home') {
+      this.routeAction.emit(new RouteAction('homeClicked', null));
+    }
+
+
 
     if (buttonId === 'refresh') {
       this.refresh();
