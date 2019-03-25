@@ -19,7 +19,7 @@ export class DoubleListForSelectionComponent implements OnInit {
   @Input() userId;
 
   @ViewChild('paginator') paginator: MatPaginator;
-   @ViewChild('matSort') sort: MatSort;
+   @ViewChild(MatSort) sort: MatSort;
 
   @ViewChild('selectionPaginator') selectionPaginator: MatPaginator;
 
@@ -33,7 +33,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   private serviceHandler: ServiceHandlerService;
 
-  displayedColumns: string[] = ['DemandeID', 'Payeur', 'NumeroDossier', 'StatutDemande', 'View', 'Select'];
+  displayedColumns: string[] = ['DemandeID', 'Payeur', 'Numrodedemande', 'Statut', 'View', 'Select'];
   selectionDisplayedColumns: string[] = ['Select', 'DemandeID', 'Decision'];
 
   private precoStates = ['Attente pièce pour validation', 'Clôture en cours',  'Demande clôturée', 'Edition en cours - complet', 'en attente de documents post saisie',
@@ -59,6 +59,11 @@ export class DoubleListForSelectionComponent implements OnInit {
         this.objList = result.caseinfos;
         for (const obj of this.objList) {
           obj.casedataObj = JSON.parse(obj.casedata);
+          // Set attribute to root to allow sorting
+          obj.DemandeID = obj.casedataObj.DemandeID;
+          obj.Payeur =  obj.casedataObj.Payeur;
+          obj.Statut = obj.casedataObj.Dossier.Statut;
+          obj.Numrodedemande = obj.casedataObj.Dossier.Numrodedemande;
           if (obj.casedataObj.Dossier && this.precoStates.includes(obj.casedataObj.Dossier.Statut) ) {
             obj.casedataObj.preco = true;
           } else {
@@ -216,7 +221,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   openCase(obj) {
     window.open(this.location.prepareExternalUrl('starterApp/case/' + this.appIds[0] + '/1/' + obj.caseReference));
-    //alert();
+    // alert();
 
     // path: 'case/:appId/:typeId/:caseRef',
 
