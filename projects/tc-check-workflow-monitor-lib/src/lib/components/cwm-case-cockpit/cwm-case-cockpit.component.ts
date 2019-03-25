@@ -14,7 +14,7 @@ export class CwmCaseCockpitComponent extends LiveAppsCaseCockpitComponent {
     const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
     const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
-    const buttons = [  favButton, refreshButton ];
+    const buttons = [  favButton, refreshButton, homeButton ];
     return buttons;
   }
 

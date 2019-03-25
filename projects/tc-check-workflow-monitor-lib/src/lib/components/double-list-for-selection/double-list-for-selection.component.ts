@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ServiceHandlerService} from '../../services/service-handler.service';
-import {MatDialog, MatDialogConfig, MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
 import {CaseDetailsDialogComponent} from '../case-details-dialog/case-details-dialog.component';
 import {Location} from '@angular/common';
@@ -19,6 +19,8 @@ export class DoubleListForSelectionComponent implements OnInit {
   @Input() userId;
 
   @ViewChild('paginator') paginator: MatPaginator;
+   @ViewChild('matSort') sort: MatSort;
+
   @ViewChild('selectionPaginator') selectionPaginator: MatPaginator;
 
   private csvSeparator = ';';
@@ -33,6 +35,10 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   displayedColumns: string[] = ['DemandeID', 'Payeur', 'NumeroDossier', 'StatutDemande', 'View', 'Select'];
   selectionDisplayedColumns: string[] = ['Select', 'DemandeID', 'Decision'];
+
+  private precoStates = ['Attente pièce pour validation', 'Clôture en cours',  'Demande clôturée', 'Edition en cours - complet', 'en attente de documents post saisie',
+                         'Saisie en cours - complet', 'Saisie en cours - incomplet', 'Validation des éditions en cours',
+                         'Validation en cours - complet', 'Validation en cours - incomplet'];
 
   public dataSource;
   public selectionDataSource;
@@ -53,7 +59,7 @@ export class DoubleListForSelectionComponent implements OnInit {
         this.objList = result.caseinfos;
         for (const obj of this.objList) {
           obj.casedataObj = JSON.parse(obj.casedata);
-          if (obj.casedataObj.Dossier && obj.casedataObj.Dossier.Statut === 'Saisie en cours - complet') {
+          if (obj.casedataObj.Dossier && this.precoStates.includes(obj.casedataObj.Dossier.Statut) ) {
             obj.casedataObj.preco = true;
           } else {
             obj.casedataObj.preco = false;
@@ -63,6 +69,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
         this.dataSource = new MatTableDataSource(this.objList);
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
 
         this.selectionDataSource = new MatTableDataSource(this.selectionList);
         this.selectionDataSource.paginator = this.selectionPaginator;
