@@ -5,3 +5,7 @@
 .tcs-hidden-input {
   display: none;
 }
+
+.cell-centered .mat-header-cell {
+  justify-content:flex-right !important;
+ }
