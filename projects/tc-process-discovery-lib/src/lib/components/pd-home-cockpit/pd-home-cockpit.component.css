@@ -2,6 +2,7 @@
     border-radius: 100px;
     border: solid 1px #b6b6b6;
     background-color: #ffffff;
+    height: 30px;
 }
 
 .mat-button-toggle-checked{
