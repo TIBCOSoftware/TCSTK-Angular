@@ -28,7 +28,7 @@
     <div fxLayout="column" fxFlex="60" class="cwm-content-right">
 
 
-      <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
 
         <ng-container matColumnDef="DemandeID">
@@ -37,16 +37,16 @@
         </ng-container>
 
         <ng-container matColumnDef="Payeur">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payeur</th>
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Payeur</th>
           <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.Payeur}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="NumeroDossier" mat-sort-header>
-          <th mat-header-cell *matHeaderCellDef> Numero de dossier</th>
+        <ng-container matColumnDef="NumeroDossier">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Numero de dossier</th>
           <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.Dossier.Numrodedemande}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="StatutDemande" mat-sort-header>
+        <ng-container matColumnDef="StatutDemande" >
           <th mat-header-cell *matHeaderCellDef> Statut demande</th>
           <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.Dossier.Statut}} </td>
         </ng-container>
