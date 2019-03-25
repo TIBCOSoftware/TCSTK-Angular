@@ -11,11 +11,13 @@ export class TcCaseAuditService {
 
   constructor(private http: HttpClient) { }
 
-  public getCaseAudit(caseRef: string, sandboxId: number): Observable<AuditEventList> {
+  public getCaseAudit(caseRef: string, sandboxId: number, skip: number, top: number): Observable<AuditEventList> {
     const select = 's';
-    const url = '/event/v1/auditEvents?$sandbox=' + sandboxId
+    let url = '/event/v1/auditEvents?$sandbox=' + sandboxId
       + '&$filter=type eq \'case\''
       + ' and id eq \'' + caseRef + '\'';
+    url = (skip !== undefined) ? (url + '&$skip=' + skip) : url;
+    url = top ? (url + '&$top=' + top) : url;
 
     return this.http.get(url)
       .pipe(

@@ -16,7 +16,7 @@
         <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
           <mat-tab-group #dataTabGroup>
             <mat-tab label="Case Data">
-              <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false"></tcla-live-apps-case-data>
+                <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false"></tcla-live-apps-case-data>
             </mat-tab>
             <mat-tab #actionTab *ngIf="actionSelection">
               <ng-template mat-tab-label fxLayout="row" fxFlex>
@@ -30,16 +30,24 @@
         <div fxLayout="column" fxFlex fxLayoutGap="20px">
           <mat-tab-group fxFlex>
             <mat-tab label="Notes">
-              <tcla-live-apps-notes class="live-apps-widget" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>
+              <ng-template matTabContent>
+                <tcla-live-apps-notes class="live-apps-widget" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>
+              </ng-template>
             </mat-tab>
             <mat-tab label="Documents">
-              <tcla-live-apps-documents class="live-apps-widget" [sandboxId]="sandboxId" [folderId]="caseRef" [folderType]="'caseFolders'"></tcla-live-apps-documents>
+              <ng-template matTabContent>
+                <tcla-live-apps-documents class="live-apps-widget" [sandboxId]="sandboxId" [folderId]="caseRef" [folderType]="'caseFolders'"></tcla-live-apps-documents>
+              </ng-template>
             </mat-tab>
             <mat-tab label="States">
-              <tcla-live-apps-case-state-audit [caseRef]="caseRef" [sandboxId]="sandboxId" [appId]="appId"></tcla-live-apps-case-state-audit>
+              <ng-template matTabContent>
+                <tcla-live-apps-case-state-audit [caseRef]="caseRef" [sandboxId]="sandboxId" [appId]="appId"></tcla-live-apps-case-state-audit>
+              </ng-template>
             </mat-tab>
             <mat-tab label="Audit">
-              <tcla-live-apps-case-audit [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-audit>
+              <ng-template matTabContent>
+                <tcla-live-apps-case-audit [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-audit>
+              </ng-template>
             </mat-tab>
           </mat-tab-group>
         </div>
