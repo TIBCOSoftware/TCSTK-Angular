@@ -6,6 +6,12 @@
   display: none;
 }
 
-.cell-centered .mat-header-cell {
-  justify-content:flex-right !important;
- }
+::ng-deep .mat-horizontal-content-container{
+    border: solid 1px green; 
+    height: 100%
+}
+
+::ng-deep .mat-horizontal-stepper-content{
+    border: solid 1px blue; 
+    height: 100%
+}
