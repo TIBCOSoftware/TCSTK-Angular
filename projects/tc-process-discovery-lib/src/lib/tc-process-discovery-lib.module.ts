@@ -10,7 +10,7 @@ import {
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule
+    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
@@ -70,6 +70,7 @@ import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-
         MatButtonToggleModule,
         MatExpansionModule,
         MatTableModule,
+        MatStepperModule,
         DragDropModule,
         FormsModule,
         FlexLayoutModule,
