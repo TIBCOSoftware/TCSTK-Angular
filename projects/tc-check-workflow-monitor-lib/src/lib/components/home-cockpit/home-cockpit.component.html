@@ -1,11 +1,11 @@
 <div fxLayout="column" fxFlex>
   <div>
-    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="'Overview -' + title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
-      <tcla-live-apps-application-create-button style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
+    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+     <!-- <tcla-live-apps-application-create-button style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>-->
     </tc-tibco-cloud-menu-bar>
   </div>
 
-  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" style="margin-left: 20px; margin-right: 20px; margin-top: 10px;">
+  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" fxLayoutAlign="start stretch" style="margin-left: 20px; margin-right: 20px; margin-top: 10px;">
 
     <div class="searchCasesWidget">
       <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
@@ -21,7 +21,15 @@
       </div>
     </div>
 
+    <div fxLayout="row" fxLayoutGap="20px" style="margin-bottom: 20px; min-height: 367px">
+      <div fxFlex class="collaborationWidget">
+        <tcla-live-apps-notes [userId]="userId" [relatedItemId]="uiAppId" [relatedItemType]="'CASE_APP'"></tcla-live-apps-notes>
+      </div>
 
+      <div fxFlex class="documentWidget">
+        <tcla-live-apps-documents [sandboxId]="sandboxId" [folderId]="uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
+      </div>
+    </div>
   </div>
 </div>
 

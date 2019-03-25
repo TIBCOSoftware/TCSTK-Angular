@@ -17,8 +17,8 @@ export class DecisionCockpitComponent extends LiveAppsHomeCockpitComponent {
   protected createToolbarButtons = (): ToolbarButton[] => {
     const configButton = this.buttonsHelper.createButton('config', 'tcs-config-icon', true, 'Config', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
-    const uploadButton = this.buttonsHelper.createButton('upload', 'tcs-document-upload', true, 'Upload Page', true, true);
-    const buttons = [ uploadButton, configButton, refreshButton ];
+    const casedcockpitButton = this.buttonsHelper.createButton('casecockpit', 'tcs-case-data-icon', true, 'Case', true, true);
+    const buttons = [ casedcockpitButton, configButton, refreshButton ];
     return buttons;
   }
 
@@ -30,6 +30,10 @@ export class DecisionCockpitComponent extends LiveAppsHomeCockpitComponent {
 
     if (buttonId === 'upload') {
       this.routeAction.emit(new RouteAction('uploadClicked', null));
+    }
+
+    if (buttonId === 'casecockpit') {
+      this.routeAction.emit(new RouteAction('casecockpitClicked', null));
     }
 
     if (buttonId === 'refresh') {

@@ -1,26 +1,217 @@
-<div fxLayout="column" class="tcs-spotfire-settings-pane" fxFill>
+<div fxLayout="column" class="tcs-new-datasource-settings-pane" fxFill>
     <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
-        [headerText]="'Spotfire Settings Configuration'"></tc-tibco-cloud-widget-header>
+        [headerText]="'New Datasource Configuration'"></tc-tibco-cloud-widget-header>
     <div style="padding: 20px;" fxLayout="column" fxFlex>
         <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
-            <p>Choose the TIBCO Cloud Spotfire configuration to be used within this application:</p>
+            <p>Choose the configuration to be used within this datasource:</p>
         </div>
-        <div fxFlex fxLayout="row">
-            <div fxFlex fxLayout="row" fxFill>
-                <mat-form-field fxFlex>
-                    <input matInput placeholder="Use first row as header" [(ngModel)]="useFirstRowAsHeader">
-                </mat-form-field>
-                <mat-form-field fxFlex>
-                    <input matInput placeholder="Column separator" [(ngModel)]="columnSeparator">
-                </mat-form-field>
-                <mat-form-field fxFlex>
-                    <input matInput placeholder="Number of rows for preview" [(ngModel)]="numberRowsForPreview">
-                </mat-form-field>
+        <div fxFlex fxLayout="column">
+            <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+                {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+            </button> -->
+            <mat-horizontal-stepper fxFlex fxLayout="column" labelPosition="bottom" [linear]="isLinear" #stepper>
+                <mat-step>
+                    <ng-template matStepLabel>Datasource selection</ng-template>
+                    <div fxLayout="column">
+                        <mat-form-field>
+                            <mat-label>Datasource type</mat-label>
+                            <mat-select [(value)]="datasourceType">
+                                <mat-option value="CSV">CSV</mat-option>
+                                <mat-option value="JDBC">JDBC</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div *ngIf="datasourceType === 'CSV'">
+                            <mat-form-field fxFlex="40">
+                                <input disabled="true" matInput placeholder="Filename" [(ngModel)]="filename">
+                            </mat-form-field>
+                            <button *ngIf="filename.length == 0" mat-raised-button color="primary" (click)="file.click()">Select file</button>
+                            <button *ngIf="filename.length > 0" mat-raised-button color="primary" (click)="file.click()">Change file</button>
+                            <input fxFlex="60" class="tcs-hidden-input" type="file" accept=".csv" #file (change)="onFileSelect(file.files)">
+                        </div>
+                        <div fxLayout="column" *ngIf="datasourceType === 'JDBC'">
+                            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                                <mat-form-field fxFlex="47">
+                                    <input matInput placeholder="Username" [(ngModel)]="jdbcUsername">
+                                </mat-form-field>
+                                <mat-form-field fxFlex="47">
+                                    <input matInput placeholder="Password" [(ngModel)]="jdbcPassword">
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                                <mat-form-field fxFlex="47">
+                                    <input matInput placeholder="Hostname" [(ngModel)]="jdbcHostname">
+                                </mat-form-field>
+                                <mat-form-field fxFlex="47">
+                                    <input matInput placeholder="Port" [(ngModel)]="jdbcPort">
+                                </mat-form-field>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between stretch">    
+                                <mat-form-field fxFlex="47">
+                                    <input matInput placeholder="Database type" [(ngModel)]="jdbcType">
+                                </mat-form-field>
+                                <mat-form-field fxFlex="47">
+                                    <input matInput placeholder="Database name" [(ngModel)]="jdbcDatabaseName">
+                                </mat-form-field>
+                            </div>
+                            <mat-form-field fxFlex="40">
+                                <input matInput placeholder="SQL Query" [(ngModel)]="jdbcSQLQuery">
+                            </mat-form-field>
+                        </div>
+                        <mat-checkbox [(ngModel)]="preview">Preview file</mat-checkbox>
+                    </div>
+                    <div style="border-width: 1px;border-color:green;border-style: dashed" fxFlex
+                        class="tcs-filler-panel"></div>
+                    <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px" style="min-height: 50px">
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Parse options</ng-template>
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>Parse options</mat-panel-title>
+                                <mat-panel-description>Options for parsing the CSV file</mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                                <div fxLayout="column">
+                                    <mat-checkbox [(ngModel)]="preview">Preview</mat-checkbox>
+                                    <mat-form-field>
+                                        <input [disabled]="!preview" matInput="number"
+                                            placeholder="Number of rows to preview" [(ngModel)]="numberRowsForPreview">
+                                    </mat-form-field>
+                                </div>
+                                <div fxLayout="column">
+                                    <mat-checkbox [(ngModel)]="useFirstRowAsHeader">Use first row as header
+                                    </mat-checkbox>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Column separator" maxlength="1"
+                                            [(ngModel)]="columnSeparator">
+                                    </mat-form-field>
+                                </div>
+                                <div fxLayout="column">
+                                    <mat-checkbox [(ngModel)]="skipComments">Skip comments in file</mat-checkbox>
+                                    <mat-form-field>
+                                        <input [disabled]="!skipComments" matInput placeholder="Coments" maxlength="10"
+                                            [(ngModel)]="comments">
+                                    </mat-form-field>
+                                </div>
+                                <div fxLayout="column">
+                                    <mat-checkbox [(ngModel)]="skipEmptyLines">Skip empty lines</mat-checkbox>
+                                    <mat-form-field>
+                                        <input matInput placeholder="Encoding" [(ngModel)]="encoding">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <mat-action-row fxLayoutGap="10px">
+                                <!-- <button mat-raised-button color="secondary" (click)="refresh()">Rename Columns</button> -->
+                                <button mat-raised-button color="primary" (click)="refresh()">Refresh</button>
+                            </mat-action-row>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <div>
+                        <table *ngIf="data" fxFlex mat-table [dataSource]="data" class="mat-elevation-z8">
+                            <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+                                <th mat-header-cell *matHeaderCellDef>
+                                    {{column}}
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                            </ng-container>
+
+                            <tr fxFlexAlign="center" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </div>
+                    <div style="border-width: 1px;border-color:green;border-style: dashed" fxFlex
+                        class="tcs-filler-panel"></div>
+                    <div fxLayout="row" fxLayoutAlign="end end" style="min-height: 50px">
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Mapping</ng-template>
+                    <div>
+                        <div fxLayout="row">
+                            <div fxFlex fxLayout="column" fxLayoutAlign="center center" *ngFor="let element of icons"
+                                cdkDrag>
+                                <mat-icon>{{element.icon}}</mat-icon>
+                                <div>{{element.id}}</div>
+                            </div>
+                        </div>
+                        <div fxLayout="column">
+                            <mat-form-field>
+                                <mat-label>CaseId</mat-label>
+                                <mat-select [(value)]="caseId" required>
+                                    <mat-option *ngFor="let column of displayedColumns" [value]="column">{{column}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Activity</mat-label>
+                                <mat-select [(value)]="activity" required>
+                                    <mat-option *ngFor="let column of displayedColumns" [value]="column">{{column}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Resources</mat-label>
+                                <mat-select [(value)]="resource" multiple required>
+                                    <mat-option *ngFor="let column of displayedColumns" [value]="column">{{column}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Start</mat-label>
+                                <mat-select [(value)]="start" required>
+                                    <mat-option *ngFor="let column of displayedColumns" [value]="column">{{column}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>End</mat-label>
+                                <mat-select [(value)]="end">
+                                    <mat-option *ngFor="let column of displayedColumns" [value]="column">{{column}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Others</mat-label>
+                                <mat-select [(value)]="other" multiple>
+                                    <mat-option *ngFor="let column of displayedColumns" [value]="column">{{column}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px" style="min-height: 50px">
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                        <button [disabled]="filename.length == 0" mat-raised-button color="primary">Create
+                            datasource</button>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+            <!--
+            <div cdkScrollable *ngIf="filename.length > 0" fxLayout="column">
+                Preview table
+
+                Icons for drag and drop
+                <div fxLayout="row" >
+                    <div fxFlex fxLayout="column" fxLayoutAlign="center center" *ngFor="let element of icons" cdkDrag>
+                        <mat-icon>{{element.icon}}</mat-icon>
+                        <div>{{element.id}}</div>
+                    </div>
+                </div>
+                
             </div>
+            style="border-width: 1px;border-color:red;border-style: dashed"
+    -->
         </div>
-        <div fxFlex class="tcs-filler-panel"></div>
-        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
-            <button mat-raised-button color="primary">Save</button>
-        </div>
+        <!-- <div style="border-width: 1px;border-color:green;border-style: dashed" fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px" style="min-height: 50px">
+            <button [disabled]="filename.length == 0" mat-raised-button color="primary">Create datasource</button>
+        </div> -->
     </div>
 </div>

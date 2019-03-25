@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SpotfireCustomization } from 'spotfire-webplayer/lib/spotfire-customization';
+import { SpotfireCustomization } from '@tibco/spotfire-wrapper/lib/spotfire-customization';
 import { McSpotfireWrapperComponent } from 'tc-spotfire-lib';
 
 @Component({

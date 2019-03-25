@@ -3,7 +3,7 @@ import {CachingInterceptor, TcCoreLibModule} from 'tc-core-lib';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {TcSpotfireConfigService} from './services/tc-spotfire-config.service';
 import { McSpotfireWrapperComponent } from './components/mc-spotfire-wrapper/mc-spotfire-wrapper.component';
-import { SpotfireViewerModule } from 'spotfire-webplayer'
+import { SpotfireViewerModule } from '@tibco/spotfire-wrapper';
 
 @NgModule({
   declarations: [
