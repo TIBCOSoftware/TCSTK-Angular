@@ -2,6 +2,12 @@
   display: none;
 }
 
+:host ::ng-deep .mat-select-value {
+  min-width: 100px;
+  max-width: 100%;
+  width: auto;
+}
+
 .la-applications-div {
   margin-top: 50px;
 }
