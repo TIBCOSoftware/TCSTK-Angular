@@ -28,6 +28,16 @@ export class PdNewDatasourceComponent implements OnInit {
     public columnSeparator: string;
     public preview: boolean = true;
     public numberRowsForPreview: number = 5;
+    public skipEmptyLines: boolean = true;
+    public encoding: string = 'UTF-8';
+
+    // Mappings
+    public caseId: string;
+    public activity: string;
+    public start: string;
+    public end: string;
+    public resource: string[];
+    public other: string[];
 
     constructor() { }
 
@@ -61,14 +71,15 @@ export class PdNewDatasourceComponent implements OnInit {
         let config = {
             header: this.useFirstRowAsHeader,
             preview: this.numberRowsForPreview,
+            encoding: this.encoding,
             comments: (this.skipComments) ? this.comments: '',
             complete: (result) => {
-                console.log("***** In");
                 this.displayedColumns = this.calculateColumnNames(
                     this.useFirstRowAsHeader ? Object.keys(result.data[0]).length: result.data[0].length, 
                     this.useFirstRowAsHeader ? result.meta.fields: undefined);
                 this.data = result.data;
-            }
+            },
+            skipEmptyLines: this.skipEmptyLines
         };
         parse(this.file, config);
     }
