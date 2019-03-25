@@ -3,3 +3,7 @@
 router-outlet + * {
   width: 100%;
 }
+
+.tcs-starter-app-router-pane {
+  overflow: hidden;
+}
