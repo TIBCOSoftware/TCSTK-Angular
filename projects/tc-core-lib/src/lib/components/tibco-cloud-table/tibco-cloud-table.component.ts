@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort} from '@angular/material';
 import {TibcoCloudTableDataSource} from './tibco-cloud-table-datasource';
 import {TcCoreCommonFunctions} from './../../common/tc-core-common-functions';
@@ -8,18 +8,32 @@ import {TcCoreCommonFunctions} from './../../common/tc-core-common-functions';
   templateUrl: './tibco-cloud-table.component.html',
   styleUrls: ['./tibco-cloud-table.component.css']
 })
-export class TibcoCloudTableComponent implements OnInit {
+export class TibcoCloudTableComponent implements OnInit, OnChanges {
   @Input() jsonSource: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   dataSource: TibcoCloudTableDataSource;
 
+  id: string = '_' + Math.random().toString(36).substr(2, 9);
+
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [];
   columns = [];
 
   ngOnInit() {
+    this.updateTable();
+
+
+  }
+  ngOnChanges(changes) {
+    console.log('Table Changed');
+    this.updateTable();
+
+  }
+
+
+  updateTable() {
     // console.log('JSONSource: ', this.jsonSource);
     const parsedJsonSource = JSON.parse(this.jsonSource);
     // console.log('Parsed JSON Source: ', parsedJsonSource);
@@ -45,13 +59,14 @@ export class TibcoCloudTableComponent implements OnInit {
             }
             m++;
           }
-       }
+        }
         // console.log('myColums:', this.columns);
         // this.columDefArray = this.columns;
       }
     }
-
   }
+
+
   /*
   private log(...m){
     console.log('TIBCO CLOUD TABLE] ' , m);
@@ -59,7 +74,7 @@ export class TibcoCloudTableComponent implements OnInit {
 
   camelCaseTW(header: string | any) {
 
-      return TcCoreCommonFunctions.camelCaseToWords(header);
+    return TcCoreCommonFunctions.camelCaseToWords(header);
 
 
   }
