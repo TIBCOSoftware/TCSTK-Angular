@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotfireViewerComponent } from 'spotfire-webplayer';
-import { SpotfireCustomization } from 'spotfire-webplayer/lib/spotfire-customization';
+import { SpotfireViewerComponent } from '@tibco/spotfire-wrapper';
+import { SpotfireCustomization } from '@tibco/spotfire-wrapper/lib/spotfire-customization';
 
 @Component({
     selector: 'tcsf-mc-spotfire-wrapper',
