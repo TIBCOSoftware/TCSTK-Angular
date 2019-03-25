@@ -46,6 +46,7 @@ export class PdSettingsAdministrationComponent implements OnInit {
     }
 
     addNewDatasource = (): void => {
+        this.router.navigate(['/starterApp/configuration/process-discovery-new-datasource'], {});
 
     }
 

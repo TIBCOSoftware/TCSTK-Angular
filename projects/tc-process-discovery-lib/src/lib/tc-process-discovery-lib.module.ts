@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {TcCoreLibModule} from 'tc-core-lib';
+import { TcCoreLibModule } from 'tc-core-lib';
 import { TcLiveappsLibModule } from 'tc-liveapps-lib';
 import {
     MatButtonModule,
@@ -10,8 +10,9 @@ import {
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule
+    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule
 } from '@angular/material';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +31,7 @@ import { PdSettingsAdministrationComponent } from './components/pd-settings-admi
 import { TcSpotfireLibModule } from 'tc-spotfire-lib';
 import { PdSettingsConfigurationComponent } from './components/pd-settings-configuration/pd-settings-configuration.component';
 import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-cockpit.component';
+import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-datasource.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-coc
         PdSettingsAdministrationComponent,
         PdChangeDatasourceDialog,
         PdSettingsConfigurationComponent,
-        PdHomeCockpitComponent
+        PdHomeCockpitComponent,
+        PdNewDatasourceComponent
     ],
     imports: [
         CommonModule,
@@ -66,6 +69,9 @@ import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-coc
         MatTabsModule,
         MatButtonToggleModule,
         MatExpansionModule,
+        MatTableModule,
+        MatStepperModule,
+        DragDropModule,
         FormsModule,
         FlexLayoutModule,
         ColorPickerModule,

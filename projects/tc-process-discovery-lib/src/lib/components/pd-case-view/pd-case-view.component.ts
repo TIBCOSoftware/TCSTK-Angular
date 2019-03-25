@@ -32,7 +32,7 @@ export class PdCaseViewComponent implements OnInit {
     }
 
     clickCaseAction = ($event: any): void => {
-        
+        this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef]);        
     }
 
 }

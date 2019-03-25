@@ -37,6 +37,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   @Input() sandboxId;
   @Input() caseRef;
   @Input() userId;
+  @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
 // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
@@ -54,7 +55,6 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   valid = false;
   toolbarButtons: ToolbarButton[];
   actionSelection: LaProcessSelection;
-  layout: any[] = this.DEFAULT_CASE_DATA_LAYOUT;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   protected _destroyed$ = new Subject();
