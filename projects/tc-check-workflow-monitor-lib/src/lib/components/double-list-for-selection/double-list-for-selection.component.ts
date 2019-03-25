@@ -36,8 +36,9 @@ export class DoubleListForSelectionComponent implements OnInit {
   displayedColumns: string[] = ['DemandeID', 'Payeur', 'Numrodedemande', 'Statut', 'View', 'Select'];
   selectionDisplayedColumns: string[] = ['Select', 'DemandeID', 'Decision'];
 
-  private precoStates = ['Attente pièce pour validation', 'Clôture en cours',  'Demande clôturée', 'Edition en cours - complet', 'en attente de documents post saisie',
-                         'Saisie en cours - complet', 'Saisie en cours - incomplet', 'Validation des éditions en cours',
+  private precoStates = ['Attente pièce pour validation', 'Clôture en cours', 'Demande annulée', 'Demande annulée suite à modification', 'Demande clôturée',
+                         'Demande refusée',  'Edition en cours - complet', 'en attente de documents post saisie',
+                         'Validation des éditions en cours',
                          'Validation en cours - complet', 'Validation en cours - incomplet'];
 
   public dataSource;
