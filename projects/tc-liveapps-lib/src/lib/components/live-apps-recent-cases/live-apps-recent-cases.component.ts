@@ -41,6 +41,11 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
     this.recentCases = [];
   }
 
+  public handleDeleted = (caseRef: string) => {
+    this.recentCases.splice(this.recentCases.indexOf(caseRef), 1);
+    this.liveapps.unsetRecentCase(caseRef, this.uiAppId, this.sandboxId);
+  }
+
   constructor(private liveapps: LiveAppsService) {
     super();
   }

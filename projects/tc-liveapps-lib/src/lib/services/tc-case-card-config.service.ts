@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {SharedStateContent, SharedStateEntry, SharedStateList, TcCoreCommonFunctions, TcSharedStateService, UiAppConfig} from 'tc-core-lib';
-import {forkJoin, Observable, of} from 'rxjs';
-import {CardConfig, CaseInfo, CaseTypeState, CaseTypeStatesList, IconMap, UserInfo} from '../models/liveappsdata';
+import {forkJoin, Observable, of, throwError} from 'rxjs';
+import {ApiResponseError, CardConfig, CaseInfo, CaseTypeState, CaseTypeStatesList, IconMap, UserInfo} from '../models/liveappsdata';
 import {LiveAppsService} from '../services/live-apps.service';
 import {CaseCardConfig} from '../models/tc-case-card-config';
-import {map, mergeMap, tap} from 'rxjs/operators';
+import {catchError, flatMap, map, mergeMap, tap} from 'rxjs/operators';
 import {flush} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
 import {Location} from '@angular/common';
@@ -210,7 +210,14 @@ export class TcCaseCardConfigService {
           const caseinf = new CaseInfo().deserialize(caseinfo);
           return this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId, uiAppId);
         }
-      )
+      ),
+      catchError(err => {
+        if (err.error.errorCode === 'CM_CASEREF_NOTEXIST') {
+          // case deleted
+          return of(new CaseInfo().deserialize({ deleted: true } ));
+        }
+        return throwError(err);
+      })
     );
   }
 }
