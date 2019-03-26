@@ -86,8 +86,9 @@ export class PdNewDatasourceComponent implements OnInit {
         this.filename = this.file.name;
     }
 
-    public moveNextTab = ($event): void => {
-        if (this.preview){
+    public moveNextTab = (currentTab: number): void => {
+        console.log("********* executing");
+        if (currentTab == 1 && this.preview){
             this.refresh();
         }
     }
