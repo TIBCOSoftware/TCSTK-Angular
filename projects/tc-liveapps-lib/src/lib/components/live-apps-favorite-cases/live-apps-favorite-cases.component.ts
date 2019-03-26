@@ -41,6 +41,11 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
     this.favoriteCases = [];
   }
 
+  public handleDeleted = (caseRef: string) => {
+    this.favoriteCases.splice(this.favoriteCases.indexOf(caseRef), 1);
+    this.liveapps.setFavoriteCase(caseRef, this.uiAppId, this.sandboxId);
+  }
+
 
   constructor(private liveapps: LiveAppsService) {
     super();
