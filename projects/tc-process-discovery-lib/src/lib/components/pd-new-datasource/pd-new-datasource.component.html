@@ -60,7 +60,7 @@
                         <mat-checkbox [(ngModel)]="preview">Preview file</mat-checkbox>
                         <div fxFlex class="tcs-filler-panel"></div>
                         <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="5px" style="min-height: 50px">
-                            <button mat-button  mat-raised-button color="primary" (click)="moveNextTab($event)">Next</button>
+                            <button mat-button  mat-raised-button color="primary" matStepperNext (click)="moveNextTab(1)">Next</button>
                         </div>
                     </div>
                 </mat-step>
