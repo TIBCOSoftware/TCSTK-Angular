@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angu
 import { Router, ActivatedRoute } from '@angular/router';
 import { SpotfireCustomization } from '@tibco/spotfire-wrapper/lib/spotfire-customization';
 import { McSpotfireWrapperComponent } from 'tc-spotfire-lib';
+import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
 
 @Component({
   selector: 'tcpd-pd-process-mining',
@@ -22,7 +23,7 @@ export class PdProcessMiningComponent implements OnInit {
     public markingOn;
     private datasource: string;
 
-    constructor(private router: Router, private route: ActivatedRoute) { }
+    constructor(private router: Router, private route: ActivatedRoute, private processDiscovery: PdProcessDiscoveryService) { }
 
     ngOnInit() {
         var spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
@@ -90,25 +91,21 @@ export class PdProcessMiningComponent implements OnInit {
         this.spotfireWrapperComponent.openPage(this.allowedPages[$event.index]);
     }
 
-    // public marking = ($event: any): void  => {
-    //     console.log("*********** " + JSON.stringify($event));
-    // }
     selectedVariant = '';
     selectedVariantID = '';
 
     public marking(data) {
-        var mName = 'Marking';
+        var mName = 'Cases';
 
         if (data[mName] != null) {
-            if (data[mName]['cases'] != null) {
-                if (data[mName]['cases']['case_id'] != null) {
-                    console.log('Selected CaseID: ', data[mName]['cases']['case_id']);
-                    this.selectedVariantID = data[mName]['cases']['case_id'].toString();
+            if (data[mName]['newCases'] != null) {
+                if (data[mName]['newCases']['case_id'] != null) {
+                    console.log('Selected CaseID: ', data[mName]['newCases']['case_id']);
+                    this.selectedVariantID = data[mName]['newCases']['case_id'].toString();
                     this.selectedVariant = 'Compliance case at ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
+                    this.processDiscovery.sendMessage(this.selectedVariant, this.selectedVariantID);
                 }
             }
         }
-
-     //   this.markingdataText = JSON.stringify(data, null, 2);
     }
 }
