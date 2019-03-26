@@ -7,11 +7,11 @@
 }
 
 ::ng-deep .mat-horizontal-content-container{
-    border: solid 1px green; 
-    height: 100%
+    /* border: solid 1px green;  */
+    height: 100%;
 }
 
 ::ng-deep .mat-horizontal-stepper-content{
-    border: solid 1px blue; 
-    height: 100%
+    /* border: solid 1px blue;  */
+    height: 100%;
 }
