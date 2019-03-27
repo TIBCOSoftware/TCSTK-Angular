@@ -1,25 +1,31 @@
 <div fxFill fxLayout="column" style="overflow: auto">
-<h1>This is the Spotfire Play Home Page</h1>
+  <h1>This is the Spotfire Play Home Page</h1>
 
-<mat-tab-group style="margin-top: 30px; height: 100%;">
+  <mat-tab-group style="margin-top: 30px; height: 100%;">
 
-  <mat-tab label="Tibco Cloud Table Component">
-    <ng-template matTabContent>
-      <tcsp-data-table-example></tcsp-data-table-example>
-    </ng-template>
-  </mat-tab>
+    <mat-tab label="Spotfire Markings">
+      <ng-template matTabContent>
+        <tcsp-spotfire-play [sandboxId]="sandboxId" [appIds]="liveAppsConfig.applicationIds"> </tcsp-spotfire-play>
+      </ng-template>
+    </mat-tab>
 
-  <mat-tab label="Spotfire Markings">
-    <ng-template matTabContent>
-      <tcsp-spotfire-play> </tcsp-spotfire-play>
-    </ng-template>
-  </mat-tab>
+    <mat-tab label="Tibco Cloud Table Component">
+      <ng-template matTabContent>
+        <tcsp-data-table-example></tcsp-data-table-example>
+      </ng-template>
+    </mat-tab>
 
-  <mat-tab label="Spotfire Tabs">
-    <ng-template matTabContent>
-      <tcsp-spotfire-tabs></tcsp-spotfire-tabs>
-    </ng-template>
-  </mat-tab>
+    <mat-tab label="Spotfire Tabs">
+      <ng-template matTabContent>
+        <tcsp-spotfire-tabs></tcsp-spotfire-tabs>
+      </ng-template>
+    </mat-tab>
 
-</mat-tab-group>
+    <mat-tab label="Two Tables">
+      <ng-template matTabContent>
+        <tcsp-two-tables></tcsp-two-tables>
+      </ng-template>
+    </mat-tab>
+
+  </mat-tab-group>
 </div>

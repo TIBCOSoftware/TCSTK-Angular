@@ -1,5 +1,5 @@
 <div class="mat-elevation-z8">
-  <table mat-table class="tct-full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+  <table id="{{id}}" mat-table class="tct-full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
     <ng-container *ngFor="let column of columns" [matColumnDef]='column.columnDef'>
       <mat-header-cell *matHeaderCellDef class="tct-header"  mat-sort-header>{{camelCaseTW(column.header)}}</mat-header-cell>
       <mat-cell *matCellDef="let row">{{ column.cell(row) }}</mat-cell>

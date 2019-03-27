@@ -380,6 +380,12 @@ export class LiveAppsService {
       );
   }
 
+  public unsetRecentCase(caseRef: string, uiAppId: string, sandboxId: number) {
+    // NOTE: Use '-1' as caseRef to clear recent cases list
+    const ssName = uiAppId + '.recentcases.tibcolabs.client.context.PRIVATE';
+    this.setCasesRecord(ssName, caseRef, uiAppId, sandboxId, 10, true);
+  }
+
   public setRecentCase(caseRef: string, uiAppId: string, sandboxId: number) {
     // NOTE: Use '-1' as caseRef to clear recent cases list
     const ssName = uiAppId + '.recentcases.tibcolabs.client.context.PRIVATE';

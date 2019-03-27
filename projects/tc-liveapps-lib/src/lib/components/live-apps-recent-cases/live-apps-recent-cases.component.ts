@@ -13,6 +13,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
+  @Input() displayType: string = this.displayType ? this.displayType : 'miniCard'; // miniCard, card, list
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public recentCases: string[];
@@ -39,6 +40,11 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
     // -1 will clear recent cases
     this.liveapps.setRecentCase('-1', this.uiAppId, this.sandboxId);
     this.recentCases = [];
+  }
+
+  public handleDeleted = (caseRef: string) => {
+    this.recentCases.splice(this.recentCases.indexOf(caseRef), 1);
+    this.liveapps.unsetRecentCase(caseRef, this.uiAppId, this.sandboxId);
   }
 
   constructor(private liveapps: LiveAppsService) {

@@ -1,0 +1,26 @@
+<div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
+  <div  fxFlex="70" fxLayoutGap="20px">
+    <div>
+
+  <tc-tibco-cloud-select-table jsonSource='[
+  {"id": 1, "name": "Hydrogen"},
+  {"id": 2, "name": "Helium"},
+  {"id": 3, "name": "Lithium"},
+  {"id": 4, "name": "Beryllium"},
+  {"id": 5, "name": "Boron2"}]' (selectedlines)="changeSelection($event)">
+  </tc-tibco-cloud-select-table>
+  <p>
+    <b>SELECTED:</b>{{mySelection}}
+  </p>
+    </div>
+</div>
+<div fxFlex="30" fxLayoutGap="20px">
+  <div>
+  <tc-tibco-cloud-table jsonSource='{{tableTwoSelection}}'>
+  </tc-tibco-cloud-table>
+  <p>
+    <b>SELECTED:</b>{{tableTwoSelection}}
+  </p>
+  </div>
+</div>
+</div>

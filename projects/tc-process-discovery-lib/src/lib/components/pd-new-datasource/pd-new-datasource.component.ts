@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { parse } from 'papaparse';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 export interface Mapping {
@@ -15,6 +16,7 @@ export interface Mapping {
 })
 export class PdNewDatasourceComponent implements OnInit {
 
+    public datasourceType: string;
     public file: File;
     public filename: string = '';
     public data;
@@ -31,6 +33,15 @@ export class PdNewDatasourceComponent implements OnInit {
     public skipEmptyLines: boolean = true;
     public encoding: string = 'UTF-8';
 
+    // JDBC
+    public jdbcUsername: string;
+    public jdbcPassword: string;
+    public jdbcType: string;
+    public jdbcHostname: string;
+    public jdbcPort: number;
+    public jdbcDatabaseName: string;
+    public jdbcSQLQuery: string;
+    
     // Mappings
     public caseId: string;
     public activity: string;
@@ -39,9 +50,20 @@ export class PdNewDatasourceComponent implements OnInit {
     public resource: string[];
     public other: string[];
 
-    constructor() { }
+    // stepper
+    isLinear = false;
+    firstFormGroup: FormGroup;
+    secondFormGroup: FormGroup;
+
+    constructor(private _formBuilder: FormBuilder) { }
 
     ngOnInit() {
+        this.firstFormGroup = this._formBuilder.group({
+            firstCtrl: ['', Validators.required]
+        });
+        this.secondFormGroup = this._formBuilder.group({
+            secondCtrl: ['', Validators.required]
+        });
     }
 
     public calculateColumnNames = (numColumns: number, columnNames: string[]): string[] => {
@@ -62,7 +84,11 @@ export class PdNewDatasourceComponent implements OnInit {
     public onFileSelect = (fileList: File[]): void => {
         this.file = fileList[0];
         this.filename = this.file.name;
-        if (this.preview){
+    }
+
+    public moveNextTab = (currentTab: number): void => {
+        console.log("********* executing");
+        if (currentTab == 1 && this.preview){
             this.refresh();
         }
     }
@@ -90,7 +116,7 @@ export class PdNewDatasourceComponent implements OnInit {
     }
 
     icons = [
-        { id: 'Cancel', icon: 'close'},
+        // { id: 'Cancel', icon: 'close'},
         { id: 'CaseId', icon: 'label'},
         { id: 'Activity', icon: 'start'},
         { id: 'Start', icon: 'timer'},
