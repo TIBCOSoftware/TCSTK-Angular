@@ -13,7 +13,7 @@ import {CaseRoute} from '../../models/liveappsdata';
 export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
-  @Input() displayType: string = this.displayType ? this.displayType : 'miniCard';
+  @Input() displayType: string = this.displayType ? this.displayType : 'miniCard'; // miniCard, card, list
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public favoriteCases: string[];
