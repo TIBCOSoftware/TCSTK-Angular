@@ -13,6 +13,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
+  @Input() displayType: string = this.displayType ? this.displayType : 'miniCard';
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public recentCases: string[];
