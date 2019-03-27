@@ -28,27 +28,26 @@
     <div fxLayout="column" fxFlex="60" class="cwm-content-right">
 
 
-      <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
+      <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
         <ng-container matColumnDef="DemandeID">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Demande ID</th>
-          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.DemandeID}} </td>
+          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.DemandeID}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Payeur">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payeur</th>
-          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.Payeur}} </td>
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Payeur</th>
+          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.Payeur}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="NumeroDossier" mat-sort-header>
-          <th mat-header-cell *matHeaderCellDef> Numero de dossier</th>
-          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.Dossier.Numrodedemande}} </td>
+        <ng-container matColumnDef="Numrodedemande">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Numero de dossier</th>
+          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.Numrodedemande}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="StatutDemande" mat-sort-header>
-          <th mat-header-cell *matHeaderCellDef> Statut demande</th>
-          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.casedataObj.Dossier.Statut}} </td>
+        <ng-container matColumnDef="Statut" >
+          <th mat-header-cell *matHeaderCellDef   mat-sort-header> Statut demande</th>
+          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> {{element.Statut}} </td>
         </ng-container>
 
         <ng-container matColumnDef="View">

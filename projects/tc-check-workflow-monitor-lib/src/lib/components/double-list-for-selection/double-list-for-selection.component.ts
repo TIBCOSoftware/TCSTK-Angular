@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ServiceHandlerService} from '../../services/service-handler.service';
-import {MatDialog, MatDialogConfig, MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
 import {CaseDetailsDialogComponent} from '../case-details-dialog/case-details-dialog.component';
 import {Location} from '@angular/common';
@@ -19,6 +19,8 @@ export class DoubleListForSelectionComponent implements OnInit {
   @Input() userId;
 
   @ViewChild('paginator') paginator: MatPaginator;
+   @ViewChild(MatSort) sort: MatSort;
+
   @ViewChild('selectionPaginator') selectionPaginator: MatPaginator;
 
   private csvSeparator = ';';
@@ -31,8 +33,13 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   private serviceHandler: ServiceHandlerService;
 
-  displayedColumns: string[] = ['DemandeID', 'Payeur', 'NumeroDossier', 'StatutDemande', 'View', 'Select'];
+  displayedColumns: string[] = ['DemandeID', 'Payeur', 'Numrodedemande', 'Statut', 'View', 'Select'];
   selectionDisplayedColumns: string[] = ['Select', 'DemandeID', 'Decision'];
+
+  private precoStates = ['Attente pièce pour validation', 'Clôture en cours', 'Demande annulée', 'Demande annulée suite à modification', 'Demande clôturée',
+                         'Demande refusée',  'Edition en cours - complet', 'en attente de documents post saisie',
+                         'Validation des éditions en cours',
+                         'Validation en cours - complet', 'Validation en cours - incomplet'];
 
   public dataSource;
   public selectionDataSource;
@@ -53,7 +60,12 @@ export class DoubleListForSelectionComponent implements OnInit {
         this.objList = result.caseinfos;
         for (const obj of this.objList) {
           obj.casedataObj = JSON.parse(obj.casedata);
-          if (obj.casedataObj.Dossier && obj.casedataObj.Dossier.Statut === 'Saisie en cours - complet') {
+          // Set attribute to root to allow sorting
+          obj.DemandeID = obj.casedataObj.DemandeID;
+          obj.Payeur =  obj.casedataObj.Payeur;
+          obj.Statut = obj.casedataObj.Dossier.Statut;
+          obj.Numrodedemande = obj.casedataObj.Dossier.Numrodedemande;
+          if (obj.casedataObj.Dossier && this.precoStates.includes(obj.casedataObj.Dossier.Statut) ) {
             obj.casedataObj.preco = true;
           } else {
             obj.casedataObj.preco = false;
@@ -63,6 +75,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
         this.dataSource = new MatTableDataSource(this.objList);
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
 
         this.selectionDataSource = new MatTableDataSource(this.selectionList);
         this.selectionDataSource.paginator = this.selectionPaginator;
@@ -209,7 +222,7 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   openCase(obj) {
     window.open(this.location.prepareExternalUrl('starterApp/case/' + this.appIds[0] + '/1/' + obj.caseReference));
-    //alert();
+    // alert();
 
     // path: 'case/:appId/:typeId/:caseRef',
 

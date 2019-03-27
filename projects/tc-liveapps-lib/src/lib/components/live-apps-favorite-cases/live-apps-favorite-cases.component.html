@@ -9,7 +9,7 @@
     </div>
     <div class="tcs-case-favorites-flow-list" fxLayout="column" fxLayout="row wrap">
       <div class="tcs-case-favorite-item-box" *ngFor="let case of favoriteCases" fxFlex>
-        <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case" (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-summary>
+        <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case" (clickCase)="clickCaseAction($event)" (deleted)="handleDeleted($event)"></tcla-live-apps-case-summary>
         <div class="tcs-case-summary-line"></div>
       </div>
     </div>

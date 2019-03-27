@@ -44,6 +44,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   @Input() uiAppId: string;
   @Input() highlight: string;
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
+  @Output() deleted: EventEmitter<string> = new EventEmitter<string>();
 
   public casedata: any;
   public summary: any;
@@ -80,13 +81,18 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
           take(1),
           takeUntil(this._destroyed$),
           map(caseinfo => {
-            this.appId = caseinfo.metadata.applicationId;
-            this.typeId = caseinfo.metadata.typeId;
-            this.casedata = caseinfo.untaggedCasedataObj;
-            this.metadata = caseinfo.metadata;
-            this.summary = caseinfo.summaryObj;
-            this.summaryKeys = Object.keys(this.summary);
-            this.summaryValues = Object.values(this.summary);
+            if (!caseinfo.deleted) {
+              this.appId = caseinfo.metadata.applicationId;
+              this.typeId = caseinfo.metadata.typeId;
+              this.casedata = caseinfo.untaggedCasedataObj;
+              this.metadata = caseinfo.metadata;
+              this.summary = caseinfo.summaryObj;
+              this.summaryKeys = Object.keys(this.summary);
+              this.summaryValues = Object.values(this.summary);
+            } else {
+              // notify parent case has been deleted
+              this.deleted.emit(this.caseReference);
+            }
           })
         ).subscribe(
         null, error => {

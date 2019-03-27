@@ -18,7 +18,7 @@ export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnI
   public errorMessage: string;
 
   public refresh = () => {
-    this.caseAuditService.getCaseAudit(this.caseRef, this.sandboxId)
+    this.caseAuditService.getCaseAudit(this.caseRef, this.sandboxId, 0, 100)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

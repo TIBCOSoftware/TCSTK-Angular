@@ -1,6 +1,17 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort} from '@angular/material';
-import {SpotfireCustomization} from 'spotfire-webplayer/lib/spotfire-customization';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {MatDialog, MatSort} from '@angular/material';
+// import {SpotfireCustomization} from 'spotfire-webplayer/lib/spotfire-customization';
+import {
+  CaseType,
+  LiveAppsCaseCreatorComponent,
+  LiveAppsCreatorDialogComponent,
+  LiveAppsSandboxComponent,
+  LiveAppsService,
+  CaseCreatorSelectionContext
+} from 'tc-liveapps-lib';
+import {map, take, takeUntil} from 'rxjs/operators';
+import {RouteAction, SandboxList, TcButtonsHelperService} from 'tc-core-lib';
+//import {CaseCreatorSelectionContext} from '../../../../../tc-liveapps-lib/src/lib/models/tc-case-creator';
 
 @Component({
   selector: 'tcsp-spotfire-play',
@@ -10,7 +21,13 @@ import {SpotfireCustomization} from 'spotfire-webplayer/lib/spotfire-customizati
 
 export class SpotfirePlayComponent implements OnInit {
 
+  constructor(protected liveapps: LiveAppsService, public dialog: MatDialog) {
+
+  }
+
   @ViewChild(MatSort) sort: MatSort;
+  @Input() sandboxId: number;
+  @Input() appIds: string[];
 
   markingdata: any;
   markingTitles = new Array();
@@ -19,13 +36,100 @@ export class SpotfirePlayComponent implements OnInit {
   markingData = new Array(new Array(new Array()));
   dataSourceJson = new Array();
   columDefArray = new Array();
-  myMarkingOn = "*";
+  // myMarkingOn = "{['cases','events'],['*'] }";
+  // '{"SalesAndMarketing": ["*"]}';
+  // myMarkingOnSales = { SalesAndMarketing: ['*'] };
+  myMarkingOnSales = '*';
 
-  constructor() { }
+  //myMarkingOn = {  cases: ['*'] };
+   myMarkingOn = '*';
+
+
+  // myMarkingOn = {  variants:['Marking'] };
+
+  /*
+  1. spotfire tab: variants
+  2. Cases selected in viz (and in comlumn)
+  3. Create case
+  - Type: Compliance
+  - Contect typ variant
+  - Context ID (List) of selected cases  123,345,23432,3243
+  - Short Description: <created at dt>
+
+
+
+   */
+
+  // myMarkingOn = '*';
+  sandboxes: SandboxList;
+  errorMessage: string;
+  markingdataText: string;
+  mySelection = {};
+
 
   ngOnInit() {
 
+    console.log('Init');
+
   }
+
+  startCase() {
+
+
+  }
+
+  changeSelection($event) {
+    console.log('Selection Changed: ', $event);
+    this.mySelection = JSON.parse($event);
+    console.log(this.mySelection[0]);
+    if (this.mySelection[0] != null) {
+      console.log(this.mySelection[0]['variant']);
+      if (this.mySelection[0]['variant'] != null) {
+        this.selectedVariant = this.mySelection[0]['variant'];
+      }
+      if (this.mySelection[0]['variant_id'] != null) {
+        this.selectedVariantID = this.mySelection[0]['variant_id'];
+      }
+    }
+
+
+  }
+
+  openCreatorDialog = (application: CaseType, initialData, sandboxId) => {
+    const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
+      width: '60%',
+      height: '80%',
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      panelClass: 'tcs-style-dialog',
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result);
+      }
+    });
+  };
+
+  public handleCreatorAppSelection = (application: CaseType) => {
+    const EXAMPLE_INITIAL_DATA = {
+      DiscoverCompliance: {
+        Type: 'Compliance',
+        ShortDescription: this.selectedVariant,
+        Context: {
+          ContextType: 'Case',
+          ContextID: this.selectedVariantID
+        }
+      }
+
+    };
+    // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
+    console.log('Sandbox ID: ', this.sandboxId);
+    this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
+
+
+  };
   /*
   ngOnInit() {
     var spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
@@ -72,10 +176,33 @@ export class SpotfirePlayComponent implements OnInit {
 
   }*/
 
+  selectedVariant = '';
+  selectedVariantID = '';
+
   public marking(data) {
+    var mName = 'Cases';
+
+    if (data[mName] != null) {
+      if (data[mName]['newCases'] != null) {
+        if (data[mName]['newCases']['case_id'] != null) {
+          console.log('Selected CaseID: ', data[mName]['newCases']['case_id']);
+          this.selectedVariantID = data[mName]['newCases']['case_id'].toString();
+          this.selectedVariant = 'Compliance case at ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
+        }
+      }
+    }
+
+    this.markingdataText = JSON.stringify(data, null, 2);
+  }
+
+  /*
     // console.log('Marking: ' + JSON.stringify(data, null, 2));
     // console.log(data);
+
+
+
     this.markingdata = data; // JSON.stringify(data, null, 2);
+    this.markingdataText = JSON.stringify(data, null, 2);
     this.markingTitles = new Array();
     this.markingDataTables = new Array();
     this.markingHeaders = new Array();
@@ -86,7 +213,7 @@ export class SpotfirePlayComponent implements OnInit {
     // iterate over the marking data tables
     for (const markingName in data) {
       if (data.hasOwnProperty(markingName)) {
-        console.log(markingName + ' -> ' + data[markingName]);
+        console.log(markingName + ' -> ' , data[markingName]);
         this.markingTitles.push(markingName);
         // const mData = new Array();
         const markingElements = data[markingName];
@@ -103,7 +230,7 @@ export class SpotfirePlayComponent implements OnInit {
             const headA = new Array();
             headA.push('Number');
             for (const head in mkey) {
-              console.log('head: ' + head);
+              // console.log('head: ' + head);
               headA.push(head);
               if (mkey.hasOwnProperty(head)) {
                 const mDataD = new Array();
@@ -144,10 +271,9 @@ export class SpotfirePlayComponent implements OnInit {
         }
       }
     }
-
-    // console.log('Marking Headers: ' , this.markingHeaders);
-    // console.log('Marking Data: ', this.markingData);
-    // console.log('dataSourceJSON: ', this.dataSourceJson);
+    console.log('Marking Headers: ' , this.markingHeaders);
+    console.log('Marking Data: ', this.markingData);
+    console.log('dataSourceJSON: ', this.dataSourceJson);
 
     for (let k = 0; k < this.markingHeaders.length; k++) {
       const myColumns = [];
@@ -168,7 +294,9 @@ export class SpotfirePlayComponent implements OnInit {
 
     }
     // console.log('this.columDefArray:', this.columDefArray);
-  }
+
+
+  }*/
 
   private convertToJSON(array) {
     const objArray = [];
@@ -196,6 +324,5 @@ export class SpotfirePlayComponent implements OnInit {
     return newArray;
   }
 }
-
 
 
