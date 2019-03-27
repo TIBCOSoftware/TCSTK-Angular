@@ -11,7 +11,7 @@ Sample usage HTML Tag
 
 ```html
 <!-- just for testing -->
-<tcla-live-apps-application-configuration [sandboxId]="" [uiAppId]=""></tcla-live-apps-application-configuration>
+<tcla-live-apps-application-configuration [appId]="" [sandboxId]="" [uiAppId]=""></tcla-live-apps-application-configuration>
 ```
 
 #### Inputs
@@ -37,7 +37,7 @@ live Showcase
 
 ```html
 <!-- as HTML within Markdown, just remove the ```html code-area ``` -->
-<tcla-live-apps-application-configuration [sandboxId]="" [uiAppId]=""></tcla-live-apps-application-configuration>
+<tcla-live-apps-application-configuration [appId]="" [sandboxId]="" [uiAppId]=""></tcla-live-apps-application-configuration>
 <script type="text/javascript" src="http://host/cust-component/tcla-live-apps-tcla-live-apps-application-configuration.js"></script>
 ```
 
