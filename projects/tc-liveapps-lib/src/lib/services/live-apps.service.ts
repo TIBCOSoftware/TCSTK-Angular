@@ -695,7 +695,7 @@ export class LiveAppsService {
     return this.http.get(url, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map( groups => new Groups().deserialize(groups))
+        map( groups => new Groups().deserialize({ groups: groups }))
       );
   }
 

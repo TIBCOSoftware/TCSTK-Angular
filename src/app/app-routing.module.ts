@@ -17,7 +17,7 @@ import {
   LiveAppsService,
   LiveAppsSettingsComponent,
   LiveAppsSettingsRecentCasesComponent,
-  LiveAppsSettingsSummaryCardsComponent
+  LiveAppsSettingsSummaryCardsComponent, RolesResolver
 } from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
@@ -63,7 +63,8 @@ const routes: Routes = [
         resolve: {
           claims: ClaimsResolver,
           laConfigHolder: LaConfigResolver,
-          groups: GroupsResolver
+          groups: GroupsResolver,
+          roles: RolesResolver
         }
       },
       {
@@ -82,7 +83,8 @@ const routes: Routes = [
         resolve: {
           laConfigHolder: LaConfigResolver,
           claims: ClaimsResolver,
-          groups: GroupsResolver
+          groups: GroupsResolver,
+          roles: RolesResolver
         }
       },
       {
@@ -179,6 +181,7 @@ const routes: Routes = [
     ClaimsResolver,
     LiveAppsConfigResolver,
     GroupsResolver,
+    RolesResolver,
     LaConfigResolver,
     GeneralConfigResolver,
     ServiceDetailsConfigResolver,
