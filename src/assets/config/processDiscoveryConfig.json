@@ -1,5 +1,7 @@
 {
     "version": "1.0",
-    "datasourceAppId": 2596
+    "datasourceAppId": "2596",
+    "creatorAppId": "0",
+    "locationToStoreFile": "S3"
 }
   

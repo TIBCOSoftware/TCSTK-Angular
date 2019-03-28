@@ -119,6 +119,7 @@ export class CaseTypeStatesList implements Deserializable {
 }
 
 export class CaseInfo implements Deserializable {
+    deleted: boolean;
     caseReference: string;
     untaggedCasedata: string;
     untaggedCasedataObj: any;

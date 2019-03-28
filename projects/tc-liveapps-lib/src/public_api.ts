@@ -40,6 +40,7 @@ export * from './lib/components/live-apps-application-create-button/live-apps-ap
 export * from './lib/components/live-apps-creator-dialog/live-apps-creator-dialog.component';
 export * from './lib/components/live-apps-settings/live-apps-settings.component';
 export * from './lib/components/live-apps-settings-summary-cards/live-apps-settings-summary-cards.component';
+export * from './lib/components/live-apps-settings-recent-cases/live-apps-settings-recent-cases.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -48,6 +49,7 @@ export * from './lib/models/tc-case-processes';
 export * from './lib/models/tc-document';
 export * from './lib/models/tc-liveapps-config';
 export * from './lib/models/tc-case-creator';
+export * from './lib/models/tc-groups-data';
 
 // service
 export * from './lib/services/live-apps.service';
@@ -59,6 +61,7 @@ export * from './lib/services/tc-live-apps-config.service';
 export * from './lib/resolvers/claims.resolver';
 export * from './lib/resolvers/liveapps-config.resolver';
 export * from './lib/resolvers/la-config.resolver';
+export * from './lib/resolvers/groups.resolver';
 
 // guards
 export * from './lib/guards/case.guard';

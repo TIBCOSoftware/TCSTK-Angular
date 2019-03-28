@@ -1,12 +1,12 @@
 <div fxLayout="column" class="tcs-live-apps-settings-pane" fxFill>
-  <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Live Apps App Selection Configuration'">
+  <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Live Apps Recent Cases Configuration'">
 </tc-tibco-cloud-widget-header>
   <div fxFlex style="padding: 20px;" fxLayout="column">
     <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
-      <p>Choose the TIBCO Cloud Live Apps Applications to be used within this application:</p>
+      <p>Select any TIBCO Cloud Live Apps Applications you wish to EXCLUDE from recent cases:</p>
       <mat-icon class="tcs-designer-link" [svgIcon]="'tcs-application-edit'" (click)="handleEditLiveAppClick()" matTooltip="Open Live Apps Designer" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
     </div>
-    <tcla-live-apps-application-list class="tcs-app-selection-list-widget" fxFlex="grow" [sandboxId]="sandboxId" [selectedAppIds]="selectedAppIds" (appIdsSelected)="handleAppIdSelection($event)"></tcla-live-apps-application-list>
+    <tcla-live-apps-application-list class="tcs-app-selection-list-widget" fxFlex="grow" [sandboxId]="sandboxId" [selectedAppIds]="excludeRecentIds" (appIdsSelected)="handleExcludeRecentAppIdSelection($event)"></tcla-live-apps-application-list>
     <div fxFlex class="tcs-filler-panel"></div>
     <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
       <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>

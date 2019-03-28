@@ -21,7 +21,7 @@ export class LiveAppsApplicationListComponent extends LiveAppsApplicationsCompon
     this.appsSelected.emit(selectionEvent);
     const selIds = [];
     selectionEvent.forEach((selected) => {
-      selIds.push((Number(selected.applicationId)));
+      selIds.push(selected.applicationId);
     });
     this.appIdsSelected.emit(selIds);
   }
@@ -41,7 +41,7 @@ export class LiveAppsApplicationListComponent extends LiveAppsApplicationsCompon
   private getAppIds = (casetypes: CaseType[]): string[] => {
     const selIds = [];
     casetypes.forEach((selected) => {
-      selIds.push((Number(selected.applicationId)));
+      selIds.push(selected.applicationId);
     });
     return selIds;
   }
@@ -63,7 +63,7 @@ export class LiveAppsApplicationListComponent extends LiveAppsApplicationsCompon
             // pre select any casetypes that were passed in the selectedAppIds input attribute
             this.mySelectedOptions = this.applications.casetypes.filter(casetype => {
               return (this.selectedAppIds.findIndex((ct) => {
-                return ct.toString() === casetype.applicationId;
+                return ct === casetype.applicationId;
               }
               ) !== -1);
             });

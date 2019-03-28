@@ -5,6 +5,7 @@ import { MatButtonToggleChange, MatDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CaseRoute } from 'tc-liveapps-lib/public_api';
 import { Location } from '@angular/common';
+import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
 
 @Component({
   selector: 'tcpd-pd-home-cockpit',
@@ -15,14 +16,23 @@ export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
 
     public viewButtons;
     @Input() selectedOption: string;
+    private selectedVariant: string;
+    private selectedVariantID: string;
 
-    constructor(private location: Location, private router: Router, protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog) {
+    constructor(private location: Location, private router: Router, protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog, private processDiscovery: PdProcessDiscoveryService) {
         super(buttonsHelper, dialog);
     }
 
     ngOnInit() {
         super.ngOnInit();
         this.viewButtons = this.createViewButtons();
+        this.processDiscovery.dataStr.subscribe(
+            data => {
+                this.selectedVariant = data.comment;
+                this.selectedVariantID = data.cases;
+                console.log("Seeting values: " + this.selectedVariant + " - " + this.selectedVariantID);
+            }
+        )
     }
 
     protected createToolbarButtons = (): ToolbarButton[] => {
@@ -62,15 +72,14 @@ export class PdHomeCockpitComponent extends LiveAppsHomeCockpitComponent {
         const EXAMPLE_INITIAL_DATA = {
             DiscoverCompliance: {
                 Type: 'Compliance',
-                ShortDescription: 'this.selectedVariant',
+                ShortDescription: this.selectedVariant,
                 Context: {
                     ContextType: 'Case',
-                    ContextID: 'this.selectedVariantID'
+                    ContextID: this.selectedVariantID
                 }
             }
 
         };
-        console.log('Sandbox ID: ' , this.sandboxId);
         this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);    
     }
 

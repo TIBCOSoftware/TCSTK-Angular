@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { TcSharedStateService, SharedStateContent, TcCoreCommonFunctions, SharedStateEntry, SharedStateList } from 'tc-core-lib';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ProcessDiscoveryUserConfig, UserPredefinedDatasource } from '../models/tc-process-discovery';
 import { LiveAppsService, CaseInfoList } from 'tc-liveapps-lib';
@@ -105,5 +105,10 @@ export class PdProcessDiscoveryService {
                 })
             )
     }
-        
+       
+    dataStr = new EventEmitter();
+    public sendMessage = (comment: string, cases: string): void => {
+        this.dataStr.emit({comment: comment, cases: cases});
+    }
+    
 }

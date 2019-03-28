@@ -65,10 +65,6 @@ export class PdNewDatasourceComponent implements OnInit {
             secondCtrl: ['', Validators.required]
         });
     }
-    // constructor() { }
-
-    // ngOnInit() {
-    // }
 
     public calculateColumnNames = (numColumns: number, columnNames: string[]): string[] => {
         let newColumnNames: string[] = [];
@@ -88,7 +84,11 @@ export class PdNewDatasourceComponent implements OnInit {
     public onFileSelect = (fileList: File[]): void => {
         this.file = fileList[0];
         this.filename = this.file.name;
-        if (this.preview){
+    }
+
+    public moveNextTab = (currentTab: number): void => {
+        console.log("********* executing");
+        if (currentTab == 1 && this.preview){
             this.refresh();
         }
     }
