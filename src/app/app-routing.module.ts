@@ -12,7 +12,7 @@ import {
 import {HomeComponent} from './routes/home/home.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {
-  ClaimsResolver,
+  ClaimsResolver, GroupsResolver,
   LiveAppsConfigHolder,
   LiveAppsService,
   LiveAppsSettingsComponent,
@@ -61,7 +61,8 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         resolve: {
           claims: ClaimsResolver,
-          laConfigHolder: LaConfigResolver
+          laConfigHolder: LaConfigResolver,
+          groups: GroupsResolver
         }
       },
       {
@@ -70,7 +71,8 @@ const routes: Routes = [
         canActivate: [AuthGuard, CaseGuard],
         resolve: {
           laConfigHolder: LaConfigResolver,
-          claims: ClaimsResolver
+          claims: ClaimsResolver,
+          groups: GroupsResolver
         }
       },
       {
@@ -166,6 +168,7 @@ const routes: Routes = [
     HomeComponent,
     ClaimsResolver,
     LiveAppsConfigResolver,
+    GroupsResolver,
     LaConfigResolver,
     GeneralConfigResolver,
     ServiceDetailsConfigResolver,

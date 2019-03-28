@@ -9,7 +9,7 @@ import {
   LiveAppsService,
   LiveAppsNotesComponent,
   LiveAppsDocumentsComponent,
-  CaseRoute, LiveAppsConfig
+  CaseRoute, LiveAppsConfig, Groups
 } from 'tc-liveapps-lib';
 import { Claim, Sandbox } from 'tc-core-lib';
 
@@ -32,6 +32,7 @@ export class CaseComponent implements OnInit {
   public caseRef: string;
   public appId: string;
   public typeId: string;
+  public groups: Groups;
   public layout: any[] = undefined;
   // you can use a layout here to override the default layout for case data
   // take the generated layout JSON from console.log, re-order it in a JSON tool then put contents as the layout array:
@@ -57,6 +58,7 @@ export class CaseComponent implements OnInit {
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.exclRecentAppIds = this.liveAppsConfig.recentExcludedAppIds;
     this.claims = this.route.snapshot.data.claims;
+    this.groups = this.route.snapshot.data.groups;
     this.sandbox = this.claims.primaryProductionSandbox;
     this.caseRef = this.route.snapshot.params['caseRef'];
     this.appId = this.route.snapshot.params['appId'];
