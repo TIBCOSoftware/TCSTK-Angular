@@ -1,4 +1,4 @@
-import {Deserializable} from 'tc-core-lib';
+import {Deserializable, RoleAttribute} from 'tc-core-lib';
 
 export class Group {
   public name: string;
@@ -14,8 +14,15 @@ export class Group {
 export class Groups {
   groups: Group[];
   deserialize(input: any): this {
-    this.groups = [];
-    Object.assign(this.groups, input);
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class Roles {
+  roles: RoleAttribute[];
+  deserialize(input: any): this {
+    Object.assign(this, input);
     return this;
   }
 }

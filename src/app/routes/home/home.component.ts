@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GeneralConfig, UiAppConfig, RouteAction, Claim} from 'tc-core-lib';
-import {CaseRoute, CaseType, LiveAppsConfig, Groups} from 'tc-liveapps-lib';
+import {CaseRoute, CaseType, LiveAppsConfig, Groups, Roles} from 'tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',
@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   public userId: string;
   public email: string;
   public groups: Groups;
+  public roles: Roles;
 
   public welcomeMessage: string;
 
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.claims = this.route.snapshot.data.claims;
     this.groups = this.route.snapshot.data.groups;
+    this.roles = this.route.snapshot.data.roles;
     this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
     this.userName = this.claims.firstName + ' ' + this.claims.lastName;
     this.email = this.claims.email;
