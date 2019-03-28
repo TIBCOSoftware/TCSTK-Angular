@@ -61,21 +61,30 @@ export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>>
                     this.defaultAppConfig.uiAppId,
                     this.defaultAppConfig)
                     .pipe(
-                      map(
+                      flatMap(
                         result => {
                           const newAppConfig = this.defaultAppConfig;
                           newAppConfig.id = result;
-                          this.generalConfigService.updateGeneralConfig(
+                          return this.generalConfigService.updateGeneralConfig(
                             this.sandboxId,
                             newAppConfig.uiAppId,
                             newAppConfig,
-                            result).subscribe(
-                            // trigger a read to flush the cache since we changed it
-                            updatedConf => {
-                              this.generalConfigService.getGeneralConfig(this.uiAppId, true, true).subscribe();
-                            }
+                            result).pipe(
+                              flatMap(
+                                // trigger a read to flush the cache since we changed it
+                              updatedConf => {
+                                  return this.generalConfigService.getGeneralConfig(this.uiAppId, true, true).pipe(
+                                    map(
+                                      cachedConfig => {
+                                        return cachedConfig;
+                                      }
+                                    )
+                                  );
+
+                              }
+                              )
                           );
-                          return newAppConfig;
+                         // return newAppConfig;
                         })
                     );
                 })

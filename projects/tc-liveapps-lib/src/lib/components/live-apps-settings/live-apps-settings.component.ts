@@ -20,8 +20,12 @@ export class LiveAppsSettingsComponent extends LiveAppsComponent implements OnIn
   public generalConfig: GeneralConfig;
   public claims: Claim;
 
-  constructor(private route: ActivatedRoute, private liveAppsConfigService: TcLiveAppsConfigService) {
+  constructor(protected route: ActivatedRoute, protected liveAppsConfigService: TcLiveAppsConfigService) {
     super();
+  }
+
+  protected getLiveAppsConfigService(): TcLiveAppsConfigService {
+    return this.liveAppsConfigService;
   }
 
   public handleAppIdSelection(appIds: string[]) {
@@ -35,7 +39,7 @@ export class LiveAppsSettingsComponent extends LiveAppsComponent implements OnIn
     window.open(this.LIVE_APPS_URL);
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.claims = this.route.snapshot.data.claims;

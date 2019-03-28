@@ -34,6 +34,6 @@ live Showcase
 <script type="text/javascript" src="http://host/cust-component/tcla-live-apps-notes.js"></script>
 ```
 
-> Showcase connected to Mock Service
+> Showcase connected to Mock Service later
 
 

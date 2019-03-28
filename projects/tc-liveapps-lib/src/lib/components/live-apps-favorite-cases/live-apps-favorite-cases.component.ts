@@ -13,9 +13,9 @@ import {CaseRoute} from '../../models/liveappsdata';
 export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() uiAppId: string;
+  @Input() displayType: string = this.displayType ? this.displayType : 'miniCard'; // miniCard, card, list
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
-  public displayType = 'miniCard';
   public favoriteCases: string[];
   public errorMessage: string;
 
@@ -39,6 +39,11 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
   public clearFavoriteCases = () => {
     this.liveapps.setFavoriteCase('-1', this.uiAppId, this.sandboxId);
     this.favoriteCases = [];
+  }
+
+  public handleDeleted = (caseRef: string) => {
+    this.favoriteCases.splice(this.favoriteCases.indexOf(caseRef), 1);
+    this.liveapps.setFavoriteCase(caseRef, this.uiAppId, this.sandboxId);
   }
 
 

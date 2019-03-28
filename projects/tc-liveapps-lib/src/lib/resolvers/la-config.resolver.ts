@@ -47,8 +47,6 @@ export class LaConfigResolver implements Resolve<Observable<LiveAppsConfigHolder
         )
     );
 
-
-
     const resolveResp$ = claimResolver$.pipe(
       flatMap(liveAppsConfigHolder => {
         const iconsFolder$ = this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId + '_Icons');
