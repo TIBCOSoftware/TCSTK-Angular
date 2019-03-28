@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LiveAppsCaseCockpitComponent} from 'tc-liveapps-lib';
 import {ToolbarButton} from 'tc-core-lib';
+import {map, take, takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'tccwm-cwm-case-cockpit',
@@ -17,5 +18,6 @@ export class CwmCaseCockpitComponent extends LiveAppsCaseCockpitComponent {
     const buttons = [  favButton, refreshButton, homeButton ];
     return buttons;
   }
+
 
 }
