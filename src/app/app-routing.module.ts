@@ -11,7 +11,14 @@ import {
 } from 'tc-core-lib';
 import {HomeComponent} from './routes/home/home.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
-import {ClaimsResolver, LiveAppsConfigHolder, LiveAppsService, LiveAppsSettingsComponent, LiveAppsSettingsSummaryCardsComponent} from 'tc-liveapps-lib';
+import {
+  ClaimsResolver,
+  LiveAppsConfigHolder,
+  LiveAppsService,
+  LiveAppsSettingsComponent,
+  LiveAppsSettingsRecentCasesComponent,
+  LiveAppsSettingsSummaryCardsComponent
+} from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
 import {LaConfigResolver} from 'tc-liveapps-lib';
@@ -101,6 +108,15 @@ const routes: Routes = [
           {
             path: 'live-apps-app-selection',
             component: LiveAppsSettingsComponent,
+            resolve: {
+              claims: ClaimsResolver,
+              laConfigHolder: LaConfigResolver,
+              generalConfigHolder: GeneralConfigResolver
+            }
+          },
+          {
+            path: 'live-apps-recent-cases',
+            component: LiveAppsSettingsRecentCasesComponent,
             resolve: {
               claims: ClaimsResolver,
               laConfigHolder: LaConfigResolver,

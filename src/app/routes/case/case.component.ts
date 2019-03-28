@@ -26,6 +26,7 @@ export class CaseComponent implements OnInit {
 
   public generalConfig: GeneralConfig;
   public liveAppsConfig: LiveAppsConfig;
+  public exclRecentAppIds: string[];
   public claims: Claim;
   public sandbox: Sandbox;
   public caseRef: string;
@@ -54,6 +55,7 @@ export class CaseComponent implements OnInit {
     // read resolved config params
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
+    this.exclRecentAppIds = this.liveAppsConfig.recentExcludedAppIds;
     this.claims = this.route.snapshot.data.claims;
     this.sandbox = this.claims.primaryProductionSandbox;
     this.caseRef = this.route.snapshot.params['caseRef'];

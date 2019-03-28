@@ -37,6 +37,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
   @Input() sandboxId;
   @Input() caseRef;
   @Input() userId;
+  @Input() exclRecentAppIds: string[];
   @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
@@ -148,7 +149,10 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (!isNaN(Number(this.caseRef))) {
-      this.liveapps.setRecentCase(this.caseRef, this.uiAppId, this.sandboxId);
+      // dont set recent if it is in the exclude app list
+      if (!this.exclRecentAppIds || (this.exclRecentAppIds.indexOf(this.appId) === -1)) {
+        this.liveapps.setRecentCase(this.caseRef, this.uiAppId, this.sandboxId);
+      }
       this.valid = true;
     }
     this.liveapps.isFavoriteCase(this.caseRef, this.uiAppId, this.sandboxId)

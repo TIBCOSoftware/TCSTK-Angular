@@ -1,8 +1,9 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {
+  MatAccordion,
   MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatDialogModule,
+  MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -70,6 +71,7 @@ import {LiveAppsApplicationCreateButtonComponent} from './components/live-apps-a
 import { LiveAppsCreatorDialogComponent } from './components/live-apps-creator-dialog/live-apps-creator-dialog.component';
 import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-apps-settings.component';
 import { LiveAppsSettingsSummaryCardsComponent } from './components/live-apps-settings-summary-cards/live-apps-settings-summary-cards.component';
+import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-settings-recent-cases/live-apps-settings-recent-cases.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +113,8 @@ import { LiveAppsSettingsSummaryCardsComponent } from './components/live-apps-se
     LiveAppsApplicationCreateButtonComponent,
     LiveAppsCreatorDialogComponent,
     LiveAppsSettingsComponent,
-    LiveAppsSettingsSummaryCardsComponent
+    LiveAppsSettingsSummaryCardsComponent,
+    LiveAppsSettingsRecentCasesComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -134,6 +137,7 @@ import { LiveAppsSettingsSummaryCardsComponent } from './components/live-apps-se
     MatTooltipModule,
     MatTabsModule,
     MatToolbarModule,
+    MatExpansionModule,
       ScrollDispatchModule,
     FormsModule,
     FlexLayoutModule,
