@@ -43,10 +43,12 @@ import { CreateFileToDownloadComponent } from './components/create-file-to-downl
 import { DoubleListForSelectionComponent } from './components/double-list-for-selection/double-list-for-selection.component';
 import { CaseDetailsDialogComponent } from './components/case-details-dialog/case-details-dialog.component';
 import { CwmCaseCockpitComponent } from './components/cwm-case-cockpit/cwm-case-cockpit.component';
+import { CwmCaseDataForInternalDocComponent } from './components/cwm-case-data-for-internal-doc/cwm-case-data-for-internal-doc.component';
+import { ExportCaseToCsvComponent } from './components/export-case-to-csv/export-case-to-csv.component';
 
 
 @NgModule({
-  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent, CwmCaseCockpitComponent],
+  declarations: [FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent, CwmCaseCockpitComponent, CwmCaseDataForInternalDocComponent, ExportCaseToCsvComponent],
   imports: [
     MatIconModule,
     HttpClientModule,
@@ -81,7 +83,7 @@ import { CwmCaseCockpitComponent } from './components/cwm-case-cockpit/cwm-case-
     MatSortModule
   ],
   entryComponents : [PreviewDataDialogComponent, ServiceHandlerSnackbarComponent, CaseDetailsDialogComponent],
-  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent, CwmCaseCockpitComponent],
+  exports: [ FileToServiceComponent, UploadPageComponent, SelectServiceDisplayComponent, PreviewDataDialogComponent, HomeCockpitComponent, SettingsCwmServicesComponent, ServiceHandlerSnackbarComponent, DecisionCockpitComponent, CreateFileToDownloadComponent, DoubleListForSelectionComponent, CaseDetailsDialogComponent, CwmCaseCockpitComponent, CwmCaseDataForInternalDocComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
