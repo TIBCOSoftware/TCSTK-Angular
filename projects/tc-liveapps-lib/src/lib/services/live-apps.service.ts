@@ -39,6 +39,7 @@ import {
   Sandbox,
   SandboxList
 } from 'tc-core-lib';
+import {Groups} from '../models/tc-groups-data';
 import {
   catchError,
   debounceTime,
@@ -681,6 +682,22 @@ export class LiveAppsService {
   }
 
   /* end notes service */
+
+  public getGroupMemberships(sandboxId: number, userId: string, top: number, useCache: boolean): Observable<Groups> {
+    const url = 'organisation/v1/users/' + userId + '/groups' + '?$sandbox=' + sandboxId + '&$top=' + top;
+    let headers;
+    if (useCache) {
+      headers = new HttpHeaders().set('cacheResponse', 'true');
+    } else {
+      headers = new HttpHeaders();
+    }
+
+    return this.http.get(url, { headers })
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map( groups => new Groups().deserialize(groups))
+      );
+  }
 
 
 }
