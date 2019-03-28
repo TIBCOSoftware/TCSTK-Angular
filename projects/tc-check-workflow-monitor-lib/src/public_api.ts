@@ -18,6 +18,7 @@ export * from './lib/components/create-file-to-download/create-file-to-download.
 export * from './lib/components/double-list-for-selection/double-list-for-selection.component';
 export * from './lib/components/case-details-dialog/case-details-dialog.component';
 export * from './lib/components/cwm-case-cockpit/cwm-case-cockpit.component';
+export * from './lib/components/cwm-case-data-for-internal-doc/cwm-case-data-for-internal-doc.component';
 
 // export * from './lib/services/cwm-settings-config-service.service';
 export * from './lib/resolvers/service-details-config.resolver';
