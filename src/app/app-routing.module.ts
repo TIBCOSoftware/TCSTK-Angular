@@ -32,6 +32,7 @@ import {TibcoCloudConfigurationComponent} from 'tc-core-lib';
 import {ConfigurationComponent} from './routes/configuration/configuration.component';
 import { PdHomeComponent, PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 import { SpotfireConfigResolver } from 'tc-spotfire-lib';
+import {CasesearchComponent} from './routes/casesearch/casesearch.component';
 
 
 const routes: Routes = [
@@ -63,6 +64,15 @@ const routes: Routes = [
           claims: ClaimsResolver,
           laConfigHolder: LaConfigResolver,
           groups: GroupsResolver
+        }
+      },
+      {
+        path: 'casesearch',
+        component: CasesearchComponent,
+        canActivate: [AuthGuard],
+        resolve: {
+          claims: ClaimsResolver,
+          laConfigHolder: LaConfigResolver
         }
       },
       {

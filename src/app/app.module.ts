@@ -30,6 +30,7 @@ import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 import {SettingsComponent} from './routes/settings/settings.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
+import {CasesearchComponent} from './routes/casesearch/casesearch.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ConfigurationComponent } from './routes/configuration/configuration.com
     HomeComponent,
     CaseComponent,
     SettingsComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    CasesearchComponent
 
   ],
   imports: [
