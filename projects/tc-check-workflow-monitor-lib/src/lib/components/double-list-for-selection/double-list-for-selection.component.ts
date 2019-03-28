@@ -174,19 +174,16 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   createCsvStringFromSelection() {
 
-    let csvContent = 'Banque;Compte d\'encaissement (bénéficiaire);Date accord encaissement;' +
-      'N du chèque client;ZONE 3;ZONE 2;Montant du chèque;Contrat';
+    let csvContent = 'Zone 4;Zone 3;Zone 2;' +
+      'Montant;Contrat';
     for (const obj of this.selectionList) {
       csvContent = csvContent + '\n';
       const casedataObj = obj.casedataObj;
-      const curLine = casedataObj.Banque + this.csvSeparator +
-        '???' + this.csvSeparator +
-        '???' + this.csvSeparator +
-        casedataObj.Numrodechque + this.csvSeparator +
-        '???' + this.csvSeparator +
-        '???' + this.csvSeparator +
+      const curLine = 'TO MAP' + this.csvSeparator +
+        casedataObj.zone3 + this.csvSeparator +
+        casedataObj.zone2 + this.csvSeparator +
         casedataObj.Montant + this.csvSeparator +
-        '???' + this.csvSeparator;
+        casedataObj.Dossier.Numrodedemande;
       csvContent = csvContent + curLine;
     }
     console.log(csvContent);
@@ -209,6 +206,7 @@ export class DoubleListForSelectionComponent implements OnInit {
         const data = this.createCsvStringFromSelection();
         const blob = new Blob([data], {type: 'text/csv'});
         const url = window.URL.createObjectURL(blob);
+
         window.open(url, '_blank');
       } else {
         alert('Merci de prendre une decision sur tous les  dossiers');
