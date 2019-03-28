@@ -19,6 +19,7 @@
       "icon": "tcs-liveapps-sm-icon",
       "options": [
         "App Selection",
+        "Recent Cases",
         "Summary Cards"
       ]
     },
