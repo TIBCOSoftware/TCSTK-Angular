@@ -62,6 +62,7 @@ export * from './lib/resolvers/claims.resolver';
 export * from './lib/resolvers/liveapps-config.resolver';
 export * from './lib/resolvers/la-config.resolver';
 export * from './lib/resolvers/groups.resolver';
+export * from './lib/resolvers/roles.resolver';
 
 // guards
 export * from './lib/guards/case.guard';

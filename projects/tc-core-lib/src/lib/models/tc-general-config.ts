@@ -2,6 +2,7 @@ import {Deserializable} from '../models/deserializable';
 
 export class RoleAttribute {
   public id: string;
+  public group: string;
   public display: string;
   public welcome: string;
   public imageUrl: string;
@@ -19,7 +20,7 @@ export class GeneralConfig implements Deserializable {
   welcomeMessage: string;
   displayName: boolean;
   documentationUrl: string;
-  roleAttributes: RoleAttribute[];
+  roles: RoleAttribute[];
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
