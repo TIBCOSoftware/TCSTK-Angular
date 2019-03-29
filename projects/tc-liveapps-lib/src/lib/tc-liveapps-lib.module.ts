@@ -8,7 +8,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule,
-  MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule
+    MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatSnackBarModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -72,6 +72,7 @@ import { LiveAppsCreatorDialogComponent } from './components/live-apps-creator-d
 import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-apps-settings.component';
 import { LiveAppsSettingsSummaryCardsComponent } from './components/live-apps-settings-summary-cards/live-apps-settings-summary-cards.component';
 import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-settings-recent-cases/live-apps-settings-recent-cases.component';
+import { LiveAppsSettingsRolesComponent } from './components/live-apps-settings-roles/live-apps-settings-roles.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-setti
     LiveAppsCreatorDialogComponent,
     LiveAppsSettingsComponent,
     LiveAppsSettingsSummaryCardsComponent,
-    LiveAppsSettingsRecentCasesComponent
+    LiveAppsSettingsRecentCasesComponent,
+    LiveAppsSettingsRolesComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -138,6 +140,7 @@ import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-setti
     MatTabsModule,
     MatToolbarModule,
     MatExpansionModule,
+      MatSnackBarModule,
       ScrollDispatchModule,
     FormsModule,
     FlexLayoutModule,
@@ -183,7 +186,8 @@ import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-setti
     LiveAppsApplicationCreateButtonComponent,
     LiveAppsCreatorDialogComponent,
     LiveAppsSettingsComponent,
-    LiveAppsSettingsSummaryCardsComponent
+    LiveAppsSettingsSummaryCardsComponent,
+    LiveAppsSettingsRolesComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsCreatorDialogComponent],
   providers: [

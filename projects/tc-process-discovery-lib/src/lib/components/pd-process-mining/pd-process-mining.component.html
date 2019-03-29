@@ -1,18 +1,32 @@
-<div>
-    <mat-tab-group (selectedTabChange)="tabChange($event)">
-        <mat-tab *ngFor="let page of allowedPages" label="{{page}}"></mat-tab>
-    </mat-tab-group>
-</div>
-
-<div fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
-    <div fxFlex fxLayoutGap="20px">
-        <tcsf-mc-spotfire-wrapper   [url]="spotfireServer" 
-                                    [path]="analysisPath" 
-                                    [page]="activePage" 
-                                    [parameters]="parameters" 
-                                    [customization]="configuration"
-                                    [markingOn]="markingOn"
-                                    (markingEvent)="marking($event)">
-        </tcsf-mc-spotfire-wrapper>
+<div style="overflow:hidden" class="process-mining-top-level" fxLayout="column" fxFlex>
+    <div>
+        <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+            <tcla-live-apps-application-create-button *ngIf="currentDatasource != undefined" style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId"
+                [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
+            <div fxFlex fxLayout="row" fxLayoutAlign="end end">
+                <mat-button-toggle-group class="nav-switch-bar" name="view" aria-label="Font Style" [value]="'process-mining-view'" (change)="handleViewButtonEvent($event)">
+                    <mat-button-toggle *ngFor="let view of viewButtons" name="{{view.tooltip}}" value="{{view.id}}"
+                        fxLayoutAlign="center center">{{view.tooltip}}</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+        </tc-tibco-cloud-menu-bar>
+    </div>
+    <div *ngIf="currentDatasource != undefined" fxFlex fxLayout="column" style="padding-bottom: 20px">
+        <div>
+            <mat-tab-group (selectedTabChange)="tabChange($event)">
+                <mat-tab *ngFor="let page of allowedPages" label="{{page}}"></mat-tab>
+                <!-- <mat-tab label="{{parameters}}"></mat-tab> -->
+            </mat-tab-group>
+        </div>
+        <div fxFlex fxLayout="column">
+            <tcsf-mc-spotfire-wrapper fxFlex  [url]="spotfireServer" 
+                                        [path]="analysisPath" 
+                                        [page]="activePage" 
+                                        [customization]="configuration"
+                                        [parameters]="parameters"
+                                        [markingOn]="markingOn"
+                                        (markingEvent)="marking($event)">
+            </tcsf-mc-spotfire-wrapper>
+        </div>
     </div>
 </div>

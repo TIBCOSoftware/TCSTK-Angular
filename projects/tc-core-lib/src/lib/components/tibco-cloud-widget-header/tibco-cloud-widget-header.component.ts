@@ -10,6 +10,7 @@ export class TibcoCloudWidgetHeaderComponent {
   @Input() headerText: string;
   @Input() icon: string;
   @Input() toolbarButtons: ToolbarButton[];
+  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
   @Output() toolbarButtonEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
