@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
-import { LiveAppsHomeCockpitComponent } from 'tc-liveapps-lib';
+import {LiveAppsHomeCockpitComponent, TcRolesService} from 'tc-liveapps-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
 
 @Component({
@@ -23,9 +23,10 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
         private route: ActivatedRoute,
         protected buttonsHelper: TcButtonsHelperService,
         public dialog: MatDialog,
-        private processDiscovery: PdProcessDiscoveryService
+        private processDiscovery: PdProcessDiscoveryService,
+        private rolService: TcRolesService
     ) {
-        super(buttonsHelper, dialog);
+        super(buttonsHelper, dialog, rolService);
      }
 
     ngOnInit() {

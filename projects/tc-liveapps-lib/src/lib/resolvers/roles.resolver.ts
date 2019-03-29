@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
+import {Resolve} from '@angular/router';
 import {forkJoin, Observable, of} from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Claim, GeneralConfigResolver, RoleAttribute, TcGeneralConfigService, TcSharedStateService} from 'tc-core-lib';
@@ -17,7 +17,7 @@ export class RolesResolver implements Resolve<Observable<Roles>> {
   constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location) {
   }
 
-  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<Roles> {
+  resolve(): Observable<Roles> {
 
     // we will need the general config to understand the roles definition
     const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location);
@@ -28,7 +28,7 @@ export class RolesResolver implements Resolve<Observable<Roles>> {
       flatMap(claiminfo => {
           const sandboxId = claiminfo.primaryProductionSandbox.id;
           generalConfigResolver.setSandbox(Number(sandboxId));
-          const generalConfig$ = generalConfigResolver.resolve(routeSnapshot);
+          const generalConfig$ = generalConfigResolver.resolve();
           const groups$ = this.liveapps.getGroupMemberships(+claiminfo.primaryProductionSandbox.id, claiminfo.id, 1000, true);
           return forkJoin(generalConfig$, groups$).pipe(
             map(([configData, groupData]) => {

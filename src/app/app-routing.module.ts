@@ -12,12 +12,14 @@ import {
 import {HomeComponent} from './routes/home/home.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {
-  ClaimsResolver,
+  AllGroupsResolver,
+  AllRolesResolver,
+  ClaimsResolver, GroupsResolver,
   LiveAppsConfigHolder,
   LiveAppsService,
   LiveAppsSettingsComponent,
-  LiveAppsSettingsRecentCasesComponent,
-  LiveAppsSettingsSummaryCardsComponent
+  LiveAppsSettingsRecentCasesComponent, LiveAppsSettingsRolesComponent,
+  LiveAppsSettingsSummaryCardsComponent, RolesResolver
 } from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
@@ -65,7 +67,9 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         resolve: {
           claims: ClaimsResolver,
-          laConfigHolder: LaConfigResolver
+          laConfigHolder: LaConfigResolver,
+          groups: GroupsResolver,
+          roles: RolesResolver
         }
       },
       {
@@ -84,7 +88,9 @@ const routes: Routes = [
         canActivate: [AuthGuard, CaseGuard],
         resolve: {
           laConfigHolder: LaConfigResolver,
-          claims: ClaimsResolver
+          claims: ClaimsResolver,
+          groups: GroupsResolver,
+          roles: RolesResolver
         }
       },
       {
@@ -117,6 +123,16 @@ const routes: Routes = [
             resolve: {
               generalConfigHolder: GeneralConfigResolver,
               claims: ClaimsResolver
+            }
+          },
+          {
+            path: 'general-application-roles',
+            component: LiveAppsSettingsRolesComponent,
+            resolve: {
+              generalConfigHolder: GeneralConfigResolver,
+              claims: ClaimsResolver,
+              allRoles: AllRolesResolver,
+              allGroups: AllGroupsResolver
             }
           },
           {
@@ -184,7 +200,11 @@ const routes: Routes = [
     GeneralConfigResolver,
     ServiceDetailsConfigResolver,
     ConfigurationMenuConfigResolver,
-    SpotfireConfigResolver
+    SpotfireConfigResolver,
+    RolesResolver,
+    AllRolesResolver,
+    GroupsResolver,
+    AllGroupsResolver
   ]
 })
 
