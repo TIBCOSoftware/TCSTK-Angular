@@ -72,6 +72,7 @@ import { LiveAppsCreatorDialogComponent } from './components/live-apps-creator-d
 import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-apps-settings.component';
 import { LiveAppsSettingsSummaryCardsComponent } from './components/live-apps-settings-summary-cards/live-apps-settings-summary-cards.component';
 import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-settings-recent-cases/live-apps-settings-recent-cases.component';
+import { LiveAppsSettingsRolesComponent } from './components/live-apps-settings-roles/live-apps-settings-roles.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,8 @@ import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-setti
     LiveAppsCreatorDialogComponent,
     LiveAppsSettingsComponent,
     LiveAppsSettingsSummaryCardsComponent,
-    LiveAppsSettingsRecentCasesComponent
+    LiveAppsSettingsRecentCasesComponent,
+    LiveAppsSettingsRolesComponent
   ],
   imports: [
     TcCoreLibModule,
@@ -183,7 +185,8 @@ import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-setti
     LiveAppsApplicationCreateButtonComponent,
     LiveAppsCreatorDialogComponent,
     LiveAppsSettingsComponent,
-    LiveAppsSettingsSummaryCardsComponent
+    LiveAppsSettingsSummaryCardsComponent,
+    LiveAppsSettingsRolesComponent
   ],
   entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsCreatorDialogComponent],
   providers: [

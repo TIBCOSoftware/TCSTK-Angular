@@ -12,6 +12,7 @@ import {
 import {HomeComponent} from './routes/home/home.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {
+  AllGroupsResolver, AllRolesResolver,
   ClaimsResolver, GroupsResolver,
   LiveAppsConfigHolder,
   LiveAppsService,
@@ -33,6 +34,7 @@ import {ConfigurationComponent} from './routes/configuration/configuration.compo
 import { PdHomeComponent, PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 import { SpotfireConfigResolver } from 'tc-spotfire-lib';
 import {CasesearchComponent} from './routes/casesearch/casesearch.component';
+import {LiveAppsSettingsRolesComponent} from 'tc-liveapps-lib';
 
 
 const routes: Routes = [
@@ -120,6 +122,16 @@ const routes: Routes = [
             }
           },
           {
+            path: 'general-application-roles',
+            component: LiveAppsSettingsRolesComponent,
+            resolve: {
+              generalConfigHolder: GeneralConfigResolver,
+              claims: ClaimsResolver,
+              allRoles: AllRolesResolver,
+              allGroups: AllGroupsResolver
+            }
+          },
+          {
             path: 'live-apps-app-selection',
             component: LiveAppsSettingsComponent,
             resolve: {
@@ -186,7 +198,9 @@ const routes: Routes = [
     GeneralConfigResolver,
     ServiceDetailsConfigResolver,
     ConfigurationMenuConfigResolver,
-    SpotfireConfigResolver
+    SpotfireConfigResolver,
+    AllGroupsResolver,
+    AllRolesResolver
   ]
 })
 

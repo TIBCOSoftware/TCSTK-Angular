@@ -33,6 +33,10 @@ export class TibcoCloudSettingsGeneralComponent implements OnInit {
         this.documentationURL = this.generalConfig.documentationUrl;
     }
 
+    protected getRoute(): ActivatedRoute {
+      return this.route;
+    }
+
     public runSaveFunction = () => {
       this.generalConfigService.updateGeneralConfig(this.sandboxId, this.generalConfig.uiAppId, this.generalConfig, this.generalConfig.id).subscribe();
     }

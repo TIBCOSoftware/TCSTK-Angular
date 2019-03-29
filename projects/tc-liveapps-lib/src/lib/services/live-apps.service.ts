@@ -683,6 +683,22 @@ export class LiveAppsService {
 
   /* end notes service */
 
+  public getGroups(sandboxId: number, top: number, useCache: boolean): Observable<Groups> {
+    const url = '/organisation/v1/groups?$sandbox=' + sandboxId + '&$top=' + top;
+    let headers;
+    if (useCache) {
+      headers = new HttpHeaders().set('cacheResponse', 'true');
+    } else {
+      headers = new HttpHeaders();
+    }
+
+    return this.http.get(url, { headers })
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map( groups => new Groups().deserialize({ groups: groups }))
+      );
+  }
+
   public getGroupMemberships(sandboxId: number, userId: string, top: number, useCache: boolean): Observable<Groups> {
     const url = '/organisation/v1/users/' + userId + '/groups' + '?$sandbox=' + sandboxId + '&$top=' + top;
     let headers;
