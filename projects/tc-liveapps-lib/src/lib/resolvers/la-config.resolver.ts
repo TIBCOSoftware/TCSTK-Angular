@@ -36,7 +36,7 @@ export class LaConfigResolver implements Resolve<Observable<LiveAppsConfigHolder
           generalConfigResolver.setSandbox(Number(sandboxId));
           liveAppsConfigResolver.setSandbox(Number(sandboxId));
 
-          const generalConfig$ = generalConfigResolver.resolve(routeSnapshot);
+          const generalConfig$ = generalConfigResolver.resolve();
           const liveAppsConfig$ = liveAppsConfigResolver.resolve(routeSnapshot);
           const forkJoinArray = [generalConfig$, liveAppsConfig$];
           return forkJoin(forkJoinArray).pipe(

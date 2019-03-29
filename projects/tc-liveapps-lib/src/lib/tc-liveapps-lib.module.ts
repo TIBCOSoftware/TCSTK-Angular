@@ -73,6 +73,7 @@ import {LiveAppsSettingsComponent} from './components/live-apps-settings/live-ap
 import { LiveAppsSettingsSummaryCardsComponent } from './components/live-apps-settings-summary-cards/live-apps-settings-summary-cards.component';
 import {LiveAppsSettingsRecentCasesComponent} from './components/live-apps-settings-recent-cases/live-apps-settings-recent-cases.component';
 import { LiveAppsSettingsRolesComponent } from './components/live-apps-settings-roles/live-apps-settings-roles.component';
+import {TcRolesService} from './services/tc-roles-service.ts.service';
 
 @NgModule({
   declarations: [
@@ -202,7 +203,7 @@ export class TcLiveappsLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcLiveappsLibModule,
-      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService ]
+      providers: [ LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService, TcRolesService ]
     };
   }
 }

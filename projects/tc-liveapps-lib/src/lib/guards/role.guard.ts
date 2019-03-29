@@ -44,9 +44,9 @@ export class RoleGuard implements CanActivate {
     // get route config
     const routeConfig$ = this.getRouteAccessControlConfig();
 
-    // we will need the routes we currently have
+    // we will need the roles we currently have
     const currentRolesRes = new RolesResolver(this.sharedStateService, this.generalConfigService, this.http, this.liveapps, this.location)
-    const currentRoles$ = currentRolesRes.resolve(route);
+    const currentRoles$ = currentRolesRes.resolve();
 
     // run both in parallel then check access
     const decision$ = forkJoin(routeConfig$, currentRoles$).pipe(

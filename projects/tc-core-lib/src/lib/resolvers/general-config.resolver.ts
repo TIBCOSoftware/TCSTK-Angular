@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
+import {Resolve} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import {UiAppConfig, UiAppIdConfig} from '../models/tc-app-config';
 import {flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
@@ -45,7 +45,7 @@ export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>>
     );
   }
 
-  resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<GeneralConfig> {
+  resolve(): Observable<GeneralConfig> {
     const appConfig = this.getAppId().pipe(
       switchMap(uiAppId => this.generalConfigService.getGeneralConfig(uiAppId.uiAppId, true, false)
       .pipe(

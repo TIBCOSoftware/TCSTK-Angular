@@ -36,7 +36,7 @@ export class AllRolesResolver implements Resolve<Observable<Roles>> {
     return claims$.pipe(
       switchMap(claiminfo => {
           generalConfigResolver.setSandbox(Number(claiminfo.primaryProductionSandbox.id));
-          const generalConfig$ = generalConfigResolver.resolve(routeSnapshot).pipe(
+          const generalConfig$ = generalConfigResolver.resolve().pipe(
             map(generalConfig => {
               return new Roles().deserialize({ roles: generalConfig.roles });
             })

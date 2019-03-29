@@ -9,6 +9,8 @@ import {LiveAppsCreatorDialogComponent} from '../live-apps-creator-dialog/live-a
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
 import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-documents.component';
+import {TcRolesService} from '../../services/tc-roles-service.ts.service';
+import {Roles} from '../../models/tc-groups-data';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -23,6 +25,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @Input() userId;
   @Input() email;
   @Input() title;
+  @Input() roles: Roles;
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
   @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;
@@ -38,10 +41,12 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     this.routeAction.emit(new RouteAction('caseClicked', caseRoute));
   }
 
-  constructor(protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog) { }
+  constructor(protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog, protected rolesService: TcRolesService) { }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
-    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
+    // you can use the rolesService to either disable or hide the button as required - it returns true if the user has the roleId specified
+    // const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, this.rolesService.checkRole('Partner Portal Configurator', this.roles));
+    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.rolesService.checkRole('Partner Portal Configurator', this.roles), true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
     const buttons = [ configButton, refreshButton ];
     return buttons;
