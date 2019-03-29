@@ -1,11 +1,14 @@
 <div class="tcs-case-favorites-box" fxLayout="column" fxFill>
-    <div class="tcs-case-favorites-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div *ngIf="showHeader" class="tcs-case-favorites-header" fxLayout="row" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center">
         <mat-icon class="tcs-icon tcs-favorites-icon" svgIcon="tcs-favorites-icon"></mat-icon>
         <div class="tcs-case-favorites-header-text">Favorites</div>
       </div>
       <mat-icon (click)="clearFavoriteCases()" class="tcs-icon tcs-icon-active tcs-clear-favorite-icon" svgIcon="tcs-clear-icon" matTooltip="Clear Favorites" matTooltipPosition="left" matTooltipShowDelay="1000"></mat-icon>
     </div>
+  <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">
+    <mat-icon style="margin: 5px" (click)="clearFavoriteCases()" class="tcs-icon tcs-icon-active tcs-clear-favorite-icon" svgIcon="tcs-clear-icon" matTooltip="Clear Favorites" matTooltipPosition="left" matTooltipShowDelay="1000"></mat-icon>
+  </div>
     <div class="tcs-case-favorites-flow-list" fxLayout="column" fxLayout="row wrap">
       <div class="tcs-case-favorite-item-box" *ngFor="let case of favoriteCases" fxFlex>
         <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case" (clickCase)="clickCaseAction($event)" (deleted)="handleDeleted($event)"></tcla-live-apps-case-summary>

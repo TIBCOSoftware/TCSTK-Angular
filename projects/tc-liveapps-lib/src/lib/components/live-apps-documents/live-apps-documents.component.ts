@@ -22,6 +22,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   @Input() folderId: string;   // caseRef for caseFolder
   @Input() filter: string;
   @Input() folderDescription: string;
+  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
   public errorMessage: string;
   public documents: Document[];
