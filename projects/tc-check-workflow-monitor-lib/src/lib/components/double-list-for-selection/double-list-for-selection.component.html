@@ -28,7 +28,12 @@
     <div fxLayout="column" fxFlex="60" class="cwm-content-right">
 
 
-      <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <table fxFlex="98" mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="preco" matSortDirection="desc">
+
+        <ng-container matColumnDef="preco">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Preco</th>
+          <td mat-cell class="cwm-decision-cell" *matCellDef="let element"> <mat-icon fxLayoutAlign="end start"  *ngIf="element.preco" [svgIcon]="'tcs-flash-on'"></mat-icon></td>
+        </ng-container>
 
         <ng-container matColumnDef="DemandeID">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Demande ID</th>
@@ -68,7 +73,7 @@
 
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr  mat-row *matRowDef="let row; columns: displayedColumns;let element" [ngClass]="{'cwm-preco-row': element.casedataObj.preco}"></tr>
+        <tr  mat-row *matRowDef="let row; columns: displayedColumns;let element" [ngClass]="{'cwm-preco-row': element.preco}"></tr>
       </table>
       <mat-paginator #paginator [pageSizeOptions]="[12]" showFirstLastButtons></mat-paginator>
 
@@ -101,7 +106,7 @@
           <th mat-header-cell *matHeaderCellDef ></th>
           <td mat-cell *matCellDef="let element">
             <mat-radio-group
-              [(ngModel)]="element.casedataObj.decision" fxLayout="row" fxLayoutAlign="space-around center">
+              [(ngModel)]="element.casedataObj.decision" fxLayout="row" fxLayoutAlign="space-around center" disabled>
               <mat-radio-button value="encaisser">
                 <mat-icon class="cwm-radio-button-icon" [svgIcon]="'tcs-euro-symbol'"></mat-icon>
               </mat-radio-button>
@@ -115,7 +120,7 @@
 
 
         <tr mat-header-row *matHeaderRowDef="selectionDisplayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: selectionDisplayedColumns;let element" [ngClass]="{'cwm-preco-row': element.casedataObj.preco}"></tr>
+        <tr mat-row *matRowDef="let row; columns: selectionDisplayedColumns;let element" [ngClass]="{'cwm-preco-row': element.preco}"></tr>
       </table>
       <mat-paginator #selectionPaginator [pageSizeOptions]="[12]" showFirstLastButtons></mat-paginator>
 
