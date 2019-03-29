@@ -178,6 +178,7 @@ export class SpotfirePlayComponent implements OnInit {
 
   selectedVariant = '';
   selectedVariantID = '';
+  uncompliantVariantID = '';
 
   public marking(data) {
     var mName = 'Cases';
@@ -191,6 +192,28 @@ export class SpotfirePlayComponent implements OnInit {
         }
       }
     }
+/*
+
+{
+  "Variant": {
+    "uncompliantVariants": {
+      "variant_id": [
+        "113",
+        "149",
+        "168"
+      ],
+ */
+
+    if (data['Variant'] != null) {
+      if (data['Variant']['uncompliantVariants'] != null) {
+        if (data['Variant']['uncompliantVariants']['variant_id'] != null) {
+          console.log('Selected Uncompliand Variant IDs ', data['Variant']['uncompliantVariants']['variant_id']);
+          this.uncompliantVariantID = data['Variant']['uncompliantVariants']['variant_id'].toString();
+          // this.selectedVariant = 'Compliance case at ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString();
+        }
+      }
+    }
+
 
     this.markingdataText = JSON.stringify(data, null, 2);
   }

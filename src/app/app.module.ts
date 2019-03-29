@@ -30,6 +30,8 @@ import {TcCheckWorkflowMonitorLibModule} from 'tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from 'tc-spotfire-lib';
 import {SettingsComponent} from './routes/settings/settings.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
+import { SplashComponent } from './components/splash/splash.component';
+import { SplashPDComponent } from './components/splash-pd/splash-pd.component';
 import {CasesearchComponent} from './routes/casesearch/casesearch.component';
 
 @NgModule({
@@ -41,6 +43,8 @@ import {CasesearchComponent} from './routes/casesearch/casesearch.component';
     CaseComponent,
     SettingsComponent,
     ConfigurationComponent,
+    SplashComponent,
+    SplashPDComponent,
     CasesearchComponent
 
   ],

@@ -16,6 +16,7 @@ export * from './lib/components/tibco-cloud-select-table/tibco-cloud-select-tabl
 export * from './lib/components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
 export * from './lib/components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
 export * from './lib/components/tibco-cloud-configuration/tibco-cloud-configuration.component';
+export * from './lib/components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 
 
 // services

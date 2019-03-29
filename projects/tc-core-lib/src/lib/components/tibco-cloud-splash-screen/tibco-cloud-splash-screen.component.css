@@ -1,0 +1,125 @@
+/*
+@font-face {
+  font-family: Source Sans Pro;
+  src: url(/assets/fonts/tibco_fonts_Source_Sans_Pro_Source Sans Pro-Regular.ttf);
+}
+
+@font-face {
+  font-family: Source Sans ProBold;
+  src: url(/assets/fonts/tibco_fonts_Source_Sans_Pro_Source Sans Pro-Bold.ttf);
+}*/
+
+
+.splash-welcome {
+  font-family: Source Sans Pro;
+  font-size: 48px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(6, 46, 121, 0.5);
+  padding-top: 88px;
+}
+
+.splash-welcome-message {
+  font-family: Source Sans Pro;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(6, 46, 121, 0.5);
+  padding-top: 19px;
+  padding-bottom: 32px;
+}
+
+
+.splash-modal {
+  margin: auto;
+  width: 676px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 10px 10px 20px 0 rgba(33, 33, 33, 0.04);
+}
+
+.splash-oval {
+  width: 86px;
+  height: 86px;
+  border: solid 3px #349bed;
+  background-color: #349bed;
+  border-radius: 43px;
+  align-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.splash-img {
+  max-width: 60px;
+  /*max-height: 60px;*/
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6px;
+  margin-bottom: auto;
+  display: block ;
+  vertical-align: center;
+}
+
+.splash-highlightstable {
+  border: 0;
+  padding-top: 3px;
+  padding-bottom: 0px;
+  border-spacing: 45px;
+  text-align: left;
+  border-collapse: separate;
+}
+
+.splash-get-started-button {
+  width: 117px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #349bed;
+  border: solid 1px #349bed;
+  margin-bottom: 58px;
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+}
+.splash-get-started-button:hover{
+  border: solid 1px #74bee4;
+  background-color: #74bee4;
+}
+
+.splash-highlight-item-title {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.1px;
+  color: #062e79;
+}
+
+.splash-highlight-item-content {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.1px;
+  color: #062e79;
+  padding-top: 12px;
+}

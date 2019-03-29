@@ -23,7 +23,7 @@ import {
   MatSortModule,
   MatTableModule,
   MatTabsModule, MatToolbarModule,
-    MatTooltipModule, MatSnackBarModule
+  MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -51,6 +51,8 @@ import {TibcoCloudSettingMenuEntryComponent} from './components/tibco-cloud-sett
 import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
 import { TibcoCloudConfigurationComponent } from './components/tibco-cloud-configuration/tibco-cloud-configuration.component';
 import {RouterModule} from '@angular/router';
+import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
+import {CommonModule} from '@angular/common';
 
 
 // import {DataSource} from '@angular/cdk/collections';
@@ -73,7 +75,8 @@ import {RouterModule} from '@angular/router';
     TibcoCloudSelectTableComponent,
     TibcoCloudSettingMenuEntryComponent,
     TibcoCloudSettingsGeneralComponent,
-    TibcoCloudConfigurationComponent
+    TibcoCloudConfigurationComponent,
+    TibcoCloudSplashScreenComponent
   ],
   imports: [
     RouterModule,
@@ -109,7 +112,6 @@ import {RouterModule} from '@angular/router';
     MatCardModule,
     MatTooltipModule,
     MatTabsModule,
-      MatSnackBarModule,
     MatButtonToggleModule,
     FormsModule,
     FlexLayoutModule,
@@ -118,7 +120,8 @@ import {RouterModule} from '@angular/router';
     ReactiveFormsModule,
     MatSortModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    CommonModule
   ],
   exports: [
     TibcoCloudNavbarComponent,
@@ -137,7 +140,8 @@ import {RouterModule} from '@angular/router';
     TibcoCloudSelectTableComponent,
     TibcoCloudSettingMenuEntryComponent,
     TibcoCloudSettingsGeneralComponent,
-    TibcoCloudConfigurationComponent
+    TibcoCloudConfigurationComponent,
+    TibcoCloudSplashScreenComponent
   ],
   providers: [
     RequestCacheService,

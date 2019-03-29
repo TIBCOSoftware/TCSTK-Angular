@@ -1,0 +1,38 @@
+<!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+https://liveapps.cloud.tibco.com/apps/app-cdn/tibco/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf
+
+https://liveapps.cloud.tibco.com/apps/app-cdn/tibco/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf
+
+-->
+<div fxLayout="column" fxLayoutAlign=" stretch" style="height: 100%;" >
+ <div fxFill [ngStyle]="{'background-repeat': 'no-repeat', 'background-color': '#FFF', 'background-image': 'url(' + backGroundImageURL + ')'} ">
+    <div  class="text-center" id="initscreen">
+      <div class="splash-welcome">{{title}}</div>
+      <div class="splash-welcome-message">
+        <span class="splash-welcome-message">{{subTitle}}</span>
+      </div>
+      <div class="splash-modal">
+        <table class="splash-highlightstable">
+          <tbody>
+          <tr *ngFor="let point of pagePoints; let i = index">
+            <td>
+              <div class="splash-oval" >
+                <img class="splash-img" src="{{pic_urls[i]}}" />
+                <!--
+                <div [ngStyle]="{'background-image': 'url(' + point.pic +');'}" ></div> -->
+              </div>
+            </td>
+            <td>
+              <p class="splash-highlight-item-title">{{point.title}}</p>
+              <p class="splash-highlight-item-content">{{point.subTitle}}</p>
+            </td>
+          </tr>
+          </tbody></table>
+        <button (click)="onStartedClick()" cdkFocusInitial class="splash-get-started-button" mat-button>Get Started</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

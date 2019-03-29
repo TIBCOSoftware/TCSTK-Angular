@@ -16,6 +16,7 @@ export * from './lib/components/proces-discovery-change-datasource-dialog/proces
 export * from './lib/components/settings-spotfire/settings-spotfire.component';
 export * from './lib/components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 
+
 // Services
 export * from './lib/services/pd-process-discovery-config.service';
 export * from './lib/services/pd-process-discovery.service';
