@@ -13,21 +13,21 @@
 
     <div fxLayout="row" fxLayoutGap="20px" style="margin-bottom: 20px; min-height: 367px">
       <div class="favoriteCasesWidget" fxFlex>
-        <tcla-live-apps-favorite-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
+        <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
       </div>
 
       <div class="recentCasesWidget" fxFlex>
-        <tcla-live-apps-recent-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
+        <tcla-live-apps-recent-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
       </div>
     </div>
 
     <div fxLayout="row" fxLayoutGap="20px" style="margin-bottom: 20px; min-height: 367px">
       <div fxFlex class="collaborationWidget">
-        <tcla-live-apps-notes [userId]="userId" [relatedItemId]="uiAppId" [relatedItemType]="'CASE_APP'"></tcla-live-apps-notes>
+        <tcla-live-apps-notes [userId]="userId" [showHeader]="true" [relatedItemId]="uiAppId" [relatedItemType]="'CASE_APP'"></tcla-live-apps-notes>
       </div>
 
       <div fxFlex class="documentWidget">
-        <tcla-live-apps-documents [sandboxId]="sandboxId" [folderId]="uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
+        <tcla-live-apps-documents [showHeader]="true" [sandboxId]="sandboxId" [folderId]="uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
       </div>
     </div>
   </div>

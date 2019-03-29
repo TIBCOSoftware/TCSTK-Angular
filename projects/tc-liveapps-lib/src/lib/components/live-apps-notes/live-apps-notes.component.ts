@@ -17,6 +17,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   @Input() relatedItemType: string; // use 'CASE_APP' to share notes with case manager
   @Input() relatedItemId: string; // 'caseRef' for case related
   @Input() userId: string;
+  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
   public notes: Note[];
   public errorMessage: string;
