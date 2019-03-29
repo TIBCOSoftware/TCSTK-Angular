@@ -10,7 +10,7 @@ import {
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule
+    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +19,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { PdHomeComponent, PdChangeDatasourceDialog } from './components/pd-home/pd-home.component';
 import { PdProcessMiningComponent } from './components/pd-process-mining/pd-process-mining.component';
 import { TcProcessDiscoveryLibRoutingModule } from './tc-process-discovery-routing.module';
 import { CommonModule } from '@angular/common';
@@ -30,22 +29,18 @@ import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.comp
 import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
 import { TcSpotfireLibModule } from 'tc-spotfire-lib';
 import { PdSettingsConfigurationComponent } from './components/pd-settings-configuration/pd-settings-configuration.component';
-import { PdHomeCockpitComponent } from './components/pd-home-cockpit/pd-home-cockpit.component';
 import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-datasource.component';
-
-
+import { ProcesDiscoveryChangeDatasourceDialogComponent } from './components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 @NgModule({
     declarations: [
-        PdHomeComponent,
         PdProcessMiningComponent,
         SettingsIntegrationComponent,
         SettingsSpotfireComponent,
         PdCaseViewComponent,
         PdSettingsAdministrationComponent,
-        PdChangeDatasourceDialog,
         PdSettingsConfigurationComponent,
-        PdHomeCockpitComponent,
-        PdNewDatasourceComponent
+        PdNewDatasourceComponent,
+        ProcesDiscoveryChangeDatasourceDialogComponent
     ],
     imports: [
         CommonModule,
@@ -72,6 +67,8 @@ import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-
         MatTableModule,
         MatStepperModule,
         DragDropModule,
+        MatRadioModule,
+        MatSnackBarModule,
         FormsModule,
         FlexLayoutModule,
         ColorPickerModule,
@@ -82,7 +79,7 @@ import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-
         TcSpotfireLibModule,
         TcProcessDiscoveryLibRoutingModule
     ],
-    exports: [ PdHomeComponent ],
-    entryComponents: [ PdChangeDatasourceDialog ]
+    exports: [ ],
+    entryComponents: [ ProcesDiscoveryChangeDatasourceDialogComponent ]
 })
 export class TcProcessDiscoveryLibModule { }

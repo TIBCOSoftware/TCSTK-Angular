@@ -1,0 +1,79 @@
+/* .tc-home-welcome-text {
+  font-family: Source Sans Pro;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #212121;
+}
+
+.tcs-home-content {
+  overflow: auto;
+}
+ */
+
+.nav-switch-bar{
+    border-radius: 100px;
+    border: solid 1px #b6b6b6;
+    background-color: #ffffff;
+    height: 30px;
+}
+
+.mat-button-toggle-checked{
+    color: #ffffff;
+    border-radius: 100px;
+    background-color: #062e79;
+    border: solid 1px #062e79;
+    padding-left: 11px;
+    padding-right: 11px;
+}
+
+.mat-button-toggle-group-appearance-standard .mat-button-toggle+.mat-button-toggle {
+    border-left: 1px solid rgb(255, 255, 255); 
+}
+
+.case-view-top-level {
+    margin-bottom: 10px
+}
+
+::ng-deep .mat-tab-label-container {
+    background-color: #ffffff;
+    border-radius: 3px 3px 0px 0px;
+    height: 40px;
+}
+
+::ng-deep .mat-tab-label-content {
+    font-family: Source Sans Pro;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+    color: #333;
+}
+
+::ng-deep .mat-tab-group {
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+    background-color: #ffffff;
+}
+
+::ng-deep .tcs-case-list-header-text {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: black;
+}
+
+.tcs-icon{
+    padding: 3px;
+}
+

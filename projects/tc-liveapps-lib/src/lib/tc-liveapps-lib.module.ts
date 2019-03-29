@@ -8,7 +8,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule,
-  MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule
+    MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatSnackBarModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -140,6 +140,7 @@ import { LiveAppsSettingsRolesComponent } from './components/live-apps-settings-
     MatTabsModule,
     MatToolbarModule,
     MatExpansionModule,
+      MatSnackBarModule,
       ScrollDispatchModule,
     FormsModule,
     FlexLayoutModule,
