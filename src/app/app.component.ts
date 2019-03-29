@@ -256,7 +256,10 @@ export class AppComponent {
       'tcs-visibility',
       this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-visibility.svg'))
     );
-
+    this.matIconRegistry.addSvgIcon(
+      'tcs-pie-chart',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-pie-chart.svg'))
+    );
 
 
 
