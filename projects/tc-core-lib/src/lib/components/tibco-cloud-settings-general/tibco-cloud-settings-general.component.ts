@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GeneralConfig } from '../../models/tc-general-config';
 import { TcGeneralConfigService } from '../../services/tc-general-config.service';
 import { Claim } from '../../models/tc-login';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'tc-tibco-cloud-settings-general',
@@ -20,7 +21,7 @@ export class TibcoCloudSettingsGeneralComponent implements OnInit {
     public sandboxId: number;
     public claims: Claim;
 
-    constructor(private route: ActivatedRoute, private generalConfigService: TcGeneralConfigService) { }
+    constructor(private route: ActivatedRoute, private generalConfigService: TcGeneralConfigService, private snackBar: MatSnackBar) { }
 
     ngOnInit() {
       this.generalConfig = this.route.snapshot.data.generalConfigHolder;
@@ -33,8 +34,23 @@ export class TibcoCloudSettingsGeneralComponent implements OnInit {
         this.documentationURL = this.generalConfig.documentationUrl;
     }
 
+    protected getRoute(): ActivatedRoute {
+      return this.route;
+    }
+
     public runSaveFunction = () => {
-      this.generalConfigService.updateGeneralConfig(this.sandboxId, this.generalConfig.uiAppId, this.generalConfig, this.generalConfig.id).subscribe();
+      this.generalConfigService.updateGeneralConfig(this.sandboxId, this.generalConfig.uiAppId, this.generalConfig, this.generalConfig.id).subscribe(
+          result => {
+              this.snackBar.open('General configuration saved', 'OK', {
+                  duration: 3000
+              });
+          },
+          error => {
+              this.snackBar.open('Error saving general configuration saved', 'OK', {
+                  duration: 3000
+              });
+          }
+      );
     }
 
 }

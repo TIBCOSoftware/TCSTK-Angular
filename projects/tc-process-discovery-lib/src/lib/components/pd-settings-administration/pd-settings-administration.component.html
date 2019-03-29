@@ -1,11 +1,11 @@
 <div fxLayout="column" fxFill>
-    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" 
         [headerText]="'Process Discovery Administration Configuration'"></tc-tibco-cloud-widget-header>
     <div style="padding: 20px;" fxLayout="column" fxFlex>
         <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
-            <p>Choose the TIBCO Cloud Process Discovery Configuration to be used within this application:</p>
+            <p>Here you can configure existing datasources and register new ones</p>
         </div>
-        <div fxLayout="column" fxLayout="row wrap">
+        <div style="margin: 20px" fxLayout="column" fxLayout="row wrap">
             <div *ngFor="let case of cases" fxFlex>
                 <tcla-live-apps-case-summary [uiAppId]="datasourceId" [typeBar]="true" [borderCard]="false"
                     [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case"

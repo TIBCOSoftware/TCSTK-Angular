@@ -14,6 +14,7 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
   @Input() sandboxId: number;
   @Input() uiAppId: string;
   @Input() displayType: string = this.displayType ? this.displayType : 'miniCard'; // miniCard, card, list
+  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public favoriteCases: string[];

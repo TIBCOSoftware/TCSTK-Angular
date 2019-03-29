@@ -19,8 +19,10 @@ export class PdSettingsConfigurationComponent implements OnInit {
     public claims: Claim;
     public sandboxId: number;
     public selectedApp: CaseType;
-    public processDiscoveryConfig: ProcessDiscoveryConfig;
+    private processDiscoveryConfig: ProcessDiscoveryConfig;
     public datasourceId: string;
+    public creatorId: string
+    public storageTechnology: string;
   
     constructor(private processDiscoveryConfigService: PdProcessDiscoveryConfigService, private liveapps: LiveAppsService, private route: ActivatedRoute) { }
 
@@ -30,7 +32,10 @@ export class PdSettingsConfigurationComponent implements OnInit {
         this.claims = this.route.snapshot.data.claims;
         this.sandboxId = Number(this.claims.primaryProductionSandbox.id).valueOf();
         this.processDiscoveryConfig = this.route.snapshot.data.processDiscovery;
-        this.datasourceId = this.route.snapshot.data.processDiscovery.datasourceAppId.valueOf();
+
+        // Get values from PUBLIC shared state
+        this.datasourceId = this.processDiscoveryConfig.datasourceAppId;
+//        this.creatorId = this.processDiscoveryConfig.creatorAppId.valueOf();
 
         this.refresh(true);
 
@@ -43,7 +48,7 @@ export class PdSettingsConfigurationComponent implements OnInit {
 
     public refresh = (bypassCache: boolean): void => {
 
-        let appIds: string[] = [ this.datasourceId ];
+        let appIds: string[] =  (this.datasourceId === "") ? undefined : [ this.datasourceId ];
 
         this.liveapps.getApplications(this.sandboxId, appIds, 100, bypassCache)
             .pipe(
@@ -54,8 +59,8 @@ export class PdSettingsConfigurationComponent implements OnInit {
             .subscribe(null, error => { console.log("***** error " + error.error.errorMsg); }) //this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; });          
     }
 
-    runSaveFuntion = () =>{
+    runSaveFuntion = () => {
         var processDiscoveryConfig = this.processDiscoveryConfig;
-        this.processDiscoveryConfigService.updateProcessDiscoveryConfig(this.sandboxId, "caseApp5", processDiscoveryConfig, this.processDiscoveryConfig.id).subscribe();
+        this.processDiscoveryConfigService.updateProcessDiscoveryConfig(this.sandboxId, this.processDiscoveryConfig.uiAppId, processDiscoveryConfig, this.processDiscoveryConfig.id).subscribe();
     }
 }

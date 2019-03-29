@@ -1,9 +1,9 @@
 import { Deserializable } from 'tc-core-lib';
 
 export class ProcessDiscoveryUserConfig implements Deserializable {
-    id: string;
+    // id: string;
     version: string;
-    uiAppId: string;
+    // uiAppId: string;
     datasourceCaseRef: string;
     deserialize(input: any) {
         Object.assign(this, input);
@@ -11,8 +11,7 @@ export class ProcessDiscoveryUserConfig implements Deserializable {
     }
 }
 
-
-export class UserPredefinedDatasource implements Deserializable {
+export class Datasource implements Deserializable {
     datasourceId: string;
     description: string;
     caseRef: string;
@@ -20,5 +19,16 @@ export class UserPredefinedDatasource implements Deserializable {
         Object.assign(this, input);
         return this;
     }
+}
+
+export class ChangeDatasourceSelectionContext {
+    constructor(
+        public currentDatasource: Datasource,
+        public sandboxId: number,
+        public datasourceAppId: string
+        // public application: CaseType,
+        // public initialData: any,
+        // public sandboxId: number
+    ) { }
 }
 
