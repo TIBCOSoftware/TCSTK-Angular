@@ -23,7 +23,7 @@ import {
   MatSortModule,
   MatTableModule,
   MatTabsModule, MatToolbarModule,
-  MatTooltipModule
+    MatTooltipModule, MatSnackBarModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -109,6 +109,7 @@ import {RouterModule} from '@angular/router';
     MatCardModule,
     MatTooltipModule,
     MatTabsModule,
+      MatSnackBarModule,
     MatButtonToggleModule,
     FormsModule,
     FlexLayoutModule,
