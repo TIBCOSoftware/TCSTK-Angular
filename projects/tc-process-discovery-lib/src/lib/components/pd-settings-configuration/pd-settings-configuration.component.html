@@ -7,10 +7,23 @@
         </div>
         <div style="margin: 20px" fxLayout="column">
             <div fxLayout="row" fxLayoutAlign="start center">
-                <span>Configure the TIBCO Live Apps application with the datasources:</span>
+                <span fxFlex="50">Configure the TIBCO Live Apps application with the datasources:</span>
                 <tcla-live-apps-applications style="width: 300px; max-width: 300px; margin-left: 10px;" [sandboxId]="sandboxId" [selectFirstApp]="false"
                 (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
             </div>
+            <!-- <div fxLayout="row" fxLayoutAlign="start center">
+                <span fxFlex="50">Configure the TIBCO Live Apps creator for datasources:</span>
+                <tcla-live-apps-applications style="width: 300px; max-width: 300px; margin-left: 10px;" [sandboxId]="sandboxId"
+                    [selectFirstApp]="false" (selection)="selectApplication($event)" [selectedApp]="selectedApp">
+                </tcla-live-apps-applications>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <span  fxFlex="50">Select where to store the files:</span>
+                <mat-radio-group [(value)]="storageTechnology">
+                    <mat-radio-button value="LiveApps">Live Apps Case</mat-radio-button>
+                    <mat-radio-button value="S3">S3</mat-radio-button>
+                </mat-radio-group>
+            </div> -->
         </div>
         <div fxFlex class="tcs-filler-panel"></div>
         <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
