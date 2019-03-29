@@ -17,7 +17,7 @@ export class DoubleListForSelectionComponent implements OnInit {
   @Input() sandboxId;
   @Input() userName;
   @Input() userId;
-
+so
   @ViewChild('paginator') paginator: MatPaginator;
    @ViewChild(MatSort) sort: MatSort;
 
@@ -33,12 +33,12 @@ export class DoubleListForSelectionComponent implements OnInit {
 
   private serviceHandler: ServiceHandlerService;
 
-  displayedColumns: string[] = ['DemandeID', 'Payeur', 'Numrodedemande', 'Statut', 'View', 'Select'];
+  displayedColumns: string[] = ['preco', 'DemandeID', 'Payeur', 'Numrodedemande', 'Statut', 'View', 'Select'];
   selectionDisplayedColumns: string[] = ['Select', 'DemandeID', 'Decision'];
 
-  private precoStates = ['Attente pièce pour validation', 'Clôture en cours', 'Demande annulée', 'Demande annulée suite à modification', 'Demande clôturée',
-                         'Demande refusée',  'Edition en cours - complet', 'en attente de documents post saisie',
-                         'Validation des éditions en cours',
+  private precoStates = ['Attente piece pour validation', 'Cloture en cours', 'Demande annulee', 'Demande annulee suite à modification', 'Demande cloturee',
+                         'Demande refusee',  'Edition en cours - complet', 'en attente de documents post saisie',
+                         'Validation des editions en cours',
                          'Validation en cours - complet', 'Validation en cours - incomplet'];
 
   public dataSource;
@@ -66,9 +66,9 @@ export class DoubleListForSelectionComponent implements OnInit {
           obj.Statut = obj.casedataObj.Dossier.Statut;
           obj.Numrodedemande = obj.casedataObj.Dossier.Numrodedemande;
           if (obj.casedataObj.Dossier && this.precoStates.includes(obj.casedataObj.Dossier.Statut) ) {
-            obj.casedataObj.preco = true;
+            obj.preco = true;
           } else {
-            obj.casedataObj.preco = false;
+            obj.preco = false;
           }
         }
 
@@ -139,7 +139,7 @@ export class DoubleListForSelectionComponent implements OnInit {
     const indexToSplice = [];
     let refreshTable = false;
     for (const obj of this.objList) {
-      if (obj.casedataObj.preco) {
+      if (obj.preco) {
         this.selectionList.push(obj);
         refreshTable = true;
         indexToSplice.unshift(index);
