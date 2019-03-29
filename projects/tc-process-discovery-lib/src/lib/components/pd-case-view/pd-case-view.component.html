@@ -21,16 +21,23 @@
         </div>
 
         <div fxFlex fxLayout="row" fxLayoutGap="20px">
-
             <div fxFlex="70" fxLayout="column" fxLayoutGap="20px">
                 <mat-tab-group fxFlex>
-                    <mat-tab label="Recent">
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="tcs-icon tcs-caselist-icon" svgIcon="tcs-recent-icon"></mat-icon>
+                            <div style="margin-left: 10px;" class="tcs-case-list-header-text">Recents</div>
+                        </ng-template>
                         <div class="recentCasesWidget" fxFill>
                             <tcla-live-apps-recent-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [showHeader]="false"
                                 (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Favorites">
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <mat-icon class="tcs-icon tcs-caselist-icon" svgIcon="tcs-favorites-icon"></mat-icon>
+                            <div style="margin-left: 10px;" class="tcs-case-list-header-text">Favorites</div>
+                        </ng-template>
                         <div class="favoriteCasesWidget" fxFlex>
                             <tcla-live-apps-favorite-cases class="padded-widget" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [showHeader]="false"
                                 (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
