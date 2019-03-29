@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "routeUrl": "configuration",
+      "requiredRoleId": "Partner Portal Configurator"
+    }
+  ]
+}

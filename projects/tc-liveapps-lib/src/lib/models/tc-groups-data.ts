@@ -26,3 +26,16 @@ export class Roles {
     return this;
   }
 }
+
+export class RouteAccessDef {
+  routeUrl: string;
+  requiredRoleId: string;
+}
+
+export class RouteAccessControlConfig {
+  routes: RouteAccessDef[];
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
