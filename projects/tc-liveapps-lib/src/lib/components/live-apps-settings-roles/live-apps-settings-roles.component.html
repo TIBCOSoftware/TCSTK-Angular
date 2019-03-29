@@ -1,0 +1,40 @@
+  <div fxLayout="column" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+                                  [headerText]="'Role Configuration'"></tc-tibco-cloud-widget-header>
+    <div fxFlex style="padding: 20px; overflow: hidden" fxLayout="column">
+      <div style="overflow: auto;">
+        <div fxLayout="column" fxFlex>
+          <p>You can configured role mappings to Live Apps Groups here:</p>
+          <br>
+          <!-- Role specific -->
+            <mat-accordion>
+              <mat-expansion-panel *ngFor="let role of generalConfig.roles">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>{{role.display}}</mat-panel-title>
+                </mat-expansion-panel-header>
+                <div fxLayoutGap="5px">
+                  <mat-form-field style="min-width: 400px">
+                    <input matInput placeholder="Id" [(ngModel)]="role.id" readonly>
+                  </mat-form-field>
+                  <mat-form-field style="min-width: 400px">
+                    <input matInput placeholder="Display Name" [(ngModel)]="role.display">
+                  </mat-form-field>
+                  <mat-form-field style="min-width: 400px">
+                    <mat-select [disableOptionCentering]="true" placeholder="Live Apps Group" [(value)]="role.group">
+                      <mat-option *ngFor="let group of groups.groups" [value]="group.name">
+                        <span matTooltip="{{group.description}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{group.name}}</span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+      </div>
+      <div fxFlex class="tcs-filler-panel"></div>
+      <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+        <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+      </div>
+    </div>
+  </div>

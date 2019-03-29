@@ -4,7 +4,8 @@
       "entry": "General Application",
       "icon": "tcs-starters-icon",
       "options": [
-        "Settings"
+        "Settings",
+        "Roles"
       ]
     },
     {

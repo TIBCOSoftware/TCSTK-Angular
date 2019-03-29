@@ -41,6 +41,7 @@ export * from './lib/components/live-apps-creator-dialog/live-apps-creator-dialo
 export * from './lib/components/live-apps-settings/live-apps-settings.component';
 export * from './lib/components/live-apps-settings-summary-cards/live-apps-settings-summary-cards.component';
 export * from './lib/components/live-apps-settings-recent-cases/live-apps-settings-recent-cases.component';
+export * from './lib/components/live-apps-settings-roles/live-apps-settings-roles.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -63,6 +64,8 @@ export * from './lib/resolvers/liveapps-config.resolver';
 export * from './lib/resolvers/la-config.resolver';
 export * from './lib/resolvers/groups.resolver';
 export * from './lib/resolvers/roles.resolver';
+export * from './lib/resolvers/all-groups.resolver';
+export * from './lib/resolvers/all-roles.resolver';
 
 // guards
 export * from './lib/guards/case.guard';
