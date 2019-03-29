@@ -7,18 +7,17 @@ import {
   TcSharedStateService,
   TibcoCloudSettingsGeneralComponent,
   ConfigurationMenuConfigResolver,
-  Claim
+  Claim, TibcoCloudSplashScreenComponent
 } from 'tc-core-lib';
 import {HomeComponent} from './routes/home/home.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {
-  AllGroupsResolver, AllRolesResolver,
-  ClaimsResolver, GroupsResolver,
+  ClaimsResolver,
   LiveAppsConfigHolder,
   LiveAppsService,
   LiveAppsSettingsComponent,
   LiveAppsSettingsRecentCasesComponent,
-  LiveAppsSettingsSummaryCardsComponent, RoleGuard, RolesResolver
+  LiveAppsSettingsSummaryCardsComponent
 } from 'tc-liveapps-lib';
 import {HttpClient} from '@angular/common/http';
 import {share} from 'rxjs/operators';
@@ -31,10 +30,12 @@ import {SettingsComponent} from './routes/settings/settings.component';
 import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
 import {TibcoCloudConfigurationComponent} from 'tc-core-lib';
 import {ConfigurationComponent} from './routes/configuration/configuration.component';
+//import { PdHomeComponent, PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
+
 import { SpotfireConfigResolver } from 'tc-spotfire-lib';
-import {CasesearchComponent} from './routes/casesearch/casesearch.component';
-import {LiveAppsSettingsRolesComponent} from 'tc-liveapps-lib';
+import {SplashComponent} from './components/splash/splash.component';
+import {SplashPDComponent} from './components/splash-pd/splash-pd.component';
 
 
 const routes: Routes = [
@@ -64,19 +65,18 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         resolve: {
           claims: ClaimsResolver,
-          laConfigHolder: LaConfigResolver,
-          groups: GroupsResolver,
-          roles: RolesResolver
+          laConfigHolder: LaConfigResolver
         }
       },
       {
-        path: 'casesearch',
-        component: CasesearchComponent,
-        canActivate: [AuthGuard],
-        resolve: {
-          claims: ClaimsResolver,
-          laConfigHolder: LaConfigResolver
-        }
+        path: 'splash',
+        component: SplashComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'splashPD',
+        component: SplashPDComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'case/:appId/:typeId/:caseRef',
@@ -84,9 +84,7 @@ const routes: Routes = [
         canActivate: [AuthGuard, CaseGuard],
         resolve: {
           laConfigHolder: LaConfigResolver,
-          claims: ClaimsResolver,
-          groups: GroupsResolver,
-          roles: RolesResolver
+          claims: ClaimsResolver
         }
       },
       {
@@ -98,10 +96,19 @@ const routes: Routes = [
           claims: ClaimsResolver,
           serviceDetailsConfigResolver: ServiceDetailsConfigResolver
         }
-      },
+      }/*,
       {
-        path: 'configuration', component: ConfigurationComponent,
-        canActivate: [AuthGuard, RoleGuard],
+        path: 'pd', component: PdHomeComponent, canActivate: [AuthGuard], resolve: { claims: ClaimsResolver, laConfigHolder: LaConfigResolver },
+        children: [
+          { path: 'home', component: PdHomeComponent, canActivate: [AuthGuard], resolve: { claims: ClaimsResolver, laConfigHolder: LaConfigResolver }},
+          { path: 'process-discovery-administration', component: PdSettingsAdministrationComponent },
+          { path: 'process-mining-view/:datasource', component: PdProcessMiningComponent, resolve: { spotfireConfigHolder: SpotfireConfigResolver }},
+          { path: 'case-view', component: PdCaseViewComponent, canActivate: [AuthGuard], resolve: { claims: ClaimsResolver, laConfigHolder: LaConfigResolver }},
+          { path: '**', redirectTo: '/starterApp/pd/case-view' }
+        ]
+      }*/,
+      {
+        path: 'configuration', component: ConfigurationComponent, canActivate: [AuthGuard],
         resolve: { configurationMenuHolder: ConfigurationMenuConfigResolver },
         children: [
           {
@@ -110,16 +117,6 @@ const routes: Routes = [
             resolve: {
               generalConfigHolder: GeneralConfigResolver,
               claims: ClaimsResolver
-            }
-          },
-          {
-            path: 'general-application-roles',
-            component: LiveAppsSettingsRolesComponent,
-            resolve: {
-              generalConfigHolder: GeneralConfigResolver,
-              claims: ClaimsResolver,
-              allRoles: AllRolesResolver,
-              allGroups: AllGroupsResolver
             }
           },
           {
@@ -183,16 +180,11 @@ const routes: Routes = [
     HomeComponent,
     ClaimsResolver,
     LiveAppsConfigResolver,
-    GroupsResolver,
-    RolesResolver,
     LaConfigResolver,
     GeneralConfigResolver,
     ServiceDetailsConfigResolver,
     ConfigurationMenuConfigResolver,
-    SpotfireConfigResolver,
-    AllGroupsResolver,
-    AllRolesResolver,
-    RoleGuard
+    SpotfireConfigResolver
   ]
 })
 
