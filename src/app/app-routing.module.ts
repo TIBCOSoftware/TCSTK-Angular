@@ -32,7 +32,6 @@ import {SettingsComponent} from './routes/settings/settings.component';
 import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
 import {TibcoCloudConfigurationComponent} from 'tc-core-lib';
 import {ConfigurationComponent} from './routes/configuration/configuration.component';
-//import { PdHomeComponent, PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 
 import { SpotfireConfigResolver } from 'tc-spotfire-lib';
@@ -102,17 +101,7 @@ const routes: Routes = [
           claims: ClaimsResolver,
           serviceDetailsConfigResolver: ServiceDetailsConfigResolver
         }
-      }/*,
-      {
-        path: 'pd', component: PdHomeComponent, canActivate: [AuthGuard], resolve: { claims: ClaimsResolver, laConfigHolder: LaConfigResolver },
-        children: [
-          { path: 'home', component: PdHomeComponent, canActivate: [AuthGuard], resolve: { claims: ClaimsResolver, laConfigHolder: LaConfigResolver }},
-          { path: 'process-discovery-administration', component: PdSettingsAdministrationComponent },
-          { path: 'process-mining-view/:datasource', component: PdProcessMiningComponent, resolve: { spotfireConfigHolder: SpotfireConfigResolver }},
-          { path: 'case-view', component: PdCaseViewComponent, canActivate: [AuthGuard], resolve: { claims: ClaimsResolver, laConfigHolder: LaConfigResolver }},
-          { path: '**', redirectTo: '/starterApp/pd/case-view' }
-        ]
-      }*/,
+      },
       {
         path: 'configuration', component: ConfigurationComponent, canActivate: [AuthGuard],
         resolve: { configurationMenuHolder: ConfigurationMenuConfigResolver },
