@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Select the new datasource</h1>
+<div mat-dialog-content>
+    <div fxFlex fxLayout="column">
+        <mat-label>Datasource</mat-label>
+        <mat-select [(value)]="newDatasource">
+            <mat-option *ngFor="let datasource of datasources" [value]="datasource">
+                {{datasource.datasourceId}}-{{datasource.description}}
+            </mat-option>
+        </mat-select>
+    </div>
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
+    <!-- <button mat-raised-button (click)="saveAsDefaultDatasource()">Save as default datasource</button> -->
+    <button mat-raised-button color="primary" [mat-dialog-close]="newDatasource" cdkFocusInitial>Ok</button>
+</div>

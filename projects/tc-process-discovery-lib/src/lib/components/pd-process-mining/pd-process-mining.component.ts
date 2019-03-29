@@ -3,6 +3,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { SpotfireCustomization } from '@tibco/spotfire-wrapper/lib/spotfire-customization';
 import { McSpotfireWrapperComponent } from 'tc-spotfire-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
+import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
+import { MatButtonToggleChange, MatDialog } from '@angular/material';
+import { CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext } from 'tc-liveapps-lib';
+import { Datasource, ChangeDatasourceSelectionContext } from '../../models/tc-process-discovery';
+import { ProcesDiscoveryChangeDatasourceDialogComponent } from '../proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 
 @Component({
   selector: 'tcpd-pd-process-mining',
@@ -13,27 +18,55 @@ export class PdProcessMiningComponent implements OnInit {
 
     @ViewChild(McSpotfireWrapperComponent) spotfireWrapperComponent: McSpotfireWrapperComponent;
 
+    // Widget configuration
+    public title: string;
+    public viewButtons: ToolbarButton[];
+    public toolbarButtons: ToolbarButton[];
+    public sandboxId: number;
+
+    // Spotfire configuration
     public spotfireServer: string;
     public analysisPath: string;
     public allowedPages : string[];
-    public parameters: string;
-    activePage : string;
-    public test: any;
+    public activePage: string;
     public configuration;
     public markingOn;
-    private datasource: string;
+    public parameters: string;
+    public appIds: string[];
 
-    constructor(private router: Router, private route: ActivatedRoute, private processDiscovery: PdProcessDiscoveryService) { }
+    public currentDatasource: Datasource;
+    private datasourceAppId: string;     // AppId for the app which contains the datasources
+    private newDatasource: Datasource;
+    
+    constructor(
+        private router: Router, 
+        private route: ActivatedRoute, 
+        private processDiscovery: PdProcessDiscoveryService,
+        protected buttonsHelper: TcButtonsHelperService,
+        private dialog: MatDialog
+
+    ) { 
+        router.routeReuseStrategy.shouldReuseRoute = function () {
+            return false;
+        };
+    }
 
     ngOnInit() {
-        var spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
-        this.datasource = this.route.snapshot.params['datasource'];
+        // const datasourceId = this.route.snapshot.params['datasourceId'];
+        this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
+        this.appIds = this.route.snapshot.data.laConfigHolder.liveAppsConfig.applicationIds;
+        const uiAppId = this.route.snapshot.data.laConfigHolder.generalConfig.uiAppId;
+        this.datasourceAppId = this.route.snapshot.data.processDiscoverConfigHolder.datasourceAppId;
 
+        this.viewButtons = this.createViewButtons();
+        this.toolbarButtons = this.createToolbarButtons();
+
+        // Spotfire general configuration 
+        const spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
         this.spotfireServer = spotfireConfig.spotfireServer;
         this.analysisPath = spotfireConfig.analysisPath;
-
-        this.allowedPages = spotfireConfig.allowedPages; 
         this.activePage = spotfireConfig.activePageForHome;
+        this.allowedPages = spotfireConfig.allowedPages;
 
         const value = false;
         this.configuration = {
@@ -57,38 +90,88 @@ export class PdProcessMiningComponent implements OnInit {
         } as SpotfireCustomization;
         this.markingOn = '*';
 
-        // this.markingName = spotfireConfig.markingName;
-        // this.maxMarkings = spotfireConfig.maxMarkings;
-
-        // this.spotfireServer = "https://spotfire-next.cloud.tibco.com";
-        // this.analysisPath = "Samples/Sales and Marketing";
-        // this.allowedPages = ['Sales performance', 'Territory analysis', 'Effect of promotions'];
-        // this.activePage = 'Sales performance'; 
-        // this.configuration = { showAuthor: true, showFilterPanel: true, showToolBar: true } as SpotfireCustomization;
-        // this.markingOn = '{"SalesAndMarketing": ["*"]}';
-
+        this.processDiscovery.getJezDatasource(this.sandboxId, uiAppId).subscribe(
+            datasource => {
+                this.currentDatasource = datasource;
+                this.refresh(false);
+            },
+            error => {
+                if (error === 'Not datasource defined'){
+                    console.log('There is no datasource');
+                    this.title = '';
+                    this.openDialog(this.currentDatasource);
+                }
+            })
     }
 
-    public handleViewButtonEvent = (id : string) => {
-        console.log("ID: " + id);
-        switch (id) {
-            case "ProcessMiningView":
-                this.router.navigate(['/starterApp/process-mining'], {});   
-                break;
-            case "CaseView": 
-                this.router.navigate(['/starterApp/case-view'], {});
-                break;
-            case "DashboardsView":
-                this.router.navigate(['/starterApp/dashboard-view'], {});
-                break;
-            default:
-                break;
-        }
+    refresh = (refresOption:boolean): void => {
+        this.title = 'Datasource: ' + this.currentDatasource.description;
+        this.parameters='AnalysisId = "' + this.currentDatasource.datasourceId + '";';
     }
     
+    protected createToolbarButtons = (): ToolbarButton[] => {
+        const changeDatasourceButton = this.buttonsHelper.createButton('changedatasource', 'tcs-config-icon', true, 'Change datasource', true, true);
+        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
+        const buttons = [configButton, changeDatasourceButton];
+        return buttons;
+    }
+
+    // This is the default method. If we add more buttons, we'll need to overwrite.
+    handleToolbarButtonEvent = (buttonId: string) => {
+        if (buttonId === 'config') {
+            this.router.navigate(['/starterApp/configuration/']);
+        }
+        if (buttonId === 'changedatasource'){
+            this.openDialog(this.currentDatasource);
+        }
+    }
+
+    protected createViewButtons = (): ToolbarButton[] => {
+        const processMiningView = this.buttonsHelper.createButton('process-mining-view', '', true, 'Process Mining View', true, true);
+        const caseView = this.buttonsHelper.createButton('case-view', '', true, 'Case View', true, true);
+        const buttons = [processMiningView, caseView];
+        return buttons;
+    }
+
+    public handleViewButtonEvent = (event: MatButtonToggleChange) => {
+        this.router.navigate(['/starterApp/pd/case-view']);
+    }
+
     public tabChange = ($event: any): void => {
-        console.log('tab change: ', $event);
         this.spotfireWrapperComponent.openPage(this.allowedPages[$event.index]);
+    }
+
+    public handleCreatorAppSelection = (application: CaseType): void => {
+        const EXAMPLE_INITIAL_DATA = {
+            DiscoverCompliance: {
+                ShortDescription: this.selectedVariant,
+                Context: {
+                    ContextType: 'Case',
+                    ContextID: this.selectedVariantID,
+                    DataSourceName: this.currentDatasource.description
+                }
+            }
+
+        };
+        this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);    
+    }
+
+    openCreatorDialog = (application: CaseType, initialData, sandboxId) => {
+        const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
+            width: '60%',
+            height: '80%',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
+            panelClass: 'tcs-style-dialog',
+            data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                console.log(result);
+                this.router.navigate(['/starterApp/case/' + result.appId + '/' + result.typeId + '/' + result.caseRef], {});
+            }
+        });
     }
 
     selectedVariant = '';
@@ -107,5 +190,38 @@ export class PdProcessMiningComponent implements OnInit {
                 }
             }
         }
+//         if (data['Variant'] != null) {
+//             if (data['Variant']['uncompliantVariants'] != null) {
+//                 if (data['Variant']['uncompliantVariants']['variant_id'] != null) {
+//                     console.log('Selected Uncompliand Variant IDs: ', data['Variant']['uncompliantVariants']['variant_id']);
+// //                    this.uncompliantVariantID = data['Variant']['uncompliantVariants']['variant_id'].toString();
+//                     this.processDiscovery.sendMessage('Variant case at ' + new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString(), data['Variant']['uncompliantVariants']['variant_id'].toString());
+//                 }
+//             }
+//         }   
+     }
+
+    openDialog = (currentDatasource: Datasource): void => {
+        const dialogRef = this.dialog.open(ProcesDiscoveryChangeDatasourceDialogComponent, {
+            width: '50%',
+            height: '40%',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
+            panelClass: 'tcs-style-dialog',
+            data: new ChangeDatasourceSelectionContext(currentDatasource, this.sandboxId, this.datasourceAppId)
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                console.log("Cerrando el cuadro de dialogo", result);
+                if (!this.currentDatasource || this.currentDatasource.caseRef != result.caseRef){
+                    this.currentDatasource = result;
+                    this.refresh(true);
+                    this.processDiscovery.setCurrentDatasource(result).subscribe();                    
+                }
+                // this.router.navigate(['/starterApp/case/' + result.appId + '/' + result.typeId + '/' + result.caseRef], {});
+            }
+        });
     }
+
 }

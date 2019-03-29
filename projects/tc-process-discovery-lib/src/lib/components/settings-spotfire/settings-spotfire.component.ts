@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotfireConfig } from 'tc-spotfire-lib';
 import { TcSpotfireConfigService } from 'tc-spotfire-lib';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'tcpd-settings-spotfire',
@@ -25,7 +26,8 @@ export class SettingsSpotfireComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private spotfireConfigService: TcSpotfireConfigService
+        private spotfireConfigService: TcSpotfireConfigService,
+        private snackBar: MatSnackBar
     ) { }
 
     ngOnInit() {
@@ -68,9 +70,18 @@ export class SettingsSpotfireComponent implements OnInit {
             columnNames: this.columnNames.split(',')
         });
 
-        this.spotfireConfigService.updateSpotfireConfig(this.sandboxId, "caseApp5", spotfireConfig, this.id).subscribe();
-
-
+        this.spotfireConfigService.updateSpotfireConfig(this.sandboxId, this.uiAppId, spotfireConfig, this.id).subscribe(
+            result => {
+                this.snackBar.open('Spotfire settings saved', 'OK', {
+                    duration: 3000
+                });
+            },
+            error => {
+                this.snackBar.open('Error saving Spotfire settings saved', 'OK', {
+                    duration: 3000
+                });
+            }
+        );
     }
 
 }
