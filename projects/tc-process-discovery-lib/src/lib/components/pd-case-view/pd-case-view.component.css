@@ -60,3 +60,20 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
     background-color: #ffffff;
 }
+
+::ng-deep .tcs-case-list-header-text {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: black;
+}
+
+.tcs-icon{
+    padding: 3px;
+}
+
