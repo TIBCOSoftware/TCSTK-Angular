@@ -69,3 +69,4 @@ export * from './lib/resolvers/all-roles.resolver';
 
 // guards
 export * from './lib/guards/case.guard';
+export * from './lib/guards/role.guard';
