@@ -684,7 +684,7 @@ export class LiveAppsService {
   /* end notes service */
 
   public getGroupMemberships(sandboxId: number, userId: string, top: number, useCache: boolean): Observable<Groups> {
-    const url = 'organisation/v1/users/' + userId + '/groups' + '?$sandbox=' + sandboxId + '&$top=' + top;
+    const url = '/organisation/v1/users/' + userId + '/groups' + '?$sandbox=' + sandboxId + '&$top=' + top;
     let headers;
     if (useCache) {
       headers = new HttpHeaders().set('cacheResponse', 'true');
