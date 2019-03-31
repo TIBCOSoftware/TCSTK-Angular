@@ -31,6 +31,7 @@ import { TcSpotfireLibModule } from 'tc-spotfire-lib';
 import { PdSettingsConfigurationComponent } from './components/pd-settings-configuration/pd-settings-configuration.component';
 import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-datasource.component';
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from './components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 @NgModule({
     declarations: [
         PdProcessMiningComponent,
@@ -40,7 +41,8 @@ import { ProcesDiscoveryChangeDatasourceDialogComponent } from './components/pro
         PdSettingsAdministrationComponent,
         PdSettingsConfigurationComponent,
         PdNewDatasourceComponent,
-        ProcesDiscoveryChangeDatasourceDialogComponent
+        ProcesDiscoveryChangeDatasourceDialogComponent,
+        LandingPageComponent
     ],
     imports: [
         CommonModule,
