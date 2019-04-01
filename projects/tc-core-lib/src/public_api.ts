@@ -17,7 +17,7 @@ export * from './lib/components/tibco-cloud-setting-menu-entry/tibco-cloud-setti
 export * from './lib/components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
 export * from './lib/components/tibco-cloud-configuration/tibco-cloud-configuration.component';
 export * from './lib/components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
-
+export * from './lib/components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
 
 // services
 export * from './lib/services/tc-login.service';
@@ -28,14 +28,15 @@ export * from './lib/services/tc-buttons-helper.service';
 export * from './lib/services/tc-general-config.service';
 
 // models
-export * from './lib/models/tc-login';
-export * from './lib/models/tc-shared-state';
 export * from './lib/models/deserializable';
 export * from './lib/models/tc-app-config';
-export * from './lib/models/tc-widget-header';
-export * from './lib/models/tc-general-config';
-export * from './lib/models/tc-routing-actions';
 export * from './lib/models/tc-configuration-menu-config';
+export * from './lib/models/tc-general-config';
+export * from './lib/models/tc-general-landing-page-config';
+export * from './lib/models/tc-login';
+export * from './lib/models/tc-routing-actions';
+export * from './lib/models/tc-shared-state';
+export * from './lib/models/tc-widget-header';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';
@@ -47,6 +48,7 @@ export * from './lib/guards/auth.guard';
 // resolvers
 export * from './lib/resolvers/general-config.resolver';
 export * from './lib/resolvers/configuration-menu-config.resolver';
+export * from './lib/resolvers/general-landing-page-config.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';
