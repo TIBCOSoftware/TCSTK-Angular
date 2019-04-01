@@ -261,6 +261,97 @@ export class AppComponent {
       this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-pie-chart.svg'))
     );
 
+    /* audit icons */
+    this.matIconRegistry.addSvgIcon(
+      'BP_AUTO_STARTED_INSTANCE',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_AUTO_STARTED_INSTANCE.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_DELAYED_AUTO_START_TIMER_EXPIRED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_DELAYED_AUTO_START_TIMER_EXPIRED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_DELAYED_AUTO_STARTED_INSTANCE',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_DELAYED_AUTO_STARTED_INSTANCE.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_INSTANCE_COMPLETED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_INSTANCE_COMPLETED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_INSTANCE_CREATED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_INSTANCE_CREATED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_TASK_COMPLETED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_TASK_COMPLETED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'BP_TASK_CREATED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/BP_TASK_CREATED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'Calculation Task',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/Calculation Task.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'CM_CASE_CREATED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/CM_CASE_CREATED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'CM_CASE_UPDATED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/CM_CASE_UPDATED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'CM_CASE_UPDATED_STATE_CHANGED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/CM_CASE_UPDATED_STATE_CHANGED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'Email Task',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/Email Task.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'ERROR',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/ERROR.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'TCI Task',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/TCI Task.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'User Task',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/User Task.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'WR_FOLDER_ARTIFACT_CREATED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/WR_FOLDER_ARTIFACT_CREATED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'WR_FOLDER_ARTIFACT_DELETED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/WR_FOLDER_ARTIFACT_DELETED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'WR_FOLDER_ARTIFACT_UPDATED',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/WR_FOLDER_ARTIFACT_UPDATED.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'AuditSafe Task',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/AuditSafe Task.svg'))
+    );
+    this.matIconRegistry.addSvgIcon(
+      'round',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/round.svg'))
+    );
+
+
 
 
 

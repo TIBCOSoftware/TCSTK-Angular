@@ -1,15 +1,15 @@
 import {Deserializable} from 'tc-core-lib';
 import {CaseTypeStatesList} from './liveappsdata';
-import {AuditEvent, AuditEventList} from './tc-case-audit';
+import {AuditEventAttribute, AuditEventList} from './tc-case-audit';
 
 export class StateAuditEvent implements Deserializable {
-  caseState: AuditEvent;
-  type: AuditEvent;
-  phaseLabel: AuditEvent;
-  previousPhaseLabel: AuditEvent;
-  messageId: AuditEvent;
-  principalName: AuditEvent;
-  creationTime: AuditEvent;
+  caseState: AuditEventAttribute;
+  type: AuditEventAttribute;
+  phaseLabel: AuditEventAttribute;
+  previousPhaseLabel: AuditEventAttribute;
+  messageId: AuditEventAttribute;
+  principalName: AuditEventAttribute;
+  creationTime: AuditEventAttribute;
   isTerminal: boolean;
   deserialize(input: any) {
     Object.assign(this, input);

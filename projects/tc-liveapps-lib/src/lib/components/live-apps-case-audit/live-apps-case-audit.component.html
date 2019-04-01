@@ -1,6 +1,278 @@
 <div class="tcs-case-audit-pane" fxLayout="column" fxFill style="overflow: hidden;">
-  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'Audit'" [icon]="'tcs-recent-icon'"></tc-tibco-cloud-widget-header>
-  <div *ngIf="auditEvents && auditEvents.length > 0" class="tcs-case-audit-container">
+  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'Audit'"
+                                [icon]="'tcs-recent-icon'"></tc-tibco-cloud-widget-header>
 
+
+  <!--div *ngIf="auditEvents && auditEvents.length > 0" class="tcs-case-audit-container">
+
+  </div-->
+  <div class="audit-template" style="height: 100%">
+  <cdk-virtual-scroll-viewport style="height: 100%" itemSize="50" (scrolledIndexChange)="getNextBatch($event)">
+    <ul style="min-height: 70px; height: 70px; max-height: 70px;"
+         *cdkVirtualFor="let item of auditEvents; let i = index">
+      <div *ngIf="item.messageId.value === 'BP_INSTANCE_CREATED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="BP_INSTANCE_CREATED"></mat-icon>
+        </div>
+        <div class="audit-details">
+          <li ngClass="{'underline':smallContainer}">
+            <span *ngIf="item.principalName">{{item.principalName.value}} </span>
+            <span>
+                      <span> started </span>
+                      <b>{{item.procName.value}}</b>
+                      <span> on {{item.creationTime.value | date:'full'}}</span>
+                  </span>
+          </li>
+        </div>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.messageId.value === 'BP_AUTO_STARTED_INSTANCE'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="BP_AUTO_STARTED_INSTANCE"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
+          <span>
+                    <b>{{item.procName.value}}</b>
+                    <span> auto initiated on {{item.creationTime.value | date:'full'}}</span>
+                </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE'">
+        <!-- todo: JS fix this -->
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span>
+                    <b>{{item.procName.value}}</b>
+					<span> deadline auto initiated on {{item.creationTime.value | date:'full'}}</span>
+          <span>. </span>
+          <span> Time to deadline {{item.delayTime.value}}></span>. </span>
+          <!--span class="skip-delay" *ngIf="isInstanceDelayed(item)" ng-click="skipDelay(item)" skip"></span>
+                </span-->
+        </li>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_START_TIMER_EXPIRED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="BP_DELAYED_AUTO_START_TIMER_EXPIRED"></mat-icon>
+        </div>
+        <li *ngClass="{'underline':smallContainer}">
+          <span>
+            <b>{{item.procName.value}}</b>
+					  <span> deadline reached {{item.creationTime.value | date: 'full'}}></span>
+          </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
+          <span>
+                    <b>{{item.procName.value}}</b>
+            <span> deadline cancelled" {{item.creationTime.value | date: 'full'}}</span>
+          </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.messageId.value === 'BP_TASK_CREATED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+                <span>
+                    <b>{{item.taskName.value}}</b>
+                    <span> initiated on {{item.creationTime.value | date: 'full'}}</span>
+                </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+      <div *ngIf="item.messageId.value === 'CM_CASE_CREATED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="CM_CASE_CREATED"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+          <span class="spanPadding">
+                    <span> created</span>
+                    <b> {{item.label.value}}</b>
+                    <span> in state</span>
+                    <span class="audit-state">"{{item.caseState.value}}"</span>
+                    <span> on {{item.creationTime.value | date: 'full'}}</span>
+                </span>
+          <!-- todo: JS: add case data preview?-->
+          <!--span class="expand-shrink">
+                    <mat-icon title="{{hideTextLocaleVar}}" class="shrink" svgIcon="arrow_down" ng-click="toggleCaseData(item)"
+                             ng-show="item.toggleCaseData"></mat-icon>
+                    <mat-icon title="{{showTextLocaleVar}}" class="expand" svgIcon="arrow-right" ng-click="toggleCaseData(item)"
+                             ng-show="!item.toggleCaseData"></mat-icon>
+                </span-->
+          <!--div *ngIf="item.toggleCaseData">
+            <bpm-case-data config="item.caseDataConfig" case-data="item.caseDataConfig.caseData"
+                           flex></bpm-case-data>
+          </div-->
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+      <div *ngIf="item.messageId.value === 'CM_CASE_UPDATED_STATE_CHANGED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="CM_CASE_UPDATED_STATE_CHANGED"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+          <span class="spanPadding">
+                    <span> updated</span>
+                    <b> {{item.label.value}}</b>
+                    <span>, new state is></span>
+                    <span class="audit-state"> "{{item.caseState.value}}" </span>
+                    <span> on {{item.creationDate.value | date: 'full'}}</span>
+                </span>
+          <!-- todo: JS: Case data?-->
+          <!--span class="expand-shrink">
+                    <mat-icon title="{{hideTextLocaleVar}}" class="shrink" svgIcon="arrow_down" ng-click="toggleCaseData(item)"
+                             ng-show="item.toggleCaseData"></mat-icon>
+                    <mat-icon title="{{showTextLocaleVar}}" class="expand" svgIcon="arrow-right" ng-click="toggleCaseData(item)"
+                             ng-show="!item.toggleCaseData"></mat-icon>
+                </span>
+          <div *ngIf="item.toggleCaseData">
+            <bpm-case-data config="item.caseDataConfig" case-data="item.caseDataConfig.caseData"
+                           flex></bpm-case-data>
+          </div-->
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+      <div *ngIf="item.messageId.value === 'CM_CASE_UPDATED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="CM_CASE_UPDATED"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+          <span class="spanPadding">
+                    <span> updated</span>
+                    <b> {{item.label.value}} </b>
+                    <span> on {{item.creationTime.value | date: 'full'}}</span>
+                </span>
+          <!-- todo: JS: Case data?-->
+          <!--span class="expand-shrink">
+                    <mat-icon title="{{hideTextLocaleVar}}" class="shrink" svgIcon="arrow_down" ng-click="toggleCaseData(item)"
+                             ng-show="item.toggleCaseData"></mat-icon>
+                    <mat-icon title="{{showTextLocaleVar}}" class="expand" svgIcon="arrow-right" ng-click="toggleCaseData(item)"
+                             ng-show="!item.toggleCaseData"></mat-icon>
+                </span>
+          <div *ngIf="item.toggleCaseData">
+            <bpm-case-data config="item.caseDataConfig" case-data="item.caseDataConfig.caseData"
+                           flex></bpm-case-data>
+          </div-->
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+      <div *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_CREATED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_CREATED"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+          <span class="spanPadding">
+                    <span> uploaded</span>
+                    <span> {{item.artifactPath.value}}</span>
+                    <span> on {{item.creationTime.value | date:'full'}}</span>
+                </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+      <div *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_UPDATED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_UPDATED"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+          <span class="spanPadding">
+                    <span> updated</span>
+                    <span>{{item.artifactPath.value}}</span>
+                    <span> on {{item.creationTime.value | date:'full'}}</span>
+                </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+      <div *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_DELETED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_DELETED"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+          <span class="spanPadding">
+                    <span> deleted</span>
+                    <span>{{item.artifactPath.value}}</span>
+                    <span> on {{item.creationTime.value | date:'full'}}</span>
+                </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+      <div *ngIf="item.messageId.value === 'BP_TASK_COMPLETED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+          <span *ngIf="item.principalName">{{item.principalName.value}} </span>
+          <span>
+                    <span> completed</span>
+                    <b> {{item.taskName.value}} </b>
+                    <span> on {{item.creationTime.value | date: 'full'}}</span>
+                </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.messageId.value === 'BP_INSTANCE_COMPLETED'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="BP_INSTANCE_COMPLETED"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+                <span>
+                    <b>{{item.procName.value}} </b>
+                    <span> on {{item.creationTime.value | date: 'full'}}</span>
+                </span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.severity.value === 'ERROR'">
+        <div class="audit-icon-container">
+          <mat-icon svgIcon="ERROR"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+                <span *ngIf="item.principalName">{{item.principalName.value}} has error at {{item.taskName.value}}>
+                </span>
+          <b> {{item.message.value}}</b>
+          <span> on {{item.creationTime.value | date: 'full'}}</span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+      <div *ngIf="item.severity.value === 'WARN'">
+        <div class="audit-icon-container warn-icon">
+          <mat-icon svgIcon="ERROR"></mat-icon>
+        </div>
+        <li ngClass="{'underline':smallContainer}">
+                <span *ngIf="item.principalName">{{item.principalName.value}} has warning at {{item.taskName.value}}>
+                </span>
+          <b> {{item.message.value}}</b>
+          <span> on {{item.creationTime.value | date: 'full'}}</span>
+        </li>
+        <div class="audit-line"></div>
+      </div>
+
+
+    </ul>
+  </cdk-virtual-scroll-viewport>
   </div>
 </div>
