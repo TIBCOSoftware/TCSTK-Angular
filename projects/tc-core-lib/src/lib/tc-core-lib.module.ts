@@ -53,6 +53,7 @@ import { TibcoCloudConfigurationComponent } from './components/tibco-cloud-confi
 import {RouterModule} from '@angular/router';
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 import {CommonModule} from '@angular/common';
+import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
 
 
 // import {DataSource} from '@angular/cdk/collections';
@@ -76,7 +77,8 @@ import {CommonModule} from '@angular/common';
     TibcoCloudSettingMenuEntryComponent,
     TibcoCloudSettingsGeneralComponent,
     TibcoCloudConfigurationComponent,
-    TibcoCloudSplashScreenComponent
+    TibcoCloudSplashScreenComponent,
+    TibcoCloudSettingLandingComponent
   ],
   imports: [
     RouterModule,
