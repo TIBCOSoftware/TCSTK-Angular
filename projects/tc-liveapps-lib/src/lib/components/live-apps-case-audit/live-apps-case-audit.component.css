@@ -9,3 +9,45 @@
   overflow-x: auto;
   padding: 11px;
 }
+
+.audit-template {
+  padding: 20px;
+}
+
+.audit-template span {
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.audit-template ul {
+  padding-left: 25px;
+  border-left: 2px solid #bfbfbf;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.audit-icon-container {
+  background-color: white;
+  padding: 5px;
+  position: absolute;
+  left: -19px;
+
+  border-radius: 50%;
+  border: solid 1px #0081cb;
+}
+
+.audit-icon-container mat-icon {
+  padding: 4px;
+}

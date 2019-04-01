@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+ <g>
+  <ellipse stroke="null" ry="7.351296" rx="7.524559" id="svg_4" cy="13.658373" cx="12.074255" stroke-opacity="null" stroke-width="null" fill="#0081cb"/>
+  <path id="svg_1" fill="none" d="m-12.870959,2.227668l24,0l0,24l-24,0l0,-24z"/>
+  <path fill="#0081cb" id="svg_2" d="m15.247519,1.792059l-6,0l0,2l6,0l0,-2zm-4,13l2,0l0,-6l-2,0l0,6zm8.03,-6.61l1.42,-1.42c-0.43,-0.51 -0.9,-0.99 -1.41,-1.41l-1.42,1.42c-1.55,-1.24 -3.5,-1.98 -5.62,-1.98c-4.97,0 -9,4.03 -9,9s4.02,9 9,9s9,-4.03 9,-9c0,-2.12 -0.74,-4.07 -1.97,-5.61zm-7.03,12.61c-3.87,0 -7,-3.13 -7,-7s3.13,-7 7,-7s7,3.13 7,7s-3.13,7 -7,7z"/>
+  <rect stroke-dasharray="2,2" stroke="#ffffff" id="svg_3" height="6.088952" width="2.079155" y="6.653602" x="11.18319" stroke-width="0" fill="#ffffff"/>
+ </g>
+</svg>
