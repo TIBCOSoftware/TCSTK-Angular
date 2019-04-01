@@ -11,7 +11,7 @@ import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
 @Injectable()
 export class ConfigurationMenuConfigResolver implements Resolve<Observable<ConfigurationMenuConfig>> {
 
-    DEFAULT_CONFIG_URL = 'assets/config/<uiAppId>_configurationMenuConfig.json';
+    DEFAULT_CONFIG_URL = 'assets/config/<uiAppId>/configurationMenuConfig.json';
     APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     constructor(private http: HttpClient, private location: Location) { }
