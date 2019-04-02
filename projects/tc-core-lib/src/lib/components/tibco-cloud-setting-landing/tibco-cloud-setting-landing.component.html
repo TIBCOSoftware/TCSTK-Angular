@@ -1,0 +1,57 @@
+<div fxLayout="column" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Landing Page Configuration'"></tc-tibco-cloud-widget-header>
+    <div fxFlex style="padding: 20px; overflow: hidden" fxLayout="column">
+        <div style="overflow: auto;">
+            <div fxLayout="column" fxFlex>
+                <p>You can manage the configuration for the landing pages here.</p>
+                <br>
+                <mat-form-field>
+                    <mat-label>Welcome Page Configuration</mat-label>
+                    <mat-select [(value)]="selectedWelcomePage">
+                        <mat-option *ngFor="let landingPage of landingPages" [value]="landingPage">
+                            {{landingPage.key}}-{{landingPage.description}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div *ngIf="selectedWelcomePage">
+                    <div fxLayoutGap="10px">
+                        <mat-form-field fxFlex="50">
+                            <input matInput placeholder="Title" [(ngModel)]="selectedWelcomePage.title">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="50">
+                            <input matInput placeholder="Subtitle" [(ngModel)]="selectedWelcomePage.subtitle">
+                        </mat-form-field>
+                    </div>
+                    <div fxLayoutGap="10px">
+                        <mat-form-field fxFlex="50">
+                            <input matInput placeholder="Background URL" [(ngModel)]="selectedWelcomePage.backgroundURL">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="50">
+                            <input matInput placeholder="Home route" [(ngModel)]="selectedWelcomePage.homeRoute">
+                        </mat-form-field>
+                    </div>
+                    <div *ngFor="let highlight of selectedWelcomePage.highlights" fxLayoutGap="10px">
+                        <mat-form-field fxFlex="15">
+                            <input matInput placeholder="Icon URL" [(ngModel)]="highlight.iconURL">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="30">
+                            <input matInput placeholder="Title" [(ngModel)]="highlight.title">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="55">
+                            <textarea matInput placeholder="Subtitle" [(ngModel)]="highlight.content" cdkAutosizeMinRows="3" cdkAutosizeMaxRows="3"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end end" style="min-height: 50px">
+            <button mat-raised-button color="secundary" (click)="runDeleteConfiguration()">Delete</button>
+            <button mat-raised-button color="secundary" (click)="runNewConfiguration()">New</button>
+            <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+        </div>
+    </div>
+</div>
