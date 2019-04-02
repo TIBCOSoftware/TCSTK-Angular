@@ -33,6 +33,11 @@ export class AuthGuard implements CanActivate {
       } else {
         // not logged in so redirect to login page
         // TODO: Externalize redirect URL
+        // const TIBCO_CLOUD_LOGIN = 'https://account.cloud.tibco.com/idm/v1/login-saml?relayState=';
+        /*const TIBCO_CLOUD_LOGIN = 'https://account.tenant-integration.tcie.pro/idm/v1/login-saml?relayState=';
+        const reauthUrl = btoa('{ "resumeURL":"' + window.location.href + '", "tenantId":"BPM" }');
+        console.log('redirecting to: ' + TIBCO_CLOUD_LOGIN + reauthUrl);
+        window.location.href = TIBCO_CLOUD_LOGIN + reauthUrl;*/
         this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
       }
     }
