@@ -15,7 +15,7 @@
       "*": "/"
     }
   },
-  "/idm/v1/login-oauth": {
+  "/idm/v2/login-oauth": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -27,20 +27,19 @@
     "cookieDomainRewrite": {
       "*": "localhost"
     }
+  },  "/tsc-ws/v1/tsc-domain": {
+  "target": {
+    "host": "liveapps.tenant-integration.tcie.pro",
+    "protocol": "https:",
+    "port": 443
   },
-  "/tsc-ws/v1/tsc-domain": {
-    "target": {
-      "host": "liveapps.tenant-integration.tcie.pro",
-      "protocol": "https:",
-      "port": 443
-    },
-    "secure": true,
-    "changeOrigin": true,
-    "logLevel": "info",
-    "cookieDomainRewrite": {
-      "*": "localhost"
-    }
-  },
+  "secure": true,
+  "changeOrigin": true,
+  "logLevel": "info",
+  "cookieDomainRewrite": {
+    "*": "localhost"
+  }
+},
   "/idm/v1/reauthorize": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
@@ -93,7 +92,7 @@
       "*": "localhost"
     }
   },
-  "/organisation": {
+  "/organisation/v1/": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -106,7 +105,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/case/cases": {
+  "/case/v1/cases": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -119,7 +118,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/case/types": {
+  "/case/v1/types": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -132,7 +131,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/case/reports": {
+  "/case/v1/reports": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -145,7 +144,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/process/": {
+  "/process/v1/": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -158,7 +157,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/pageflow/": {
+  "/pageflow/v1/": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -171,7 +170,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/event": {
+  "/event/v1/": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -184,7 +183,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/clientstate/states": {
+  "/clientstate/v1/states": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -197,7 +196,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/webresource": {
+  "/webresource/": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
@@ -210,7 +209,20 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/collaboration": {
+  "/webresource/v1": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.tenant-integration.tcie.pro"
+    }
+  },
+  "/collaboration/v1/": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",
