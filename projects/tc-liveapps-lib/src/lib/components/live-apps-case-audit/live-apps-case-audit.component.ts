@@ -51,10 +51,6 @@ export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnD
 
   public getNextBatch = (event) => {
     if (!this.end) {
-      console.log('Request:', event);
-      console.log('skip:', this.startat);
-      console.log('top:', this.top);
-      console.log('end:', this.end);
       this.getAuditEvents(this.caseRef, this.sandboxId, this.startat, this.top);
     }
   }
