@@ -15,7 +15,7 @@
           <mat-icon svgIcon="BP_INSTANCE_CREATED"></mat-icon>
         </div>
         <div class="audit-details">
-          <li ngClass="{'underline':smallContainer}">
+          <li *ngClass="{'underline':'smallContainer'}">
             <span *ngIf="item.principalName">{{item.principalName.value}} </span>
             <span>
                       <span> started </span>
@@ -30,7 +30,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_AUTO_STARTED_INSTANCE"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
           <span>
                     <b>{{item.procName.value}}</b>
@@ -44,7 +44,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span>
                     <b>{{item.procName.value}}</b>
 					<span> deadline auto initiated on {{item.creationTime.value | date:'full'}}</span>
@@ -71,7 +71,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
           <span>
                     <b>{{item.procName.value}}</b>
@@ -84,7 +84,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
                 <span>
                     <b>{{item.taskName.value}}</b>
                     <span> initiated on {{item.creationTime.value | date: 'full'}}</span>
@@ -97,7 +97,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="CM_CASE_CREATED"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
                     <span> created</span>
@@ -125,7 +125,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="CM_CASE_UPDATED_STATE_CHANGED"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
                     <span> updated</span>
@@ -153,7 +153,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="CM_CASE_UPDATED"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
                     <span> updated</span>
@@ -179,7 +179,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="WR_FOLDER_ARTIFACT_CREATED"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
                     <span> uploaded</span>
@@ -194,7 +194,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="WR_FOLDER_ARTIFACT_UPDATED"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
                     <span> updated</span>
@@ -209,7 +209,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="WR_FOLDER_ARTIFACT_DELETED"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
                     <span> deleted</span>
@@ -224,7 +224,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span *ngIf="item.principalName">{{item.principalName.value}} </span>
           <span>
                     <span> completed</span>
@@ -238,7 +238,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_INSTANCE_COMPLETED"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
                 <span>
                     <b>{{item.procName.value}} </b>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
@@ -250,7 +250,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="ERROR"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
                 <span *ngIf="item.principalName">{{item.principalName.value}} has error at {{item.taskName.value}}>
                 </span>
           <b> {{item.message.value}}</b>
@@ -262,7 +262,7 @@
         <div class="audit-icon-container warn-icon">
           <mat-icon svgIcon="ERROR"></mat-icon>
         </div>
-        <li ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
                 <span *ngIf="item.principalName">{{item.principalName.value}} has warning at {{item.taskName.value}}>
                 </span>
           <b> {{item.message.value}}</b>
