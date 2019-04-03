@@ -1,4 +1,5 @@
-<div fxFlex style="margin-left: 10px;">
+<div *ngIf="caseCreatorList && caseCreatorList.length > 1" fxFlex style="margin-left: 10px;">
+    <span class="tcs-case-creation-dialog-instruction">Select a case creator</span>
     <mat-select #creatorSelector class="tcs-creator-selector-option" [disableOptionCentering]="true"
                 placeholder="Case Creators" (selectionChange)="selectProcess($event.value)">
       <mat-option *ngFor="let creator of caseCreatorList" [value]="creator">

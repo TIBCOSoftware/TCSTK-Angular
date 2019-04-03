@@ -36,3 +36,16 @@ tcs-creator-selector-option {
   padding-right: 20px;
   height: 35px;
 }
+
+.tcs-case-creation-dialog-instruction {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:#727272;
+}
+
+
