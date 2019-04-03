@@ -9,7 +9,6 @@
   src: url(/assets/fonts/tibco_fonts_Source_Sans_Pro_Source Sans Pro-Bold.ttf);
 }*/
 
-
 .splash-welcome {
   font-family: Source Sans Pro;
   font-size: 48px;
@@ -122,4 +121,5 @@
   letter-spacing: 0.1px;
   color: #062e79;
   padding-top: 12px;
-}
+} 
+
