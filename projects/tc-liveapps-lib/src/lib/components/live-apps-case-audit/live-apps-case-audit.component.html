@@ -59,7 +59,7 @@
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_DELAYED_AUTO_START_TIMER_EXPIRED"></mat-icon>
         </div>
-        <li *ngClass="{'underline':smallContainer}">
+        <li *ngClass="{'underline':'smallContainer'}">
           <span>
             <b>{{item.procName.value}}</b>
 					  <span> deadline reached {{item.creationTime.value | date: 'full'}}></span>
