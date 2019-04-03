@@ -58,6 +58,9 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
                 if (casetype.jsonSchema !== undefined) {
                   this.caseType = casetype;
                   this.caseCreatorList = casetype.creators ? casetype.creators : [];
+                  if (this.caseCreatorList.length == 1){
+                      this.selectProcess(this.caseCreatorList[0]);
+                  }
                 } else {
                   console.error('No schema returned for this case type: You may need to update/re-deploy the live apps application');
                 }
@@ -72,6 +75,10 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
 
   constructor(private liveapps: LiveAppsService) {
     super();
+
+    if (this.caseCreatorList && this.caseCreatorList.length == 1){
+        console.log("************ only one creator is available");
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
