@@ -6,9 +6,7 @@
     <mat-icon fxLayout="column" fxLayoutAlign="start end" class="tcs-case-creation-dialog-icons" [svgIcon]="'tcs-close-icon'" (click)="closeDialog()"></mat-icon>
   </mat-toolbar>
   <div mat-dialog-content class="tcs-case-creation-dialog" fxLayout="column">
-    <div *ngIf="!createdCase" class="tcs-case-creation-dialog-details">
-      <span class="tcs-case-creation-dialog-instruction">Select a case creator</span>
-      <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="application.applicationId"
+    <div *ngIf="!createdCase" class="tcs-case-creation-dialog-details">      <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="application.applicationId"
                                [typeId]="application.id" [dataOverride]="initialData"
                                (caseCreated)="handleCaseCreated($event)"></tcla-live-apps-creators>
     </div>

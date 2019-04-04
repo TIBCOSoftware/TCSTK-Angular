@@ -21,25 +21,25 @@ export class LandingPageComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-      this.title = 'Welcome to Project Discover';
-      this.subtitle = 'Process Intelligence as a Service';
-      this.backgroundImage = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, '/assets/images/background_clouds.png');
+      this.title = 'Welcome to your Discover App';
+      this.subtitle = 'Discover, Understand, and Improve Your Business Processes Based on Operational Systems Logs';
+      this.backgroundImage = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/images/background_clouds.png');
       
       let myPoints = new Array();
       const pp = {
-          pic: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, '/assets/images/pd_trans.png'),
-          title: 'Transparency',
-          subTitle: 'Discover Your Business Processes from Operational Systems'
+          pic: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/images/pd_comp.png'),
+          title: 'Learn',
+          subTitle: 'Discover processes and drive actionable insights from your data - e.g. tackle performance hotspots, compliance outliers, and capture best practices.'
       }
       const pp2 = {
-          pic: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, '/assets/images/pd_comp.png'),
-          title: 'Compliance',
-          subTitle: 'Apply Process Mining Analysis using Data Science & Visual Analytics'
+          pic: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/images/pd_trans.png'),
+          title: 'Improve',
+          subTitle: 'Raise out-of-compliance cases or process improvement requests. Collaborate with other teams to swiftly improve processes.'
       }
       const pp3 = {
-          pic: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, '/assets/images/pd_ease.png'),
-          title: 'Ease of Use',
-          subTitle: 'Deliver use case specific Cloud Applications to Business Users'
+          pic: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/images/pd_ease.png'),
+          title: 'Predict',
+          subTitle: 'Analyze performance with visual analytics and anticipate process bottlenecks with predictive analytics.'
       }
       myPoints.push(pp); 
       myPoints.push(pp2);
