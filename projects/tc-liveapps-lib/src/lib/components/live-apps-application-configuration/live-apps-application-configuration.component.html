@@ -6,8 +6,8 @@
         </div>
         <div class="tcs-case-card-customization-preview" fxLayout="column" fxLayoutAlign="start center" fxFlex>
           <div *ngIf="selectedStateConfig && caseTypeColor && caseTypeIcon" style="border-radius: 3px; margin: 5px;" fxLayout="column" fxLayoutAlign="space-around center">
-            <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="'card'" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>
-            <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="'miniCard'" [typeBar]="true" [configMode]="true" [configModeColor]="selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>
+            <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="'card'" [typeBar]="true" [configMode]="true" [configModeColor]="caseCardConfig.cardConfig.useCaseTypeColor ? caseTypeColor : selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>
+            <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="'miniCard'" [typeBar]="true" [configMode]="true" [configModeColor]="caseCardConfig.cardConfig.useCaseTypeColor ? caseTypeColor : selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>
           </div>
         </div>
       </div>
@@ -19,7 +19,17 @@
         <div fxFlex>
           <div fxFlex class="tcs-case-states-list" *ngIf="caseCardConfig && caseCardConfig.cardConfig && caseCardConfig.states" fxLayout="column" fxLayoutAlign="start center">
             <div class="tcs-case-states-list-inner">
-              <!-- case type icon -->
+              <div class="case-type-color-toggle">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <mat-slide-toggle
+                  class="use-case-type-color"
+                  [labelPosition]="'before'"
+                  [checked]="caseCardConfig.cardConfig.useCaseTypeColor"
+                  (change)="handleCaseTypeColorToggleChange($event)">
+                  Use Case Type Color for color bar
+                  </mat-slide-toggle>
+                </div>
+              </div>
               <div class="tcs-case-states-list-row">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div fxLayoutAlign="start center" style="min-width: 170px;">Case Type Icon</div>

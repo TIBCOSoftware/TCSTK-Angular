@@ -62,7 +62,7 @@ export class TcCaseCardConfigService {
         states.forEach(state => {
           stateMap.push(new IconMap(false, state.value, defaultStateColor, defaultStateIcon));
         });
-        const newCardConfig = new CardConfig().deserialize({ id: id, stateMap: stateMap });
+        const newCardConfig = new CardConfig().deserialize({ id: id, useCaseTypeColor: false, stateMap: stateMap });
         return this.updateCardConfig(sandboxId, appId, uiAppId, newCardConfig, id).pipe(
           tap(config => {
             // trigger update of the cache
@@ -157,6 +157,7 @@ export class TcCaseCardConfigService {
                 caseinfo.metadata.caseTypeColor = stateConfig.fill;
                 caseinfo.metadata.caseTypeIcon = stateConfig.icon;
               }
+              caseinfo.metadata.useCaseTypeColor = val.useCaseTypeColor ? val.useCaseTypeColor : false;
             });
           }
           // defaults

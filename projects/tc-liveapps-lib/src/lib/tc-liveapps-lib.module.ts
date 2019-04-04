@@ -8,7 +8,7 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule, MatOptionModule,
-    MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatSnackBarModule
+  MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatSnackBarModule, MatSlideToggleModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -143,6 +143,7 @@ import {TcRolesService} from './services/tc-roles-service.ts.service';
     MatExpansionModule,
       MatSnackBarModule,
       ScrollDispatchModule,
+    MatSlideToggleModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,
