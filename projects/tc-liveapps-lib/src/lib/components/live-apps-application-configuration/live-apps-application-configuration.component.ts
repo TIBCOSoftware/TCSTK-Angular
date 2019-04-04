@@ -129,6 +129,11 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public handleCaseTypeColorToggleChange = (changes) => {
     this.caseCardConfig.cardConfig.useCaseTypeColor = changes.checked ? changes.checked : false;
+    if (changes.checked) {
+      this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
+        comp.restylePreview(this.selectedStateConfig.icon, this.caseTypeColor);
+      });
+    }
     this.configChanged.emit(this.caseCardConfig);
   }
 
