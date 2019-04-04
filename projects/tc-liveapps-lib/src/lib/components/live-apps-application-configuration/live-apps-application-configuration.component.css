@@ -18,6 +18,11 @@
   color: #000000;
 }
 
+.case-type-color-toggle {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 .tcs-case-card-customization-header {
   height: 40px;
   border-radius: 3px 3px 0px 0px;

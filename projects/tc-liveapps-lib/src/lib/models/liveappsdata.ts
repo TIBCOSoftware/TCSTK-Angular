@@ -84,7 +84,8 @@ export class Metadata {
               public stateColor: string,
               public stateIcon: string,
               public caseTypeColor: string,
-              public caseTypeIcon: string
+              public caseTypeIcon: string,
+              public useCaseTypeColor: boolean
             ) {
   }
 }
@@ -400,6 +401,7 @@ export class IconMap {
 
 export class CardConfig implements Deserializable {
   id: string;
+  useCaseTypeColor: boolean;
   stateMap: IconMap[];
   deserialize(input: any): this {
     // this.stateMap = [];

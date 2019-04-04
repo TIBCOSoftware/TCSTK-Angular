@@ -127,6 +127,11 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     this.configChanged.emit(this.caseCardConfig);
   }
 
+  public handleCaseTypeColorToggleChange = (changes) => {
+    this.caseCardConfig.cardConfig.useCaseTypeColor = changes.checked ? changes.checked : false;
+    this.configChanged.emit(this.caseCardConfig);
+  }
+
   public setFill = (fill, stateConfig: IconMap) => {
     this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
       comp.restylePreview(stateConfig.icon, fill);
@@ -149,9 +154,11 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public selectState = (state: CaseTypeState) => {
     this.selectedStateConfig = this.getConfigForState(state);
-    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
-      comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
-    });
+    if (!this.caseCardConfig.cardConfig.useCaseTypeColor) {
+      this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
+        comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+      });
+    }
   }
 
   /*public saveConfig = () => {
