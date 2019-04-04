@@ -350,6 +350,10 @@ export class AppComponent {
       'round',
       this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/audit/round.svg'))
     );
+      this.matIconRegistry.addSvgIcon(
+          'tcpd-database-blue',
+          this.domSanitizer.bypassSecurityTrustResourceUrl(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-database-blue.svg'))
+      );
 
 
 
