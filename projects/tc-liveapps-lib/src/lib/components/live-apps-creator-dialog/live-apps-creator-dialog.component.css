@@ -29,17 +29,6 @@
   padding: 20px;
 }
 
-.tcs-case-creation-dialog-instruction {
-  font-family: Source Sans Pro;
-  font-size: 16px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color:#727272;
-}
-
 .tcs-case-created-confirmation-text {
   font-family: Source Sans Pro;
   font-size: 16px;
