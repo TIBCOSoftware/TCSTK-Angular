@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef, Input} from '@angular/core';
 import {Location} from '@angular/common';
+import { TcCoreCommonFunctions } from '../../common/tc-core-common-functions';
 
 declare var GlobalNavbar: any;
 
@@ -30,7 +31,8 @@ export class TibcoCloudNavbarComponent implements OnInit {
     */
 
     if (this.docUrl && (this.docUrl.slice(0, 4).toLowerCase() !== 'http')) {
-      this.docUrl = this.location.prepareExternalUrl(this.docUrl);
+//      this.docUrl = this.location.prepareExternalUrl(this.docUrl);        // This will work with non hash routing
+        this.docUrl = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.docUrl);        // This will work with hash routing
     }
 
     const navbar = new GlobalNavbar({
