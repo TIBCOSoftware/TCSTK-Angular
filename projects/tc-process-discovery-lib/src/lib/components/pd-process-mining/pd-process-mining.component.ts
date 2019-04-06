@@ -8,6 +8,7 @@ import { MatButtonToggleChange, MatDialog } from '@angular/material';
 import { CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext } from 'tc-liveapps-lib';
 import { Datasource, ChangeDatasourceSelectionContext } from '../../models/tc-process-discovery';
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from '../proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
+import { PdProcessDiscoveryConfigService } from '../../services/pd-process-discovery-config.service';
 
 @Component({
   selector: 'tcpd-pd-process-mining',
@@ -33,6 +34,7 @@ export class PdProcessMiningComponent implements OnInit {
     public markingOn;
     public parameters: string;
     public appIds: string[];
+    public uiAppId: string;
 
     public currentDatasource: Datasource;
     private datasourceAppId: string;     // AppId for the app which contains the datasources
@@ -43,8 +45,8 @@ export class PdProcessMiningComponent implements OnInit {
         private route: ActivatedRoute, 
         private processDiscovery: PdProcessDiscoveryService,
         protected buttonsHelper: TcButtonsHelperService,
-        private dialog: MatDialog
-
+        private dialog: MatDialog,
+        private processDiscoveryConfig: PdProcessDiscoveryConfigService
     ) { 
         router.routeReuseStrategy.shouldReuseRoute = function () {
             return false;
@@ -55,7 +57,7 @@ export class PdProcessMiningComponent implements OnInit {
         // const datasourceId = this.route.snapshot.params['datasourceId'];
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
         this.appIds = this.route.snapshot.data.laConfigHolder.liveAppsConfig.applicationIds;
-        const uiAppId = this.route.snapshot.data.laConfigHolder.generalConfig.uiAppId;
+        this.uiAppId = this.route.snapshot.data.laConfigHolder.generalConfig.uiAppId;
         this.datasourceAppId = this.route.snapshot.data.processDiscoverConfigHolder.datasourceAppId;
 
         this.viewButtons = this.createViewButtons();
@@ -90,7 +92,7 @@ export class PdProcessMiningComponent implements OnInit {
         } as SpotfireCustomization;
         this.markingOn = '*';
 
-        this.processDiscovery.getJezDatasource(this.sandboxId, uiAppId).subscribe(
+        this.processDiscovery.getJezDatasource(this.sandboxId, this.uiAppId).subscribe(
             datasource => {
                 this.currentDatasource = datasource;
                 this.refresh(false);
@@ -204,11 +206,11 @@ export class PdProcessMiningComponent implements OnInit {
     openDialog = (currentDatasource: Datasource): void => {
         const dialogRef = this.dialog.open(ProcesDiscoveryChangeDatasourceDialogComponent, {
             width: '50%',
-            height: '40%',
+            height: '30%',
             maxWidth: '100vw',
             maxHeight: '100vh',
             panelClass: 'tcs-style-dialog',
-            data: new ChangeDatasourceSelectionContext(currentDatasource, this.sandboxId, this.datasourceAppId)
+            data: new ChangeDatasourceSelectionContext(currentDatasource, this.sandboxId, this.datasourceAppId, this.uiAppId)
         });
 
         dialogRef.afterClosed().subscribe(result => {
