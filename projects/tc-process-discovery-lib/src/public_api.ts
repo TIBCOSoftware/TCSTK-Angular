@@ -14,7 +14,6 @@ export * from './lib/components/pd-settings-administration/pd-settings-administr
 export * from './lib/components/pd-settings-configuration/pd-settings-configuration.component';
 export * from './lib/components/settings-integration/settings-integration.component';
 export * from './lib/components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
-export * from './lib/components/settings-spotfire/settings-spotfire.component';
 export * from './lib/components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 
 
