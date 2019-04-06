@@ -24,7 +24,6 @@ import { TcProcessDiscoveryLibRoutingModule } from './tc-process-discovery-routi
 import { CommonModule } from '@angular/common';
 
 import { SettingsIntegrationComponent } from './components/settings-integration/settings-integration.component';
-import { SettingsSpotfireComponent } from './components/settings-spotfire/settings-spotfire.component';
 import { PdCaseViewComponent } from './components/pd-case-view/pd-case-view.component';
 import { PdSettingsAdministrationComponent } from './components/pd-settings-administration/pd-settings-administration.component';
 import { TcSpotfireLibModule } from 'tc-spotfire-lib';
@@ -36,7 +35,6 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     declarations: [
         PdProcessMiningComponent,
         SettingsIntegrationComponent,
-        SettingsSpotfireComponent,
         PdCaseViewComponent,
         PdSettingsAdministrationComponent,
         PdSettingsConfigurationComponent,
