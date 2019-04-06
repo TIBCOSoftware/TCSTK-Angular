@@ -1,0 +1,60 @@
+<div fxLayout="column" class="tcs-spotfire-settings-pane" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
+        [headerText]="'Spotfire Settings Configuration'"></tc-tibco-cloud-widget-header>
+    <div style="padding: 20px;" fxLayout="column" fxFlex>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+            <p>Choose the TIBCO Cloud Spotfire configuration to be used within this application:</p>
+        </div>
+        <div fxLayout="column">
+            <mat-form-field>
+                <input matInput placeholder="Spotfire Server" [(ngModel)]="spotfireServer">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Analysis Path" [(ngModel)]="analysisPath">
+            </mat-form-field>
+            <div fxLayout="row" fxLayoutAlign="space-between stretch">
+                <mat-form-field>
+                    <input matInput placeholder="Table Name" [(ngModel)]="tableName">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Active Page for Home" [(ngModel)]="activePageForHome">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Active Page for Details" [(ngModel)]="activePageForDetails">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Marking Name" [(ngModel)]="markingName">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Max Markings" [(ngModel)]="maxMarkings">
+                </mat-form-field>
+            </div>
+            <mat-form-field>
+                <input matInput placeholder="Allowed Pages" [(ngModel)]="allowedPages">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Column Names" [(ngModel)]="columnNames">
+            </mat-form-field>
+            <!-- <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-raised-button color="primary" (click)="runSaveFuntion()">Save</button>
+        </div>         -->
+        </div>
+        <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+            <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+        </div>
+    </div>
+    <!--
+    <md-button class="underlying-capability-save-button" ng-click="runSaveFuntion()">Save</md-button>
+
+    <div ng-if="alertData" layout="row" style="padding-top: 20px" layout-align="space-between center">
+        <tcc-alert alert-type="alertData.alertType" title="alertData.title" description="alertData.description"
+            more-info="false" icon="alertData.icon" close-alert="false" auto-close-flag="alertData.autoCloseFlag"
+            auto-close-val="alertData.autoCloseVal" inline=true full-width=true modal-flag=false stand-alone=false>
+            <tcc-alert-description>
+                <div>some details</div>
+            </tcc-alert-description>
+        </tcc-alert>
+    </div> 
+-->
+</div>

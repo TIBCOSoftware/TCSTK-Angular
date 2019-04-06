@@ -7,6 +7,7 @@ export * from './lib/tc-spotfire-lib.module';
 
 // components
 export * from './lib/components/mc-spotfire-wrapper/mc-spotfire-wrapper.component';
+export * from './lib/components/settings-spotfire/settings-spotfire.component';
 
 // data
 export * from './lib/models/tc-spotfire-config';
