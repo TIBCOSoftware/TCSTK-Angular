@@ -75,8 +75,6 @@ export class PdProcessDiscoveryService {
             );
     }
 
-
-
     DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/processDiscoveryConfig_private.json');
     private getDefaultUserConfig = () => {
         return this.http.get(this.DEFAULT_CONFIG_URL);
@@ -87,7 +85,6 @@ export class PdProcessDiscoveryService {
             flatMap(userConfig => {
                 if (userConfig === undefined){
                     // Private shared state is not initiated. Read it from the DEFAULT_CONFIG_URL and store in private share state
-                    console.log("En 1: ");
                     return this.getDefaultUserConfig().pipe(
                         flatMap(fileUserConfig => {
                             const defaultUserConfig = new ProcessDiscoveryUserConfig().deserialize(fileUserConfig);
@@ -103,6 +100,7 @@ export class PdProcessDiscoveryService {
                                     if (defaultUserConfig.datasourceCaseRef != ""){
                                         return this.getDatasourceDetails(sandboxId, defaultUserConfig.datasourceCaseRef).pipe(
                                             map(detailedDatasource => {
+                                                detailedDatasource.idDefinition = id;
                                                 return detailedDatasource;
                                             })
                                         );
@@ -114,7 +112,6 @@ export class PdProcessDiscoveryService {
                         })
                     )
                 } else {
-                    console.log("En 10");
                     if (userConfig.datasourceCaseRef != ""){
                         return this.getDatasourceDetails(sandboxId, userConfig.datasourceCaseRef).pipe(
                             map(detailedDatasource => {
@@ -130,7 +127,6 @@ export class PdProcessDiscoveryService {
     }
 
     public getDatasourceDetails = (sandboxId: any, caseRef: string): Observable<Datasource> => {
-
         return this.liveappsService.getCaseByRef(sandboxId,caseRef)
             .pipe(
                 map(value => {
@@ -172,11 +168,6 @@ export class PdProcessDiscoveryService {
     }
 
     public setCurrentDatasource = (datasource: Datasource): Observable<Datasource> => {
-        // this.currentDatasource.deserialize({
-        //     datasourceId: datasourceId,
-        //     description: description,
-        //     caseRef: caseRef
-        // });
         this.currentDatasource = datasource;
         return of(this.currentDatasource);
     }
