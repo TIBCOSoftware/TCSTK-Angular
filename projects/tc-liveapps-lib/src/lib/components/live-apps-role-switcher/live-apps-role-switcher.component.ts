@@ -17,7 +17,7 @@ export class LiveAppsRoleSwitcherComponent implements OnInit {
     ngOnInit() {
     }
 
-    public selectRole = (role) => {
+    public selectRole = (role: RoleAttribute) => {
         this.changeRoleEvent.emit(role);
     }
 
