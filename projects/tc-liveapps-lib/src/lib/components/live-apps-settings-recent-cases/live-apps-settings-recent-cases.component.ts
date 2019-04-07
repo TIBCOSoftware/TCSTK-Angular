@@ -14,7 +14,7 @@ import {LiveAppsSettingsComponent} from '../live-apps-settings/live-apps-setting
 export class LiveAppsSettingsRecentCasesComponent extends LiveAppsSettingsComponent implements OnInit {
 
   LIVE_APPS_URL = '/apps/dt-app/index.html#/application-content/';
-
+    
   public excludeRecentIds: string[];
 
   public handleExcludeRecentAppIdSelection(appIds: string[]) {
@@ -35,7 +35,18 @@ export class LiveAppsSettingsRecentCasesComponent extends LiveAppsSettingsCompon
       collaborationAppId: this.liveAppsConfig.documentAppId
     });
     // unable to use super.liveAppsConfigService
-    super.getLiveAppsConfigService().updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe();
+    super.getLiveAppsConfigService().updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe(
+        result => {
+            this.snackBar.open('Recent cases settings saved', 'OK', {
+                duration: 3000
+            });
+        },
+        error => {
+            this.snackBar.open('Error saving Recent cases settings', 'OK', {
+                duration: 3000
+            });
+        }
+    );
   }
 }
 

@@ -8,6 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.service';
 import {CaseType} from '../../models/liveappsdata';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'tcla-live-apps-settings-summary-cards',
@@ -19,8 +20,8 @@ export class LiveAppsSettingsSummaryCardsComponent extends LiveAppsSettingsCompo
   public caseCardConfig: CaseCardConfig;
   public selectedApp: CaseType;
 
-  constructor(private caseCardConfigService: TcCaseCardConfigService, private routeExt: ActivatedRoute, private liveAppsConfigServiceExt: TcLiveAppsConfigService) {
-    super(routeExt, liveAppsConfigServiceExt);
+  constructor(private caseCardConfigService: TcCaseCardConfigService, private routeExt: ActivatedRoute, private liveAppsConfigServiceExt: TcLiveAppsConfigService, protected snackBar: MatSnackBar) {
+    super(routeExt, liveAppsConfigServiceExt, snackBar);
   }
 
   public handleConfigChanged = (caseCardConfig: CaseCardConfig) => {
@@ -40,7 +41,18 @@ export class LiveAppsSettingsSummaryCardsComponent extends LiveAppsSettingsCompo
         map(caseCardConfig => {
           this.caseCardConfig = caseCardConfig;
         })
-      ).subscribe(null, error => { console.log('Unable to update case card config: ' + error.errorMsg); }
+      ).subscribe(
+          result => {
+              this.snackBar.open('Summary cards settings saved', 'OK', {
+                  duration: 3000
+              });
+          },
+          error => {
+              this.snackBar.open('Error saving Summary Cards settings', 'OK', {
+                  duration: 3000
+              });
+              console.log('Unable to update case card config: ' + error.errorMsg);
+          }
     );
   }
 
