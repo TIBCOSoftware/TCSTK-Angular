@@ -1,8 +1,8 @@
 <div>
     <mat-form-field>
         <mat-label>Viewing as</mat-label>
-        <mat-select [(value)]="selectedRole" (selectionChange)="selectRole(selectedRole )">
-            <mat-option *ngFor="let role of roles" value="role">{{role.display}}</mat-option>
+        <mat-select [(value)]="selectedRole" (selectionChange)="selectRole(selectedRole)">
+            <mat-option *ngFor="let role of roles" [value]="role">{{role.display}}</mat-option>
         </mat-select>
     </mat-form-field>
 </div>
