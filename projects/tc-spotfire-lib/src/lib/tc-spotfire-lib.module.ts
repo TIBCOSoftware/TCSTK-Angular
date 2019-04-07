@@ -17,6 +17,7 @@ import {
     MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ],
     imports: [
         FormsModule, ReactiveFormsModule,
+        FlexLayoutModule,
         TcCoreLibModule,
         SpotfireViewerModule, MatButtonModule,
         MatCardModule,
