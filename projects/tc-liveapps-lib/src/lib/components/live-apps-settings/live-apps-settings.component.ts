@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {GeneralConfig, Claim, Sandbox} from 'tc-core-lib';
 import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'tcla-live-apps-settings',
@@ -20,7 +21,7 @@ export class LiveAppsSettingsComponent extends LiveAppsComponent implements OnIn
   public generalConfig: GeneralConfig;
   public claims: Claim;
 
-  constructor(protected route: ActivatedRoute, protected liveAppsConfigService: TcLiveAppsConfigService) {
+  constructor(protected route: ActivatedRoute, protected liveAppsConfigService: TcLiveAppsConfigService, protected snackBar: MatSnackBar) {
     super();
   }
 
@@ -54,7 +55,18 @@ export class LiveAppsSettingsComponent extends LiveAppsComponent implements OnIn
       documentAppId: this.liveAppsConfig.documentAppId,
       collaborationAppId: this.liveAppsConfig.documentAppId
     });
-    this.liveAppsConfigService.updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe();
+    this.liveAppsConfigService.updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe(
+        result => {
+            this.snackBar.open('Live Apps App Selection Configuration settings saved', 'OK', {
+                duration: 3000
+            });
+        },
+        error => {
+            this.snackBar.open('Error saving Live Apps App Selection Configuration', 'OK', {
+                duration: 3000
+            });
+        }
+    );
   }
 }
 
