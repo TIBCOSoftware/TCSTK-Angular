@@ -12,7 +12,7 @@ import { TcCoreCommonFunctions } from 'tc-core-lib';
 @Injectable()
 export class SpotfireConfigResolver implements Resolve<Observable<SpotfireConfig>> {
 
-    DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/spotfireAppConfig.json');
+    DEFAULT_CONFIG_URL = 'assets/config/<uiAppId>/spotfireAppConfig.json'
     APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     private sandboxId: number;
@@ -32,7 +32,7 @@ export class SpotfireConfigResolver implements Resolve<Observable<SpotfireConfig
 
     // can be used to load defaultSpotfireConfig from a JSON config
     private getDefaultSpotfireConfig = () => {
-        return this.http.get(this.DEFAULT_CONFIG_URL);
+        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL.replace('<uiAppId>', this.uiAppId)));
     }
 
     // loads uiAppId from json file in assets (appId.json)

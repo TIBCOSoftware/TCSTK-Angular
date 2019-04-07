@@ -1,0 +1,11 @@
+{
+    "spotfireServer": "https://23.22.187.212",
+    "analysisPath": "/TIBCO Labs/ProcessMining_custom_queries_final",
+    "tableName": "cases",
+    "activePageForHome": "Overview",
+    "activePageForDetails": "Overview",
+    "markingName": "Cases",
+    "maxMarkings": 20,
+    "allowedPages":  ["Overview", "Process Map", "Variants", "Compliance", "Filters"],
+    "columnNames": ["case_id"]
+}
