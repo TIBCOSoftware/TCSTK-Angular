@@ -59,13 +59,15 @@ export class SettingsSpotfireComponent implements OnInit {
     public runSaveFunction = ():void => {
        
         var spotfireConfig = new SpotfireConfig().deserialize({
+            id: this.id,
+            uiAppId: this.uiAppId,
             spotfireServer: this.spotfireServer,
             analysisPath: this.analysisPath,
             tableName: this.tableName,
             activePageForHome: this.activePageForHome,
             activePageForDetails: this.activePageForDetails,
             markingName: this.markingName,
-            naxMarkings: this.maxMarkings,
+            maxMarkings: this.maxMarkings,
             allowedPages: this.allowedPages.split(','),
             columnNames: this.columnNames.split(',')
         });
