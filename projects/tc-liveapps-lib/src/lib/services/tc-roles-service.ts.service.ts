@@ -5,7 +5,7 @@ import { RolesResolver } from '../resolvers/roles.resolver';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
-import { TcGeneralConfigService, TcSharedStateService } from 'tc-core-lib';
+import { TcGeneralConfigService, TcSharedStateService, RoleAttribute } from 'tc-core-lib';
 
 @Injectable({
     providedIn: 'root'
@@ -30,5 +30,14 @@ export class TcRolesService {
             return (role.configuration == true);
         })
         return reqRole ? true : false;
+    }
+
+    currentRole = new RoleAttribute();
+    getCurrentRole = (): RoleAttribute => {
+        return this.currentRole;
+    }
+
+    setCurrentRole = (role: RoleAttribute): void => {
+        this.currentRole = role;
     }
 }
