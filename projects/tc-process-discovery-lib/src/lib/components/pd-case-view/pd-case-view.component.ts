@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
+import { ToolbarButton, TcButtonsHelperService, RoleAttribute } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
 import {LiveAppsHomeCockpitComponent, TcRolesService} from 'tc-liveapps-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
@@ -17,6 +17,7 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
     public appIds: string[];
     public uiAppId: string;
     public userId: string;
+    public displayRoles: RoleAttribute[];
 
     constructor(
         private router: Router, 
@@ -24,9 +25,9 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
         protected buttonsHelper: TcButtonsHelperService,
         public dialog: MatDialog,
         private processDiscovery: PdProcessDiscoveryService,
-        private rolService: TcRolesService
+        private roleService: TcRolesService
     ) {
-        super(buttonsHelper, dialog, rolService);
+        super(buttonsHelper, dialog, roleService);
      }
 
     ngOnInit() {
@@ -36,13 +37,18 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
         this.uiAppId = this.route.snapshot.data.laConfigHolder.generalConfig.uiAppId;
         this.userId = this.route.snapshot.data.claims.userId;
 
+        // Roles
+        this.roles = this.route.snapshot.data.rolesHolder;
+        this.displayRoles = this.roles.roles.filter(role => !role.configuration);
+
         // Buttons on the top bar
         this.toolbarButtons = this.createToolbarButtons();
         this.viewButtons = this.createViewButtons();
     }
 
     protected createToolbarButtons = (): ToolbarButton[] => {
-        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
+
+        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.roleService.amIConfigurator(this.roles), true);
         const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
         const buttons = [ configButton, refreshButton ];
         return buttons;
@@ -73,6 +79,10 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
     }
 
     clickCaseAction = ($event: any): void => {
-        this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef]);
+        this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef], { queryParams: { returnUrl: this.router.url }});
+    }
+
+    public roleChange = ($role: RoleAttribute): void => {
+        console.log("Swith role", $role);
     }
 }
