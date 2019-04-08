@@ -6,6 +6,7 @@ export class RoleAttribute {
   public display: string;
   public welcome: string;
   public imageUrl: string;
+  public configuration: boolean;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
