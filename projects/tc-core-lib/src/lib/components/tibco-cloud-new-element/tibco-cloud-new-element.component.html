@@ -1,0 +1,20 @@
+<div class="tcs-dialog-outer-div" fxFill >
+    <mat-toolbar class="tcs-case-creation-dialog-toolbar">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
+            <span class="tcs-case-creation-dialog-toolbar-text">Create New {{elementType}}</span>
+        </div>
+    </mat-toolbar>
+    <div mat-dialog-content class="tcs-case-creation-dialog" fxLayout="row" fxLayoutAlign="space-around none">
+        <mat-form-field style="min-width: 200px">
+            <input matInput placeholder="Id" [(ngModel)]="id">
+        </mat-form-field>
+        <mat-form-field style="min-width: 400px">
+            <input matInput placeholder="Name" [(ngModel)]="name">
+        </mat-form-field>
+    </div>
+    <div class="tcs-spacer"></div>
+    <mat-dialog-actions class="tcs-dialog-actions" fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button mat-flat-button color="secondary">Cancel</button>
+        <button mat-button mat-flat-button color="primary" (click)="onCreate()">Create</button>
+    </mat-dialog-actions>
+</div>
