@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { LandingPageConfig, LandingPageItemConfig, GeneralLandingPageConfig } from '../../models/tc-general-landing-page-config';
 import { TcGeneralLandingPageConfigService } from '../../services/tc-general-landing-page-config.service';
 import { Claim } from '../../models/tc-login';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
+import { TibcoCloudNewElementComponent } from '../tibco-cloud-new-element/tibco-cloud-new-element.component';
 
 @Component({
   selector: 'tc-tibco-cloud-setting-landing',
@@ -23,7 +24,8 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private generalLandingPageConfigService: TcGeneralLandingPageConfigService,
-        private snackBar: MatSnackBar
+        private snackBar: MatSnackBar,
+        private dialog: MatDialog
     ) { }
 
     ngOnInit() {
@@ -61,13 +63,30 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
     }
 
     runNewConfiguration = ():void => {
-        const newElement = new LandingPageConfig().deserialize({
-            key: 'test',
-            description: 'description',
-            highlights: [new LandingPageItemConfig(), new LandingPageItemConfig(), new LandingPageItemConfig()]
+
+        const dialogRef = this.dialog.open(TibcoCloudNewElementComponent, {
+            width: '50%',
+            height: '30%',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
+            panelClass: 'tcs-style-dialog',
+            data: { resourceType: 'Landing Page' }
         });
 
-        this.landingPages.push(newElement);
-        this.selectedWelcomePage = newElement;
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                const newElement = new LandingPageConfig().deserialize({
+                    key: result.id,
+                    description: result.name,
+                    highlights: [new LandingPageItemConfig(), new LandingPageItemConfig(), new LandingPageItemConfig()]
+                });
+
+                this.landingPages.push(newElement);
+                this.selectedWelcomePage = newElement;
+            }
+        });
+
+
     }
+
 }
