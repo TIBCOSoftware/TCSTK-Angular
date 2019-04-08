@@ -54,6 +54,7 @@ import {RouterModule} from '@angular/router';
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 import {CommonModule} from '@angular/common';
 import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
+import { TibcoCloudNewElementComponent } from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
 
 
 // import {DataSource} from '@angular/cdk/collections';
@@ -78,7 +79,8 @@ import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-sett
     TibcoCloudSettingsGeneralComponent,
     TibcoCloudConfigurationComponent,
     TibcoCloudSplashScreenComponent,
-    TibcoCloudSettingLandingComponent
+    TibcoCloudSettingLandingComponent,
+    TibcoCloudNewElementComponent
   ],
   imports: [
     RouterModule,
@@ -143,7 +145,8 @@ import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-sett
     TibcoCloudSettingMenuEntryComponent,
     TibcoCloudSettingsGeneralComponent,
     TibcoCloudConfigurationComponent,
-    TibcoCloudSplashScreenComponent
+    TibcoCloudSplashScreenComponent,
+      TibcoCloudNewElementComponent
   ],
   providers: [
     RequestCacheService,
@@ -155,7 +158,8 @@ import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-sett
     { provide: HTTP_INTERCEPTORS, useClass: AuthErrorInterceptor, multi: true }
     // uncomment this line to use the mock service interceptor
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
-  ]
+  ],
+  entryComponents: [ TibcoCloudNewElementComponent ]
 })
 
 export class TcCoreLibModule {
