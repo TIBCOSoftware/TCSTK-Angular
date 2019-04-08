@@ -8,7 +8,7 @@
           <br>
           <!-- Role specific -->
             <mat-accordion>
-              <mat-expansion-panel *ngFor="let role of generalConfig.roles">
+              <mat-expansion-panel *ngFor="let role of generalConfig.roles" (opened)="selectedRole(role)">
                 <mat-expansion-panel-header>
                   <mat-panel-title>{{role.display}}</mat-panel-title>
                 </mat-expansion-panel-header>
@@ -26,6 +26,7 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
+                  <mat-slide-toggle [(ngModel)]="role.configuration">Configuration role</mat-slide-toggle>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -33,7 +34,9 @@
 
       </div>
       <div fxFlex class="tcs-filler-panel"></div>
-      <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
+      <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px" style="min-height: 50px">
+        <button mat-raised-button color="secondary" (click)="deleteRoleFunction()">Delete</button>
+        <button mat-raised-button color="secondary" (click)="createRoleFunction()">New</button>
         <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
       </div>
     </div>
