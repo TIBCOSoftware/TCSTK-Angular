@@ -5,6 +5,7 @@ import { TcGeneralLandingPageConfigService } from '../../services/tc-general-lan
 import { Claim } from '../../models/tc-login';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { TibcoCloudNewElementComponent } from '../tibco-cloud-new-element/tibco-cloud-new-element.component';
+import { RoleAttribute } from '../../models/tc-general-config';
 
 @Component({
   selector: 'tc-tibco-cloud-setting-landing',
@@ -20,6 +21,8 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
 
     public landingPages: LandingPageConfig[];
     public selectedWelcomePage: LandingPageConfig;
+    public allRoles: RoleAttribute[];
+    public selectedRole: RoleAttribute[];
 
     constructor(
         private route: ActivatedRoute,
@@ -31,6 +34,7 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
     ngOnInit() {
         this.landingPagesConfig = this.route.snapshot.data.landingPagesConfigHolder;
         this.landingPages = this.landingPagesConfig.landingPage;
+        this.allRoles = this.route.snapshot.data.allRolesHolder.roles.filter(element => !element.configuration);
 
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
         this.uiAppId = 'processdiscovery1';
@@ -85,8 +89,10 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
                 this.selectedWelcomePage = newElement;
             }
         });
+    }
 
-
+    compareObjects = (o1: string, o2: string): boolean => {
+        return o1 === o2;
     }
 
 }
