@@ -3,7 +3,7 @@
         <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
             <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
                 <div fxFlex="33" fxLayoutAlign="center none">
-                    <tcla-live-apps-role-switcher *ngIf="displayRoles.length > 1" [roles]="displayRoles" ></tcla-live-apps-role-switcher>
+                    <tcla-live-apps-role-switcher *ngIf="displayRoles.length > 1" [roles]="displayRoles" [selectedRole]="currentRole" (changeRoleEvent)="roleChange($event)"></tcla-live-apps-role-switcher>
                 </div>
                 <div fxFlex="33">
                     <mat-button-toggle-group class="nav-switch-bar" name="view" aria-label="Font Style" [value]="'process-mining-view'" (change)="handleViewButtonEvent($event)" >
