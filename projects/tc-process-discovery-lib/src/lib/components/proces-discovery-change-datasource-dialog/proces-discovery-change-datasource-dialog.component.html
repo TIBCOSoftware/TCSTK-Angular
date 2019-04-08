@@ -1,15 +1,20 @@
-<h1 mat-dialog-title>Select the new datasource</h1>
-<div mat-dialog-content>
-    <div fxFlex fxLayout="column">
-        <mat-label>Datasource</mat-label>
-        <mat-select [(value)]="newDatasource">
-            <mat-option *ngFor="let datasource of datasources" [value]="datasource">
-                {{datasource.datasourceId}}-{{datasource.description}}
-            </mat-option>
-        </mat-select>
+<div class="popup-top-padding-container" fxFill fxLayout="column" >
+    <h1 mat-dialog-title>Select the new datasource</h1>
+    <div mat-dialog-content>
+        <div fxFlex  fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-label fxFlex="30">Datasource</mat-label>
+            <mat-select fxFlex="50" [(value)]="newDatasource">
+                <mat-option *ngFor="let datasource of datasources" [value]="datasource">
+                    {{datasource.datasourceId}}-{{datasource.description}}
+                </mat-option>
+            </mat-select>
+        </div>
     </div>
-</div>
-<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
-    <!-- <button mat-raised-button (click)="saveAsDefaultDatasource()">Save as default datasource</button> -->
-    <button mat-raised-button color="primary" [mat-dialog-close]="newDatasource" cdkFocusInitial>Ok</button>
+    <div *ngIf="!defaultDatasource">User has not defined a default datasource.</div>
+    <div *ngIf="defaultDatasource"> User default datasource: {{defaultDatasource.description}}</div>
+    <div fxFlex class="tcs-filler-panel"></div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
+        <button mat-raised-button (click)="saveAsDefaultDatasource()">Save as default datasource</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="newDatasource" cdkFocusInitial>Ok</button>
+    </div>
 </div>
