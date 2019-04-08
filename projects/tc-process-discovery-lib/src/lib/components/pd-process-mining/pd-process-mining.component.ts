@@ -40,6 +40,7 @@ export class PdProcessMiningComponent implements OnInit {
     private datasourceAppId: string;     // AppId for the app which contains the datasources
 
     public displayRoles: RoleAttribute[];
+    public currentRole: RoleAttribute;
     private roles: Roles;
     
     constructor(
@@ -65,6 +66,8 @@ export class PdProcessMiningComponent implements OnInit {
         // Roles
         this.roles = this.route.snapshot.data.rolesHolder;
         this.displayRoles = this.roles.roles.filter(role => !role.configuration);
+        this.currentRole = this.roleService.getCurrentRole();
+        console.log("***** MY ROLE ", this.roleService.getCurrentRole());
         
         this.viewButtons = this.createViewButtons();
         this.toolbarButtons = this.createToolbarButtons();
@@ -230,6 +233,11 @@ export class PdProcessMiningComponent implements OnInit {
                 // this.router.navigate(['/starterApp/case/' + result.appId + '/' + result.typeId + '/' + result.caseRef], {});
             }
         });
+    }
+
+    public roleChange = ($role: RoleAttribute): void => {
+        console.log("Swith role", $role);
+        this.roleService.setCurrentRole($role);
     }
 
 }
