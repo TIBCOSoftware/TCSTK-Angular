@@ -32,7 +32,10 @@ import {SettingsComponent} from './routes/settings/settings.component';
 import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
 import {TibcoCloudConfigurationComponent} from 'tc-core-lib';
 import {ConfigurationComponent} from './routes/configuration/configuration.component';
-import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
+// HUGO: Removed these two lines to make the build work.
+// import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
+//  { path: 'spotfire-settings', component: SettingsSpotfireComponent, resolve: { spotfireConfigHolder: SpotfireConfigResolver, claimsHolder: ClaimsResolver } },
+import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 
 import { SpotfireConfigResolver } from 'tc-spotfire-lib';
 import {SplashComponent} from './components/splash/splash.component';
@@ -151,7 +154,6 @@ const routes: Routes = [
               generalConfigHolder: GeneralConfigResolver
             }
           },
-          { path: 'spotfire-settings', component: SettingsSpotfireComponent, resolve: { spotfireConfigHolder: SpotfireConfigResolver, claimsHolder: ClaimsResolver } },
           { path: 'process-discovery-configuration', component: PdSettingsConfigurationComponent , resolve: { claims: ClaimsResolver } },
           { path: 'process-discovery-administration', component: PdSettingsAdministrationComponent, resolve: {} } ,
           {
