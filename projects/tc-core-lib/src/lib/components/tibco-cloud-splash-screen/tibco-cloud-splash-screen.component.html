@@ -8,15 +8,15 @@
       <div class="splash-modal">
         <table class="splash-highlightstable">
           <tbody>
-          <tr *ngFor="let point of pagePoints">
+          <tr *ngFor="let highlight of highlights">
             <td>
               <div class="splash-oval" >
-                <img class="splash-img" src="{{point.pic}}" />
+                <img class="splash-img" src="{{highlight.iconURL}}" />
               </div>
             </td>
             <td>
-              <p class="splash-highlight-item-title">{{point.title}}</p>
-              <p class="splash-highlight-item-content">{{point.subTitle}}</p>
+              <p class="splash-highlight-item-title">{{highlight.title}}</p>
+              <p class="splash-highlight-item-content">{{highlight.content}}</p>
             </td>
           </tr>
           </tbody></table>

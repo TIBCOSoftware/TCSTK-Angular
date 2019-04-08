@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { TcCoreCommonFunctions } from '../../common/tc-core-common-functions';
 import { Location } from '@angular/common';
+import { LandingPageItemConfig } from '../../models/tc-general-landing-page-config';
 
 /**
  * @title Dialog Overview
@@ -15,15 +16,13 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
     @Input() title: string;
     @Input() subTitle: string;
     @Input() backGroundImage: string;
-    @Input() pagePointsJSON: string;
+    @Input() highlights: LandingPageItemConfig[];
     @Output() getStartedEvent: EventEmitter<string> = new EventEmitter<string>();
 
-    public pagePoints = new Array();
     constructor() {
     }
 
     ngOnInit(): void {
-        this.pagePoints = JSON.parse(this.pagePointsJSON);
     }
 
     getStartedClick = (): void => {
