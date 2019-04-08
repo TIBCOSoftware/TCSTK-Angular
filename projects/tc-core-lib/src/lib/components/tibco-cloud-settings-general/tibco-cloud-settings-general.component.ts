@@ -21,7 +21,7 @@ export class TibcoCloudSettingsGeneralComponent implements OnInit {
     public sandboxId: number;
     public claims: Claim;
 
-    constructor(private route: ActivatedRoute, private generalConfigService: TcGeneralConfigService, private snackBar: MatSnackBar) { }
+    constructor(protected route: ActivatedRoute, protected generalConfigService: TcGeneralConfigService, protected snackBar: MatSnackBar) { }
 
     ngOnInit() {
       this.generalConfig = this.route.snapshot.data.generalConfigHolder;
