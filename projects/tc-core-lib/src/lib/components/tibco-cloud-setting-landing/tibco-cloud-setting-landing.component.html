@@ -32,6 +32,17 @@
                             <input matInput placeholder="Home route" [(ngModel)]="selectedWelcomePage.homeRoute">
                         </mat-form-field>
                     </div>
+                    <div fxLayoutGap="10px">
+                        <mat-form-field fxFlex="80">
+                        <mat-label>Used in roles</mat-label>
+                        <mat-select [(ngModel)]="selectedWelcomePage.roles" (selectionChange)="selectRole(selectedRole)" [compareWith]="compareObjects" multiple>
+                            <mat-option *ngFor="let role of allRoles" [value]="role.id">{{role.display}}</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="20">
+                            <input matInput type="number" min="0" max="10" placeholder="Priority" [(ngModel)]="selectedWelcomePage.priority">
+                        </mat-form-field>
+                    </div>
                     <div *ngFor="let highlight of selectedWelcomePage.highlights" fxLayoutGap="10px">
                         <mat-form-field fxFlex="15">
                             <input matInput placeholder="Icon URL" [(ngModel)]="highlight.iconURL">
@@ -44,7 +55,6 @@
                         </mat-form-field>
                     </div>
                 </div>
-
             </div>
         </div>
         <div fxFlex class="tcs-filler-panel"></div>
