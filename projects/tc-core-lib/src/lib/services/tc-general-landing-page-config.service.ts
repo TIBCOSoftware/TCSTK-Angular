@@ -76,18 +76,11 @@ export class TcGeneralLandingPageConfigService {
     public getLandingPage = (key: string, uiAppId: string): Observable<LandingPageConfig> => {
         const landingPage = this.getGeneralLandingPageConfig(uiAppId, true, true).pipe(
             map(landingPages => {
-                let page: LandingPageConfig;
-                landingPages.landingPage.forEach(element => {
-                    if (element.key === key){
-                        page = element;
-                    }
-                });
+                const page = landingPages.landingPage.filter(element => element.key === key )[0];
                 return page;
             })            
         )   
         return landingPage;
-
     }
-
 }
 
