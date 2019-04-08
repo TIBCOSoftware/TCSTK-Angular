@@ -9,16 +9,20 @@ import { RoleAttribute } from 'tc-core-lib';
 export class LiveAppsRoleSwitcherComponent implements OnInit {
 
     @Input() roles: RoleAttribute[];
+    @Input() selectedRole: RoleAttribute;
     @Output() changeRoleEvent: EventEmitter<RoleAttribute> = new EventEmitter<RoleAttribute>();
 
-    public selectedRole: RoleAttribute;
     constructor() { }
 
     ngOnInit() {
+        console.log("******* MY SELECTED ROLE", this.selectedRole);
     }
 
     public selectRole = (role: RoleAttribute) => {
         this.changeRoleEvent.emit(role);
     }
 
+    compareObjects = (o1: RoleAttribute, o2: RoleAttribute): boolean => {
+        return o1.id === o2.id;
+    }
 }
