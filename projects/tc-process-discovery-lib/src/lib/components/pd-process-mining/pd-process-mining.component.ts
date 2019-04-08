@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SpotfireCustomization } from '@tibco/spotfire-wrapper/lib/spotfire-customization';
 import { McSpotfireWrapperComponent } from 'tc-spotfire-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
-import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
+import { ToolbarButton, TcButtonsHelperService, RoleAttribute } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
-import { CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext } from 'tc-liveapps-lib';
+import { CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext, Roles, TcRolesService } from 'tc-liveapps-lib';
 import { Datasource, ChangeDatasourceSelectionContext } from '../../models/tc-process-discovery';
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from '../proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 import { PdProcessDiscoveryConfigService } from '../../services/pd-process-discovery-config.service';
@@ -38,7 +38,9 @@ export class PdProcessMiningComponent implements OnInit {
 
     public currentDatasource: Datasource;
     private datasourceAppId: string;     // AppId for the app which contains the datasources
-    private newDatasource: Datasource;
+
+    public displayRoles: RoleAttribute[];
+    private roles: Roles;
     
     constructor(
         private router: Router, 
@@ -46,7 +48,8 @@ export class PdProcessMiningComponent implements OnInit {
         private processDiscovery: PdProcessDiscoveryService,
         protected buttonsHelper: TcButtonsHelperService,
         private dialog: MatDialog,
-        private processDiscoveryConfig: PdProcessDiscoveryConfigService
+        private processDiscoveryConfig: PdProcessDiscoveryConfigService,
+        protected roleService: TcRolesService
     ) { 
         router.routeReuseStrategy.shouldReuseRoute = function () {
             return false;
@@ -54,16 +57,19 @@ export class PdProcessMiningComponent implements OnInit {
     }
 
     ngOnInit() {
-        // const datasourceId = this.route.snapshot.params['datasourceId'];
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
         this.appIds = this.route.snapshot.data.laConfigHolder.liveAppsConfig.applicationIds;
         this.uiAppId = this.route.snapshot.data.laConfigHolder.generalConfig.uiAppId;
         this.datasourceAppId = this.route.snapshot.data.processDiscoverConfigHolder.datasourceAppId;
 
+        // Roles
+        this.roles = this.route.snapshot.data.rolesHolder;
+        this.displayRoles = this.roles.roles.filter(role => !role.configuration);
+        
         this.viewButtons = this.createViewButtons();
         this.toolbarButtons = this.createToolbarButtons();
 
-        // Spotfire general configuration 
+        // Spotfire general configuration
         const spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
         this.spotfireServer = spotfireConfig.spotfireServer;
         this.analysisPath = spotfireConfig.analysisPath;
@@ -113,7 +119,7 @@ export class PdProcessMiningComponent implements OnInit {
     
     protected createToolbarButtons = (): ToolbarButton[] => {
         const changeDatasourceButton = this.buttonsHelper.createButton('changedatasource', 'tcs-config-icon', true, 'Change datasource', true, true);
-        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, true);
+        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.roleService.amIConfigurator(this.roles), true);
         const buttons = [configButton, changeDatasourceButton];
         return buttons;
     }
