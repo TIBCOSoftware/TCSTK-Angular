@@ -75,10 +75,6 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
 
   constructor(private liveapps: LiveAppsService) {
     super();
-
-    if (this.caseCreatorList && this.caseCreatorList.length == 1){
-        console.log("************ only one creator is available");
-    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
