@@ -42,7 +42,6 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
         this.roles = this.route.snapshot.data.rolesHolder;
         this.displayRoles = this.roles.roles.filter(role => !role.configuration);
         this.currentRole = this.roleService.getCurrentRole();
-        console.log("***** MY ROLE ", this.roleService.getCurrentRole());
 
         // Buttons on the top bar
         this.toolbarButtons = this.createToolbarButtons();
@@ -86,7 +85,6 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
     }
 
     public roleChange = ($role: RoleAttribute): void => {
-        console.log("Swith role", $role);
         this.roleService.setCurrentRole($role);
     }
 }

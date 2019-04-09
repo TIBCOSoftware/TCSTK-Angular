@@ -43,7 +43,6 @@ export class ProcesDiscoveryChangeDatasourceDialogComponent {
         );
         this.processDiscovery.getUserConfig(this.uiAppId, 'PRIVATE', true, false).pipe(
             map(userConfig => {
-                console.log("SSS", userConfig);
                 if (userConfig.datasourceCaseRef === ""){
                     // There is no predefined datasource for the user
                     this.defaultDatasource = undefined;

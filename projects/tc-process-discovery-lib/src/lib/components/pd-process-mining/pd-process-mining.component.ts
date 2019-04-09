@@ -67,7 +67,6 @@ export class PdProcessMiningComponent implements OnInit {
         this.roles = this.route.snapshot.data.rolesHolder;
         this.displayRoles = this.roles.roles.filter(role => !role.configuration);
         this.currentRole = this.roleService.getCurrentRole();
-        console.log("***** MY ROLE ", this.roleService.getCurrentRole());
         
         this.viewButtons = this.createViewButtons();
         this.toolbarButtons = this.createToolbarButtons();
@@ -108,7 +107,6 @@ export class PdProcessMiningComponent implements OnInit {
             },
             error => {
                 if (error === 'Not datasource defined'){
-                    console.log('There is no datasource');
                     this.title = '';
                     this.openDialog(this.currentDatasource);
                 }
@@ -179,7 +177,6 @@ export class PdProcessMiningComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                console.log(result);
                 this.router.navigate(['/starterApp/case/' + result.appId + '/' + result.typeId + '/' + result.caseRef], {});
             }
         });
@@ -224,7 +221,6 @@ export class PdProcessMiningComponent implements OnInit {
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                console.log("Cerrando el cuadro de dialogo", result);
                 if (!this.currentDatasource || this.currentDatasource.caseRef != result.caseRef){
                     this.currentDatasource = result;
                     this.refresh(true);
