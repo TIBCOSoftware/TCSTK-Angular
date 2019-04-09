@@ -18,6 +18,8 @@ export class LandingPageConfig {
     public backgroundURL: string;
     public homeRoute: string;
     public highlights: LandingPageItemConfig[];
+    roles: string[];
+    priority: number;
     deserialize(input: any) {
         Object.assign(this, input);
         return this;
@@ -28,8 +30,6 @@ export class GeneralLandingPageConfig implements Deserializable {
     id: string;
     version: string;
     landingPage: LandingPageConfig[];
-    roles: string[];
-    priority: number;
     deserialize(input: any) {
         Object.assign(this, input);
         return this;
