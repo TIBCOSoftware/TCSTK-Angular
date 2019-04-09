@@ -37,7 +37,6 @@ export class SettingsComponent implements OnInit {
 
         this.showConfigName = id;
         const url = 'starterApp/settings/' + id.toLowerCase().split(' ').join('-');
-        console.log('************* ' + url);
 
         this.router.navigate([url]);
     }

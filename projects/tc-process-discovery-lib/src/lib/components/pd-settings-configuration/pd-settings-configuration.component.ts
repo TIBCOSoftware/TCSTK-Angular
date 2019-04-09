@@ -42,7 +42,6 @@ export class PdSettingsConfigurationComponent implements OnInit {
     }
 
     selectApplication = ($event: any): void =>{
-        console.log("******** " + $event);
         this.processDiscoveryConfig.datasourceAppId = $event.applicationId;
     }
 
