@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { TcCoreCommonFunctions, TcGeneralLandingPageConfigService, LandingPageItemConfig } from 'tc-core-lib';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Roles, TcRolesService } from 'tc-liveapps-lib';
 
 @Component({
     selector: 'tcpd-landing-page',
@@ -14,17 +15,23 @@ export class LandingPageComponent implements OnInit {
     public title: string;
     public subtitle: string;
     public backgroundImage: string;
-    public pointsJSON: string;
     public highlights: LandingPageItemConfig[];
+    
+    private navigateURL: string;
 
     constructor(
         private location: Location,
+        private route: ActivatedRoute,
         private router: Router,
-        private landingPageService: TcGeneralLandingPageConfigService
+        private landingPageService: TcGeneralLandingPageConfigService,
+        private rolesService: TcRolesService
     ) { }
 
     ngOnInit() {
-        this.landingPageService.getLandingPage('GENERAL', 'processdiscovery1').pipe(
+        const uiAppId = this.route.snapshot.data.generalConfigHolder.uiAppId;
+        const rolesIds = this.route.snapshot.data.rolesHolder.roles.filter(element => !element.configuration).map(a => a.id);
+
+        this.landingPageService.getLandingPageForRoles(rolesIds, uiAppId).pipe(
             map(result => {
                 this.title = result.title;
                 this.subtitle = result.subtitle;
@@ -48,13 +55,21 @@ export class LandingPageComponent implements OnInit {
                     content: result.highlights[2].content,
                     iconURL: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.highlights[2].iconURL)
                 }));
+
+                this.navigateURL = result.homeRoute;
+
+                // Set the role
+                const workingRoleId = result.roles.filter(element => rolesIds.some(r => element.indexOf(r) >= 0));
+                const workingRole = this.route.snapshot.data.generalConfigHolder.roles.filter(element => element.id === workingRoleId[0])[0];
+                this.rolesService.setCurrentRole(workingRole);
+
             })
         ).subscribe();
 
     }
 
     public moveHome = (): void => {
-        this.router.navigate(['/starterApp/pd/case-view']);
+        this.router.navigate([this.navigateURL]);
     }
 
 }

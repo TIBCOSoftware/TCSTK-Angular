@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import { LiveAppsService } from '../services/live-apps.service';
 import { Roles } from '../models/tc-groups-data';
-import { RolesResolver } from '../resolvers/roles.resolver';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Location } from '@angular/common';
-import { TcGeneralConfigService, TcSharedStateService, RoleAttribute } from 'tc-core-lib';
+import { RoleAttribute } from 'tc-core-lib';
 
 @Injectable({
     providedIn: 'root'
