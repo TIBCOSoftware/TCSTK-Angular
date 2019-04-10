@@ -31,6 +31,7 @@ import { PdSettingsConfigurationComponent } from './components/pd-settings-confi
 import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-datasource.component';
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from './components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { SelectedRoleGuard } from './guards/selectedRole.guard';
 @NgModule({
     declarations: [
         PdProcessMiningComponent,
@@ -79,6 +80,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
         TcSpotfireLibModule,
         TcProcessDiscoveryLibRoutingModule
     ],
+    providers: [ SelectedRoleGuard ],
     exports: [ ],
     entryComponents: [ ProcesDiscoveryChangeDatasourceDialogComponent ]
 })
