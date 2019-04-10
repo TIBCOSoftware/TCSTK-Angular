@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToolbarButton, TcButtonsHelperService, RoleAttribute } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
-import {LiveAppsHomeCockpitComponent, TcRolesService} from 'tc-liveapps-lib';
+import {LiveAppsHomeCockpitComponent, TcRolesService, Groups} from 'tc-liveapps-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
 
 @Component({
@@ -19,6 +19,8 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
     public userId: string;
     public displayRoles: RoleAttribute[];
     public currentRole: RoleAttribute;
+
+    private groups: Groups;
 
     constructor(
         private router: Router, 
@@ -43,6 +45,9 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
         this.displayRoles = this.roles.roles.filter(role => !role.configuration);
         this.currentRole = this.roleService.getCurrentRole();
 
+        // Groups
+        this.groups = this.route.snapshot.data.groupsHolder;
+
         // Buttons on the top bar
         this.toolbarButtons = this.createToolbarButtons();
         this.viewButtons = this.createViewButtons();
@@ -50,7 +55,7 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
 
     protected createToolbarButtons = (): ToolbarButton[] => {
 
-        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.roleService.amIConfigurator(this.roles), true);
+        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.roleService.amIConfigurator(this.roles) || this.groups.groups.find(group => group.name === "System: ADMINISTRATOR") != undefined, true);
         const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
         const buttons = [ configButton, refreshButton ];
         return buttons;
