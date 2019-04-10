@@ -1,9 +1,9 @@
 import { Deserializable } from 'tc-core-lib';
 
 export class ProcessDiscoveryUserConfig implements Deserializable {
-    // id: string;
+    id: string;
     version: string;
-    // uiAppId: string;
+    uiAppId: string;
     datasourceCaseRef: string;
     deserialize(input: any) {
         Object.assign(this, input);

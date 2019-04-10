@@ -24,3 +24,6 @@ export * from './lib/services/pd-process-discovery.service';
 // Resolvers
 export * from './lib/resolvers/process-discovery-config.resolver';
 
+// Guards
+export * from './lib/guards/selectedRole.guard';
+
