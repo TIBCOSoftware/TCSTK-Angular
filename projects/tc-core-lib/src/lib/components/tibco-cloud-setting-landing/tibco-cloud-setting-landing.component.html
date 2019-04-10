@@ -35,7 +35,7 @@
                     <div fxLayoutGap="10px">
                         <mat-form-field fxFlex="80">
                         <mat-label>Used in roles</mat-label>
-                        <mat-select [(ngModel)]="selectedWelcomePage.roles" (selectionChange)="selectRole(selectedRole)" [compareWith]="compareObjects" multiple>
+                        <mat-select [(ngModel)]="selectedWelcomePage.roles" [compareWith]="compareObjects" multiple>
                             <mat-option *ngFor="let role of allRoles" [value]="role.id">{{role.display}}</mat-option>
                         </mat-select>
                         </mat-form-field>
