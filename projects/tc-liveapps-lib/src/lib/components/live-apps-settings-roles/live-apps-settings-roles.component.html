@@ -35,7 +35,7 @@
       </div>
       <div fxFlex class="tcs-filler-panel"></div>
       <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px" style="min-height: 50px">
-        <button mat-raised-button color="secondary" (click)="deleteRoleFunction()">Delete</button>
+        <button mat-raised-button color="secondary" [disabled]="!currentRole" (click)="deleteRoleFunction()">Delete</button>
         <button mat-raised-button color="secondary" (click)="createRoleFunction()">New</button>
         <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
       </div>

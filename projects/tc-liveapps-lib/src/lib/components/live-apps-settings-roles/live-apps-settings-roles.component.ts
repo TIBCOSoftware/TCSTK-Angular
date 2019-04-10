@@ -14,7 +14,7 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
     public roles: Roles;
     public groups: Groups;
 
-    private currentRole: RoleAttribute;
+    public currentRole: RoleAttribute;
 
     constructor(protected route: ActivatedRoute, protected generalConfigService: TcGeneralConfigService, protected snackBar: MatSnackBar, private dialog: MatDialog) {
         super(route, generalConfigService, snackBar);
@@ -29,8 +29,7 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
     }
 
     deleteRoleFunction = (): void => {
-        console.log("+**** Deleting", this.currentRole);
-
+        this.generalConfig.roles = this.generalConfig.roles.filter(element => element.id != this.currentRole.id);
     }
 
     selectedRole = (role: RoleAttribute): void => {
