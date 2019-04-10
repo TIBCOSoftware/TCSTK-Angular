@@ -5,7 +5,7 @@ import { McSpotfireWrapperComponent } from 'tc-spotfire-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
 import { ToolbarButton, TcButtonsHelperService, RoleAttribute } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
-import { CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext, Roles, TcRolesService } from 'tc-liveapps-lib';
+import { CaseType, LiveAppsCreatorDialogComponent, CaseCreatorSelectionContext, Roles, TcRolesService, Groups } from 'tc-liveapps-lib';
 import { Datasource, ChangeDatasourceSelectionContext } from '../../models/tc-process-discovery';
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from '../proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 import { PdProcessDiscoveryConfigService } from '../../services/pd-process-discovery-config.service';
@@ -42,6 +42,8 @@ export class PdProcessMiningComponent implements OnInit {
     public displayRoles: RoleAttribute[];
     public currentRole: RoleAttribute;
     private roles: Roles;
+
+    private groups: Groups;
     
     constructor(
         private router: Router, 
@@ -68,6 +70,9 @@ export class PdProcessMiningComponent implements OnInit {
         this.displayRoles = this.roles.roles.filter(role => !role.configuration);
         this.currentRole = this.roleService.getCurrentRole();
         
+        // Groups
+        this.groups = this.route.snapshot.data.groupsHolder;
+
         this.viewButtons = this.createViewButtons();
         this.toolbarButtons = this.createToolbarButtons();
 
@@ -120,7 +125,7 @@ export class PdProcessMiningComponent implements OnInit {
     
     protected createToolbarButtons = (): ToolbarButton[] => {
         const changeDatasourceButton = this.buttonsHelper.createButton('changedatasource', 'tcs-config-icon', true, 'Change datasource', true, true);
-        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.roleService.amIConfigurator(this.roles), true);
+        const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.roleService.amIConfigurator(this.roles) || this.groups.groups.find(group => group.name === "System: ADMINISTRATOR") != undefined, true);
         const buttons = [configButton, changeDatasourceButton];
         return buttons;
     }
