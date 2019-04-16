@@ -221,7 +221,7 @@ export class CaseAction implements Deserializable {
   applicationName: string;
   availableInStates: string[];
   chatBotEnabled: boolean;
-  id: number;
+  id: string;
   label: string;
   name: string;
   noData: boolean;
