@@ -6,12 +6,19 @@
   display: none;
 }
 
+::ng-deep .mat-stepper-horizontal{
+    /* border: solid 1px red; */
+    /* height: 100%;
+    overflow: hidden; */
+}
+
 ::ng-deep .mat-horizontal-content-container{
-    /* border: solid 1px green;  */
-    height: 100%;
+    flex: 1 1 1e-09px;
+    /* overflow:hidden; */
+    /* height: 100%; */
 }
 
 ::ng-deep .mat-horizontal-stepper-content{
-    /* border: solid 1px blue;  */
-    height: 100%;
+    height: 100%
+    /* overflow:hidden; */
 }
