@@ -51,12 +51,8 @@ export class PdProcessMiningComponent implements OnInit {
         private processDiscovery: PdProcessDiscoveryService,
         protected buttonsHelper: TcButtonsHelperService,
         private dialog: MatDialog,
-        private processDiscoveryConfig: PdProcessDiscoveryConfigService,
         protected roleService: TcRolesService
     ) { 
-        router.routeReuseStrategy.shouldReuseRoute = function () {
-            return false;
-        };
     }
 
     ngOnInit() {
@@ -237,8 +233,13 @@ export class PdProcessMiningComponent implements OnInit {
     }
 
     public roleChange = ($role: RoleAttribute): void => {
-        console.log("Swith role", $role);
         this.roleService.setCurrentRole($role);
+        this.currentRole = this.roleService.getCurrentRole();
+        this.viewButtons = this.createViewButtons();
+
+        if ($role.display === 'Investigators'){
+            this.router.navigate(['/starterApp/pd/case-view']);
+        }
     }
 
 }
