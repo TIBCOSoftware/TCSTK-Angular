@@ -43,7 +43,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   caseType: CaseType;
   caseActionList: Process[];
 
-  constructor(private liveapps: LiveAppsService, private caseProcessesService: TcCaseProcessesService) {
+  constructor(protected liveapps: LiveAppsService, protected caseProcessesService: TcCaseProcessesService) {
     super();
   }
 
