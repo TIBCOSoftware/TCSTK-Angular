@@ -58,7 +58,7 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
                 if (casetype.jsonSchema !== undefined) {
                   this.caseType = casetype;
                   this.caseCreatorList = casetype.creators ? casetype.creators : [];
-                  if (this.caseCreatorList.length == 1){
+                  if (this.caseCreatorList.length === 1) {
                       this.selectProcess(this.caseCreatorList[0]);
                   }
                 } else {
