@@ -244,6 +244,35 @@ export class CaseActionsList implements Deserializable {
   }
 }
 
+export class CaseCreator implements Deserializable {
+  activityName: string;
+  applicationId: string;
+  applicationName: string;
+  availableInStates: string[];
+  chatBotEnabled: boolean;
+  id: string;
+  label: string;
+  name: string;
+  noData: boolean;
+  performerPaths: string[];
+  roles: string[];
+  version: number;
+  process: Process;
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
+export class CaseCreatorsList implements Deserializable {
+  creators: CaseCreator[];
+  deserialize(input: any): this {
+    this.creators = [];
+    Object.assign(this.creators, input);
+    return this;
+  }
+}
+
 export class CaseList implements Deserializable {
   uniqueKey: string;
   maxSize: number;
