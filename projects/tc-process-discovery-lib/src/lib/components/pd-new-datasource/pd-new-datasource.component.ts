@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { parse } from 'papaparse';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LiveAppsService, ProcessId, Process } from 'tc-liveapps-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
 import { PdProcessDiscoveryConfigService } from '../../services/pd-process-discovery-config.service';
@@ -23,8 +22,8 @@ export interface Mapping {
 export class PdNewDatasourceComponent implements OnInit {
 
     // Internal fields
-    private sandboxId: number = 31;
-    private applicationId: string = '2504';
+    public sandboxId: number;
+    // private applicationId: string;
     private pdConfiguration: ProcessDiscoveryConfig;
 
     // 
@@ -49,6 +48,9 @@ export class PdNewDatasourceComponent implements OnInit {
     public numberRowsForPreview: number = 5;
     public skipEmptyLines: boolean = true;
     public encoding: string = 'UTF-8';
+    public dateTimeFormat: string = 'YYYY-MM-DD HH:mm:ss.SSS';
+    public quoteChar: string = '"';
+    public escapeChar: string = '"';
 
     // JDBC
     // public jdbcUsername: string;
@@ -74,22 +76,14 @@ export class PdNewDatasourceComponent implements OnInit {
     private creator: Process;
 
     constructor(
-        private _formBuilder: FormBuilder, 
         private liveapps: LiveAppsService, 
         private documentService: TcDocumentService,
-        private pdConfigService: PdProcessDiscoveryConfigService,
         private pdService: PdProcessDiscoveryService,
         private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
-        // this.firstFormGroup = this._formBuilder.group({
-        //     firstCtrl: ['', Validators.required]
-        // });
-        // this.secondFormGroup = this._formBuilder.group({
-        //     secondCtrl: ['', Validators.required]
-        // });
-        // Get the configuration for creating new datasources from Share State
+        this.sandboxId = Number(this.route.snapshot.data.claims.primaryProductionSandbox.id).valueOf();
         this.pdConfiguration = this.route.snapshot.data.processDiscovery;
         this.liveapps.getCaseTypeSchema(this.sandboxId, this.pdConfiguration.datasourceAppId, 100).
             pipe(
@@ -130,6 +124,8 @@ export class PdNewDatasourceComponent implements OnInit {
 
     public refresh = ():void =>{
         let config = {
+            quoteChar: this.quoteChar,
+            escapeChar: this.escapeChar,
             header: this.useFirstRowAsHeader,
             preview: this.numberRowsForPreview,
             encoding: this.encoding,
@@ -139,10 +135,13 @@ export class PdNewDatasourceComponent implements OnInit {
                     this.useFirstRowAsHeader ? Object.keys(result.data[0]).length: result.data[0].length, 
                     this.useFirstRowAsHeader ? result.meta.fields: undefined);
                 this.data = result.data;
+                this.columnSeparator = result.meta.delimiter;
             },
             skipEmptyLines: this.skipEmptyLines
         };
+        console.log("********** 1 Size: " + this.file.size);
         parse(this.file, config);
+        console.log("********** 2 Size: " + this.file.size);
     }
 
     public setComments = ($event): void => {
@@ -170,23 +169,25 @@ export class PdNewDatasourceComponent implements OnInit {
 
     handleSubmit = () => {
 
-        const data = {
+        let data = {
             DiscoverAnalysisConfig: {
                 AnalysisName: this.analysisName,
                 AnalysisDescription: this.analysisDescription,
                 InputType: this.inputType,
-                "CSVSchema": {
+                CSVSchema: {
                     ColumnName: this.displayedColumns
                 },
                 CSVOptions: {
-                    headers: this.useFirstRowAsHeader ? "true": "false",
-                    headerBasedParser: "true",
-                    separator: ";",
-                    quoteChar: "\""
+                    headers: this.useFirstRowAsHeader ? 'true' : 'false',
+                    headerBasedParser: this.useFirstRowAsHeader ? 'true' : 'false',
+                    separator: this.columnSeparator,
+                    quoteChar: this.quoteChar,
+                    escapeChar: this.escapeChar,
+                    datetimeFormat: this.dateTimeFormat
                 },
                 FileOptions: {
                     FileName: this.file.name,
-                    FilePath: "Uploaded via browser"
+                    FilePath: this.pdConfiguration.hdfsRootPath + '/<folder>/' + this.file.name
                 },
                 EventMap: {
                     case_id: this.caseId,
@@ -194,7 +195,12 @@ export class PdNewDatasourceComponent implements OnInit {
                     resource_id: this.resource,
                     activity_start_time: this.start,
                     activity_end_time: this.end,
-                    otherAttributes: "asfasf"
+                    otherAttributes: this.other.toString()
+                },
+                SDSBackend: {
+                    Status: '',
+                    SDSProcessId: '',
+                    'auto-checkInterval': 2
                 }
             }
         }
@@ -214,18 +220,12 @@ export class PdNewDatasourceComponent implements OnInit {
                             }
                             if (response.caseReference) {
                                 caseReference = response.caseReference;
+                                data.DiscoverAnalysisConfig.FileOptions.FilePath = data.DiscoverAnalysisConfig.FileOptions.FilePath.replace('<folder>', caseIdentifier);
                             }
                             // const processResponse = new ProcessId().deserialize({ 'caseIdentifier': caseIdentifier, 'caseReference': caseReference });
                             // this.caseChanged.emit(processResponse);
                             // this.schema = undefined;
                             // this.data = undefined;
-                            // this.layout = undefined;
-                            this.liveapps.runProcess(this.sandboxId, this.pdConfiguration.datasourceAppId, this.pdConfiguration.validateActionAppId, caseReference, data).
-                                pipe(
-                                    map( response2 => {
-                                        console.log("Response2 ", response2);
-                                    })
-                                ).subscribe();
                             
                             // upload the document to the case
                             if (this.pdConfiguration.storeToLiveApps) {
@@ -238,6 +238,7 @@ export class PdNewDatasourceComponent implements OnInit {
                             }
 
                             if (this.pdConfiguration.storeToHDFS) {
+                                
                                 const datasourceId = response.caseIdentifier;
                                 const url = this.pdConfiguration.hdfsHostname + this.pdConfiguration.hdfsRootPath + '/' + datasourceId + '/' + this.filename;
                                 this.pdService.uploadFileHDFS(url, this.pdConfiguration.hdfsUsername, this.pdConfiguration.hdfsPermision, this.pdConfiguration.hdfsOverwriteFile, this.file).subscribe(
@@ -249,6 +250,14 @@ export class PdNewDatasourceComponent implements OnInit {
                                     }
                                 );
                             }
+
+                            // this.layout = undefined;
+                            // this.liveapps.runProcess(this.sandboxId, this.pdConfiguration.datasourceAppId, this.pdConfiguration.validateActionAppId, caseReference, data).
+                            //     pipe(
+                            //         map(response2 => {
+                            //             console.log("Response2 ", response2);
+                            //         })
+                            //     ).subscribe();
                         } else {
                             console.error('Unable to run case creator');
                             console.error(response.data.errorMsg);

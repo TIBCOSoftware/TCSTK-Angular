@@ -91,6 +91,9 @@
                                                 <input [disabled]="!preview" matInput="number" placeholder="Number of rows to preview"
                                                     [(ngModel)]="numberRowsForPreview">
                                             </mat-form-field>
+                                            <mat-form-field>
+                                                <input matInput placeholder="Quote Char" maxlength="2" [(ngModel)]="quoteChar">
+                                            </mat-form-field>
                                         </div>
                                         <div fxLayout="column">
                                             <mat-checkbox [(ngModel)]="useFirstRowAsHeader">Use first row as header
@@ -98,6 +101,9 @@
                                             <mat-form-field>
                                                 <input matInput placeholder="Column separator" maxlength="1"
                                                     [(ngModel)]="columnSeparator">
+                                            </mat-form-field>
+                                            <mat-form-field>
+                                                <input matInput placeholder="Escape Char" maxlength="2" [(ngModel)]="escapeChar">
                                             </mat-form-field>
                                         </div>
                                         <div fxLayout="column">
@@ -121,7 +127,6 @@
                                                     <mat-option value="Windows-1252">Windows-1252</mat-option>
                                                 </mat-select>
                                             </mat-form-field>
-
                                         </div>
                                     </div>
                                     <mat-action-row fxLayoutGap="10px">
@@ -142,6 +147,24 @@
                                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                                 </table>
+                            </div>
+                        </div>
+                        <div fxFlex class="tcs-filler-panel"></div>
+                        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px" style="min-height: 50px">
+                            <button mat-raised-button matStepperPrevious>Back</button>
+                            <button mat-raised-button color="primary" matStepperNext>Next</button>
+                        </div>
+                    </div>
+                </mat-step>
+                <!-- Other options -->
+                <mat-step *ngIf="inputType === 'csv'">
+                    <ng-template matStepLabel>Other options</ng-template>
+                    <div fxFill style="height:100%;overflow:auto" fxLayout="column" fxFlex>
+                        <div>
+                            <div fxLayout="column">
+                                <mat-form-field fxFlex="47">
+                                    <input matInput placeholder="Date Time Format" [(ngModel)]="dateTimeFormat">
+                                </mat-form-field>                
                             </div>
                         </div>
                         <div fxFlex class="tcs-filler-panel"></div>
