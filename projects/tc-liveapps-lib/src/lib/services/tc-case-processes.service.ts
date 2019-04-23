@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {CaseAction, CaseActionsList, CaseType, CaseTypesList} from '../models/liveappsdata';
+import {CaseAction, CaseActionsList, CaseCreator, CaseCreatorsList, CaseType, CaseTypesList} from '../models/liveappsdata';
 import {LaProcessSelection} from '../models/tc-case-processes';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Observable} from 'rxjs';
@@ -52,6 +52,29 @@ export class TcCaseProcessesService {
         })
       );
     }
+
+  // todo: Note this is not a public API - update when Public API available
+  public getCaseCreators(sandboxId: number, appId: string, typeId: string, caseState: string): Observable<CaseCreatorsList> {
+    const select = 's';
+    const url = '/pageflow/v1/caseCreators?$sandbox=' + sandboxId
+      + '&$filter=applicationId eq ' + appId
+      + ' and caseType eq ' + typeId
+
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(casecreators => {
+          const ccList = new CaseCreatorsList().deserialize(casecreators);
+          // non public API returns creator Id as number, switch to string to match other APIs
+          ccList.creators.forEach(creator => {
+            if (typeof creator.id === 'number') {
+              creator.id = String(creator.id);
+            }
+          })
+          return ccList;
+        })
+      );
+  }
 
   private getCaseIDAttributeName = (caseType: CaseType) => {
     let caseIdAttrib: any;
