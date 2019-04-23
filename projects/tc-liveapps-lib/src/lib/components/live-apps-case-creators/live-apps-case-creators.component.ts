@@ -1,11 +1,11 @@
 /**
  * @ngdoc component
- * @name liveAppsCaseActionComponent
+ * @name liveAppsCaseCreatorsComponent
  *
  * @description
- * `<tcla-live-apps-case-actions>` is a component providing the ability to list and select case actions.
+ * `<tcla-live-apps-case-creators>` is a component providing the ability to list and select case creators.
  *
- * @param {function callback} actionClicked Notify parent that an action has been selected.
+ * @param {function callback} creatorClicked Notify parent that a creator has been selected.
  *
  * @usage
  *
@@ -17,26 +17,23 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} fr
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil, tap} from 'rxjs/operators';
-import {CaseAction, CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
+import {CaseCreator, CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 
 @Component({
-  selector: 'tcla-live-apps-case-actions',
-  templateUrl: './live-apps-case-actions.component.html',
-  styleUrls: ['./live-apps-case-actions.component.css']
+  selector: 'tcla-live-apps-case-creators',
+  templateUrl: './live-apps-case-creators.component.html',
+  styleUrls: ['./live-apps-case-creators.component.css']
 })
-export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements OnInit {
-  @Input() caseReference: string;
+export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements OnInit {
   @Input() appId: string;
   @Input() typeId: string;
   @Input() sandboxId: number;
-  @Input() caseState: string;
-  @Input() maxActions = 1;
-  @Output() actionClicked: EventEmitter<LaProcessSelection> = new EventEmitter<LaProcessSelection>();
+  @Output() creatorClicked: EventEmitter<LaProcessSelection> = new EventEmitter<LaProcessSelection>();
 
-  public caseactions: CaseAction[];
+  public casecreators: CaseCreator[];
   public errorMessage: string;
 
   appSchema: CaseTypesList;
@@ -48,22 +45,22 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   public refresh = () => {
-    this.caseProcessesService.getCaseActionsForCaseRef(this.caseReference, this.sandboxId, this.appId, this.typeId)
+    this.caseProcessesService.getCaseCreators(this.sandboxId, this.appId, this.typeId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
-        map(caseactions => {
-          this.caseactions = caseactions.actions;
+        map(casecreators => {
+          this.casecreators = casecreators.creators;
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
-  public selectAction(action: CaseAction) {
+  public selectCreator(creator: CaseCreator) {
     // todo: JS: When the form is not supported there will be no 'form schema' and hence we cannot render the form.
     // Need to decide what to do here.
 
-    this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, null,100).pipe(
+    this.caseProcessesService.getProcessDetails(null, this.appId, this.typeId, this.sandboxId, null, creator, 100).pipe(
       take(1),
       takeUntil(this._destroyed$),
       tap(processDetails => {
@@ -77,7 +74,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
         }
       ),
       map(processSchema => {
-        this.actionClicked.emit(processSchema);
+        this.creatorClicked.emit(processSchema);
         return processSchema;
       })
     )

@@ -43,6 +43,7 @@ export * from './lib/components/live-apps-settings-summary-cards/live-apps-setti
 export * from './lib/components/live-apps-settings-recent-cases/live-apps-settings-recent-cases.component';
 export * from './lib/components/live-apps-settings-roles/live-apps-settings-roles.component';
 export * from './lib/components/live-apps-role-switcher/live-apps-role-switcher.component';
+export * from './lib/components/live-apps-case-creators/live-apps-case-creators.component';
 
 // data
 export * from './lib/models/liveappsdata';

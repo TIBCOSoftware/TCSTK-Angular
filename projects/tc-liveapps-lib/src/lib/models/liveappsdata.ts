@@ -248,13 +248,10 @@ export class CaseCreator implements Deserializable {
   activityName: string;
   applicationId: string;
   applicationName: string;
-  availableInStates: string[];
   chatBotEnabled: boolean;
   id: string;
   label: string;
   name: string;
-  noData: boolean;
-  performerPaths: string[];
   roles: string[];
   version: number;
   process: Process;

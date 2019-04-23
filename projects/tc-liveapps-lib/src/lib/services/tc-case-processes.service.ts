@@ -30,7 +30,6 @@ export class TcCaseProcessesService {
   public getCaseActions(caseRef: string, sandboxId: number, appId: string, typeId: string, caseState: string): Observable<CaseActionsList> {
     // https://eu.liveapps.cloud.tibco.com/pageflow/caseActions?$sandbox=31&
     // $filter=applicationId%20eq%201742%20and%20caseType%20eq%201%20and%20caseState%20eq%20Responded%20and%20caseRef%20eq%20150491
-    const select = 's';
     const url = '/pageflow/v1/caseActions?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and caseType eq ' + typeId
@@ -54,8 +53,7 @@ export class TcCaseProcessesService {
     }
 
   // todo: Note this is not a public API - update when Public API available
-  public getCaseCreators(sandboxId: number, appId: string, typeId: string, caseState: string): Observable<CaseCreatorsList> {
-    const select = 's';
+  public getCaseCreators(sandboxId: number, appId: string, typeId: string): Observable<CaseCreatorsList> {
     const url = '/pageflow/v1/caseCreators?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and caseType eq ' + typeId
@@ -94,6 +92,7 @@ export class TcCaseProcessesService {
     appId: string,
     typeId: string,
     action: CaseAction,
+    creator: CaseCreator,
     caseRef: string): LaProcessSelection => {
       let processSelection: LaProcessSelection;
       schema.casetypes.forEach((casetype) => {
@@ -101,18 +100,33 @@ export class TcCaseProcessesService {
           // We want the schema for this 'case'.
           if (casetype.applicationId === appId && casetype.id === typeId) {
             if (casetype.jsonSchema !== undefined) {
-              const caseActionList = casetype.actions ? casetype.actions : [];
-              // now find the selected action
-              caseActionList.forEach((actionDef) => {
-                if (action.id === actionDef.id) {
-                  processSelection = new LaProcessSelection(
-                    'action', schema, this.getCaseIDAttributeName(casetype), actionDef,
-                    // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
-                    (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'action' + '.' + actionDef.name),
-                    caseRef
-                  );
-                }
-              });
+              if (action) {
+                const caseActionList = casetype.actions ? casetype.actions : [];
+                // now find the selected action
+                caseActionList.forEach((actionDef) => {
+                  if (action.id === actionDef.id) {
+                    processSelection = new LaProcessSelection(
+                      'action', schema, this.getCaseIDAttributeName(casetype), actionDef,
+                      // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                      (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'action' + '.' + actionDef.name),
+                      caseRef
+                    );
+                  }
+                });
+              } else if (creator) {
+                const caseCreatorList = casetype.creators ? casetype.creators : [];
+                // now find the selected action
+                caseCreatorList.forEach((creatorDef) => {
+                  if (creator.id === creatorDef.id) {
+                    processSelection = new LaProcessSelection(
+                      'creator', schema, this.getCaseIDAttributeName(casetype), creatorDef,
+                      // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                      (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'creator' + '.' + creatorDef.name),
+                      null
+                    );
+                  }
+                });
+              }
             }
           }
         }
@@ -126,10 +140,11 @@ export class TcCaseProcessesService {
       typeId: string,
       sandboxId: number,
       action: CaseAction,
+      creator: CaseCreator,
       top: number): Observable<LaProcessSelection> {
         return this.liveAppsService.getCaseTypeSchema(sandboxId, appId, top).pipe(
           map(schema => {
-            return this.createLaProcessSelection(schema, appId, typeId, action, caseRef);
+            return this.createLaProcessSelection(schema, appId, typeId, action ? action : null, creator ? creator: null, caseRef);
             }
           )
         );
