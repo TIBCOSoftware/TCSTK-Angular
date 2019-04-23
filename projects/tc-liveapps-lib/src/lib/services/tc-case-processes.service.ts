@@ -40,7 +40,17 @@ export class TcCaseProcessesService {
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(caseactions => new CaseActionsList().deserialize(caseactions)));
+        map(caseactions => {
+          const caList = new CaseActionsList().deserialize(caseactions);
+          // non public API returns action Id as number, switch to string to match other APIs
+          caList.actions.forEach(action => {
+            if (typeof action.id === 'number') {
+              action.id = String(action.id);
+            }
+          })
+          return caList;
+        })
+      );
     }
 
   private getCaseIDAttributeName = (caseType: CaseType) => {
