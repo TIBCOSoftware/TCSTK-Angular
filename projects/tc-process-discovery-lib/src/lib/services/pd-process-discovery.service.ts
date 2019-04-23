@@ -4,7 +4,7 @@ import { Observable, Subject, of, throwError } from 'rxjs';
 import { map, mergeMap, flatMap } from 'rxjs/operators';
 import { ProcessDiscoveryUserConfig, Datasource } from '../models/tc-process-discovery';
 import { LiveAppsService, CaseInfoList } from 'tc-liveapps-lib';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Location } from '@angular/common';
 
 @Injectable({
@@ -90,6 +90,8 @@ export class PdProcessDiscoveryService {
                             const defaultUserConfig = new ProcessDiscoveryUserConfig().deserialize(fileUserConfig);
                             return this.createUserConfig(sandboxId, uiAppId, 'PRIVATE', defaultUserConfig).pipe(
                                 flatMap(id => {
+                                    defaultUserConfig.id = id;
+                                    defaultUserConfig.uiAppId = uiAppId;
                                     this.updateUserConfig(sandboxId, uiAppId, 'PRIVATE', defaultUserConfig, id).
                                         subscribe(
                                             // trigger a read to flush the cache since we changed it
@@ -192,5 +194,26 @@ export class PdProcessDiscoveryService {
     dataStr = new EventEmitter();
     public sendMessage = (comment: string, cases: string): void => {
         this.dataStr.emit({comment: comment, cases: cases});
-    }    
+    }   
+    
+    public uploadFileHDFS = (url: string, username: string, filePermission: string, overwriteFile: boolean, fileContent: any): Observable<string> => {
+        console.log('Uploading to ' + url + ' with username: ' + username + ' overwrite: ' + overwriteFile + ' and filePermission: ' + filePermission);
+
+        // const url = '/collaboration/v1/notes/' + noteId;
+        const completeURL = url + '?user.name=' + username + '&op=CREATE&overwrite=' + overwriteFile + '&permission=' + filePermission;
+        console.log(" 3 ******* " + completeURL);
+
+        const body = fileContent;
+        const bodyStr = JSON.stringify(body);
+        const headers = new HttpHeaders()
+            .set('Content-Type', 'application/octet-stream');
+        return this.http.put(completeURL, fileContent, { headers })
+            .pipe(
+                map(result => { 
+                    console.log("************ " + result);
+                    return 'ok';
+                })
+            );
+    }
+
 }
