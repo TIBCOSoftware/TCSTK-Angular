@@ -10,6 +10,10 @@
   padding: 11px;
 }
 
+.tcs-case-audit-dtl {
+  height: 70px;
+}
+
 .audit-template {
   padding: 20px;
 }

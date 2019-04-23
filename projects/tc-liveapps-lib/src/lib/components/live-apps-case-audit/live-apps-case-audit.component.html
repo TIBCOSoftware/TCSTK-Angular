@@ -8,9 +8,9 @@
   </div-->
   <div class="audit-template" style="height: 100%">
   <cdk-virtual-scroll-viewport style="height: 100%" itemSize="50" (scrolledIndexChange)="getNextBatch($event)">
-    <ul style="min-height: 70px; height: 70px; max-height: 70px;"
+    <ul style=""
          *cdkVirtualFor="let item of auditEvents; let i = index">
-      <div *ngIf="item.messageId.value === 'BP_INSTANCE_CREATED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_INSTANCE_CREATED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_INSTANCE_CREATED"></mat-icon>
         </div>
@@ -26,7 +26,7 @@
         </div>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.messageId.value === 'BP_AUTO_STARTED_INSTANCE'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_AUTO_STARTED_INSTANCE'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_AUTO_STARTED_INSTANCE"></mat-icon>
         </div>
@@ -39,7 +39,7 @@
         </li>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE'">
         <!-- todo: JS fix this -->
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE"></mat-icon>
@@ -55,7 +55,7 @@
         </li>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_START_TIMER_EXPIRED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_START_TIMER_EXPIRED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_DELAYED_AUTO_START_TIMER_EXPIRED"></mat-icon>
         </div>
@@ -67,7 +67,7 @@
         </li>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE"></mat-icon>
         </div>
@@ -80,7 +80,7 @@
         </li>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.messageId.value === 'BP_TASK_CREATED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_TASK_CREATED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
         <div class="audit-icon-container">
           <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
         </div>
@@ -93,7 +93,7 @@
         <div class="audit-line"></div>
       </div>
 
-      <div *ngIf="item.messageId.value === 'CM_CASE_CREATED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_CREATED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="CM_CASE_CREATED"></mat-icon>
         </div>
@@ -121,7 +121,7 @@
         <div class="audit-line"></div>
       </div>
 
-      <div *ngIf="item.messageId.value === 'CM_CASE_UPDATED_STATE_CHANGED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_UPDATED_STATE_CHANGED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="CM_CASE_UPDATED_STATE_CHANGED"></mat-icon>
         </div>
@@ -149,7 +149,7 @@
         <div class="audit-line"></div>
       </div>
 
-      <div *ngIf="item.messageId.value === 'CM_CASE_UPDATED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_UPDATED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="CM_CASE_UPDATED"></mat-icon>
         </div>
@@ -175,7 +175,7 @@
         <div class="audit-line"></div>
       </div>
 
-      <div *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_CREATED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_CREATED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="WR_FOLDER_ARTIFACT_CREATED"></mat-icon>
         </div>
@@ -190,7 +190,7 @@
         <div class="audit-line"></div>
       </div>
 
-      <div *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_UPDATED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_UPDATED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="WR_FOLDER_ARTIFACT_UPDATED"></mat-icon>
         </div>
@@ -205,7 +205,7 @@
         <div class="audit-line"></div>
       </div>
 
-      <div *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_DELETED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_DELETED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="WR_FOLDER_ARTIFACT_DELETED"></mat-icon>
         </div>
@@ -220,7 +220,7 @@
         <div class="audit-line"></div>
       </div>
 
-      <div *ngIf="item.messageId.value === 'BP_TASK_COMPLETED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_TASK_COMPLETED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
         <div class="audit-icon-container">
           <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
         </div>
@@ -234,7 +234,7 @@
         </li>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.messageId.value === 'BP_INSTANCE_COMPLETED'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_INSTANCE_COMPLETED'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="BP_INSTANCE_COMPLETED"></mat-icon>
         </div>
@@ -246,7 +246,7 @@
         </li>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.severity.value === 'ERROR'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === 'ERROR'">
         <div class="audit-icon-container">
           <mat-icon svgIcon="ERROR"></mat-icon>
         </div>
@@ -258,7 +258,7 @@
         </li>
         <div class="audit-line"></div>
       </div>
-      <div *ngIf="item.severity.value === 'WARN'">
+      <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === 'WARN'">
         <div class="audit-icon-container warn-icon">
           <mat-icon svgIcon="ERROR"></mat-icon>
         </div>
