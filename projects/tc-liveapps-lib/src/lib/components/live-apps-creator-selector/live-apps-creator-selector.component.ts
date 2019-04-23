@@ -79,6 +79,7 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.appId && (changes.appId.currentValue !== changes.appId.previousValue)) {
+        this.caseCreatorList= [];
       this.refresh();
     }
   }
