@@ -51,6 +51,7 @@ export * from './lib/guards/auth.guard';
 export * from './lib/resolvers/general-config.resolver';
 export * from './lib/resolvers/configuration-menu-config.resolver';
 export * from './lib/resolvers/general-landing-page-config.resolver';
+export * from './lib/resolvers/login-prefill.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';

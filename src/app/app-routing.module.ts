@@ -35,17 +35,21 @@ import {ConfigurationComponent} from './routes/configuration/configuration.compo
 // HUGO: Removed these two lines to make the build work.
 // import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, SettingsSpotfireComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 //  { path: 'spotfire-settings', component: SettingsSpotfireComponent, resolve: { spotfireConfigHolder: SpotfireConfigResolver, claimsHolder: ClaimsResolver } },
-import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 
+import { PdSettingsAdministrationComponent, PdProcessMiningComponent, PdCaseViewComponent, PdSettingsConfigurationComponent } from 'tc-process-discovery-lib';
 import { SpotfireConfigResolver } from 'tc-spotfire-lib';
-import {SplashComponent} from './components/splash/splash.component';
-import {SplashPDComponent} from './components/splash-pd/splash-pd.component';
+import { SplashComponent } from './components/splash/splash.component';
+import { SplashPDComponent } from './components/splash-pd/splash-pd.component';
+import { LoginPrefillResolver } from 'tc-core-lib';
 
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    resolve: {
+      loginPrefill: LoginPrefillResolver
+    }
   },
   {
     path: 'errorHandler/:errorCode/:errorMessage?',
@@ -195,7 +199,8 @@ const routes: Routes = [
     RolesResolver,
     AllRolesResolver,
     GroupsResolver,
-    AllGroupsResolver
+    AllGroupsResolver,
+    LoginPrefillResolver
   ]
 })
 
