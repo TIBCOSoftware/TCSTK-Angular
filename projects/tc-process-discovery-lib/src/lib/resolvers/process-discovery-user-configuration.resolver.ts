@@ -48,7 +48,7 @@ export class ProcessDiscoveryUserConfigResolver implements Resolve<Observable<Pr
 
     resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<ProcessDiscoveryUserConfig> {
         const processDiscoveryUserConfig = this.getAppId().pipe(
-            switchMap(uiAppId => this.processDiscoveryService.getProcessDiscoveryUserConfig(uiAppId.uiAppId, 'PRIVATE', false, false)
+            switchMap(uiAppId => this.processDiscoveryService.getUserConfig(uiAppId.uiAppId, 'PRIVATE', false, false)
             .pipe(
                 mergeMap(
                     processDiscoveryConfig => {
@@ -57,17 +57,17 @@ export class ProcessDiscoveryUserConfigResolver implements Resolve<Observable<Pr
                                 flatMap(config => {
                                     this.defaultProcessDiscoveryUserConfig = new ProcessDiscoveryUserConfig().deserialize(config);
                                     this.defaultProcessDiscoveryUserConfig.uiAppId = this.uiAppId;
-                                    return this.processDiscoveryService.createProcessDiscoveryUserConfig(this.sandboxId, this.defaultProcessDiscoveryUserConfig.uiAppId, 'PRIVATE', this.defaultProcessDiscoveryUserConfig)
+                                    return this.processDiscoveryService.createUserConfig(this.sandboxId, this.defaultProcessDiscoveryUserConfig.uiAppId, 'PRIVATE', this.defaultProcessDiscoveryUserConfig)
                                     .pipe(
                                     map(
                                         result => {
                                             const newProcessDiscoveryUserConfig = this.defaultProcessDiscoveryUserConfig;
                                             newProcessDiscoveryUserConfig.id = result;
-                                            this.processDiscoveryService.updateProcessDiscoveryUserConfig(this.sandboxId, newProcessDiscoveryUserConfig.uiAppId, 'PRIVATE', newProcessDiscoveryUserConfig, result).
+                                            this.processDiscoveryService.updateUserConfig(this.sandboxId, newProcessDiscoveryUserConfig.uiAppId, 'PRIVATE', newProcessDiscoveryUserConfig, result).
                                         subscribe(
                                             // trigger a read to flush the cache since we changed it
                                             updatedConf => {
-                                                this.processDiscoveryService.getProcessDiscoveryUserConfig(this.uiAppId, 'PRIVATE', true, true).subscribe();
+                                                this.processDiscoveryService.getUserConfig(this.uiAppId, 'PRIVATE', true, true).subscribe();
                                             }
                                         );
                                             return newProcessDiscoveryUserConfig;
