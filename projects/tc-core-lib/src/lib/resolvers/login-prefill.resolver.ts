@@ -5,8 +5,8 @@ import { LoginPrefill } from '../models/tc-login';
 @Injectable()
 export class LoginPrefillResolver implements Resolve<LoginPrefill> {
 
-  EMAIL_ID_KEY = 'login_emailId';
-  CLIENT_ID_KEY = 'login_clientId';
+  EMAIL_ID_KEY = 'tcs-login-email-id';
+  CLIENT_ID_KEY = 'tcs-login-client-id';
 
   constructor() {}
 
