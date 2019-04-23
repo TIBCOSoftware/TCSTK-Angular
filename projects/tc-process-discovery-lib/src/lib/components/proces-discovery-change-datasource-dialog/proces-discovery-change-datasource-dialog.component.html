@@ -3,7 +3,7 @@
     <div mat-dialog-content>
         <div fxFlex  fxLayout="row" fxLayoutAlign="space-between center">
             <mat-label fxFlex="30">Datasource</mat-label>
-            <mat-select fxFlex="50" [(value)]="newDatasource">
+            <mat-select fxFlex="50" [(value)]="selectedDatasource" [compareWith]="compareObjects">
                 <mat-option *ngFor="let datasource of datasources" [value]="datasource">
                     {{datasource.datasourceId}}-{{datasource.description}}
                 </mat-option>
@@ -14,7 +14,7 @@
     <div *ngIf="defaultDatasource"> User default datasource: {{defaultDatasource.description}}</div>
     <div fxFlex class="tcs-filler-panel"></div>
     <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
-        <button mat-raised-button (click)="saveAsDefaultDatasource()">Save as default datasource</button>
-        <button mat-raised-button color="primary" [mat-dialog-close]="newDatasource" cdkFocusInitial>Ok</button>
+        <button mat-raised-button [disabled]="!selectedDatasource" (click)="saveAsDefaultDatasource(selectedDatasource)">Save as default datasource</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="selectedDatasource" cdkFocusInitial>Ok</button>
     </div>
 </div>
