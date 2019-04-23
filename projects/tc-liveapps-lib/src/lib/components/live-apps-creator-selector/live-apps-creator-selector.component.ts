@@ -1,3 +1,5 @@
+// todo: JS deprecate this since now using private API to allow only listing of enabled creators
+
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
