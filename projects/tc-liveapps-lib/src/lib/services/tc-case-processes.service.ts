@@ -71,7 +71,7 @@ export class TcCaseProcessesService {
               const caseActionList = casetype.actions ? casetype.actions : [];
               // now find the selected action
               caseActionList.forEach((actionDef) => {
-                if (action.id === Number(actionDef.id)) {
+                if (action.id === actionDef.id) {
                   processSelection = new LaProcessSelection(
                     'action', schema, this.getCaseIDAttributeName(casetype), actionDef,
                     // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
