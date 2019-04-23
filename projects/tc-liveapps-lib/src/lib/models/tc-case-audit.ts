@@ -11,7 +11,20 @@ export class AuditEventAttribute implements Deserializable {
 
 export class AuditEvent implements Deserializable {
   // value: string;
-  // type: string
+  // type: string;
+  messageId: AuditEventAttribute;
+  creationTime: AuditEventAttribute;
+  delayTime: AuditEventAttribute;
+  procName: AuditEventAttribute;
+  principalName: AuditEventAttribute;
+  taskType: AuditEventAttribute;
+  taskName: AuditEventAttribute;
+  label: AuditEventAttribute;
+  caseState: AuditEventAttribute;
+  artifactPath: AuditEventAttribute;
+  severity: AuditEventAttribute;
+  message: AuditEventAttribute;
+
   key: AuditEventAttribute;
   deserialize(input: any): this {
     Object.assign(this, input);
