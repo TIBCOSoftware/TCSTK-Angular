@@ -146,7 +146,7 @@ import { TibcoCloudNewElementComponent } from './components/tibco-cloud-new-elem
     TibcoCloudSettingsGeneralComponent,
     TibcoCloudConfigurationComponent,
     TibcoCloudSplashScreenComponent,
-      TibcoCloudNewElementComponent
+    TibcoCloudNewElementComponent
   ],
   providers: [
     RequestCacheService,

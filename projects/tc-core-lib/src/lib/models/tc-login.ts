@@ -106,4 +106,13 @@ export class AccountsInfo implements Deserializable {
   }
 }
 
+export class LoginPrefill implements Deserializable {
+  emailId: string;
+  clientId: string;
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
 
