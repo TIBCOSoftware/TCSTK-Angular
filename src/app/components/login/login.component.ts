@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginContext} from 'tc-liveapps-lib';
+import {LoginPrefill} from 'tc-core-lib';
 
 @Component({
   selector: 'laapp-login',
@@ -14,6 +15,7 @@ import {LoginContext} from 'tc-liveapps-lib';
 export class LoginComponent implements OnInit {
 
   loginContext: LoginContext;
+  loginPrefill: LoginPrefill;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -28,6 +30,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    // read resolved login prefill data
+    this.loginPrefill = this.route.snapshot.data.loginPrefill;
   }
 
 }
