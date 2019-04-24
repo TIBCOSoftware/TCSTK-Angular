@@ -1,1 +1,2 @@
 <tcfrm-rendered-form *ngIf="schema && process" style="min-height:500px; overflow: auto;" [schema]="schema" [layout]="layout" [data]="data" [options]="options" (formSubmit)="handleSubmit($event, undefined)"></tcfrm-rendered-form>
+<span *ngIf="process && !schema">This creator cannot be executed as no schema is available</span>

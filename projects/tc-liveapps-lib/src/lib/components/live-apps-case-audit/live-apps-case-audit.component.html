@@ -106,17 +106,6 @@
                     <span class="audit-state">"{{item.caseState.value}}"</span>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-          <!-- todo: JS: add case data preview?-->
-          <!--span class="expand-shrink">
-                    <mat-icon title="{{hideTextLocaleVar}}" class="shrink" svgIcon="arrow_down" ng-click="toggleCaseData(item)"
-                             ng-show="item.toggleCaseData"></mat-icon>
-                    <mat-icon title="{{showTextLocaleVar}}" class="expand" svgIcon="arrow-right" ng-click="toggleCaseData(item)"
-                             ng-show="!item.toggleCaseData"></mat-icon>
-                </span-->
-          <!--div *ngIf="item.toggleCaseData">
-            <bpm-case-data config="item.caseDataConfig" case-data="item.caseDataConfig.caseData"
-                           flex></bpm-case-data>
-          </div-->
         </li>
         <div class="audit-line"></div>
       </div>
@@ -134,17 +123,6 @@
                     <span class="audit-state"> "{{item.caseState.value}}" </span>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-          <!-- todo: JS: Case data?-->
-          <!--span class="expand-shrink">
-                    <mat-icon title="{{hideTextLocaleVar}}" class="shrink" svgIcon="arrow_down" ng-click="toggleCaseData(item)"
-                             ng-show="item.toggleCaseData"></mat-icon>
-                    <mat-icon title="{{showTextLocaleVar}}" class="expand" svgIcon="arrow-right" ng-click="toggleCaseData(item)"
-                             ng-show="!item.toggleCaseData"></mat-icon>
-                </span>
-          <div *ngIf="item.toggleCaseData">
-            <bpm-case-data config="item.caseDataConfig" case-data="item.caseDataConfig.caseData"
-                           flex></bpm-case-data>
-          </div-->
         </li>
         <div class="audit-line"></div>
       </div>
@@ -160,17 +138,6 @@
                     <b> {{item.label.value}} </b>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-          <!-- todo: JS: Case data?-->
-          <!--span class="expand-shrink">
-                    <mat-icon title="{{hideTextLocaleVar}}" class="shrink" svgIcon="arrow_down" ng-click="toggleCaseData(item)"
-                             ng-show="item.toggleCaseData"></mat-icon>
-                    <mat-icon title="{{showTextLocaleVar}}" class="expand" svgIcon="arrow-right" ng-click="toggleCaseData(item)"
-                             ng-show="!item.toggleCaseData"></mat-icon>
-                </span>
-          <div *ngIf="item.toggleCaseData">
-            <bpm-case-data config="item.caseDataConfig" case-data="item.caseDataConfig.caseData"
-                           flex></bpm-case-data>
-          </div-->
         </li>
         <div class="audit-line"></div>
       </div>
@@ -251,9 +218,9 @@
           <mat-icon svgIcon="ERROR"></mat-icon>
         </div>
         <li>
-                <span *ngIf="item.principalName">{{item.principalName.value}} has error at {{item.taskName.value}}>
+                <span *ngIf="item.principalName">{{item.principalName.value}} has error at {{item.taskName.value}}
                 </span>
-          <b> {{item.message.value}}</b>
+          <b> {{item.message.value | parseAuditMessage : item }}</b>
           <span> on {{item.creationTime.value | date: 'full'}}</span>
         </li>
         <div class="audit-line"></div>
@@ -265,7 +232,7 @@
         <li>
                 <span *ngIf="item.principalName">{{item.principalName.value}} has warning at {{item.taskName.value}}>
                 </span>
-          <b> {{item.message.value}}</b>
+          <b> {{item.message.value | parseAuditMessage : item }}</b>
           <span> on {{item.creationTime.value | date: 'full'}}</span>
         </li>
         <div class="audit-line"></div>
