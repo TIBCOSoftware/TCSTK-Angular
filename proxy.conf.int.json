@@ -1,4 +1,20 @@
 {
+  "/idm/v3/login-oauth": {
+    "target": {
+      "host": "liveapps.tenant-integration.tcie.pro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    },
+    "cookiePathRewrite": {
+      "*": "/"
+    }
+  },
   "/as/token.oauth2": {
     "target": {
       "host": "sso-awsqa.tibco.com",
