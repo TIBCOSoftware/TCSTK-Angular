@@ -10,7 +10,7 @@ import {
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule
+    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule, MatSlideToggleModule
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,6 +32,7 @@ import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from './components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SelectedRoleGuard } from './guards/selectedRole.guard';
+import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-creator-selector.component';
 @NgModule({
     declarations: [
         PdProcessMiningComponent,
@@ -41,7 +42,8 @@ import { SelectedRoleGuard } from './guards/selectedRole.guard';
         PdSettingsConfigurationComponent,
         PdNewDatasourceComponent,
         ProcesDiscoveryChangeDatasourceDialogComponent,
-        LandingPageComponent
+        LandingPageComponent,
+        PdCreatorSelectorComponent
     ],
     imports: [
         CommonModule,
@@ -70,6 +72,7 @@ import { SelectedRoleGuard } from './guards/selectedRole.guard';
         DragDropModule,
         MatRadioModule,
         MatSnackBarModule,
+        MatSlideToggleModule,
         FormsModule,
         FlexLayoutModule,
         ColorPickerModule,

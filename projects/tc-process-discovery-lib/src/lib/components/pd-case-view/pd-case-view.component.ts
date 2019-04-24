@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToolbarButton, TcButtonsHelperService, RoleAttribute } from 'tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
@@ -34,6 +34,7 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
      }
 
     ngOnInit() {
+        
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
         this.title = this.route.snapshot.data.laConfigHolder.generalConfig.welcomeMessage;
         this.appIds = this.route.snapshot.data.laConfigHolder.liveAppsConfig.applicationIds;
@@ -73,23 +74,32 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
     protected createViewButtons = (): ToolbarButton[] => {
         const processMiningView = this.buttonsHelper.createButton('process-mining-view', '', true, 'Process Mining View', true, true);
         const caseView = this.buttonsHelper.createButton('case-view', '', true, 'Case View', true, true);
-        const buttons = [ processMiningView, caseView ];
+        const buttons = [  ];
+        if (this.currentRole.display === 'Business Analyst'){
+            buttons.push(processMiningView);
+        }
+        buttons.push(caseView);
         return buttons;
     }
 
     public handleViewButtonEvent = (event: MatButtonToggleChange) => {
-        this.processDiscovery.getCurrentDatasource().subscribe(
-            datasource => {
-                this.router.navigate(['/starterApp/pd/process-mining-view']);
-            }
-        )
+        if (event.value != 'case-view'){
+            this.router.navigate(['/starterApp/pd/process-mining-view']);
+        }
+        // this.processDiscovery.getCurrentDatasource().subscribe(
+        //     datasource => {
+                // this.router.navigate(['/starterApp/pd/process-mining-view']);
+        //     }
+        // )
     }
 
     clickCaseAction = ($event: any): void => {
-        this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef], { queryParams: { returnUrl: this.router.url }});
+        this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef], { });
     }
 
     public roleChange = ($role: RoleAttribute): void => {
         this.roleService.setCurrentRole($role);
+        this.currentRole = this.roleService.getCurrentRole();
+        this.viewButtons = this.createViewButtons();
     }
 }

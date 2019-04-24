@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveAppsService, CaseType } from 'tc-liveapps-lib';
+import { LiveAppsService, CaseType, LaProcessSelection } from 'tc-liveapps-lib';
 import { Sandbox, Claim } from 'tc-core-lib';
 import { ActivatedRoute } from '@angular/router';
 import { take, takeUntil, map } from 'rxjs/operators';
 import { ProcessDiscoveryConfig } from '../../models/tc-process-discovery-config';
 import { PdProcessDiscoveryConfigService } from '../../services/pd-process-discovery-config.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
     selector: 'tcpd-pd-settings-configuration',
@@ -19,12 +20,12 @@ export class PdSettingsConfigurationComponent implements OnInit {
     public claims: Claim;
     public sandboxId: number;
     public selectedApp: CaseType;
-    private processDiscoveryConfig: ProcessDiscoveryConfig;
+    public processDiscoveryConfig: ProcessDiscoveryConfig;
     public datasourceId: string;
     public creatorId: string
     public storageTechnology: string;
   
-    constructor(private processDiscoveryConfigService: PdProcessDiscoveryConfigService, private liveapps: LiveAppsService, private route: ActivatedRoute) { }
+    constructor(private processDiscoveryConfigService: PdProcessDiscoveryConfigService, private liveapps: LiveAppsService, private route: ActivatedRoute, private snackBar: MatSnackBar) { }
 
 
     ngOnInit() {
@@ -45,6 +46,14 @@ export class PdSettingsConfigurationComponent implements OnInit {
         this.processDiscoveryConfig.datasourceAppId = $event.applicationId;
     }
 
+    selectCreator = ($event: LaProcessSelection): void => {
+        this.processDiscoveryConfig.creatorAppId = $event.process.id;
+    }
+
+    selectAction = ($event: LaProcessSelection): void => {
+        this.processDiscoveryConfig.validateActionAppId = $event.process.id;
+    }
+
     public refresh = (bypassCache: boolean): void => {
 
         let appIds: string[] =  (this.datasourceId === "") ? undefined : [ this.datasourceId ];
@@ -60,6 +69,19 @@ export class PdSettingsConfigurationComponent implements OnInit {
 
     runSaveFuntion = () => {
         var processDiscoveryConfig = this.processDiscoveryConfig;
-        this.processDiscoveryConfigService.updateProcessDiscoveryConfig(this.sandboxId, this.processDiscoveryConfig.uiAppId, processDiscoveryConfig, this.processDiscoveryConfig.id).subscribe();
+        this.processDiscoveryConfigService.updateProcessDiscoveryConfig(this.sandboxId, this.processDiscoveryConfig.uiAppId, processDiscoveryConfig, this.processDiscoveryConfig.id).subscribe(
+            result => {
+                this.snackBar.open('General configuration saved', 'OK', {
+                    duration: 3000
+                });
+            },
+            error => {
+                this.snackBar.open('Error saving general configuration saved', 'OK', {
+                    duration: 3000
+                });
+            }
+
+        );
     }
+
 }
