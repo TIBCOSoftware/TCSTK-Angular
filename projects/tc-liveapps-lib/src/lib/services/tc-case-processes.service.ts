@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {CaseAction, CaseActionsList, CaseCreator, CaseCreatorsList, CaseType, CaseTypesList} from '../models/liveappsdata';
+import {CaseAction, CaseActionsList, CaseCreator, CaseCreatorsList, CaseType, CaseTypesList, Process} from '../models/liveappsdata';
 import {LaProcessSelection} from '../models/tc-case-processes';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Observable} from 'rxjs';
@@ -113,6 +113,16 @@ export class TcCaseProcessesService {
                     );
                   }
                 });
+                if (!processSelection) {
+                  // no schema for this process
+                  const process: Process = new Process().deserialize({ jsonSchema: undefined, name: action.name, id: action.id });
+                  processSelection = new LaProcessSelection(
+                    'action', schema, this.getCaseIDAttributeName(casetype), process,
+                    // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                    (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'action' + '.' + action.name),
+                    caseRef
+                  );
+                }
               } else if (creator) {
                 const caseCreatorList = casetype.creators ? casetype.creators : [];
                 // now find the selected action
@@ -126,6 +136,16 @@ export class TcCaseProcessesService {
                     );
                   }
                 });
+                if (!processSelection) {
+                  // no schema for this process
+                  const process: Process = new Process().deserialize({ jsonSchema: undefined, name: creator.name, id: creator.id });
+                  processSelection = new LaProcessSelection(
+                    'creator', schema, this.getCaseIDAttributeName(casetype), process,
+                    // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                    (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'creator' + '.' + creator.name),
+                    null
+                  );
+                }
               }
             }
           }
