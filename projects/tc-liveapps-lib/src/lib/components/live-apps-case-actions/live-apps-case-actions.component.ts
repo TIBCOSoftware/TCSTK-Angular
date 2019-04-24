@@ -60,8 +60,6 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   public selectAction(action: CaseAction) {
-    // todo: JS: When the form is not supported there will be no 'form schema' and hence we cannot render the form.
-    // Need to decide what to do here.
 
     this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, null,100).pipe(
       take(1),
