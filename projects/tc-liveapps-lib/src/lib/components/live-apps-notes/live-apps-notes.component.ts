@@ -26,6 +26,9 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   public delNoteId: number;
   public threads: ThreadList;
   public subscribed: Boolean;
+  public skip = 0;
+  public top = 5;
+  public end = false;
   public toolbarButtons: ToolbarButton[] = [];
 
   constructor(private liveapps: LiveAppsService, private buttonsHelper: TcButtonsHelperService) {
@@ -33,17 +36,38 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   }
 
   public refresh = () => {
-    this.liveapps.getThreads(this.relatedItemType, this.relatedItemId)
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(threadList => {
-          this.threads = threadList;
-        })
-      ).subscribe(null, error => {
+    this.skip = 0;
+    this.top = 5;
+    this.end = false;
+    this.threads = undefined;
+    this.getBatch();
+    this.getNotifications();
+  }
+
+  public getBatch = () => {
+    if (!this.end) {
+      this.liveapps.getThreads(this.relatedItemType, this.relatedItemId, this.skip, this.top)
+        .pipe(
+          take(1),
+          takeUntil(this._destroyed$),
+          map(threadList => {
+            if (!this.threads) {
+              this.threads = threadList;
+            } else {
+              // this will strip any duplicates that may have been retrieved due to fast scrolling
+              const filteredEvents = threadList.threads.filter(x => this.threads.threads.every(y => y.note.id !== x.note.id));
+              this.threads.threads = this.threads.threads.concat(filteredEvents);
+            }
+            if (threadList.threads.length < this.top) {
+              this.end = true;
+            } else {
+              this.skip = this.skip + threadList.threads.length - 1;
+            }
+          })
+        ).subscribe(null, error => {
         this.errorMessage = 'Error retrieving notes: ' + error.error.errorMsg;
       });
-    this.getNotifications();
+    }
   }
 
   public toggleReplies = (thread) => {
@@ -210,7 +234,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   }
 
   ngOnInit() {
-    this.refresh();
+    this.getNotifications();
     this.newNote.text = '';
 
   }

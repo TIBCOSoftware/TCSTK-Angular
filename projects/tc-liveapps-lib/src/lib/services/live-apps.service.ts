@@ -502,10 +502,11 @@ export class LiveAppsService {
 
   /* notes service */
 
-  public getThreads(relatedItemType: string, itemTypeId: string): Observable<ThreadList> {
+  public getThreads(relatedItemType: string, itemTypeId: string, skip: number, top: number): Observable<ThreadList> {
     // https://liveapps.tenant-integration.tcie.pro/collaboration/notes?$relatedItemCollection=CASE_APP_15441&$orderby=createdDate%20ASC
     const url =  '/collaboration/v1/notes?$relatedItemCollection=' + relatedItemType + '_' + itemTypeId
-      + '&$orderBy=createdDate ASC';
+      + '&$orderby=createdDate desc'
+      + '&$top=' + top + '&$skip=' + skip;
     return this.http.get(url)
       .pipe(
         map(notes => {
