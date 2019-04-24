@@ -139,9 +139,9 @@ export class PdNewDatasourceComponent implements OnInit {
             },
             skipEmptyLines: this.skipEmptyLines
         };
-        console.log("********** 1 Size: " + this.file.size);
+        console.log("********** 1 Size: ", this.file);
         parse(this.file, config);
-        console.log("********** 2 Size: " + this.file.size);
+        console.log("********** 2 Size: ", this.file);
     }
 
     public setComments = ($event): void => {
