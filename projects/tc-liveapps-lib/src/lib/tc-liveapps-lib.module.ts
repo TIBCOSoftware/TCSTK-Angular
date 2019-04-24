@@ -77,6 +77,7 @@ import { TcRolesService } from './services/tc-roles-service.ts.service';
 import { LiveAppsRoleSwitcherComponent } from './components/live-apps-role-switcher/live-apps-role-switcher.component';
 import {LiveAppsCaseCreatorsComponent} from './components/live-apps-case-creators/live-apps-case-creators.component';
 import {ParseAuditMessagePipe} from './pipes/audit.pipe';
+import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-actions-list/live-apps-case-actions-list.component';
 
 @NgModule({
     declarations: [
@@ -123,7 +124,8 @@ import {ParseAuditMessagePipe} from './pipes/audit.pipe';
         LiveAppsSettingsRolesComponent,
         LiveAppsRoleSwitcherComponent,
         LiveAppsCaseCreatorsComponent,
-        ParseAuditMessagePipe
+        ParseAuditMessagePipe,
+        LiveAppsCaseActionsListComponent
     ],
     imports: [
         TcCoreLibModule,
@@ -198,7 +200,8 @@ import {ParseAuditMessagePipe} from './pipes/audit.pipe';
         LiveAppsSettingsRolesComponent,
         LiveAppsRoleSwitcherComponent,
         LiveAppsCaseCreatorsComponent,
-        ParseAuditMessagePipe
+        ParseAuditMessagePipe,
+        LiveAppsCaseActionsListComponent
     ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
