@@ -24,12 +24,35 @@ import {Location} from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
-export class TcLoginService {
 
+
+export class TcLoginService {
+  EMAIL_ID_KEY = 'tcs-login-email-id';
+  CLIENT_ID_KEY = 'tcs-login-client-id';
   constructor(private http: HttpClient, private location: Location) { }
 
   // Provide ability to login to Tibco Subscriber Cloud
-  public login(username, password): Observable<AccessToken> {
+  public login(username, password, clientID): Observable<AuthInfo> {
+    localStorage.setItem(this.EMAIL_ID_KEY, username);
+    localStorage.setItem(this.CLIENT_ID_KEY, clientID);
+
+
+    const url = '/idm/v3/login-oauth';
+    const body = new HttpParams()
+      .set('Email', username)
+      .set('Password', password)
+      .set('TenantId', 'bpm')
+      .set('ClientID', clientID);
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this.http.post(url, body.toString(), { headers })
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map( authInfo => new AuthInfo().deserialize(authInfo)));
+  }
+
+  public loginV2(username, password): Observable<AccessToken> {
     const url = '/as/token.oauth2';
     const body = new HttpParams()
       .set('username', username)
@@ -44,6 +67,7 @@ export class TcLoginService {
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map( accessToken => new AccessToken().deserialize(accessToken)));
   }
+
 
   // Provide ability to authorize against live apps (note tenantId: bpm)
   public laAuthorize(accessToken: AccessToken, accountId): Observable<AuthInfo> {

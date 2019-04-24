@@ -19,8 +19,8 @@
  *
  */
 
-import { Component, EventEmitter, Output } from '@angular/core';
-import { AccountsInfo, Subscription } from '../../models/tc-login';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AccountsInfo, LoginPrefill, Subscription} from '../../models/tc-login';
 import {Observable, ObservableInput} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
 import {AccessToken, AuthInfo } from '../../models/tc-login';
@@ -32,36 +32,50 @@ import {TcLoginService} from '../../services/tc-login.service';
     styleUrls: ['./tibco-cloud-login.component.css']
 })
 
-export class TibcoCloudLoginComponent {
+export class TibcoCloudLoginComponent  implements OnInit {
 
   @Output() loggedIn = new EventEmitter();
   @Output() subscriptionRequired = new EventEmitter();
+  @Input() loginPrefill: LoginPrefill;
 
     name: string;
     password: string;
+    clientId: string;
     loading = false;
     accountsInfo: AccountsInfo;
     loginError;
     token: AccessToken;
-    auth: Observable<AuthInfo>
+    authInfo: AuthInfo;
+    auth: Observable<AuthInfo>;
 
   constructor(
     private tcLogin: TcLoginService
-  ) { }
+  ) {
+
+  }
+
+  ngOnInit() {
+    console.log('Login Init');
+
+    if(this.loginPrefill) {
+      this.name = this.loginPrefill.emailId;
+      this.clientId = this.loginPrefill.clientId;
+    }
+  }
 
     doLogin() {
         this.loading = true;
         this.loginError = undefined;
 
         // We need to pass the token from getToken into the authorize call. Hence, using mergeMap below.
-        this.auth = this.tcLogin.login(this.name, this.password)
-          .pipe(
-            mergeMap(token => {
-                this.token = token;
-                return this.tcLogin.laAuthorize(token, '');
-              }
-            )
-          );
+
+      this.auth = this.tcLogin.login(this.name, this.password, this.clientId).pipe(
+        map(authInfo => {
+            this.authInfo = authInfo;
+            return authInfo;
+          }
+        )
+      );
 
         this.auth.subscribe(authorize => {
             this.loading = false;
