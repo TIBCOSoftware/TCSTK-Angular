@@ -51,14 +51,15 @@ export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements 
         takeUntil(this._destroyed$),
         map(casecreators => {
           this.casecreators = casecreators.creators;
+          if (this.casecreators.length === 1) {
+            this.selectCreator(this.casecreators[0]);
+          }
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
   public selectCreator(creator: CaseCreator) {
-    // todo: JS: When the form is not supported there will be no 'form schema' and hence we cannot render the form.
-    // Need to decide what to do here.
 
     this.caseProcessesService.getProcessDetails(null, this.appId, this.typeId, this.sandboxId, null, creator, 100).pipe(
       take(1),
