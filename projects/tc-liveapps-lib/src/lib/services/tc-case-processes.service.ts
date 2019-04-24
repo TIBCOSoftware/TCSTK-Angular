@@ -113,6 +113,15 @@ export class TcCaseProcessesService {
                     );
                   }
                 });
+                if (!processSelection) {
+                  // no schema for this process
+                  processSelection = new LaProcessSelection(
+                    'action', schema, this.getCaseIDAttributeName(casetype), null,
+                    // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                    (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'action' + '.' + action.name),
+                    caseRef
+                  );
+                }
               } else if (creator) {
                 const caseCreatorList = casetype.creators ? casetype.creators : [];
                 // now find the selected action
@@ -126,6 +135,15 @@ export class TcCaseProcessesService {
                     );
                   }
                 });
+                if (!processSelection) {
+                  // no schema for this process
+                  processSelection = new LaProcessSelection(
+                    'creator', schema, this.getCaseIDAttributeName(casetype), null,
+                    // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                    (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'creator' + '.' + creator.name),
+                    null
+                  );
+                }
               }
             }
           }

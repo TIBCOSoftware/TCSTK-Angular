@@ -1,4 +1,5 @@
 <div class="tcs-case-action-pane" fxLayout="column" fxFill>
   <tc-tibco-cloud-widget-header *ngIf="showHeader" fxFlex="nogrow" [headerText]="'Action'" [icon]="'tcs-case-action-item'"></tc-tibco-cloud-widget-header>
   <tcfrm-rendered-form *ngIf="schema && data" [schema]="schema" [layout]="layout" [data]="data" (formSubmit)="handleSubmit($event, caseRef)"></tcfrm-rendered-form>
+  <span *ngIf="!schema">This action cannot be executed as no schema is available</span>
 </div>
