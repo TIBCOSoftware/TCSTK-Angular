@@ -6,11 +6,17 @@
               <input matInput placeholder="Email Address" [(ngModel)]="name" name="email" required>
             </mat-form-field>
             <mat-form-field>
+              <input matInput placeholder="ClientID" [(ngModel)]="clientId"  name="ClientID" required>
+            </mat-form-field>
+
+            <mat-form-field>
               <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
             </mat-form-field>
+
             <div class="la-login-button-div" fxFlex fxLayoutAlign="center start">
               <button type="submit" mat-raised-button color="primary" [disabled]="!laLoginForm.form.valid || loading">Login</button>
             </div>
+
           </form>
         </div>
 
