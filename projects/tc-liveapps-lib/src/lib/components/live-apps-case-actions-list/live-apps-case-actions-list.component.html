@@ -1,0 +1,8 @@
+<div fxFlex style="margin-left: 10px;">
+    <mat-select class="tcs-action-selector-option" [disableOptionCentering]="true" [(ngModel)]="selectedAction" [compareWith]="compareObjects"
+        placeholder="Case Actions" >
+        <mat-option *ngFor="let action of caseActionList" [value]="action" (click)="selectAction(action)">
+            <span>{{action.name}}</span>
+        </mat-option>
+    </mat-select>
+</div>

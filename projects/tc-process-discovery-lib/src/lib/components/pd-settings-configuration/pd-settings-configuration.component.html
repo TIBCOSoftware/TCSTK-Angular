@@ -11,19 +11,36 @@
                 <tcla-live-apps-applications style="width: 300px; max-width: 300px; margin-left: 10px;" [sandboxId]="sandboxId" [selectFirstApp]="false"
                 (selection)="selectApplication($event)" [selectedApp]="selectedApp"></tcla-live-apps-applications>
             </div>
-            <!-- <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxLayout="row" fxLayoutAlign="start center">
                 <span fxFlex="50">Configure the TIBCO Live Apps creator for datasources:</span>
-                <tcla-live-apps-applications style="width: 300px; max-width: 300px; margin-left: 10px;" [sandboxId]="sandboxId"
-                    [selectFirstApp]="false" (selection)="selectApplication($event)" [selectedApp]="selectedApp">
-                </tcla-live-apps-applications>
+                <tcpd-pd-creator-selector [sandboxId]="sandboxId" [appId]="processDiscoveryConfig.datasourceAppId" [selectedCreatorId]="processDiscoveryConfig.creatorAppId" [typeId]="'1'" (creatorSelection)="selectCreator($event)"></tcpd-pd-creator-selector>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center">
-                <span  fxFlex="50">Select where to store the files:</span>
-                <mat-radio-group [(value)]="storageTechnology">
-                    <mat-radio-button value="LiveApps">Live Apps Case</mat-radio-button>
-                    <mat-radio-button value="S3">S3</mat-radio-button>
-                </mat-radio-group>
-            </div> -->
+                <span fxFlex="50">Configure the TIBCO Live Apps action to validate datasources:</span>
+                <tcla-live-apps-case-actions-list [sandboxId]="sandboxId" [appId]="processDiscoveryConfig.datasourceAppId" [seletedActionId]="processDiscoveryConfig.validateActionAppId" [typeId]="'1'" (actionClicked)="selectAction($event)"></tcla-live-apps-case-actions-list>
+            </div>
+            <mat-slide-toggle [(ngModel)]="processDiscoveryConfig.storeToLiveApps">Store file in TIBCO CLOUD(TM) Live Apps</mat-slide-toggle>
+            <mat-slide-toggle [(ngModel)]="processDiscoveryConfig.storeToHDFS">Store file in HDFS</mat-slide-toggle>
+
+            <div *ngIf="processDiscoveryConfig.storeToHDFS">
+                <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between stretch">
+                    <mat-form-field fxFlex="70">
+                        <input matInput placeholder="Hostname" [(ngModel)]="processDiscoveryConfig.hdfsHostname">
+                    </mat-form-field>
+                    <mat-form-field fxFlex>
+                        <input matInput placeholder="Username" [(ngModel)]="processDiscoveryConfig.hdfsUsername">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between stretch">
+                    <mat-form-field fxFlex>
+                        <input matInput placeholder="Root path" [(ngModel)]="processDiscoveryConfig.hdfsRootPath">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="File Permission" [(ngModel)]="processDiscoveryConfig.hdfsPermision">
+                    </mat-form-field>
+                    <mat-slide-toggle [(ngModel)]="processDiscoveryConfig.hdfsOverwriteFile">Overwrite file</mat-slide-toggle>
+                </div>                
+            </div>
         </div>
         <div fxFlex class="tcs-filler-panel"></div>
         <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px">
