@@ -46,11 +46,4 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
         }));
   }
 
-  // run when subscription selection required
-  handleSubscription = (subscriptionSelection) => {
-    this.accessToken = subscriptionSelection.token;
-    this.subscriptions = subscriptionSelection.subscriptions;
-    this.subRequired = true;
-  }
-
 }

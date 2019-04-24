@@ -176,6 +176,10 @@ export class Process {
   jsonSchema: JsonSchema;
   name: string;
   id: string;
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
 }
 
 export class ProcessId {

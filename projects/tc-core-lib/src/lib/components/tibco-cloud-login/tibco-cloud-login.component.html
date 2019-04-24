@@ -6,12 +6,19 @@
               <input matInput placeholder="Email Address" [(ngModel)]="name" name="email" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="ClientID" [(ngModel)]="clientId"  name="ClientID" required>
-            </mat-form-field>
-
-            <mat-form-field>
               <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
             </mat-form-field>
+
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="!clientId">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Subscription Parameters</mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-form-field style="min-width: 400px">
+                  <input matInput placeholder="Client Id" [(ngModel)]="clientId"  name="ClientID" required>
+                </mat-form-field>
+              </mat-expansion-panel>
+            </mat-accordion>
 
             <div class="la-login-button-div" fxFlex fxLayoutAlign="center start">
               <button type="submit" mat-raised-button color="primary" [disabled]="!laLoginForm.form.valid || loading">Login</button>
