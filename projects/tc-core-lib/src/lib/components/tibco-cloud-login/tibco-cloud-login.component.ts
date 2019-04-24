@@ -35,7 +35,6 @@ import {TcLoginService} from '../../services/tc-login.service';
 export class TibcoCloudLoginComponent  implements OnInit {
 
   @Output() loggedIn = new EventEmitter();
-  @Output() subscriptionRequired = new EventEmitter();
   @Input() loginPrefill: LoginPrefill;
 
     name: string;
@@ -84,28 +83,10 @@ export class TibcoCloudLoginComponent  implements OnInit {
             this.loggedIn.emit( { authInfo: authorize, accessToken: this.token } );
           },
           error => {
-            if (error.status === 300) {
-              console.log('User is in multiple subscriptions...');
-              this.accountsInfo = new AccountsInfo().deserialize(error.error.accountsInfo);
-              const subscriptions: Subscription[] = [];
-              this.accountsInfo.accountInfos.forEach(accountInfo => {
-                const subscriptionInfo = new Subscription(
-                  accountInfo.accountId,
-                  accountInfo.accountDisplayName,
-                  accountInfo.ownerInfo.firstName + ' ' + accountInfo.ownerInfo.lastName,
-                  accountInfo.loggedInUserRole,
-                  accountInfo.regions
-                );
-                subscriptions.push(subscriptionInfo);
-                // send subscription list back to the parent
-                this.subscriptionRequired.emit({ subscriptions: subscriptions, token: this.token } );
-              });
-            } else {
               this.loading = false;
               this.loginError = error.error.error_description;
               console.error('Login Failed: ');
               console.error(error);
-            }
           });
     }
 }
