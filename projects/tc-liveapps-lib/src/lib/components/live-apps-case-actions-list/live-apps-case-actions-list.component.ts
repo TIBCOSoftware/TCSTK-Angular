@@ -55,7 +55,7 @@ export class LiveAppsCaseActionsListComponent extends LiveAppsCaseActionsCompone
     }
 
     public selectAction(action: CaseAction) {
-        this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, 100).pipe(
+        this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, null, 100).pipe(
             take(1),
             takeUntil(this._destroyed$),
             tap(processDetails => {
