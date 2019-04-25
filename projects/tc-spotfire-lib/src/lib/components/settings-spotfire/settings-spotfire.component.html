@@ -4,8 +4,11 @@
     <div style="padding: 20px; overflow: hidden" fxLayout="column" fxFlex>
         <div style="overflow: auto;">
             <div fxLayout="column" fxFlex>
-                <p>Choose the TIBCO Cloud Spotfire configuration to be used within this application:</p>
-                <br>
+                <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
+                    <p>Choose the TIBCO Cloud Spotfire configuration to be used within this application:</p>
+                    <mat-icon class="tcs-spotfire-link" [svgIcon]="'tcs-application-edit'" (click)="handleEditLiveAppClick()"
+                        matTooltip="Open in Spotfire" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
+                </div>
                 <mat-form-field>
                     <input matInput placeholder="Spotfire Server" [(ngModel)]="spotfireServer">
                 </mat-form-field>
