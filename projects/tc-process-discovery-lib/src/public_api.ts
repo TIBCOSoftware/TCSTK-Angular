@@ -5,8 +5,6 @@
 export * from './lib/tc-process-discovery-lib.module';
 
 // Components
-
-export * from './lib/components/landing-page/landing-page.component';
 export * from './lib/components/pd-case-view/pd-case-view.component';
 export * from './lib/components/pd-new-datasource/pd-new-datasource.component';
 export * from './lib/components/pd-process-mining/pd-process-mining.component';
