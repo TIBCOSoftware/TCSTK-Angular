@@ -45,6 +45,7 @@ export * from './lib/components/live-apps-settings-roles/live-apps-settings-role
 export * from './lib/components/live-apps-role-switcher/live-apps-role-switcher.component';
 export * from './lib/components/live-apps-case-creators/live-apps-case-creators.component';
 export * from './lib/components/live-apps-case-actions-list/live-apps-case-actions-list.component';
+export * from './lib/components/live-apps-document-viewer/live-apps-document-viewer.component';
 
 // data
 export * from './lib/models/liveappsdata';

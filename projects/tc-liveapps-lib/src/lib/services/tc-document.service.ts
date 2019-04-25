@@ -130,6 +130,23 @@ export class TcDocumentService {
       );
   }
 
+  public getUrlForDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number): string {
+    let url = '/webresource/';
+    if (folderType === 'orgFolders') {
+      url = url + 'orgFolders/' + folderId;
+    } else {
+      url = url + 'folders/' + folderId;
+    }
+    if (sandboxId && folderType !== 'orgFolders') {
+      url = url + '/' + sandboxId;
+    }
+    url = url + '/' + docId;
+    if (docVersion) {
+      url = url + '?$version=' + docVersion;
+    }
+    return url;
+  }
+
   public downloadDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number): Observable<any> {
     let url = '/webresource/';
     if (folderType === 'orgFolders') {

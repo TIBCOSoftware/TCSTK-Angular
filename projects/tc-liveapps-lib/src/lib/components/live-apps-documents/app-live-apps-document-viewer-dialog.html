@@ -1,0 +1,9 @@
+<div fxFill fxLayout="column">
+<h1 mat-dialog-title>View Document</h1>
+<div mat-dialog-content fxFlex="grow" style="overflow: hidden">
+  <tcla-live-apps-document-viewer [document]="doc" [folderId]="folderId" [folderType]="folderType" [sandboxId]="sandboxId"></tcla-live-apps-document-viewer>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>
+</div>

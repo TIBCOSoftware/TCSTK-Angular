@@ -62,6 +62,22 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
         null, error => { this.errorMessage = 'Error removing document: ' + error.errorMsg; });
   }
 
+  public viewDocument = (doc) => {
+    const viewDocDialogRef = this.dialog.open(LiveAppsDocumentViewerDialogComponent, {
+      width: '75%',
+      height: '75%',
+      data: {
+        doc: doc,
+        folderType: this.folderType,
+        folderId: this.folderId,
+        sandboxId: this.sandboxId
+      }
+    });
+
+    viewDocDialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
   public downloadDocument = (doc) => {
     this.documentsService.downloadDocument(this.folderType, this.folderId, doc.name, doc.artifactVersion, this.sandboxId)
       .pipe(
@@ -164,3 +180,30 @@ export class LiveAppsDocumentUploadDialogComponent {
   }
 
 }
+
+@Component({
+  selector: 'tcla-live-apps-document-viewer-dialog',
+  templateUrl: 'app-live-apps-document-viewer-dialog.html',
+  styleUrls: [ 'app-live-apps-document-viewer-dialog.css']
+})
+export class LiveAppsDocumentViewerDialogComponent {
+  public doc: Document;
+  public folderType: string;
+  public folderId: string;
+  public sandboxId: number;
+
+  constructor(
+    public dialogRef: MatDialogRef<LiveAppsDocumentUploadDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.doc = this.data.doc;
+    this.folderType = this.data.folderType;
+    this.folderId = this.data.folderId;
+    this.sandboxId = this.data.sandboxId;
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
