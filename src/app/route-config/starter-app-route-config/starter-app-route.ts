@@ -1,12 +1,17 @@
 import {HomeComponent} from '../../routes/home/home.component';
-import {AuthGuard, ConfigurationMenuConfigResolver, GeneralConfigResolver, TibcoCloudSettingsGeneralComponent} from 'tc-core-lib';
+import {
+  AuthGuard,
+  ConfigurationMenuConfigResolver,
+  GeneralConfigResolver,
+  TibcoCloudSettingsGeneralComponent
+} from 'tc-core-lib';
 import {
   AllGroupsResolver,
   AllRolesResolver,
   CaseGuard,
   ClaimsResolver,
   GroupsResolver,
-  LaConfigResolver, LiveAppsSettingsComponent, LiveAppsSettingsRecentCasesComponent,
+  LaConfigResolver, LiveAppsConfigResolver, LiveAppsSettingsComponent, LiveAppsSettingsRecentCasesComponent,
   LiveAppsSettingsRolesComponent, LiveAppsSettingsSummaryCardsComponent,
   RolesResolver
 } from 'tc-liveapps-lib';
@@ -16,6 +21,8 @@ import {CaseComponent} from '../../routes/case/case.component';
 import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
 import {PdSettingsAdministrationComponent, PdSettingsConfigurationComponent} from 'tc-process-discovery-lib';
+import {SpotfireConfigResolver} from 'tc-spotfire-lib';
+import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
 
 export const STARTER_APP_ROUTES =
 [
@@ -64,64 +71,20 @@ export const STARTER_APP_ROUTES =
   {
     path: 'configuration', component: ConfigurationComponent, canActivate: [AuthGuard],
     resolve: {configurationMenuHolder: ConfigurationMenuConfigResolver},
-    children: [
-      {
-        path: 'general-application-settings',
-        component: TibcoCloudSettingsGeneralComponent,
-        resolve: {
-          generalConfigHolder: GeneralConfigResolver,
-          claims: ClaimsResolver
-        }
-      },
-      {
-        path: 'general-application-roles',
-        component: LiveAppsSettingsRolesComponent,
-        resolve: {
-          generalConfigHolder: GeneralConfigResolver,
-          claims: ClaimsResolver,
-          allRoles: AllRolesResolver,
-          allGroups: AllGroupsResolver
-        }
-      },
-      {
-        path: 'live-apps-app-selection',
-        component: LiveAppsSettingsComponent,
-        resolve: {
-          claims: ClaimsResolver,
-          laConfigHolder: LaConfigResolver,
-          generalConfigHolder: GeneralConfigResolver
-        }
-      },
-      {
-        path: 'live-apps-recent-cases',
-        component: LiveAppsSettingsRecentCasesComponent,
-        resolve: {
-          claims: ClaimsResolver,
-          laConfigHolder: LaConfigResolver,
-          generalConfigHolder: GeneralConfigResolver
-        }
-      },
-      {
-        path: 'live-apps-summary-cards',
-        component: LiveAppsSettingsSummaryCardsComponent,
-        resolve: {
-          claims: ClaimsResolver,
-          laConfigHolder: LaConfigResolver,
-          generalConfigHolder: GeneralConfigResolver
-        }
-      },
-      {path: 'process-discovery-configuration', component: PdSettingsConfigurationComponent, resolve: {claims: ClaimsResolver}},
-      {path: 'process-discovery-administration', component: PdSettingsAdministrationComponent, resolve: {}},
-      {
-        path: 'upload-services-settings',
-        component: SettingsCwmServicesComponent,
-        resolve: {
-          serviceDetailsConfigResolver: ServiceDetailsConfigResolver
-        }
-      },
-      {
-        path: '**', redirectTo: '/starterApp/configuration/general-application-settings'
-      }
-    ]
+    children: CONFIGURATION_ROUTE_CONFIG
   },
 ];
+
+export const STARTER_APP_PROVIDERS = [
+  [
+  ClaimsResolver,
+  LiveAppsConfigResolver,
+  LaConfigResolver,
+  GeneralConfigResolver,
+  ConfigurationMenuConfigResolver,
+  RolesResolver,
+  GroupsResolver
+  ],
+  CONFIGURATION_ROUTE_PROVIDERS
+];
+

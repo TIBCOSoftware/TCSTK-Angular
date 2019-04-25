@@ -1,13 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import { CORE_ROUTES } from './route-config/core-route';
-import { PROVIDERS } from './route-config/providers';
+import {CORE_PROVIDERS, CORE_ROUTES} from './route-config/core-route-config';
 
 @NgModule({
   imports: [RouterModule.forRoot(CORE_ROUTES, { useHash: true })],
   // imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: PROVIDERS
+  providers: CORE_PROVIDERS
 })
 
 export class AppRoutingModule {

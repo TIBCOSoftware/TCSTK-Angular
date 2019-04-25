@@ -19,7 +19,7 @@ import {
 import {HomeComponent} from '../routes/home/home.component';
 import {ServiceDetailsConfigResolver} from 'tc-check-workflow-monitor-lib';
 import {SpotfireConfigResolver} from 'tc-spotfire-lib';
-import {STARTER_APP_ROUTES} from './starter-app-route-config/starter-app-route';
+import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS } from './starter-app-route-config/starter-app-route';
 
 export const CORE_ROUTES = [
       {
@@ -53,3 +53,12 @@ export const CORE_ROUTES = [
         path: '**', redirectTo: '/starterApp/home'
       }
     ];
+
+export const CORE_PROVIDERS = [
+  [
+  LoginPrefillResolver,
+  ClaimsResolver,
+  GeneralConfigResolver
+  ],
+  STARTER_APP_PROVIDERS
+];
