@@ -1,24 +1,14 @@
 import {LoginComponent} from '../components/login/login.component';
 import {
   AuthGuard,
-  ConfigurationMenuConfigResolver,
   GeneralConfigResolver,
   LoginPrefillResolver,
   TibcoCloudErrorComponent,
 } from 'tc-core-lib';
 import {StarterAppComponent} from '../routes/starter-app/starter-app.component';
 import {
-  AllGroupsResolver,
-  AllRolesResolver,
-  CaseGuard,
   ClaimsResolver,
-  GroupsResolver,
-  LaConfigResolver, LiveAppsConfigResolver,
-  RolesResolver
 } from 'tc-liveapps-lib';
-import {HomeComponent} from '../routes/home/home.component';
-import {ServiceDetailsConfigResolver} from 'tc-check-workflow-monitor-lib';
-import {SpotfireConfigResolver} from 'tc-spotfire-lib';
 import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS } from './starter-app-route-config/starter-app-route';
 
 export const CORE_ROUTES = [

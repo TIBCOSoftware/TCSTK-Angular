@@ -1,14 +1,13 @@
-import {ConfigurationMenuConfigResolver, GeneralConfigResolver, TibcoCloudSettingsGeneralComponent} from 'tc-core-lib';
+import {GeneralConfigResolver, TibcoCloudSettingsGeneralComponent} from 'tc-core-lib';
 import {
   AllGroupsResolver,
   AllRolesResolver,
-  ClaimsResolver, GroupsResolver, LaConfigResolver, LiveAppsConfigResolver,
+  ClaimsResolver, LaConfigResolver,
   LiveAppsSettingsComponent, LiveAppsSettingsRecentCasesComponent,
-  LiveAppsSettingsRolesComponent, LiveAppsSettingsSummaryCardsComponent, RolesResolver
+  LiveAppsSettingsRolesComponent, LiveAppsSettingsSummaryCardsComponent
 } from 'tc-liveapps-lib';
 import {PdSettingsAdministrationComponent, PdSettingsConfigurationComponent} from 'tc-process-discovery-lib';
 import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent} from 'tc-check-workflow-monitor-lib';
-import {SpotfireConfigResolver} from 'tc-spotfire-lib';
 
 export const CONFIGURATION_ROUTE_CONFIG = [
   {
