@@ -20,6 +20,7 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
 import {Location} from '@angular/common';
+import {EMAIL_ID_KEY, CLIENT_ID_KEY} from '../resolvers/login-prefill.resolver';
 
 @Injectable({
   providedIn: 'root'
@@ -27,14 +28,12 @@ import {Location} from '@angular/common';
 
 
 export class TcLoginService {
-  EMAIL_ID_KEY = 'tcs-login-email-id';
-  CLIENT_ID_KEY = 'tcs-login-client-id';
   constructor(private http: HttpClient, private location: Location) { }
 
   // Provide ability to login to Tibco Subscriber Cloud
   public login(username, password, clientID): Observable<AuthInfo> {
-    localStorage.setItem(this.EMAIL_ID_KEY, username);
-    localStorage.setItem(this.CLIENT_ID_KEY, clientID);
+    localStorage.setItem(EMAIL_ID_KEY, username);
+    localStorage.setItem(CLIENT_ID_KEY, clientID);
 
 
     const url = '/idm/v3/login-oauth';
