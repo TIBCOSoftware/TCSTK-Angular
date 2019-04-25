@@ -27,8 +27,8 @@ import { LiveAppsSandboxComponent } from './components/live-apps-sandbox/live-ap
 import { LiveAppsApplicationsComponent } from './components/live-apps-applications/live-apps-applications.component';
 import { LiveAppsNotesComponent } from './components/live-apps-notes/live-apps-notes.component';
 import {
-    LiveAppsDocumentsComponent,
-    LiveAppsDocumentUploadDialogComponent
+  LiveAppsDocumentsComponent,
+  LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent
 } from './components/live-apps-documents/live-apps-documents.component';
 import { LiveAppsCaseStatesComponent } from './components/live-apps-case-states/live-apps-case-states.component';
 import {
@@ -78,6 +78,7 @@ import { LiveAppsRoleSwitcherComponent } from './components/live-apps-role-switc
 import {LiveAppsCaseCreatorsComponent} from './components/live-apps-case-creators/live-apps-case-creators.component';
 import {ParseAuditMessagePipe} from './pipes/audit.pipe';
 import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-actions-list/live-apps-case-actions-list.component';
+import { LiveAppsDocumentViewerComponent } from './components/live-apps-document-viewer/live-apps-document-viewer.component';
 
 @NgModule({
     declarations: [
@@ -96,6 +97,7 @@ import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-acti
         LiveAppsNotesComponent,
         LiveAppsNotesEditorComponent,
         LiveAppsDocumentUploadDialogComponent,
+        LiveAppsDocumentViewerDialogComponent,
         LiveAppsCaseSummaryComponent,
         LiveAppsStateIconComponent,
         LiveAppsApplicationConfigurationComponent,
@@ -125,7 +127,8 @@ import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-acti
         LiveAppsRoleSwitcherComponent,
         LiveAppsCaseCreatorsComponent,
         ParseAuditMessagePipe,
-        LiveAppsCaseActionsListComponent
+        LiveAppsCaseActionsListComponent,
+        LiveAppsDocumentViewerComponent
     ],
     imports: [
         TcCoreLibModule,
@@ -158,52 +161,54 @@ import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-acti
         ScrollingModule,
         ReactiveFormsModule
     ],
-    exports: [
-        LiveAppsLoginComponent,
-        LiveAppsSandboxComponent,
-        LiveAppsApplicationsComponent,
-        LiveAppsCaseSchemaListComponent,
-        LiveAppsCaseDataComponent,
-        LiveAppsCaseStatesComponent,
-        LiveAppsCaseActionsComponent,
-        LiveAppsCaseAuditComponent,
-        LiveAppsCaseStateAuditComponent,
-        LiveAppsRecentCasesComponent,
-        LiveAppsFavoriteCasesComponent,
-        LiveAppsDocumentsComponent,
-        LiveAppsNotesComponent,
-        LiveAppsNotesEditorComponent,
-        LiveAppsDocumentUploadDialogComponent,
-        LiveAppsCaseSummaryComponent,
-        LiveAppsStateIconComponent,
-        LiveAppsApplicationConfigurationComponent,
-        LiveAppsStateIconUploadDialogComponent,
-        LiveAppsCaseListComponent,
-        LiveAppsCaseSearchComponent,
-        LiveAppsSearchWidgetComponent,
-        LiveAppsComponent,
-        LiveAppsCreatorSelectorComponent,
-        LiveAppsCaseCreatorComponent,
-        LiveAppsCreatorsComponent,
-        LiveAppsCaseActionComponent,
-        LiveAppsActionsComponent,
-        LiveAppsCaseDataDisplayComponent,
-        LiveAppsCaseCockpitComponent,
-        LiveAppsAppConfigurationWidgetComponent,
-        LiveAppsCaseCreatorWidgetComponent,
-        LiveAppsHomeCockpitComponent,
-        LiveAppsApplicationListComponent,
-        LiveAppsApplicationCreateButtonComponent,
-        LiveAppsCreatorDialogComponent,
-        LiveAppsSettingsComponent,
-        LiveAppsSettingsSummaryCardsComponent,
-        LiveAppsSettingsRolesComponent,
-        LiveAppsRoleSwitcherComponent,
-        LiveAppsCaseCreatorsComponent,
-        ParseAuditMessagePipe,
-        LiveAppsCaseActionsListComponent
-    ],
-    entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsCreatorDialogComponent],
+  exports: [
+    LiveAppsLoginComponent,
+    LiveAppsSandboxComponent,
+    LiveAppsApplicationsComponent,
+    LiveAppsCaseSchemaListComponent,
+    LiveAppsCaseDataComponent,
+    LiveAppsCaseStatesComponent,
+    LiveAppsCaseActionsComponent,
+    LiveAppsCaseAuditComponent,
+    LiveAppsCaseStateAuditComponent,
+    LiveAppsRecentCasesComponent,
+    LiveAppsFavoriteCasesComponent,
+    LiveAppsDocumentsComponent,
+    LiveAppsNotesComponent,
+    LiveAppsNotesEditorComponent,
+    LiveAppsDocumentUploadDialogComponent,
+    LiveAppsDocumentViewerDialogComponent,
+    LiveAppsCaseSummaryComponent,
+    LiveAppsStateIconComponent,
+    LiveAppsApplicationConfigurationComponent,
+    LiveAppsStateIconUploadDialogComponent,
+    LiveAppsCaseListComponent,
+    LiveAppsCaseSearchComponent,
+    LiveAppsSearchWidgetComponent,
+    LiveAppsComponent,
+    LiveAppsCreatorSelectorComponent,
+    LiveAppsCaseCreatorComponent,
+    LiveAppsCreatorsComponent,
+    LiveAppsCaseActionComponent,
+    LiveAppsActionsComponent,
+    LiveAppsCaseDataDisplayComponent,
+    LiveAppsCaseCockpitComponent,
+    LiveAppsAppConfigurationWidgetComponent,
+    LiveAppsCaseCreatorWidgetComponent,
+    LiveAppsHomeCockpitComponent,
+    LiveAppsApplicationListComponent,
+    LiveAppsApplicationCreateButtonComponent,
+    LiveAppsCreatorDialogComponent,
+    LiveAppsSettingsComponent,
+    LiveAppsSettingsSummaryCardsComponent,
+    LiveAppsSettingsRolesComponent,
+    LiveAppsRoleSwitcherComponent,
+    LiveAppsCaseCreatorsComponent,
+    ParseAuditMessagePipe,
+    LiveAppsCaseActionsListComponent,
+    LiveAppsDocumentViewerComponent
+  ],
+    entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
         RequestCacheService,
         CaseGuard,

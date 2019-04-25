@@ -34,6 +34,7 @@
             <div fxLayoutAlign="end center">
               <mat-icon [matMenuTriggerFor]="docActionMenu" class="tcs-icon tcs-icon-active tcs-document-action-icon" svgIcon="tcs-document-action"></mat-icon>
               <mat-menu #docActionMenu="matMenu" class="tcs-icon tcs-icon-active tcs-document-action-icon">
+                <button class="tcs-document-action-text" mat-menu-item (click)="viewDocument(document)">View</button>
                 <button class="tcs-document-action-text" mat-menu-item (click)="downloadDocument(document)">Download</button>
                 <button class="tcs-document-action-text" mat-menu-item (click)="removeDocument(document)">Delete</button>
               </mat-menu>
