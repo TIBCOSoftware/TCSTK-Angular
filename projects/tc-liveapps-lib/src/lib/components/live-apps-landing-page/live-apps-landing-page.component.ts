@@ -3,14 +3,14 @@ import { Location } from '@angular/common';
 import { TcCoreCommonFunctions, TcGeneralLandingPageConfigService, LandingPageItemConfig } from 'tc-core-lib';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { Roles, TcRolesService } from 'tc-liveapps-lib';
+import { TcRolesService } from '../../services/tc-roles-service.ts.service';
 
 @Component({
-    selector: 'tcpd-landing-page',
-    templateUrl: './landing-page.component.html',
-    styleUrls: ['./landing-page.component.css']
+    selector: 'tcla-live-apps-landing-page',
+    templateUrl: './live-apps-landing-page.component.html',
+    styleUrls: ['./live-apps-landing-page.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class LiveAppsLandingPageComponent implements OnInit {
 
     public title: string;
     public subtitle: string;
