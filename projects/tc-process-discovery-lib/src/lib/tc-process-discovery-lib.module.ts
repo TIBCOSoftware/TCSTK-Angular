@@ -30,7 +30,6 @@ import { TcSpotfireLibModule } from 'tc-spotfire-lib';
 import { PdSettingsConfigurationComponent } from './components/pd-settings-configuration/pd-settings-configuration.component';
 import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-datasource.component';
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from './components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SelectedRoleGuard } from './guards/selectedRole.guard';
 import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-creator-selector.component';
 @NgModule({
@@ -42,7 +41,6 @@ import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-
         PdSettingsConfigurationComponent,
         PdNewDatasourceComponent,
         ProcesDiscoveryChangeDatasourceDialogComponent,
-        LandingPageComponent,
         PdCreatorSelectorComponent
     ],
     imports: [

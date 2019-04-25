@@ -79,6 +79,7 @@ import {LiveAppsCaseCreatorsComponent} from './components/live-apps-case-creator
 import {ParseAuditMessagePipe} from './pipes/audit.pipe';
 import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-actions-list/live-apps-case-actions-list.component';
 import { LiveAppsDocumentViewerComponent } from './components/live-apps-document-viewer/live-apps-document-viewer.component';
+import { LiveAppsLandingPageComponent } from './components/live-apps-landing-page/live-apps-landing-page.component';
 
 @NgModule({
     declarations: [
@@ -128,7 +129,8 @@ import { LiveAppsDocumentViewerComponent } from './components/live-apps-document
         LiveAppsCaseCreatorsComponent,
         ParseAuditMessagePipe,
         LiveAppsCaseActionsListComponent,
-        LiveAppsDocumentViewerComponent
+        LiveAppsDocumentViewerComponent,
+        LiveAppsLandingPageComponent
     ],
     imports: [
         TcCoreLibModule,
@@ -206,7 +208,8 @@ import { LiveAppsDocumentViewerComponent } from './components/live-apps-document
     LiveAppsCaseCreatorsComponent,
     ParseAuditMessagePipe,
     LiveAppsCaseActionsListComponent,
-    LiveAppsDocumentViewerComponent
+    LiveAppsDocumentViewerComponent,
+    LiveAppsLandingPageComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
