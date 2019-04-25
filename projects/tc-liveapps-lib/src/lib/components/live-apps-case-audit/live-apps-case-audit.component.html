@@ -75,7 +75,7 @@
           <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
           <span>
                     <b>{{item.procName.value}}</b>
-            <span> deadline cancelled" {{item.creationTime.value | date: 'full'}}</span>
+            <span> deadline cancelled {{item.creationTime.value | date: 'full'}}</span>
           </span>
         </li>
         <div class="audit-line"></div>
@@ -100,7 +100,7 @@
         <li>
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
-                    <span> created</span>
+                    <span> created </span>
                     <b> {{item.label.value}}</b>
                     <span> in state</span>
                     <span class="audit-state">"{{item.caseState.value}}"</span>
@@ -117,7 +117,7 @@
         <li>
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
-                    <span> updated</span>
+                    <span> updated </span>
                     <b> {{item.label.value}}</b>
                     <span>, new state is></span>
                     <span class="audit-state"> "{{item.caseState.value}}" </span>
@@ -134,7 +134,7 @@
         <li>
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
-                    <span> updated</span>
+                    <span> updated </span>
                     <b> {{item.label.value}} </b>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
@@ -149,8 +149,8 @@
         <li>
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
-                    <span> uploaded</span>
-                    <span> {{item.artifactPath.value}}</span>
+                    <span> uploaded </span>
+                    <span>{{item.artifactName.value}}</span>
                     <span> on {{item.creationTime.value | date:'full'}}</span>
                 </span>
         </li>
@@ -164,8 +164,8 @@
         <li>
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
-                    <span> updated</span>
-                    <span>{{item.artifactPath.value}}</span>
+                    <span> updated </span>
+                    <span>{{item.artifactName.value}}</span>
                     <span> on {{item.creationTime.value | date:'full'}}</span>
                 </span>
         </li>
@@ -179,8 +179,8 @@
         <li>
           <span *ngIf="item.principalName">{{item.principalName.value}}</span>
           <span class="spanPadding">
-                    <span> deleted</span>
-                    <span>{{item.artifactPath.value}}</span>
+                    <span> deleted </span>
+                    <span>{{item.artifactName.value}}</span>
                     <span> on {{item.creationTime.value | date:'full'}}</span>
                 </span>
         </li>
@@ -194,7 +194,7 @@
         <li>
           <span *ngIf="item.principalName">{{item.principalName.value}} </span>
           <span>
-                    <span> completed</span>
+                    <span> completed </span>
                     <b> {{item.taskName.value}} </b>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
