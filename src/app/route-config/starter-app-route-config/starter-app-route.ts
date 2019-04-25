@@ -3,25 +3,20 @@ import {
   AuthGuard,
   ConfigurationMenuConfigResolver,
   GeneralConfigResolver,
-  TibcoCloudSettingsGeneralComponent
 } from 'tc-core-lib';
 import {
-  AllGroupsResolver,
-  AllRolesResolver,
   CaseGuard,
   ClaimsResolver,
   GroupsResolver,
-  LaConfigResolver, LiveAppsConfigResolver, LiveAppsSettingsComponent, LiveAppsSettingsRecentCasesComponent,
-  LiveAppsSettingsRolesComponent, LiveAppsSettingsSummaryCardsComponent,
+  LaConfigResolver,
+  LiveAppsConfigResolver,
   RolesResolver
 } from 'tc-liveapps-lib';
 import {SplashComponent} from '../../components/splash/splash.component';
 import {SplashPDComponent} from '../../components/splash-pd/splash-pd.component';
 import {CaseComponent} from '../../routes/case/case.component';
-import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
+import {ServiceDetailsConfigResolver, UploadPageComponent} from 'tc-check-workflow-monitor-lib';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
-import {PdSettingsAdministrationComponent, PdSettingsConfigurationComponent} from 'tc-process-discovery-lib';
-import {SpotfireConfigResolver} from 'tc-spotfire-lib';
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
 
 export const STARTER_APP_ROUTES =
