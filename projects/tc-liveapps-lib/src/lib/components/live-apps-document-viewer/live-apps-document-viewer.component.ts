@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {Document} from '../../models/tc-document';
 import {TcDocumentService} from '../../services/tc-document.service';
+import {TcCoreCommonFunctions} from 'tc-core-lib';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'tcla-live-apps-document-viewer',
@@ -16,10 +18,11 @@ export class LiveAppsDocumentViewerComponent implements OnInit {
 
   public sanitizedResourceUrl: SafeResourceUrl;
 
-  constructor(private sanitizer: DomSanitizer, private documentsService: TcDocumentService) { }
+  constructor(private sanitizer: DomSanitizer, private documentsService: TcDocumentService, private location: Location) { }
 
   ngOnInit() {
-    this.sanitizedResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.documentsService.getUrlForDocument(this.folderType, this.folderId, this.document.name, this.document.artifactVersion, this.sandboxId));
+    const preparedUrl = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.documentsService.getUrlForDocument(this.folderType, this.folderId, this.document.name, this.document.artifactVersion, this.sandboxId));
+    this.sanitizedResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(preparedUrl);
   }
 
 }
