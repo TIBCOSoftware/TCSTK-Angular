@@ -22,6 +22,7 @@ export class AuditEvent implements Deserializable {
   label: AuditEventAttribute;
   caseState: AuditEventAttribute;
   artifactPath: AuditEventAttribute;
+  artifactName: AuditEventAttribute;
   severity: AuditEventAttribute;
   message: AuditEventAttribute;
   param0: AuditEventAttribute;
