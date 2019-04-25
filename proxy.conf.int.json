@@ -147,7 +147,7 @@
       "Origin": "https://liveapps.tenant-integration.tcie.pro"
     }
   },
-  "/case/v1/reports": {
+  "/case/reports": {
     "target": {
       "host": "liveapps.tenant-integration.tcie.pro",
       "protocol": "https:",

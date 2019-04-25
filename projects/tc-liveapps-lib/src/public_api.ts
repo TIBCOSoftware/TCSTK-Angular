@@ -47,6 +47,9 @@ export * from './lib/components/live-apps-case-creators/live-apps-case-creators.
 export * from './lib/components/live-apps-case-actions-list/live-apps-case-actions-list.component';
 export * from './lib/components/live-apps-document-viewer/live-apps-document-viewer.component';
 export * from './lib/components/live-apps-landing-page/live-apps-landing-page.component';
+export * from './lib/components/live-apps-reporting-cockpit/live-apps-reporting-cockpit.component';
+export * from './lib/components/live-apps-pie/live-apps-pie.component';
+export * from './lib/components/live-apps-case-overview-report/live-apps-case-overview-report.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -64,6 +67,7 @@ export * from './lib/services/tc-case-processes.service';
 export * from './lib/services/tc-document.service';
 export * from './lib/services/tc-live-apps-config.service';
 export * from './lib/services/tc-roles-service.ts.service';
+export * from './lib/services/tc-live-apps-reporting.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';

@@ -148,7 +148,7 @@
       "Origin": "https://eu.liveapps.cloud.tibco.com"
     }
   },
-  "/case/v1/reports": {
+  "/case/reports": {
     "target": {
       "host": "eu.liveapps.cloud.tibco.com",
       "protocol": "https:",
