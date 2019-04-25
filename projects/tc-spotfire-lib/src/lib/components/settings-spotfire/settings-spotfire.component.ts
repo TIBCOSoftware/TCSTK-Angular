@@ -86,4 +86,8 @@ export class SettingsSpotfireComponent implements OnInit {
         );
     }
 
+    public handleEditLiveAppClick = (): void => {
+        window.open(this.spotfireServer + '/spotfire/wp/analysis?file=' + this.analysisPath);
+    }
+
 }
