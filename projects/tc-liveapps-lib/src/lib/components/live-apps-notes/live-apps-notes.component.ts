@@ -39,7 +39,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     this.skip = 0;
     this.top = 5;
     this.end = false;
-    this.threads = undefined;
+    this.threads.threads.length = 0;
     this.getBatch();
     this.getNotifications();
   }
