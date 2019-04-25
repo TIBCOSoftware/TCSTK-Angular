@@ -9,7 +9,7 @@ import {StarterAppComponent} from '../routes/starter-app/starter-app.component';
 import {
   ClaimsResolver,
 } from 'tc-liveapps-lib';
-import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS } from './starter-app-route-config/starter-app-route';
+import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS, HOME_ROUTE } from './starter-app-route-config/starter-app-route';
 
 export const CORE_ROUTES = [
       {
@@ -37,10 +37,10 @@ export const CORE_ROUTES = [
         children: STARTER_APP_ROUTES
       },
       {
-        path: '', redirectTo: '/starterApp/home', pathMatch: 'full'
+        path: '', redirectTo: '/starterApp/' + HOME_ROUTE, pathMatch: 'full'
       },
       {
-        path: '**', redirectTo: '/starterApp/home'
+        path: '**', redirectTo: '/starterApp/' + HOME_ROUTE
       }
     ];
 

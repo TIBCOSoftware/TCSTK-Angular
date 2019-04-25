@@ -19,6 +19,8 @@ import {ServiceDetailsConfigResolver, UploadPageComponent} from 'tc-check-workfl
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
 
+export const HOME_ROUTE = 'home';
+
 export const STARTER_APP_ROUTES =
 [
   {
@@ -67,7 +69,7 @@ export const STARTER_APP_ROUTES =
     path: 'configuration', component: ConfigurationComponent, canActivate: [AuthGuard],
     resolve: {configurationMenuHolder: ConfigurationMenuConfigResolver},
     children: CONFIGURATION_ROUTE_CONFIG
-  },
+  }
 ];
 
 export const STARTER_APP_PROVIDERS = [
