@@ -80,6 +80,11 @@ import {ParseAuditMessagePipe} from './pipes/audit.pipe';
 import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-actions-list/live-apps-case-actions-list.component';
 import { LiveAppsDocumentViewerComponent } from './components/live-apps-document-viewer/live-apps-document-viewer.component';
 import { LiveAppsLandingPageComponent } from './components/live-apps-landing-page/live-apps-landing-page.component';
+import {ChartsModule} from 'ng2-charts';
+import { LiveAppsPieComponent } from './components/live-apps-pie/live-apps-pie.component';
+import { LiveAppsReportingCockpitComponent } from './components/live-apps-reporting-cockpit/live-apps-reporting-cockpit.component';
+import { LiveAppsCaseOverviewReportComponent } from './components/live-apps-case-overview-report/live-apps-case-overview-report.component';
+import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.service';
 
 @NgModule({
     declarations: [
@@ -130,7 +135,10 @@ import { LiveAppsLandingPageComponent } from './components/live-apps-landing-pag
         ParseAuditMessagePipe,
         LiveAppsCaseActionsListComponent,
         LiveAppsDocumentViewerComponent,
-        LiveAppsLandingPageComponent
+        LiveAppsLandingPageComponent,
+        LiveAppsPieComponent,
+        LiveAppsReportingCockpitComponent,
+        LiveAppsCaseOverviewReportComponent
     ],
     imports: [
         TcCoreLibModule,
@@ -161,7 +169,8 @@ import { LiveAppsLandingPageComponent } from './components/live-apps-landing-pag
         FlexLayoutModule,
         ColorPickerModule,
         ScrollingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ChartsModule
     ],
   exports: [
     LiveAppsLoginComponent,
@@ -209,7 +218,10 @@ import { LiveAppsLandingPageComponent } from './components/live-apps-landing-pag
     ParseAuditMessagePipe,
     LiveAppsCaseActionsListComponent,
     LiveAppsDocumentViewerComponent,
-    LiveAppsLandingPageComponent
+    LiveAppsLandingPageComponent,
+    LiveAppsReportingCockpitComponent,
+    LiveAppsPieComponent,
+    LiveAppsCaseOverviewReportComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
@@ -224,7 +236,7 @@ export class TcLiveappsLibModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: TcLiveappsLibModule,
-            providers: [LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService, TcRolesService]
+            providers: [LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService, TcRolesService, TcLiveAppsReportingService]
         };
     }
 }
