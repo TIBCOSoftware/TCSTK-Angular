@@ -35,7 +35,7 @@
     "@angular/platform-browser-dynamic": "~7.2.6",
     "@angular/router": "~7.2.6",
     "@handsontable/angular": "^3.0.0",
-    "@tibco/spotfire-wrapper": "https://s3-us-west-2.amazonaws.com/cec-library/spotfire-wrapper.tgz",
+    "@tibco/spotfire-wrapper": "^0.2.0",
     "angular6-json-schema-form": "^7.0.5",
     "chart.js": "^2.8.0",
     "core-js": "^2.6.3",
