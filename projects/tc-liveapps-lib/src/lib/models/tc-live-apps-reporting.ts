@@ -1,5 +1,4 @@
-import {Deserializable, GeneralConfig} from 'tc-core-lib';
-import {LiveAppsConfig} from 'tc-liveapps-lib';
+import {Deserializable} from 'tc-core-lib';
 
 export class CaseTypeReportRecordInfo implements Deserializable {
   id: string;

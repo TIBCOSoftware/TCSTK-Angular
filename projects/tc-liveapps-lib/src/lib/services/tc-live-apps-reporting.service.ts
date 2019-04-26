@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ApiResponseText, OrgFolder} from 'tc-liveapps-lib';
 import {map, tap} from 'rxjs/operators';
 import {CaseTypeReportRecord, CaseTypesReport} from '../models/tc-live-apps-reporting';
 
