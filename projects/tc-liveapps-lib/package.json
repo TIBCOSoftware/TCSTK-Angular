@@ -8,6 +8,8 @@
     "@angular/flex-layout": "^7.0.0-beta.23",
     "ngx-color-picker": "^7.3.0",
     "ng2-charts": "^2.2.2",
+    "chartjs-plugin-datalabels": "^0.6.0",
+    "chartjs-plugin-labels": "^1.1.0",
     "tc-core-lib": "^0.0.1",
     "tc-forms-lib": "^0.0.1"
   }

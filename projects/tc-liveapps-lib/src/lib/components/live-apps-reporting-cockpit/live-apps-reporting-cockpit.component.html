@@ -1,10 +1,19 @@
 <div fxFill fxLayout="column" fxLayoutAlign="space-between stretch" style="overflow: hidden">
   <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="'Reporting'" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
   </tc-tibco-cloud-menu-bar>
-  <div class="tcs-reporting-content" fxLayout="column" fxFlex="grow" fxLayoutAlign="start stretch" style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">
-    <div class="report1Widget">
+  <div class="tcs-reporting-content" fxLayout="row" fxFlex="grow" fxLayoutAlign="start stretch" style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">
+    <!--div flex class="report1Widget">
       <tcla-live-apps-case-overview-report [sandboxId]="sandboxId" [appIds]="appIds"></tcla-live-apps-case-overview-report>
     </div>
+    <div flex class="report1Widget">
+      <tcla-live-apps-case-overview-report [sandboxId]="sandboxId" [appIds]="appIds"></tcla-live-apps-case-overview-report>
+    </div-->
+        <div fxFlex style="border: solid 1px black">
+          <tcla-live-apps-case-overview-report [sandboxId]="sandboxId" [appIds]="appIds" (selectedCaseType)="setSelectedCaseType($event)"></tcla-live-apps-case-overview-report>
+        </div>
+        <div *ngIf="selectedCaseType" fxFlex style="border: solid 1px black">
+          <tcla-live-apps-case-type-overview-report [sandboxId]="sandboxId" [appId]="selectedCaseType.applicationId" [typeId]="selectedCaseType.caseTypeInfo.id" [incTerminal]="selectedCaseType.incTerminal"></tcla-live-apps-case-type-overview-report>
+        </div>
   </div>
 </div>
 

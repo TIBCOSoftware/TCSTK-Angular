@@ -62,6 +62,15 @@ export class TcCoreCommonFunctions {
     return newStr;
   }
 
+  public static prepareUrlForNonStaticResource = (location: Location, str: string): string => {
+    // @ts-ignore
+    if (location._platformStrategy instanceof HashLocationStrategy) {
+      return str;
+    } else {
+      return str;
+    }
+  }
+
   public static prepareUrlForStaticResource = (location: Location, str: string): string => {
     // @ts-ignore
     if (location._platformStrategy instanceof HashLocationStrategy) {

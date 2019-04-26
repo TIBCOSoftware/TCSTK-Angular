@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RouteAction, TcButtonsHelperService, ToolbarButton} from 'tc-core-lib';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Router} from '@angular/router';
+import {CaseTypeReportRecord} from '../../models/tc-live-apps-reporting';
 
 @Component({
   selector: 'tcla-live-apps-reporting-cockpit',
@@ -15,6 +16,8 @@ export class LiveAppsReportingCockpitComponent implements OnInit {
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
   toolbarButtons: ToolbarButton[];
+
+  public selectedCaseType: CaseTypeReportRecord;
 
   constructor(protected liveapps: LiveAppsService, protected buttonsHelper: TcButtonsHelperService, private router: Router) { }
 
@@ -39,6 +42,10 @@ export class LiveAppsReportingCockpitComponent implements OnInit {
   }
 
   public refresh = () => {
+  }
+
+  public setSelectedCaseType = (event) => {
+    this.selectedCaseType = event;
   }
 
   ngOnInit() {
