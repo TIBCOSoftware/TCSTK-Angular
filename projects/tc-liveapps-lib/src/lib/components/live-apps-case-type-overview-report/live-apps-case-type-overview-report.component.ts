@@ -113,8 +113,10 @@ export class LiveAppsCaseTypeOverviewReportComponent extends LiveAppsComponent i
     const casesByStateArray: number[] = [];
     const labels: string[] = [];
     reportData.caseStates.forEach(caseState => {
-      casesByStateArray.push(caseState.caseCount);
-      labels.push(caseState.stateInfo.label);
+      if (!this.incTerminal || (this.incTerminal && caseState.stateInfo.isTerminal)) {
+        casesByStateArray.push(caseState.caseCount);
+        labels.push(caseState.stateInfo.label);
+      }
     });
     this.doughnutChartData.push(casesByStateArray);
     this.doughnutChartLabels = labels;

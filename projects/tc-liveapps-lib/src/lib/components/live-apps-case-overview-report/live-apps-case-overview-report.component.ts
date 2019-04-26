@@ -8,6 +8,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {MatTabGroup} from '@angular/material';
 import 'chartjs-plugin-labels';
 import 'chartjs-plugin-datalabels';
+import 'chartjs-plugin-doughnutlabel';
 
 @Component({
   selector: 'tcla-live-apps-case-overview-report',
@@ -23,6 +24,8 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
 
   public errorMessage: string;
   public caseTypesReport: CaseTypesReport;
+  public totalActiveCaseCount: number;
+  public totalTerminatedCaseCount: number;
   public renderChart = false;
   public status = 'Active';
 
@@ -31,6 +34,10 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
   public doughnutChartType: ChartType = 'doughnut';
 
   public legendData: any;
+
+  private getCaseCount = () => {
+    return (this.status === 'Active') ? this.totalActiveCaseCount : this.totalTerminatedCaseCount;
+  }
 
   public doughnutChartOptions: any = {
     legendCallback: function(chart) {
@@ -70,6 +77,17 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
           textMargin: 10
         }
       ],
+      doughnutlabel: {
+        labels: [
+          {
+            text: this.getCaseCount,
+            font: {
+              size: '20'
+            },
+            color: 'grey'
+          }
+        ]
+      },
       datalabels: {
         anchor: 'end',
         backgroundColor: function(context) {
@@ -110,12 +128,16 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
 
   private initReportDataToChart = (reportData: CaseTypesReport, status: string) => {
     this.doughnutChartData = [];
+    this.totalActiveCaseCount = 0;
+    this.totalTerminatedCaseCount = 0;
     const activeCasesArray: number[] = [];
     const terminatedCasesArray: number[] = [];
     const labels: string[] = [];
     reportData.caseTypes.forEach(caseType => {
       activeCasesArray.push(caseType.activeStateCaseCount);
+      this.totalActiveCaseCount = this.totalActiveCaseCount + caseType.activeStateCaseCount;
       terminatedCasesArray.push(caseType.terminalStateCaseCount);
+      this.totalTerminatedCaseCount = this.totalTerminatedCaseCount + caseType.terminalStateCaseCount;
       labels.push(caseType.caseTypeInfo.label);
     });
     if (status === 'Terminated') {
@@ -153,7 +175,7 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
         // get value by index
         const value = chart.data.datasets[0].data[clickedElementIndex];
         console.log(clickedElementIndex, label, value);
-        this.caseTypesReport.caseTypes[clickedElementIndex].incTerminal = (this.status === 'Terminated') ? false : true;
+        this.caseTypesReport.caseTypes[clickedElementIndex].incTerminal = (this.status === 'Terminated') ? true : false;
         this.selectedCaseType.emit(this.caseTypesReport.caseTypes[clickedElementIndex]);
       }
     }
