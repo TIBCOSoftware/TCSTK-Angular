@@ -39,6 +39,7 @@
     "angular6-json-schema-form": "^7.0.5",
     "chart.js": "^2.8.0",
     "chartjs-plugin-datalabels": "^0.6.0",
+    "chartjs-plugin-doughnutlabel": "^2.0.3",
     "chartjs-plugin-labels": "^1.1.0",
     "core-js": "^2.6.3",
     "document-register-element": "^1.7.2",

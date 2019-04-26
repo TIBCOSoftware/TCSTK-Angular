@@ -34,6 +34,7 @@ export class CaseTypeStateReportStateInfo implements Deserializable {
   id: string;
   label: string;
   value: string;
+  isTerminal: boolean;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
