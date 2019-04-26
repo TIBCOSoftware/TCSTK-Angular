@@ -1,12 +1,12 @@
 <div fxLayout="column" fxLayoutAlign="start start" style="height: 100%">
   <div>
-    <mat-form-field>
+    <!--mat-form-field>
       <mat-select #caseStatusSelector class="tcs-reporting-status-selector-option" [disableOptionCentering]="true"
-                  placeholder="Case Status" [value]="status" (selectionChange)="selectStatus($event.value)">
+                  placeholder="Case Status" [value]="state" (selectionChange)="selectState($event.value)">
         <mat-option value="Active"><span>Active</span></mat-option>
         <mat-option value="Terminated"><span>Terminated</span></mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field-->
   </div>
   <div *ngIf="renderChart" style="position: relative; height:40%; width:80%; padding: 20px" class="relative">
     <canvas #caseReportChart baseChart
@@ -18,6 +18,7 @@
       (chartClick)="chartClicked($event)"
     >
     </canvas>
+    <div #myLegend></div>
   </div>
 </div>
 

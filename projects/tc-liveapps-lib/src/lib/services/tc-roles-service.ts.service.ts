@@ -22,7 +22,7 @@ export class TcRolesService {
 
     amIConfigurator = (roles: Roles): boolean => {
         const reqRole = roles.roles.find(role => {
-            return (role.configuration == true);
+            return (role.configuration === true);
         })
         return reqRole ? true : false;
     }

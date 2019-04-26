@@ -85,6 +85,7 @@ import { LiveAppsPieComponent } from './components/live-apps-pie/live-apps-pie.c
 import { LiveAppsReportingCockpitComponent } from './components/live-apps-reporting-cockpit/live-apps-reporting-cockpit.component';
 import { LiveAppsCaseOverviewReportComponent } from './components/live-apps-case-overview-report/live-apps-case-overview-report.component';
 import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.service';
+import {LiveAppsCaseTypeOverviewReportComponent} from './components/live-apps-case-type-overview-report/live-apps-case-type-overview-report.component';
 
 @NgModule({
     declarations: [
@@ -138,7 +139,8 @@ import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.serv
         LiveAppsLandingPageComponent,
         LiveAppsPieComponent,
         LiveAppsReportingCockpitComponent,
-        LiveAppsCaseOverviewReportComponent
+        LiveAppsCaseOverviewReportComponent,
+        LiveAppsCaseTypeOverviewReportComponent
     ],
     imports: [
         TcCoreLibModule,
@@ -221,7 +223,8 @@ import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.serv
     LiveAppsLandingPageComponent,
     LiveAppsReportingCockpitComponent,
     LiveAppsPieComponent,
-    LiveAppsCaseOverviewReportComponent
+    LiveAppsCaseOverviewReportComponent,
+    LiveAppsCaseTypeOverviewReportComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
