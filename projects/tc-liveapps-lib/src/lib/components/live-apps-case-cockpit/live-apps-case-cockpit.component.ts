@@ -40,7 +40,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
 
   @ViewChild('dataTabGroup') matTabGroup: MatTabGroup;
   @ViewChildren('dataTabs') inclusiveTabs: QueryList<MatTab>;
-  @ContentChildren(MatTab) tabsFromNgContent: QueryList<MatTab>;
+  @ContentChildren('projectedTab') tabsFromNgContent: QueryList<MatTab>;
 
   // this default layout displays all data but will hide buttons
   DEFAULT_CASE_DATA_LAYOUT = [
