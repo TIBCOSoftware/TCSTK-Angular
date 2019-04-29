@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GeneralConfig, UiAppConfig, RouteAction, Claim} from 'tc-core-lib';
-import {CaseRoute, CaseType, LiveAppsConfig, Groups, Roles} from 'tc-liveapps-lib';
+import {GeneralConfig, UiAppConfig, RouteAction, Claim} from '@tibco-tcstk/tc-core-lib';
+import {CaseRoute, CaseType, LiveAppsConfig, Groups, Roles} from '@tibco-tcstk/tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-home',

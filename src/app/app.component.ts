@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {LiveAppsService, LoginContext} from 'tc-liveapps-lib';
-import {LogLevel, LogService} from 'tc-core-lib';
+import {LiveAppsService, LoginContext} from '@tibco-tcstk/tc-liveapps-lib';
+import {LogLevel, LogService} from '@tibco-tcstk/tc-core-lib';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Location} from '@angular/common';
-import {TcCoreCommonFunctions} from 'tc-core-lib';
+import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 @Component({
   selector: 'laapp-root',

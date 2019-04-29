@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Route } from '@angular/router';
 import { Location } from '@angular/common';
-import { ToolbarButton, TcButtonsHelperService } from 'tc-core-lib';
+import { ToolbarButton, TcButtonsHelperService } from '@tibco-tcstk/tc-core-lib';
 
 @Component({
     selector: 'tcpd-settings',

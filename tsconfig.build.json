@@ -19,53 +19,53 @@
       "dom"
     ],
     "paths": {
-      "tc-liveapps-lib": [
-        "dist/tc-liveapps-lib"
+      "@tibco-tcstk/tc-liveapps-lib": [
+        "dist/tibco-tcstk/tc-liveapps-lib"
       ],
-      "tc-liveapps-lib/*": [
-        "dist/tc-liveapps-lib/*"
+      "@tibco-tcstk/tc-liveapps-lib/*": [
+        "dist/tibco-tcstk/tc-liveapps-lib/*"
       ],
-      "tc-core-lib": [
-        "dist/tc-core-lib"
+      "@tibco-tcstk/tc-core-lib": [
+        "dist/tibco-tcstk/tc-core-lib"
       ],
-      "tc-core-lib/*": [
-        "dist/tc-core-lib/*"
+      "@tibco-tcstk/tc-core-lib/*": [
+        "dist/tibco-tcstk/tc-core-lib/*"
       ],
-      "tc-forms-lib": [
-        "dist/tc-forms-lib"
+      "@tibco-tcstk/tc-forms-lib": [
+        "dist/tibco-tcstk/tc-forms-lib"
       ],
-      "tc-forms-lib/*": [
-        "dist/tc-forms-lib/*"
+      "@tibco-tcstk/tc-forms-lib/*": [
+        "dist/tibco-tcstk/tc-forms-lib/*"
       ],
-      "tc-handsontable-lib": [
-        "dist/tc-handsontable-lib"
+      "@tibco-tcstk/tc-handsontable-lib": [
+        "dist/tibco-tcstk/tc-handsontable-lib"
       ],
-      "tc-handsontable-lib/*": [
-        "dist/tc-handsontable-lib/*"
+      "@tibco-tcstk/tc-handsontable-lib/*": [
+        "dist/tibco-tcstk/tc-handsontable-lib/*"
       ],
-      "tc-process-discovery-lib": [
-        "dist/tc-process-discovery-lib"
+      "@tibco-tcstk/tc-process-discovery-lib": [
+        "dist/tibco-tcstk/tc-process-discovery-lib"
       ],
-      "tc-process-discovery-lib/*": [
-        "dist/tc-process-discovery-lib/*"
+      "@tibco-tcstk/tc-process-discovery-lib/*": [
+        "dist/tibco-tcstk/tc-process-discovery-lib/*"
       ],
-      "tc-spotfire-play-lib": [
-         "dist/tc-spotfire-play-lib"
+      "@tibco-tcstk/tc-spotfire-play-lib": [
+        "dist/tibco-tcstk/tc-spotfire-play-lib"
       ],
-      "tc-spotfire-play-lib/*": [
-        "dist/tc-spotfire-play-lib/*"
+      "@tibco-tcstk/tc-spotfire-play-lib/*": [
+        "dist/tibco-tcstk/tc-spotfire-play-lib/*"
       ],
-      "tc-check-workflow-monitor-lib": [
-        "dist/tc-check-workflow-monitor-lib"
+      "@tibco-tcstk/tc-check-workflow-monitor-lib": [
+        "dist/tibco-tcstk/tc-check-workflow-monitor-lib"
       ],
-      "tc-check-workflow-monitor-lib/*": [
-        "dist/tc-check-workflow-monitor-lib/*"
+      "@tibco-tcstk/tc-check-workflow-monitor-lib/*": [
+        "dist/tibco-tcstk/tc-check-workflow-monitor-lib/*"
       ],
-      "tc-spotfire-lib": [
-        "dist/tc-spotfire-lib"
+      "@tibco-tcstk/tc-spotfire-lib": [
+        "dist/tibco-tcstk/tc-spotfire-lib"
       ],
-      "tc-spotfire-lib/*": [
-        "dist/tc-spotfire-lib/*"
+      "@tibco-tcstk/tc-spotfire-lib/*": [
+        "dist/tibco-tcstk/tc-spotfire-lib/*"
       ]
     }
   }

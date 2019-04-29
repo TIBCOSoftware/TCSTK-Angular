@@ -1,13 +1,13 @@
-import {GeneralConfigResolver, TibcoCloudSettingsGeneralComponent} from 'tc-core-lib';
+import {GeneralConfigResolver, TibcoCloudSettingsGeneralComponent} from '@tibco-tcstk/tc-core-lib';
 import {
   AllGroupsResolver,
   AllRolesResolver,
   ClaimsResolver, LaConfigResolver,
   LiveAppsSettingsComponent, LiveAppsSettingsRecentCasesComponent,
   LiveAppsSettingsRolesComponent, LiveAppsSettingsSummaryCardsComponent
-} from 'tc-liveapps-lib';
-import {PdSettingsAdministrationComponent, PdSettingsConfigurationComponent} from 'tc-process-discovery-lib';
-import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent} from 'tc-check-workflow-monitor-lib';
+} from '@tibco-tcstk/tc-liveapps-lib';
+import {PdSettingsAdministrationComponent, PdSettingsConfigurationComponent} from '@tibco-tcstk/tc-process-discovery-lib';
+import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 
 export const CONFIGURATION_ROUTE_CONFIG = [
   {
