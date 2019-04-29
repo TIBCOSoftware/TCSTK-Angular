@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LiveAppsService} from 'tc-liveapps-lib';
-import {GeneralConfig} from 'tc-core-lib';
+import {LiveAppsService} from '@tibco-tcstk/tc-liveapps-lib';
+import {GeneralConfig} from '@tibco-tcstk/tc-core-lib';
 import {Title} from '@angular/platform-browser';
 
 @Component({

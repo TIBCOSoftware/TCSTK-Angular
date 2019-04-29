@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LiveAppsConfig} from 'tc-liveapps-lib';
-import {Claim, GeneralConfig} from 'tc-core-lib';
+import {LiveAppsConfig} from '@tibco-tcstk/tc-liveapps-lib';
+import {Claim, GeneralConfig} from '@tibco-tcstk/tc-core-lib';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({

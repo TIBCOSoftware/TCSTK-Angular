@@ -4,11 +4,11 @@ import {
   GeneralConfigResolver,
   LoginPrefillResolver,
   TibcoCloudErrorComponent,
-} from 'tc-core-lib';
+} from '@tibco-tcstk/tc-core-lib';
 import {StarterAppComponent} from '../routes/starter-app/starter-app.component';
 import {
   ClaimsResolver,
-} from 'tc-liveapps-lib';
+} from '@tibco-tcstk/tc-liveapps-lib';
 import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS, HOME_ROUTE } from './starter-app-route-config/starter-app-route';
 
 export const CORE_ROUTES = [

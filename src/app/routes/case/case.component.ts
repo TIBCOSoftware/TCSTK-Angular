@@ -10,12 +10,12 @@ import {
   LiveAppsNotesComponent,
   LiveAppsDocumentsComponent,
   CaseRoute, LiveAppsConfig, Groups, Roles
-} from 'tc-liveapps-lib';
-import { Claim, Sandbox } from 'tc-core-lib';
+} from '@tibco-tcstk/tc-liveapps-lib';
+import { Claim, Sandbox } from '@tibco-tcstk/tc-core-lib';
 
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {GeneralConfig, RouteAction} from 'tc-core-lib';
+import {GeneralConfig, RouteAction} from '@tibco-tcstk/tc-core-lib';
 
 @Component({
   selector: 'laapp-case',

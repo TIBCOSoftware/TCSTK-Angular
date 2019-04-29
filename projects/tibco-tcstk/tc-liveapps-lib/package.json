@@ -1,0 +1,17 @@
+{
+  "name": "@tibco-tcstk/tc-liveapps-lib",
+  "version": "0.0.3",
+  "peerDependencies": {
+    "@angular/common": "^7.2.6",
+    "@angular/core": "^7.2.6",
+    "@angular/material": "^7.2.2",
+    "@angular/flex-layout": "^7.0.0-beta.23",
+    "ngx-color-picker": "^7.3.0",
+    "ng2-charts": "^2.2.2",
+    "chartjs-plugin-datalabels": "^0.6.0",
+    "chartjs-plugin-labels": "^1.1.0",
+    "chartjs-plugin-doughnutlabel": "^2.0.3",
+    "@tibco-tcstk/tc-core-lib": "^0.0.1",
+    "@tibco-tcstk/tc-forms-lib": "^0.0.1"
+  }
+}

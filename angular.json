@@ -143,33 +143,33 @@
         }
       }
     },
-    "tc-liveapps-lib": {
-      "root": "projects/tc-liveapps-lib",
-      "sourceRoot": "projects/tc-liveapps-lib/src",
+    "@tibco-tcstk/tc-liveapps-lib": {
+      "root": "projects/tibco-tcstk/tc-liveapps-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-liveapps-lib/src",
       "projectType": "library",
       "prefix": "tcla",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-liveapps-lib/tsconfig.lib.json",
-            "project": "projects/tc-liveapps-lib/ng-package.json",
+            "tsConfig": "projects/tibco-tcstk/tc-liveapps-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-liveapps-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-liveapps-lib/src/test.ts",
-            "tsConfig": "projects/tc-liveapps-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-liveapps-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-liveapps-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-liveapps-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-liveapps-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-liveapps-lib/tsconfig.lib.json",
-              "projects/tc-liveapps-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-liveapps-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-liveapps-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -178,33 +178,33 @@
         }
       }
     },
-    "tc-core-lib": {
-      "root": "projects/tc-core-lib",
-      "sourceRoot": "projects/tc-core-lib/src",
+    "@tibco-tcstk/tc-core-lib": {
+      "root": "projects/tibco-tcstk/tc-core-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-core-lib/src",
       "projectType": "library",
       "prefix": "tc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-core-lib/tsconfig.lib.json",
-            "project": "projects/tc-core-lib/ng-package.json"
+            "tsConfig": "projects/tibco-tcstk/tc-core-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-core-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-core-lib/src/test.ts",
-            "tsConfig": "projects/tc-core-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-core-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-core-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-core-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-core-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-core-lib/tsconfig.lib.json",
-              "projects/tc-core-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-core-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-core-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -213,33 +213,33 @@
         }
       }
     },
-    "tc-forms-lib": {
-      "root": "projects/tc-forms-lib",
-      "sourceRoot": "projects/tc-forms-lib/src",
+    "@tibco-tcstk/tc-forms-lib": {
+      "root": "projects/tibco-tcstk/tc-forms-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-forms-lib/src",
       "projectType": "library",
       "prefix": "tcfrm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-forms-lib/tsconfig.lib.json",
-            "project": "projects/tc-forms-lib/ng-package.json"
+            "tsConfig": "projects/tibco-tcstk/tc-forms-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-forms-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-forms-lib/src/test.ts",
-            "tsConfig": "projects/tc-forms-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-forms-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-forms-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-forms-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-forms-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-forms-lib/tsconfig.lib.json",
-              "projects/tc-forms-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-forms-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-forms-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -248,33 +248,33 @@
         }
       }
     },
-    "tc-spotfire-lib": {
-      "root": "projects/tc-spotfire-lib",
-      "sourceRoot": "projects/tc-spotfire-lib/src",
+    "@tibco-tcstk/tc-spotfire-lib": {
+      "root": "projects/tibco-tcstk/tc-spotfire-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-spotfire-lib/src",
       "projectType": "library",
       "prefix": "tcsf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-spotfire-lib/tsconfig.lib.json",
-            "project": "projects/tc-spotfire-lib/ng-package.json"
+            "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-spotfire-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-spotfire-lib/src/test.ts",
-            "tsConfig": "projects/tc-spotfire-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-spotfire-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-spotfire-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-spotfire-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-spotfire-lib/tsconfig.lib.json",
-              "projects/tc-spotfire-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -283,33 +283,33 @@
         }
       }
     },
-    "tc-handsontable-lib": {
-      "root": "projects/tc-handsontable-lib",
-      "sourceRoot": "projects/tc-handsontable-lib/src",
+    "@tibco-tcstk/tc-handsontable-lib": {
+      "root": "projects/tibco-tcstk/tc-handsontable-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-handsontable-lib/src",
       "projectType": "library",
       "prefix": "tctab",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-handsontable-lib/tsconfig.lib.json",
-            "project": "projects/tc-handsontable-lib/ng-package.json"
+            "tsConfig": "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-handsontable-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-handsontable-lib/src/test.ts",
-            "tsConfig": "projects/tc-handsontable-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-handsontable-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-handsontable-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-handsontable-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-handsontable-lib/tsconfig.lib.json",
-              "projects/tc-handsontable-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -318,33 +318,33 @@
         }
       }
     },
-    "tc-process-discovery-lib": {
-      "root": "projects/tc-process-discovery-lib",
-      "sourceRoot": "projects/tc-process-discovery-lib/src",
+    "@tibco-tcstk/tc-process-discovery-lib": {
+      "root": "projects/tibco-tcstk/tc-process-discovery-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-process-discovery-lib/src",
       "projectType": "library",
       "prefix": "tcpd",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-process-discovery-lib/tsconfig.lib.json",
-            "project": "projects/tc-process-discovery-lib/ng-package.json"
+            "tsConfig": "projects/tibco-tcstk/tc-process-discovery-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-process-discovery-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-process-discovery-lib/src/test.ts",
-            "tsConfig": "projects/tc-process-discovery-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-process-discovery-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-process-discovery-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-process-discovery-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-process-discovery-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-process-discovery-lib/tsconfig.lib.json",
-              "projects/tc-process-discovery-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-process-discovery-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-process-discovery-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -353,33 +353,33 @@
         }
       }
     },
-    "tc-spotfire-play-lib": {
-      "root": "projects/tc-spotfire-play-lib",
-      "sourceRoot": "projects/tc-spotfire-play-lib/src",
+    "@tibco-tcstk/tc-spotfire-play-lib": {
+      "root": "projects/tibco-tcstk/tc-spotfire-play-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-spotfire-play-lib/src",
       "projectType": "library",
       "prefix": "tcsp",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-spotfire-play-lib/tsconfig.lib.json",
-            "project": "projects/tc-spotfire-play-lib/ng-package.json"
+            "tsConfig": "projects/tibco-tcstk/tc-spotfire-play-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-spotfire-play-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-spotfire-play-lib/src/test.ts",
-            "tsConfig": "projects/tc-spotfire-play-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-spotfire-play-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-spotfire-play-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-spotfire-play-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-spotfire-play-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-spotfire-play-lib/tsconfig.lib.json",
-              "projects/tc-spotfire-play-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-spotfire-play-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-spotfire-play-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -388,33 +388,33 @@
         }
       }
     },
-    "tc-check-workflow-monitor-lib": {
-      "root": "projects/tc-check-workflow-monitor-lib",
-      "sourceRoot": "projects/tc-check-workflow-monitor-lib/src",
+    "@tibco-tcstk/tc-check-workflow-monitor-lib": {
+      "root": "projects/tibco-tcstk/tc-check-workflow-monitor-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-check-workflow-monitor-lib/src",
       "projectType": "library",
       "prefix": "tccwm",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/tc-check-workflow-monitor-lib/tsconfig.lib.json",
-            "project": "projects/tc-check-workflow-monitor-lib/ng-package.json"
+            "tsConfig": "projects/tibco-tcstk/tc-check-workflow-monitor-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-check-workflow-monitor-lib/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tc-check-workflow-monitor-lib/src/test.ts",
-            "tsConfig": "projects/tc-check-workflow-monitor-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tc-check-workflow-monitor-lib/karma.conf.js"
+            "main": "projects/tibco-tcstk/tc-check-workflow-monitor-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-check-workflow-monitor-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-check-workflow-monitor-lib/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tc-check-workflow-monitor-lib/tsconfig.lib.json",
-              "projects/tc-check-workflow-monitor-lib/tsconfig.spec.json"
+              "projects/tibco-tcstk/tc-check-workflow-monitor-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-check-workflow-monitor-lib/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
