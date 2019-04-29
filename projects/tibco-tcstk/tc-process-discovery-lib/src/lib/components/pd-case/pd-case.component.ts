@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
     LiveAppsConfig, Groups, Roles
-} from 'tc-liveapps-lib';
-import { Claim, Sandbox } from 'tc-core-lib';
+} from '@tibco-tcstk/tc-liveapps-lib';
+import { Claim, Sandbox } from '@tibco-tcstk/tc-core-lib';
 import { map, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { GeneralConfig, RouteAction } from 'tc-core-lib';
-import { SpotfireConfig } from 'tc-spotfire-lib';
+import { GeneralConfig, RouteAction } from '@tibco-tcstk/tc-core-lib';
+import { SpotfireConfig } from '@tibco-tcstk/tc-spotfire-lib';
 
 @Component({
     selector: 'tcpd-pd-case',
