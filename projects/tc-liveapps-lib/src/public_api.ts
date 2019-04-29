@@ -50,6 +50,7 @@ export * from './lib/components/live-apps-landing-page/live-apps-landing-page.co
 export * from './lib/components/live-apps-reporting-cockpit/live-apps-reporting-cockpit.component';
 export * from './lib/components/live-apps-pie/live-apps-pie.component';
 export * from './lib/components/live-apps-case-overview-report/live-apps-case-overview-report.component';
+export * from './lib/components/live-apps-case-type-overview-report/live-apps-case-type-overview-report.component';
 
 // data
 export * from './lib/models/liveappsdata';

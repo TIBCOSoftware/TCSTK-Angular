@@ -1,4 +1,16 @@
-import {Component, Directive, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, ViewChildren} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ContentChildren,
+  Directive,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
@@ -24,7 +36,11 @@ import {TcRolesService} from '../../services/tc-roles-service.ts.service';
   templateUrl: './live-apps-case-cockpit.component.html',
   styleUrls: ['./live-apps-case-cockpit.component.css']
 })
-export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
+export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterViewInit {
+
+  @ViewChild('dataTabGroup') matTabGroup: MatTabGroup;
+  @ViewChildren('dataTabs') inclusiveTabs: QueryList<MatTab>;
+  @ContentChildren('projectedTab') tabsFromNgContent: QueryList<MatTab>;
 
   // this default layout displays all data but will hide buttons
   DEFAULT_CASE_DATA_LAYOUT = [
@@ -177,5 +193,10 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this._destroyed$.next();
+  }
+
+  ngAfterViewInit(): void {
+    this.matTabGroup._tabs.reset([...this.inclusiveTabs.toArray(), ...this.tabsFromNgContent.toArray()]);
+    // this.matTabGroup.afterViewInit();
   }
 }
