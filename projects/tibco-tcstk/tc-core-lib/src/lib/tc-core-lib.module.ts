@@ -5,7 +5,7 @@ import {
 } from './components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-login/tibco-cloud-login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatButtonToggleModule,
@@ -13,7 +13,7 @@ import {
   MatCheckboxModule,
   MatDialogModule, MatExpansionModule,
   MatFormFieldModule,
-  MatIconModule,
+  MatIconModule, MatIconRegistry,
   MatInputModule,
   MatListModule,
   MatMenuModule,
@@ -52,9 +52,11 @@ import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-setti
 import { TibcoCloudConfigurationComponent } from './components/tibco-cloud-configuration/tibco-cloud-configuration.component';
 import {RouterModule} from '@angular/router';
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
-import {CommonModule} from '@angular/common';
+import {CommonModule, Location} from '@angular/common';
 import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
 import { TibcoCloudNewElementComponent } from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
+import {LiveAppsService} from '@tibco-tcstk/tc-liveapps-lib';
+import {LogService} from '@tibco-tcstk/tc-core-lib';
 
 
 // import {DataSource} from '@angular/cdk/collections';
