@@ -32,6 +32,7 @@ import { PdNewDatasourceComponent } from './components/pd-new-datasource/pd-new-
 import { ProcesDiscoveryChangeDatasourceDialogComponent } from './components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 import { SelectedRoleGuard } from './guards/selectedRole.guard';
 import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-creator-selector.component';
+import { PdCaseComponent } from './components/pd-case/pd-case.component';
 @NgModule({
     declarations: [
         PdProcessMiningComponent,
@@ -41,7 +42,8 @@ import { PdCreatorSelectorComponent } from './components/pd-creator-selector/pd-
         PdSettingsConfigurationComponent,
         PdNewDatasourceComponent,
         ProcesDiscoveryChangeDatasourceDialogComponent,
-        PdCreatorSelectorComponent
+        PdCreatorSelectorComponent,
+        PdCaseComponent
     ],
     imports: [
         CommonModule,
