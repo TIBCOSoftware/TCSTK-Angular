@@ -1,43 +1,36 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ChartLegendLabelOptions, ChartOptions, ChartPoint, ChartType} from 'chart.js';
 import {BaseChartDirective, Label, MultiDataSet} from 'ng2-charts';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
-import {CaseTypeReportRecord, CaseTypesReport} from '../../models/tc-live-apps-reporting';
+import {CaseTypeStateReport} from '../../models/tc-live-apps-reporting';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {MatTabGroup} from '@angular/material';
 import 'chartjs-plugin-labels';
 import 'chartjs-plugin-datalabels';
-import 'chartjs-plugin-doughnutlabel';
 
 @Component({
-  selector: 'tcla-live-apps-case-overview-report',
-  templateUrl: './live-apps-case-overview-report.component.html',
-  styleUrls: ['./live-apps-case-overview-report.component.css']
+  selector: 'tcla-live-apps-case-type-overview-report',
+  templateUrl: './live-apps-case-type-overview-report.component.html',
+  styleUrls: ['./live-apps-case-type-overview-report.component.css']
 })
-export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent implements OnInit {
+export class LiveAppsCaseTypeOverviewReportComponent extends LiveAppsComponent implements OnInit, OnChanges {
   @Input() sandboxId: number;
-  @Input() appIds: string[];
-  @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
+  @Input() appId: string;
+  @Input() incTerminal: boolean = this.incTerminal ? this.incTerminal : true;
+  @Input() typeId: string;
 
-  @ViewChild(BaseChartDirective) caseReportChart: BaseChartDirective;
+  // @ViewChild(BaseChartDirective) caseTypeStateReportChart: BaseChartDirective;
 
   public errorMessage: string;
-  public caseTypesReport: CaseTypesReport;
-  public totalActiveCaseCount: number;
-  public totalTerminatedCaseCount: number;
+  public caseTypeStateReport: CaseTypeStateReport;
   public renderChart = false;
-  public status = 'Active';
 
   public doughnutChartLabels: Label[];
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
 
   public legendData: any;
-
-  private getCaseCount = () => {
-    return (this.status === 'Active') ? this.totalActiveCaseCount : this.totalTerminatedCaseCount;
-  }
 
   public doughnutChartOptions: any = {
     legendCallback: function(chart) {
@@ -72,22 +65,11 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
       labels: [
         {
           render: 'label',
-          arc: true,
+          arc: false,
           position: 'outside',
           textMargin: 10
         }
       ],
-      doughnutlabel: {
-        labels: [
-          {
-            text: this.getCaseCount,
-            font: {
-              size: '20'
-            },
-            color: 'grey'
-          }
-        ]
-      },
       datalabels: {
         anchor: 'end',
         backgroundColor: function(context) {
@@ -126,35 +108,27 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
     super();
   }
 
-  private initReportDataToChart = (reportData: CaseTypesReport, status: string) => {
+  private initReportDataToChart = (reportData: CaseTypeStateReport, status: string) => {
     this.doughnutChartData = [];
-    this.totalActiveCaseCount = 0;
-    this.totalTerminatedCaseCount = 0;
-    const activeCasesArray: number[] = [];
-    const terminatedCasesArray: number[] = [];
+    const casesByStateArray: number[] = [];
     const labels: string[] = [];
-    reportData.caseTypes.forEach(caseType => {
-      activeCasesArray.push(caseType.activeStateCaseCount);
-      this.totalActiveCaseCount = this.totalActiveCaseCount + caseType.activeStateCaseCount;
-      terminatedCasesArray.push(caseType.terminalStateCaseCount);
-      this.totalTerminatedCaseCount = this.totalTerminatedCaseCount + caseType.terminalStateCaseCount;
-      labels.push(caseType.caseTypeInfo.label);
+    reportData.caseStates.forEach(caseState => {
+      if (!this.incTerminal || (this.incTerminal && caseState.stateInfo.isTerminal)) {
+        casesByStateArray.push(caseState.caseCount);
+        labels.push(caseState.stateInfo.label);
+      }
     });
-    if (status === 'Terminated') {
-      this.doughnutChartData.push(terminatedCasesArray);
-    } else {
-      this.doughnutChartData.push(activeCasesArray);
-    }
+    this.doughnutChartData.push(casesByStateArray);
     this.doughnutChartLabels = labels;
     this.renderChart = true;
   }
 
-  public refresh = (status) => {
-    this.reportingService.getCaseTypesReport(this.sandboxId, this.appIds).pipe(
+  public refresh = () => {
+    this.reportingService.getCaseTypeStateReport(this.sandboxId, this.appId, this.typeId, this.incTerminal).pipe(
       take(1),
       takeUntil(this._destroyed$),
       map(report => {
-        this.caseTypesReport = report;
+        this.caseTypeStateReport = report;
         this.initReportDataToChart(report, status);
         return report;
       }))
@@ -164,35 +138,22 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
   }
 
   // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: any }): void {
-    if (active.length > 0) {
-      const chart = active[0]._chart;
-      const activePoints: any = chart.getElementAtEvent(event);
-      if ( activePoints.length > 0) {
-        // get the internal index of slice in pie chart
-        const clickedElementIndex = activePoints[0]._index;
-        const label = chart.data.labels[clickedElementIndex];
-        // get value by index
-        const value = chart.data.datasets[0].data[clickedElementIndex];
-        console.log(clickedElementIndex, label, value);
-        this.caseTypesReport.caseTypes[clickedElementIndex].incTerminal = (this.status === 'Terminated') ? true : false;
-        this.selectedCaseType.emit(this.caseTypesReport.caseTypes[clickedElementIndex]);
-      }
-    }
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
   }
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
     // console.log(event, active);
   }
 
-  public selectStatus = (status) => {
-    this.status = status;
-    this.refresh(status);
-  }
-
 
   ngOnInit() {
-    this.refresh(this.status);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.appId && (changes.firstChange || (changes.appId.currentValue !== changes.appId.previousValue))) {
+      this.refresh();
+    }
   }
 
 }

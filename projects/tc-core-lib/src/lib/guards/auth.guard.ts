@@ -13,6 +13,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 export class AuthGuard implements CanActivate {
   private TIBCO_CLOUD_DOMAIN = 'cloud.tibco.com';
   private TIBCO_TEST_DOMAIN = 'tenant-integration.tcie.pro';
+  private TIBCO_DEV_DOMAIN = 'emea.tibco.com';
 
   constructor(private router: Router) {
   }
@@ -21,7 +22,7 @@ export class AuthGuard implements CanActivate {
     // check if we are hosted on tibco.cloud.com
     const host = window.location.hostname.split('.');
     const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
-    if (hostDomain === this.TIBCO_CLOUD_DOMAIN || hostDomain === this.TIBCO_TEST_DOMAIN) {
+    if (hostDomain === this.TIBCO_CLOUD_DOMAIN || hostDomain === this.TIBCO_TEST_DOMAIN || hostDomain === this.TIBCO_DEV_DOMAIN) {
       // delegate handling login/auth to Tibco Cloud since WRP resources are protected anyway
       return true;
     } else {
