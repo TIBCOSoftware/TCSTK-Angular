@@ -7,6 +7,7 @@
     "@angular/material": "^7.2.2",
     "@angular/flex-layout": "^7.0.0-beta.23",
     "ngx-color-picker": "^7.3.0",
-    "@tibco-tcstk/tc-core-lib": "^0.0.1"
+    "@tibco-tcstk/tc-core-lib": "^0.0.1",
+    "@tibco/spotfire-wrapper": "^0.2.0"
   }
 }
