@@ -18,7 +18,7 @@ This component is required if user is in multiple subscriptions - they must sele
 ```
 
 !!! info
-A user will use this component when they have multiple subscriptions. The component is passed a list of subscriptions. The user must choose a subscription, then the user is logged in against that subscription.
+    A user will use this component when they have multiple subscriptions. The component is passed a list of subscriptions. The user must choose a subscription, then the user is logged in against that subscription.
 
 #### Inputs
 available Attributes
