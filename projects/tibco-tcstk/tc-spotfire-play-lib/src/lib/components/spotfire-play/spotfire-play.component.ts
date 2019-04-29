@@ -19,6 +19,7 @@ import {RouteAction, SandboxList, TcButtonsHelperService} from '@tibco-tcstk/tc-
   styleUrls: ['./spotfire-play.component.css']
 })
 
+// A component to play with Spotfire Integration
 export class SpotfirePlayComponent implements OnInit {
 
   constructor(protected liveapps: LiveAppsService, public dialog: MatDialog) {
