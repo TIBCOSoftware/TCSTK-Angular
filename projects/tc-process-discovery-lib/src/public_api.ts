@@ -13,6 +13,7 @@ export * from './lib/components/pd-settings-configuration/pd-settings-configurat
 export * from './lib/components/settings-integration/settings-integration.component';
 export * from './lib/components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
 export * from './lib/components/proces-discovery-change-datasource-dialog/proces-discovery-change-datasource-dialog.component';
+export * from './lib/components/pd-case/pd-case.component';
 
 
 // Services
