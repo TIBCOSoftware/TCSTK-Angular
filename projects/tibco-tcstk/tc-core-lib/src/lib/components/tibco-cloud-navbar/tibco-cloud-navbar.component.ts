@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef, Input} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, Input, SystemJsNgModuleLoader} from '@angular/core';
 import {Location} from '@angular/common';
 import { TcCoreCommonFunctions } from '../../common/tc-core-common-functions';
 
@@ -14,21 +14,12 @@ export class TibcoCloudNavbarComponent implements OnInit {
   @Input() appName: string;
   @Input() docUrl: string;
 
-  constructor(private location: Location) { }
+  public ready = false;
+
+  constructor(private location: Location) {
+  }
 
   ngOnInit() {
-
-    /*
-    customRightButton: {
-      label: "Start tour",
-      event: "START_TOUR_BTN" //optional the default event name is "DEFAULT_CLICK_RIGHT_TEXT_BTN"
-    },
-    navbar.subscribeEvent("START_TOUR_BTN", function(event){
-      console.log("Start tour event", event);
-      alert("Now start tour");
-      // call function
-    });
-    */
 
     if (this.docUrl && (this.docUrl.slice(0, 4).toLowerCase() !== 'http')) {
 //      this.docUrl = this.location.prepareExternalUrl(this.docUrl);        // This will work with non hash routing

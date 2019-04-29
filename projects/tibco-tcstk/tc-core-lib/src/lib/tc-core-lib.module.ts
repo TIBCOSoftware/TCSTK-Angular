@@ -55,11 +55,8 @@ import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-s
 import {CommonModule, Location} from '@angular/common';
 import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
 import { TibcoCloudNewElementComponent } from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
-import {LiveAppsService} from '@tibco-tcstk/tc-liveapps-lib';
-import {LogService} from '@tibco-tcstk/tc-core-lib';
 
-
-// import {DataSource} from '@angular/cdk/collections';
+export const TC_NAVBAR_URL = { url: 'https://account.cloud.tibco.com/tsc-ws-content/tsc-universal-header/globalNavbar.js', type: 'application/javascript' };
 
 @NgModule({
   declarations: [
@@ -170,6 +167,23 @@ export class TcCoreLibModule {
       ngModule: TcCoreLibModule,
       providers: [ TcSharedStateService, TcGeneralConfigService ]
     };
+  }
+  constructor() {
+    this.loadNavbarJS();
+  }
+
+  loadNavbarJS() {
+    const jsUrls = [
+      TC_NAVBAR_URL
+    ];
+    for (let i = 0; i < jsUrls.length; i++) {
+      const node = document.createElement('script');
+      node.src = jsUrls[i].url;
+      node.type = jsUrls[i].type;
+      node.async = false;
+      node.charset = 'utf-8';
+      document.head.appendChild(node);
+    }
   }
 }
 
