@@ -14,7 +14,7 @@
     <div fxLayout="row" fxFlex style="overflow: hidden;">
       <div fxFlex fxLayoutGap="20px">
         <div fxLayout="column" fxFlex="70" style="min-width: 70%">
-          <mat-tab-group #dataTabGroup style="overflow: hidden">
+          <mat-tab-group fxFill #dataTabGroup style="overflow: hidden">
             <ng-content></ng-content>
             <mat-tab #dataTabs label="Case Data">
                 <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false"></tcla-live-apps-case-data>
