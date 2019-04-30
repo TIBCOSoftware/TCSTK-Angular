@@ -14,8 +14,6 @@ export class TibcoCloudNavbarComponent implements OnInit {
   @Input() appName: string;
   @Input() docUrl: string;
 
-  public ready = false;
-
   constructor(private location: Location) {
   }
 

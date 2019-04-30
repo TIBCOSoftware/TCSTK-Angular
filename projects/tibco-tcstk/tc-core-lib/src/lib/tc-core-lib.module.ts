@@ -169,8 +169,28 @@ export class TcCoreLibModule {
     };
   }
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
-    this.loadNavbarJS();
 
+    this.matIconRegistry.addSvgIconLiteral(
+      'ic-documentation',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">\n' +
+        '    <g fill="#C8D4E8" fill-rule="evenodd">\n' +
+        '        <path d="M33.6 14.4v-12l12.194 12.05L33.6 14.4zm3.6 12H15.6a1.2 1.2 0 0 1 0-2.4h21.6a1.2 1.2 0 0 1 0 2.4zm0 4.8H15.6a1.2 1.2 0 0 1 0-2.4h21.6a1.2 1.2 0 0 1 0 2.4zm0 4.8H15.6a1.2 1.2 0 0 1 0-2.4h21.6a1.2 1.2 0 0 1 0 2.4zM15.6 19.2h9.6a1.2 1.2 0 0 1 0 2.4h-9.6a1.2 1.2 0 0 1 0-2.4zM33.6 0H14.405A4.804 4.804 0 0 0 9.6 4.805v31.24c0 2.655 2.15 4.755 4.805 4.755H43.2c2.652 0 4.8-2.098 4.8-4.75V14.4L33.6 0z"/>\n' +
+        '        <path d="M12.006 43.2C9.35 43.2 7.2 41.074 7.2 38.42V7.2H4.806A4.804 4.804 0 0 0 0 12.005v31.24C.001 45.9 2.151 48 4.806 48H33.6c2.65 0 4.8-2.098 4.8-4.75v-.05H12.006z"/>\n' +
+        '    </g>\n' +
+        '</svg>\n')
+    );
+    this.matIconRegistry.addSvgIconLiteral(
+      'ic-community',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">\n' +
+        '    <path fill="#C8D4E8" fill-rule="evenodd" d="M24 17.6A6.3 6.3 0 1 1 24 5a6.3 6.3 0 0 1 0 12.6zm-1.68 2.1h3.36a8.82 8.82 0 0 1 8.82 8.82V42.8h-21V28.52a8.82 8.82 0 0 1 8.82-8.82zM9.3 21.8a4.2 4.2 0 1 1 0-8.4 4.2 4.2 0 0 1 0 8.4zm29.4 0a4.2 4.2 0 1 1 0-8.4 4.2 4.2 0 0 1 0 8.4zm-27.3 6.72v7.98H3v-8.4a4.2 4.2 0 0 1 4.2-4.2h4.2a4.2 4.2 0 0 1 1.218.21 8.715 8.715 0 0 0-1.218 4.41zm29.4-4.62a4.2 4.2 0 0 1 4.2 4.2v8.4h-8.4v-7.98a8.715 8.715 0 0 0-1.218-4.41 4.2 4.2 0 0 1 1.218-.21h4.2z"/>\n' +
+        '</svg>\n')
+    );
+    this.matIconRegistry.addSvgIconLiteral(
+      'ic-graph',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">\n' +
+        '    <path fill="#C8D4E8" fill-rule="evenodd" d="M45 15.818H3V8a2 2 0 0 1 2-2h38a2 2 0 0 1 2 2v7.818zm0 1.637V40a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V17.455h42zm-8.83 6.891l-5.863 6.03c-.4-.33-.908-.529-1.46-.529-.896 0-1.674.52-2.065 1.28l-4.936-2.82v-.02c0-1.325-1.045-2.4-2.333-2.4-1.289 0-2.334 1.075-2.334 2.4 0 .194.023.382.065.562l-5.558 4.446a2.286 2.286 0 0 0-1.507-.568c-1.288 0-2.333 1.075-2.333 2.4 0 1.326 1.045 2.4 2.333 2.4 1.29 0 2.334-1.074 2.334-2.4 0-.3-.054-.587-.152-.852l5.443-4.354a2.298 2.298 0 0 0 1.709.766c.859 0 1.61-.477 2.015-1.189l4.987 2.85c.051 1.279 1.075 2.3 2.331 2.3 1.289 0 2.333-1.075 2.333-2.4 0-.318-.06-.621-.168-.899l5.983-6.154c.348.211.753.332 1.185.332 1.29 0 2.334-1.074 2.334-2.4 0-1.325-1.045-2.4-2.334-2.4-1.288 0-2.333 1.075-2.333 2.4 0 .445.118.862.323 1.22zM7 10.091a.77.77 0 0 0-.77.77v.915c0 .425.345.77.77.77h30.282V10.09H7zm31.538 0v2.454H41a.77.77 0 0 0 .77-.769v-.916a.77.77 0 0 0-.77-.77h-2.462z"/>\n' +
+        '</svg>\n')
+    );
     this.matIconRegistry.addSvgIconLiteral(
       'tibco-labs',
       this.domSanitizer.bypassSecurityTrustHtml('<svg version="1.0" xmlns="http://www.w3.org/2000/svg"\n' +
@@ -224,7 +244,7 @@ export class TcCoreLibModule {
     );
   }
 
-  loadNavbarJS() {
+  /*loadNavbarJS() {
     const jsUrls = [
       TC_NAVBAR_URL
     ];
@@ -236,6 +256,6 @@ export class TcCoreLibModule {
       node.charset = 'utf-8';
       document.head.appendChild(node);
     }
-  }
+  }*/
 }
 
