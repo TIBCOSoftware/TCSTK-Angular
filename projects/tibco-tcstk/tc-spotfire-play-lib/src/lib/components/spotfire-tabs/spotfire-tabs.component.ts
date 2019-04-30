@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {McSpotfireWrapperComponent} from '@tibco-tcstk/tc-spotfire-lib';
+import {SpotfireWrapperComponent} from '@tibco-tcstk/tc-spotfire-lib';
 
 @Component({
   selector: 'tcsp-spotfire-tabs',
@@ -8,7 +8,7 @@ import {McSpotfireWrapperComponent} from '@tibco-tcstk/tc-spotfire-lib';
 })
 export class SpotfireTabsComponent implements OnInit {
 
-  @ViewChild(McSpotfireWrapperComponent) spotfireWrapperComponent: McSpotfireWrapperComponent;
+  @ViewChild(SpotfireWrapperComponent) spotfireWrapperComponent: SpotfireWrapperComponent;
 
   activepage: string;
 

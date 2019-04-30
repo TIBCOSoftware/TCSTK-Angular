@@ -24,14 +24,14 @@
             </mat-tab-group>
         </div>
         <div fxFlex fxLayout="column">
-            <tcsf-mc-spotfire-wrapper fxFlex  [url]="spotfireServer" 
+            <tcsf-spotfire-wrapper fxFlex  [url]="spotfireServer" 
                                         [path]="analysisPath" 
                                         [page]="activePage" 
                                         [customization]="configuration"
                                         [parameters]="parameters"
                                         [markingOn]="markingOn"
                                         (markingEvent)="marking($event)">
-            </tcsf-mc-spotfire-wrapper>
+            </tcsf-spotfire-wrapper>
         </div>
     </div>
 </div>

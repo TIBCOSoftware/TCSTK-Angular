@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SpotfireCustomization } from '@tibco/spotfire-wrapper/lib/spotfire-customization';
-import { McSpotfireWrapperComponent } from '@tibco-tcstk/tc-spotfire-lib';
+import { SpotfireWrapperComponent } from '@tibco-tcstk/tc-spotfire-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
 import { ToolbarButton, TcButtonsHelperService, RoleAttribute } from '@tibco-tcstk/tc-core-lib';
 import { MatButtonToggleChange, MatDialog } from '@angular/material';
@@ -17,7 +17,7 @@ import { PdProcessDiscoveryConfigService } from '../../services/pd-process-disco
 })
 export class PdProcessMiningComponent implements OnInit {
 
-    @ViewChild(McSpotfireWrapperComponent) spotfireWrapperComponent: McSpotfireWrapperComponent;
+    @ViewChild(SpotfireWrapperComponent) spotfireWrapperComponent: SpotfireWrapperComponent;
 
     // Widget configuration
     public title: string;
