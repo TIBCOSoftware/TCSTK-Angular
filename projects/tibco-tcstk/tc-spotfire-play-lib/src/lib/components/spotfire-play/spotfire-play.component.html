@@ -9,7 +9,7 @@
           /TIBCO Labs/cases
           /TIBCO Labs/ProcessMining_custom_queries_embedded
           -->
-          <tcsf-mc-spotfire-wrapper
+          <tcsf-spotfire-wrapper
 
             (markingEvent)="marking($event)"
             [path]="'/TIBCO Labs/ProcessMining_custom_queries_final'"
@@ -36,14 +36,14 @@
             [maxRows]='1000'
             [debug]="true"
             [page]="'Variants'">
-          </tcsf-mc-spotfire-wrapper>
+          </tcsf-spotfire-wrapper>
         </ng-template>
       </mat-tab>
       <mat-tab label="Expense Analyser">
         <ng-template matTabContent>
 
 
-          <tcsf-mc-spotfire-wrapper   [url]="'https://spotfire-next.cloud.tibco.com'"
+          <tcsf-spotfire-wrapper   [url]="'https://spotfire-next.cloud.tibco.com'"
                                       [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
                                       [customization]='{"showAbout": true,
                                                         "showAnalysisInformationTool": true,
@@ -66,7 +66,7 @@
                                       (markingEvent)="marking($event)"
                                       [maxRows]='1000'
                                       id="id1">
-          </tcsf-mc-spotfire-wrapper>
+          </tcsf-spotfire-wrapper>
         </ng-template>
       </mat-tab>
     </mat-tab-group>
