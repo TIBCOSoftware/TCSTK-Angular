@@ -2,7 +2,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CachingInterceptor, TcCoreLibModule } from '@tibco-tcstk/tc-core-lib';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TcSpotfireConfigService } from './services/tc-spotfire-config.service';
-import { McSpotfireWrapperComponent } from './components/mc-spotfire-wrapper/mc-spotfire-wrapper.component';
+import { SpotfireWrapperComponent } from './components/spotfire-wrapper/spotfire-wrapper.component';
 import { SettingsSpotfireComponent } from './components/settings-spotfire/settings-spotfire.component';
 import { SpotfireViewerModule } from '@tibco/spotfire-wrapper';
 import {
@@ -22,7 +22,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
-        McSpotfireWrapperComponent,
+        SpotfireWrapperComponent,
         SettingsSpotfireComponent
     ],
     imports: [
@@ -41,7 +41,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
     ],
     exports: [
-        McSpotfireWrapperComponent,
+        SpotfireWrapperComponent,
         SettingsSpotfireComponent
     ],
     entryComponents: [],

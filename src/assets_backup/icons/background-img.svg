@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="573px" viewBox="0 0 1440 573" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>92C73BA1-2841-472A-8637-109777A909CE</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1440" height="573"></rect>
+        <linearGradient x1="50%" y1="11.1061286%" x2="50%" y2="111.63032%" id="linearGradient-3">
+            <stop stop-color="#49B3D3" offset="0%"></stop>
+            <stop stop-color="#C2FFEA" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="6.44779142%" x2="50%" y2="111.184998%" id="linearGradient-4">
+            <stop stop-color="#0078F7" offset="0%"></stop>
+            <stop stop-color="#DEFFB8" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Welcome-screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing-page-bg" transform="translate(0.000000, -40.000000)">
+            <g id="background-img" transform="translate(0.000000, 40.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Mask" fill-rule="nonzero"></g>
+                <g id="Group" mask="url(#mask-2)">
+                    <g transform="translate(-78.000000, -172.000000)">
+                        <path d="M29.0440831,398.768784 C34.5768941,474.669469 74.5147308,532.530735 144.473676,566.069645 C203.818261,594.521078 271.729177,602.478674 336.808073,603.230493 C448.998411,604.52501 558.801216,570.98102 671.147336,576.374135 C774.583387,581.339696 867.156163,643.296173 956.63446,689.123257 C1068.2821,746.303822 1201.12629,758.689361 1322.74992,730.453822 C1420.14772,707.841684 1528.80671,657.393623 1572.47401,561.324212 C1602.10651,496.132712 1595.33336,0 1595.33336,0 L0,0.35897657 C0,0.35897657 29.0263036,398.514791 29.0440831,398.768784" id="bottom" fill="url(#linearGradient-3)" opacity="0.699999988"></path>
+                        <path d="M58.1511892,666.019588 C58.5150081,671.083554 73.9428977,680.335536 77.358207,682.76837 C97.2920433,696.971238 120.303591,706.746004 143.660111,713.719201 C247.554181,744.734765 363.354308,725.154915 465.44813,697.167897 C539.337789,676.912032 609.635966,644.878758 683.88207,626.052767 C759.721931,606.821166 849.904779,603.163311 923.297056,633.098071 C970.70168,652.433737 1016.68217,674.850391 1064.7751,692.581648 C1201.14083,742.856673 1354.3422,763.483732 1488.4824,694.816185 C1499.81569,689.013928 1510.87284,682.675776 1521.62106,675.852532 L1533.91224,117.832944 L18,108 C18,108 58.1503697,666.013033 58.1511892,666.019588" id="top" fill="url(#linearGradient-4)" opacity="0.699999988"></path>
+                        <g id="gradient-circles" stroke-width="1" fill="none" transform="translate(342.000000, 125.000000)">
+                            <circle id="Oval-6-Copy-2" fill="#FFFFFF" opacity="0.049999997" cx="456.5" cy="456.5" r="456.5"></circle>
+                            <circle id="Oval-6-Copy" fill="#FFFFFF" opacity="0.0599999987" cx="456" cy="457" r="310"></circle>
+                            <circle id="Oval-6" fill="#FFFFFF" opacity="0.0700000003" cx="456" cy="457" r="157"></circle>
+                        </g>
+                        <g id="overlay-circles" stroke-width="1" fill="none" transform="translate(118.000000, 496.000000)" opacity="0.076362">
+                            <circle id="Oval-7" stroke="#FFFFFF" stroke-width="14" style="mix-blend-mode: overlay;" cx="1342" cy="132" r="51"></circle>
+                            <circle id="Oval-7-Copy-2" stroke="#FFFFFF" stroke-width="10" style="mix-blend-mode: overlay;" cx="224.5" cy="100.5" r="22.5"></circle>
+                            <circle id="Oval-7-Copy-3" stroke="#FFFFFF" stroke-width="14" style="mix-blend-mode: overlay;" cx="58" cy="131" r="51"></circle>
+                            <circle id="Oval-7-Copy" stroke="#FFFFFF" stroke-width="10" style="mix-blend-mode: overlay;" cx="1190.5" cy="22.5" r="17.5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -7,6 +7,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {Location} from '@angular/common';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {GENERIC_CASETYPE_ICON_SVG, GENERIC_STATE_ICON_SVG} from '../../services/tc-case-card-config.service';
 
 @Component({
   selector: 'tcla-live-apps-state-icon',
@@ -35,36 +36,45 @@ export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnI
 
   public refresh = (icon, fill) => {
     let url: string;
-    if (icon) {
+    if (icon && icon !== 'assets/icons/ic-generic-casetype.svg' && icon !== 'assets/icons/ic-generic-state.svg') {
       if (icon.slice(0, 13) === 'assets/icons/') {
         // if icon is in assets folder we need to prepare the Url
         url = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, icon);
       } else {
         url = '/' + icon;
       }
+      this.liveapps.getIconSVGText(url)
+        .pipe(
+          take(1),
+          takeUntil(this._destroyed$),
+          map(val => {
+              this.svgcontents = val;
+              val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
+              const newval = this.sanitizer.bypassSecurityTrustHtml(val);
+              return newval;
+            }
+          )
+        )
+        .subscribe(val => {
+            this.iconSVG = val;
+          }
+          , error => {
+            console.log('Unable to retrieve icon: ' + error.errorMsg);
+          }
+        );
     } else {
       // use generic icon
-      TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-generic-state.svg');
+      let svgcontents: string;
+      if (icon === 'assets/icons/ic-generic-casetype.svg') {
+        svgcontents = GENERIC_CASETYPE_ICON_SVG;
+      } else {
+        svgcontents = GENERIC_STATE_ICON_SVG;
+      }
+      this.svgcontents = svgcontents;
+      svgcontents = svgcontents.replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
+      const newval = this.sanitizer.bypassSecurityTrustHtml(svgcontents);
+      this.iconSVG = newval;
     }
-    this.liveapps.getIconSVGText(url)
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(val => {
-            this.svgcontents = val;
-            val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
-            const newval = this.sanitizer.bypassSecurityTrustHtml(val);
-            return newval;
-          }
-        )
-      )
-      .subscribe(val => {
-          this.iconSVG = val;
-        }
-        , error => {
-          console.log('Unable to retrieve icon: ' + error.errorMsg);
-        }
-      );
   }
 
 
