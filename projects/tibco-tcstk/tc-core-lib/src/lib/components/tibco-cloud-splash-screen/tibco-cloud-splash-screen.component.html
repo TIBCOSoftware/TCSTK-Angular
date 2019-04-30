@@ -1,5 +1,5 @@
 <div fxFillfxLayout="column" fxFill>
- <div fxFill [ngStyle]="{'background-repeat': 'round', 'background-color': '#FFF', 'background-image': 'url(' + backGroundImage + ')'} ">
+ <div fxFill [ngClass]="backGroundImage ? 'custom-splash-bg' : 'default-splash-bg'" [ngStyle]="backGroundImage ? {'background-repeat': 'round', 'background-color': '#FFF', 'background-image': 'url(' + backGroundImage + ')'} : ''">
     <div  class="text-center" id="initscreen">
       <div class="splash-welcome">{{title}}</div>
       <div class="splash-welcome-message">
