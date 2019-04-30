@@ -1,0 +1,1476 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@tibco-tcstk/tc-liveapps-lib documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@tibco-tcstk/tc-liveapps-lib documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>TcCaseCardConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/lib/services/tc-case-card-config.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createCardConfig">createCardConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createNewCardConfig">createNewCardConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCardConfig">getCardConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCaseCardConfig">getCaseCardConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCaseWithSummary">getCaseWithSummary</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#parseCaseInfo">parseCaseInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateCardConfig">updateCardConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateCaseCardConfig">updateCaseCardConfig</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, liveAppsService: <a href="../injectables/LiveAppsService.html">LiveAppsService</a>, sharedStateService: TcSharedStateService, location: <a href="https://angular.io/api/common/Location" target="_blank">Location</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>liveAppsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LiveAppsService.html" target="_self" >LiveAppsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedStateService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TcSharedStateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>location</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/Location" target="_blank" >Location</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCardConfig"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            createCardConfig
+                        </b>
+                        <a href="#createCardConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createCardConfig(sandboxId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, uiAppId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:20</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sandboxId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewCardConfig"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            createNewCardConfig
+                        </b>
+                        <a href="#createNewCardConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createNewCardConfig(states: CaseTypeState[], sandboxId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, uiAppId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, caseTypeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultCaseTypeColor: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultCaseTypeIcon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultStateColor: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultStateIcon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>states</td>
+                                    <td>
+                                            <code>CaseTypeState[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sandboxId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>caseTypeId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultCaseTypeColor</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultCaseTypeIcon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultStateColor</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultStateIcon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;CaseCardConfig&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCardConfig"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getCardConfig
+                        </b>
+                        <a href="#getCardConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCardConfig(uiAppId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, useCache: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, flushCache: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>useCache</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>flushCache</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CardConfig.html" target="_self" >Observable&lt;CardConfig&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCaseCardConfig"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getCaseCardConfig
+                        </b>
+                        <a href="#getCaseCardConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCaseCardConfig(sandboxId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, uiAppId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, caseTypeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultCaseTypeColor: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultCaseTypeIcon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultStateColor: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultStateIcon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sandboxId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>caseTypeId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultCaseTypeColor</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultCaseTypeIcon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultStateColor</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>defaultStateIcon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;CaseCardConfig&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCaseWithSummary"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            getCaseWithSummary
+                        </b>
+                        <a href="#getCaseWithSummary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCaseWithSummary(caseRef: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sandboxId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, uiAppId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="206"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:206</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>caseRef</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sandboxId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CaseInfo.html" target="_self" >Observable&lt;CaseInfo&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseCaseInfo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            parseCaseInfo
+                        </b>
+                        <a href="#parseCaseInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>parseCaseInfo(caseinfo: <a href="../classes/CaseInfo.html">CaseInfo</a>, sandboxId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, typeId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, uiAppId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:139</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>caseinfo</td>
+                                    <td>
+                                                <code><a href="../classes/CaseInfo.html" target="_self" >CaseInfo</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sandboxId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>typeId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CaseInfo.html" target="_self" >Observable&lt;CaseInfo&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCardConfig"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updateCardConfig
+                        </b>
+                        <a href="#updateCardConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateCardConfig(sandboxId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, uiAppId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, config: <a href="../classes/CardConfig.html">CardConfig</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sandboxId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                                <code><a href="../classes/CardConfig.html" target="_self" >CardConfig</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CardConfig.html" target="_self" >Observable&lt;CardConfig&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCaseCardConfig"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updateCaseCardConfig
+                        </b>
+                        <a href="#updateCaseCardConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateCaseCardConfig(sandboxId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, appId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, uiAppId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, updatedConfig: <a href="../classes/CaseCardConfig.html">CaseCardConfig</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/lib/services/tc-case-card-config.service.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sandboxId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>appId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uiAppId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>updatedConfig</td>
+                                    <td>
+                                                <code><a href="../classes/CaseCardConfig.html" target="_self" >CaseCardConfig</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;CaseCardConfig&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {SharedStateContent, SharedStateEntry, SharedStateList, TcCoreCommonFunctions, TcSharedStateService, UiAppConfig} from &#x27;@tibco-tcstk/tc-core-lib&#x27;;
+import {forkJoin, Observable, of, throwError} from &#x27;rxjs&#x27;;
+import {ApiResponseError, CardConfig, CaseInfo, CaseTypeState, CaseTypeStatesList, IconMap, UserInfo} from &#x27;../models/liveappsdata&#x27;;
+import {LiveAppsService} from &#x27;./live-apps.service&#x27;;
+import {CaseCardConfig} from &#x27;../models/tc-case-card-config&#x27;;
+import {catchError, flatMap, map, mergeMap, tap} from &#x27;rxjs/operators&#x27;;
+import {flush} from &#x27;@angular/core/testing&#x27;;
+import {HttpClient} from &#x27;@angular/common/http&#x27;;
+import {Location} from &#x27;@angular/common&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class TcCaseCardConfigService {
+
+  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private sharedStateService: TcSharedStateService, private location: Location) {
+  }
+
+  public createCardConfig(sandboxId: number, appId: string, uiAppId: string): Observable&lt;string&gt; {
+    const ssName &#x3D; uiAppId + &#x27;.&#x27; + appId + &#x27;.stateconfig.tibcolabs.client.context.PUBLIC&#x27;;
+    const content: SharedStateContent &#x3D; new SharedStateContent();
+    content.json &#x3D; TcCoreCommonFunctions.escapeString(JSON.stringify({}));
+    return this.sharedStateService.createSharedState(ssName, &#x27;PUBLIC&#x27;, &#x27;&#x27;, sandboxId, undefined, undefined, undefined, content)
+      .pipe(
+        map(value &#x3D;&gt; {
+          return value;
+        }
+      )
+    );
+  }
+
+  public updateCardConfig(sandboxId: number, appId: string, uiAppId: string, config: CardConfig, id: string): Observable&lt;CardConfig&gt; {
+    const ssName &#x3D; uiAppId + &#x27;.&#x27; + appId + &#x27;.stateconfig.tibcolabs.client.context.PUBLIC&#x27;;
+    const content: SharedStateContent &#x3D; new SharedStateContent();
+    content.json &#x3D; TcCoreCommonFunctions.escapeString(JSON.stringify(config));
+    const entry: SharedStateEntry &#x3D; new SharedStateEntry();
+    entry.content &#x3D; content;
+    entry.sandboxId &#x3D; sandboxId;
+    entry.name &#x3D; ssName;
+    entry.type &#x3D; &#x27;PUBLIC&#x27;;
+    entry.id &#x3D; id;
+    const ssList: SharedStateList &#x3D; new SharedStateList();
+    ssList.sharedStateEntries &#x3D; [];
+    ssList.sharedStateEntries.push(entry);
+    return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
+      .pipe(
+        map(value &#x3D;&gt; {
+          return new CardConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+        })
+      );
+  }
+
+  public createNewCardConfig(states: CaseTypeState[], sandboxId: number, appId: string, uiAppId: string, caseTypeId: string, defaultCaseTypeColor: string, defaultCaseTypeIcon: string, defaultStateColor: string, defaultStateIcon: string): Observable&lt;CaseCardConfig&gt; {
+    // create new config and return it
+    const newConfig$ &#x3D; this.createCardConfig(sandboxId, appId, uiAppId);
+    const updatedConfig$ &#x3D; newConfig$.pipe(
+      mergeMap(id &#x3D;&gt; {
+        const stateMap: IconMap[] &#x3D; [];
+        // one record for the case type icon config
+        stateMap.push(new IconMap(true, caseTypeId, defaultCaseTypeColor, defaultCaseTypeIcon));
+        states.forEach(state &#x3D;&gt; {
+          stateMap.push(new IconMap(false, state.value, defaultStateColor, defaultStateIcon));
+        });
+        const newCardConfig &#x3D; new CardConfig().deserialize({ id: id, useCaseTypeColor: false, stateMap: stateMap });
+        return this.updateCardConfig(sandboxId, appId, uiAppId, newCardConfig, id).pipe(
+          tap(config &#x3D;&gt; {
+            // trigger update of the cache
+            this.getCardConfig(uiAppId, appId, true, true);
+          }),
+          map(newcard &#x3D;&gt; {
+              return new CaseCardConfig().deserialize(
+                { states: states, cardConfig: newcard }
+              );
+          })
+        );
+      })
+    );
+    return updatedConfig$;
+  }
+
+  public getCaseCardConfig(sandboxId: number, appId: string, uiAppId: string, caseTypeId: string, defaultCaseTypeColor: string, defaultCaseTypeIcon: string, defaultStateColor: string, defaultStateIcon: string): Observable&lt;CaseCardConfig&gt; {
+    const states$ &#x3D; this.liveAppsService.getCaseTypeStates(sandboxId, appId, 100);
+    const cardConfig$ &#x3D; this.getCardConfig(uiAppId, appId, true, false).pipe(
+      map(config &#x3D;&gt; {
+          return config;
+      })
+    );
+    return states$.pipe(
+      mergeMap(states &#x3D;&gt; {
+        return cardConfig$.pipe(
+          mergeMap(config &#x3D;&gt; {
+            if (config) {
+              const cardConfig &#x3D; new CaseCardConfig().deserialize(
+                {states: states.states, cardConfig: config}
+              );
+              return of(cardConfig);
+            } else {
+              return this.createNewCardConfig(states.states, sandboxId, appId, uiAppId, caseTypeId, defaultCaseTypeColor, defaultCaseTypeIcon, defaultStateColor, defaultStateIcon).pipe(
+                map(newCardConfig &#x3D;&gt; {
+                  return newCardConfig;
+                })
+              );
+            }
+          }
+          )
+        );
+      })
+    );
+  }
+
+  public updateCaseCardConfig(sandboxId: number, appId: string, uiAppId: string, updatedConfig: CaseCardConfig): Observable &lt; CaseCardConfig &gt; {
+    return this.updateCardConfig(sandboxId, appId, uiAppId, updatedConfig.cardConfig, updatedConfig.cardConfig.id).pipe(
+      map(cardconfig &#x3D;&gt; {
+        updatedConfig.cardConfig &#x3D; cardconfig;
+        // remember to flush cache
+        this.getCardConfig(uiAppId, appId, true, true).subscribe();
+        return updatedConfig;
+      })
+    );
+  }
+
+  public getCardConfig(uiAppId: string, appId: string, useCache: boolean, flushCache: boolean): Observable&lt;CardConfig&gt; {
+    const ssName &#x3D; uiAppId + &#x27;.&#x27; + appId + &#x27;.stateconfig.tibcolabs.client.context.PUBLIC&#x27;;
+    return this.sharedStateService.getSharedState(ssName, &#x27;PUBLIC&#x27;, useCache, flushCache).pipe(
+      map(value &#x3D;&gt; {
+          if (value.sharedStateEntries.length &gt; 0) {
+            const ssresult &#x3D; new CardConfig().deserialize(JSON.parse(value.sharedStateEntries[0].content.json));
+            ssresult.id &#x3D; value.sharedStateEntries[0].id;
+            return ssresult;
+          } else {
+            return undefined;
+          }
+        }
+      )
+    );
+  }
+
+  public parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string, uiAppId): Observable&lt;CaseInfo&gt; {
+    // in order to get all the info we need we actually need to call up to 4 observables in parallel
+    const caseInfo$ &#x3D; this.liveAppsService.getCaseTypeBasicInfo(sandboxId, appId, typeId, 100).pipe(
+      map(val &#x3D;&gt; caseinfo.metadata.applicationLabel &#x3D; val.label)
+    );
+    const cardConfig$ &#x3D; this.getCardConfig(uiAppId, appId, true, false).pipe(
+      map(val &#x3D;&gt; {
+          const stateId &#x3D; caseinfo.summaryObj.state;
+          let stateConfig: IconMap;
+          if (val !&#x3D;&#x3D; undefined &amp;&amp; val.stateMap) {
+            val.stateMap.forEach((state) &#x3D;&gt; {
+              if (state.state &#x3D;&#x3D;&#x3D; stateId) {
+                stateConfig &#x3D; state;
+                caseinfo.metadata.stateColor &#x3D; stateConfig.fill;
+                caseinfo.metadata.stateIcon &#x3D; stateConfig.icon;
+              }
+              if (state.isCaseType) {
+                stateConfig &#x3D; state;
+                caseinfo.metadata.caseTypeColor &#x3D; stateConfig.fill;
+                caseinfo.metadata.caseTypeIcon &#x3D; stateConfig.icon;
+              }
+              caseinfo.metadata.useCaseTypeColor &#x3D; val.useCaseTypeColor ? val.useCaseTypeColor : false;
+            });
+          }
+          // defaults
+          if (!caseinfo.metadata.stateColor) {
+            caseinfo.metadata.stateColor &#x3D; &#x27;#8197c0&#x27;;
+          }
+          if (!caseinfo.metadata.stateIcon) {
+            caseinfo.metadata.stateIcon &#x3D; TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, &#x27;assets/icons/ic-generic-state.svg&#x27;);
+          }
+          if (!caseinfo.metadata.caseTypeColor) {
+            caseinfo.metadata.caseTypeColor &#x3D; &#x27;#8197c0&#x27;;
+          }
+          if (!caseinfo.metadata.caseTypeIcon) {
+            caseinfo.metadata.caseTypeIcon &#x3D; TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, &#x27;assets/icons/ic-generic-casetype.svg&#x27;);
+          }
+        }
+      ));
+    const forkJoinArray &#x3D; [caseInfo$, cardConfig$];
+    let creatorInfo$;
+    let modifiedInfo$;
+    if (caseinfo.metadata.createdBy) {
+      creatorInfo$ &#x3D; this.liveAppsService.getUserInfo(caseinfo.metadata.createdBy).pipe(
+        map(val &#x3D;&gt; caseinfo.metadata.createdByDetails &#x3D; val ? val : new UserInfo())
+      );
+      forkJoinArray.push(creatorInfo$);
+    } else {
+      caseinfo.metadata.createdByDetails &#x3D; new UserInfo();
+    }
+    if (caseinfo.metadata.modifiedBy) {
+      modifiedInfo$ &#x3D; this.liveAppsService.getUserInfo(caseinfo.metadata.modifiedBy).pipe(
+        map(val &#x3D;&gt; caseinfo.metadata.modifiedByDetails &#x3D; val ? val : new UserInfo())
+      );
+      forkJoinArray.push(modifiedInfo$);
+    } else {
+      caseinfo.metadata.modifiedByDetails &#x3D; new UserInfo();
+    }
+
+    // call all the observables at once and return the Observable to the parsed CaseInfo
+    return forkJoin(forkJoinArray).pipe(
+      map(resultArr &#x3D;&gt; {
+        return caseinfo;
+      })
+    );
+  }
+
+  public getCaseWithSummary(caseRef: string, sandboxId: number, uiAppId: string): Observable&lt;CaseInfo&gt; {
+    // get the base caseinfo from the API, then call parseCaseInfo to create an Observable with all the extra data we need
+    const url &#x3D; &#x27;/case/v1/cases/&#x27; + caseRef + &#x27;/&#x27; + &#x27;?$sandbox&#x3D;&#x27; + sandboxId + &#x27;&amp;$select&#x3D;uc, m, s&#x27;;
+    return this.http.get(url).pipe(
+      mergeMap(caseinfo &#x3D;&gt; {
+          const caseinf &#x3D; new CaseInfo().deserialize(caseinfo);
+          return this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId, uiAppId);
+        }
+      ),
+      catchError(err &#x3D;&gt; {
+        if (err.error.errorCode &#x3D;&#x3D;&#x3D; &#x27;CM_CASEREF_NOTEXIST&#x27;) {
+          // case deleted
+          return of(new CaseInfo().deserialize({ deleted: true } ));
+        }
+        return throwError(err);
+      })
+    );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'TcCaseCardConfigService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
