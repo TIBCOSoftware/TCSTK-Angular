@@ -9,6 +9,14 @@ import {flush} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
 import {Location} from '@angular/common';
 
+export const GENERIC_STATE_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">\n' +
+  '    <path fill="<DYNAMICFILL>" fill-rule="nonzero" d="M.045 1.154h13.91v2.133H.045V1.154zM.8 4.75h12.364v8.19c0 .596-.487 1.083-1.082 1.083h-10.2A1.085 1.085 0 0 1 .8 12.94V4.75zm7.978 2.447V5.776H5.222v1.421h3.556z"/>\n' +
+  '</svg>\n';
+
+export const GENERIC_CASETYPE_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 48 48">\n' +
+  '    <path fill="<DYNAMICFILL>" fill-rule="evenodd" d="M42 42H6c-1.103 0-2-.898-2-2V26.61c4.43 2.623 10.208 3.96 15.729 4.422v1.504c0 1.326.948 2.4 2.118 2.4h4.764c1.17 0 2.118-1.074 2.118-2.4V31.04c6.16-.503 11.505-2.008 15.271-4.264v13.223c0 1.103-.897 2-2 2zM6 15.995h36c1.103 0 2 .898 2 2v3.583c-2.798 2.727-8.447 4.664-15.271 5.268v-1.511c0-1.326-.948-2.4-2.117-2.4h-4.765c-1.17 0-2.118 1.074-2.118 2.4v1.51c-6.651-.6-12.41-2.518-15.729-5.348v-3.501c0-1.103.897-2 2-2zm10.655-8.89c0-.063.023-.098.016-.106l14.944-.011s.04.033.04.117v4.89h-15v-4.89zM42 11.996h-6.345v-4.89C35.655 4.842 33.861 3 31.657 3H16.653c-2.204 0-3.998 1.842-3.998 4.106v4.89H6c-3.308 0-6 2.692-6 6V40c0 3.31 2.692 6 6 6h36c3.309 0 6-2.69 6-6V17.997c0-3.31-2.691-6.001-6-6.001z"/>\n' +
+  '</svg>\n';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -165,13 +173,13 @@ export class TcCaseCardConfigService {
             caseinfo.metadata.stateColor = '#8197c0';
           }
           if (!caseinfo.metadata.stateIcon) {
-            caseinfo.metadata.stateIcon = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-generic-state.svg');
+            caseinfo.metadata.stateIcon = 'assets/icons/ic-generic-state.svg';
           }
           if (!caseinfo.metadata.caseTypeColor) {
             caseinfo.metadata.caseTypeColor = '#8197c0';
           }
           if (!caseinfo.metadata.caseTypeIcon) {
-            caseinfo.metadata.caseTypeIcon = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/ic-generic-casetype.svg');
+            caseinfo.metadata.caseTypeIcon = 'assets/icons/ic-generic-casetype.svg';
           }
         }
       ));

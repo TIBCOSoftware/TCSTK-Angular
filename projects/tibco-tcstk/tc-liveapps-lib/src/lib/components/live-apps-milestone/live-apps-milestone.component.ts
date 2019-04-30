@@ -35,14 +35,7 @@ export class LiveAppsMilestoneComponent implements OnInit {
     }
     this.milestoneSvg = 'tcs-milestone-' + this.status + (this.isTerminal ? '-terminal' : '');
 
-    this.caseStatesService.getMilestoneSectionSvg(this.label, 'tc-ms-label', bgClass, svgFileName)
-      .subscribe(val => {
-        this.sectionSVG = val;
-      }
-      , error => {
-        console.log('Unable to retrieve icon: ' + error.errorMsg);
-      }
-    );
+    this.sectionSVG = this.caseStatesService.getMilestoneSectionSvg(this.label, 'tc-ms-label', bgClass, svgFileName);
   }
 
 }
