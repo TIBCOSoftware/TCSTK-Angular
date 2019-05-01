@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'laapp-error',
+  selector: 'tc-tibco-cloud-error',
   templateUrl: './tibco-cloud-error.component.html',
   styleUrls: ['./tibco-cloud-error.component.css']
 })
@@ -17,7 +17,7 @@ export class TibcoCloudErrorComponent implements OnInit {
       console.log(params['errorMessage?']);
       if (params['errorCode'] != null) {
         this.code = params['errorCode'];
-        this.message = this.knownErrorList.find(x => x.errorCode == this.code).errorMessage;
+        this.message = this.knownErrorList.find(x => x.errorCode === this.code).errorMessage;
       } else {
         this.code = 'Unknown Error Code';
       }
@@ -41,6 +41,11 @@ export class TibcoCloudErrorComponent implements OnInit {
     {
       'errorCode' : 'NO_ACCESS',
       'errorMessage' : 'You are not entitled to access this Application, please contact the Application- or Subscription-Owner.'
+
+    },
+    {
+      'errorCode' : 'NO_ROUTE_ACCESS',
+      'errorMessage' : 'You are not entitled to access this page of the application, please contact the Application- or Subscription-Owner.'
 
     },
     {
