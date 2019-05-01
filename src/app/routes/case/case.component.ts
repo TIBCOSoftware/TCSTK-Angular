@@ -9,7 +9,7 @@ import {
   LiveAppsService,
   LiveAppsNotesComponent,
   LiveAppsDocumentsComponent,
-  CaseRoute, LiveAppsConfig, Groups, Roles
+  CaseRoute, LiveAppsConfig, Groups, Roles, RouteAccessControlConfig
 } from '@tibco-tcstk/tc-liveapps-lib';
 import { Claim, Sandbox } from '@tibco-tcstk/tc-core-lib';
 
@@ -34,6 +34,7 @@ export class CaseComponent implements OnInit {
   public typeId: string;
   public groups: Groups;
   public roles: Roles;
+  public access: RouteAccessControlConfig;
 
   public layout: any[] = undefined;
   // you can use a layout here to override the default layout for case data
@@ -62,6 +63,7 @@ export class CaseComponent implements OnInit {
     this.claims = this.route.snapshot.data.claims;
     this.groups = this.route.snapshot.data.groups;
     this.roles = this.route.snapshot.data.roles;
+    this.access = this.route.snapshot.data.access;
     this.sandbox = this.claims.primaryProductionSandbox;
     this.caseRef = this.route.snapshot.params['caseRef'];
     this.appId = this.route.snapshot.params['appId'];

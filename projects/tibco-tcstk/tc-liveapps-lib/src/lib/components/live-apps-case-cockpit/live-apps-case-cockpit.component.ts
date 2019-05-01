@@ -28,7 +28,7 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
 import {MatTab, MatTabGroup} from '@angular/material';
 import {QueryList} from '@angular/core';
 import { RouteAction } from '@tibco-tcstk/tc-core-lib';
-import {Roles} from '../../models/tc-groups-data';
+import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 
 @Component({
@@ -57,6 +57,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   @Input() userId;
   @Input() exclRecentAppIds: string[];
   @Input() roles: Roles;
+  @Input() access: RouteAccessControlConfig;
   @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
@@ -84,7 +85,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
-    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', this.rolesService.checkRole('Partner Portal Configurator', this.roles), true);
+    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.roles, this.access) : true), true);
     const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
     const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
     const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
