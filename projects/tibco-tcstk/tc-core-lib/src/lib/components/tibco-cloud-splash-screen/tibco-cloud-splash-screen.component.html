@@ -1,4 +1,4 @@
-<div fxFillfxLayout="column" fxFill>
+<div class="tcs-splash-content" fxFill fxLayout="column" fxFill>
  <div fxFill [ngClass]="backGroundImage ? 'custom-splash-bg' : 'default-splash-bg'" [ngStyle]="backGroundImage ? {'background-repeat': 'round', 'background-color': '#FFF', 'background-image': 'url(' + backGroundImage + ')'} : ''">
     <div  class="text-center" id="initscreen">
       <div class="splash-welcome">{{title}}</div>
@@ -7,16 +7,16 @@
       </div>
       <div class="splash-modal">
         <table class="splash-highlightstable">
-          <tbody>
-          <tr *ngFor="let highlight of highlights">
+          <tbody fxLayout="column" fxLayoutGap="30px">
+          <tr *ngFor="let highlight of highlights" fxLayoutAlign="start center" fxLayoutGap="30px">
             <td>
-              <div class="splash-oval" >
-                <img class="splash-img" src="{{highlight.iconURL}}" />
+              <div class="splash-oval" fxLayout="row" fxLayoutAlign="center center">
+                <mat-icon class="splash-svg" [svgIcon]="highlight.iconURL"></mat-icon>
               </div>
             </td>
-            <td>
-              <p class="splash-highlight-item-title">{{highlight.title}}</p>
-              <p class="splash-highlight-item-content">{{highlight.content}}</p>
+            <td fxLayout="column" fxLayoutAlign="space-around start">
+                <span class="splash-highlight-item-title">{{highlight.title}}</span>
+                <span class="splash-highlight-item-content">{{highlight.content}}</span>
             </td>
           </tr>
           </tbody></table>
