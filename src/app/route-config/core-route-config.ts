@@ -20,7 +20,7 @@ export const CORE_ROUTES = [
         }
       },
       {
-        path: 'errorHandler/:errorCode/:errorMessage?',
+        path: 'errorHandler/:errorCode/:errorData',
         component: TibcoCloudErrorComponent
       },
       {
