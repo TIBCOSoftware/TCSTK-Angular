@@ -32,8 +32,14 @@ export class RouteAccessDef {
   requiredRoleId: string;
 }
 
+export class ButtonAccessDef {
+  buttonId: string;
+  requiredRoleId: string;
+}
+
 export class RouteAccessControlConfig {
   routes: RouteAccessDef[];
+  buttons: ButtonAccessDef[];
   deserialize(input: any): this {
     Object.assign(this, input);
     return this;
