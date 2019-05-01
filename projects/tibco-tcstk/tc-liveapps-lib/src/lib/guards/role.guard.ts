@@ -56,8 +56,7 @@ export class RoleGuard implements CanActivate {
           return true;
         } else {
           console.error('You do not have access to this page: ', route);
-          // todo: route to error handler?
-          this.router.navigate(['/starterApp/home'], {});
+          this.router.navigate(['/errorHandler/' + 'NO_ROUTE_ACCESS/guard']);
           return false;
         }
       }));

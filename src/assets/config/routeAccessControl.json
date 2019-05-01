@@ -2,7 +2,7 @@
   "routes": [
     {
       "routeUrl": "configuration",
-      "requiredRoleId": "Administrator"
+      "requiredRoleId": "1Administrator"
     }
   ],
   "buttons": [
