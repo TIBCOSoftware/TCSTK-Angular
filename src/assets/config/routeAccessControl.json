@@ -2,7 +2,13 @@
   "routes": [
     {
       "routeUrl": "configuration",
-      "requiredRoleId": "Partner Portal Configurator"
+      "requiredRoleId": "Administrator"
+    }
+  ],
+  "buttons": [
+    {
+      "buttonId": "configure",
+      "requiredRoleId": "Administrator"
     }
   ]
 }

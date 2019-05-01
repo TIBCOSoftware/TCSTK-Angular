@@ -79,6 +79,7 @@ export * from './lib/resolvers/roles.resolver';
 export * from './lib/resolvers/all-groups.resolver';
 export * from './lib/resolvers/all-roles.resolver';
 export * from './lib/resolvers/case-data.resolver';
+export * from './lib/resolvers/access.resolver';
 
 // guards
 export * from './lib/guards/case.guard';

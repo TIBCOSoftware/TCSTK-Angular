@@ -4,25 +4,14 @@
   "welcomeMessage": "Welcome to the Case Manager App",
   "roles": [
     {
-      "id": "Partner Portal Internal",
-      "group": "PartnerPortal Internal",
-      "display": "Employee",
-      "welcome": "welcome",
-      "imageURL": "http://sdfnsf"
+      "id": "User",
+      "group": "System: ALL_USERS",
+      "display": "User"
     },
     {
-      "id": "Partner Portal External",
-      "group": "PartnerPortal External",
-      "display": "Partner",
-      "welcome": "welcome",
-      "imageURL": "http://sdfnsf"
-    },
-    {
-      "id": "Partner Portal Configurator",
-      "group": "PartnerPortal Configurator",
-      "display": "Admin",
-      "welcome": "welcome",
-      "imageURL": "http://sdfnsf"
+      "id": "Administrator",
+      "group": "System: ADMINISTRATOR",
+      "display": "Administrator"
     }
   ],
   "displayName": true,
