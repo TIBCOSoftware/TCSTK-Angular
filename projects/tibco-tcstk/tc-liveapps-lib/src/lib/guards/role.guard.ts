@@ -3,7 +3,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {LiveAppsService} from '../services/live-apps.service';
-import {HttpClient, HttpHandler} from '@angular/common/http';
+import {HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
 import {catchError, flatMap, map, mergeMap} from 'rxjs/operators';
 import {forkJoin, Observable, of, throwError} from 'rxjs';
 import {ClaimsResolver} from '../resolvers/claims.resolver';
@@ -22,7 +22,8 @@ export class RoleGuard implements CanActivate {
 
   // can be used to load defaultAppConfig from a JSON config
   private getRouteAccessControlConfig = (): Observable<RouteAccessControlConfig> => {
-    return this.http.get(this.DEFAULT_CONFIG_URL).pipe(
+    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    return this.http.get(this.DEFAULT_CONFIG_URL, { headers }).pipe(
       map(configContents => new RouteAccessControlConfig().deserialize(configContents))
     );
   }
