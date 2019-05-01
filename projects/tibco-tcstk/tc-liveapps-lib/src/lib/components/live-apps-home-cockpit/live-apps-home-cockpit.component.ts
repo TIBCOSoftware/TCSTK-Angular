@@ -36,6 +36,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @ViewChild(LiveAppsDocumentsComponent) documentsComponent: LiveAppsDocumentsComponent;
 
   public toolbarButtons: ToolbarButton[];
+  public caseStartButtonActive: boolean;
 
   public clickCaseAction = (caseRoute: CaseRoute) => {
     // case clicked - tell parent (will pass caseRef and appId)
@@ -48,7 +49,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     // you can use the rolesService to either disable or hide the button as required - it returns true if the user has the roleId specified
     // const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, this.rolesService.checkRole('Partner Portal Configurator', this.roles));
     const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.roles, this.access) : true), true);
-    const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
+    const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.roles, this.access) : true), true);
     const buttons = [ configButton, refreshButton ];
     return buttons;
   }
@@ -118,6 +119,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
 
   ngOnInit() {
     this.toolbarButtons = this.createToolbarButtons();
+    this.caseStartButtonActive = this.access ? this.rolesService.checkButton('caseStart', this.roles, this.access) : true;
   }
 
 }

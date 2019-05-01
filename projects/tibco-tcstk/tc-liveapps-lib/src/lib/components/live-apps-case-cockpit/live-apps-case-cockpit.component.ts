@@ -86,8 +86,8 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
 
   protected createToolbarButtons = (): ToolbarButton[] => {
     const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.roles, this.access) : true), true);
-    const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', true, true);
-    const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', true, true);
+    const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', (this.access ? this.rolesService.checkButton('favorite', this.roles, this.access) : true), true);
+    const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.roles, this.access) : true), true);
     const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
     const buttons = [ configButton, favButton, refreshButton, homeButton ];
     return buttons;
