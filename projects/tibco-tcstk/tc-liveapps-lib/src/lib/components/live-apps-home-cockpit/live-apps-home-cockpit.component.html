@@ -1,7 +1,8 @@
 <div fxLayout="column" fxFlex>
   <div>
     <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
-        <tcla-live-apps-application-create-button style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
+      <ng-content select="[customToolbarContent]" fxFlex></ng-content>
+      <tcla-live-apps-application-create-button style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
     </tc-tibco-cloud-menu-bar>
   </div>
 

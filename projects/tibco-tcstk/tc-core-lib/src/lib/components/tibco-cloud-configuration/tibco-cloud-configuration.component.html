@@ -2,7 +2,7 @@
   <div>
     <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="'Manage Capabilities'"
                              (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
-      <ng-content fxFlex></ng-content>
+      <ng-content select="[customToolbarContent]" fxFlex></ng-content>
     </tc-tibco-cloud-menu-bar>
   </div>
 
