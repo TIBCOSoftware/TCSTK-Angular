@@ -23,6 +23,7 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
     }
 
     ngOnInit(): void {
+      console.log(this);
     }
 
     getStartedClick = (): void => {
