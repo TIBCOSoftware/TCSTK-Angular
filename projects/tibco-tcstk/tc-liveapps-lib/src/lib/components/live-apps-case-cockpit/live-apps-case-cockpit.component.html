@@ -2,6 +2,7 @@
   <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
     <!-- this is content projection. Tibco cloud menu bar contains ng-template and content here is projected inside the ng-content -->
     <tcla-live-apps-case-summary class="live-apps-widget" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId" [caseReference]="caseRef"></tcla-live-apps-case-summary>
+    <ng-content select="[customToolbarContent]" fxFlex></ng-content>
   </tc-tibco-cloud-menu-bar>
   <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px; overflow: hidden;">
     <div fxLayout="row" fxLayoutAlign="start start">
