@@ -1,0 +1,26 @@
+.tcs-error-icon {
+  height: 300px;
+  width: 300px;
+}
+
+.tcs-error-icon svg {
+  width: 300px;
+  height: 300px;
+}
+
+.tcs-error-title {
+  font-family: "Source Sans Pro";
+  font-size: 40px;
+}
+
+.tcs-error-message {
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+  font-color: #212121;
+}
+
+.tcs-error-code {
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+  font-color: grey;
+}
