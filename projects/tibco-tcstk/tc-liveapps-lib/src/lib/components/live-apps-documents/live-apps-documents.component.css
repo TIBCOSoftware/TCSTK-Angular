@@ -128,3 +128,13 @@
   overflow-y: auto;
 }
 
+.tcs-no-item-text {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b6b6b6;
+}
