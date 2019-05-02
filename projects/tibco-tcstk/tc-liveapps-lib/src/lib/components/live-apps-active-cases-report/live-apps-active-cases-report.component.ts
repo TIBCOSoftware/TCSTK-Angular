@@ -58,16 +58,19 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
           {
             text: this.getCaseCount,
             font: {
-              size: '20'
+              size: '20',
+              family: 'Source Sans Pro',
+              weight: 'bold'
             },
-            color: 'grey'
+            color: '#b6b6b6'
           },
           {
             text: 'cases',
             font: {
-              size: '16'
+              size: '16',
+              family: 'Source Sans Pro',
             },
-            color: 'grey'
+            color: '#b6b6b6'
           }
         ]
       },
