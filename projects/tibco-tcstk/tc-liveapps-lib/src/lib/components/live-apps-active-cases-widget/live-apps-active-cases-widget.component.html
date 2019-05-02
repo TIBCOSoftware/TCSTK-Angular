@@ -4,21 +4,19 @@
       <mat-icon class="tcs-icon tcs-active-case-widget-icon" svgIcon="ic-active-case-widget-icon"></mat-icon>
       <div class="tcs-active-case-widget-header-text">Active Cases</div>
     </div>
-  </div>
-  <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">
-
-  </div>
-  <div fxLayout="column" fxFlex style="overflow: auto">
-      <div *ngIf="renderChart" style="height:100%; width:100%; padding: 20px" class="relative">
-      <canvas #caseReportChart baseChart
-              [data]="doughnutChartData"
-              [labels]="doughnutChartLabels"
-              [chartType]="doughnutChartType"
-              [options]="doughnutChartOptions"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"
-      >
-      </canvas>
+    <div fxLayoutGap="10px">
+      <div fxFlex fxLayout="row" fxLayoutAlign="start center">
+        <div class="tcs-type-filter-text" *ngIf="selectedCaseTypeReport" fxLayout="row">
+          [
+          <div class="tcs-type-filter-text-highlight">{{selectedCaseTypeReport.caseTypeInfo.label}}</div>
+          ]
+        </div>
+      </div>
+      <mat-icon *ngIf="selectedCaseTypeReport" (click)="clearSelectedCaseType()" class="tcs-icon tcs-icon-active tcs-clear-selected-case-type-icon" svgIcon="tcs-clear-icon" matTooltip="Clear Selected Case Type" matTooltipPosition="left" matTooltipShowDelay="1000"></mat-icon>
     </div>
   </div>
+  <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">
+  </div>
+  <tcla-live-apps-active-cases-report *ngIf="!selectedCaseTypeReport" fxFlex [maxLegendItems]="maxLegendItems" [sandboxId]="sandboxId" [appIds]="appIds" (selectedCaseType)="handleCaseTypeSelected($event)"></tcla-live-apps-active-cases-report>
+  <tcla-live-apps-active-cases-for-type-report *ngIf="selectedCaseTypeReport" fxFlex [maxLegendItems]="maxLegendItems" [sandboxId]="sandboxId" [typeId]="selectedCaseTypeReport.caseTypeInfo.id" [appId]="selectedCaseTypeReport.applicationId"></tcla-live-apps-active-cases-for-type-report>
 </div>
