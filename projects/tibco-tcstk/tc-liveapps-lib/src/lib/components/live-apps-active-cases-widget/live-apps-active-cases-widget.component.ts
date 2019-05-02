@@ -16,6 +16,7 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent implem
   @Input() sandboxId: number;
   @Input() appIds: string[];
   @Input() showHeader: boolean;
+  @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   @ViewChild(BaseChartDirective) caseReportChart: BaseChartDirective;
@@ -31,6 +32,7 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent implem
   public doughnutChartType: ChartType = 'doughnut';
 
   public legendData: any;
+  public displayLegend: boolean = false;
 
   private getCaseCount = () => {
     return this.totalActiveCaseCount;
@@ -38,7 +40,9 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent implem
 
   public doughnutChartOptions: any = {
     responsive: true,
+    maintainAspectRatio: false,
     legend: {
+      display: false,
       position: 'left'
     },
     layout: {
@@ -109,6 +113,8 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent implem
       this.totalTerminatedCaseCount = this.totalTerminatedCaseCount + caseType.terminalStateCaseCount;
       labels.push(caseType.caseTypeInfo.label);
     });
+    // showing more than 8 in the legend will take up too much space
+    this.doughnutChartOptions.legend.display = labels.length <= 8;
     this.doughnutChartData.push(activeCasesArray);
     this.doughnutChartLabels = labels;
     this.renderChart = true;
