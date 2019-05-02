@@ -13,6 +13,7 @@
 
 .tcs-menu-bar-content {
   margin-right: 20px;
+  overflow: hidden;
 }
 
 .tcs-widget-header-text {

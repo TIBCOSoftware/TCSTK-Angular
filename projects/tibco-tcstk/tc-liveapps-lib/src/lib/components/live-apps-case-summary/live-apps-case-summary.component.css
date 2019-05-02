@@ -63,7 +63,7 @@
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 7px;
-  padding-bottom: 7px
+  padding-bottom: 7px;
 }
 
 .tcs-case-summary-mini-card.border {
@@ -74,15 +74,18 @@
 .tcs-case-summary-mini-card:hover {
   box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .tcs-case-summary-card:hover {
   box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
+  cursor: pointer;
 }
 
 .tcs-case-summary-list-card:hover {
   box-shadow: 0px 3px 8px 4px rgba(0, 0, 0, 0.33);
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .tcs-case-summary-static-list-card:hover {
@@ -215,6 +218,7 @@
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  padding-right:10px;
 }
 
 .tcs-case-summary-list-summary3-text {
@@ -280,6 +284,7 @@
 .tcs-case-summary-list-card-left {
   margin-left: 20px;
   margin-right: 20px;
+  overflow: hidden;
 }
 
 .tcs-case-summary-list-details-box {
@@ -287,12 +292,11 @@
 }
 
 .tcs-case-summary-list-summary1-text {
-  width: 150px;
-  min-width: 150px;
+  min-width: 100px;
 }
 
 .tcs-case-summary-list-large-details-box {
-  max-width: 500px;
+  min-width: 30%;
 }
 
 :host ::ng-deep .tcs-case-summary-highlight {
