@@ -30,7 +30,8 @@
       </div>
 
       <div fxFlex class="documentWidget">
-        <tcla-live-apps-documents [showHeader]="true" [sandboxId]="sandboxId" [folderId]="uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
+        <!--tcla-live-apps-documents [showHeader]="true" [sandboxId]="sandboxId" [folderId]="uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents-->
+        <tcla-live-apps-active-cases-widget [sandboxId]="sandboxId" [appIds]="appIds" [showHeader]="true"></tcla-live-apps-active-cases-widget>
       </div>
     </div>
   </div>

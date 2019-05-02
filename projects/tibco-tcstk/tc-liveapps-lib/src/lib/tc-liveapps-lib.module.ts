@@ -88,6 +88,7 @@ import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.serv
 import {LiveAppsCaseTypeOverviewReportComponent} from './components/live-apps-case-type-overview-report/live-apps-case-type-overview-report.component';
 import {Location} from '@angular/common';
 import {RoleGuard} from './guards/role.guard';
+import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 
 @NgModule({
     declarations: [
@@ -142,7 +143,8 @@ import {RoleGuard} from './guards/role.guard';
         LiveAppsPieComponent,
         LiveAppsReportingCockpitComponent,
         LiveAppsCaseOverviewReportComponent,
-        LiveAppsCaseTypeOverviewReportComponent
+        LiveAppsCaseTypeOverviewReportComponent,
+        LiveAppsActiveCasesWidgetComponent
     ],
     imports: [
         TcCoreLibModule,
@@ -226,7 +228,8 @@ import {RoleGuard} from './guards/role.guard';
     LiveAppsReportingCockpitComponent,
     LiveAppsPieComponent,
     LiveAppsCaseOverviewReportComponent,
-    LiveAppsCaseTypeOverviewReportComponent
+    LiveAppsCaseTypeOverviewReportComponent,
+    LiveAppsActiveCasesWidgetComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
@@ -246,6 +249,10 @@ export class TcLiveappsLibModule {
         };
     }
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
+    this.matIconRegistry.addSvgIconLiteral(
+      'ic-active-case-widget-icon',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path  class="svg-content" fill="#727272" d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z"/></svg>')
+    );
     this.matIconRegistry.addSvgIconLiteral(
       'tcs-collaboration-reply',
       this.domSanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24"><g class="svg-content" fill="none" fill-rule="evenodd"><g mask="url(#b)"><mask id="b" fill="#fff">       <path d="M4 14.027C4 11.298 6.192 9.07 8.876 9.07h7.357l-2.141-2.159a1.15 1.15 0 0 1 0-1.588 1.105 1.105 0 0 1 1.563 0l4.026 4.092a1.15 1.15 0 0 1 0 1.589l-4.026 4.092a1.07 1.07 0 0 1-.782.329 1.07 1.07 0 0 1-.781-.329 1.15 1.15 0 0 1 0-1.588l2.14-2.176H8.877c-1.461 0-2.667 1.209-2.667 2.711 0 1.485 1.189 2.711 2.667 2.711.612 0 1.104.5 1.104 1.123 0 .621-.492 1.122-1.104 1.122C6.192 18.983 4 16.772 4 14.027z"/></mask><path d="M0 0h24v24H0z" fill="black"/></g></g></svg>')

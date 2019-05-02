@@ -6,7 +6,6 @@ import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.
 import {CaseTypeReportRecord, CaseTypesReport} from '../../models/tc-live-apps-reporting';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {MatTabGroup} from '@angular/material';
-import 'chartjs-plugin-labels';
 import 'chartjs-plugin-datalabels';
 import 'chartjs-plugin-doughnutlabel';
 
@@ -69,14 +68,6 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
       }
     },
     plugins: {
-      labels: [
-        {
-          render: 'label',
-          arc: true,
-          position: 'outside',
-          textMargin: 10
-        }
-      ],
       doughnutlabel: {
         labels: [
           {
