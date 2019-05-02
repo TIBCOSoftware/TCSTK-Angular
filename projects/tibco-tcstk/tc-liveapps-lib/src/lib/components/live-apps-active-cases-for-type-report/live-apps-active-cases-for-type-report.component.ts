@@ -56,16 +56,19 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
           {
             text: this.getCaseCount,
             font: {
-              size: '20'
+              size: '20',
+              family: 'Source Sans Pro',
+              weight: 'bold'
             },
-            color: 'grey'
+            color: '#FF7800'
           },
           {
             text: 'cases',
             font: {
-              size: '16'
+              size: '16',
+              family: 'Source Sans Pro',
             },
-            color: 'grey'
+            color: '#FF7800'
           }
         ]
       },
