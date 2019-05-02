@@ -11,6 +11,7 @@ import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.compone
 import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-documents.component';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
+import {LiveAppsActiveCasesWidgetComponent} from '@tibco-tcstk/tc-liveapps-lib';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -34,6 +35,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @ViewChild(LiveAppsSearchWidgetComponent) searchComponent: LiveAppsSearchWidgetComponent;
   @ViewChild(LiveAppsNotesComponent) collaborationComponent: LiveAppsNotesComponent;
   @ViewChild(LiveAppsDocumentsComponent) documentsComponent: LiveAppsDocumentsComponent;
+  @ViewChild(LiveAppsActiveCasesWidgetComponent) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
 
   public toolbarButtons: ToolbarButton[];
   public caseStartButtonActive: boolean;
@@ -114,6 +116,9 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
     if (this.documentsComponent) {
       this.documentsComponent.refresh();
+    }
+    if (this.activeCasesComponent) {
+      this.activeCasesComponent.refresh();
     }
   }
 
