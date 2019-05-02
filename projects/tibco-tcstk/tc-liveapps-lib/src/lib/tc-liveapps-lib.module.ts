@@ -89,6 +89,8 @@ import {LiveAppsCaseTypeOverviewReportComponent} from './components/live-apps-ca
 import {Location} from '@angular/common';
 import {RoleGuard} from './guards/role.guard';
 import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
+import { LiveAppsActiveCasesReportComponent } from './components/live-apps-active-cases-report/live-apps-active-cases-report.component';
+import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-apps-active-cases-for-type-report/live-apps-active-cases-for-type-report.component';
 
 @NgModule({
     declarations: [
@@ -144,7 +146,9 @@ import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-activ
         LiveAppsReportingCockpitComponent,
         LiveAppsCaseOverviewReportComponent,
         LiveAppsCaseTypeOverviewReportComponent,
-        LiveAppsActiveCasesWidgetComponent
+        LiveAppsActiveCasesWidgetComponent,
+        LiveAppsActiveCasesReportComponent,
+        LiveAppsActiveCasesForTypeReportComponent
     ],
     imports: [
         TcCoreLibModule,
@@ -229,7 +233,8 @@ import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-activ
     LiveAppsPieComponent,
     LiveAppsCaseOverviewReportComponent,
     LiveAppsCaseTypeOverviewReportComponent,
-    LiveAppsActiveCasesWidgetComponent
+    LiveAppsActiveCasesWidgetComponent,
+    LiveAppsActiveCasesReportComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
