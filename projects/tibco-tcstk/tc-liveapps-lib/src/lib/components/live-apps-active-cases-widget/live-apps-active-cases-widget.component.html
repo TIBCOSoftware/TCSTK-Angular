@@ -1,0 +1,24 @@
+<div class="tcs-active-case-widget-pane" fxFill fxLayout="column">
+  <div *ngIf="showHeader" class="tcs-active-case-widget-header" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayoutAlign="start center">
+      <mat-icon class="tcs-icon tcs-active-case-widget-icon" svgIcon="ic-active-case-widget-icon"></mat-icon>
+      <div class="tcs-active-case-widget-header-text">Active Cases</div>
+    </div>
+  </div>
+  <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">
+
+  </div>
+  <div fxLayout="column" fxFlex style="overflow: auto">
+      <div *ngIf="renderChart" style="position: relative; height:40%; width:80%; padding: 20px" class="relative">
+      <canvas #caseReportChart baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [options]="doughnutChartOptions"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+      >
+      </canvas>
+    </div>
+  </div>
+</div>
