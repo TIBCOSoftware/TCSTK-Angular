@@ -38,6 +38,12 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
     }
   }
 
+  public setCaseType = (caseType: CaseType) => {
+    this.selectedApp = caseType;
+    this.doSearch();
+    this.applicationsComponent.changeAppSelection(caseType);
+  }
+
   // handle search app selection
   public handleSearchAppSelection = (application: CaseType) => {
     this.selectedApp = application;
@@ -55,14 +61,14 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
 
   public forceSearch = () => {
     this.forcedSearch = true;
-    this.liveapps.caseSearchEntries(this.searchBox.nativeElement.value, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, true, 0, 1000).subscribe(
+    this.liveapps.caseSearchEntries(this.searchBox.nativeElement.value, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, true, 0, 1000, null).subscribe(
       results => {
         this.foundRefs.emit(results);
       }
     );
   }
 
-  private doSearch = () => {
+  public doSearch = () => {
     this.forcedSearch = false;
     this.searchBox.nativeElement.value = '';
     const result = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
@@ -81,7 +87,7 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
       // The case details will only be loaded when the item is rendered (for example in the case-list component)
       // Any case list component should use cdk virtual scroll to ensure 1000 case details are not loaded in one go
       // (from the API or to the DOM)
-      this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, skip, top)
+      this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, skip, top, null)
         .subscribe(results => {
           this.foundRefs.emit(results);
         });

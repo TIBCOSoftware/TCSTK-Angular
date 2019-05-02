@@ -1,8 +1,16 @@
 <div class="tcs-case-list-box" fxLayout="column">
   <div class="tcs-case-list-header" fxLayout="row" fxLayoutAlign="space-between center">
-    <div fxLayoutAlign="start center">
+    <div fxFlex fxLayoutAlign="start center">
       <mat-icon class="tcs-icon tcs-caselist-icon" svgIcon="tcs-caselist-icon"></mat-icon>
       <div class="tcs-case-list-header-text">{{headerText}}</div>
+      <div fxFlex class="tcs-type-filter-text" fxLayoutAlign="end center">
+        <div *ngIf="headerMessage" fxLayout="row">
+          [
+          <div class="tcs-type-filter-text-highlight">{{headerMessage}}</div>
+          ]
+        </div>
+        <mat-icon (click)="clearMatchingCases()" class="tcs-icon tcs-icon-active tcs-clear-cases-icon" svgIcon="tcs-clear-icon" matTooltip="Clear Matching Cases" matTooltipPosition="left" matTooltipShowDelay="1000"></mat-icon>
+      </div>
     </div>
   </div>
 

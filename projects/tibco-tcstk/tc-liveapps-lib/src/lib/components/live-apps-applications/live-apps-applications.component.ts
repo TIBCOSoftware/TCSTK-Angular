@@ -41,6 +41,12 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
     super();
   }
 
+  changeAppSelection = (appSelected: CaseType) => {
+    this.selectedApp = this.applications.casetypes.find((casetype) => {
+      return casetype.applicationId === appSelected.applicationId;
+    });
+  }
+
   selectApplication = (selectionEvent) => {
     this.selectedApp = selectionEvent.source.value;
     this.selection.emit(selectionEvent.source.value);

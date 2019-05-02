@@ -1,7 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {CaseSearchResults} from '../../models/liveappsdata';
+import {CaseSearchResults, CaseType} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {LiveAppsCaseSearchComponent} from '../live-apps-case-search/live-apps-case-search.component';
+import {LiveAppsService} from '../../services/live-apps.service';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'tcla-live-apps-search-widget',
@@ -18,15 +20,22 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   // case search
   matchedRefs: string[] = [];
   searchString: string;
+  message: string;
 
-  constructor() {
+  constructor(private liveapps: LiveAppsService) {
     super();
   }
 
   // handle case search results
   public handleSearchResults = (data: CaseSearchResults) => {
+    this.message = undefined;
     this.matchedRefs = data.caserefs;
     this.searchString = data.searchString;
+  }
+
+  public handleClearMatches = () => {
+    this.matchedRefs = [];
+    this.message = undefined;
   }
 
   // case clicked
@@ -38,6 +47,16 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
     if (this.caseSearchComponent) {
       this.caseSearchComponent.refresh();
     }
+  }
+
+  public searchCasesByState = (stateId: number, appId: string, typeId: string, message: string) => {
+    this.caseSearchComponent.setCaseType(new CaseType().deserialize( { applicationId : appId, id: typeId }));
+    this.message = message;
+    this.liveapps.caseSearchEntries('', this.sandboxId, appId, typeId, true, 0, 1000, stateId).subscribe(
+      results => {
+        this.matchedRefs = results.caserefs;
+      }
+    );
   }
 
 }

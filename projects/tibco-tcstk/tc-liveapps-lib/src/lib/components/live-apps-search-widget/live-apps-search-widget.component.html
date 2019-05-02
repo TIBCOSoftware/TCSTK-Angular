@@ -3,6 +3,6 @@
     <tcla-live-apps-case-search fxFlex fxLayoutAlign="center center" [sandboxId]="sandboxId" [appIds]="appIds" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
   </div>
   <div *ngIf="matchedRefs.length>0" fxLayout="row" fxLayoutAlign="space-around start" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px">
-      <tcla-live-apps-case-list fxFlex [sandboxId]="sandboxId" [uiAppId]="uiAppId" [caseRefs]="matchedRefs" [displayType]="'list'" [headerText]="'Matching Cases'" [highlight]="searchString" (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-list>
+      <tcla-live-apps-case-list fxFlex [sandboxId]="sandboxId" [uiAppId]="uiAppId" [caseRefs]="matchedRefs" [displayType]="'list'" [headerText]="'Matching Cases'" [headerMessage]="message" [highlight]="searchString" (clickCase)="clickCaseAction($event)" (clearMatches)="handleClearMatches()"></tcla-live-apps-case-list>
   </div>
 </div>
