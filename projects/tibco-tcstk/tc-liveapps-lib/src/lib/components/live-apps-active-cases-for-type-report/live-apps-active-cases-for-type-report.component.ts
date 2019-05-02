@@ -1,9 +1,9 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {ChartType} from 'chart.js';
 import {Label, MultiDataSet} from 'ng2-charts';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
-import {CaseTypeStateReport} from '../../models/tc-live-apps-reporting';
+import {CaseTypeStateReport, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {map, take, takeUntil} from 'rxjs/operators';
 import 'chartjs-plugin-datalabels';
 
@@ -18,6 +18,7 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   @Input() appId: string;
   @Input() typeId: string;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
+  @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 
   // @ViewChild(BaseChartDirective) caseTypeStateReportChart: BaseChartDirective;
 
@@ -142,8 +143,20 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   }
 
   // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+  public chartClicked({ event, active }: { event: MouseEvent, active: any }): void {
+    if (active.length > 0) {
+      const chart = active[0]._chart;
+      const activePoints: any = chart.getElementAtEvent(event);
+      if ( activePoints.length > 0) {
+        // get the internal index of slice in pie chart
+        const clickedElementIndex = activePoints[0]._index;
+        const label = chart.data.labels[clickedElementIndex];
+        // get value by index
+        const value = chart.data.datasets[0].data[clickedElementIndex];
+        console.log(clickedElementIndex, label, value);
+        this.selectedCaseTypeState.emit(this.caseTypeStateReport.caseStates[clickedElementIndex].stateInfo);
+      }
+    }
   }
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {

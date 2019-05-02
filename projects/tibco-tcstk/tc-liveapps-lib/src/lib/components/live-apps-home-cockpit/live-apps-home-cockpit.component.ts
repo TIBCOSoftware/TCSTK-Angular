@@ -12,7 +12,7 @@ import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-docum
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
 import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
-import {CaseTypeReportRecord} from '../../models/tc-live-apps-reporting';
+import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -40,6 +40,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
 
   public toolbarButtons: ToolbarButton[];
   public caseStartButtonActive: boolean;
+  public selectedCaseTypeReportRecord: CaseTypeReportRecord;
 
   public clickCaseAction = (caseRoute: CaseRoute) => {
     // case clicked - tell parent (will pass caseRef and appId)
@@ -86,7 +87,13 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   }
 
   public handleReportCaseTypeSelection = (caseTypeReportRecord: CaseTypeReportRecord) => {
+    this.selectedCaseTypeReportRecord = caseTypeReportRecord;
+  }
 
+  public handleReportCaseTypeStateSelection = (state: CaseTypeStateReportStateInfo) => {
+    if (this.selectedCaseTypeReportRecord) {
+      this.searchComponent.searchCasesByState(Number(state.id), this.selectedCaseTypeReportRecord.applicationId, this.selectedCaseTypeReportRecord.caseTypeInfo.id, this.selectedCaseTypeReportRecord.caseTypeInfo.label + '|' + state.label );
+    }
   }
 
   openCreatorDialog = (application: CaseType, initialData, sandboxId) => {

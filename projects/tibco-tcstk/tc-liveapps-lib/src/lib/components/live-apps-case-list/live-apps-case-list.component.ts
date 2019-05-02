@@ -18,12 +18,18 @@ export class LiveAppsCaseListComponent extends LiveAppsComponent implements OnIn
   @Input() uiAppId: string;
   @Input() caseRefs: string[];
   @Input() highlight: string;
+  @Input() headerMessage: string;
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
+  @Output() clearMatches = new EventEmitter();
 
   public errorMessage: string;
 
   public clickCaseAction = (caseRoute: CaseRoute) => {
     this.clickCase.emit(caseRoute);
+  }
+
+  public clearMatchingCases = () => {
+    this.clearMatches.emit();
   }
 
   constructor(private liveapps: LiveAppsService) {

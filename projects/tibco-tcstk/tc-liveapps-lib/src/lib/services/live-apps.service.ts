@@ -163,18 +163,22 @@ export class LiveAppsService {
         map(caseinfo => new CaseInfo().deserialize(caseinfo)));
   }
 
-  public caseSearch(terms: Observable<string>, sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseSearchResults> {
+  public caseSearch(terms: Observable<string>, sandboxId: number, appId: string, typeId: string, skip: number, top: number, stateId: number): Observable<CaseSearchResults> {
     return terms
       .pipe(
         debounceTime(500),
         distinctUntilChanged(),
-        switchMap(term => this.caseSearchEntries(term, sandboxId, appId, typeId, false, skip, top))
+        switchMap(term => this.caseSearchEntries(term, sandboxId, appId, typeId, false, skip, top, stateId))
       );
   }
 
-  public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, force: boolean, skip: number, top: number): Observable<CaseSearchResults> {
+  public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, force: boolean, skip: number, top: number, stateId: number): Observable<CaseSearchResults> {
       let url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
-        + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top
+        + appId + ' and typeId eq ' + typeId;
+      if (stateId) {
+        url = url + ' and stateId eq ' + stateId;
+      }
+      url = url + '&$skip=' + skip + '&$top=' + top
         + '&$select=cr';
       if (term || (!term && !force)) {
         url = url + '&$search=' + term;

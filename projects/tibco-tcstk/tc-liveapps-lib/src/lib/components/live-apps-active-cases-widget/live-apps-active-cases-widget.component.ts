@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {CaseTypeReportRecord, CaseTypesReport} from '../../models/tc-live-apps-reporting';
+import {CaseTypeReportRecord, CaseTypesReport, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {BaseChartDirective, Label, MultiDataSet} from 'ng2-charts';
 import {ChartType} from 'chart.js';
 import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
@@ -20,6 +20,7 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   @Input() showHeader: boolean;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
+  @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 
   @ViewChild(LiveAppsActiveCasesReportComponent) activeCasesComp: LiveAppsActiveCasesReportComponent;
   @ViewChild(LiveAppsActiveCasesForTypeReportComponent) activeCaseTypeComp: LiveAppsActiveCasesForTypeReportComponent;
@@ -29,6 +30,10 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   public handleCaseTypeSelected = (selected: CaseTypeReportRecord) => {
     this.selectedCaseTypeReport = selected;
     this.selectedCaseType.emit(selected);
+  }
+
+  public handleCaseTypeStateSelected = (selectedState: CaseTypeStateReportStateInfo) => {
+    this.selectedCaseTypeState.emit(selectedState);
   }
 
   public clearSelectedCaseType = () => {
