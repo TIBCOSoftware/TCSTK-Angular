@@ -6,7 +6,6 @@ import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.
 import {CaseTypeStateReport} from '../../models/tc-live-apps-reporting';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {MatTabGroup} from '@angular/material';
-import 'chartjs-plugin-labels';
 import 'chartjs-plugin-datalabels';
 
 @Component({
@@ -62,14 +61,6 @@ export class LiveAppsCaseTypeOverviewReportComponent extends LiveAppsComponent i
       }
     },
     plugins: {
-      labels: [
-        {
-          render: 'label',
-          arc: false,
-          position: 'outside',
-          textMargin: 10
-        }
-      ],
       datalabels: {
         anchor: 'end',
         backgroundColor: function(context) {
