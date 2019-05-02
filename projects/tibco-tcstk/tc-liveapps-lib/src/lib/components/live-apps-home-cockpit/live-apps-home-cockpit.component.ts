@@ -11,7 +11,7 @@ import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.compone
 import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-documents.component';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
-import {LiveAppsActiveCasesWidgetComponent} from '@tibco-tcstk/tc-liveapps-lib';
+import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
