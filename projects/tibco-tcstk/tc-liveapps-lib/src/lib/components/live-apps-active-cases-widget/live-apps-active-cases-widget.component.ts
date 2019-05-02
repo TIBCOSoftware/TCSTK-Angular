@@ -19,6 +19,7 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   @Input() appIds: string[];
   @Input() showHeader: boolean;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
+  @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   @ViewChild(LiveAppsActiveCasesReportComponent) activeCasesComp: LiveAppsActiveCasesReportComponent;
   @ViewChild(LiveAppsActiveCasesForTypeReportComponent) activeCaseTypeComp: LiveAppsActiveCasesForTypeReportComponent;
@@ -27,6 +28,7 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
 
   public handleCaseTypeSelected = (selected: CaseTypeReportRecord) => {
     this.selectedCaseTypeReport = selected;
+    this.selectedCaseType.emit(selected);
   }
 
   public clearSelectedCaseType = () => {

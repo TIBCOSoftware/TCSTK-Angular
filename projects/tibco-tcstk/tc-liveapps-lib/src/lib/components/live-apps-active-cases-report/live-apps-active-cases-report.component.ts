@@ -61,6 +61,13 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
               size: '20'
             },
             color: 'grey'
+          },
+          {
+            text: 'cases',
+            font: {
+              size: '16'
+            },
+            color: 'grey'
           }
         ]
       },

@@ -12,6 +12,7 @@ import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-docum
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
 import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
+import {CaseTypeReportRecord} from '../../models/tc-live-apps-reporting';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -82,6 +83,10 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
     // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
     this.openCreatorDialog(application, undefined, this.sandboxId);
+  }
+
+  public handleReportCaseTypeSelection = (caseTypeReportRecord: CaseTypeReportRecord) => {
+
   }
 
   openCreatorDialog = (application: CaseType, initialData, sandboxId) => {

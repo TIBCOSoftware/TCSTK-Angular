@@ -30,6 +30,11 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   public doughnutChartType: ChartType = 'doughnut';
 
   public legendData: any;
+  public totalActiveCaseCount: number;
+
+  private getCaseCount = () => {
+    return this.totalActiveCaseCount;
+  }
 
   public doughnutChartOptions: any = {
     responsive: true,
@@ -46,6 +51,24 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
       }
     },
     plugins: {
+      doughnutlabel: {
+        labels: [
+          {
+            text: this.getCaseCount,
+            font: {
+              size: '20'
+            },
+            color: 'grey'
+          },
+          {
+            text: 'cases',
+            font: {
+              size: '16'
+            },
+            color: 'grey'
+          }
+        ]
+      },
       datalabels: {
         anchor: 'end',
         backgroundColor: function(context) {
@@ -86,9 +109,11 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
 
   private initReportDataToChart = (reportData: CaseTypeStateReport, status: string) => {
     this.doughnutChartData = [];
+    this.totalActiveCaseCount = 0;
     const casesByStateArray: number[] = [];
     const labels: string[] = [];
     reportData.caseStates.forEach(caseState => {
+        this.totalActiveCaseCount = this.totalActiveCaseCount + caseState.caseCount;
         casesByStateArray.push(caseState.caseCount);
         labels.push(caseState.stateInfo.label);
     });
