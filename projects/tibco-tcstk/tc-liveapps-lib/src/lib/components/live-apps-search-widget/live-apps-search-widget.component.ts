@@ -34,6 +34,7 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   }
 
   public handleClearMatches = () => {
+    this.caseSearchComponent.clearResults();
     this.matchedRefs = [];
     this.message = undefined;
   }
@@ -49,8 +50,9 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
     }
   }
 
-  public searchCasesByState = (stateId: number, appId: string, typeId: string, message: string) => {
+  public searchCasesByState = (stateId: number, stateLabel: string, appId: string, typeId: string, message: string) => {
     this.caseSearchComponent.setCaseType(new CaseType().deserialize( { applicationId : appId, id: typeId }));
+    this.caseSearchComponent.setSelectedStateId(stateId, stateLabel);
     this.message = message;
     this.liveapps.caseSearchEntries('', this.sandboxId, appId, typeId, true, 0, 1000, stateId).subscribe(
       results => {
