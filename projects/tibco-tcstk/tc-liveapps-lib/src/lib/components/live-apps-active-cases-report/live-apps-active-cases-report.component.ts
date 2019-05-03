@@ -143,7 +143,22 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
       this.totalTerminatedCaseCount = this.totalTerminatedCaseCount + caseType.terminalStateCaseCount;
       labels.push(caseType.caseTypeInfo.label);
       // we will re-color anything that has the default color
-      const col: string = (caseType.caseTypeInfo.color && caseType.caseTypeInfo.color !== DEFAULT_TYPE_COLOR) ? caseType.caseTypeInfo.color : this.defaultColors.pop();
+      let col: string;
+      if (caseType.caseTypeInfo.color && caseType.caseTypeInfo.color !== DEFAULT_TYPE_COLOR) {
+        // use the set color
+        col = caseType.caseTypeInfo.color;
+      } else {
+        // try and get a color from the palette
+        const palCol = this.defaultColors.pop();
+        if (palCol) {
+          col = palCol;
+        } else {
+          // if no more in palette use a random color!
+          const i = Math.random() * 0xffffff;
+          const p = parseInt(i.toString(), 0);
+          col = '#' + p.toString(16);
+        }
+      }
       colorArray.push(col);
     });
     console.log(this.chartColors);
