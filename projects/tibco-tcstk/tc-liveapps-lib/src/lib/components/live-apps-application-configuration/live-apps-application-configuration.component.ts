@@ -39,7 +39,7 @@ import {LiveAppsDocumentUploadDialogComponent} from '../live-apps-documents/live
 import { Location } from '@angular/common';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {CaseCardConfig} from '../../models/tc-case-card-config';
-import {TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
+import {DEFAULT_COLORS, DEFAULT_STATE_COLOR, DEFAULT_TYPE_COLOR, TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
 import {TcDocumentService} from '../../services/tc-document.service';
 
 @Component({
@@ -68,16 +68,10 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   // prepareExternalUrl will add the base href
   public DEFAULT_CASE_TYPE_ICON = 'assets/icons/ic-generic-casetype.svg';
-  public DEFAULT_CASE_TYPE_COLOR = '#8197c0';
+  public DEFAULT_CASE_TYPE_COLOR = DEFAULT_TYPE_COLOR;
   public DEFAULT_CASE_STATE_ICON = 'assets/icons/ic-generic-state.svg';
-  public DEFAULT_CASE_STATE_COLOR = '#8197c0';
-  public DEFAULT_COLOR_PALETTE = [
-    '#3E94C0', '#49B3D3', '#76C6CF', '#A9DACD', '#DCECC9',
-    '#FFAB40', '#FFD180', '#FFE0B2', '#FFF3E0', '#81D4FA',
-    '#B3E5FC', '#8AF2F2', '#91A3AE', '#CED8DD', '#EBEFF1',
-    '#6A1B9A', '#AD1457', '#EC407A', '#C4469E', '#BA68C8',
-    '#8C9EFF', '#FF8A80', '#546F7A', '#263237'
-  ];
+  public DEFAULT_CASE_STATE_COLOR = DEFAULT_STATE_COLOR;
+  public DEFAULT_COLOR_PALETTE = DEFAULT_COLORS;
 
   public getConfigForState = (state: CaseTypeState): IconMap => {
     let reqIconMap: IconMap;

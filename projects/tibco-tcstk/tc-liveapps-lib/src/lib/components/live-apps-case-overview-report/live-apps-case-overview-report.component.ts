@@ -17,6 +17,7 @@ import 'chartjs-plugin-doughnutlabel';
 export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() appIds: string[];
+  @Input() uiAppId: string;
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   @ViewChild(BaseChartDirective) caseReportChart: BaseChartDirective;
@@ -141,7 +142,7 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
   }
 
   public refresh = (status) => {
-    this.reportingService.getCaseTypesReport(this.sandboxId, this.appIds).pipe(
+    this.reportingService.getCaseTypesReport(this.sandboxId, this.appIds, this.uiAppId).pipe(
       take(1),
       takeUntil(this._destroyed$),
       map(report => {

@@ -4,6 +4,7 @@ export class CaseTypeReportRecordInfo implements Deserializable {
   id: string;
   label: string;
   name: string;
+  color: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
@@ -34,6 +35,7 @@ export class CaseTypeStateReportStateInfo implements Deserializable {
   id: string;
   label: string;
   value: string;
+  color: string;
   isTerminal: boolean;
   deserialize(input: any) {
     Object.assign(this, input);

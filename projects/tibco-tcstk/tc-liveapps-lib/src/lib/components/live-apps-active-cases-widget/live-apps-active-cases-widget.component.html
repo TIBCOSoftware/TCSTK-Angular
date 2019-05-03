@@ -17,6 +17,6 @@
   </div>
   <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">
   </div>
-  <tcla-live-apps-active-cases-report *ngIf="!selectedCaseTypeReport" fxFlex [maxLegendItems]="maxLegendItems" [sandboxId]="sandboxId" [appIds]="appIds" [showPercentages]="showPercentages" (selectedCaseType)="handleCaseTypeSelected($event)"></tcla-live-apps-active-cases-report>
-  <tcla-live-apps-active-cases-for-type-report *ngIf="selectedCaseTypeReport" fxFlex [maxLegendItems]="maxLegendItems" [sandboxId]="sandboxId" [typeId]="selectedCaseTypeReport.caseTypeInfo.id" [appId]="selectedCaseTypeReport.applicationId" [showPercentages]="showPercentages" (selectedCaseTypeState)="handleCaseTypeStateSelected($event)"></tcla-live-apps-active-cases-for-type-report>
+  <tcla-live-apps-active-cases-report *ngIf="!selectedCaseTypeReport" fxFlex [maxLegendItems]="maxLegendItems" [sandboxId]="sandboxId" [appIds]="appIds" [showPercentages]="showPercentages" [uiAppId]="uiAppId" (selectedCaseType)="handleCaseTypeSelected($event)"></tcla-live-apps-active-cases-report>
+  <tcla-live-apps-active-cases-for-type-report *ngIf="selectedCaseTypeReport" fxFlex [maxLegendItems]="maxLegendItems" [sandboxId]="sandboxId" [typeId]="selectedCaseTypeReport.caseTypeInfo.id" [appId]="selectedCaseTypeReport.applicationId" [showPercentages]="showPercentages" [uiAppId]="uiAppId" (selectedCaseTypeState)="handleCaseTypeStateSelected($event)"></tcla-live-apps-active-cases-for-type-report>
 </div>
