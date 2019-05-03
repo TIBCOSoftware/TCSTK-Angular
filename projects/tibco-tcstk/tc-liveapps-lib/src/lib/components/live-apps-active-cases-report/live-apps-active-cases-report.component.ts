@@ -17,6 +17,7 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   @Input() appIds: string[];
   @Input() showHeader: boolean;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
+  @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   @ViewChild(BaseChartDirective) caseReportChart: BaseChartDirective;
@@ -96,9 +97,13 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
           const datasets = ctx.chart.data.datasets;
 
           if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-            const sum = datasets[0].data.reduce((a, b) => a + b, 0);
-            const percentage = Math.round((value / sum) * 100) + '%';
-            return percentage;
+            if (this.showPercentages) {
+              const sum = datasets[0].data.reduce((a, b) => a + b, 0);
+              const percentage = Math.round((value / sum) * 100) + '%';
+              return percentage;
+            } else {
+              return value;
+            }
           } else {
             return 0;
           }

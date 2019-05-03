@@ -18,6 +18,7 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   @Input() sandboxId: number;
   @Input() appIds: string[];
   @Input() showHeader: boolean;
+  @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();

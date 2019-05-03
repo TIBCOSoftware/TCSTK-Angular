@@ -18,6 +18,7 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   @Input() appId: string;
   @Input() typeId: string;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
+  @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 
   // @ViewChild(BaseChartDirective) caseTypeStateReportChart: BaseChartDirective;
@@ -95,9 +96,13 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
           const datasets = ctx.chart.data.datasets;
 
           if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-            const sum = datasets[0].data.reduce((a, b) => a + b, 0);
-            const percentage = Math.round((value / sum) * 100) + '%';
-            return percentage;
+            if (this.showPercentages) {
+              const sum = datasets[0].data.reduce((a, b) => a + b, 0);
+              const percentage = Math.round((value / sum) * 100) + '%';
+              return percentage;
+            } else {
+              return value;
+            }
           } else {
             return 0;
           }
