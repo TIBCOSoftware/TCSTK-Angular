@@ -9,7 +9,7 @@
       <tcla-live-apps-case-overview-report [sandboxId]="sandboxId" [appIds]="appIds"></tcla-live-apps-case-overview-report>
     </div-->
         <div fxFlex style="border: solid 1px black">
-          <tcla-live-apps-case-overview-report [sandboxId]="sandboxId" [appIds]="appIds" (selectedCaseType)="setSelectedCaseType($event)"></tcla-live-apps-case-overview-report>
+          <tcla-live-apps-case-overview-report [uiAppId]="uiAppId" [sandboxId]="sandboxId" [appIds]="appIds" (selectedCaseType)="setSelectedCaseType($event)"></tcla-live-apps-case-overview-report>
         </div>
         <div *ngIf="selectedCaseType" fxFlex style="border: solid 1px black">
           <tcla-live-apps-case-type-overview-report [sandboxId]="sandboxId" [appId]="selectedCaseType.applicationId" [typeId]="selectedCaseType.caseTypeInfo.id" [incTerminal]="selectedCaseType.incTerminal"></tcla-live-apps-case-type-overview-report>

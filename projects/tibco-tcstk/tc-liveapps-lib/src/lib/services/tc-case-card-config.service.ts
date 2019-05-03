@@ -3,11 +3,23 @@ import {SharedStateContent, SharedStateEntry, SharedStateList, TcCoreCommonFunct
 import {forkJoin, Observable, of, throwError} from 'rxjs';
 import {ApiResponseError, CardConfig, CaseInfo, CaseTypeState, CaseTypeStatesList, IconMap, UserInfo} from '../models/liveappsdata';
 import {LiveAppsService} from './live-apps.service';
-import {CaseCardConfig} from '../models/tc-case-card-config';
+import {CaseCardConfig, StateColorMap, StateColorMapRec} from '../models/tc-case-card-config';
 import {catchError, flatMap, map, mergeMap, tap} from 'rxjs/operators';
 import {flush} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
 import {Location} from '@angular/common';
+
+export const DEFAULT_COLORS: string[] = [
+  '#3E94C0', '#49B3D3', '#76C6CF', '#A9DACD', '#DCECC9',
+  '#FFAB40', '#FFD180', '#FFE0B2', '#FFF3E0', '#81D4FA',
+  '#B3E5FC', '#8AF2F2', '#91A3AE', '#CED8DD', '#EBEFF1',
+  '#6A1B9A', '#AD1457', '#EC407A', '#C4469E', '#BA68C8',
+  '#8C9EFF', '#FF8A80', '#546F7A', '#263237'
+];
+
+export const DEFAULT_TYPE_COLOR = '#8197c0';
+
+export const DEFAULT_STATE_COLOR = '#8197c0';
 
 export const GENERIC_STATE_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">\n' +
   '    <path fill="<DYNAMICFILL>" fill-rule="nonzero" d="M.045 1.154h13.91v2.133H.045V1.154zM.8 4.75h12.364v8.19c0 .596-.487 1.083-1.082 1.083h-10.2A1.085 1.085 0 0 1 .8 12.94V4.75zm7.978 2.447V5.776H5.222v1.421h3.556z"/>\n' +
@@ -70,7 +82,7 @@ export class TcCaseCardConfigService {
         states.forEach(state => {
           stateMap.push(new IconMap(false, state.value, defaultStateColor, defaultStateIcon));
         });
-        const newCardConfig = new CardConfig().deserialize({ id: id, useCaseTypeColor: false, stateMap: stateMap });
+        const newCardConfig = new CardConfig().deserialize({ id: id, useCaseTypeColor: true, stateMap: stateMap });
         return this.updateCardConfig(sandboxId, appId, uiAppId, newCardConfig, id).pipe(
           tap(config => {
             // trigger update of the cache
@@ -144,6 +156,28 @@ export class TcCaseCardConfigService {
     );
   }
 
+  public getStateColorInfo (appId: string, uiAppId: string): Observable<StateColorMap> {
+    return this.getCardConfig(uiAppId, appId, true, false).pipe(
+      map(val => {
+        if (val) {
+          const config: CardConfig = val;
+          const stateColorMap = new StateColorMap();
+          stateColorMap.stateColorRecs = [];
+          config.stateMap.forEach((stateMapRec) => {
+            const stateColorMapRec = new StateColorMapRec().deserialize( { state: stateMapRec.state, color: stateMapRec.fill} );
+            if (stateMapRec.isCaseType) {
+              stateColorMap.caseTypeColor = stateMapRec.fill;
+            }
+            stateColorMap.stateColorRecs.push(stateColorMapRec);
+          });
+          return stateColorMap;
+        } else {
+          return new StateColorMap();
+        }
+      })
+    );
+  }
+
   public getColorForState (appId: string, uiAppId: string, state: string): Observable<string> {
     return this.getCardConfig(uiAppId, appId, true, false).pipe(
       map(val => {
@@ -181,13 +215,13 @@ export class TcCaseCardConfigService {
           }
           // defaults
           if (!caseinfo.metadata.stateColor) {
-            caseinfo.metadata.stateColor = '#8197c0';
+            caseinfo.metadata.stateColor = DEFAULT_STATE_COLOR;
           }
           if (!caseinfo.metadata.stateIcon) {
             caseinfo.metadata.stateIcon = 'assets/icons/ic-generic-state.svg';
           }
           if (!caseinfo.metadata.caseTypeColor) {
-            caseinfo.metadata.caseTypeColor = '#8197c0';
+            caseinfo.metadata.caseTypeColor = DEFAULT_TYPE_COLOR;
           }
           if (!caseinfo.metadata.caseTypeIcon) {
             caseinfo.metadata.caseTypeIcon = 'assets/icons/ic-generic-casetype.svg';

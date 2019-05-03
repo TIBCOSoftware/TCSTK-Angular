@@ -1,10 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CaseTypeReportRecord, CaseTypesReport} from '../../models/tc-live-apps-reporting';
-import {BaseChartDirective, Label, MultiDataSet} from 'ng2-charts';
+import {BaseChartDirective, defaultColors, Label, MultiDataSet, SingleDataSet} from 'ng2-charts';
 import {ChartType} from 'chart.js';
 import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {map, take, takeUntil} from 'rxjs/operators';
+
+import {copy} from 'angular6-json-schema-form';
+import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-config.service';
 
 @Component({
   selector: 'tcla-live-apps-active-cases-report',
@@ -16,6 +19,7 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   @Input() sandboxId: number;
   @Input() appIds: string[];
   @Input() showHeader: boolean;
+  @Input() uiAppId: string;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
   @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
@@ -29,8 +33,10 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   public renderChart = false;
 
   public doughnutChartLabels: Label[];
-  public doughnutChartData: MultiDataSet = [];
+  public doughnutChartData: SingleDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
+  public chartColors: any[] = [];
+  public defaultColors: string[] = DEFAULT_COLORS.reverse();
 
   public legendData: any;
 
@@ -119,23 +125,38 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   private initReportDataToChart = (reportData: CaseTypesReport) => {
     this.doughnutChartData = [];
     this.totalActiveCaseCount = 0;
-    const activeCasesArray: number[] = [];
+    const activeCasesArray: any[] = [];
     const labels: string[] = [];
+    const colorArray: string[] = [];
+    // remove any taken colors from the defaultColors
+    // we have to do this before parsing the record to avoid getting same colors
+    reportData.caseTypes.forEach(ct => {
+      // remove color from defaults
+      if (ct.caseTypeInfo.color) {
+        this.defaultColors = this.defaultColors.filter(item => item !== ct.caseTypeInfo.color);
+      }
+    });
+    // parse record
     reportData.caseTypes.forEach(caseType => {
       activeCasesArray.push(caseType.activeStateCaseCount);
       this.totalActiveCaseCount = this.totalActiveCaseCount + caseType.activeStateCaseCount;
       this.totalTerminatedCaseCount = this.totalTerminatedCaseCount + caseType.terminalStateCaseCount;
       labels.push(caseType.caseTypeInfo.label);
+      // we will re-color anything that has the default color
+      const col: string = (caseType.caseTypeInfo.color && caseType.caseTypeInfo.color !== DEFAULT_TYPE_COLOR) ? caseType.caseTypeInfo.color : this.defaultColors.pop();
+      colorArray.push(col);
     });
+    console.log(this.chartColors);
     // showing more than 8 in the legend will take up too much space
     this.doughnutChartOptions.legend.display = labels.length <= 8;
-    this.doughnutChartData.push(activeCasesArray);
+    this.doughnutChartData = activeCasesArray;
     this.doughnutChartLabels = labels;
+    this.chartColors.push( { backgroundColor: colorArray});
     this.renderChart = true;
   }
 
   public refresh = () => {
-    this.reportingService.getCaseTypesReport(this.sandboxId, this.appIds).pipe(
+    this.reportingService.getCaseTypesReport(this.sandboxId, this.appIds, this.uiAppId).pipe(
       take(1),
       takeUntil(this._destroyed$),
       map(report => {

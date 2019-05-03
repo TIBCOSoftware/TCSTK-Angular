@@ -17,6 +17,7 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string;
+  @Input() uiAppId: string;
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
   @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
