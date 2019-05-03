@@ -1,5 +1,5 @@
 <div>
-  <div fxLayout="row" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px;">
+  <div fxLayout="row" style="margin-left: 50px; margin-right: 50px; margin-top: 10px; margin-bottom: 10px;">
     <tcla-live-apps-case-search fxFlex fxLayoutAlign="center center" [sandboxId]="sandboxId" [appIds]="appIds" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
   </div>
   <div *ngIf="matchedRefs.length>0" fxLayout="row" fxLayoutAlign="space-around start" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px">
