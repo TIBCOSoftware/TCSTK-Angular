@@ -144,6 +144,17 @@ export class TcCaseCardConfigService {
     );
   }
 
+  public getColorForState (appId: string, uiAppId: string, state: string): Observable<string> {
+    return this.getCardConfig(uiAppId, appId, true, false).pipe(
+      map(val => {
+        const stateMap = val.stateMap.find((stateRec) => {
+          return stateRec.state === state;
+        });
+        return (stateMap ? stateMap.fill : undefined);
+      })
+    );
+  }
+
   public parseCaseInfo(caseinfo: CaseInfo, sandboxId: number, appId: string, typeId: string, uiAppId): Observable<CaseInfo> {
     // in order to get all the info we need we actually need to call up to 4 observables in parallel
     const caseInfo$ = this.liveAppsService.getCaseTypeBasicInfo(sandboxId, appId, typeId, 100).pipe(

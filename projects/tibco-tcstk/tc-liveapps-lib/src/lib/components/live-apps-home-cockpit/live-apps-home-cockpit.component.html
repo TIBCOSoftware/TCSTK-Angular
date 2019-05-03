@@ -67,7 +67,7 @@
         </mat-tab-group>
       </div>
 
-      <div fxFlex.gt-sm="40" fxLayout="column" [ngStyle.lt-md]="'min-height: 400px'" fxLayoutGap="20px">
+      <div fxFlex.gt-sm="40" fxLayout="column" [ngStyle.lt-md]="'min-height: 400px'">
         <div style="padding-top: 48px; height: 350px;">
           <tcla-live-apps-active-cases-widget [sandboxId]="sandboxId" [appIds]="appIds" [showHeader]="true" [showPercentages]="true" (selectedCaseTypeState)="handleReportCaseTypeStateSelection($event)" (selectedCaseType)="handleReportCaseTypeSelection($event)"></tcla-live-apps-active-cases-widget>
         </div>
