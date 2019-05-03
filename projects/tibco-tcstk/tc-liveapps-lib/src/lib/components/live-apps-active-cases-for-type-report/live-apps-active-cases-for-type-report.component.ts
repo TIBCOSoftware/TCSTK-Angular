@@ -6,6 +6,7 @@ import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.
 import {CaseTypeStateReport, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {map, take, takeUntil} from 'rxjs/operators';
 import 'chartjs-plugin-datalabels';
+import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-config.service';
 
 @Component({
   selector: 'tcla-live-apps-active-cases-for-type-report',
@@ -31,6 +32,8 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   public doughnutChartLabels: Label[];
   public doughnutChartData: MultiDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
+  public chartColors: any[] = [];
+  public defaultColors: string[] = DEFAULT_COLORS.slice().reverse();
 
   public legendData: any;
   public totalActiveCaseCount: number;
@@ -122,20 +125,49 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
     this.totalActiveCaseCount = 0;
     const casesByStateArray: number[] = [];
     const labels: string[] = [];
+    const colorArray: string[] = [];
+    // remove any taken colors from the defaultColors
+    // we have to do this before parsing the record to avoid getting same colors
+    reportData.caseStates.forEach(cs => {
+      // remove color from defaults
+      if (cs.stateInfo.color) {
+        this.defaultColors = this.defaultColors.filter(item => item !== cs.stateInfo.color);
+      }
+    });
+    // parse record
     reportData.caseStates.forEach(caseState => {
         this.totalActiveCaseCount = this.totalActiveCaseCount + caseState.caseCount;
         casesByStateArray.push(caseState.caseCount);
         labels.push(caseState.stateInfo.label);
+      // we will re-color anything that has the default color
+      let col: string;
+      if (caseState.stateInfo.color && caseState.stateInfo.color !== DEFAULT_TYPE_COLOR) {
+        // use the set color
+        col = caseState.stateInfo.color;
+      } else {
+        // try and get a color from the palette
+        const palCol = this.defaultColors.pop();
+        if (palCol) {
+          col = palCol;
+        } else {
+          // if no more in palette use a random color!
+          const i = Math.random() * 0xffffff;
+          const p = parseInt(i.toString(), 0);
+          col = '#' + p.toString(16);
+        }
+      }
+      colorArray.push(col);
     });
     this.doughnutChartData.push(casesByStateArray);
     this.doughnutChartLabels = labels;
+    this.chartColors.push( { backgroundColor: colorArray});
     // showing more than 8 in the legend will take up too much space
     this.doughnutChartOptions.legend.display = labels.length <= 8;
     this.renderChart = true;
   }
 
   public refresh = () => {
-    this.reportingService.getCaseTypeStateReport(this.sandboxId, this.appId, this.typeId, false).pipe(
+    this.reportingService.getCaseTypeStateReport(this.sandboxId, this.appId, this.typeId, false, this.uiAppId).pipe(
       take(1),
       takeUntil(this._destroyed$),
       map(report => {

@@ -16,6 +16,7 @@ import 'chartjs-plugin-datalabels';
 export class LiveAppsCaseTypeOverviewReportComponent extends LiveAppsComponent implements OnInit, OnChanges {
   @Input() sandboxId: number;
   @Input() appId: string;
+  @Input() uiAppId: string;
   @Input() incTerminal: boolean = this.incTerminal ? this.incTerminal : true;
   @Input() typeId: string;
 
@@ -115,7 +116,7 @@ export class LiveAppsCaseTypeOverviewReportComponent extends LiveAppsComponent i
   }
 
   public refresh = () => {
-    this.reportingService.getCaseTypeStateReport(this.sandboxId, this.appId, this.typeId, this.incTerminal).pipe(
+    this.reportingService.getCaseTypeStateReport(this.sandboxId, this.appId, this.typeId, this.incTerminal, this.uiAppId).pipe(
       take(1),
       takeUntil(this._destroyed$),
       map(report => {
