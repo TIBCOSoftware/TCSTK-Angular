@@ -45,7 +45,7 @@
           <div class="tcs-document-line"></div>
         </div>
       </div>
-      <div *ngIf="!(documents.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px" style="margin-top: 20px;">
+      <div *ngIf="!(documents?.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px" style="margin-top: 20px;">
         <mat-icon [svgIcon]="'ic-no-docs-icon'" style="height: 48px; width: 48px;"></mat-icon>
         <div style="height: 100%" fxLayoutAlign="start center">
           <span class="tcs-no-item-text">No documents found</span>

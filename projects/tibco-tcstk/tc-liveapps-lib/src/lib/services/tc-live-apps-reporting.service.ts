@@ -33,6 +33,24 @@ export class TcLiveAppsReportingService {
     );
   }
 
+  public parseCaseStateReport(report: CaseTypeStateReport, applicationId: string, uiAppId: string): Observable<CaseTypeStateReport> {
+    // add state colors for the report entries
+    return this.caseConfigService.getStateColorInfo(applicationId, uiAppId).pipe(
+      map(stateColorInfo => {
+        report.caseStates.forEach(caseState => {
+          let stateRecord: StateColorMapRec;
+          if (stateColorInfo && stateColorInfo.stateColorRecs) {
+             stateRecord = stateColorInfo.stateColorRecs.find(stateRec => {
+              return stateRec.state === caseState.stateInfo.value;
+            });
+          }
+          caseState.stateInfo.color = (stateRecord && stateRecord.color) ? stateRecord.color : undefined;
+        });
+        return report;
+      })
+    );
+  }
+
   public getCaseTypesReport(sandboxId: number, appIds: string[], uiAppId: string): Observable<CaseTypesReport> {
     const url = '/case/reports/v1/caseTypesReport?$sandbox=' + sandboxId;
     return this.http.get(url).pipe(
@@ -53,16 +71,16 @@ export class TcLiveAppsReportingService {
     );
   }
 
-  public getCaseTypeStateReport(sandboxId: number, appId: string, typeId: string, incTerminal: boolean): Observable<CaseTypeStateReport> {
+  public getCaseTypeStateReport(sandboxId: number, appId: string, typeId: string, incTerminal: boolean, uiAppId: string): Observable<CaseTypeStateReport> {
     const url = '/case/reports/v1/caseStatesReport?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and typeId eq ' + typeId
       + ' and includeTerminalStates eq ' + String(incTerminal).toUpperCase();
     return this.http.get(url).pipe(
       tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-      map(response => {
+      flatMap(response => {
         const caseTypeStateReport = new CaseTypeStateReport().deserialize(response);
-        return caseTypeStateReport;
+        return this.parseCaseStateReport(caseTypeStateReport, appId, uiAppId);
       })
     );
   }

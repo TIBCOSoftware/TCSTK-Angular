@@ -36,7 +36,7 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   public doughnutChartData: SingleDataSet = [];
   public doughnutChartType: ChartType = 'doughnut';
   public chartColors: any[] = [];
-  public defaultColors: string[] = DEFAULT_COLORS.reverse();
+  public defaultColors: string[] = DEFAULT_COLORS.slice().reverse();
 
   public legendData: any;
 
@@ -161,7 +161,6 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
       }
       colorArray.push(col);
     });
-    console.log(this.chartColors);
     // showing more than 8 in the legend will take up too much space
     this.doughnutChartOptions.legend.display = labels.length <= 8;
     this.doughnutChartData = activeCasesArray;
@@ -195,7 +194,6 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
         const label = chart.data.labels[clickedElementIndex];
         // get value by index
         const value = chart.data.datasets[0].data[clickedElementIndex];
-        console.log(clickedElementIndex, label, value);
         this.caseTypesReport.caseTypes[clickedElementIndex].incTerminal = false;
         this.selectedCaseType.emit(this.caseTypesReport.caseTypes[clickedElementIndex]);
       }

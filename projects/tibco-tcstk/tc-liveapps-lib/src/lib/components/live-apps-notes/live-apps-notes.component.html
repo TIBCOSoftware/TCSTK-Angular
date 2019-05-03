@@ -9,7 +9,7 @@
         <cdk-virtual-scroll-viewport style="height: 100%" itemSize="50" (scrolledIndexChange)="getBatch()">
 
           <!--div class="tcs-collaboration-detail-box tcs-collaboration-thread" [ngClass]="{ editing: thread.editMode }" *ngFor="let thread of threads.threads | reverse" fxLayout="column"-->
-          <div *ngIf="threads">
+          <div *ngIf="threads && threads.threads">
             <div class="tcs-collaboration-detail-box tcs-collaboration-thread" [ngClass]="{ editing: thread.editMode }"
                  *cdkVirtualFor="let thread of threads.threads" fxLayout="column">
               <div class="tcs-thread-box">
@@ -94,7 +94,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf="!(threads.threads.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px"
+          <div *ngIf="!(threads?.threads?.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px"
                style="margin-top: 20px;">
             <mat-icon [svgIcon]="'ic-no-notes-icon'" style="height: 48px; width: 48px;"></mat-icon>
             <div style="height: 100%" fxLayout="row" fxLayoutAlign="start center">

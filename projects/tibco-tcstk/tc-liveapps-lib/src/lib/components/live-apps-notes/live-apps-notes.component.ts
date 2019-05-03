@@ -39,7 +39,9 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     this.skip = 0;
     this.top = 5;
     this.end = false;
-    this.threads.threads.length = 0;
+    if (this.threads && this.threads.threads) {
+      this.threads.threads.length = 0;
+    }
     this.getBatch();
     this.getNotifications();
   }
@@ -234,7 +236,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   }
 
   ngOnInit() {
-    this.getNotifications();
+    this.refresh();
     this.newNote.text = '';
 
   }
