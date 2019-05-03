@@ -92,7 +92,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
 
   public handleReportCaseTypeStateSelection = (state: CaseTypeStateReportStateInfo) => {
     if (this.selectedCaseTypeReportRecord) {
-      this.searchComponent.searchCasesByState(Number(state.id), this.selectedCaseTypeReportRecord.applicationId, this.selectedCaseTypeReportRecord.caseTypeInfo.id, this.selectedCaseTypeReportRecord.caseTypeInfo.label + '|' + state.label );
+      this.searchComponent.searchCasesByState(Number(state.id), state.label, this.selectedCaseTypeReportRecord.applicationId, this.selectedCaseTypeReportRecord.caseTypeInfo.id, this.selectedCaseTypeReportRecord.caseTypeInfo.label + '|' + state.label );
     }
   }
 

@@ -58,3 +58,24 @@
 .tcs-close-icon:hover {
   cursor: pointer;
 }
+
+.tcs-type-filter-text {
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: black;
+  margin-left: 10px;
+}
+
+.tcs-type-filter-text-highlight {
+  color: #FF7800;
+}
+
+.tcs-state-filter-marker {
+  margin-top:2px;
+}

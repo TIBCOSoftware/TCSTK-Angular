@@ -24,6 +24,8 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
   searchValue: Observable<String>;
   searchString: string;
   forcedSearch = false;
+  public selectedStateId: number;
+  public selectedStateLabel: string;
 
   // case type selector
   public selectedApp: CaseType = new CaseType();
@@ -38,10 +40,18 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
     }
   }
 
+
   public setCaseType = (caseType: CaseType) => {
     this.selectedApp = caseType;
     this.doSearch();
     this.applicationsComponent.changeAppSelection(caseType);
+  }
+
+  public setSelectedStateId = (stateId: number, stateLabel: string) => {
+    this.selectedStateId = stateId;
+    this.selectedStateLabel = stateLabel;
+    // not currently supported to limit search by stateId
+    // this.doSearch(stateId);
   }
 
   // handle search app selection
@@ -52,11 +62,10 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
 
   // clear search results
   public clearResults = () => {
-    this.forcedSearch = false;
     this.searchString = '';
-    this.searchBox.nativeElement.value = '';
-    const result = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
-    this.foundRefs.emit(result);
+    this.selectedStateId = undefined;
+    this.selectedStateLabel = undefined;
+    this.doSearch();
   }
 
   public forceSearch = () => {
@@ -68,7 +77,7 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
     );
   }
 
-  public doSearch = () => {
+  public doSearch = (stateId?: number) => {
     this.forcedSearch = false;
     this.searchBox.nativeElement.value = '';
     const result = new CaseSearchResults().deserialize({ caserefs: [], searchString: '' });
@@ -87,7 +96,7 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
       // The case details will only be loaded when the item is rendered (for example in the case-list component)
       // Any case list component should use cdk virtual scroll to ensure 1000 case details are not loaded in one go
       // (from the API or to the DOM)
-      this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, skip, top, null)
+      this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, skip, top, stateId ? stateId : null)
         .subscribe(results => {
           this.foundRefs.emit(results);
         });
