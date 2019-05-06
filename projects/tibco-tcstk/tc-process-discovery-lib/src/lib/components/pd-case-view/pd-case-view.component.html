@@ -8,8 +8,8 @@
                 </div>
                 <div fxFlex="33">
                     <mat-button-toggle-group class="nav-switch-bar" name="view" aria-label="Font Style"
-                        [value]="'case-view'" (change)="handleViewButtonEvent($event)" >
-                        <mat-button-toggle *ngFor="let view of viewButtons" name="{{view.tooltip}}" value="{{view.id}}" fxLayoutAlign="center center"
+                        value="case-view" (change)="handleViewButtonEvent($event)">
+                        <mat-button-toggle *ngFor="let view of viewButtons" [name]="view.tooltip" [value]="'case-view'" fxLayoutAlign="center center"
                             >{{view.tooltip}}</mat-button-toggle>
                     </mat-button-toggle-group>
                 </div>
