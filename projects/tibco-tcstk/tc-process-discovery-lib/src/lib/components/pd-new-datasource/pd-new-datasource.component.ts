@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { parse } from 'papaparse';
+import { parse, unparse } from 'papaparse';
 import { LiveAppsService, ProcessId, Process } from '@tibco-tcstk/tc-liveapps-lib';
 import { PdProcessDiscoveryService } from '../../services/pd-process-discovery.service';
-import { PdProcessDiscoveryConfigService } from '../../services/pd-process-discovery-config.service';
 import { ProcessDiscoveryConfig } from '../../models/tc-process-discovery-config';
-import { map, flatMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { TcDocumentService } from '@tibco-tcstk/tc-liveapps-lib';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpEventType } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
 
 export interface Mapping {
     columnName: string,
@@ -75,11 +75,16 @@ export class PdNewDatasourceComponent implements OnInit {
     private action: Process;
     private creator: Process;
 
+    // Upload
+    public uploadProgress: number = 0;
+
     constructor(
         private liveapps: LiveAppsService, 
         private documentService: TcDocumentService,
         private pdService: PdProcessDiscoveryService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router,
+        private snackBar: MatSnackBar
     ) { }
 
     ngOnInit() {
@@ -118,11 +123,40 @@ export class PdNewDatasourceComponent implements OnInit {
 
     public moveNextTab = (currentTab: number): void => {
         if (currentTab == 1 && this.preview && this.inputType === 'csv'){
-            this.refresh();
+            this.refreshCSV();
+        }
+        if (currentTab == 1 && this.preview && this.inputType === 'json') {
+            this.refreshJSON();
         }
     }
 
-    public refresh = ():void =>{
+    public refreshJSON = (): void => {
+        const reader = new FileReader();
+        reader.onload = (data: any) => {
+            const jsonData = unparse(data.target.result);
+            let config = {
+                quoteChar: this.quoteChar,
+                escapeChar: this.escapeChar,
+                header: this.useFirstRowAsHeader,
+                preview: this.numberRowsForPreview,
+                encoding: this.encoding,
+                comments: (this.skipComments) ? this.comments: '',
+                complete: (result) => {
+                    this.displayedColumns = this.calculateColumnNames(
+                        this.useFirstRowAsHeader ? Object.keys(result.data[0]).length: result.data[0].length, 
+                        this.useFirstRowAsHeader ? result.meta.fields: undefined);
+                    this.data = result.data;
+                    this.columnSeparator = result.meta.delimiter;
+                },
+                skipEmptyLines: this.skipEmptyLines
+            };
+            const result = parse(jsonData, config);
+        }
+
+        reader.readAsText(this.file);
+    }
+
+    public refreshCSV = ():void => {
         let config = {
             quoteChar: this.quoteChar,
             escapeChar: this.escapeChar,
@@ -139,9 +173,7 @@ export class PdNewDatasourceComponent implements OnInit {
             },
             skipEmptyLines: this.skipEmptyLines
         };
-        console.log("********** 1 Size: ", this.file);
         parse(this.file, config);
-        console.log("********** 2 Size: ", this.file);
     }
 
     public setComments = ($event): void => {
@@ -222,10 +254,6 @@ export class PdNewDatasourceComponent implements OnInit {
                                 caseReference = response.caseReference;
                                 data.DiscoverAnalysisConfig.FileOptions.FilePath = data.DiscoverAnalysisConfig.FileOptions.FilePath.replace('<folder>', caseIdentifier);
                             }
-                            // const processResponse = new ProcessId().deserialize({ 'caseIdentifier': caseIdentifier, 'caseReference': caseReference });
-                            // this.caseChanged.emit(processResponse);
-                            // this.schema = undefined;
-                            // this.data = undefined;
                             
                             // upload the document to the case
                             if (this.pdConfiguration.storeToLiveApps) {
@@ -238,17 +266,37 @@ export class PdNewDatasourceComponent implements OnInit {
                             }
 
                             if (this.pdConfiguration.storeToHDFS) {
-                                
-                                const datasourceId = response.caseIdentifier;
-                                const url = this.pdConfiguration.hdfsHostname + this.pdConfiguration.hdfsRootPath + '/' + datasourceId + '/' + this.filename;
-                                this.pdService.uploadFileHDFS(url, this.pdConfiguration.hdfsUsername, this.pdConfiguration.hdfsPermision, this.pdConfiguration.hdfsOverwriteFile, this.file).subscribe(
-                                    response => {
-                                        console.log(" 2 ******* " + response);
-                                    },
-                                    error => {
-                                        console.log("ERRROR: ", error)
-                                    }
-                                );
+                                if (1){
+                                    const datasourceId = response.caseIdentifier;
+                                    this.pdService.uploadFileHDFS(this.pdConfiguration.hdfsHostname, datasourceId,  this.pdConfiguration.hdfsRootPath, this.file).subscribe(
+                                        response => {
+                                            if (response.type == HttpEventType.UploadProgress) {
+                                                    this.uploadProgress = Math.round(100 * response.loaded / response.total);
+                                            }
+                                            if (this.uploadProgress == 100) {
+                                                this.snackBar.open('File uploaded correctly', 'OK', {
+                                                    duration: 3000
+                                                });
+                                                this.router.navigate(['/starterApp/configuration/process-discovery-administration']);
+                                            }
+                                            console.log(" 2*** ",    response);
+                                        },
+                                        error => {
+                                            console.log("ERRROR: ", error)
+                                        }
+                                    )
+                                } else {
+                                    const datasourceId = response.caseIdentifier;
+                                    const url = this.pdConfiguration.hdfsHostname + this.pdConfiguration.hdfsRootPath + '/' + datasourceId + '/' + this.filename;
+                                    this.pdService.uploadFileHDFS2(url, this.pdConfiguration.hdfsUsername, this.pdConfiguration.hdfsPermision, this.pdConfiguration.hdfsOverwriteFile, this.file).subscribe(
+                                        response => {
+                                            console.log(" 2 ******* ", response);
+                                        },
+                                        error => {
+                                            console.log("ERRROR: ", error)
+                                        }
+                                    );
+                                }
                             }
 
                             // this.layout = undefined;
