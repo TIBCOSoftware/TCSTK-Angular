@@ -32,7 +32,7 @@ export class PdCaseComponent implements OnInit {
     public spotfireServer: string;
     public spotfirePath: string;
     public spotfirePage: string;
-    public spotfireFilter: string;
+    public spotfireFilter;
 
     public layout: any[] = undefined;
     // you can use a layout here to override the default layout for case data
@@ -57,7 +57,6 @@ export class PdCaseComponent implements OnInit {
         // read resolved config params
         this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
         this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
-        this.spotfireConfig = this.route.snapshot.data.spotfireHolder;
         this.exclRecentAppIds = this.liveAppsConfig.recentExcludedAppIds;
         this.claims = this.route.snapshot.data.claims;
         this.groups = this.route.snapshot.data.groups;
@@ -67,12 +66,17 @@ export class PdCaseComponent implements OnInit {
         this.appId = this.route.snapshot.params['appId'];
         this.typeId = this.route.snapshot.params['typeId'];
 
-        this.spotfireServer = this.spotfireConfig.spotfireServer;
-        this.spotfirePath = this.spotfireConfig.analysisPath;
-        this.spotfirePage = this.spotfireConfig.activePageForDetails;
-        this.spotfireFilter = '[{"dataTableName": "' + this.spotfireConfig.tableName + 
-                              '", "dataColumnName": "' + this.spotfireConfig.columnNames + 
-                              '", "filterSettings": { "values": ["A_07898","A_07896","A_07892"]}}]';
+        const filterString = this.route.snapshot.data.caseDataHolder.untaggedCasedataObj.Context.ContextID.split(',');
+
+        const spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
+        this.spotfireServer = spotfireConfig.spotfireServer;
+        this.spotfirePath = spotfireConfig.analysisPath;
+        this.spotfireFilter = [{
+            'dataTableName': spotfireConfig.tableName,
+            'dataColumnName': spotfireConfig.columnNames[0],
+            'filterSettings': { 'values': filterString}
+        }];
+        this.spotfirePage = spotfireConfig.activePageForDetails;
 
     }
 

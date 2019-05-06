@@ -100,6 +100,7 @@ export class PdCaseViewComponent extends LiveAppsHomeCockpitComponent {
     public roleChange = ($role: RoleAttribute): void => {
         this.roleService.setCurrentRole($role);
         this.currentRole = this.roleService.getCurrentRole();
-        this.viewButtons = this.createViewButtons();
+        // this.viewButtons = 0;
+        this.viewButtons[0] = this.createViewButtons()[0];
     }
 }
