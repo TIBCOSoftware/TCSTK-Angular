@@ -10,7 +10,7 @@ import {
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule, MatSlideToggleModule
+    MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule, MatSlideToggleModule, MatProgressBarModule
 } from '@angular/material';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
@@ -73,6 +73,7 @@ import { PdCaseComponent } from './components/pd-case/pd-case.component';
         MatRadioModule,
         MatSnackBarModule,
         MatSlideToggleModule,
+        MatProgressBarModule,
         FormsModule,
         FlexLayoutModule,
         ColorPickerModule,

@@ -196,7 +196,7 @@ export class PdProcessDiscoveryService {
         this.dataStr.emit({comment: comment, cases: cases});
     }   
     
-    public uploadFileHDFS = (url: string, username: string, filePermission: string, overwriteFile: boolean, fileContent: any): Observable<string> => {
+    public uploadFileHDFS2 = (url: string, username: string, filePermission: string, overwriteFile: boolean, fileContent: any): Observable<string> => {
         console.log('Uploading to ' + url + ' with username: ' + username + ' overwrite: ' + overwriteFile + ' and filePermission: ' + filePermission);
 
         // const url = '/collaboration/v1/notes/' + noteId;
@@ -214,6 +214,20 @@ export class PdProcessDiscoveryService {
                     return 'ok';
                 })
             );
+    }
+
+    public uploadFileHDFS = (url: string, analysisId: string, hadoopDestination: string, fileToUpload: File): Observable<any> => {
+        const headers = new HttpHeaders({
+            // 'accept': 'application/json',
+            // 'Content-Type': 'multipart/form-data',
+            // 'filename': fileName,
+            // 'enctype': 'multipart/form-data'
+        });
+        let formData: FormData = new FormData();
+        formData.append('analysisId', analysisId);
+        formData.append('hadoopDestination', '/Invitalia/TEST/');
+        formData.append('fileUpload', fileToUpload);
+        return this.http.post(url, formData, { headers: headers, reportProgress: true, observe: 'events' });
     }
 
 }
