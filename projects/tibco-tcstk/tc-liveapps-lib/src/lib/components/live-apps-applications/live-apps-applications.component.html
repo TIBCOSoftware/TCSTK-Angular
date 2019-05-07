@@ -2,7 +2,7 @@
     <mat-label></mat-label>
     <mat-select *ngIf="selectedApp" class="tcs-application-selector-option" [disableOptionCentering]="true" placeholder="Application" [(value)]="selectedApp" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
       <mat-option *ngFor="let application of applications.casetypes" [value]="application">
-        {{application.label | ellipsis : 22}}
+        {{application.label | ellipsis : 20}}
       </mat-option>
     </mat-select>
 </div>
