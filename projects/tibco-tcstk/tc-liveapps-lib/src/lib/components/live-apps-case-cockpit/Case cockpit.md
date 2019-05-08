@@ -22,6 +22,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
+access | RouteAccessControlConfig | --- | 
 appId |  | --- | 
 caseRef |  | --- | 
 exclRecentAppIds | string[] | --- | 

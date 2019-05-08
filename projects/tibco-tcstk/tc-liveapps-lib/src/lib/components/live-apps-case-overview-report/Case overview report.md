@@ -24,6 +24,7 @@ Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
 appIds | string[] | --- | 
 sandboxId | number | --- | 
+uiAppId | string | --- | 
 
 #### Outputs
 

@@ -15,27 +15,26 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-case-list></tcla-live-apps-case-list>
+<tcla-live-apps-active-cases-widget></tcla-live-apps-active-cases-widget>
 ```
 
 #### Inputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-caseRefs | string[] | --- | 
-displayType | string | --- | 
-headerMessage | string | --- | 
-headerText | string | --- | 
-highlight | string | --- | 
+appIds | string[] | --- | 
+maxLegendItems | number | --- | 
 sandboxId | number | --- | 
+showHeader | boolean | --- | 
+showPercentages |  | --- | 
 uiAppId | string | --- | 
 
 #### Outputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-clearMatches | EventEmitter | --- | 
-clickCase | EventEmitter<CaseRoute> | --- | 
+selectedCaseType | EventEmitter<CaseTypeReportRecord> | --- | 
+selectedCaseTypeState | EventEmitter<CaseTypeStateReportStateInfo> | --- | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

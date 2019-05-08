@@ -15,27 +15,8 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-case-list></tcla-live-apps-case-list>
+<tc-tibco-cloud-error></tc-tibco-cloud-error>
 ```
-
-#### Inputs
-
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-caseRefs | string[] | --- | 
-displayType | string | --- | 
-headerMessage | string | --- | 
-headerText | string | --- | 
-highlight | string | --- | 
-sandboxId | number | --- | 
-uiAppId | string | --- | 
-
-#### Outputs
-
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-clearMatches | EventEmitter | --- | 
-clickCase | EventEmitter<CaseRoute> | --- | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
