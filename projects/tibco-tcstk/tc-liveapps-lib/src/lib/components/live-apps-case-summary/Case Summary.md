@@ -2,9 +2,7 @@
 This Component shows a case overview summary.
 
 #### Screenshot
-Screenshot Image of the Case Summary Component.
-
-![Screenshot missing yet](Case-Summary.png "Case Summary Component Image")
+Screenshot Image of the Case Summary Component missing yet.
 
 #### Usage
 Sample usage HTML Tag

@@ -2,9 +2,7 @@
 This Component allows to search for existing Cases and list Case Cards.
 
 #### Screenshot
-Screenshot Image of the Search Widget Component.
-
-![Screenshot missing yet](Search-Widget.png "Search Widget Component Image")
+Screenshot Image of the Search Widget Component missing yet.
 
 #### Usage
 Sample usage HTML Tag

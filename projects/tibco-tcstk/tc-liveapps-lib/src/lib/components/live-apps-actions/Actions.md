@@ -2,9 +2,7 @@
 This Component allows to list, all Actions that can be performed on the selected Case-Instance, and defined in LiveApps Designer.
 
 #### Screenshot
-Screenshot Image of the Actions Component.
-
-![Screenshot missing yet](Actions.png "Actions Component Image") 
+Screenshot Image of the Actions Component missing yet.
 
 #### Usage
 Sample usage HTML Tag

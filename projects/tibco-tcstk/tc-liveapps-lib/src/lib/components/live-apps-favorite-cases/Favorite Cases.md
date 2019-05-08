@@ -2,9 +2,7 @@
 This Component allows to list your Favorite Cases.
 
 #### Screenshot
-Screenshot Image of the Favorite Cases Component.
-
-![Screenshot missing yet](Favorite-Cases.png "Favorite Cases Component Image")
+Screenshot Image of the Favorite Cases Component missing yet.
 
 #### Usage
 Sample usage HTML Tag

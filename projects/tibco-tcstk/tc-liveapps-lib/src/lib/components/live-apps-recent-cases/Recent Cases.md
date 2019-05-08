@@ -2,9 +2,7 @@
 This Component list recent visited Cases.
 
 #### Screenshot
-Screenshot Image of the Recent Cases Component.
-
-![Screenshot missing yet](Recent-Cases.png "Recent Cases Component Image")
+Screenshot Image of the Recent Cases Component missing yet.
 
 #### Usage
 Sample usage HTML Tag
