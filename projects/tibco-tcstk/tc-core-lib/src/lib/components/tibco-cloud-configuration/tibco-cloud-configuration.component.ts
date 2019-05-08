@@ -6,6 +6,11 @@ import { TcButtonsHelperService } from '../../services/tc-buttons-helper.service
 import {RouteAction} from '../../models/tc-routing-actions';
 import {ConfigurationMenuConfig} from '../../models/tc-configuration-menu-config';
 
+/**
+ * TIBCO Cloud Configuration Component
+ *
+ * @example <tc-tibco-cloud-configuration></tc-tibco-cloud-configuration>
+ */
 @Component({
   selector: 'tc-tibco-cloud-configuration',
   templateUrl: './tibco-cloud-configuration.component.html',
