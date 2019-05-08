@@ -2,9 +2,7 @@
 This Component supports to create new Case Instances and shows a list of available Starters followed by the first Form defined in LiveApps Designer.
 
 #### Screenshot
-Screenshot Image of the Creators Component.
-
-![Screenshot missing yet](Creators.png "Creators Component Image")
+Screenshot Image of the Creators Component missing yet.
 
 #### Usage
 Sample usage HTML Tag

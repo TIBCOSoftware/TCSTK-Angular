@@ -2,9 +2,7 @@
 This Component allows to reconfigure Case Cards because of Icons and Colors within your Application Configuration.
 
 #### Screenshot
-Screenshot Image of the Application Configuration Component.
-
-![Screenshot missing yet](App-Configuration.png "Application Configuration Component Image")
+Screenshot Image of the Application Configuration Component missing yet.
 
 #### Usage
 Sample usage HTML Tag
