@@ -31,7 +31,7 @@ available Component Output Attributes
 | clickCase         |                               |               | selected Case                                 |
 
 #### Demos
-live Showcase
+Showcase placeholder
 
 ```html
 <!-- as HTML within Markdown, just remove the ```html code-area ``` -->

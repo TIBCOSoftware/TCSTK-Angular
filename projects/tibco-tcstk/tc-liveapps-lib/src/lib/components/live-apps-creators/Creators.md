@@ -33,7 +33,7 @@ available Component Output Attributes
 | caseCreated       |                               |               |                                                 |
 
 #### Demos
-live Showcase
+Showcase placeholder
 
 ```html
 <!-- as HTML within Markdown, just remove the ```html code-area ``` -->
