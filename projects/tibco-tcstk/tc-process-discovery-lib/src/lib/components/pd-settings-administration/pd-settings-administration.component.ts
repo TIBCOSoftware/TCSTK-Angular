@@ -42,7 +42,7 @@ export class PdSettingsAdministrationComponent implements OnInit {
     }
 
     clickCaseAction = ($event: any) => {
-        this.router.navigate(['/starterApp/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef]);
+        this.router.navigate(['/starterApp/configuration/case/' + $event.appId + '/' + $event.typeId + '/' + $event.caseRef]);
     }
 
     addNewDatasource = (): void => {
