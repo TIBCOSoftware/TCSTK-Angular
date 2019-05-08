@@ -4,7 +4,7 @@ This Component allows to list, all Actions that can be performed on the selected
 #### Screenshot
 Screenshot Image of the Actions Component.
 
-![Screenshot missing yet](Actions.png "Actions Component Image")
+![Screenshot missing yet](Actions.png "Actions Component Image") 
 
 #### Usage
 Sample usage HTML Tag
