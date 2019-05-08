@@ -232,7 +232,7 @@ export class PdNewDatasourceComponent implements OnInit {
                 SDSBackend: {
                     Status: '',
                     SDSProcessId: '',
-                    'auto-checkInterval': 2
+                    Autocheckinterval: 2
                 }
             }
         }
@@ -259,55 +259,42 @@ export class PdNewDatasourceComponent implements OnInit {
                             if (this.pdConfiguration.storeToLiveApps) {
                                 this.documentService.uploadDocument('caseFolders', caseReference, this.sandboxId, this.file, this.file.name, "Datasource definition for ").
                                     pipe(
-                                        map(response3 => {
-                                            console.log("*** File upload: ", response3);
+                                        map( _ => {
+                                            this.snackBar.open('Error uploading file', 'OK', {
+                                                duration: 5000
+                                            });
                                         })
                                     ).subscribe();
                             }
 
                             if (this.pdConfiguration.storeToHDFS) {
-                                if (1){
-                                    const datasourceId = response.caseIdentifier;
-                                    this.pdService.uploadFileHDFS(this.pdConfiguration.hdfsHostname, datasourceId,  this.pdConfiguration.hdfsRootPath, this.file).subscribe(
-                                        response => {
-                                            if (response.type == HttpEventType.UploadProgress) {
-                                                    this.uploadProgress = Math.round(100 * response.loaded / response.total);
-                                            }
-                                            if (this.uploadProgress == 100) {
-                                                this.snackBar.open('File uploaded correctly', 'OK', {
-                                                    duration: 3000
-                                                });
-                                                this.router.navigate(['/starterApp/configuration/process-discovery-administration']);
-                                            }
-                                            console.log(" 2*** ",    response);
-                                        },
-                                        error => {
-                                            console.log("ERRROR: ", error)
+                                const datasourceId = response.caseIdentifier;
+                                this.pdService.uploadFileHDFS(this.pdConfiguration.hdfsHostname, datasourceId,  this.pdConfiguration.hdfsRootPath, this.file).subscribe(
+                                    response => {
+                                        if (response.type == HttpEventType.UploadProgress) {
+                                                this.uploadProgress = Math.round(100 * response.loaded / response.total);
                                         }
-                                    )
-                                } else {
-                                    const datasourceId = response.caseIdentifier;
-                                    const url = this.pdConfiguration.hdfsHostname + this.pdConfiguration.hdfsRootPath + '/' + datasourceId + '/' + this.filename;
-                                    this.pdService.uploadFileHDFS2(url, this.pdConfiguration.hdfsUsername, this.pdConfiguration.hdfsPermision, this.pdConfiguration.hdfsOverwriteFile, this.file).subscribe(
-                                        response => {
-                                            console.log(" 2 ******* ", response);
-                                        },
-                                        error => {
-                                            console.log("ERRROR: ", error)
+                                        if (this.uploadProgress == 100) {
+                                            this.snackBar.open('File uploaded correctly', 'OK', {
+                                                duration: 3000
+                                            });
                                         }
-                                    );
-                                }
+                                    },
+                                    error => {
+                                        this.snackBar.open('Error uploading file', 'OK', {
+                                            duration: 5000
+                                        });
+                                    }
+                                )
                             }
 
-                            // this.layout = undefined;
-                            // this.liveapps.runProcess(this.sandboxId, this.pdConfiguration.datasourceAppId, this.pdConfiguration.validateActionAppId, caseReference, data).
-                            //     pipe(
-                            //         map(response2 => {
-                            //             console.log("Response2 ", response2);
-                            //         })
-                            //     ).subscribe();
+                            this.liveapps.runProcess(this.sandboxId, this.pdConfiguration.datasourceAppId, this.pdConfiguration.validateActionAppId, caseReference, data).
+                                pipe(
+                                    map( _ => {
+                                        this.router.navigate(['/starterApp/configuration/process-discovery-administration']);
+                                    })
+                                ).subscribe();
                         } else {
-                            console.error('Unable to run case creator');
                             console.error(response.data.errorMsg);
                         }
                     }
@@ -319,6 +306,10 @@ export class PdNewDatasourceComponent implements OnInit {
 
     }
     
+
+    private newMethod() {
+        return this;
+    }
 }
 
 //     icons = [

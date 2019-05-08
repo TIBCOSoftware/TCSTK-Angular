@@ -201,7 +201,6 @@ export class PdProcessDiscoveryService {
 
         // const url = '/collaboration/v1/notes/' + noteId;
         const completeURL = url + '?user.name=' + username + '&op=CREATE&overwrite=' + overwriteFile + '&permission=' + filePermission;
-        console.log(" 3 ******* " + completeURL);
 
         const body = fileContent;
         const bodyStr = JSON.stringify(body);
@@ -210,7 +209,6 @@ export class PdProcessDiscoveryService {
         return this.http.put(completeURL, fileContent, { headers })
             .pipe(
                 map(result => { 
-                    console.log("************ " + result);
                     return 'ok';
                 })
             );
@@ -225,7 +223,7 @@ export class PdProcessDiscoveryService {
         });
         let formData: FormData = new FormData();
         formData.append('analysisId', analysisId);
-        formData.append('hadoopDestination', '/Invitalia/TEST/');
+        formData.append('hadoopDestination', hadoopDestination + '/' + analysisId + '/');
         formData.append('fileUpload', fileToUpload);
         return this.http.post(url, formData, { headers: headers, reportProgress: true, observe: 'events' });
     }
