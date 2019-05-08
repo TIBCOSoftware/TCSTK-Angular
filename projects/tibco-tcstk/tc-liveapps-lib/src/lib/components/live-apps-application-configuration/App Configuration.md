@@ -34,7 +34,7 @@ available Component Output Attributes
 | configChanged     |                               |               | indicate a changed configuration                |
 
 #### Demos
-live Showcase
+Showcase placeholder
 
 ```html
 <!-- as HTML within Markdown, just remove the ```html code-area ``` -->
