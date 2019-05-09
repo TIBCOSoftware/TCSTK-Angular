@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
+/**
+ * Global Error Handling, contains generic Error Handling for
+ *
+ * - NO_ROLE :: You are not a Member of this Application, please contact the Application- or Subscription-Owner.
+ * - NO_ACCESS :: You are not entitled to access this Application, please contact the Application- or Subscription-Owner.
+ * - NO_ROUTE_ACCESS :: Sorry but you do not have the required role to access this page of the application, please contact the application owner
+ */
 @Component({
   selector: 'tc-tibco-cloud-error',
   templateUrl: './tibco-cloud-error.component.html',
@@ -8,7 +15,9 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class TibcoCloudErrorComponent implements OnInit {
 
-  // todo: Add logger
+  /**
+   * todo: Add logger
+   */
   constructor(private route: ActivatedRoute) {
     this.message = '';
     this.route.params.subscribe(params => {
@@ -51,6 +60,9 @@ export class TibcoCloudErrorComponent implements OnInit {
     }
   ];
 
+  /**
+  * @ignore
+  */
   ngOnInit() {
   }
 

@@ -39,12 +39,18 @@ export class TibcoCloudLoginComponent  implements OnInit {
     authInfo: AuthInfo;
     auth: Observable<AuthInfo>;
 
+  /**
+  * The Constructor creates the Login Dialog
+  */
   constructor(
     private tcLogin: TcLoginService
   ) {
 
   }
 
+  /**
+  * @ignore
+  */
   ngOnInit() {
     console.log('Login Init');
 
@@ -54,11 +60,12 @@ export class TibcoCloudLoginComponent  implements OnInit {
     }
   }
 
-    doLogin() {
+  /**
+   * need to pass the token from getToken into the authorize call. Hence, using mergeMap below.
+   */
+  doLogin() {
         this.loading = true;
         this.loginError = undefined;
-
-        // We need to pass the token from getToken into the authorize call. Hence, using mergeMap below.
 
       this.auth = this.tcLogin.login(this.name, this.password, this.clientId).pipe(
         map(authInfo => {

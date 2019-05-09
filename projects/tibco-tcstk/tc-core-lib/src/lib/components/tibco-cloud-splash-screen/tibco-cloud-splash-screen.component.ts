@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { LandingPageItemConfig } from '../../models/tc-general-landing-page-config';
 
 /**
- * @title Dialog Overview
+ * Application Splash Sreeen
  */
 @Component({
     selector: 'tc-tibco-cloud-splash-screen',
@@ -13,19 +13,43 @@ import { LandingPageItemConfig } from '../../models/tc-general-landing-page-conf
 })
 export class TibcoCloudSplashScreenComponent implements OnInit {
 
-    @Input() title: string;
-    @Input() subTitle: string;
-    @Input() backGroundImage: string;
-    @Input() highlights: LandingPageItemConfig[];
-    @Output() getStartedEvent: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   * Splash Screen main Title
+   */
+  @Input() title: string;
+  /**
+   * Splash Sub-Title
+   */
+  @Input() subTitle: string;
+  /**
+   * Splash Configured Background Image URL to a SVG, PNG or Jpeg
+   */
+  @Input() backGroundImage: string;
+  /**
+   * Bullet Point Item Configuration with Icon's and Text
+   */
+  @Input() highlights: LandingPageItemConfig[];
+  /**
+   * get Started Event
+   */
+  @Output() getStartedEvent: EventEmitter<string> = new EventEmitter<string>();
 
+    /**
+     * Shows Application Overview like Configured
+     */
     constructor() {
     }
 
+    /**
+     * @ignore
+     */
     ngOnInit(): void {
       console.log(this);
     }
 
+    /**
+     * Get Started Click to open the Application
+     */
     getStartedClick = (): void => {
         this.getStartedEvent.emit('test');
     }

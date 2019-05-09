@@ -6,11 +6,6 @@
 
 
 
-#### Screenshot
-
-
-no Component Screenshot available yet.
-
 #### Usage
 
 
