@@ -19,7 +19,7 @@ Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
 seletedActionId | string | --- | 
 appId | string | --- | 
-caseReference | string | --- | 
+caseRef | string | --- | 
 caseState | string | --- | 
 maxActions |  | --- | 
 sandboxId | number | --- | 
