@@ -4,19 +4,42 @@ import { TcCoreCommonFunctions } from '../../common/tc-core-common-functions';
 
 declare var GlobalNavbar: any;
 
+
+/**
+ * TIBCO Cloud Navigation Bar
+ *
+ * ![alt-text](../Navigation-Bar.png "Image")
+ *
+ * @example <tc-tibco-cloud-navbar appName=""></tc-tibco-cloud-navbar>
+ */
 @Component({
   selector: 'tc-tibco-cloud-navbar',
   templateUrl: './tibco-cloud-navbar.component.html',
   styleUrls: ['./tibco-cloud-navbar.component.css']
 })
 export class TibcoCloudNavbarComponent implements OnInit {
+  /**
+   * Reference Element
+   */
   @ViewChild('navbar') private navbarRef: ElementRef;
+  /**
+   * diaplayed Application Name
+   */
   @Input() appName: string;
+  /**
+   * Documentation URL
+   */
   @Input() docUrl: string;
 
+  /**
+   * TIBCO Cloud Navigation Bar
+   */
   constructor(private location: Location) {
   }
 
+  /**
+  * @ignore
+  */
   ngOnInit() {
 
     if (this.docUrl && (this.docUrl.slice(0, 4).toLowerCase() !== 'http')) {

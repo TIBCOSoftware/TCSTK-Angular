@@ -6,19 +6,6 @@
 
 
 
-
-<b>Constructor</b>
-
-
-<p><code>&lt;tc-tibco-cloud-menu-bar&gt;</code> render a general menu bar</p>
-
-
-
-#### Screenshot
-
-
-no Component Screenshot available yet.
-
 #### Usage
 
 
@@ -42,6 +29,14 @@ toolbarButtons | ToolbarButton[] | --- |
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
 toolbarButtonEvent | EventEmitter<string> | --- | 
+
+
+<b>Constructor</b>
+
+
+<p><code>&lt;tc-tibco-cloud-menu-bar&gt;</code> render a general menu bar</p>
+
+
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

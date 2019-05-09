@@ -7,6 +7,9 @@ import { MatSnackBar, MatDialog } from '@angular/material';
 import { TibcoCloudNewElementComponent } from '../tibco-cloud-new-element/tibco-cloud-new-element.component';
 import { RoleAttribute } from '../../models/tc-general-config';
 
+/**
+ * Defines Application Landing Page Configuration
+ */
 @Component({
   selector: 'tc-tibco-cloud-setting-landing',
   templateUrl: './tibco-cloud-setting-landing.component.html',
@@ -31,6 +34,9 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
         private dialog: MatDialog
     ) { }
 
+    /**
+    * @ignore
+    */
     ngOnInit() {
         this.landingPagesConfig = this.route.snapshot.data.landingPagesConfigHolder;
         this.landingPages = this.landingPagesConfig.landingPage;
@@ -40,6 +46,9 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
         this.uiAppId = 'processdiscovery1';
     }
 
+    /**
+     * Save Configuration
+     */
     runSaveFunction(){
         this.generalLandingPageConfigService.updateGeneralLandingPageConfig(this.sandboxId, this.uiAppId, this.landingPagesConfig, this.landingPagesConfig.id).subscribe(
             result => {
@@ -55,6 +64,9 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
         );
     }
 
+    /**
+     * Delete Configuration
+     */
     runDeleteConfiguration(){
         const pages = this.landingPages;
         pages.forEach(element => {
@@ -66,6 +78,9 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
         });
     }
 
+    /**
+     * New Configuration
+     */
     runNewConfiguration = ():void => {
 
         const dialogRef = this.dialog.open(TibcoCloudNewElementComponent, {
@@ -91,6 +106,9 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
         });
     }
 
+    /**
+     * Helper to Compare Objects
+     */
     compareObjects = (o1: string, o2: string): boolean => {
         return o1 === o2;
     }

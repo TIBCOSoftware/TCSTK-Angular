@@ -2,12 +2,9 @@
 ![Status][auto] ![Component Type][major] <!--Component Meta {"created_by":"HP", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Application Splash Sreeen</p>
 
 
-#### Screenshot
-
-
-no Component Screenshot available yet.
 
 #### Usage
 
@@ -22,16 +19,24 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-backGroundImage | string | --- | 
-highlights | LandingPageItemConfig[] | --- | 
-subTitle | string | --- | 
-title | string | --- | 
+backGroundImage | string | --- | Splash Configured Background Image URL to a SVG, PNG or Jpeg
+highlights | LandingPageItemConfig[] | --- | Bullet Point Item Configuration with Icon&#39;s and Text
+subTitle | string | --- | Splash Sub-Title
+title | string | --- | Splash Screen main Title
 
 #### Outputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-getStartedEvent | EventEmitter<string> | --- | 
+getStartedEvent | EventEmitter<string> | --- | get Started Event
+
+
+<b>Constructor</b>
+
+
+<p>Shows Application Overview like Configured</p>
+
+
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
