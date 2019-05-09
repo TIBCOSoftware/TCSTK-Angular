@@ -18,7 +18,7 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
 applicationId | string | --- | 
-caseReference | string | --- | 
+caseRef | string | --- | 
 caseTypeId | string | --- | 
 mode | string | --- | 
 sandboxId | number | --- | 
