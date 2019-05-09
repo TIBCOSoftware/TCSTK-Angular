@@ -8,6 +8,14 @@ The user must choose a subscription, then the user is logged in against that sub
 
 
 
+
+<b>Constructor</b>
+
+
+<p><code>&lt;tcla-tibco-cloud-subscription-component&gt;</code> is a component providing the ability for a user to login to a specific subscription.</p>
+
+
+
 #### Screenshot
 
 
@@ -26,14 +34,14 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-subscriptions | any | --- | a list of available subscriptions for this user now  
-token | AccessToken | --- | the access token created from initial login  
+subscriptions | any | --- | a list of available subscriptions for this user
+token | AccessToken | --- | the access token created from initial login
 
 #### Outputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-subscriptionSelection | EventEmitter | --- | Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.  
+subscriptionSelection | EventEmitter | --- | Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

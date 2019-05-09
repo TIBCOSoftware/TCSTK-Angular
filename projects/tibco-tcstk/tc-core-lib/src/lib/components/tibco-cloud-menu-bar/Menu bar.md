@@ -2,6 +2,16 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>TIBCO Cloud Menu Bar</p>
+
+
+
+
+<b>Constructor</b>
+
+
+<p><code>&lt;tc-tibco-cloud-menu-bar&gt;</code> render a general menu bar</p>
+
 
 
 #### Screenshot
