@@ -1,6 +1,6 @@
 ## Documents Component
 
-![Status][draft] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"init"} Component Meta -->
+![Status][draft] ![Component Type][major] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"init"} Component Meta -->
 
 This Component allows to list, upload, download, Documents attached to a Case-Instance or a whole Application.
 In the Upload Dialog the User is able to select a local File and enter a short Description.

@@ -1,10 +1,6 @@
 
-![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"*for later*"} Component Meta -->
 
-
-<p>&lt;%= name %&gt;
-
-Describe your live apps component here</p>
 
 
 
@@ -19,8 +15,22 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-component></tcla-live-apps-component>
+<tcla-live-apps-reporting-cockpit></tcla-live-apps-reporting-cockpit>
 ```
+
+#### Inputs
+
+Attribute | Type | Default Value  | Comments
+--- | --- | --- | ---
+appIds |  | --- | 
+sandboxId |  | --- | 
+uiAppId |  | --- | 
+
+#### Outputs
+
+Attribute | Type | Default Value  | Comments
+--- | --- | --- | ---
+routeAction | EventEmitter<RouteAction> | --- | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

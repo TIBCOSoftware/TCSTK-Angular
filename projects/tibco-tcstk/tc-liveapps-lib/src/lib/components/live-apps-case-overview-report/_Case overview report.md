@@ -1,5 +1,5 @@
 
-![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"*for later*"} Component Meta -->
 
 
 
@@ -15,24 +15,22 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-case-schema-list></tcla-live-apps-case-schema-list>
+<tcla-live-apps-case-overview-report></tcla-live-apps-case-overview-report>
 ```
 
 #### Inputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-applicationId | string | --- | 
-caseReference | string | --- | 
-caseTypeId | string | --- | 
-mode | string | --- | 
+appIds | string[] | --- | 
 sandboxId | number | --- | 
+uiAppId | string | --- | 
 
 #### Outputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-selection | EventEmitter | --- | 
+selectedCaseType | EventEmitter<CaseTypeReportRecord> | --- | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

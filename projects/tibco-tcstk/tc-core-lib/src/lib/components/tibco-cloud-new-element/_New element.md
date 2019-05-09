@@ -1,5 +1,5 @@
 
-![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"*REMOVE?*"} Component Meta -->
 
 
 
@@ -15,20 +15,8 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-sandbox></tcla-live-apps-sandbox>
+<tc-tibco-cloud-new-element></tc-tibco-cloud-new-element>
 ```
-
-#### Inputs
-
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-allSandboxes | boolean | --- | 
-
-#### Outputs
-
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-selection | EventEmitter | --- | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
