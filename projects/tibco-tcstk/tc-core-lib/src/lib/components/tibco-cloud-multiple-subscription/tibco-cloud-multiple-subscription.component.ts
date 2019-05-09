@@ -16,7 +16,7 @@ import {TcLoginService} from '../../services/tc-login.service';
 
 export class TibcoCloudMultipleSubscriptionComponent {
   /**
-  * a list of available subscriptions for this user now  */
+  * a list of available subscriptions for this user */
   @Input() subscriptions: any;
   /**
   * the access token created from initial login  */
