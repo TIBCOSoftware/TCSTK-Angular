@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign = "center start">
   <div class="tcs-rendered-form">
-    <json-schema-form #renderedForm *ngIf="formSchema"
+    <json-schema-form #renderedForm *ngIf="!customFormId && formSchema"
       loadExternalAssets="false"
       framework="material-design"
       [schema]="formSchema"
@@ -11,6 +11,7 @@
       (formLayout)="handleLayoutOutput($event)"
     >
     </json-schema-form>
+    <custom-form *ngIf="customFormId" data="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
   </div>
 </div>
 <!--
