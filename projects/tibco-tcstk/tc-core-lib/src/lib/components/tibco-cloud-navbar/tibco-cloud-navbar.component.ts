@@ -32,7 +32,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
   @Input() docUrl: string;
 
   /**
-   * TIBCO Cloud Navigation Bar
+   * single empty Constructor of TIBCO Cloud Navigation Bar
    */
   constructor(private location: Location) {
   }
