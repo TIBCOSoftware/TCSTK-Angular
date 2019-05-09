@@ -28,7 +28,7 @@ docUrl | string | --- | Documentation URL
 <b>Constructor</b>
 
 
-<p>TIBCO Cloud Navigation Bar</p>
+<p>single empty Constructor of TIBCO Cloud Navigation Bar</p>
 
 
 
