@@ -26,17 +26,14 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-subscriptions | any | --- | <p>a list of available subscriptions for this user</p>
-
-token | AccessToken | --- | <p>the access token created from initial login</p>
-
+subscriptions | any | --- | a list of available subscriptions for this user now  
+token | AccessToken | --- | the access token created from initial login  
 
 #### Outputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-subscriptionSelection | EventEmitter | --- | <p>Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.</p>
-
+subscriptionSelection | EventEmitter | --- | Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.  
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

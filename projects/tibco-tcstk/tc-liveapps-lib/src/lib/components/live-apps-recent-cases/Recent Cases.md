@@ -1,6 +1,6 @@
 ## Recent Cases Component
 
-![Status][draft] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"init"} Component Meta -->
+![Status][draft] ![Component Type][major] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"init"} Component Meta -->
 
 This Component list recent visited Cases.
 
