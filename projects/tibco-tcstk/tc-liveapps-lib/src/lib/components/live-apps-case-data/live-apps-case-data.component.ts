@@ -12,7 +12,7 @@ import {TcCaseDataService} from '../../services/tc-case-data.service';
   styleUrls: ['./live-apps-case-data.component.css']
 })
 export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnInit {
-  @Input() caseReference: string;
+  @Input() caseRef: string;
   @Input() appId: string;
   @Input() typeId: string;
   @Input() sandboxId: number;
@@ -31,7 +31,7 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   }
 
   public refresh = () => {
-    this.caseDataService.getCaseWithSchema(this.caseReference, this.sandboxId, this.appId, this.typeId, this.uiAppId)
+    this.caseDataService.getCaseWithSchema(this.caseRef, this.sandboxId, this.appId, this.typeId, this.uiAppId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),

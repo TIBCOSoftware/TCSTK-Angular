@@ -54,6 +54,8 @@ import {BrowserModule} from '@angular/platform-browser';
   ],
   exports: [
     RenderedFormComponent
+  ],
+  entryComponents: [
   ]
 })
 export class TcFormsLibModule { }

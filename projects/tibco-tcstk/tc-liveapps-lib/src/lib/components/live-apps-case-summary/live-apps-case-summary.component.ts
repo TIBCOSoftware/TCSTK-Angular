@@ -36,7 +36,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   @Input() configModeCaseTypeColor: string;
   @Input() configModeCaseTypeIcon: string;
   @Input() configModeAppTypeLabel: string;
-  @Input() caseReference: string;
+  @Input() caseRef: string;
   @Input() sandboxId: number;
   @Input() displayType: string; // miniCard, card, list
   @Input() borderCard: boolean;
@@ -58,7 +58,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   color: string;
 
   public clickCaseAction = () => {
-    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseReference, appId: this.appId, typeId: this.typeId});
+    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseRef, appId: this.appId, typeId: this.typeId});
     this.clickCase.emit(caseRoute);
   }
 
@@ -76,7 +76,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
 
   public refresh = () => {
     if (!this.configMode) {
-      this.caseCardConfigService.getCaseWithSummary(this.caseReference, this.sandboxId, this.uiAppId)
+      this.caseCardConfigService.getCaseWithSummary(this.caseRef, this.sandboxId, this.uiAppId)
         .pipe(
           take(1),
           takeUntil(this._destroyed$),
@@ -91,7 +91,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
               this.summaryValues = Object.values(this.summary);
             } else {
               // notify parent case has been deleted
-              this.deleted.emit(this.caseReference);
+              this.deleted.emit(this.caseRef);
             }
           })
         ).subscribe(

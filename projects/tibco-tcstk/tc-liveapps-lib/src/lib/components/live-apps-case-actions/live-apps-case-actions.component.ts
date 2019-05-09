@@ -28,7 +28,7 @@ import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
   styleUrls: ['./live-apps-case-actions.component.css']
 })
 export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements OnInit {
-  @Input() caseReference: string;
+  @Input() caseRef: string;
   @Input() appId: string;
   @Input() typeId: string;
   @Input() sandboxId: number;
@@ -48,7 +48,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   public refresh = () => {
-    this.caseProcessesService.getCaseActionsForCaseRef(this.caseReference, this.sandboxId, this.appId, this.typeId)
+    this.caseProcessesService.getCaseActionsForCaseRef(this.caseRef, this.sandboxId, this.appId, this.typeId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -61,7 +61,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
 
   public selectAction(action: CaseAction) {
 
-    this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, null,100).pipe(
+    this.caseProcessesService.getProcessDetails(this.caseRef, this.appId, this.typeId, this.sandboxId, action, null,100).pipe(
       take(1),
       takeUntil(this._destroyed$),
       tap(processDetails => {

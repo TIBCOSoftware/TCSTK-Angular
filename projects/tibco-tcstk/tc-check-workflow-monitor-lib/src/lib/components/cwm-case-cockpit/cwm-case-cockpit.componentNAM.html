@@ -1,7 +1,7 @@
 <div fxFill fxLayout="column" fxLayoutAlign="space-between stretch">
   <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
     <!-- this is content projection. Tibco cloud menu bar contains ng-template and content here is projected inside the ng-content -->
-    <tcla-live-apps-case-summary class="live-apps-widget" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId" [caseReference]="caseRef"></tcla-live-apps-case-summary>
+    <tcla-live-apps-case-summary class="live-apps-widget" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
   </tc-tibco-cloud-menu-bar>
   <div *ngIf="valid" fxLayout="column" fxFlex fxFill style="padding: 20px">
     <div fxLayout="row" fxLayoutAlign="start start">
@@ -9,14 +9,14 @@
     </div>
 
   <!--  <div fxLayout="row" fxLayoutAlign="end center" class="tcs-actions-bar">
-      <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseReference]="caseRef" [caseState]="'Created'" [maxActions]="5" (actionClicked)="handleActionSelection($event)"></tcla-live-apps-case-actions>
+      <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseRef]="caseRef" [caseState]="'Created'" [maxActions]="5" (actionClicked)="handleActionSelection($event)"></tcla-live-apps-case-actions>
     </div>-->
     <div fxLayout="row" fxFlex>
       <div fxFlex fxLayoutGap="20px">
         <div fxLayout="column" fxFill fxFlex="70" style="min-width: 70%">
           <mat-tab-group #dataTabGroup>
             <mat-tab label="Case Data">
-              <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseReference]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [showHeader]="false"></tcla-live-apps-case-data>
+              <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [showHeader]="false"></tcla-live-apps-case-data>
             </mat-tab>
             <mat-tab #actionTab *ngIf="actionSelection">
               <ng-template mat-tab-label fxLayout="row" fxFlex>

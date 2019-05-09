@@ -39,14 +39,14 @@ export class LiveAppsCaseSchemaListComponent extends LiveAppsComponent implement
   @Input() applicationId: string;
   @Input() caseTypeId: string;
   @Input() mode: string;
-  @Input() caseReference: string;
+  @Input() caseRef: string;
   @Output() selection = new EventEmitter<LaProcessSelection>();
 
   caseCreatorList: Process[];
   caseActionList: Process[];
   appSchema: CaseTypesList;
   caseType: CaseType;
-  // caseReference: string;
+  // caseRef: string;
   errorMessage: string;
 
   // run when the user clicks on a process (action or case creator)
@@ -58,9 +58,9 @@ export class LiveAppsCaseSchemaListComponent extends LiveAppsComponent implement
       process: process,
       // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
       ref: this.caseType.applicationName + '.' + this.caseType.applicationInternalName + '.' + type + '.' + process.name,
-      caseReference: this.caseReference
+      caseReference: this.caseRef
     });
-    this.caseReference = undefined;
+    this.caseRef = undefined;
   }
 
   public getCaseIDAttributeName = () => {

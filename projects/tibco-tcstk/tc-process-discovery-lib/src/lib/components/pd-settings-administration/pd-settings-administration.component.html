@@ -8,7 +8,7 @@
         <div style="margin: 20px" fxLayout="column" fxLayout="row wrap">
             <div *ngFor="let case of cases" fxFlex>
                 <tcla-live-apps-case-summary [uiAppId]="datasourceId" [typeBar]="true" [borderCard]="false"
-                    [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case"
+                    [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="case"
                     (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-summary>
                 <div class="tcs-case-summary-line"></div>
             </div>

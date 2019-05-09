@@ -11,7 +11,7 @@
   </div>
   <div *ngIf="recentCases.length > 0"class="tcs-case-recent-flow-list" fxLayout="column" fxLayout="row wrap">
     <div class="tcs-case-recent-item-box" *ngFor="let case of recentCases" fxFlex>
-      <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseReference]="case" (clickCase)="clickCaseAction($event)" (deleted)="handleDeleted($event)"></tcla-live-apps-case-summary>
+      <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="case" (clickCase)="clickCaseAction($event)" (deleted)="handleDeleted($event)"></tcla-live-apps-case-summary>
       <div class="tcs-case-recent-line"></div>
     </div>
   </div>
