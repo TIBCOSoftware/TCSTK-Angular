@@ -84,6 +84,8 @@ import { ReportingComponent } from './routes/reporting/reporting.component';
     TcCheckWorkflowMonitorLibModule
   ],
   providers: [LogService],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

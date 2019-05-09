@@ -16,9 +16,9 @@
   <div class="la-process-card" fxLayout="column">
     <h3>Enter a case reference to list actions</h3>
     <mat-form-field fxFlex style="margin-left: 15px">
-      <input matInput name="caseReference" type="text" placeholder="Enter a Case Reference" [(ngModel)]="caseReference" maxlength="50">
+      <input matInput name="caseReference" type="text" placeholder="Enter a Case Reference" [(ngModel)]="caseRef" maxlength="50">
     </mat-form-field>
-    <div *ngIf="caseReference">
+    <div *ngIf="caseRef">
     <h3>Now click an action to run it:</h3>
     <span style="margin-left: 30px; font-size: 14px">Note - all actions are listed - some may not be runable</span>
       <div class="la-process-selection">
