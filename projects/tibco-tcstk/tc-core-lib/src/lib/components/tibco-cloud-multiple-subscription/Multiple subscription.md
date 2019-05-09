@@ -1,6 +1,10 @@
 
-![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"*REMOVE?*"} Component Meta -->
 
+
+<p>A user will use this component when they have multiple subscriptions. The component is passed a list of subscriptions.
+
+The user must choose a subscription, then the user is logged in against that subscription.</p>
 
 
 
@@ -15,22 +19,24 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-reporting-cockpit></tcla-live-apps-reporting-cockpit>
+<tcla-tibco-cloud-multiple-subscription *ngIf="subRequired && !loggedIn" [subscriptions]="subscriptions" [token]="token" (subscriptionSelection)="handleLoggedIn($event)"></tcla-tibco-cloud-multiple-subscription>
 ```
 
 #### Inputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-appIds |  | --- | 
-sandboxId |  | --- | 
-uiAppId |  | --- | 
+subscriptions | any | --- | <p>a list of available subscriptions for this user</p>
+
+token | AccessToken | --- | <p>the access token created from initial login</p>
+
 
 #### Outputs
 
 Attribute | Type | Default Value  | Comments
 --- | --- | --- | ---
-routeAction | EventEmitter<RouteAction> | --- | 
+subscriptionSelection | EventEmitter | --- | <p>Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.</p>
+
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -1,5 +1,5 @@
 
-![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"HP", "reviewed_by":"---", "last_modified_by":"HP", "comment":"needs review as wont work (png and local path)"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"*for later*"} Component Meta -->
 
 
 
@@ -15,7 +15,7 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tc-tibco-cloud-error></tc-tibco-cloud-error>
+<tcla-live-apps-pie></tcla-live-apps-pie>
 ```
 
 

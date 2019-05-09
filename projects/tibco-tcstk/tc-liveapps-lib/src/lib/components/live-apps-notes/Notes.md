@@ -1,6 +1,6 @@
 ## Notes Component
 
-![Status][draft] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"init"} Component Meta -->
+![Status][draft] ![Component Type][major] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"init"} Component Meta -->
 
 This Component allows to list, and add Notes to a Case-Instance or other Context e.g. a whole Application.
 Any Note can have Sub-Notes to allow real collaboration.

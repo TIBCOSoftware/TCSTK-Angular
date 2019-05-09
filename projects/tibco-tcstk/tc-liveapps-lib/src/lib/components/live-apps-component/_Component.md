@@ -1,6 +1,10 @@
 
-![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"*base component* everything should extend this (but doesnt yet)"} Component Meta -->
 
+
+<p>&lt;%= name %&gt;
+
+Describe your live apps component here</p>
 
 
 
@@ -15,7 +19,7 @@ no Component Screenshot available yet.
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-pie></tcla-live-apps-pie>
+<tcla-live-apps-component></tcla-live-apps-component>
 ```
 
 
