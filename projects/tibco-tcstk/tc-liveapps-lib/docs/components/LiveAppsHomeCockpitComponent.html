@@ -1,0 +1,1483 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Live Apps Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Live Apps Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LiveAppsHomeCockpitComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tcla-live-apps-home-cockpit</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./live-apps-home-cockpit.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./live-apps-home-cockpit.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeCasesComponent">activeCasesComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#caseStartButtonActive">caseStartButtonActive</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#clickCaseAction">clickCaseAction</a>
+                            </li>
+                            <li>
+                                <a href="#collaborationComponent">collaborationComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#createToolbarButtons">createToolbarButtons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog">dialog</a>
+                            </li>
+                            <li>
+                                <a href="#documentsComponent">documentsComponent</a>
+                            </li>
+                            <li>
+                                <a href="#favoritesComponent">favoritesComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleCreatorAppSelection">handleCreatorAppSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleReportCaseTypeSelection">handleReportCaseTypeSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleReportCaseTypeStateSelection">handleReportCaseTypeStateSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleToolbarButtonEvent">handleToolbarButtonEvent</a>
+                            </li>
+                            <li>
+                                <a href="#openCreatorDialog">openCreatorDialog</a>
+                            </li>
+                            <li>
+                                <a href="#recentsComponent">recentsComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                <a href="#searchComponent">searchComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedCaseTypeReportRecord">selectedCaseTypeReportRecord</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toolbarButtons">toolbarButtons</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#access">access</a>
+                            </li>
+                            <li>
+                                <a href="#appIds">appIds</a>
+                            </li>
+                            <li>
+                                <a href="#email">email</a>
+                            </li>
+                            <li>
+                                <a href="#roles">roles</a>
+                            </li>
+                            <li>
+                                <a href="#sandboxId">sandboxId</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                            <li>
+                                <a href="#uiAppId">uiAppId</a>
+                            </li>
+                            <li>
+                                <a href="#userId">userId</a>
+                            </li>
+                            <li>
+                                <a href="#userName">userName</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#routeAction">routeAction</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(buttonsHelper: TcButtonsHelperService, dialog: MatDialog, rolesService: <a href="../injectables/TcRolesService.html">TcRolesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>buttonsHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code>TcButtonsHelperService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rolesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TcRolesService.html" target="_self" >TcRolesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="access"></a>
+                        <b>access</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/RouteAccessControlConfig.html" target="_self" >RouteAccessControlConfig</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="appIds"></a>
+                        <b>appIds</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="email"></a>
+                        <b>email</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roles"></a>
+                        <b>roles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Roles.html" target="_self" >Roles</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sandboxId"></a>
+                        <b>sandboxId</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="uiAppId"></a>
+                        <b>uiAppId</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userId"></a>
+                        <b>userId</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userName"></a>
+                        <b>userName</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="routeAction"></a>
+                        <b>routeAction</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;RouteAction&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:32</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:137</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeCasesComponent"></a>
+                        <span class="name">
+                            <b>
+                            activeCasesComponent</b>
+                            <a href="#activeCasesComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LiveAppsActiveCasesWidgetComponent.html" target="_self" >LiveAppsActiveCasesWidgetComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(LiveAppsActiveCasesWidgetComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caseStartButtonActive"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            caseStartButtonActive</b>
+                            <a href="#caseStartButtonActive"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clickCaseAction"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            clickCaseAction</b>
+                            <a href="#clickCaseAction"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="collaborationComponent"></a>
+                        <span class="name">
+                            <b>
+                            collaborationComponent</b>
+                            <a href="#collaborationComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Note.html" target="_self" >LiveAppsNotesComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(LiveAppsNotesComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createToolbarButtons"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            createToolbarButtons</b>
+                            <a href="#createToolbarButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dialog"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dialog</b>
+                            <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatDialog</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="documentsComponent"></a>
+                        <span class="name">
+                            <b>
+                            documentsComponent</b>
+                            <a href="#documentsComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Document.html" target="_self" >LiveAppsDocumentsComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(LiveAppsDocumentsComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="favoritesComponent"></a>
+                        <span class="name">
+                            <b>
+                            favoritesComponent</b>
+                            <a href="#favoritesComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LiveAppsFavoriteCasesComponent.html" target="_self" >LiveAppsFavoriteCasesComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(LiveAppsFavoriteCasesComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="handleCreatorAppSelection"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleCreatorAppSelection</b>
+                            <a href="#handleCreatorAppSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="handleReportCaseTypeSelection"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleReportCaseTypeSelection</b>
+                            <a href="#handleReportCaseTypeSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="handleReportCaseTypeStateSelection"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleReportCaseTypeStateSelection</b>
+                            <a href="#handleReportCaseTypeStateSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:93</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="handleToolbarButtonEvent"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleToolbarButtonEvent</b>
+                            <a href="#handleToolbarButtonEvent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:61</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openCreatorDialog"></a>
+                        <span class="name">
+                            <b>
+                            openCreatorDialog</b>
+                            <a href="#openCreatorDialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:99</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recentsComponent"></a>
+                        <span class="name">
+                            <b>
+                            recentsComponent</b>
+                            <a href="#recentsComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LiveAppsRecentCasesComponent.html" target="_self" >LiveAppsRecentCasesComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(LiveAppsRecentCasesComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            refresh</b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:116</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchComponent"></a>
+                        <span class="name">
+                            <b>
+                            searchComponent</b>
+                            <a href="#searchComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LiveAppsSearchWidgetComponent.html" target="_self" >LiveAppsSearchWidgetComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(LiveAppsSearchWidgetComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedCaseTypeReportRecord"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedCaseTypeReportRecord</b>
+                            <a href="#selectedCaseTypeReportRecord"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/CaseTypeReportRecord.html" target="_self" >CaseTypeReportRecord</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toolbarButtons"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toolbarButtons</b>
+                            <a href="#toolbarButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ToolbarButton[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-home-cockpit/live-apps-home-cockpit.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild} from &#x27;@angular/core&#x27;;
+import {CaseRoute, CaseType} from &#x27;../../models/liveappsdata&#x27;;
+import {ToolbarButton, TcButtonsHelperService, RouteAction} from &#x27;@tibco-tcstk/tc-core-lib&#x27;;
+import {LiveAppsFavoriteCasesComponent} from &#x27;../live-apps-favorite-cases/live-apps-favorite-cases.component&#x27;;
+import {LiveAppsRecentCasesComponent} from &#x27;../live-apps-recent-cases/live-apps-recent-cases.component&#x27;;
+import {LiveAppsSearchWidgetComponent} from &#x27;../live-apps-search-widget/live-apps-search-widget.component&#x27;;
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from &#x27;@angular/material&#x27;;
+import {LiveAppsCreatorDialogComponent} from &#x27;../live-apps-creator-dialog/live-apps-creator-dialog.component&#x27;;
+import {CaseCreatorSelectionContext} from &#x27;../../models/tc-case-creator&#x27;;
+import {LiveAppsNotesComponent} from &#x27;../live-apps-notes/live-apps-notes.component&#x27;;
+import {LiveAppsDocumentsComponent} from &#x27;../live-apps-documents/live-apps-documents.component&#x27;;
+import {TcRolesService} from &#x27;../../services/tc-roles-service.ts.service&#x27;;
+import {Roles, RouteAccessControlConfig} from &#x27;../../models/tc-groups-data&#x27;;
+import {LiveAppsActiveCasesWidgetComponent} from &#x27;../live-apps-active-cases-widget/live-apps-active-cases-widget.component&#x27;;
+import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from &#x27;../../models/tc-live-apps-reporting&#x27;;
+
+@Component({
+  selector: &#x27;tcla-live-apps-home-cockpit&#x27;,
+  templateUrl: &#x27;./live-apps-home-cockpit.component.html&#x27;,
+  styleUrls: [&#x27;./live-apps-home-cockpit.component.css&#x27;]
+})
+export class LiveAppsHomeCockpitComponent implements OnInit {
+  @Input() uiAppId;
+  @Input() appIds;
+  @Input() sandboxId;
+  @Input() userName;
+  @Input() userId;
+  @Input() email;
+  @Input() title;
+  @Input() roles: Roles;
+  @Input() access: RouteAccessControlConfig;
+  @Output() routeAction: EventEmitter&lt;RouteAction&gt; &#x3D; new EventEmitter&lt;RouteAction&gt;();
+
+  @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;
+  @ViewChild(LiveAppsRecentCasesComponent) recentsComponent: LiveAppsRecentCasesComponent;
+  @ViewChild(LiveAppsSearchWidgetComponent) searchComponent: LiveAppsSearchWidgetComponent;
+  @ViewChild(LiveAppsNotesComponent) collaborationComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsDocumentsComponent) documentsComponent: LiveAppsDocumentsComponent;
+  @ViewChild(LiveAppsActiveCasesWidgetComponent) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
+
+  public toolbarButtons: ToolbarButton[];
+  public caseStartButtonActive: boolean;
+  public selectedCaseTypeReportRecord: CaseTypeReportRecord;
+
+  public clickCaseAction &#x3D; (caseRoute: CaseRoute) &#x3D;&gt; {
+    // case clicked - tell parent (will pass caseRef and appId)
+    this.routeAction.emit(new RouteAction(&#x27;caseClicked&#x27;, caseRoute));
+  }
+
+  constructor(protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog, protected rolesService: TcRolesService) { }
+
+  protected createToolbarButtons &#x3D; (): ToolbarButton[] &#x3D;&gt; {
+    // you can use the rolesService to either disable or hide the button as required - it returns true if the user has the roleId specified
+    // const configButton &#x3D; this.buttonsHelper.createButton(&#x27;config&#x27;, &#x27;tcs-capabilities&#x27;, true, &#x27;Config&#x27;, true, this.rolesService.checkRole(&#x27;Partner Portal Configurator&#x27;, this.roles));
+    const configButton &#x3D; this.buttonsHelper.createButton(&#x27;config&#x27;, &#x27;tcs-capabilities&#x27;, true, &#x27;Config&#x27;, (this.access ? this.rolesService.checkButton(&#x27;configure&#x27;, this.roles, this.access) : true), true);
+    const refreshButton &#x3D; this.buttonsHelper.createButton(&#x27;refresh&#x27;, &#x27;tcs-refresh-icon&#x27;, true, &#x27;Refresh&#x27;, (this.access ? this.rolesService.checkButton(&#x27;refresh&#x27;, this.roles, this.access) : true), true);
+    const buttons &#x3D; [ configButton, refreshButton ];
+    return buttons;
+  }
+
+  public handleToolbarButtonEvent &#x3D; (buttonId: string) &#x3D;&gt; {
+    if (buttonId &#x3D;&#x3D;&#x3D; &#x27;config&#x27;) {
+      this.routeAction.emit(new RouteAction(&#x27;configClicked&#x27;, null));
+    }
+    if (buttonId &#x3D;&#x3D;&#x3D; &#x27;refresh&#x27;) {
+      this.refresh();
+    }
+  }
+
+  public handleCreatorAppSelection &#x3D; (application: CaseType) &#x3D;&gt; {
+    const EXAMPLE_INITIAL_DATA &#x3D; {
+      PartnerRequest: {
+        Customer_v1: {
+          CustomerReference_v1: &#x27;CST-1111&#x27;,
+          Name_v1: &#x27;Roger Willis&#x27;,
+        },
+        RequestDescription_v1: &#x27;Where is my order?&#x27;,
+        RequestDetails_v1: {
+          OrderReference_v1: &#x27;ORD-55333&#x27;,
+          PartReference_v1: &#x27;PRT-102020&#x27;,
+        },
+        RequestType_v1: &#x27;Packaging Supplies&#x27;
+      }
+    }
+    // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
+    this.openCreatorDialog(application, undefined, this.sandboxId);
+  }
+
+  public handleReportCaseTypeSelection &#x3D; (caseTypeReportRecord: CaseTypeReportRecord) &#x3D;&gt; {
+    this.selectedCaseTypeReportRecord &#x3D; caseTypeReportRecord;
+  }
+
+  public handleReportCaseTypeStateSelection &#x3D; (state: CaseTypeStateReportStateInfo) &#x3D;&gt; {
+    if (this.selectedCaseTypeReportRecord) {
+      this.searchComponent.searchCasesByState(Number(state.id), state.label, this.selectedCaseTypeReportRecord.applicationId, this.selectedCaseTypeReportRecord.caseTypeInfo.id, this.selectedCaseTypeReportRecord.caseTypeInfo.label + &#x27;|&#x27; + state.label );
+    }
+  }
+
+  openCreatorDialog &#x3D; (application: CaseType, initialData, sandboxId) &#x3D;&gt; {
+    const dialogRef &#x3D; this.dialog.open(LiveAppsCreatorDialogComponent, {
+      width: &#x27;60%&#x27;,
+      height: &#x27;80%&#x27;,
+      maxWidth: &#x27;100vw&#x27;,
+      maxHeight: &#x27;100vh&#x27;,
+      panelClass: &#x27;tcs-style-dialog&#x27;,
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
+    });
+
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      if (result) {
+        this.routeAction.emit(new RouteAction(&#x27;caseClicked&#x27;, result));
+      }
+    });
+  }
+
+  public refresh &#x3D; () &#x3D;&gt; {
+    if (this.favoritesComponent) {
+      this.favoritesComponent.refresh();
+    }
+    if (this.recentsComponent) {
+      this.recentsComponent.refresh();
+    }
+    if (this.searchComponent) {
+      this.searchComponent.refresh();
+    }
+    if (this.collaborationComponent) {
+      this.collaborationComponent.refresh();
+    }
+    if (this.documentsComponent) {
+      this.documentsComponent.refresh();
+    }
+    if (this.activeCasesComponent) {
+      this.activeCasesComponent.refresh();
+    }
+  }
+
+  ngOnInit() {
+    this.toolbarButtons &#x3D; this.createToolbarButtons();
+    this.caseStartButtonActive &#x3D; this.access ? this.rolesService.checkButton(&#x27;caseStart&#x27;, this.roles, this.access) : true;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!--div fxLayout&#x3D;&quot;column&quot; fxFlex&gt;
+  &lt;div&gt;
+    &lt;tc-tibco-cloud-menu-bar [toolbarButtons]&#x3D;&quot;toolbarButtons&quot; [headerText]&#x3D;&quot;title&quot; (toolbarButtonEvent)&#x3D;&quot;handleToolbarButtonEvent($event)&quot;&gt;
+      &lt;div&gt;
+        &lt;ng-content select&#x3D;&quot;[customToolbarContent]&quot; fxFlex&gt;&lt;/ng-content&gt;
+        &lt;tcla-live-apps-application-create-button *ngIf&#x3D;&quot;caseStartButtonActive&quot; style&#x3D;&quot;margin-right: 20px; margin-left: 20px&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [appIds]&#x3D;&quot;appIds&quot; (selection)&#x3D;&quot;handleCreatorAppSelection($event)&quot;&gt;&lt;/tcla-live-apps-application-create-button&gt;
+      &lt;/div&gt;
+    &lt;/tc-tibco-cloud-menu-bar&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;tcs-home-content&quot; fxLayout&#x3D;&quot;column&quot; fxFlex&#x3D;&quot;grow&quot; fxLayoutAlign&#x3D;&quot;start stretch&quot; style&#x3D;&quot;padding-left: 20px; padding-right: 20px; margin-top: 10px;&quot;&gt;
+
+    &lt;div class&#x3D;&quot;searchCasesWidget&quot;&gt;
+      &lt;tcla-live-apps-search-widget [appIds]&#x3D;&quot;appIds&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [uiAppId]&#x3D;&quot;uiAppId&quot; (caseSelected)&#x3D;&quot;clickCaseAction($event)&quot;&gt;&lt;/tcla-live-apps-search-widget&gt;
+    &lt;/div&gt;
+
+    &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutGap&#x3D;&quot;20px&quot; style&#x3D;&quot;margin-bottom: 20px; min-height: 367px&quot;&gt;
+      &lt;div class&#x3D;&quot;favoriteCasesWidget&quot; fxFlex&gt;
+        &lt;tcla-live-apps-favorite-cases class&#x3D;&quot;padded-widget&quot; [showHeader]&#x3D;&quot;true&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [uiAppId]&#x3D;&quot;uiAppId&quot; (clickCase)&#x3D;&quot;clickCaseAction($event)&quot;&gt;&lt;/tcla-live-apps-favorite-cases&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;recentCasesWidget&quot; fxFlex&gt;
+        &lt;tcla-live-apps-recent-cases class&#x3D;&quot;padded-widget&quot; [showHeader]&#x3D;&quot;true&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [uiAppId]&#x3D;&quot;uiAppId&quot; (clickCase)&#x3D;&quot;clickCaseAction($event)&quot;&gt;&lt;/tcla-live-apps-recent-cases&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutGap&#x3D;&quot;20px&quot; style&#x3D;&quot;margin-bottom: 20px; min-height: 367px&quot;&gt;
+      &lt;div fxFlex class&#x3D;&quot;collaborationWidget&quot;&gt;
+        &lt;tcla-live-apps-notes [userId]&#x3D;&quot;userId&quot; [showHeader]&#x3D;&quot;true&quot; [relatedItemId]&#x3D;&quot;uiAppId&quot; [relatedItemType]&#x3D;&quot;&#x27;CASE_APP&#x27;&quot;&gt;&lt;/tcla-live-apps-notes&gt;
+      &lt;/div&gt;
+
+      &lt;div fxFlex class&#x3D;&quot;documentWidget&quot;&gt;
+        &lt;tcla-live-apps-documents [showHeader]&#x3D;&quot;true&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [folderId]&#x3D;&quot;uiAppId + &#x27;_Docs&#x27;&quot; [folderType]&#x3D;&quot;&#x27;orgFolders&#x27;&quot; [folderDescription]&#x3D;&quot;&#x27;Document Library&#x27;&quot;&gt;&lt;/tcla-live-apps-documents&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div--&gt;
+&lt;div fxLayout&#x3D;&quot;column&quot; fxFlex&gt;
+  &lt;div&gt;
+    &lt;tc-tibco-cloud-menu-bar [toolbarButtons]&#x3D;&quot;toolbarButtons&quot; [headerText]&#x3D;&quot;title&quot; (toolbarButtonEvent)&#x3D;&quot;handleToolbarButtonEvent($event)&quot;&gt;
+      &lt;div&gt;
+        &lt;ng-content select&#x3D;&quot;[customToolbarContent]&quot; fxFlex&gt;&lt;/ng-content&gt;
+        &lt;tcla-live-apps-application-create-button *ngIf&#x3D;&quot;caseStartButtonActive&quot; style&#x3D;&quot;margin-right: 20px; margin-left: 20px&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [appIds]&#x3D;&quot;appIds&quot; (selection)&#x3D;&quot;handleCreatorAppSelection($event)&quot;&gt;&lt;/tcla-live-apps-application-create-button&gt;
+      &lt;/div&gt;
+    &lt;/tc-tibco-cloud-menu-bar&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;tcs-home-content&quot; fxLayout&#x3D;&quot;column&quot; fxFlex&#x3D;&quot;grow&quot; fxLayoutAlign&#x3D;&quot;start stretch&quot; style&#x3D;&quot;padding-left: 20px; padding-right: 20px; margin-top: 10px;&quot;&gt;
+
+    &lt;div fxFlex class&#x3D;&quot;searchCasesWidget&quot; style&#x3D;&quot;min-height: 86px&quot;&gt;
+      &lt;tcla-live-apps-search-widget [appIds]&#x3D;&quot;appIds&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [uiAppId]&#x3D;&quot;uiAppId&quot; (caseSelected)&#x3D;&quot;clickCaseAction($event)&quot;&gt;&lt;/tcla-live-apps-search-widget&gt;
+    &lt;/div&gt;
+
+    &lt;div fxFlex&#x3D;&quot;noshrink&quot; style&#x3D;&quot;margin-bottom: 20px; overflow: auto; min-height: 400px&quot; fxLayoutGap&#x3D;&quot;20px&quot; fxLayout&#x3D;&quot;row&quot; fxLayout.lt-md&#x3D;&quot;column&quot;&gt;
+      &lt;div fxFlex.gt-sm&#x3D;&quot;grow&quot; fxLayout&#x3D;&quot;row&quot; style&#x3D;&quot;height: 100%;&quot; [ngStyle.lt-md]&#x3D;&quot;&#x27;min-height: 400px;&#x27;&quot;&gt;
+        &lt;mat-tab-group fxFlex&gt;
+          &lt;mat-tab label&#x3D;&quot;Favorite Cases&quot;&gt;
+            &lt;div class&#x3D;&quot;favoriteCasesWidget&quot; fxFill&gt;
+              &lt;tcla-live-apps-favorite-cases class&#x3D;&quot;padded-widget&quot; [showHeader]&#x3D;&quot;true&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [uiAppId]&#x3D;&quot;uiAppId&quot; (clickCase)&#x3D;&quot;clickCaseAction($event)&quot;&gt;&lt;/tcla-live-apps-favorite-cases&gt;
+            &lt;/div&gt;
+          &lt;/mat-tab&gt;
+          &lt;mat-tab label&#x3D;&quot;Recent Cases&quot;&gt;
+            &lt;div class&#x3D;&quot;recentCasesWidget&quot; fxFill&gt;
+              &lt;tcla-live-apps-recent-cases class&#x3D;&quot;padded-widget&quot; [showHeader]&#x3D;&quot;true&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [uiAppId]&#x3D;&quot;uiAppId&quot; (clickCase)&#x3D;&quot;clickCaseAction($event)&quot;&gt;&lt;/tcla-live-apps-recent-cases&gt;
+            &lt;/div&gt;
+          &lt;/mat-tab&gt;
+        &lt;/mat-tab-group&gt;
+      &lt;/div&gt;
+
+      &lt;div fxFlex.gt-sm&#x3D;&quot;40&quot; fxLayout&#x3D;&quot;column&quot; [ngStyle.lt-md]&#x3D;&quot;&#x27;min-height: 400px&#x27;&quot;&gt;
+        &lt;div style&#x3D;&quot;padding-top: 48px; height: 350px;&quot;&gt;
+          &lt;tcla-live-apps-active-cases-widget [sandboxId]&#x3D;&quot;sandboxId&quot; [appIds]&#x3D;&quot;appIds&quot; [showHeader]&#x3D;&quot;true&quot; [showPercentages]&#x3D;&quot;true&quot; [uiAppId]&#x3D;&quot;uiAppId&quot; (selectedCaseTypeState)&#x3D;&quot;handleReportCaseTypeStateSelection($event)&quot; (selectedCaseType)&#x3D;&quot;handleReportCaseTypeSelection($event)&quot;&gt;&lt;/tcla-live-apps-active-cases-widget&gt;
+        &lt;/div&gt;
+        &lt;div fxFlex&#x3D;&quot;noshrink&quot; style&#x3D;&quot;height: 350px;&quot;&gt;
+          &lt;mat-tab-group fxFlex&gt;
+            &lt;mat-tab label&#x3D;&quot;Collaboration&quot;&gt;
+              &lt;div fxFill class&#x3D;&quot;collaborationWidget&quot;&gt;
+                &lt;tcla-live-apps-notes [userId]&#x3D;&quot;userId&quot; [showHeader]&#x3D;&quot;true&quot; [relatedItemId]&#x3D;&quot;uiAppId&quot; [relatedItemType]&#x3D;&quot;&#x27;CASE_APP&#x27;&quot;&gt;&lt;/tcla-live-apps-notes&gt;
+              &lt;/div&gt;
+            &lt;/mat-tab&gt;
+            &lt;mat-tab label&#x3D;&quot;Documents&quot;&gt;
+              &lt;div fxFill class&#x3D;&quot;documentWidget&quot;&gt;
+                &lt;tcla-live-apps-documents [showHeader]&#x3D;&quot;true&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [folderId]&#x3D;&quot;uiAppId + &#x27;_Docs&#x27;&quot; [folderType]&#x3D;&quot;&#x27;orgFolders&#x27;&quot; [folderDescription]&#x3D;&quot;&#x27;Document Library&#x27;&quot;&gt;&lt;/tcla-live-apps-documents&gt;
+              &lt;/div&gt;
+            &lt;/mat-tab&gt;
+          &lt;/mat-tab-group&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./live-apps-home-cockpit.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tc-home-welcome-text {
+  font-family: Source Sans Pro;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #212121;
+}
+
+.tcs-home-content {
+  overflow: auto;
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!--div fxLayout="column" fxFlex>  <div>    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">      <div>        <ng-content select="[customToolbarContent]" fxFlex></ng-content>        <tcla-live-apps-application-create-button *ngIf="caseStartButtonActive" style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>      </div>    </tc-tibco-cloud-menu-bar>  </div>  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" fxLayoutAlign="start stretch" style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">    <div class="searchCasesWidget">      <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>    </div>    <div fxLayout="row" fxLayoutGap="20px" style="margin-bottom: 20px; min-height: 367px">      <div class="favoriteCasesWidget" fxFlex>        <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>      </div>      <div class="recentCasesWidget" fxFlex>        <tcla-live-apps-recent-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>      </div>    </div>    <div fxLayout="row" fxLayoutGap="20px" style="margin-bottom: 20px; min-height: 367px">      <div fxFlex class="collaborationWidget">        <tcla-live-apps-notes [userId]="userId" [showHeader]="true" [relatedItemId]="uiAppId" [relatedItemType]="\'CASE_APP\'"></tcla-live-apps-notes>      </div>      <div fxFlex class="documentWidget">        <tcla-live-apps-documents [showHeader]="true" [sandboxId]="sandboxId" [folderId]="uiAppId + \'_Docs\'" [folderType]="\'orgFolders\'" [folderDescription]="\'Document Library\'"></tcla-live-apps-documents>      </div>    </div>  </div></div--><div fxLayout="column" fxFlex>  <div>    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title" (toolbarButtonEvent)="handleToolbarButtonEvent($event)">      <div>        <ng-content select="[customToolbarContent]" fxFlex></ng-content>        <tcla-live-apps-application-create-button *ngIf="caseStartButtonActive" style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId" [appIds]="appIds" (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>      </div>    </tc-tibco-cloud-menu-bar>  </div>  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" fxLayoutAlign="start stretch" style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">    <div fxFlex class="searchCasesWidget" style="min-height: 86px">      <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>    </div>    <div fxFlex="noshrink" style="margin-bottom: 20px; overflow: auto; min-height: 400px" fxLayoutGap="20px" fxLayout="row" fxLayout.lt-md="column">      <div fxFlex.gt-sm="grow" fxLayout="row" style="height: 100%;" [ngStyle.lt-md]="\'min-height: 400px;\'">        <mat-tab-group fxFlex>          <mat-tab label="Favorite Cases">            <div class="favoriteCasesWidget" fxFill>              <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>            </div>          </mat-tab>          <mat-tab label="Recent Cases">            <div class="recentCasesWidget" fxFill>              <tcla-live-apps-recent-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>            </div>          </mat-tab>        </mat-tab-group>      </div>      <div fxFlex.gt-sm="40" fxLayout="column" [ngStyle.lt-md]="\'min-height: 400px\'">        <div style="padding-top: 48px; height: 350px;">          <tcla-live-apps-active-cases-widget [sandboxId]="sandboxId" [appIds]="appIds" [showHeader]="true" [showPercentages]="true" [uiAppId]="uiAppId" (selectedCaseTypeState)="handleReportCaseTypeStateSelection($event)" (selectedCaseType)="handleReportCaseTypeSelection($event)"></tcla-live-apps-active-cases-widget>        </div>        <div fxFlex="noshrink" style="height: 350px;">          <mat-tab-group fxFlex>            <mat-tab label="Collaboration">              <div fxFill class="collaborationWidget">                <tcla-live-apps-notes [userId]="userId" [showHeader]="true" [relatedItemId]="uiAppId" [relatedItemType]="\'CASE_APP\'"></tcla-live-apps-notes>              </div>            </mat-tab>            <mat-tab label="Documents">              <div fxFill class="documentWidget">                <tcla-live-apps-documents [showHeader]="true" [sandboxId]="sandboxId" [folderId]="uiAppId + \'_Docs\'" [folderType]="\'orgFolders\'" [folderDescription]="\'Document Library\'"></tcla-live-apps-documents>              </div>            </mat-tab>          </mat-tab-group>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseOverviewReportComponent', 'selector': 'tcla-live-apps-case-overview-report'},{'name': 'LiveAppsCaseSchemaListComponent', 'selector': 'tcla-live-apps-case-schema-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsCaseTypeOverviewReportComponent', 'selector': 'tcla-live-apps-case-type-overview-report'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsPieComponent', 'selector': 'tcla-live-apps-pie'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsReportingCockpitComponent', 'selector': 'tcla-live-apps-reporting-cockpit'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSandboxComponent', 'selector': 'tcla-live-apps-sandbox'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LiveAppsHomeCockpitComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LiveAppsHomeCockpitComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
