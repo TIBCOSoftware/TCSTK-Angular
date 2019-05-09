@@ -16,13 +16,16 @@ import {TcLoginService} from '../../services/tc-login.service';
 
 export class TibcoCloudMultipleSubscriptionComponent {
   /**
-  * a list of available subscriptions for this user */
+  * a list of available subscriptions for this user
+  */
   @Input() subscriptions: any;
   /**
-  * the access token created from initial login  */
+  * the access token created from initial login
+  */
   @Input() token: AccessToken;
   /**
-  * Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.  */
+  * Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.
+  */
   @Output() subscriptionSelection = new EventEmitter();
 
     public selectedSubscriptionId;
