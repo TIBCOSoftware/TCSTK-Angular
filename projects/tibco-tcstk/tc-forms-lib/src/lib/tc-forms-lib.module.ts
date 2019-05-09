@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
 import {RenderedFormComponent} from './components/rendered-form/rendered-form.component';
 import {
@@ -52,6 +52,7 @@ import {BrowserModule} from '@angular/platform-browser';
     FormsModule,
     ReactiveFormsModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   exports: [
     RenderedFormComponent
   ],
