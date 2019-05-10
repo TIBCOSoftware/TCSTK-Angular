@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-actions',
@@ -13,6 +14,7 @@ export class LiveAppsActionsComponent implements OnInit {
   @Input() sandboxId: number;
   @Input() applicationId: string;
   @Input() typeId: string;
+  @Input() customFormDefs: CustomFormDefs;
   @Output() caseActioned: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   selectedAction: LaProcessSelection;

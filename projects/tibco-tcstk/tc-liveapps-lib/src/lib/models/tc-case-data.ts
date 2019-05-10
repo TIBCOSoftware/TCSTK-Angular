@@ -4,6 +4,8 @@ import {CaseInfo, JsonSchema} from './liveappsdata';
 export class CaseInfoWithSchema implements Deserializable {
   caseInfo: CaseInfo;
   caseSchema: JsonSchema;
+  applicationName: string;
+  applicationInternalName: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
