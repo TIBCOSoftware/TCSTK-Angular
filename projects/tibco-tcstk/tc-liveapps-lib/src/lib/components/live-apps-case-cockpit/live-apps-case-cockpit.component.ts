@@ -30,6 +30,7 @@ import {QueryList} from '@angular/core';
 import { RouteAction } from '@tibco-tcstk/tc-core-lib';
 import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-cockpit',
@@ -58,6 +59,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   @Input() exclRecentAppIds: string[];
   @Input() roles: Roles;
   @Input() access: RouteAccessControlConfig;
+  @Input() customFormDefs: CustomFormDefs;
   @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 

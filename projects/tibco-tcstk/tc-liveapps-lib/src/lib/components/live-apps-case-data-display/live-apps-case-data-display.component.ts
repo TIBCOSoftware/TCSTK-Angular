@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CaseType, CaseTypesList, JsonSchema} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-data-display',
@@ -19,6 +20,8 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
   @Input() caseData: string;
   @Input() schema: JsonSchema;
   @Input() layout: any[] = this.layout ? this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
+  @Input() customFormDefs: CustomFormDefs;
+  @Input() formRef: string;
 
   options;
 

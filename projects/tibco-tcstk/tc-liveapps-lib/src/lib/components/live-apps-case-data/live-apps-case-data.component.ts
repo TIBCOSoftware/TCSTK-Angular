@@ -5,6 +5,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseDataService} from '../../services/tc-case-data.service';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-data',
@@ -19,6 +20,9 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   @Input() uiAppId: string;
   @Input() showHeader: boolean;
   @Input() layout: any[];
+  @Input() customFormDefs: CustomFormDefs;
+  @Input() formRef: string;
+  @Input() customDataId = this.customDataId ? this.customDataId : 'default';
 
   public casedata: any;
   public summary: any;
@@ -40,6 +44,7 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
           this.metadata = result.caseInfo.metadata;
           this.summary = result.caseInfo.summaryObj;
           this.schema = result.caseSchema;
+          this.formRef = result.applicationName + '.' + result.applicationInternalName + '.casedata.' + this.customDataId;
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case data: ' + error.error.errorMsg; });

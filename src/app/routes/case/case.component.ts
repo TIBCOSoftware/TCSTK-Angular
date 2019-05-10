@@ -16,6 +16,7 @@ import { Claim, Sandbox } from '@tibco-tcstk/tc-core-lib';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {GeneralConfig, RouteAction} from '@tibco-tcstk/tc-core-lib';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'laapp-case',
@@ -35,6 +36,7 @@ export class CaseComponent implements OnInit {
   public groups: Groups;
   public roles: Roles;
   public access: RouteAccessControlConfig;
+  public customFormDefs: CustomFormDefs;
 
   public layout: any[] = undefined;
   // you can use a layout here to override the default layout for case data
@@ -64,6 +66,7 @@ export class CaseComponent implements OnInit {
     this.groups = this.route.snapshot.data.groups;
     this.roles = this.route.snapshot.data.roles;
     this.access = this.route.snapshot.data.access;
+    this.customFormDefs = this.route.snapshot.data.customFormDefs;
     this.sandbox = this.claims.primaryProductionSandbox;
     this.caseRef = this.route.snapshot.params['caseRef'];
     this.appId = this.route.snapshot.params['appId'];
