@@ -11,7 +11,7 @@
       (formLayout)="handleLayoutOutput($event)"
     >
     </json-schema-form>
-    <custom-form *ngIf="customFormId" data="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
+    <custom-form *ngIf="customFormId"  [formId]="customFormId" [data]="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
   </div>
 </div>
 <!--
