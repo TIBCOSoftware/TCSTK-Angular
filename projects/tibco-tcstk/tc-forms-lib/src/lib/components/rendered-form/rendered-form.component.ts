@@ -15,6 +15,8 @@
 
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {JsonSchemaFormComponent, MaterialDesignFrameworkModule} from 'angular6-json-schema-form';
+import {ActivatedRoute} from '@angular/router';
+import {CustomFormDefs} from '../../models/tc-custom-forms';
 
 @Component({
   selector: 'tcfrm-rendered-form',
@@ -26,12 +28,14 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() layout: any[] = [];
   @Input() data: any = {};
   @Input() options: any[];
-  @Input() customFormId: string;
+  @Input() formRef: string;
+  @Input() customFormDefs: CustomFormDefs;
   @Output() formSubmit: EventEmitter<any> = new EventEmitter<any>();
 
   formSchema: any;
   formLayout: any[];
   formData: any;
+  useCustomForm: boolean;
 
   submitForm = (data: any) => {
     this.formSubmit.emit(data);
@@ -42,13 +46,19 @@ export class RenderedFormComponent implements OnInit, OnChanges {
     console.log(JSON.stringify(layout));
   }
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
     // handle input param changes
+    if (this.customFormDefs && changes.formRef && changes.formRef.currentValue && (changes.formRef.currentValue !== changes.formRef.previousValue)) {
+      // check if this is a custom form
+      this.useCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
+        return (form === changes.formRef.currentValue);
+      }) !== -1);
+    }
     if (changes.schema && changes.schema.currentValue && (changes.schema.currentValue !== changes.schema.previousValue)) {
       const tmpSchema = changes.schema.currentValue;
       // json-schema-form doesnt like the $schema and wont parse the schema if it is present. So remove it.

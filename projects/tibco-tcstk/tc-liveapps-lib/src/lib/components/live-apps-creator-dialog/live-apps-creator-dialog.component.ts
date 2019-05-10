@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {CaseRoute, CaseType, ProcessId} from '../../models/liveappsdata';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-creator-dialog',
@@ -14,6 +15,7 @@ export class LiveAppsCreatorDialogComponent {
   public sandboxId: number;
   public initialData: any;
   public createdCase: ProcessId;
+  public customFormDefs: CustomFormDefs;
 
   constructor(
     public dialogRef: MatDialogRef<LiveAppsCreatorDialogComponent>,
@@ -21,6 +23,7 @@ export class LiveAppsCreatorDialogComponent {
     this.application = data.application;
     this.sandboxId = data.sandboxId;
     this.initialData = data.initialData;
+    this.customFormDefs = data.customFormDefs;
   }
 
   public handleCaseCreated = (createdCase: ProcessId) => {

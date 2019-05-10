@@ -20,6 +20,7 @@ import {ServiceDetailsConfigResolver, UploadPageComponent} from '@tibco-tcstk/tc
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
 import {ReportingComponent} from '../../routes/reporting/reporting.component';
+import {FormResolver} from '@tibco-tcstk/tc-forms-lib';
 
 export const HOME_ROUTE = 'home';
 
@@ -34,7 +35,8 @@ export const STARTER_APP_ROUTES =
       laConfigHolder: LaConfigResolver,
       groups: GroupsResolver,
       roles: RolesResolver,
-      access: AccessResolver
+      access: AccessResolver,
+      customFormDefs: FormResolver
     }
   },
   {
@@ -56,7 +58,8 @@ export const STARTER_APP_ROUTES =
       claims: ClaimsResolver,
       groups: GroupsResolver,
       roles: RolesResolver,
-      access: AccessResolver
+      access: AccessResolver,
+      customFormDefs: FormResolver
     }
   },
   {
@@ -92,7 +95,8 @@ export const STARTER_APP_PROVIDERS = [
   ConfigurationMenuConfigResolver,
   RolesResolver,
   GroupsResolver,
-  AccessResolver
+  AccessResolver,
+  FormResolver
   ],
   CONFIGURATION_ROUTE_PROVIDERS
 ];

@@ -13,6 +13,7 @@ import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
 import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
@@ -29,6 +30,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @Input() title;
   @Input() roles: Roles;
   @Input() access: RouteAccessControlConfig;
+  @Input() customFormDefs: CustomFormDefs;
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
   @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;
@@ -83,7 +85,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
       }
     }
     // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
-    this.openCreatorDialog(application, undefined, this.sandboxId);
+    this.openCreatorDialog(application, undefined, this.sandboxId, this.customFormDefs);
   }
 
   public handleReportCaseTypeSelection = (caseTypeReportRecord: CaseTypeReportRecord) => {
@@ -96,14 +98,14 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
   }
 
-  openCreatorDialog = (application: CaseType, initialData, sandboxId) => {
+  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs) => {
     const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
       width: '60%',
       height: '80%',
       maxWidth: '100vw',
       maxHeight: '100vh',
       panelClass: 'tcs-style-dialog',
-      data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs)
     });
 
     dialogRef.afterClosed().subscribe(result => {

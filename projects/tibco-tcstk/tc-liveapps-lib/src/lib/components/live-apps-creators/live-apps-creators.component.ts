@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsCreatorSelectorComponent} from '../live-apps-creator-selector/live-apps-creator-selector.component';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class LiveAppsCreatorsComponent implements OnInit {
   @Input() applicationId: string;
   @Input() typeId: string;
   @Input() dataOverride: any;
+  @Input() customFormDefs: CustomFormDefs;
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   selectedProcess: LaProcessSelection;

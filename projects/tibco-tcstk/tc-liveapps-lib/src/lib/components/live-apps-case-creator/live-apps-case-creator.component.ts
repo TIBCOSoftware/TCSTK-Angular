@@ -5,6 +5,7 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-case-creator',
@@ -17,6 +18,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   @Input() typeId: string;
   @Input() process: LaProcessSelection;
   @Input() dataOverride: any;
+  @Input() customFormDefs: CustomFormDefs;
   @Output() caseChanged: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   data: any;
