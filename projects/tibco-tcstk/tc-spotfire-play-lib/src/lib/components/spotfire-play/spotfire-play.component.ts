@@ -103,7 +103,7 @@ export class SpotfirePlayComponent implements OnInit {
       maxWidth: '100vw',
       maxHeight: '100vh',
       panelClass: 'tcs-style-dialog',
-      data: new CaseCreatorSelectionContext(application, initialData, sandboxId)
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, null)
     });
 
     dialogRef.afterClosed().subscribe(result => {
