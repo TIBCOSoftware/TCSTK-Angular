@@ -99,7 +99,7 @@ export class TcCaseProcessesService {
           // the schema will contain definitions for both the 'case' and any defined types in that case.
           // We want the schema for this 'case'.
           if (casetype.applicationId === appId && casetype.id === typeId) {
-            if (casetype.jsonSchema !== undefined) {
+            // if ( casetype.jsonSchema !== undefined) {
               if (action) {
                 const caseActionList = casetype.actions ? casetype.actions : [];
                 // now find the selected action
@@ -148,7 +148,7 @@ export class TcCaseProcessesService {
                 }
               }
             }
-          }
+          // }
         }
       );
       return processSelection;
