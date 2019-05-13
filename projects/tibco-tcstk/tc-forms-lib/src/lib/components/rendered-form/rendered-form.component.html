@@ -12,5 +12,6 @@
     >
     </json-schema-form>
     <custom-form *ngIf="useCustomForm" [formRef]="formRef" [data]="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
+    <span *ngIf="!formSchema && !useCustomForm">A form cannot be generated as no schema is available. Use a supported form or register a custom form app.</span>
   </div>
 </div>
