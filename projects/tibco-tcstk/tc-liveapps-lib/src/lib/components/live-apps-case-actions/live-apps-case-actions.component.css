@@ -19,6 +19,10 @@
   letter-spacing: 0.2px;
 }
 
+.tcs-case-action-button.disabled {
+  border: none;
+}
+
 .tcs-case-action-option {
   padding-top: 9px;
   padding-left: 10px;

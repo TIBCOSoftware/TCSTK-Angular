@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {LiveAppsCaseActionsComponent} from '../live-apps-case-actions/live-apps-case-actions.component';
 
 @Component({
   selector: 'tcla-live-apps-actions',
@@ -9,6 +10,9 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
   styleUrls: ['./live-apps-actions.component.css']
 })
 export class LiveAppsActionsComponent implements OnInit {
+
+  @ViewChild(LiveAppsCaseActionsComponent) actionSelector: LiveAppsCaseActionsComponent
+
   @Input() caseRef: string;
   @Input() caseState: string;
   @Input() sandboxId: number;
@@ -22,9 +26,11 @@ export class LiveAppsActionsComponent implements OnInit {
   // action clicked
   handleActionCompleted = (result: ProcessId) => {
     this.caseActioned.emit(result);
+    this.actionSelector.toggleEnable();
   }
 
   handleActionClicked = (action) => {
+    this.actionSelector.toggleEnable();
     this.selectedAction = action;
   }
 

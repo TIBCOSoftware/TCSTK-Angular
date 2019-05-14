@@ -39,6 +39,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
 
   public caseactions: CaseAction[];
   public errorMessage: string;
+  public disabled = false;
 
   appSchema: CaseTypesList;
   caseType: CaseType;
@@ -58,6 +59,10 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
         })
       ).subscribe(
       null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
+  }
+
+  public toggleEnable = () => {
+    this.disabled = !this.disabled;
   }
 
   public selectAction(action: CaseAction) {

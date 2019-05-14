@@ -112,6 +112,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
 
   public handleActionSelection = (actionSelection) => {
     this.actionSelection = actionSelection;
+    this.caseActionsComponent.toggleEnable();
   }
 
   public actionTabCreated = (data) => {
@@ -121,10 +122,12 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
 
   public handleCancelAction = () => {
     this.actionSelection = undefined;
+    this.caseActionsComponent.toggleEnable();
   }
 
   public handleActionCompleted = (processId: string) => {
     this.actionSelection = undefined;
+    this.caseActionsComponent.toggleEnable();
     // to allow case to update async before we refresh
     setTimeout(() => {
       this.refresh();
