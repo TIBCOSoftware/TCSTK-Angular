@@ -62,6 +62,23 @@ export class TibcoCloudNavbarComponent implements OnInit {
         },
         notifications: {
           visible: false
+        },
+        products: {
+          visible: false
+        }
+      },
+      customProfilePanel: {
+        account: {
+          visible: false
+        },
+        subscriptions: {
+          visible: false
+        },
+        organization: {
+          visible: false
+        },
+        tenants: {
+          visible: false
         }
       },
       customizedComponents: [
