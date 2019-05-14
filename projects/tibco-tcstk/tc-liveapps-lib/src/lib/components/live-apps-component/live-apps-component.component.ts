@@ -2,12 +2,12 @@
 import {Component, OnDestroy } from '@angular/core';
 import {Subject} from 'rxjs';
 
-/**
- * <%= name %>
- * Describe your live apps component here
- *
- */
 
+/**
+ * Generic component extended by others
+ *
+ *@example <tcla-live-apps-component></tcla-live-apps-component>
+ */
 @Component({
   selector: 'tcla-live-apps-component',
   templateUrl: './live-apps-component.component.html',

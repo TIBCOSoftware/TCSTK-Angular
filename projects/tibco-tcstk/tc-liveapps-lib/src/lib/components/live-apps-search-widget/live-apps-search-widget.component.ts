@@ -5,16 +5,39 @@ import {LiveAppsCaseSearchComponent} from '../live-apps-case-search/live-apps-ca
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 
+/**
+ * High Level search widget component (wraps others)
+ *
+ *@example <tcla-live-apps-search-widget></tcla-live-apps-search-widget>
+ */
+
 @Component({
   selector: 'tcla-live-apps-search-widget',
   templateUrl: './live-apps-search-widget.component.html',
   styleUrls: ['./live-apps-search-widget.component.css']
 })
 export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
   @Input() uiAppId: string;
+
+  /**
+   * The list of LA Application IDs you want to handle
+   */
   @Input() appIds: string[];
+
+  /**
+   *##OUTPUT-caseSelected##
+   * emits case reference when a case is clicked (so parent can navigate to case)
+   */
   @Output() caseSelected: EventEmitter<string> = new EventEmitter<string>();
+
 
   @ViewChild(LiveAppsCaseSearchComponent) caseSearchComponent: LiveAppsCaseSearchComponent;
   // case search

@@ -8,6 +8,12 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import 'chartjs-plugin-datalabels';
 import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-config.service';
 
+
+/**
+ * Home page active cases widget sub component
+ *
+ *@example <tcla-live-apps-active-cases-for-type-report></tcla-live-apps-active-cases-for-type-report>
+ */
 @Component({
   selector: 'tcla-live-apps-active-cases-for-type-report',
   templateUrl: './live-apps-active-cases-for-type-report.component.html',
@@ -15,12 +21,42 @@ import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-co
 })
 export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent implements OnInit, OnChanges {
 
+
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The LA Application Id
+   */
   @Input() appId: string;
+
+  /**
+   * The LA Application Type Id (generally 1)
+   */
   @Input() typeId: string;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
   @Input() uiAppId: string;
+
+  /**
+   * Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
+   */
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
+
+  /**
+   * Whether to show percentages or raw case numbers on the doughnut chart
+   */
   @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
+
+  /**
+   *##OUTPUT-selectedCaseTypeState##
+   * CaseTypeStateReportStateInfo object selected from component (to drive caller to display something different (drill down))
+   */
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 
   // @ViewChild(BaseChartDirective) caseTypeStateReportChart: BaseChartDirective;

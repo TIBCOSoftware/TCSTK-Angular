@@ -4,6 +4,13 @@ import {LiveAppsApplicationsComponent} from '../live-apps-applications/live-apps
 import {map, take, takeUntil} from 'rxjs/operators';
 import {MatSelectionList} from '@angular/material';
 
+
+/**
+ * Special rendering of LiveAppsApplicationsComponent
+ *
+ *@example <tcla-live-apps-application-list></tcla-live-apps-application-list>
+ */
+
 @Component({
   selector: 'tcla-live-apps-application-list',
   templateUrl: './live-apps-application-list.component.html',
@@ -11,9 +18,24 @@ import {MatSelectionList} from '@angular/material';
 })
 export class LiveAppsApplicationListComponent extends LiveAppsApplicationsComponent implements OnInit, OnChanges {
   @ViewChild (MatSelectionList) appSelectionList: MatSelectionList;
+
+  /**
+   * The app Ids selected (output)
+   */
   @Input() selectedAppIds: string[] = [];
+
+  /**
+   *##OUTPUT-appsSelected##
+   * Array of CaseType objects of what was selected
+   */
   @Output() appsSelected: EventEmitter<CaseType[]> = new EventEmitter<CaseType[]>();
+
+  /**
+   *##OUTPUT-appIdsSelected##
+   * selected App Ids from the application list (used on config)
+   */
   @Output() appIdsSelected: EventEmitter<string[]> = new EventEmitter<string[]>();
+
 
   public mySelectedOptions: CaseType[];
 

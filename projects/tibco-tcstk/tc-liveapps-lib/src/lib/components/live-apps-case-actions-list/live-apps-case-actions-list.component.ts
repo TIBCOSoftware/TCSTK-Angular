@@ -5,14 +5,23 @@ import { Process, CaseAction } from '../../models/liveappsdata';
 import { LaProcessSelection } from '../../models/tc-case-processes';
 import { LiveAppsCaseActionsComponent } from '../live-apps-case-actions/live-apps-case-actions.component';
 
+
+/**
+ * Special (option list) rendering of LiveAppsCaseActionsComponent
+ *
+ *@example <tcla-live-apps-case-actions-list></tcla-live-apps-case-actions-list>
+ */
+
 @Component({
     selector: 'tcla-live-apps-case-actions-list',
     templateUrl: './live-apps-case-actions-list.component.html',
     styleUrls: ['./live-apps-case-actions-list.component.css']
 })
 export class LiveAppsCaseActionsListComponent extends LiveAppsCaseActionsComponent implements OnInit, OnChanges {
-
-    @Input() seletedActionId: string;
+  /**
+   * The actionId selected (output)
+   */
+  @Input() seletedActionId: string;
 
     caseActionList: Process[];
     selectedAction: Process;

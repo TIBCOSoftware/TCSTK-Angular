@@ -5,16 +5,43 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {CaseRoute} from '../../models/liveappsdata';
 
+
+/**
+ * Favorite cases
+ *
+ *@example <tcla-live-apps-favorite-cases></tcla-live-apps-favorite-cases>
+ */
 @Component({
   selector: 'tcla-live-apps-favorite-cases',
   templateUrl: './live-apps-favorite-cases.component.html',
   styleUrls: ['./live-apps-favorite-cases.component.css']
 })
 export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
   @Input() uiAppId: string;
+
+  /**
+   * case card format - list, card, miniCard, staticList (no click event)
+   */
   @Input() displayType: string = this.displayType ? this.displayType : 'miniCard'; // miniCard, card, list
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
+
+
+  /**
+   *##OUTPUT-clickCase##
+   * CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
+   */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   public favoriteCases: string[];

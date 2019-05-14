@@ -9,6 +9,11 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {copy} from 'angular6-json-schema-form';
 import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-config.service';
 
+/**
+ * Home page active cases widget sub component
+ *
+ *@example <tcla-live-apps-active-cases-report></tcla-live-apps-active-cases-report>
+ */
 @Component({
   selector: 'tcla-live-apps-active-cases-report',
   templateUrl: './live-apps-active-cases-report.component.html',
@@ -16,12 +21,41 @@ import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-co
 })
 export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implements  OnInit {
 
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The list of LA Application IDs you want to handle
+   */
   @Input() appIds: string[];
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
   @Input() showHeader: boolean;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
   @Input() uiAppId: string;
+
+  /**
+   * Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
+   */
   @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
+
+  /**
+   * Whether to show percentages or raw case numbers on the doughnut chart
+   */
   @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
+
+
+  /**
+   *##OUTPUT-selectedCaseType##
+   * CaseTypeReportRecord object selected from component
+   */
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   @ViewChild(BaseChartDirective) caseReportChart: BaseChartDirective;

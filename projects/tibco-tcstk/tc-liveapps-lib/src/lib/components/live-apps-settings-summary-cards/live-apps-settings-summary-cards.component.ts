@@ -10,6 +10,13 @@ import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.servic
 import {CaseType} from '../../models/liveappsdata';
 import { MatSnackBar } from '@angular/material';
 
+
+/**
+ * Configuration of summary cards
+ *
+ *@example <tcla-live-apps-settings-summary-cards></tcla-live-apps-settings-summary-cards>
+ */
+
 @Component({
   selector: 'tcla-live-apps-settings-summary-cards',
   templateUrl: './live-apps-settings-summary-cards.component.html',

@@ -4,6 +4,11 @@ import { Groups, Roles } from '../../models/tc-groups-data';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar, MatDialog } from '@angular/material';
 
+/**
+ * Configuration of roles
+ *
+ *@example <tcla-live-apps-settings-roles></tcla-live-apps-settings-roles>
+ */
 @Component({
     selector: 'tcla-live-apps-settings-roles',
     templateUrl: './live-apps-settings-roles.component.html',

@@ -1,17 +1,3 @@
-/**
- * @ngdoc component
- * @name liveAppsCaseActionComponent
- *
- * @description
- * `<tcla-live-apps-case-actions>` is a component providing the ability to list and select case actions.
- *
- * @param {function callback} actionClicked Notify parent that an action has been selected.
- *
- * @usage
- *
- *
- *
- */
 
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {Subject} from 'rxjs';
@@ -23,18 +9,52 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
+
+/**
+ * Renders case action buttons
+ *
+ *@example <tcla-live-apps-case-actions></tcla-live-apps-case-actions>
+ */
 @Component({
   selector: 'tcla-live-apps-case-actions',
   templateUrl: './live-apps-case-actions.component.html',
   styleUrls: ['./live-apps-case-actions.component.css']
 })
 export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * The case reference
+   */
   @Input() caseRef: string;
+
+  /**
+   * The LA Application Id
+   */
   @Input() appId: string;
+
+  /**
+   * The LA Application Type Id (generally 1)
+   */
   @Input() typeId: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The state of the case
+   */
   @Input() caseState: string;
+
+  /**
+   * Max Actions that can be run simultaneously
+   */
   @Input() maxActions = 1;
+
+  /**
+   *##OUTPUT-actionClicked##
+   * LaProcessSelection object output when an action is clicked (ie. message to parent to run action component)
+   */
   @Output() actionClicked: EventEmitter<LaProcessSelection> = new EventEmitter<LaProcessSelection>();
 
   public caseactions: CaseAction[];

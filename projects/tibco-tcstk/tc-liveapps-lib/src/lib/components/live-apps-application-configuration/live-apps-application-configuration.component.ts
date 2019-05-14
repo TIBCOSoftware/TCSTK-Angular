@@ -42,6 +42,14 @@ import {CaseCardConfig} from '../../models/tc-case-card-config';
 import {DEFAULT_COLORS, DEFAULT_STATE_COLOR, DEFAULT_TYPE_COLOR, TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
 import {TcDocumentService} from '../../services/tc-document.service';
 
+
+
+/**
+ * Manages summary card configuration
+ *
+ *@example <tcla-live-apps-application-configuration></tcla-live-apps-application-configuration>
+ */
+
 @Component({
   selector: 'tcla-live-apps-application-configuration',
   templateUrl: './live-apps-application-configuration.component.html',
@@ -52,11 +60,35 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   @ViewChildren('iconcomp') stateIconComponents: QueryList<LiveAppsStateIconComponent>;
   @ViewChildren(LiveAppsCaseSummaryComponent) caseSummaryComponent: QueryList<LiveAppsCaseSummaryComponent>;
 
+  /**
+   * The LA Application Id
+   */
   @Input() appId: string;
+
+  /**
+   * The label shown above the case type in the configuration widget
+   */
   @Input() appTypeLabel: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
   @Input() uiAppId: string;
+
+  /**
+   * The organisation folder to store/retrieve documents
+   */
   @Input() folderId: string;
+
+  /**
+   *##OUTPUT-configChanged##
+   * CaseCardConfig object when configuration is changed (so called can do a save with data)
+   */
   @Output() configChanged: EventEmitter<CaseCardConfig> = new EventEmitter<CaseCardConfig>();
 
   public errorMessage: string;

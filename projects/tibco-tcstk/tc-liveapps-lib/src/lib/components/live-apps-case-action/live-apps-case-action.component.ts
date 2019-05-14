@@ -5,13 +5,27 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {CaseType, ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 
+
+/**
+ * Wraps rendering an execution of an action
+ *
+ *@example <tcla-live-apps-case-action></tcla-live-apps-case-action>
+ */
+
 @Component({
   selector: 'tcla-live-apps-case-action',
   templateUrl: './live-apps-case-action.component.html',
   styleUrls: ['./live-apps-case-action.component.css']
 })
 export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent implements OnInit, OnChanges {
+  /**
+   * The case reference
+   */
   @Input() caseRef: string;
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
   @Input() showHeader: boolean;
 
   originalData: any;

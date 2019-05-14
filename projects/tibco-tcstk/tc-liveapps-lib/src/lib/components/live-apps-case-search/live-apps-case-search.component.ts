@@ -6,6 +6,11 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {LiveAppsApplicationsComponent} from '../live-apps-applications/live-apps-applications.component';
 import {map, tap} from 'rxjs/operators';
 
+/**
+ * Selection of app + searching for cases
+ *
+ *@example <tcla-live-apps-case-search></tcla-live-apps-case-search>
+ */
 @Component({
   selector: 'tcla-live-apps-case-search',
   templateUrl: './live-apps-case-search.component.html',
@@ -14,8 +19,21 @@ import {map, tap} from 'rxjs/operators';
 
 export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
   @ViewChild('searchBox') searchBox: ElementRef;
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The list of LA Application IDs you want to handle
+   */
   @Input() appIds: string[];
+
+
+  /**
+   *##OUTPUT-foundRefs##
+   * caseRefs matching the search (so parent can display them in case list component)
+   */
   @Output() foundRefs: EventEmitter<CaseSearchResults> = new EventEmitter<CaseSearchResults>();
 
   @ViewChild(LiveAppsApplicationsComponent) applicationsComponent: LiveAppsApplicationsComponent;

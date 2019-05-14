@@ -7,6 +7,13 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcDocumentService} from '../../services/tc-document.service';
 
+
+/**
+ * Document component
+ *
+ *@example <tcla-live-apps-documents></tcla-live-apps-documents>
+ */
+
 @Component({
   selector: 'tcla-live-apps-documents',
   templateUrl: './live-apps-documents.component.html',
@@ -17,11 +24,34 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   constructor(private liveapps: LiveAppsService, private documentsService: TcDocumentService, public dialog: MatDialog) {
     super();
   }
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * orgFolders' or 'caseFolders' - different API calls made according to which one this is
+   */
   @Input() folderType: string; // 'orgFolders' or 'caseFolders'
+
+  /**
+   * The organisation folder to store/retrieve documents
+   */
   @Input() folderId: string;   // caseRef for caseFolder
+
+  /**
+   * NOT used but would allow a search filter on documents
+   */
   @Input() filter: string;
+
+  /**
+   * header text on component (defaults to documents)
+   */
   @Input() folderDescription: string;
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
   public errorMessage: string;

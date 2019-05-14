@@ -5,17 +5,42 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {CaseList, CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
+/**
+ * Recent cases widget
+ *
+ *@example <tcla-live-apps-recent-cases></tcla-live-apps-recent-cases>
+ */
 @Component({
   selector: 'tcla-live-apps-recent-cases',
   templateUrl: './live-apps-recent-cases.component.html',
   styleUrls: ['./live-apps-recent-cases.component.css']
 })
 export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
   @Input() uiAppId: string;
+
+  /**
+   * case card format - list, card, miniCard, staticList (no click event)
+   */
   @Input() displayType: string = this.displayType ? this.displayType : 'miniCard'; // miniCard, card, list
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
+
+  /**
+   *##OUTPUT-clickCase##
+   * CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
+   */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
+
 
   public recentCases: string[];
   public errorMessage: string;
