@@ -66,13 +66,12 @@ export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements 
       take(1),
       takeUntil(this._destroyed$),
       tap(processDetails => {
-        if (!processDetails || !processDetails.process) {
+        if (!processDetails || !processDetails.process || !processDetails.process.jsonSchema) {
           // This will be triggered when no form schema is available
           // Typically happens when:
           // 1) The form has elements that are not supported by the Live Apps API for form schemas such as participant selectors
           // 2) The Live Apps application is legacy and has no form schema at all, redeploying the live apps application would fix this.
-            console.error('No schema available for this case type: The form may not be supported or you may need to update/re-deploy the live apps application');
-            this.creatorClicked.emit(processDetails);
+            console.error('No schema available for this case type: The form may not be supported or you may need to update/re-deploy the live apps application. Alternatively use a custom form.');
           }
         }
       ),
