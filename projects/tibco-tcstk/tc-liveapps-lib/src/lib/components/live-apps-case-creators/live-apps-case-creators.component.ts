@@ -1,17 +1,4 @@
-/**
- * @ngdoc component
- * @name liveAppsCaseCreatorsComponent
- *
- * @description
- * `<tcla-live-apps-case-creators>` is a component providing the ability to list and select case creators.
- *
- * @param {function callback} creatorClicked Notify parent that a creator has been selected.
- *
- * @usage
- *
- *
- *
- */
+
 
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {Subject} from 'rxjs';
@@ -23,16 +10,39 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
+
+/**
+ * Wraps case creator and case creator list
+ *
+ *@example <tcla-live-apps-case-creators></tcla-live-apps-case-creators>
+ */
 @Component({
   selector: 'tcla-live-apps-case-creators',
   templateUrl: './live-apps-case-creators.component.html',
   styleUrls: ['./live-apps-case-creators.component.css']
 })
 export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * The LA Application Id
+   */
   @Input() appId: string;
+
+  /**
+   * The LA Application Type Id (generally 1)
+   */
   @Input() typeId: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   *##OUTPUT-creatorClicked##
+   * LaProcessSelection object output when an action is clicked (ie. message to parent to run creator component)
+   */
   @Output() creatorClicked: EventEmitter<LaProcessSelection> = new EventEmitter<LaProcessSelection>();
+
 
   public casecreators: CaseCreator[];
   public errorMessage: string;

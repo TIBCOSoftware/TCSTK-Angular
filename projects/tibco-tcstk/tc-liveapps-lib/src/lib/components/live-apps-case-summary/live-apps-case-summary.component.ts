@@ -19,6 +19,12 @@ import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-stat
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
 
+/**
+ * Renders case summary cards
+ *
+ *@example <tcla-live-apps-case-summary></tcla-live-apps-case-summary>
+ */
+
 @Component({
   selector: 'tcla-live-apps-case-summary',
   templateUrl: './live-apps-case-summary.component.html',
@@ -30,20 +36,82 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   @ViewChild('caseStateIcon') stateIconComponent: LiveAppsStateIconComponent;
   @ViewChild('caseTypeIcon') caseTypeIconComponent: LiveAppsStateIconComponent;
 
+  /**
+   * Whether to use static data (ie. when in app config box)
+   */
   @Input() configMode: boolean;
+
+  /**
+   * static data for app config box
+   */
   @Input() configModeColor: string;
+
+  /**
+   * static data for app config box
+   */
   @Input() configModeIcon: string;
+
+  /**
+   * static data for app config box
+   */
   @Input() configModeCaseTypeColor: string;
+
+  /**
+   * static data for app config box
+   */
   @Input() configModeCaseTypeIcon: string;
+
+  /**
+   * static data for app config box
+   */
   @Input() configModeAppTypeLabel: string;
+
+  /**
+   * The case reference
+   */
   @Input() caseRef: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * case card format - list, card, miniCard, staticList (no click event)
+   */
   @Input() displayType: string; // miniCard, card, list
+
+  /**
+   * Whether to display a border around the card
+   */
   @Input() borderCard: boolean;
+
+  /**
+   * Whether to display the colored "bar" on a summary card (on left or top)
+   */
   @Input() typeBar: boolean;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
   @Input() uiAppId: string;
+
+  /**
+   * Text to highlight in the list of cases (normall text that was searched)
+   */
   @Input() highlight: string;
+
+
+  /**
+   *##OUTPUT-clickCase##
+   * CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
+   */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
+
+  /**
+   *##OUTPUT-deleted##
+   * string emitted when summary tries to load data for a case that has been deleted (so it can be hidden.removed from - for example recent cases list)
+   */
   @Output() deleted: EventEmitter<string> = new EventEmitter<string>();
 
   public casedata: any;

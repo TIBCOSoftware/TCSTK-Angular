@@ -8,15 +8,33 @@ import {StateTracker, TrackerState} from '../../models/tc-case-states';
 import {TcCaseStatesService} from '../../services/tc-case-states.service';
 import {DurationSincePipe} from '@tibco-tcstk/tc-core-lib';
 
+
+/**
+ * Case States/Milestone view
+ *
+ *@example <tcla-live-apps-case-states></tcla-live-apps-case-states>
+ */
 @Component({
   selector: 'tcla-live-apps-case-states',
   templateUrl: './live-apps-case-states.component.html',
   styleUrls: ['./live-apps-case-states.component.css']
 })
 export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * The LA Application Id
+   */
   @Input() appId: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The case reference
+   */
   @Input() caseRef: string;
+
 
   public states: CaseTypeState[];
   public tracker: StateTracker;

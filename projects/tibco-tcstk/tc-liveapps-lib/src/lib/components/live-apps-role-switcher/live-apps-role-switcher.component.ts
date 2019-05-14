@@ -1,6 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RoleAttribute } from '@tibco-tcstk/tc-core-lib';
 
+/**
+ * Switch roles
+ *
+ *@example <tcla-live-apps-role-switcher></tcla-live-apps-role-switcher>
+ */
+
 @Component({
     selector: 'tcla-live-apps-role-switcher',
     templateUrl: './live-apps-role-switcher.component.html',
@@ -8,11 +14,24 @@ import { RoleAttribute } from '@tibco-tcstk/tc-core-lib';
 })
 export class LiveAppsRoleSwitcherComponent implements OnInit {
 
-    @Input() roles: RoleAttribute[];
-    @Input() selectedRole: RoleAttribute;
-    @Output() changeRoleEvent: EventEmitter<RoleAttribute> = new EventEmitter<RoleAttribute>();
+  /**
+   * Roles - The users current roles
+   */
+  @Input() roles: RoleAttribute[];
 
-    constructor() { }
+  /**
+   * RoleAttribute - selected Role - check with MC
+   */
+  @Input() selectedRole: RoleAttribute;
+
+  /**
+   *##OUTPUT-changeRoleEvent##
+   * RoleAttribute object emitted when role is c hanged by switcher
+   */
+  @Output() changeRoleEvent: EventEmitter<RoleAttribute> = new EventEmitter<RoleAttribute>();
+
+
+  constructor() { }
 
     ngOnInit() {
     }

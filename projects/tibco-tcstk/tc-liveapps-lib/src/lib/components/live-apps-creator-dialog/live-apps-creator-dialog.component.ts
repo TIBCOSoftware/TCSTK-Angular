@@ -4,6 +4,11 @@ import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {CaseRoute, CaseType, ProcessId} from '../../models/liveappsdata';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
+/**
+ * Dialog used on home screen to allow case creation (wraps other components)
+ *
+ *@example <tcla-live-apps-creator-dialog></tcla-live-apps-creator-dialog>
+ */
 @Component({
   selector: 'tcla-live-apps-creator-dialog',
   templateUrl: 'live-apps-creator-dialog.component.html',

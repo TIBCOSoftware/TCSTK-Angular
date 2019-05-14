@@ -15,22 +15,72 @@ import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widg
 import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
+
+/**
+ * High level component to allow home page view of system
+ *
+ *@example <tcla-live-apps-home-cockpit></tcla-live-apps-home-cockpit>
+ */
 @Component({
   selector: 'tcla-live-apps-home-cockpit',
   templateUrl: './live-apps-home-cockpit.component.html',
   styleUrls: ['./live-apps-home-cockpit.component.css']
 })
 export class LiveAppsHomeCockpitComponent implements OnInit {
-  @Input() uiAppId;
-  @Input() appIds;
-  @Input() sandboxId;
-  @Input() userName;
-  @Input() userId;
-  @Input() email;
-  @Input() title;
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
+  @Input() uiAppId: string;
+
+  /**
+   * The list of LA Application IDs you want to handle
+   */
+  @Input() appIds: string[];
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
+  @Input() sandboxId: number;
+
+  /**
+   * The name of the logged user
+   */
+  @Input() userName: string;
+
+  /**
+   * The ID of the logged user
+   */
+  @Input() userId: string;
+
+  /**
+   * * NOT USED but is the email address of the user (comes from resolver)
+   */
+  @Input() email: string;
+
+  /**
+   * page title comes from config resolver
+   */
+  @Input() title: string;
+
+  /**
+   * Roles - The users current roles
+   */
   @Input() roles: Roles;
+
+  /**
+   * RouteAccessControlConfig - basically the config for access control
+   */
   @Input() access: RouteAccessControlConfig;
+
+  /**
+   * Custom Form configuration file
+   */
   @Input() customFormDefs: CustomFormDefs;
+
+  /**
+   *##OUTPUT-routeAction##
+   * RouteAction object to tell caller to navigate somewhere
+   */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
   @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;

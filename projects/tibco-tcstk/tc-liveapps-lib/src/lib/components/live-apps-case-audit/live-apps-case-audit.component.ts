@@ -4,6 +4,11 @@ import {AuditEvent} from '../../models/tc-case-audit';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseAuditService} from '../../services/tc-case-audit.service';
 
+/**
+ * Render audit trail for a case
+ *
+ *@example <tcla-live-apps-case-audit></tcla-live-apps-case-audit>
+ */
 @Component({
   selector: 'tcla-live-apps-case-audit',
   templateUrl: './live-apps-case-audit.component.html',
@@ -11,7 +16,14 @@ import {TcCaseAuditService} from '../../services/tc-case-audit.service';
 })
 export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnDestroy {
 
+  /**
+   * The case reference
+   */
   @Input() caseRef: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
 
   public auditEvents: AuditEvent[] = [];

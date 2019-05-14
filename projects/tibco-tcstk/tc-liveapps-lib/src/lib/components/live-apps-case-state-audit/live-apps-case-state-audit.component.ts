@@ -6,6 +6,12 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {TcCaseStatesService} from '../../services/tc-case-states.service';
 import {StateAuditEvent} from '../../models/tc-case-states';
 
+
+/**
+ * Provides case audit summary for states
+ *
+ *@example <tcla-live-apps-case-state-audit></tcla-live-apps-case-state-audit>
+ */
 @Component({
   selector: 'tcla-live-apps-case-state-audit',
   templateUrl: './live-apps-case-state-audit.component.html',
@@ -13,8 +19,19 @@ import {StateAuditEvent} from '../../models/tc-case-states';
 })
 export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implements OnInit {
 
+  /**
+   * The case reference
+   */
   @Input() caseRef: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The LA Application Id
+   */
   @Input() appId: string;
 
   public auditEvents: StateAuditEvent[];

@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {LiveAppsApplicationsComponent} from '../live-apps-applications/live-apps-applications.component';
 import {CaseType} from '../../models/liveappsdata';
 
+
+/**
+ * Special rendering of LiveAppsApplicationsComponent
+ *
+ *@example <tcla-live-apps-application-create-button></tcla-live-apps-application-create-button>
+ */
 @Component({
   selector: 'tcla-live-apps-application-create-button',
   templateUrl: './live-apps-application-create-button.component.html',

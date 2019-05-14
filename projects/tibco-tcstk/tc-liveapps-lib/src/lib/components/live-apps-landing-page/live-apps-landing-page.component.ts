@@ -5,6 +5,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { TcRolesService } from '../../services/tc-roles-service.ts.service';
 
+
+/**
+ * Landing page
+ *
+ * @example <tcla-live-apps-landing-page></tcla-live-apps-landing-page>
+ */
 @Component({
     selector: 'tcla-live-apps-landing-page',
     templateUrl: './live-apps-landing-page.component.html',

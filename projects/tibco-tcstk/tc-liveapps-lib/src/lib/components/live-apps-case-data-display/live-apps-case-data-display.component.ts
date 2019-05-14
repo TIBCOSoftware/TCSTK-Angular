@@ -3,6 +3,12 @@ import {CaseType, CaseTypesList, JsonSchema} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
+/**
+ * Renders case data in a form
+ *
+ *@example <tcla-live-apps-case-data-display></tcla-live-apps-case-data-display>
+ */
+
 @Component({
   selector: 'tcla-live-apps-case-data-display',
   templateUrl: './live-apps-case-data-display.component.html',
@@ -17,10 +23,29 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
 
   ];
 
+  /**
+   * The case data
+   */
   @Input() caseData: string;
+
+  /**
+   * The schema of the case type
+   */
   @Input() schema: JsonSchema;
+
+  /**
+   * Layout object that can be passed to override default layout of the form renderer
+   */
   @Input() layout: any[] = this.layout ? this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
+
+  /**
+   * Custom Form configuration file
+   */
   @Input() customFormDefs: CustomFormDefs;
+
+  /**
+   * Custom Form Reference
+   */
   @Input() formRef: string;
 
   options;

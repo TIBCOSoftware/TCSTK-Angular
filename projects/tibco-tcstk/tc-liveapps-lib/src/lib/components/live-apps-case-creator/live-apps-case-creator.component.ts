@@ -7,18 +7,52 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
+/**
+ * Handles rendering of case creator form.
+ *
+ *@example <tcla-live-apps-case-creator></tcla-live-apps-case-creator>
+ */
 @Component({
   selector: 'tcla-live-apps-case-creator',
   templateUrl: './live-apps-case-creator.component.html',
   styleUrls: ['./live-apps-case-creator.component.css']
 })
 export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements OnInit, OnChanges {
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * LA application ID
+   */
   @Input() applicationId: string;
+
+  /**
+   * The LA Application Type Id (generally 1)
+   */
   @Input() typeId: string;
+
+  /**
+   * The process definition of the action or creator to execute
+   */
   @Input() process: LaProcessSelection;
+
+  /**
+   * Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
+   */
   @Input() dataOverride: any;
+
+  /**
+   * Custom Form configuration file
+   */
   @Input() customFormDefs: CustomFormDefs;
+
+
+  /**
+   *##OUTPUT-caseChanged##
+   * ProcessId object passed when a case has been updated or created by a process (action/creator)
+   */
   @Output() caseChanged: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   data: any;

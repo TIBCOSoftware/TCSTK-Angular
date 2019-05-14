@@ -2,6 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {SafeHtml} from '@angular/platform-browser';
 import {TcCaseStatesService} from '../../services/tc-case-states.service';
 
+/**
+ * Render a dynamic milestone SVG
+ *
+ *@example <tcla-live-apps-milestone></tcla-live-apps-milestone>
+ */
 @Component({
   selector: 'tcla-live-apps-milestone',
   templateUrl: './live-apps-milestone.component.html',

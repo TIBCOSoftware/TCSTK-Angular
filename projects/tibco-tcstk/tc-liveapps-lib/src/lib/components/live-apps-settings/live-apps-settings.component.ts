@@ -6,6 +6,12 @@ import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.servic
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import { MatSnackBar } from '@angular/material';
 
+
+/**
+ * Allow Selection of live apps applications (part of config)
+ *
+ *@example <tcla-live-apps-settings></tcla-live-apps-settings>
+ */
 @Component({
   selector: 'tcla-live-apps-settings',
   templateUrl: './live-apps-settings.component.html',

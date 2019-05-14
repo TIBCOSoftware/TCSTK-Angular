@@ -1,17 +1,4 @@
-/**
- * @ngdoc component
- * @name liveAppsApplicationsComponent
- *
- * @description
- * `<tcla-live-apps-applications>` is a component providing the ability to list and select an application.
- *
- * @param {function callback} selection Notify parent that an application has been selected.
- *
- * @usage
- *
- *
- *
- */
+
 
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
@@ -20,6 +7,13 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
+
+/**
+ * Lists live apps applications in drop down list allowing selection of app
+ *
+ *@example <tcla-live-apps-applications></tcla-live-apps-applications>
+ */
+
 @Component({
   selector: 'tcla-live-apps-applications',
   templateUrl: './live-apps-applications.component.html',
@@ -27,10 +21,31 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 })
 
 export class LiveAppsApplicationsComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The list of LA Application IDs you want to handle
+   */
   @Input() appIds: string[];
+
+  /**
+   * Whether to auto select the first app in dropdown selector (eg search)
+   */
   @Input() selectFirstApp: boolean;
+
+  /**
+   * Application selected from dropdown (output)
+   */
   @Input() selectedApp: CaseType = this.selectedApp ? this.selectedApp : new CaseType();
+
+
+  /**
+   *##OUTPUT-selection##
+   * type varies.  but is when something is selected in a drop down it is passed back to the caller
+   */
   @Output() selection: EventEmitter<CaseType> = new EventEmitter<CaseType>();
 
   applications: CaseTypesList = new CaseTypesList();

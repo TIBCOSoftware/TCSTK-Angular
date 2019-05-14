@@ -7,6 +7,12 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {ToolbarButton} from '@tibco-tcstk/tc-core-lib';
 import {TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
 
+
+/**
+ * Top level notes widget
+ *
+ *@example <tcla-live-apps-notes></tcla-live-apps-notes>
+ */
 @Component({
   selector: 'tcla-live-apps-notes',
   templateUrl: './live-apps-notes.component.html',
@@ -14,9 +20,24 @@ import {TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
 })
 
 export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * itemType for notes collection
+   */
   @Input() relatedItemType: string; // use 'CASE_APP' to share notes with case manager
+
+  /**
+   * itemId for notes collection
+   */
   @Input() relatedItemId: string; // 'caseRef' for case related
+
+  /**
+   * The ID of the logged user
+   */
   @Input() userId: string;
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
   public notes: Note[];

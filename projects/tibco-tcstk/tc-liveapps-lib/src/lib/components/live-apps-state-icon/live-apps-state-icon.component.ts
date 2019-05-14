@@ -9,6 +9,12 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 import {GENERIC_CASETYPE_ICON_SVG, GENERIC_STATE_ICON_SVG} from '../../services/tc-case-card-config.service';
 
+/**
+ * renders a single icon for a state
+ *
+ *@example <tcla-live-apps-state-icon></tcla-live-apps-state-icon>
+ */
+
 @Component({
   selector: 'tcla-live-apps-state-icon',
   templateUrl: './live-apps-state-icon.component.html',

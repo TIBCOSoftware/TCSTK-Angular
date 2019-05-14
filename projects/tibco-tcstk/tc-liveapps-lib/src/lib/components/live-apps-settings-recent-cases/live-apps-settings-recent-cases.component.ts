@@ -6,6 +6,12 @@ import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.servic
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {LiveAppsSettingsComponent} from '../live-apps-settings/live-apps-settings.component';
 
+/**
+ * Allow Selection of live apps applications (part of config)
+ *
+ *@example <tcla-live-apps-settings-recent-cases></tcla-live-apps-settings-recent-cases>
+ */
+
 @Component({
   selector: 'tcla-live-apps-settings-recent-cases',
   templateUrl: './live-apps-settings-recent-cases.component.html',
