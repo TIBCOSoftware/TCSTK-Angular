@@ -5,6 +5,12 @@ import { TcGeneralConfigService } from '../../services/tc-general-config.service
 import { Claim } from '../../models/tc-login';
 import { MatSnackBar } from '@angular/material';
 
+
+/**
+ * Manages general settings for Config page
+ *
+ *@example <tc-tibco-cloud-settings-general></tc-tibco-cloud-settings-general>
+ */
 @Component({
     selector: 'tc-tibco-cloud-settings-general',
     templateUrl: './tibco-cloud-settings-general.component.html',

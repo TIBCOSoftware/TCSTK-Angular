@@ -2,6 +2,12 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {TibcoCloudTableComponent} from '../tibco-cloud-table/tibco-cloud-table.component';
 import {LogService} from '../../services/tc-logging.service';
 
+/**
+ * A table that allows rows to be selected
+ *
+ *@example <tc-tibco-cloud-select-table></tc-tibco-cloud-select-table>
+ */
+
 @Component({
   selector: 'tc-tibco-cloud-select-table',
   templateUrl: './tibco-cloud-select-table.component.html',
@@ -9,6 +15,11 @@ import {LogService} from '../../services/tc-logging.service';
 })
 export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
 
+
+  /**
+   *##OUTPUT-selectedlines##
+   *
+   */
   @Output() selectedlines: EventEmitter<any> = new EventEmitter<any>();
 
   selected = {};

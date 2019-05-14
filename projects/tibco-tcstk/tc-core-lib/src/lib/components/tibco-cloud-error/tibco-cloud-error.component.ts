@@ -8,6 +8,12 @@ import {ActivatedRoute} from '@angular/router';
  * - NO_ACCESS :: You are not entitled to access this Application, please contact the Application- or Subscription-Owner.
  * - NO_ROUTE_ACCESS :: Sorry but you do not have the required role to access this page of the application, please contact the application owner
  */
+
+/**
+ * Exception Handling page
+ *
+ *@example <tc-tibco-cloud-error></tc-tibco-cloud-error>
+ */
 @Component({
   selector: 'tc-tibco-cloud-error',
   templateUrl: './tibco-cloud-error.component.html',
