@@ -21,7 +21,6 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   @Input() showHeader: boolean;
   @Input() layout: any[];
   @Input() customFormDefs: CustomFormDefs;
-  @Input() formRef: string;
   @Input() customDataId = this.customDataId ? this.customDataId : 'default';
 
   public casedata: any;
@@ -29,6 +28,7 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   public metadata: Metadata;
   public errorMessage: string;
   public schema: JsonSchema;
+  public formRef: string;
 
   constructor(private caseDataService: TcCaseDataService) {
     super();
