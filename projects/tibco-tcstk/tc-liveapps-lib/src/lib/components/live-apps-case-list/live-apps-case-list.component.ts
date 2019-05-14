@@ -55,14 +55,15 @@ export class LiveAppsCaseListComponent extends LiveAppsComponent implements OnIn
 
 
   /**
-   *##OUTPUT-clickCase##
-   * CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
+   * ~event clickCase : Case clicked
+   * ~payload CaseRoute : CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
    */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   /**
-   *##OUTPUT-clearMatches##
-   * clear matches
+   /**
+   * ~event clearMatches : Clear Matches button clicked
+   *
    */
   @Output() clearMatches = new EventEmitter();
 

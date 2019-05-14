@@ -51,8 +51,8 @@ export class LiveAppsActionsComponent implements OnInit {
 
 
   /**
-   *##OUTPUT-caseActioned##
-   * processId of started process in live apps (action)
+   * ~event caseActioned : Case action starterd (process started)
+   * ~payload ProcessId : processId of started process in live apps (action)
    */
   @Output() caseActioned: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 

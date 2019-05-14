@@ -52,8 +52,8 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   @Input() maxActions = 1;
 
   /**
-   *##OUTPUT-actionClicked##
-   * LaProcessSelection object output when an action is clicked (ie. message to parent to run action component)
+   * ~event actionClicked : Case Action selected
+   * ~payload LaProcessSelection : LaProcessSelection object output when an action is clicked (ie. message to parent to run action component)
    */
   @Output() actionClicked: EventEmitter<LaProcessSelection> = new EventEmitter<LaProcessSelection>();
 

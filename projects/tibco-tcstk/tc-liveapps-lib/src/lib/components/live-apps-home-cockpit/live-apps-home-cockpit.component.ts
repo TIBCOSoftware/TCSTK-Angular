@@ -78,8 +78,8 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @Input() customFormDefs: CustomFormDefs;
 
   /**
-   *##OUTPUT-routeAction##
-   * RouteAction object to tell caller to navigate somewhere
+   * ~event routeAction : Component requests route to another page
+   * ~payload RouteAction : RouteAction object to tell caller to navigate somewhere
    */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 

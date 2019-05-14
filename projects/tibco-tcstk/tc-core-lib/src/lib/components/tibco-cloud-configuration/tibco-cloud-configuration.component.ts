@@ -19,6 +19,12 @@ import {ConfigurationMenuConfig} from '../../models/tc-configuration-menu-config
 export class TibcoCloudConfigurationComponent implements OnInit {
   @Input() baseRoute: string;
   @Input() configMenuPages: ConfigurationMenuConfig[];
+
+
+  /**
+   * ~event routeAction : Component requests route to another page
+   * ~payload RouteAction : RouteAction object to tell caller to navigate somewhere
+   */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
   configName: string;
   toolbarButtons: ToolbarButton[];

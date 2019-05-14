@@ -37,14 +37,14 @@ export class LiveAppsAppConfigurationWidgetComponent implements OnInit {
   @Input() folderId: string;
 
   /**
-   *##OUTPUT-configChanged##
-   * CaseCardConfig object when configuration is changed (so called can do a save with data)
+   * ~event configChanged : Configuration values changed
+   * ~payload CaseCardConfig : CaseCardConfig object when configuration is changed (so called can do a save with data)
    */
   @Output() configChanged: EventEmitter<CaseCardConfig> = new EventEmitter<CaseCardConfig>();
 
   /**
-   *##OUTPUT-appSelected##
-   * CaseType object of app selected
+   * ~event appSelected : Case Type selected
+   * ~payload CaseType : CaseType object of app selected
    */
   @Output() appSelected: EventEmitter<CaseType> = new EventEmitter<CaseType>();
 

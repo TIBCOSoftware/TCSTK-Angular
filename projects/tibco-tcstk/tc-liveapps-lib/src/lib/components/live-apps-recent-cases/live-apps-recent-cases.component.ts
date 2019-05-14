@@ -36,8 +36,8 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
   /**
-   *##OUTPUT-clickCase##
-   * CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
+   * ~event clickCase : Case clicked
+   * ~payload CaseRoute : CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
    */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 

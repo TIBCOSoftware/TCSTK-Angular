@@ -103,14 +103,14 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
 
 
   /**
-   *##OUTPUT-clickCase##
-   * CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
+   * ~event clickCase : Case clicked
+   * ~payload CaseRoute : CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
    */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   /**
-   *##OUTPUT-deleted##
-   * string emitted when summary tries to load data for a case that has been deleted (so it can be hidden.removed from - for example recent cases list)
+   * ~event deleted : Case Displayed has been deleted
+   * ~payload string : string emitted when summary tries to load data for a case that has been deleted (so it can be hidden.removed from - for example recent cases list)
    */
   @Output() deleted: EventEmitter<string> = new EventEmitter<string>();
 

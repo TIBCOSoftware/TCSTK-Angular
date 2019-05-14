@@ -53,14 +53,14 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
 
   /**
-   *##OUTPUT-selectedCaseType##
-   * CaseTypeReportRecord object selected from component
+   * ~event selectedCaseType : Case Type selected in vizualization
+   * ~payload CaseTypeReportRecord : CaseTypeReportRecord object selected from component
    */
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   /**
-   *##OUTPUT-selectedCaseTypeState##
-   * CaseTypeStateReportStateInfo object selected from component (to drive caller to display something different (drill down))
+   * ~event selectedCaseTypeState : Case Type state selected in vizualization
+   * ~payload CaseTypeStateReportStateInfo : CaseTypeStateReportStateInfo object selected from component (to drive caller to display something different (drill down))
    */
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 

@@ -43,8 +43,8 @@ export class LiveAppsCreatorsComponent implements OnInit {
   @Input() customFormDefs: CustomFormDefs;
 
   /**
-   *##OUTPUT-caseCreated##
-   * ProcessId object output on case creation (details of process started)
+   * ~event caseCreated : Case Creator started (process started)
+   * ~payload ProcessId : ProcessId object output on case creation (details of process started)
    */
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 

@@ -30,6 +30,10 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() options: any[];
   @Input() formRef: string;
   @Input() customFormDefs: CustomFormDefs;
+  /**
+   * ~event formSubmit : form submitted
+   * ~payload any : data submitted from the form on submit (type=any)
+   */
   @Output() formSubmit: EventEmitter<any> = new EventEmitter<any>();
 
   formSchema: any;
