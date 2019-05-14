@@ -34,8 +34,8 @@ export class TibcoCloudWidgetHeaderComponent {
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
   /**
-   *##OUTPUT-toolbarButtonEvent##
-   * tells caller a button was clicked - outputs button Id
+   * ~event toolbarButtonEvent : Button Clicked
+   * ~payload string : tells caller a button was clicked - outputs button Id
    */
   @Output() toolbarButtonEvent: EventEmitter<string> = new EventEmitter<string>();
   constructor() {

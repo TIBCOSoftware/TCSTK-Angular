@@ -18,6 +18,10 @@ export class LiveAppsCaseOverviewReportComponent extends LiveAppsComponent imple
   @Input() sandboxId: number;
   @Input() appIds: string[];
   @Input() uiAppId: string;
+  /**
+   * ~event selectedCaseType : Case Type selected in vizualization
+   * ~payload CaseTypeReportRecord : CaseTypeReportRecord object selected from component
+   */
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   @ViewChild(BaseChartDirective) caseReportChart: BaseChartDirective;

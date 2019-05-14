@@ -16,6 +16,10 @@ export class PdSettingsAdministrationComponent implements OnInit {
     public datasourceId: string;
     public sandboxId: number;
     public displayType: string;
+  /**
+   * ~event routeAction : Component requests route to another page
+   * ~payload RouteAction : RouteAction object to tell caller to navigate somewhere
+   */
     @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
 

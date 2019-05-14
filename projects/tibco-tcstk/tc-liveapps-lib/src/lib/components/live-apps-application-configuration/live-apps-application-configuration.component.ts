@@ -86,8 +86,8 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
   @Input() folderId: string;
 
   /**
-   *##OUTPUT-configChanged##
-   * CaseCardConfig object when configuration is changed (so called can do a save with data)
+   * ~event configChanged : Configuration values changed
+   * ~payload CaseCardConfig : CaseCardConfig object when configuration is changed (so called can do a save with data)
    */
   @Output() configChanged: EventEmitter<CaseCardConfig> = new EventEmitter<CaseCardConfig>();
 

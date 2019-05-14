@@ -38,8 +38,8 @@ export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements 
   @Input() sandboxId: number;
 
   /**
-   *##OUTPUT-creatorClicked##
-   * LaProcessSelection object output when an action is clicked (ie. message to parent to run creator component)
+   * ~event creatorClicked : Case Creator selected
+   * ~payload LaProcessSelection : LaProcessSelection object output when an action is clicked (ie. message to parent to run creator component)
    */
   @Output() creatorClicked: EventEmitter<LaProcessSelection> = new EventEmitter<LaProcessSelection>();
 

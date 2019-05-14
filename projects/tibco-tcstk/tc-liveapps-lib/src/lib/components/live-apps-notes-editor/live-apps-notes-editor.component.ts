@@ -15,6 +15,11 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 export class LiveAppsNotesEditorComponent extends LiveAppsComponent {
   @Input() noteText: string; // use 'CASE_APP' to share notes with case manager
   @Input() isReply = false;
+
+  /**
+   * ~event noteSubmitted : Internal
+   */
+
   @Output() noteSubmitted = new EventEmitter(); // notify text submitted
 
   constructor() {

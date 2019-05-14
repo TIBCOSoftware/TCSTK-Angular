@@ -39,8 +39,8 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
 
 
   /**
-   *##OUTPUT-clickCase##
-   * CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
+   * ~event clickCase : Case clicked
+   * ~payload CaseRoute : CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
    */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 

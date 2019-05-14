@@ -50,8 +50,8 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
 
 
   /**
-   *##OUTPUT-caseChanged##
-   * ProcessId object passed when a case has been updated or created by a process (action/creator)
+   * ~event caseChanged : Case action started (process started)
+   * ~payload ProcessId : ProcessId object passed when a case has been updated or created by a process (action/creator)
    */
   @Output() caseChanged: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 

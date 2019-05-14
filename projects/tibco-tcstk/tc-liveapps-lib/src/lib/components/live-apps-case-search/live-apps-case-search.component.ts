@@ -31,8 +31,8 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
 
 
   /**
-   *##OUTPUT-foundRefs##
-   * caseRefs matching the search (so parent can display them in case list component)
+   * ~event foundRefs : Search completed (caseRefs returned)
+   * ~payload CaseSearchResults : caseRefs matching the search (so parent can display them in case list component)
    */
   @Output() foundRefs: EventEmitter<CaseSearchResults> = new EventEmitter<CaseSearchResults>();
 

@@ -13,6 +13,10 @@ export class LiveAppsReportingCockpitComponent implements OnInit {
   @Input() uiAppId;
   @Input() appIds;
   @Input() sandboxId;
+  /**
+   * ~event routeAction : Component requests route to another page
+   * ~payload RouteAction : RouteAction object to tell caller to navigate somewhere
+   */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
   toolbarButtons: ToolbarButton[];

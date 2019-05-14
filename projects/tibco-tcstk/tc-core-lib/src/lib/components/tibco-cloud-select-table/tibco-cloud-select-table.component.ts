@@ -17,8 +17,8 @@ export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
 
 
   /**
-   *##OUTPUT-selectedlines##
-   *
+   * ~event selectedlines : the lines selected
+   * ~payload any : The lines that are selected in the table by the user
    */
   @Output() selectedlines: EventEmitter<any> = new EventEmitter<any>();
 

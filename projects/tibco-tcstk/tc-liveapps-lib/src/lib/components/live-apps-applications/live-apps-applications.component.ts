@@ -43,8 +43,8 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
 
 
   /**
-   *##OUTPUT-selection##
-   * type varies.  but is when something is selected in a drop down it is passed back to the caller
+   * ~event selection : Value selected in child component
+   * ~payload CaseType : type varies.  but is when something is selected in a drop down it is passed back to the caller
    */
   @Output() selection: EventEmitter<CaseType> = new EventEmitter<CaseType>();
 

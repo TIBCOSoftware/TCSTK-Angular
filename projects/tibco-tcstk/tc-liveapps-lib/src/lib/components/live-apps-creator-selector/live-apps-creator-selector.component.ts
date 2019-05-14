@@ -19,6 +19,11 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string;
+  /**
+   * ~event creatorSelection : Case Creator selected
+   * ~payload LaProcessSelection : LaProcessSelection object output when a creator is selected from a drop down
+   */
+
   @Output() creatorSelection = new EventEmitter<LaProcessSelection>();
 
   appSchema: CaseTypesList;

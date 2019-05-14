@@ -53,8 +53,8 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
 
 
   /**
-   *##OUTPUT-selectedCaseType##
-   * CaseTypeReportRecord object selected from component
+   * ~event selectedCaseType : Case Type selected in vizualization
+   * ~payload CaseTypeReportRecord : CaseTypeReportRecord object selected from component
    */
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 

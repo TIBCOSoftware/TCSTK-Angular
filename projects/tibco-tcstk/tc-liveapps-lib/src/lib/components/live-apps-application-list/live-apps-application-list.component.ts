@@ -25,14 +25,14 @@ export class LiveAppsApplicationListComponent extends LiveAppsApplicationsCompon
   @Input() selectedAppIds: string[] = [];
 
   /**
-   *##OUTPUT-appsSelected##
-   * Array of CaseType objects of what was selected
+   * ~event appsSelected : Applications selected in component (CaseType objects)
+   * ~payload CaseType[] : Array of CaseType objects of what was selected
    */
   @Output() appsSelected: EventEmitter<CaseType[]> = new EventEmitter<CaseType[]>();
 
   /**
-   *##OUTPUT-appIdsSelected##
-   * selected App Ids from the application list (used on config)
+   * ~event appIdsSelected : Applications selected in component (appIds)
+   * ~payload string[] : selected App Ids from the application list (used on config)
    */
   @Output() appIdsSelected: EventEmitter<string[]> = new EventEmitter<string[]>();
 

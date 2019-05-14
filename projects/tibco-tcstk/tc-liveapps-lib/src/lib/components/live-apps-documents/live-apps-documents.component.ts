@@ -181,6 +181,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   styleUrls: [ 'app-live-apps-document-upload-dialog.css']
 })
 export class LiveAppsDocumentUploadDialogComponent {
+
   @Output() fileevent = new EventEmitter<any>();
   public fileToUpload: File = undefined;
   public description: string = undefined;

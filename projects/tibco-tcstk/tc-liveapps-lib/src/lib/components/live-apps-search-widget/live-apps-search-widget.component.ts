@@ -33,8 +33,8 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   @Input() appIds: string[];
 
   /**
-   *##OUTPUT-caseSelected##
-   * emits case reference when a case is clicked (so parent can navigate to case)
+   * ~event caseSelected : Case Clicked
+   * ~payload string : emits case reference when a case is clicked (so parent can navigate to case)
    */
   @Output() caseSelected: EventEmitter<string> = new EventEmitter<string>();
 

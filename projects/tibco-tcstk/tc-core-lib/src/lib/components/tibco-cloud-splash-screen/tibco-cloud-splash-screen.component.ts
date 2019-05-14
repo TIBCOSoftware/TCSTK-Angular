@@ -33,8 +33,8 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
   @Input() highlights: LandingPageItemConfig[];
 
   /**
-   *##OUTPUT-getStartedEvent##
-   * emits that user clicked get started button on cloud splash screen
+   * ~event getStartedEvent : Get Started Clicked
+   * ~payload string : emits that user clicked get started button on cloud splash screen
    */
   @Output() getStartedEvent: EventEmitter<string> = new EventEmitter<string>();
 

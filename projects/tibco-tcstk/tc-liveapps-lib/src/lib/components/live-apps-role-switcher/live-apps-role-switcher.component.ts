@@ -25,8 +25,8 @@ export class LiveAppsRoleSwitcherComponent implements OnInit {
   @Input() selectedRole: RoleAttribute;
 
   /**
-   *##OUTPUT-changeRoleEvent##
-   * RoleAttribute object emitted when role is c hanged by switcher
+   * ~event changeRoleEvent : Role selected
+   * ~payload RoleAttribute : RoleAttribute object emitted when role is c hanged by switcher
    */
   @Output() changeRoleEvent: EventEmitter<RoleAttribute> = new EventEmitter<RoleAttribute>();
 

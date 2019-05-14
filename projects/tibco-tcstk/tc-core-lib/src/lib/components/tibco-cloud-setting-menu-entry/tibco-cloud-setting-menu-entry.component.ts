@@ -31,8 +31,8 @@ export class TibcoCloudSettingMenuEntryComponent implements OnInit {
 
 
   /**
-   *##OUTPUT-configureOption##
-   * emits Id of option selected in config main page (options)
+   * ~event configureOption : Option Clicked
+   * ~payload string : emits Id of option selected in config main page (options)
    */
   @Output() configureOption: EventEmitter<string> = new EventEmitter<string>();
 
