@@ -8,7 +8,9 @@ import { TibcoCloudNewElementComponent } from '../tibco-cloud-new-element/tibco-
 import { RoleAttribute } from '../../models/tc-general-config';
 
 /**
- * Defines Application Landing Page Configuration
+ * Configuration page home
+ *
+ *@example <tc-tibco-cloud-setting-landing></tc-tibco-cloud-setting-landing>
  */
 @Component({
   selector: 'tc-tibco-cloud-setting-landing',

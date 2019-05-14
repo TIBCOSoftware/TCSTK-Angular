@@ -4,7 +4,9 @@ import { Location } from '@angular/common';
 import { LandingPageItemConfig } from '../../models/tc-general-landing-page-config';
 
 /**
- * Application Splash Sreeen
+ * Splash Screen
+ *
+ *@example <tc-tibco-cloud-splash-screen></tc-tibco-cloud-splash-screen>
  */
 @Component({
     selector: 'tc-tibco-cloud-splash-screen',
@@ -29,8 +31,10 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
    * Bullet Point Item Configuration with Icon's and Text
    */
   @Input() highlights: LandingPageItemConfig[];
+
   /**
-   * get Started Event
+   *##OUTPUT-getStartedEvent##
+   * emits that user clicked get started button on cloud splash screen
    */
   @Output() getStartedEvent: EventEmitter<string> = new EventEmitter<string>();
 

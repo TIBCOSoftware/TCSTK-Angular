@@ -1,5 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+
+/**
+ * Renders the menu options for each config menu
+ *
+ *@example <tc-tibco-cloud-setting-menu-entry></tc-tibco-cloud-setting-menu-entry>
+ */
+
 @Component({
     selector: 'tc-tibco-cloud-setting-menu-entry',
     templateUrl: './tibco-cloud-setting-menu-entry.component.html',
@@ -7,12 +14,29 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TibcoCloudSettingMenuEntryComponent implements OnInit {
 
-    @Input() icon: string;
-    @Input() title: string;
-    @Input() options: string[];
-    @Output() configureOption: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   * icon name (svg key - needs to be registered)
+   */
+  @Input() icon: string;
 
-    constructor() { }
+  /**
+   * page title comes from config resolver
+   */
+  @Input() title: string;
+
+  /**
+   * RenderedFormComponent: (options from third party API). TibcoCloudSettingMenuEntryComponent -Check with MC - not sure we need to document this.
+   */
+  @Input() options: string[];
+
+
+  /**
+   *##OUTPUT-configureOption##
+   * emits Id of option selected in config main page (options)
+   */
+  @Output() configureOption: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor() { }
 
     viewButtonClick(id) {
       this.configureOption.emit(id);

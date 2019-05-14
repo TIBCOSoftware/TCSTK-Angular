@@ -24,6 +24,7 @@ export class TibcoCloudMultipleSubscriptionComponent {
   */
   @Input() token: AccessToken;
   /**
+   *##OUTPUT-subscriptionSelection##
   * Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.
   */
   @Output() subscriptionSelection = new EventEmitter();
