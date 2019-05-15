@@ -207,7 +207,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
     }
   }
 
-  constructor(private liveapps: LiveAppsService, private caseCardConfigService: TcCaseCardConfigService, private sanitizer: DomSanitizer) {
+  constructor(protected liveapps: LiveAppsService, protected caseCardConfigService: TcCaseCardConfigService, protected sanitizer: DomSanitizer) {
     super();
   }
 
