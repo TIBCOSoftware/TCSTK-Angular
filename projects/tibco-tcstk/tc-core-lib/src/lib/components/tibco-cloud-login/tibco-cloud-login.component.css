@@ -1,9 +1,11 @@
 .la-login-card {
-  width: 500px;
-  height: 280px;
 }
+
+.la-login-form {
+}
+
 .la-login-div {
-  margin-top: 50px;
+  min-width: 300px;
 }
 
 .la-login-button {
@@ -11,7 +13,14 @@
 }
 
 .la-login-info-pane {
-  height: 100px;
+  min-height: 50px;
+  height: 50px;
+  max-height: 50px;
+  margin-top: 10px;
+}
+
+.spacer {
+  min-height: 0px;
 }
 
 .la-login-button-div {

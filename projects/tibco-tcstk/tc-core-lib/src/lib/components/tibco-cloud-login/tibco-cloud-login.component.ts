@@ -34,7 +34,7 @@ export class TibcoCloudLoginComponent  implements OnInit {
     clientId: string;
     loading = false;
     accountsInfo: AccountsInfo;
-    loginError;
+    loginError: string;
     token: AccessToken;
     authInfo: AuthInfo;
     auth: Observable<AuthInfo>;
@@ -54,7 +54,7 @@ export class TibcoCloudLoginComponent  implements OnInit {
   ngOnInit() {
     console.log('Login Init');
 
-    if(this.loginPrefill) {
+    if (this.loginPrefill) {
       this.name = this.loginPrefill.emailId;
       this.clientId = this.loginPrefill.clientId;
     }
@@ -83,7 +83,7 @@ export class TibcoCloudLoginComponent  implements OnInit {
           },
           error => {
               this.loading = false;
-              this.loginError = error.error.error_description;
+              this.loginError = error.error.errorMsg;
               console.error('Login Failed: ');
               console.error(error);
           });
