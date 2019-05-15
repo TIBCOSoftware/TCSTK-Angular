@@ -3,6 +3,7 @@
 
 
 <p>High Level search widget component (wraps others)
+
 This Component allows to search for existing Cases and list Case Cards.</p>
 
 
