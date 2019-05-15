@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"HP", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"?check hugo"} Component Meta -->
 
 
+<p>A table that allows rows to be selected</p>
+
 
 
 #### Usage
@@ -15,15 +17,17 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-jsonSource | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+jsonSource | string | 
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-selectedlines | EventEmitter<any> | --- | 
+selectedlines | EventEmitter<any> |   |  
+  | Event |  selectedlines  |  the lines selected
+  | Payload |  any  |  The lines that are selected in the table by the user
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

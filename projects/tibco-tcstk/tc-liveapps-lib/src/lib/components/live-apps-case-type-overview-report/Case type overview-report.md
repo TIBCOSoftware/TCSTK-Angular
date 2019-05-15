@@ -15,13 +15,13 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appId | string | --- | 
-incTerminal | boolean | --- | 
-sandboxId | number | --- | 
-typeId | string | --- | 
-uiAppId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appId | string | 
+incTerminal | boolean | 
+sandboxId | number | 
+typeId | string | 
+uiAppId | string | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -15,9 +15,9 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-jsonSource | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+jsonSource | string | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

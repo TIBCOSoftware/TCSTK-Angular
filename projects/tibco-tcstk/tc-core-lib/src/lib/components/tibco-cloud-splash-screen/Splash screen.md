@@ -2,7 +2,7 @@
 ![Status][auto] ![Component Type][major] <!--Component Meta {"created_by":"HP", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>Application Splash Sreeen</p>
+<p>Splash Screen</p>
 
 
 
@@ -17,18 +17,20 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-backGroundImage | string | --- | Splash Configured Background Image URL to a SVG, PNG or Jpeg
-highlights | LandingPageItemConfig[] | --- | Bullet Point Item Configuration with Icon&#39;s and Text
-subTitle | string | --- | Splash Sub-Title
-title | string | --- | Splash Screen main Title
+Attribute | Type | Comments
+--- | --- | ---
+backGroundImage | string | Splash Configured Background Image URL to a SVG, PNG or Jpeg
+highlights | LandingPageItemConfig[] | Bullet Point Item Configuration with Icon&#39;s and Text
+subTitle | string | Splash Sub-Title
+title | string | Splash Screen main Title
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-getStartedEvent | EventEmitter<string> | --- | get Started Event
+getStartedEvent | EventEmitter<string> |   |  
+  | Event |  getStartedEvent  |  Get Started Clicked
+  | Payload |  string  |  emits that user clicked get started button on cloud splash screen
 
 
 <b>Constructor</b>

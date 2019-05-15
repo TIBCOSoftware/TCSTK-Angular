@@ -169,6 +169,15 @@
                             <li>
                                 <a href="#docUrl">docUrl</a>
                             </li>
+                            <li>
+                                <a href="#logoClickTargetUrl">logoClickTargetUrl</a>
+                            </li>
+                            <li>
+                                <a href="#logoUrl">logoUrl</a>
+                            </li>
+                            <li>
+                                <a href="#rebrandConfig">rebrandConfig</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -191,7 +200,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -282,6 +291,87 @@
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Documentation URL</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logoClickTargetUrl"></a>
+                        <b>logoClickTargetUrl</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component.ts:50</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Where to redirect on click of logo</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logoUrl"></a>
+                        <b>logoUrl</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component.ts:38</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Custom Logo URL</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rebrandConfig"></a>
+                        <b>rebrandConfig</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-navbar/tibco-cloud-navbar.component.ts:44</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>rebrand config - example: { &quot;backgroundColor&quot;: &quot;#cfcfcf&quot;, &quot;fontColor&quot;: &quot;#682782&quot;, &quot;fontFamily&quot;: &quot;Oswald&quot;, &quot;iconColor&quot;: &quot;red&quot; }</p>
 </div>
                     </td>
                 </tr>
@@ -380,8 +470,27 @@ export class TibcoCloudNavbarComponent implements OnInit {
   @Input() docUrl: string;
 
   /**
+   * Custom Logo URL
+   */
+
+  @Input() logoUrl: string;
+
+  /**
+   * rebrand config - example: { &quot;backgroundColor&quot;: &quot;#cfcfcf&quot;, &quot;fontColor&quot;: &quot;#682782&quot;, &quot;fontFamily&quot;: &quot;Oswald&quot;, &quot;iconColor&quot;: &quot;red&quot; }
+   */
+
+  @Input() rebrandConfig: any;
+
+  /**
+   * Where to redirect on click of logo
+   */
+
+  @Input() logoClickTargetUrl: string;
+
+  /**
    * single empty Constructor of TIBCO Cloud Navigation Bar
    */
+
   constructor(private location: Location) {
   }
 
@@ -397,7 +506,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
 
     const navbar &#x3D; new GlobalNavbar({
       container: &#x27;#navbar&#x27;,
-      textAfterLogo: this.appName,
+      textAfterLogo: this.appName ? this.appName : undefined,
       iconMenus: {
         search: {
           visible: false  // for versions 0.1.X the propertie is &quot;disabled&quot; instead of &quot;visible&quot;.
@@ -410,6 +519,23 @@ export class TibcoCloudNavbarComponent implements OnInit {
         },
         notifications: {
           visible: false
+        },
+        products: {
+          visible: false
+        }
+      },
+      customProfilePanel: {
+        account: {
+          visible: false
+        },
+        subscriptions: {
+          visible: false
+        },
+        organization: {
+          visible: false
+        },
+        tenants: {
+          visible: false
         }
       },
       customizedComponents: [
@@ -419,9 +545,25 @@ export class TibcoCloudNavbarComponent implements OnInit {
         }
       ]
     });
-
+    if (this.logoUrl || this.logoClickTargetUrl || this.rebrandConfig) {
+      const style: any &#x3D; {};
+      if (this.logoUrl || this.logoClickTargetUrl) {
+        style.logo &#x3D; {
+          &#x27;src&#x27;: this.logoUrl,
+          &#x27;url&#x27;: this.logoClickTargetUrl // If the url is not set then the logo will redirect to TSC.
+        };
+      }
+      if (this.rebrandConfig) {
+        if (this.rebrandConfig.backgroundColor) { style.backgroundColor &#x3D; this.rebrandConfig.backgroundColor; }
+        if (this.rebrandConfig.fontColor) { style.fontColor &#x3D; this.rebrandConfig.fontColor; }
+        if (this.rebrandConfig.fontFamily) { style.fontFamily &#x3D; this.rebrandConfig.fontFamily; }
+        if (this.rebrandConfig.iconColor) { style.iconColor &#x3D; this.rebrandConfig.iconColor; }
+      }
+      navbar.refreshRebrandingStyle(style);
+    }
     navbar.load();
     navbar.customizePanel(&#x27;help&#x27;, &#x27;&lt;embed src&#x3D;&quot;&#x27; + this.docUrl + &#x27;&quot; style&#x3D;&quot;height: 100%; width: 100%&quot;&gt;&#x27;);  // set HTML string
+
 
     /*navbar.subscribeEvent(&#x27;CLICK_ICON_MENU_NOTIFICATIONS&#x27;, function(event) {
       console.log(&#x27;Logout &#x27;, event);

@@ -65,6 +65,13 @@
     <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>A table that allows rows to be selected</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -74,6 +81,14 @@
     </p>
 
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tc-tibco-cloud-select-table&gt;&lt;/tc-tibco-cloud-select-table&gt;</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -233,7 +248,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -320,9 +335,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:23</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>~event selectedlines : the lines selected
+~payload any : The lines that are selected in the table by the user</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -357,8 +379,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:37</a></div>
                 </td>
             </tr>
 
@@ -423,8 +445,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:27</a></div>
                 </td>
             </tr>
 
@@ -736,7 +758,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-select-table/tibco-cloud-select-table.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -996,6 +1018,12 @@
 import {TibcoCloudTableComponent} from &#x27;../tibco-cloud-table/tibco-cloud-table.component&#x27;;
 import {LogService} from &#x27;../../services/tc-logging.service&#x27;;
 
+/**
+ * A table that allows rows to be selected
+ *
+ *@example &lt;tc-tibco-cloud-select-table&gt;&lt;/tc-tibco-cloud-select-table&gt;
+ */
+
 @Component({
   selector: &#x27;tc-tibco-cloud-select-table&#x27;,
   templateUrl: &#x27;./tibco-cloud-select-table.component.html&#x27;,
@@ -1003,6 +1031,11 @@ import {LogService} from &#x27;../../services/tc-logging.service&#x27;;
 })
 export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
 
+
+  /**
+   * ~event selectedlines : the lines selected
+   * ~payload any : The lines that are selected in the table by the user
+   */
   @Output() selectedlines: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
 
   selected &#x3D; {};

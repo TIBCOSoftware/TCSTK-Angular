@@ -65,6 +65,13 @@
     <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Editor component to edit a note</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -74,6 +81,14 @@
     </p>
 
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-notes-editor&gt;&lt;/tcla-live-apps-notes-editor&gt;</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -207,7 +222,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -232,7 +247,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:17</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -253,7 +268,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -277,9 +292,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:23</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>~event noteSubmitted : Internal</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -361,7 +382,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes-editor/live-apps-notes-editor.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -411,6 +432,12 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, Input, OnInit, Output} from &#x27;@angular/core&#x27;;
 import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
 
+
+/**
+ * Editor component to edit a note
+ *
+ *@example &lt;tcla-live-apps-notes-editor&gt;&lt;/tcla-live-apps-notes-editor&gt;
+ */
 @Component({
   selector: &#x27;tcla-live-apps-notes-editor&#x27;,
   templateUrl: &#x27;./live-apps-notes-editor.component.html&#x27;,
@@ -419,6 +446,11 @@ import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component
 export class LiveAppsNotesEditorComponent extends LiveAppsComponent {
   @Input() noteText: string; // use &#x27;CASE_APP&#x27; to share notes with case manager
   @Input() isReply &#x3D; false;
+
+  /**
+   * ~event noteSubmitted : Internal
+   */
+
   @Output() noteSubmitted &#x3D; new EventEmitter(); // notify text submitted
 
   constructor() {

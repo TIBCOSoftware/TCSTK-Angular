@@ -69,8 +69,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>&lt;%= name %&gt;
-Describe your live apps component here</p>
+        <p>Generic component extended by others</p>
 
     </p>
 
@@ -82,6 +81,14 @@ Describe your live apps component here</p>
                     <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
     </p>
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-component&gt;&lt;/tcla-live-apps-component&gt;</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -278,12 +285,12 @@ Describe your live apps component here</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnDestroy } from &#x27;@angular/core&#x27;;
 import {Subject} from &#x27;rxjs&#x27;;
 
-/**
- * &lt;%&#x3D; name %&gt;
- * Describe your live apps component here
- *
- */
 
+/**
+ * Generic component extended by others
+ *
+ *@example &lt;tcla-live-apps-component&gt;&lt;/tcla-live-apps-component&gt;
+ */
 @Component({
   selector: &#x27;tcla-live-apps-component&#x27;,
   templateUrl: &#x27;./live-apps-component.component.html&#x27;,

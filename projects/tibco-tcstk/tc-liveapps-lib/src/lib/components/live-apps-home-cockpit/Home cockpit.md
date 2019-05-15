@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][top] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"high level component"} Component Meta -->
 
 
+<p>High level component to allow home page view of system</p>
+
 
 
 #### Usage
@@ -15,23 +17,26 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-access | RouteAccessControlConfig | --- | 
-appIds |  | --- | 
-email |  | --- | 
-roles | Roles | --- | 
-sandboxId |  | --- | 
-title |  | --- | 
-uiAppId |  | --- | 
-userId |  | --- | 
-userName |  | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+access | RouteAccessControlConfig | RouteAccessControlConfig - basically the config for access control
+appIds | string[] | The list of LA Application IDs you want to handle
+customFormDefs | CustomFormDefs | Custom Form configuration file
+email | string | <ul><li>NOT USED but is the email address of the user (comes from resolver)</li></ul>
+roles | Roles | Roles - The users current roles
+sandboxId | number | sandboxId - this comes from claims resolver
+title | string | page title comes from config resolver
+uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
+userId | string | The ID of the logged user
+userName | string | The name of the logged user
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-routeAction | EventEmitter<RouteAction> | --- | 
+routeAction | EventEmitter<RouteAction> |   |  
+  | Event |  routeAction  |  Component requests route to another page
+  | Payload |  RouteAction  |  RouteAction object to tell caller to navigate somewhere
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

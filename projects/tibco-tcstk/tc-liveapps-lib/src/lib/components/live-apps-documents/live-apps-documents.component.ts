@@ -9,7 +9,20 @@ import {TcDocumentService} from '../../services/tc-document.service';
 
 
 /**
- * Document component
+ * Document List and upload Component
+ *
+ * This Component allows to list, upload, download, Documents attached to a Case-Instance or a whole Application.
+ * In the Upload Dialog the User is able to select a local File and enter a short Description.
+ *
+ * The Component stores also the following Data
+ * - uploading User
+ * - Timestamp
+ * - File Size
+ *
+ * Document List
+ * ![alt-text](../Documents.png "Documents Component Image")
+ * Document Upload Dialog
+ * ![alt-text](../Docs-Upload.png "Documents Component Image")
  *
  *@example <tcla-live-apps-documents></tcla-live-apps-documents>
  */

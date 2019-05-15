@@ -19,10 +19,13 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appName | string | --- | diaplayed Application Name
-docUrl | string | --- | Documentation URL
+Attribute | Type | Comments
+--- | --- | ---
+appName | string | diaplayed Application Name
+docUrl | string | Documentation URL
+logoClickTargetUrl | string | Where to redirect on click of logo
+logoUrl | string | Custom Logo URL
+rebrandConfig | any | rebrand config - example: { &quot;backgroundColor&quot;: &quot;#cfcfcf&quot;, &quot;fontColor&quot;: &quot;#682782&quot;, &quot;fontFamily&quot;: &quot;Oswald&quot;, &quot;iconColor&quot;: &quot;red&quot; }
 
 
 <b>Constructor</b>

@@ -15,17 +15,19 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appId | string | --- | 
-sandboxId | number | --- | 
-typeId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appId | string | 
+sandboxId | number | 
+typeId | string | 
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-creatorSelection | EventEmitter | --- | 
+creatorSelection | EventEmitter |   |  
+  | Event |  creatorSelection  |  Case Creator selected
+  | Payload |  LaProcessSelection  |  LaProcessSelection object output when a creator is selected from a drop down
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

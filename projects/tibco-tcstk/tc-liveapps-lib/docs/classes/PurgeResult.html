@@ -142,7 +142,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -178,8 +178,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:18</a></div>
                 </td>
             </tr>
 
@@ -242,6 +242,8 @@ import {CaseInfo, JsonSchema} from &#x27;./liveappsdata&#x27;;
 export class CaseInfoWithSchema implements Deserializable {
   caseInfo: CaseInfo;
   caseSchema: JsonSchema;
+  applicationName: string;
+  applicationInternalName: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;

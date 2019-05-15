@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][major] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Render a dynamic milestone SVG</p>
+
 
 
 #### Usage
@@ -15,15 +17,15 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-isFirst | boolean | --- | 
-isLast | boolean | --- | 
-isTerminal | boolean | --- | 
-label | string | --- | 
-phase | string | --- | 
-previousPhase | string | --- | 
-status | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+isFirst | boolean | 
+isLast | boolean | 
+isTerminal | boolean | 
+label | string | 
+phase | string | 
+previousPhase | string | 
+status | string | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

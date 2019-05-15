@@ -10,6 +10,8 @@ import {TcLoginService} from '../../services/tc-login.service';
  * component will emit a list of available subscriptions. The user must select a subscription and
  * login to that subscription via the tibcoCloudSubscriptionComponent
  *
+ * ![alt-text](../Cloud-Login.png "Image")
+ *
  *  @example <tc-tibco-cloud-login *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)" (subscriptionRequired)="handleSubscription($event)"></tc-tibco-cloud-login>
  */
 @Component({

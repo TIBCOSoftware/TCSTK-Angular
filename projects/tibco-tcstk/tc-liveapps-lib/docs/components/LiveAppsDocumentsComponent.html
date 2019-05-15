@@ -65,6 +65,23 @@
     <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Document List and upload Component</p>
+<p>This Component allows to list, upload, download, Documents attached to a Case-Instance or a whole Application.
+In the Upload Dialog the User is able to select a local File and enter a short Description.</p>
+<p>The Component stores also the following Data
+- uploading User
+- Timestamp
+- File Size</p>
+<p>Document List
+<img src="../Documents.png" alt="alt-text" class="img-responsive" title="Documents Component Image">
+Document Upload Dialog
+<img src="../Docs-Upload.png" alt="alt-text" class="img-responsive" title="Documents Component Image"></p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -80,6 +97,14 @@
                     <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-documents&gt;&lt;/tcla-live-apps-documents&gt;</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -269,7 +294,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -349,9 +374,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:58</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>NOT used but would allow a search filter on documents</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -370,9 +401,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:63</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>header text on component (defaults to documents)</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -391,9 +428,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:53</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The organisation folder to store/retrieve documents</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -412,9 +455,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:48</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>orgFolders&#39; or &#39;caseFolders&#39; - different API calls made according to which one this is</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -433,9 +482,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:43</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sandboxId - this comes from claims resolver</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -459,9 +514,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:68</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -495,8 +556,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:142</a></div>
                 </td>
             </tr>
 
@@ -565,8 +626,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="143"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:143</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="186"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:186</a></div>
                 </td>
             </tr>
 
@@ -604,8 +665,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:172</a></div>
                 </td>
             </tr>
 
@@ -643,8 +704,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:147</a></div>
                 </td>
             </tr>
 
@@ -713,8 +774,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:151</a></div>
                 </td>
             </tr>
 
@@ -838,7 +899,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -866,7 +927,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:71</a></div>
                             </td>
                         </tr>
 
@@ -893,7 +954,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:124</a></div>
                             </td>
                         </tr>
 
@@ -921,7 +982,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -949,7 +1010,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:73</a></div>
                             </td>
                         </tr>
 
@@ -982,7 +1043,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:72</a></div>
                             </td>
                         </tr>
 
@@ -1009,7 +1070,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -1036,7 +1097,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:76</a></div>
                             </td>
                         </tr>
 
@@ -1063,7 +1124,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:94</a></div>
                             </td>
                         </tr>
 
@@ -1090,7 +1151,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:91</a></div>
                             </td>
                         </tr>
 
@@ -1117,7 +1178,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:74</a></div>
                             </td>
                         </tr>
 
@@ -1144,7 +1205,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:108</a></div>
                             </td>
                         </tr>
 
@@ -1200,6 +1261,26 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from &#x27;@angular/material&#
 import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
 import {TcDocumentService} from &#x27;../../services/tc-document.service&#x27;;
 
+
+/**
+ * Document List and upload Component
+ *
+ * This Component allows to list, upload, download, Documents attached to a Case-Instance or a whole Application.
+ * In the Upload Dialog the User is able to select a local File and enter a short Description.
+ *
+ * The Component stores also the following Data
+ * - uploading User
+ * - Timestamp
+ * - File Size
+ *
+ * Document List
+ * ![alt-text](../Documents.png &quot;Documents Component Image&quot;)
+ * Document Upload Dialog
+ * ![alt-text](../Docs-Upload.png &quot;Documents Component Image&quot;)
+ *
+ *@example &lt;tcla-live-apps-documents&gt;&lt;/tcla-live-apps-documents&gt;
+ */
+
 @Component({
   selector: &#x27;tcla-live-apps-documents&#x27;,
   templateUrl: &#x27;./live-apps-documents.component.html&#x27;,
@@ -1210,11 +1291,34 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   constructor(private liveapps: LiveAppsService, private documentsService: TcDocumentService, public dialog: MatDialog) {
     super();
   }
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * orgFolders&#x27; or &#x27;caseFolders&#x27; - different API calls made according to which one this is
+   */
   @Input() folderType: string; // &#x27;orgFolders&#x27; or &#x27;caseFolders&#x27;
+
+  /**
+   * The organisation folder to store/retrieve documents
+   */
   @Input() folderId: string;   // caseRef for caseFolder
+
+  /**
+   * NOT used but would allow a search filter on documents
+   */
   @Input() filter: string;
+
+  /**
+   * header text on component (defaults to documents)
+   */
   @Input() folderDescription: string;
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
   @Input() showHeader: boolean &#x3D; this.showHeader ? this.showHeader : true;
 
   public errorMessage: string;
@@ -1344,6 +1448,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   styleUrls: [ &#x27;app-live-apps-document-upload-dialog.css&#x27;]
 })
 export class LiveAppsDocumentUploadDialogComponent {
+
   @Output() fileevent &#x3D; new EventEmitter&lt;any&gt;();
   public fileToUpload: File &#x3D; undefined;
   public description: string &#x3D; undefined;
