@@ -9,6 +9,8 @@ import {map, tap} from 'rxjs/operators';
 /**
  * Selection of app + searching for cases
  *
+ * ![alt-text](../case-search.png "Image")
+ *
  *@example <tcla-live-apps-case-search></tcla-live-apps-case-search>
  */
 @Component({

@@ -17,18 +17,20 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-headerText | string | --- | 
-icon | string | --- | 
-showHeader | boolean | --- | 
-toolbarButtons | ToolbarButton[] | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+headerText | string | Text shown in menu bar
+icon | string | icon name (svg key - needs to be registered)
+showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+toolbarButtons | ToolbarButton[] | buttons to display in the menu bar
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-toolbarButtonEvent | EventEmitter<string> | --- | 
+toolbarButtonEvent | EventEmitter<string> |   |  
+  | Event |  toolbarButtonEvent  |  Button Clicked
+  | Payload |  string  |  tells caller a button was clicked - outputs button Id
 
 
 <b>Constructor</b>

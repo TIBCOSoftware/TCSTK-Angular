@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":""} Component Meta -->
 
 
+<p>renders a single icon for a state</p>
+
 
 
 #### Usage
@@ -15,13 +17,13 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appId | string | --- | 
-color | string | --- | 
-iconHostURL | string | --- | 
-iconPath | string | --- | 
-id | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appId | string | 
+color | string | 
+iconHostURL | string | 
+iconPath | string | 
+id | string | 
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

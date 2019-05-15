@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][major] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"action buttons"} Component Meta -->
 
 
+<p>Renders case action buttons</p>
+
 
 
 #### Usage
@@ -15,20 +17,22 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appId | string | --- | 
-caseRef | string | --- | 
-caseState | string | --- | 
-maxActions |  | --- | 
-sandboxId | number | --- | 
-typeId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appId | string | The LA Application Id
+caseRef | string | The case reference
+caseState | string | The state of the case
+maxActions |  | Max Actions that can be run simultaneously
+sandboxId | number | sandboxId - this comes from claims resolver
+typeId | string | The LA Application Type Id (generally 1)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-actionClicked | EventEmitter<LaProcessSelection> | --- | 
+actionClicked | EventEmitter<LaProcessSelection> |   |  
+  | Event |  actionClicked  |  Case Action selected
+  | Payload |  LaProcessSelection  |  LaProcessSelection object output when an action is clicked (ie. message to parent to run action component)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

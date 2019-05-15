@@ -9,7 +9,10 @@ import {TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
 
 
 /**
- * Top level notes widget
+ * This Component allows to list, and add Notes to a Case-Instance or other Context e.g. a whole Application.
+ * Any Note can have Sub-Notes to allow real collaboration.
+ *
+ * ![alt-text](../Notes.png "Notes Component Image")
  *
  *@example <tcla-live-apps-notes></tcla-live-apps-notes>
  */

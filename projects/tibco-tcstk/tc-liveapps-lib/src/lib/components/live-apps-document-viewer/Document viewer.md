@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Display document</p>
+
 
 
 #### Usage
@@ -15,12 +17,12 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-document | Document | --- | 
-folderId | string | --- | 
-folderType | string | --- | 
-sandboxId | number | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+document | Document | Document metadata object from API - describes the document to display
+folderId | string | The organisation folder to store/retrieve documents
+folderType | string | orgFolders&#39; or &#39;caseFolders&#39; - different API calls made according to which one this is
+sandboxId | number | sandboxId - this comes from claims resolver
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Special rendering of LiveAppsApplicationsComponent</p>
+
 
 
 #### Usage
@@ -15,18 +17,20 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appIds | string[] | --- | 
-sandboxId | number | --- | 
-selectedApp | CaseType | --- | 
-selectFirstApp | boolean | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appIds | string[] | The list of LA Application IDs you want to handle
+sandboxId | number | sandboxId - this comes from claims resolver
+selectedApp | CaseType | Application selected from dropdown (output)
+selectFirstApp | boolean | Whether to auto select the first app in dropdown selector (eg search)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-selection | EventEmitter<CaseType> | --- | 
+selection | EventEmitter<CaseType> |   |  
+  | Event |  selection  |  Value selected in child component
+  | Payload |  CaseType  |  type varies.  but is when something is selected in a drop down it is passed back to the caller
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Renders the menu options for each config menu</p>
+
 
 
 #### Usage
@@ -15,17 +17,19 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-icon | string | --- | 
-options | string[] | --- | 
-title | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+icon | string | icon name (svg key - needs to be registered)
+options | string[] | RenderedFormComponent: (options from third party API). TibcoCloudSettingMenuEntryComponent -Check with MC - not sure we need to document this.
+title | string | page title comes from config resolver
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-configureOption | EventEmitter<string> | --- | 
+configureOption | EventEmitter<string> |   |  
+  | Event |  configureOption  |  Option Clicked
+  | Payload |  string  |  emits Id of option selected in config main page (options)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

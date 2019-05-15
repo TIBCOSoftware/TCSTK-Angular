@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][major] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Provides case audit summary for states</p>
+
 
 
 #### Usage
@@ -15,11 +17,11 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appId | string | --- | 
-caseRef | string | --- | 
-sandboxId | number | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appId | string | The LA Application Id
+caseRef | string | The case reference
+sandboxId | number | sandboxId - this comes from claims resolver
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

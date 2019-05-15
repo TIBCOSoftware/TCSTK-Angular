@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"creator executor"} Component Meta -->
 
 
+<p>Handles rendering of case creator form.</p>
+
 
 
 #### Usage
@@ -15,19 +17,22 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-applicationId | string | --- | 
-dataOverride | any | --- | 
-process | LaProcessSelection | --- | 
-sandboxId | number | --- | 
-typeId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+applicationId | string | LA application ID
+customFormDefs | CustomFormDefs | Custom Form configuration file
+dataOverride | any | Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
+process | LaProcessSelection | The process definition of the action or creator to execute
+sandboxId | number | sandboxId - this comes from claims resolver
+typeId | string | The LA Application Type Id (generally 1)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-caseChanged | EventEmitter<ProcessId> | --- | 
+caseChanged | EventEmitter<ProcessId> |   |  
+  | Event |  caseChanged  |  Case action started (process started)
+  | Payload |  ProcessId  |  ProcessId object passed when a case has been updated or created by a process (action/creator)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
