@@ -1,0 +1,1151 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Live Apps Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Live Apps Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LiveAppsCaseAuditComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Render audit trail for a case</p>
+
+    </p>
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-case-audit&gt;&lt;/tcla-live-apps-case-audit&gt;</code></pre>
+                </div>
+    </div>
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tcla-live-apps-case-audit</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./live-apps-case-audit.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./live-apps-case-audit.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#auditEvents">auditEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#end">end</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMessage">errorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getAuditEvents">getAuditEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getNextBatch">getNextBatch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#startat">startat</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#top">top</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_destroyed$">_destroyed$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#caseRef">caseRef</a>
+                            </li>
+                            <li>
+                                <a href="#sandboxId">sandboxId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(caseAuditService: <a href="../injectables/TcCaseAuditService.html">TcCaseAuditService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:68</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>caseAuditService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TcCaseAuditService.html" target="_self" >TcCaseAuditService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caseRef"></a>
+                        <b>caseRef</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:22</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The case reference</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sandboxId"></a>
+                        <b>sandboxId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:27</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sandboxId - this comes from claims resolver</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:27</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="auditEvents"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            auditEvents</b>
+                            <a href="#auditEvents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/AuditEvent.html" target="_self" >AuditEvent[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="end"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            end</b>
+                            <a href="#end"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessage"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorMessage</b>
+                            <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getAuditEvents"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getAuditEvents</b>
+                            <a href="#getAuditEvents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getNextBatch"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getNextBatch</b>
+                            <a href="#getNextBatch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            refresh</b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="startat"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            startat</b>
+                            <a href="#startat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="top"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            top</b>
+                            <a href="#top"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>20</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-audit/live-apps-case-audit.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_destroyed$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _destroyed$</b>
+                            <a href="#_destroyed$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:23</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnDestroy, OnInit} from &#x27;@angular/core&#x27;;
+import {map, take, takeUntil} from &#x27;rxjs/operators&#x27;;
+import {AuditEvent} from &#x27;../../models/tc-case-audit&#x27;;
+import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
+import {TcCaseAuditService} from &#x27;../../services/tc-case-audit.service&#x27;;
+
+/**
+ * Render audit trail for a case
+ *
+ *@example &lt;tcla-live-apps-case-audit&gt;&lt;/tcla-live-apps-case-audit&gt;
+ */
+@Component({
+  selector: &#x27;tcla-live-apps-case-audit&#x27;,
+  templateUrl: &#x27;./live-apps-case-audit.component.html&#x27;,
+  styleUrls: [&#x27;./live-apps-case-audit.component.css&#x27;]
+})
+export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnDestroy {
+
+  /**
+   * The case reference
+   */
+  @Input() caseRef: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
+  @Input() sandboxId: number;
+
+  public auditEvents: AuditEvent[] &#x3D; [];
+  public errorMessage: string;
+  public startat &#x3D; undefined;
+  public top &#x3D; 20;
+  public end &#x3D; false;
+
+  public refresh &#x3D; () &#x3D;&gt; {
+    this.startat &#x3D; undefined;
+    this.top &#x3D; 20;
+    this.end &#x3D; false;
+    this.auditEvents &#x3D; [];
+    this.getAuditEvents(this.caseRef, this.sandboxId, this.startat, this.top);
+  }
+
+  public getAuditEvents &#x3D; (caseRef: string, sandboxId: number, startAt: number, top: number) &#x3D;&gt; {
+    this.caseAuditService.getCaseAudit(this.caseRef, this.sandboxId, this.startat, this.top)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(auditeventlist &#x3D;&gt; {
+          // this will strip any duplicates that may have been retrieved due to fast scrolling
+          const filteredEvents &#x3D; auditeventlist.auditevents.filter(x &#x3D;&gt; this.auditEvents.every(y &#x3D;&gt; y.key.value !&#x3D;&#x3D; x.key.value))
+          this.auditEvents &#x3D; this.auditEvents.concat(filteredEvents);
+          if (auditeventlist.auditevents.length &lt; this.top) {
+            this.end &#x3D; true;
+          } else {
+            this.startat &#x3D; auditeventlist.auditevents[auditeventlist.auditevents.length - 1].key.value;
+          }
+        })
+      ).subscribe(
+      null, error &#x3D;&gt; {
+        this.errorMessage &#x3D; &#x27;Error retrieving case audit: &#x27; + error.error.errorMsg;
+      });
+  }
+
+  public getNextBatch &#x3D; (event) &#x3D;&gt; {
+    if (!this.end) {
+      this.getAuditEvents(this.caseRef, this.sandboxId, this.startat, this.top);
+    }
+  }
+
+  constructor(private caseAuditService: TcCaseAuditService) {
+    super();
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;tcs-case-audit-pane&quot; fxLayout&#x3D;&quot;column&quot; fxFill style&#x3D;&quot;overflow: hidden;&quot;&gt;
+  &lt;tc-tibco-cloud-widget-header fxFlex&#x3D;&quot;nogrow&quot; [headerText]&#x3D;&quot;&#x27;Audit&#x27;&quot;
+                                [icon]&#x3D;&quot;&#x27;tcs-recent-icon&#x27;&quot;&gt;&lt;/tc-tibco-cloud-widget-header&gt;
+
+
+  &lt;!--div *ngIf&#x3D;&quot;auditEvents &amp;&amp; auditEvents.length &gt; 0&quot; class&#x3D;&quot;tcs-case-audit-container&quot;&gt;
+
+  &lt;/div--&gt;
+  &lt;div class&#x3D;&quot;audit-template&quot; style&#x3D;&quot;height: 100%&quot;&gt;
+  &lt;cdk-virtual-scroll-viewport style&#x3D;&quot;height: 100%&quot; itemSize&#x3D;&quot;50&quot; (scrolledIndexChange)&#x3D;&quot;getNextBatch($event)&quot;&gt;
+    &lt;ul style&#x3D;&quot;&quot;
+         *cdkVirtualFor&#x3D;&quot;let item of auditEvents; let i &#x3D; index&quot;&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_INSTANCE_CREATED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;BP_INSTANCE_CREATED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;audit-details&quot;&gt;
+          &lt;li&gt;
+            &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}} &lt;/span&gt;
+            &lt;span&gt;
+                      &lt;span&gt; started &lt;/span&gt;
+                      &lt;b&gt;{{item.procName.value}}&lt;/b&gt;
+                      &lt;span&gt; on {{item.creationTime.value | date:&#x27;full&#x27;}}&lt;/span&gt;
+                  &lt;/span&gt;
+          &lt;/li&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_AUTO_STARTED_INSTANCE&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;BP_AUTO_STARTED_INSTANCE&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;!--span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}} &lt;/span--&gt;
+          &lt;span&gt;
+                    &lt;b&gt;{{item.procName.value}}&lt;/b&gt;
+                    &lt;span&gt; auto initiated on {{item.creationTime.value | date:&#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_DELAYED_AUTO_STARTED_INSTANCE&#x27;&quot;&gt;
+        &lt;!-- todo: JS fix this --&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;BP_DELAYED_AUTO_STARTED_INSTANCE&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span&gt;
+                    &lt;b&gt;{{item.procName.value}}&lt;/b&gt;
+					&lt;span&gt; deadline auto initiated on {{item.creationTime.value | date:&#x27;full&#x27;}}&lt;/span&gt;
+          &lt;span&gt;. &lt;/span&gt;
+          &lt;span&gt; Time to deadline {{item.delayTime.value}}&gt;&lt;/span&gt;. &lt;/span&gt;
+          &lt;!--span class&#x3D;&quot;skip-delay&quot; *ngIf&#x3D;&quot;isInstanceDelayed(item)&quot; ng-click&#x3D;&quot;skipDelay(item)&quot; skip&quot;&gt;&lt;/span&gt;
+                &lt;/span--&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_DELAYED_AUTO_START_TIMER_EXPIRED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;BP_DELAYED_AUTO_START_TIMER_EXPIRED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span&gt;
+            &lt;b&gt;{{item.procName.value}}&lt;/b&gt;
+					  &lt;span&gt; deadline reached {{item.creationTime.value | date: &#x27;full&#x27;}}&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;!--span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}} &lt;/span--&gt;
+          &lt;span&gt;
+                    &lt;b&gt;{{item.procName.value}}&lt;/b&gt;
+            &lt;span&gt; deadline cancelled {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_TASK_CREATED&#x27; &amp;&amp; [&#x27;User Task&#x27;,&#x27;Email Task&#x27;,&#x27;Calculation Task&#x27;,&#x27;TCI Task&#x27;,&#x27;AuditSafe Task&#x27;].indexOf(item.taskType.value) &gt; -1&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;{{item.taskType.value}}&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+                &lt;span&gt;
+                    &lt;b&gt;{{item.taskName.value}}&lt;/b&gt;
+                    &lt;span&gt; initiated on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;CM_CASE_CREATED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;CM_CASE_CREATED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;spanPadding&quot;&gt;
+                    &lt;span&gt; created &lt;/span&gt;
+                    &lt;b&gt; {{item.label.value}}&lt;/b&gt;
+                    &lt;span&gt; in state&lt;/span&gt;
+                    &lt;span class&#x3D;&quot;audit-state&quot;&gt;&quot;{{item.caseState.value}}&quot;&lt;/span&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;CM_CASE_UPDATED_STATE_CHANGED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;CM_CASE_UPDATED_STATE_CHANGED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;spanPadding&quot;&gt;
+                    &lt;span&gt; updated &lt;/span&gt;
+                    &lt;b&gt; {{item.label.value}}&lt;/b&gt;
+                    &lt;span&gt;, new state is&gt;&lt;/span&gt;
+                    &lt;span class&#x3D;&quot;audit-state&quot;&gt; &quot;{{item.caseState.value}}&quot; &lt;/span&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;CM_CASE_UPDATED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;CM_CASE_UPDATED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;spanPadding&quot;&gt;
+                    &lt;span&gt; updated &lt;/span&gt;
+                    &lt;b&gt; {{item.label.value}} &lt;/b&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;WR_FOLDER_ARTIFACT_CREATED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;WR_FOLDER_ARTIFACT_CREATED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;spanPadding&quot;&gt;
+                    &lt;span&gt; uploaded &lt;/span&gt;
+                    &lt;span&gt;{{item.artifactName.value}}&lt;/span&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date:&#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;WR_FOLDER_ARTIFACT_UPDATED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;WR_FOLDER_ARTIFACT_UPDATED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;spanPadding&quot;&gt;
+                    &lt;span&gt; updated &lt;/span&gt;
+                    &lt;span&gt;{{item.artifactName.value}}&lt;/span&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date:&#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;WR_FOLDER_ARTIFACT_DELETED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;WR_FOLDER_ARTIFACT_DELETED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;spanPadding&quot;&gt;
+                    &lt;span&gt; deleted &lt;/span&gt;
+                    &lt;span&gt;{{item.artifactName.value}}&lt;/span&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date:&#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_TASK_COMPLETED&#x27; &amp;&amp; [&#x27;User Task&#x27;,&#x27;Email Task&#x27;,&#x27;Calculation Task&#x27;,&#x27;TCI Task&#x27;,&#x27;AuditSafe Task&#x27;].indexOf(item.taskType.value) &gt; -1&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;{{item.taskType.value}}&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+          &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}} &lt;/span&gt;
+          &lt;span&gt;
+                    &lt;span&gt; completed &lt;/span&gt;
+                    &lt;b&gt; {{item.taskName.value}} &lt;/b&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.messageId.value &#x3D;&#x3D;&#x3D; &#x27;BP_INSTANCE_COMPLETED&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;BP_INSTANCE_COMPLETED&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+                &lt;span&gt;
+                    &lt;b&gt;{{item.procName.value}} &lt;/b&gt;
+                    &lt;span&gt; on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+                &lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.severity.value &#x3D;&#x3D;&#x3D; &#x27;ERROR&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;ERROR&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+                &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}} has error at {{item.taskName.value}}
+                &lt;/span&gt;
+          &lt;b&gt; {{item.message.value | parseAuditMessage : item }}&lt;/b&gt;
+          &lt;span&gt; on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-audit-dtl&quot; *ngIf&#x3D;&quot;item.severity.value &#x3D;&#x3D;&#x3D; &#x27;WARN&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;audit-icon-container warn-icon&quot;&gt;
+          &lt;mat-icon svgIcon&#x3D;&quot;ERROR&quot;&gt;&lt;/mat-icon&gt;
+        &lt;/div&gt;
+        &lt;li&gt;
+                &lt;span *ngIf&#x3D;&quot;item.principalName&quot;&gt;{{item.principalName.value}} has warning at {{item.taskName.value}}&gt;
+                &lt;/span&gt;
+          &lt;b&gt; {{item.message.value | parseAuditMessage : item }}&lt;/b&gt;
+          &lt;span&gt; on {{item.creationTime.value | date: &#x27;full&#x27;}}&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;div class&#x3D;&quot;audit-line&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+
+    &lt;/ul&gt;
+  &lt;/cdk-virtual-scroll-viewport&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./live-apps-case-audit.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tcs-case-audit-pane {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
+.tcs-case-audit-container {
+  height: 100%;
+  overflow-x: auto;
+  padding: 11px;
+}
+
+.tcs-case-audit-dtl {
+  height: 70px;
+}
+
+.audit-template {
+  padding: 20px;
+}
+
+.audit-template span {
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.audit-template ul {
+  padding-left: 25px;
+  border-left: 2px solid #bfbfbf;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.audit-icon-container {
+  background-color: white;
+  padding: 5px;
+  position: absolute;
+  left: -19px;
+
+  border-radius: 50%;
+  border: solid 1px #0081cb;
+}
+
+.audit-icon-container mat-icon {
+  padding: 4px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="tcs-case-audit-pane" fxLayout="column" fxFill style="overflow: hidden;">  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="\'Audit\'"                                [icon]="\'tcs-recent-icon\'"></tc-tibco-cloud-widget-header>  <!--div *ngIf="auditEvents && auditEvents.length > 0" class="tcs-case-audit-container">  </div-->  <div class="audit-template" style="height: 100%">  <cdk-virtual-scroll-viewport style="height: 100%" itemSize="50" (scrolledIndexChange)="getNextBatch($event)">    <ul style=""         *cdkVirtualFor="let item of auditEvents; let i = index">      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_INSTANCE_CREATED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="BP_INSTANCE_CREATED"></mat-icon>        </div>        <div class="audit-details">          <li>            <span *ngIf="item.principalName">{{item.principalName.value}} </span>            <span>                      <span> started </span>                      <b>{{item.procName.value}}</b>                      <span> on {{item.creationTime.value | date:\'full\'}}</span>                  </span>          </li>        </div>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_AUTO_STARTED_INSTANCE\'">        <div class="audit-icon-container">          <mat-icon svgIcon="BP_AUTO_STARTED_INSTANCE"></mat-icon>        </div>        <li>          <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->          <span>                    <b>{{item.procName.value}}</b>                    <span> auto initiated on {{item.creationTime.value | date:\'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_DELAYED_AUTO_STARTED_INSTANCE\'">        <!-- todo: JS fix this -->        <div class="audit-icon-container">          <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE"></mat-icon>        </div>        <li>          <span>                    <b>{{item.procName.value}}</b>					<span> deadline auto initiated on {{item.creationTime.value | date:\'full\'}}</span>          <span>. </span>          <span> Time to deadline {{item.delayTime.value}}></span>. </span>          <!--span class="skip-delay" *ngIf="isInstanceDelayed(item)" ng-click="skipDelay(item)" skip"></span>                </span-->        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_DELAYED_AUTO_START_TIMER_EXPIRED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="BP_DELAYED_AUTO_START_TIMER_EXPIRED"></mat-icon>        </div>        <li>          <span>            <b>{{item.procName.value}}</b>					  <span> deadline reached {{item.creationTime.value | date: \'full\'}}></span>          </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE\'">        <div class="audit-icon-container">          <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE"></mat-icon>        </div>        <li>          <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->          <span>                    <b>{{item.procName.value}}</b>            <span> deadline cancelled {{item.creationTime.value | date: \'full\'}}</span>          </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_TASK_CREATED\' && [\'User Task\',\'Email Task\',\'Calculation Task\',\'TCI Task\',\'AuditSafe Task\'].indexOf(item.taskType.value) > -1">        <div class="audit-icon-container">          <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>        </div>        <li>                <span>                    <b>{{item.taskName.value}}</b>                    <span> initiated on {{item.creationTime.value | date: \'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'CM_CASE_CREATED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="CM_CASE_CREATED"></mat-icon>        </div>        <li>          <span *ngIf="item.principalName">{{item.principalName.value}}</span>          <span class="spanPadding">                    <span> created </span>                    <b> {{item.label.value}}</b>                    <span> in state</span>                    <span class="audit-state">"{{item.caseState.value}}"</span>                    <span> on {{item.creationTime.value | date: \'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'CM_CASE_UPDATED_STATE_CHANGED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="CM_CASE_UPDATED_STATE_CHANGED"></mat-icon>        </div>        <li>          <span *ngIf="item.principalName">{{item.principalName.value}}</span>          <span class="spanPadding">                    <span> updated </span>                    <b> {{item.label.value}}</b>                    <span>, new state is></span>                    <span class="audit-state"> "{{item.caseState.value}}" </span>                    <span> on {{item.creationTime.value | date: \'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'CM_CASE_UPDATED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="CM_CASE_UPDATED"></mat-icon>        </div>        <li>          <span *ngIf="item.principalName">{{item.principalName.value}}</span>          <span class="spanPadding">                    <span> updated </span>                    <b> {{item.label.value}} </b>                    <span> on {{item.creationTime.value | date: \'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'WR_FOLDER_ARTIFACT_CREATED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_CREATED"></mat-icon>        </div>        <li>          <span *ngIf="item.principalName">{{item.principalName.value}}</span>          <span class="spanPadding">                    <span> uploaded </span>                    <span>{{item.artifactName.value}}</span>                    <span> on {{item.creationTime.value | date:\'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'WR_FOLDER_ARTIFACT_UPDATED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_UPDATED"></mat-icon>        </div>        <li>          <span *ngIf="item.principalName">{{item.principalName.value}}</span>          <span class="spanPadding">                    <span> updated </span>                    <span>{{item.artifactName.value}}</span>                    <span> on {{item.creationTime.value | date:\'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'WR_FOLDER_ARTIFACT_DELETED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_DELETED"></mat-icon>        </div>        <li>          <span *ngIf="item.principalName">{{item.principalName.value}}</span>          <span class="spanPadding">                    <span> deleted </span>                    <span>{{item.artifactName.value}}</span>                    <span> on {{item.creationTime.value | date:\'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_TASK_COMPLETED\' && [\'User Task\',\'Email Task\',\'Calculation Task\',\'TCI Task\',\'AuditSafe Task\'].indexOf(item.taskType.value) > -1">        <div class="audit-icon-container">          <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>        </div>        <li>          <span *ngIf="item.principalName">{{item.principalName.value}} </span>          <span>                    <span> completed </span>                    <b> {{item.taskName.value}} </b>                    <span> on {{item.creationTime.value | date: \'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === \'BP_INSTANCE_COMPLETED\'">        <div class="audit-icon-container">          <mat-icon svgIcon="BP_INSTANCE_COMPLETED"></mat-icon>        </div>        <li>                <span>                    <b>{{item.procName.value}} </b>                    <span> on {{item.creationTime.value | date: \'full\'}}</span>                </span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === \'ERROR\'">        <div class="audit-icon-container">          <mat-icon svgIcon="ERROR"></mat-icon>        </div>        <li>                <span *ngIf="item.principalName">{{item.principalName.value}} has error at {{item.taskName.value}}                </span>          <b> {{item.message.value | parseAuditMessage : item }}</b>          <span> on {{item.creationTime.value | date: \'full\'}}</span>        </li>        <div class="audit-line"></div>      </div>      <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === \'WARN\'">        <div class="audit-icon-container warn-icon">          <mat-icon svgIcon="ERROR"></mat-icon>        </div>        <li>                <span *ngIf="item.principalName">{{item.principalName.value}} has warning at {{item.taskName.value}}>                </span>          <b> {{item.message.value | parseAuditMessage : item }}</b>          <span> on {{item.creationTime.value | date: \'full\'}}</span>        </li>        <div class="audit-line"></div>      </div>    </ul>  </cdk-virtual-scroll-viewport>  </div></div></div>'
+    var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseOverviewReportComponent', 'selector': 'tcla-live-apps-case-overview-report'},{'name': 'LiveAppsCaseSchemaListComponent', 'selector': 'tcla-live-apps-case-schema-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsCaseTypeOverviewReportComponent', 'selector': 'tcla-live-apps-case-type-overview-report'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsPieComponent', 'selector': 'tcla-live-apps-pie'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsReportingCockpitComponent', 'selector': 'tcla-live-apps-reporting-cockpit'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSandboxComponent', 'selector': 'tcla-live-apps-sandbox'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LiveAppsCaseAuditComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LiveAppsCaseAuditComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

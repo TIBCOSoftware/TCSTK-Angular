@@ -1,0 +1,696 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Core Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Core Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>TibcoCloudMenuBarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>TIBCO Cloud Menu Bar</p>
+
+    </p>
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../components/TibcoCloudWidgetHeaderComponent.html" target="_self" >TibcoCloudWidgetHeaderComponent</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tc-tibco-cloud-menu-bar&gt;&lt;/tc-tibco-cloud-menu-bar&gt;</code></pre>
+                </div>
+    </div>
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tc-tibco-cloud-menu-bar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./tibco-cloud-menu-bar.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./tibco-cloud-menu-bar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#toolbarButtonClick">toolbarButtonClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#headerText">headerText</a>
+                            </li>
+                            <li>
+                                <a href="#icon">icon</a>
+                            </li>
+                            <li>
+                                <a href="#showHeader">showHeader</a>
+                            </li>
+                            <li>
+                                <a href="#toolbarButtons">toolbarButtons</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#toolbarButtonEvent">toolbarButtonEvent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p><code>&lt;tc-tibco-cloud-menu-bar&gt;</code> render a general menu bar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="headerText"></a>
+                        <b>headerText</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html" target="_self" >TibcoCloudWidgetHeaderComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html#source" target="_self" >TibcoCloudWidgetHeaderComponent:19</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Text shown in menu bar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="icon"></a>
+                        <b>icon</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html" target="_self" >TibcoCloudWidgetHeaderComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html#source" target="_self" >TibcoCloudWidgetHeaderComponent:24</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>icon name (svg key - needs to be registered)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showHeader"></a>
+                        <b>showHeader</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.showHeader ? this.showHeader : true</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html" target="_self" >TibcoCloudWidgetHeaderComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html#source" target="_self" >TibcoCloudWidgetHeaderComponent:34</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toolbarButtons"></a>
+                        <b>toolbarButtons</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/ToolbarButton.html" target="_self" >ToolbarButton[]</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html" target="_self" >TibcoCloudWidgetHeaderComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html#source" target="_self" >TibcoCloudWidgetHeaderComponent:29</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>buttons to display in the menu bar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toolbarButtonEvent"></a>
+                        <b>toolbarButtonEvent</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html" target="_self" >TibcoCloudWidgetHeaderComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html#source" target="_self" >TibcoCloudWidgetHeaderComponent:40</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>~event toolbarButtonEvent : Button Clicked
+~payload string : tells caller a button was clicked - outputs button Id</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolbarButtonClick"></a>
+                    <span class="name">
+                        <b>
+                            toolbarButtonClick
+                        </b>
+                        <a href="#toolbarButtonClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toolbarButtonClick(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html" target="_self" >TibcoCloudWidgetHeaderComponent</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../components/TibcoCloudWidgetHeaderComponent.html#source" target="_self" >TibcoCloudWidgetHeaderComponent:44</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, Input, OnInit, Output} from &#x27;@angular/core&#x27;;
+import {TibcoCloudWidgetHeaderComponent} from &#x27;../tibco-cloud-widget-header/tibco-cloud-widget-header.component&#x27;;
+import {ToolbarButton} from &#x27;../../models/tc-widget-header&#x27;;
+
+/**
+ * TIBCO Cloud Menu Bar
+ *
+ * @example &lt;tc-tibco-cloud-menu-bar&gt;&lt;/tc-tibco-cloud-menu-bar&gt;
+ */
+@Component({
+  selector: &#x27;tc-tibco-cloud-menu-bar&#x27;,
+  templateUrl: &#x27;./tibco-cloud-menu-bar.component.html&#x27;,
+  styleUrls: [&#x27;./tibco-cloud-menu-bar.component.css&#x27;]
+})
+export class TibcoCloudMenuBarComponent extends TibcoCloudWidgetHeaderComponent implements OnInit {
+
+    /**
+    * &#x60;&lt;tc-tibco-cloud-menu-bar&gt;&#x60; render a general menu bar
+    */
+    constructor() {
+        super();
+    }
+
+    /**
+    * @ignore
+    */
+    ngOnInit() {
+      // none
+    }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;tcs-menu-bar-pane&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+  &lt;div class&#x3D;&quot;tcs-menu-bar-content&quot; fxFlex fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;headerText&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+      &lt;mat-icon class&#x3D;&quot;tcs-widget-header-icon&quot; svgIcon&#x3D;&quot;{{icon}}&quot;&gt;&lt;/mat-icon&gt;
+      &lt;div class&#x3D;&quot;tcs-widget-header-text&quot;&gt;{{headerText}}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ng-content fxFlex&gt;&lt;/ng-content&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;tcs-button-toolbar&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;center, center&quot;&gt;
+    &lt;div class&#x3D;&quot;tcs-toolbar-button-div&quot; *ngFor&#x3D;&quot;let toolbarButton of toolbarButtons&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;center, center&quot;&gt;
+      &lt;button *ngIf&#x3D;&quot;toolbarButton.visible&quot; mat-icon-button [disabled]&#x3D;&quot;!toolbarButton.enabled&quot; (click)&#x3D;&quot;toolbarButtonClick(toolbarButton.id)&quot;&gt;
+        &lt;mat-icon class&#x3D;&quot;tcs-toolbar-button&quot; [ngClass]&#x3D;&quot;toolbarButton.filled ? &#x27;tcs-button-filled&#x27; : &#x27;tcs-button-not-filled&#x27;&quot; [matTooltip]&#x3D;&quot;toolbarButton.tooltip&quot; matTooltipPosition&#x3D;&quot;left&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; [svgIcon]&#x3D;&quot;toolbarButton.icon&quot;&gt;&lt;/mat-icon&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./tibco-cloud-menu-bar.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tcs-menu-bar-pane {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  height: 65px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-toolbar-button-div {
+  /*margin-left: 10px;
+  margin-right: 10px;*/
+}
+
+.tcs-menu-bar-content {
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.tcs-widget-header-text {
+  font-family: Source Sans Pro;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #212121;
+}
+
+
+:host ::ng-deep .tcs-toolbar-button:hover .svg-content {
+  fill: #0081cb;
+}
+
+:host ::ng-deep .tcs-button-filled .svg-content {
+  fill: #727272;
+}
+
+:host ::ng-deep .tcs-button-not-filled .svg-content {
+  fill: #dedede;
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="tcs-menu-bar-pane" fxLayout="row" fxLayoutAlign="space-between center">  <div class="tcs-menu-bar-content" fxFlex fxLayout="row" fxLayoutAlign="space-between center">    <div *ngIf="headerText" fxLayoutAlign="start center">      <mat-icon class="tcs-widget-header-icon" svgIcon="{{icon}}"></mat-icon>      <div class="tcs-widget-header-text">{{headerText}}</div>    </div>    <ng-content fxFlex></ng-content>  </div>  <div class="tcs-button-toolbar" fxLayout="row" fxLayoutAlign="center, center">    <div class="tcs-toolbar-button-div" *ngFor="let toolbarButton of toolbarButtons" fxLayout="row" fxLayoutAlign="center, center">      <button *ngIf="toolbarButton.visible" mat-icon-button [disabled]="!toolbarButton.enabled" (click)="toolbarButtonClick(toolbarButton.id)">        <mat-icon class="tcs-toolbar-button" [ngClass]="toolbarButton.filled ? \'tcs-button-filled\' : \'tcs-button-not-filled\'" [matTooltip]="toolbarButton.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000" [svgIcon]="toolbarButton.icon"></mat-icon>      </button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'TibcoCloudConfigurationComponent', 'selector': 'tc-tibco-cloud-configuration'},{'name': 'TibcoCloudErrorComponent', 'selector': 'tc-tibco-cloud-error'},{'name': 'TibcoCloudLoginComponent', 'selector': 'tc-tibco-cloud-login'},{'name': 'TibcoCloudMenuBarComponent', 'selector': 'tc-tibco-cloud-menu-bar'},{'name': 'TibcoCloudMultipleSubscriptionComponent', 'selector': 'tc-tibco-cloud-multiple-subscription'},{'name': 'TibcoCloudNavbarComponent', 'selector': 'tc-tibco-cloud-navbar'},{'name': 'TibcoCloudNewElementComponent', 'selector': 'tc-tibco-cloud-new-element'},{'name': 'TibcoCloudSelectTableComponent', 'selector': 'tc-tibco-cloud-select-table'},{'name': 'TibcoCloudSettingLandingComponent', 'selector': 'tc-tibco-cloud-setting-landing'},{'name': 'TibcoCloudSettingMenuEntryComponent', 'selector': 'tc-tibco-cloud-setting-menu-entry'},{'name': 'TibcoCloudSettingsGeneralComponent', 'selector': 'tc-tibco-cloud-settings-general'},{'name': 'TibcoCloudSplashScreenComponent', 'selector': 'tc-tibco-cloud-splash-screen'},{'name': 'TibcoCloudTableComponent', 'selector': 'tc-tibco-cloud-table'},{'name': 'TibcoCloudWidgetHeaderComponent', 'selector': 'tc-tibco-cloud-widget-header'}];
+    var DIRECTIVES = [{'name': 'OnCreateDirective', 'selector': '[tcOnCreate]'}];
+    var ACTUAL_COMPONENT = {'name': 'TibcoCloudMenuBarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TibcoCloudMenuBarComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
