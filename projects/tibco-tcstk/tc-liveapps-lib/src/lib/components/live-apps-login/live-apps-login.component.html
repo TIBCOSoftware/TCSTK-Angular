@@ -1,5 +1,5 @@
 <!-- If the user is not logged in we just show the login components -->
-<tc-tibco-cloud-login  *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)"  [loginPrefill]="loginPrefill"></tc-tibco-cloud-login>
+<tc-tibco-cloud-login  fxFill *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)"  [loginPrefill]="loginPrefill"></tc-tibco-cloud-login>
 
 
 
