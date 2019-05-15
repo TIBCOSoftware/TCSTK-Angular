@@ -1,0 +1,1289 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Live Apps Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Live Apps Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LiveAppsCaseSearchComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Selection of app + searching for cases</p>
+<p><img src="../case-search.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
+    </p>
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+    </p>
+
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-case-search&gt;&lt;/tcla-live-apps-case-search&gt;</code></pre>
+                </div>
+    </div>
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tcla-live-apps-case-search</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./live-apps-case-search.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./live-apps-case-search.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applicationsComponent">applicationsComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#clearResults">clearResults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#doSearch">doSearch</a>
+                            </li>
+                            <li>
+                                <a href="#forcedSearch">forcedSearch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#forceSearch">forceSearch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleSearchAppSelection">handleSearchAppSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                <a href="#searchBox">searchBox</a>
+                            </li>
+                            <li>
+                                <a href="#searchString">searchString</a>
+                            </li>
+                            <li>
+                                <a href="#searchTerm$">searchTerm$</a>
+                            </li>
+                            <li>
+                                <a href="#searchValue">searchValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedApp">selectedApp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedStateId">selectedStateId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedStateLabel">selectedStateLabel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setCaseType">setCaseType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setSelectedStateId">setSelectedStateId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_destroyed$">_destroyed$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#appIds">appIds</a>
+                            </li>
+                            <li>
+                                <a href="#sandboxId">sandboxId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#foundRefs">foundRefs</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(liveapps: <a href="../injectables/LiveAppsService.html">LiveAppsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>liveapps</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LiveAppsService.html" target="_self" >LiveAppsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="appIds"></a>
+                        <b>appIds</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:32</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The list of LA Application IDs you want to handle</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sandboxId"></a>
+                        <b>sandboxId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:27</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sandboxId - this comes from claims resolver</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="foundRefs"></a>
+                        <b>foundRefs</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/CaseSearchResults.html" target="_self" >EventEmitter&lt;CaseSearchResults&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:39</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>~event foundRefs : Search completed (caseRefs returned)
+~payload CaseSearchResults : caseRefs matching the search (so parent can display them in case list component)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:27</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="applicationsComponent"></a>
+                        <span class="name">
+                            <b>
+                            applicationsComponent</b>
+                            <a href="#applicationsComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LiveAppsApplicationsComponent.html" target="_self" >LiveAppsApplicationsComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(LiveAppsApplicationsComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clearResults"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            clearResults</b>
+                            <a href="#clearResults"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="doSearch"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            doSearch</b>
+                            <a href="#doSearch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:100</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forcedSearch"></a>
+                        <span class="name">
+                            <b>
+                            forcedSearch</b>
+                            <a href="#forcedSearch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forceSearch"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            forceSearch</b>
+                            <a href="#forceSearch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="handleSearchAppSelection"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleSearchAppSelection</b>
+                            <a href="#handleSearchAppSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            refresh</b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchBox"></a>
+                        <span class="name">
+                            <b>
+                            searchBox</b>
+                            <a href="#searchBox"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;searchBox&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchString"></a>
+                        <span class="name">
+                            <b>
+                            searchString</b>
+                            <a href="#searchString"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchTerm$"></a>
+                        <span class="name">
+                            <b>
+                            searchTerm$</b>
+                            <a href="#searchTerm$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;string&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchValue"></a>
+                        <span class="name">
+                            <b>
+                            searchValue</b>
+                            <a href="#searchValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;String&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedApp"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedApp</b>
+                            <a href="#selectedApp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/CaseType.html" target="_self" >CaseType</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new CaseType()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedStateId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedStateId</b>
+                            <a href="#selectedStateId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedStateLabel"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedStateLabel</b>
+                            <a href="#selectedStateLabel"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCaseType"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setCaseType</b>
+                            <a href="#setCaseType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setSelectedStateId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setSelectedStateId</b>
+                            <a href="#setSelectedStateId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-search/live-apps-case-search.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_destroyed$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _destroyed$</b>
+                            <a href="#_destroyed$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:23</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild} from &#x27;@angular/core&#x27;;
+import {Observable, Subject} from &#x27;rxjs&#x27;;
+import {LiveAppsService} from &#x27;../../services/live-apps.service&#x27;;
+import {CaseInfoList, CaseSearchResults, CaseType} from &#x27;../../models/liveappsdata&#x27;;
+import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
+import {LiveAppsApplicationsComponent} from &#x27;../live-apps-applications/live-apps-applications.component&#x27;;
+import {map, tap} from &#x27;rxjs/operators&#x27;;
+
+/**
+ * Selection of app + searching for cases
+ *
+ * ![alt-text](../case-search.png &quot;Image&quot;)
+ *
+ *@example &lt;tcla-live-apps-case-search&gt;&lt;/tcla-live-apps-case-search&gt;
+ */
+@Component({
+  selector: &#x27;tcla-live-apps-case-search&#x27;,
+  templateUrl: &#x27;./live-apps-case-search.component.html&#x27;,
+  styleUrls: [&#x27;./live-apps-case-search.component.css&#x27;]
+})
+
+export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
+  @ViewChild(&#x27;searchBox&#x27;) searchBox: ElementRef;
+  /**
+   * sandboxId - this comes from claims resolver
+   */
+  @Input() sandboxId: number;
+
+  /**
+   * The list of LA Application IDs you want to handle
+   */
+  @Input() appIds: string[];
+
+
+  /**
+   * ~event foundRefs : Search completed (caseRefs returned)
+   * ~payload CaseSearchResults : caseRefs matching the search (so parent can display them in case list component)
+   */
+  @Output() foundRefs: EventEmitter&lt;CaseSearchResults&gt; &#x3D; new EventEmitter&lt;CaseSearchResults&gt;();
+
+  @ViewChild(LiveAppsApplicationsComponent) applicationsComponent: LiveAppsApplicationsComponent;
+
+  searchTerm$: Subject&lt;string&gt;;
+  searchValue: Observable&lt;String&gt;;
+  searchString: string;
+  forcedSearch &#x3D; false;
+  public selectedStateId: number;
+  public selectedStateLabel: string;
+
+  // case type selector
+  public selectedApp: CaseType &#x3D; new CaseType();
+
+  constructor(private liveapps: LiveAppsService) {
+    super();
+  }
+
+  public refresh &#x3D; () &#x3D;&gt; {
+    if (this.applicationsComponent) {
+      this.applicationsComponent.refresh(true);
+    }
+  }
+
+
+  public setCaseType &#x3D; (caseType: CaseType) &#x3D;&gt; {
+    this.selectedApp &#x3D; caseType;
+    this.doSearch();
+    this.applicationsComponent.changeAppSelection(caseType);
+  }
+
+  public setSelectedStateId &#x3D; (stateId: number, stateLabel: string) &#x3D;&gt; {
+    this.selectedStateId &#x3D; stateId;
+    this.selectedStateLabel &#x3D; stateLabel;
+    // not currently supported to limit search by stateId
+    // this.doSearch(stateId);
+  }
+
+  // handle search app selection
+  public handleSearchAppSelection &#x3D; (application: CaseType) &#x3D;&gt; {
+    this.selectedApp &#x3D; application;
+    this.doSearch();
+  }
+
+  // clear search results
+  public clearResults &#x3D; () &#x3D;&gt; {
+    this.searchString &#x3D; &#x27;&#x27;;
+    this.selectedStateId &#x3D; undefined;
+    this.selectedStateLabel &#x3D; undefined;
+    this.doSearch();
+  }
+
+  public forceSearch &#x3D; () &#x3D;&gt; {
+    this.forcedSearch &#x3D; true;
+    this.liveapps.caseSearchEntries(this.searchBox.nativeElement.value, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, true, 0, 1000, null).subscribe(
+      results &#x3D;&gt; {
+        this.foundRefs.emit(results);
+      }
+    );
+  }
+
+  public doSearch &#x3D; (stateId?: number) &#x3D;&gt; {
+    this.forcedSearch &#x3D; false;
+    this.searchBox.nativeElement.value &#x3D; &#x27;&#x27;;
+    const result &#x3D; new CaseSearchResults().deserialize({ caserefs: [], searchString: &#x27;&#x27; });
+    this.foundRefs.emit(result);
+    this.searchTerm$ &#x3D; new Subject&lt;string&gt;();
+    this.searchTerm$.subscribe(next &#x3D;&gt; {
+      this.searchString &#x3D; next;
+      return next;
+    })
+    this.searchValue &#x3D; this.searchTerm$.asObservable();
+    if (this.selectedApp.applicationId &amp;&amp; this.selectedApp.id &amp;&amp; this.sandboxId) {
+      const skip &#x3D; 0;
+      const top &#x3D; 1000;
+      // Note: The API limits searches to 1000 items
+      // The service is configured to optimize performance by only returning case references at this stage
+      // The case details will only be loaded when the item is rendered (for example in the case-list component)
+      // Any case list component should use cdk virtual scroll to ensure 1000 case details are not loaded in one go
+      // (from the API or to the DOM)
+      this.liveapps.caseSearch(this.searchTerm$, this.sandboxId, this.selectedApp.applicationId, this.selectedApp.id, skip, top, stateId ? stateId : null)
+        .subscribe(results &#x3D;&gt; {
+          this.foundRefs.emit(results);
+        });
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div fxLayout&#x3D;&quot;row&quot; fxFlex&#x3D;&quot;75&quot; fxLayout&#x3D;&quot;center center&quot;&gt;
+  &lt;div class&#x3D;&quot;tcs-search-box&quot; fxlayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot; fxFlex&gt;
+    &lt;tcla-live-apps-applications fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;start center&quot; class&#x3D;&quot;tcs-search-application-selector&quot; [appIds]&#x3D;&quot;appIds&quot; [sandboxId]&#x3D;&quot;sandboxId&quot; [selectFirstApp]&#x3D;&quot;true&quot; (selection)&#x3D;&quot;handleSearchAppSelection($event)&quot;&gt;&lt;/tcla-live-apps-applications&gt;
+    &lt;div class&#x3D;&quot;tcs-search-input-container&quot; fxFlex&gt;
+      &lt;!-- free search by state with state filter currently not supported --&gt;
+      &lt;!--div class&#x3D;&quot;tcs-state-filter-marker&quot; *ngIf&#x3D;&quot;selectedStateLabel&quot; fxLayout&#x3D;&quot;row&quot;&gt;[&lt;div class&#x3D;&quot;tcs-type-filter-text-highlight&quot;&gt;{{selectedStateLabel}}&lt;/div&gt;]&amp;nbsp;&lt;/div--&gt;
+      &lt;input #searchBox class&#x3D;&quot;tcs-search-input&quot; placeholder&#x3D;&quot;{{ selectedApp.applicationName ? &#x27;Search within &#x27; + selectedApp.applicationName + &#x27; cases&#x27; : &#x27;Select a case type to search cases&#x27; }}&quot; (keyup)&#x3D;&quot;searchTerm$.next($event.target.value)&quot; [disabled]&#x3D;&quot;!selectedApp.applicationId&quot; fxFlex&gt;
+      &lt;div fxLayoutAlign&#x3D;&quot;center end&quot;&gt;
+        &lt;mat-icon *ngIf&#x3D;&quot;forcedSearch || searchString&quot; class&#x3D;&quot;tcs-icon tcs-close-icon&quot; svgIcon&#x3D;&quot;tcs-close-icon&quot; (click)&#x3D;&quot;clearResults()&quot;&gt;&lt;/mat-icon&gt;
+        &lt;mat-icon *ngIf&#x3D;&quot;!forcedSearch &amp;&amp; !searchString&quot; class&#x3D;&quot;tcs-icon tcs-search-icon&quot; svgIcon&#x3D;&quot;tcs-search-icon&quot; (click)&#x3D;&quot;forceSearch()&quot;&gt;&lt;/mat-icon&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./live-apps-case-search.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tcs-search-box {
+  width: 650px;
+  height: 44px;
+  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+}
+
+.tcs-search-input {
+  height: 24px;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  border: none;
+}
+
+.tcs-search-input:focus {
+  outline: none;
+}
+
+.tcs-search-input::placeholder{
+  opacity: 0.38;
+}
+
+.tcs-search-input-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.tcs-search-application-selector {
+  width: 200px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 20px;
+  background-color: #eeeeee;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 4px;
+  height: 35px;
+}
+
+:host ::ng-deep .tcs-search-icon:hover .svg-content  {
+  fill: #0081cb;
+}
+
+:host ::ng-deep .tcs-close-icon:hover .svg-content  {
+  fill: #0081cb;
+}
+
+.tcs-search-icon:hover {
+  cursor: pointer;
+}
+
+.tcs-close-icon:hover {
+  cursor: pointer;
+}
+
+.tcs-type-filter-text {
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: black;
+  margin-left: 10px;
+}
+
+.tcs-type-filter-text-highlight {
+  color: #FF7800;
+}
+
+.tcs-state-filter-marker {
+  margin-top:2px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div fxLayout="row" fxFlex="75" fxLayout="center center">  <div class="tcs-search-box" fxlayout="row" fxLayoutAlign="space-around center" fxFlex>    <tcla-live-apps-applications fxLayout="row" fxLayoutAlign="start center" class="tcs-search-application-selector" [appIds]="appIds" [sandboxId]="sandboxId" [selectFirstApp]="true" (selection)="handleSearchAppSelection($event)"></tcla-live-apps-applications>    <div class="tcs-search-input-container" fxFlex>      <!-- free search by state with state filter currently not supported -->      <!--div class="tcs-state-filter-marker" *ngIf="selectedStateLabel" fxLayout="row">[<div class="tcs-type-filter-text-highlight">{{selectedStateLabel}}</div>]&nbsp;</div-->      <input #searchBox class="tcs-search-input" placeholder="{{ selectedApp.applicationName ? \'Search within \' + selectedApp.applicationName + \' cases\' : \'Select a case type to search cases\' }}" (keyup)="searchTerm$.next($event.target.value)" [disabled]="!selectedApp.applicationId" fxFlex>      <div fxLayoutAlign="center end">        <mat-icon *ngIf="forcedSearch || searchString" class="tcs-icon tcs-close-icon" svgIcon="tcs-close-icon" (click)="clearResults()"></mat-icon>        <mat-icon *ngIf="!forcedSearch && !searchString" class="tcs-icon tcs-search-icon" svgIcon="tcs-search-icon" (click)="forceSearch()"></mat-icon>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseOverviewReportComponent', 'selector': 'tcla-live-apps-case-overview-report'},{'name': 'LiveAppsCaseSchemaListComponent', 'selector': 'tcla-live-apps-case-schema-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsCaseTypeOverviewReportComponent', 'selector': 'tcla-live-apps-case-type-overview-report'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsPieComponent', 'selector': 'tcla-live-apps-pie'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsReportingCockpitComponent', 'selector': 'tcla-live-apps-reporting-cockpit'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSandboxComponent', 'selector': 'tcla-live-apps-sandbox'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LiveAppsCaseSearchComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LiveAppsCaseSearchComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
