@@ -17,16 +17,18 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-baseRoute | string | --- | 
-configMenuPages | ConfigurationMenuConfig[] | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+baseRoute | string | 
+configMenuPages | ConfigurationMenuConfig[] | 
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-routeAction | EventEmitter<RouteAction> | --- | 
+routeAction | EventEmitter<RouteAction> |   |  
+  | Event |  routeAction  |  Component requests route to another page
+  | Payload |  RouteAction  |  RouteAction object to tell caller to navigate somewhere
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

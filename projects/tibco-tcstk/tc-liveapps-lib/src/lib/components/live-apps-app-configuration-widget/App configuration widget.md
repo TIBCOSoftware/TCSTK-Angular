@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Manages liveapps settings for Config page</p>
+
 
 
 #### Usage
@@ -15,19 +17,23 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appIds | string[] | --- | 
-folderId | string | --- | 
-sandboxId | number | --- | 
-uiAppId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appIds | string[] | The list of LA Application IDs you want to handle
+folderId | string | The organisation folder to store/retrieve documents
+sandboxId | number | sandboxId - this comes from claims resolver
+uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-appSelected | EventEmitter<CaseType> | --- | 
-configChanged | EventEmitter<CaseCardConfig> | --- | 
+appSelected | EventEmitter<CaseType> |   |  
+  | Event |  appSelected  |  Case Type selected
+  | Payload |  CaseType  |  CaseType object of app selected
+configChanged | EventEmitter<CaseCardConfig> |   |  
+  | Event |  configChanged  |  Configuration values changed
+  | Payload |  CaseCardConfig  |  CaseCardConfig object when configuration is changed (so called can do a save with data)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

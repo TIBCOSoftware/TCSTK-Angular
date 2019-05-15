@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Home page active cases widget sub component</p>
+
 
 
 #### Usage
@@ -15,20 +17,22 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appId | string | --- | 
-maxLegendItems | number | --- | 
-sandboxId | number | --- | 
-showPercentages |  | --- | 
-typeId | string | --- | 
-uiAppId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appId | string | The LA Application Id
+maxLegendItems | number | Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
+sandboxId | number | sandboxId - this comes from claims resolver
+showPercentages |  | Whether to show percentages or raw case numbers on the doughnut chart
+typeId | string | The LA Application Type Id (generally 1)
+uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-selectedCaseTypeState | EventEmitter<CaseTypeStateReportStateInfo> | --- | 
+selectedCaseTypeState | EventEmitter<CaseTypeStateReportStateInfo> |   |  
+  | Event |  selectedCaseTypeState  |  Case Type state selected in vizualization
+  | Payload |  CaseTypeStateReportStateInfo  |  CaseTypeStateReportStateInfo object selected from component (to drive caller to display something different (drill down))
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

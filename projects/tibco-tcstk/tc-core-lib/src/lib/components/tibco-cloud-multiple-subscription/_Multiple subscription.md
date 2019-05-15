@@ -19,16 +19,16 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-subscriptions | any | --- | a list of available subscriptions for this user
-token | AccessToken | --- | the access token created from initial login
+Attribute | Type | Comments
+--- | --- | ---
+subscriptions | any | a list of available subscriptions for this user
+token | AccessToken | the access token created from initial login
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-subscriptionSelection | EventEmitter | --- | Notify parent that user is logged into a specific subscription the authorization object is returned for that login/subscription.
+subscriptionSelection | EventEmitter |   |  
 
 
 <b>Constructor</b>

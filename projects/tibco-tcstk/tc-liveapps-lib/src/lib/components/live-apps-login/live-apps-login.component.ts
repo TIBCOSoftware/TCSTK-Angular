@@ -9,6 +9,14 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 
+/**
+ * Component perfrom a Login in case there is no valid Session yet.
+ *
+ * If the user is not logged in the login component will be displayed automatically.
+ * In Case the user is in multiple subscriptions - they must select a subscription to complete login.
+ *
+ * ![alt-text](../Login.png "Image")
+ */
 @Component({
   selector: 'tcla-live-apps-login',
   templateUrl: './live-apps-login.component.html',

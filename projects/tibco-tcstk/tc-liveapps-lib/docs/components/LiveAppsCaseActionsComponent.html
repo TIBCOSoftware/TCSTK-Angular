@@ -65,6 +65,13 @@
     <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Renders case action buttons</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -80,6 +87,14 @@
                     <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-case-actions&gt;&lt;/tcla-live-apps-case-actions&gt;</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -151,11 +166,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#disabled">disabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#errorMessage">errorMessage</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleEnable">toggleEnable</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -199,7 +222,7 @@
                                 <a href="#appId">appId</a>
                             </li>
                             <li>
-                                <a href="#caseReference">caseReference</a>
+                                <a href="#caseRef">caseRef</a>
                             </li>
                             <li>
                                 <a href="#caseState">caseState</a>
@@ -249,7 +272,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:66</a></div>
                             </td>
                         </tr>
 
@@ -320,14 +343,20 @@
                                     <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:32</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The LA Application Id</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="caseReference"></a>
-                        <b>caseReference</b>
+                        <a name="caseRef"></a>
+                        <b>caseRef</b>
                     </td>
                 </tr>
                 <tr>
@@ -338,9 +367,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:27</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The case reference</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -359,9 +394,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:47</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The state of the case</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -379,9 +420,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:52</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Max Actions that can be run simultaneously</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -400,9 +447,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:42</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sandboxId - this comes from claims resolver</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -421,9 +474,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:37</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The LA Application Type Id (generally 1)</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -445,9 +504,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:58</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>~event actionClicked : Case Action selected
+~payload LaProcessSelection : LaProcessSelection object output when an action is clicked (ie. message to parent to run action component)</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -480,8 +546,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:111</a></div>
                 </td>
             </tr>
 
@@ -521,8 +587,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:88</a></div>
                 </td>
             </tr>
 
@@ -640,7 +706,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:64</a></div>
                             </td>
                         </tr>
 
@@ -667,7 +733,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:66</a></div>
                             </td>
                         </tr>
 
@@ -695,7 +761,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:60</a></div>
                             </td>
                         </tr>
 
@@ -722,7 +788,34 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:65</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="disabled"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            disabled</b>
+                            <a href="#disabled"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:62</a></div>
                             </td>
                         </tr>
 
@@ -750,7 +843,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:61</a></div>
                             </td>
                         </tr>
 
@@ -777,7 +870,34 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:72</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleEnable"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toggleEnable</b>
+                            <a href="#toggleEnable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-actions/live-apps-case-actions.component.ts:84</a></div>
                             </td>
                         </tr>
 
@@ -832,23 +952,59 @@ import {CaseAction, CaseType, CaseTypesList, Process} from &#x27;../../models/li
 import {LaProcessSelection} from &#x27;../../models/tc-case-processes&#x27;;
 import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
 import {TcCaseProcessesService} from &#x27;../../services/tc-case-processes.service&#x27;;
+import {CustomFormDefs} from &#x27;@tibco-tcstk/tc-forms-lib&#x27;;
 
+
+/**
+ * Renders case action buttons
+ *
+ *@example &lt;tcla-live-apps-case-actions&gt;&lt;/tcla-live-apps-case-actions&gt;
+ */
 @Component({
   selector: &#x27;tcla-live-apps-case-actions&#x27;,
   templateUrl: &#x27;./live-apps-case-actions.component.html&#x27;,
   styleUrls: [&#x27;./live-apps-case-actions.component.css&#x27;]
 })
 export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements OnInit {
-  @Input() caseReference: string;
+  /**
+   * The case reference
+   */
+  @Input() caseRef: string;
+
+  /**
+   * The LA Application Id
+   */
   @Input() appId: string;
+
+  /**
+   * The LA Application Type Id (generally 1)
+   */
   @Input() typeId: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
   @Input() sandboxId: number;
+
+  /**
+   * The state of the case
+   */
   @Input() caseState: string;
+
+  /**
+   * Max Actions that can be run simultaneously
+   */
   @Input() maxActions &#x3D; 1;
+
+  /**
+   * ~event actionClicked : Case Action selected
+   * ~payload LaProcessSelection : LaProcessSelection object output when an action is clicked (ie. message to parent to run action component)
+   */
   @Output() actionClicked: EventEmitter&lt;LaProcessSelection&gt; &#x3D; new EventEmitter&lt;LaProcessSelection&gt;();
 
   public caseactions: CaseAction[];
   public errorMessage: string;
+  public disabled &#x3D; false;
 
   appSchema: CaseTypesList;
   caseType: CaseType;
@@ -859,7 +1015,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   public refresh &#x3D; () &#x3D;&gt; {
-    this.caseProcessesService.getCaseActionsForCaseRef(this.caseReference, this.sandboxId, this.appId, this.typeId)
+    this.caseProcessesService.getCaseActionsForCaseRef(this.caseRef, this.sandboxId, this.appId, this.typeId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$),
@@ -870,9 +1026,13 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
       null, error &#x3D;&gt; { this.errorMessage &#x3D; &#x27;Error retrieving case actions: &#x27; + error.error.errorMsg; });
   }
 
+  public toggleEnable &#x3D; () &#x3D;&gt; {
+    this.disabled &#x3D; !this.disabled;
+  }
+
   public selectAction(action: CaseAction) {
 
-    this.caseProcessesService.getProcessDetails(this.caseReference, this.appId, this.typeId, this.sandboxId, action, null,100).pipe(
+    this.caseProcessesService.getProcessDetails(this.caseRef, this.appId, this.typeId, this.sandboxId, action, null,100).pipe(
       take(1),
       takeUntil(this._destroyed$),
       tap(processDetails &#x3D;&gt; {
@@ -903,7 +1063,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div fxLayout&#x3D;&quot;row&quot;&gt;
-  &lt;button mat-button class&#x3D;&quot;tcs-case-action-button&quot; *ngFor&#x3D;&quot;let action of caseactions| slice:0:maxActions&quot;
+  &lt;button [disabled]&#x3D;&quot;disabled&quot; [ngClass]&#x3D;&quot;disabled ? &#x27;disabled&#x27; : &#x27;&#x27;&quot; mat-button class&#x3D;&quot;tcs-case-action-button&quot; *ngFor&#x3D;&quot;let action of caseactions| slice:0:maxActions&quot;
           matTooltip&#x3D;&quot;{{action.label}}&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;above&quot;
           (click)&#x3D;&quot;selectAction(action)&quot;&gt;
     {{action.label | ellipsis: 30 }}
@@ -942,6 +1102,10 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   font-stretch: normal;
   line-height: normal;
   letter-spacing: 0.2px;
+}
+
+.tcs-case-action-button.disabled {
+  border: none;
 }
 
 .tcs-case-action-option {
@@ -984,7 +1148,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div fxLayout="row">  <button mat-button class="tcs-case-action-button" *ngFor="let action of caseactions| slice:0:maxActions"          matTooltip="{{action.label}}" matTooltipShowDelay="1000" matTooltipPosition="above"          (click)="selectAction(action)">    {{action.label | ellipsis: 30 }}  </button>  <div fxLayout="row" fxLayoutAlign="center center" style="width: 75px" *ngIf="caseactions && caseactions.length > maxActions">    <mat-select class="tcs-case-action-option" [disableOptionCentering]="true" placeholder="More" matTooltip="" matTooltipShowDelay="1000" matTooltipPosition="below">      <mat-option *ngFor="let action of caseactions | slice:maxActions:caseactions.length" [value]="" (click)="selectAction(action)">        <span>{{action.label}}</span>      </mat-option>    </mat-select>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div fxLayout="row">  <button [disabled]="disabled" [ngClass]="disabled ? \'disabled\' : \'\'" mat-button class="tcs-case-action-button" *ngFor="let action of caseactions| slice:0:maxActions"          matTooltip="{{action.label}}" matTooltipShowDelay="1000" matTooltipPosition="above"          (click)="selectAction(action)">    {{action.label | ellipsis: 30 }}  </button>  <div fxLayout="row" fxLayoutAlign="center center" style="width: 75px" *ngIf="caseactions && caseactions.length > maxActions">    <mat-select class="tcs-case-action-option" [disableOptionCentering]="true" placeholder="More" matTooltip="" matTooltipShowDelay="1000" matTooltipPosition="below">      <mat-option *ngFor="let action of caseactions | slice:maxActions:caseactions.length" [value]="" (click)="selectAction(action)">        <span>{{action.label}}</span>      </mat-option>    </mat-select>  </div></div></div>'
     var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseOverviewReportComponent', 'selector': 'tcla-live-apps-case-overview-report'},{'name': 'LiveAppsCaseSchemaListComponent', 'selector': 'tcla-live-apps-case-schema-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsCaseTypeOverviewReportComponent', 'selector': 'tcla-live-apps-case-type-overview-report'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsPieComponent', 'selector': 'tcla-live-apps-pie'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsReportingCockpitComponent', 'selector': 'tcla-live-apps-reporting-cockpit'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSandboxComponent', 'selector': 'tcla-live-apps-sandbox'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LiveAppsCaseActionsComponent'};

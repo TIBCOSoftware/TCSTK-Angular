@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"drop down"} Component Meta -->
 
 
+<p>Wraps case creator and case creator list</p>
+
 
 
 #### Usage
@@ -15,17 +17,19 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appId | string | --- | 
-sandboxId | number | --- | 
-typeId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appId | string | The LA Application Id
+sandboxId | number | sandboxId - this comes from claims resolver
+typeId | string | The LA Application Type Id (generally 1)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-creatorClicked | EventEmitter<LaProcessSelection> | --- | 
+creatorClicked | EventEmitter<LaProcessSelection> |   |  
+  | Event |  creatorClicked  |  Case Creator selected
+  | Payload |  LaProcessSelection  |  LaProcessSelection object output when an action is clicked (ie. message to parent to run creator component)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

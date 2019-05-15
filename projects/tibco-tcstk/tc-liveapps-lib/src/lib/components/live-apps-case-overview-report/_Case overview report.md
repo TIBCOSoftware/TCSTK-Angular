@@ -15,17 +15,19 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appIds | string[] | --- | 
-sandboxId | number | --- | 
-uiAppId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appIds | string[] | 
+sandboxId | number | 
+uiAppId | string | 
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-selectedCaseType | EventEmitter<CaseTypeReportRecord> | --- | 
+selectedCaseType | EventEmitter<CaseTypeReportRecord> |   |  
+  | Event |  selectedCaseType  |  Case Type selected in vizualization
+  | Payload |  CaseTypeReportRecord  |  CaseTypeReportRecord object selected from component
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

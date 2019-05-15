@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"?mc?"} Component Meta -->
 
 
+<p>Switch roles</p>
+
 
 
 #### Usage
@@ -15,16 +17,18 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-roles | RoleAttribute[] | --- | 
-selectedRole | RoleAttribute | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+roles | RoleAttribute[] | Roles - The users current roles
+selectedRole | RoleAttribute | RoleAttribute - selected Role - check with MC
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-changeRoleEvent | EventEmitter<RoleAttribute> | --- | 
+changeRoleEvent | EventEmitter<RoleAttribute> |   |  
+  | Event |  changeRoleEvent  |  Role selected
+  | Payload |  RoleAttribute  |  RoleAttribute object emitted when role is c hanged by switcher
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

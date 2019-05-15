@@ -2,7 +2,7 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>Defines Application Landing Page Configuration</p>
+<p>Configuration page home</p>
 
 
 

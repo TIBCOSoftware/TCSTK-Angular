@@ -87,6 +87,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#applicationInternalName">applicationInternalName</a>
+                            </li>
+                            <li>
+                                <a href="#applicationName">applicationName</a>
+                            </li>
+                            <li>
                                 <a href="#caseInfo">caseInfo</a>
                             </li>
                             <li>
@@ -125,6 +131,60 @@
         <h3 id="inputs">
             Properties
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="applicationInternalName"></a>
+                        <span class="name">
+                            <b>
+                            applicationInternalName</b>
+                            <a href="#applicationInternalName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:8</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="applicationName"></a>
+                        <span class="name">
+                            <b>
+                            applicationName</b>
+                            <a href="#applicationName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:7</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -208,8 +268,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/models/tc-case-data.ts:9</a></div>
                 </td>
             </tr>
 
@@ -272,6 +332,8 @@ import {CaseInfo, JsonSchema} from &#x27;./liveappsdata&#x27;;
 export class CaseInfoWithSchema implements Deserializable {
   caseInfo: CaseInfo;
   caseSchema: JsonSchema;
+  applicationName: string;
+  applicationInternalName: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;

@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][major] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"wrapper for case creator"} Component Meta -->
 
 
+<p>Wraps case creators component (high level component)</p>
+
 
 
 #### Usage
@@ -15,18 +17,21 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-application | CaseType | --- | 
-initialData | any | --- | 
-sandboxId | number | --- | 
-uiAppId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+application | CaseType | CaseType model for the case type you want to run a case creator for (normally comes from an application selector component)
+customFormDefs | CustomFormDefs | Custom Form configuration file
+initialData | any | override the initial data for a case creator
+sandboxId | number | sandboxId - this comes from claims resolver
+uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-caseCreated | EventEmitter<ProcessId> | --- | 
+caseCreated | EventEmitter<ProcessId> |   |  
+  | Event |  caseCreated  |  Case Creator started (process started)
+  | Payload |  ProcessId  |  ProcessId object output on case creation (details of process started)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

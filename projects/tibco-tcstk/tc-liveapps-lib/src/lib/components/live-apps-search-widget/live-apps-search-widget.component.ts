@@ -7,6 +7,7 @@ import {Subject} from 'rxjs';
 
 /**
  * High Level search widget component (wraps others)
+ * This Component allows to search for existing Cases and list Case Cards.
  *
  *@example <tcla-live-apps-search-widget></tcla-live-apps-search-widget>
  */
