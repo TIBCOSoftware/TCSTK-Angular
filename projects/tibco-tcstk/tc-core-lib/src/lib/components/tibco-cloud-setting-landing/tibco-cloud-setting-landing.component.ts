@@ -45,7 +45,7 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
         this.allRoles = this.route.snapshot.data.allRolesHolder.roles.filter(element => !element.configuration);
 
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
-        this.uiAppId = 'processdiscovery1';
+        this.uiAppId = this.route.snapshot.data.landingPagesConfigHolder.uiAppId;
     }
 
     /**
