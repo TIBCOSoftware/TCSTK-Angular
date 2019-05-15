@@ -11,7 +11,6 @@
 
 .splash-welcome {
   font-family: Source Sans Pro;
-  font-size: 48px;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
@@ -20,12 +19,22 @@
   text-align: center;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(6, 46, 121, 0.5);
-  padding-top: 88px;
+}
+
+.splash-welcome-large {
+  font-family: Source Sans Pro;
+  font-size: 48px;
+  margin-top: 88px;
+}
+
+.splash-welcome-small {
+  font-family: Source Sans Pro;
+  font-size: 22px;
+  margin-top: 5px;
 }
 
 .splash-welcome-message {
   font-family: Source Sans Pro;
-  font-size: 20px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -34,22 +43,41 @@
   text-align: center;
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(6, 46, 121, 0.5);
-  padding-top: 19px;
-  padding-bottom: 32px;
 }
 
+.splash-welcome-message-large {
+  font-size: 20px;
+  margin-top: 19px;
+  margin-bottom: 32px;
+}
+
+.splash-welcome-message-small {
+  font-size: 15px;
+  margin-top: 19px;
+  margin-bottom: 32px;
+}
+
+.splash-heading-pane {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 .splash-modal {
   margin: auto;
-  width: 676px;
+  max-width: 676px;
+}
+
+.splash-modal-large {
   border-radius: 10px;
-  background-color: #ffffff;
   box-shadow: 10px 10px 20px 0 rgba(33, 33, 33, 0.04);
+  background-color: #ffffff;
+}
+
+.splash-modal-small {
+
 }
 
 .splash-oval {
-  width: 86px;
-  height: 86px;
   /* border: solid 3px #349bed; */
   /* background-color: #349bed; */
   border: solid 3px #c8d4e8;
@@ -59,13 +87,18 @@
   background-repeat: no-repeat;
 }
 
+.splash-oval mat-icon {
+}
+
 .tcs-splash-content {
   overflow: auto;
 }
 
 .splash-svg {
-  height: 50px;
-  width: 50px;
+}
+
+.splash-modal-small .splash-highlightstable {
+  border-spacing: 25px;
 }
 
 .splash-highlightstable {
@@ -108,6 +141,10 @@
   line-height: 1.25;
   letter-spacing: 0.1px;
   color: #062e79;
+}
+
+.splash-modal-small .splash-highlight-item-content {
+  font-size: 14px;
 }
 
 .splash-highlight-item-content {
