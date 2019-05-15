@@ -32,8 +32,27 @@ export class TibcoCloudNavbarComponent implements OnInit {
   @Input() docUrl: string;
 
   /**
+   * Custom Logo URL
+   */
+
+  @Input() logoUrl: string;
+
+  /**
+   * rebrand config - example: { "backgroundColor": "#cfcfcf", "fontColor": "#682782", "fontFamily": "Oswald", "iconColor": "red" }
+   */
+
+  @Input() rebrandConfig: any;
+
+  /**
+   * Where to redirect on click of logo
+   */
+
+  @Input() logoClickTargetUrl: string;
+
+  /**
    * single empty Constructor of TIBCO Cloud Navigation Bar
    */
+
   constructor(private location: Location) {
   }
 
@@ -49,7 +68,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
 
     const navbar = new GlobalNavbar({
       container: '#navbar',
-      textAfterLogo: this.appName,
+      textAfterLogo: this.appName ? this.appName : undefined,
       iconMenus: {
         search: {
           visible: false  // for versions 0.1.X the propertie is "disabled" instead of "visible".
@@ -88,9 +107,25 @@ export class TibcoCloudNavbarComponent implements OnInit {
         }
       ]
     });
-
+    if (this.logoUrl || this.logoClickTargetUrl || this.rebrandConfig) {
+      const style: any = {};
+      if (this.logoUrl || this.logoClickTargetUrl) {
+        style.logo = {
+          'src': this.logoUrl,
+          'url': this.logoClickTargetUrl // If the url is not set then the logo will redirect to TSC.
+        };
+      }
+      if (this.rebrandConfig) {
+        if (this.rebrandConfig.backgroundColor) { style.backgroundColor = this.rebrandConfig.backgroundColor; }
+        if (this.rebrandConfig.fontColor) { style.fontColor = this.rebrandConfig.fontColor; }
+        if (this.rebrandConfig.fontFamily) { style.fontFamily = this.rebrandConfig.fontFamily; }
+        if (this.rebrandConfig.iconColor) { style.iconColor = this.rebrandConfig.iconColor; }
+      }
+      navbar.refreshRebrandingStyle(style);
+    }
     navbar.load();
     navbar.customizePanel('help', '<embed src="' + this.docUrl + '" style="height: 100%; width: 100%">');  // set HTML string
+
 
     /*navbar.subscribeEvent('CLICK_ICON_MENU_NOTIFICATIONS', function(event) {
       console.log('Logout ', event);
