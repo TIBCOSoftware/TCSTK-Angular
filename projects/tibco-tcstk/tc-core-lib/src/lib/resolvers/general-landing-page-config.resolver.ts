@@ -14,7 +14,7 @@ import { GeneralLandingPageConfig } from '../models/tc-general-landing-page-conf
 @Injectable()
 export class GeneralLandingPageConfigResolver implements Resolve<Observable<GeneralLandingPageConfig>> {
 
-    DEFAULT_CONFIG_URL = 'assets/config/<uiAppId>/landingPages.json';
+    DEFAULT_CONFIG_URL = 'assets/config/landingPages.json';
     APP_ID_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/uiAppId.json');
 
     private sandboxId: number;
@@ -35,7 +35,7 @@ export class GeneralLandingPageConfigResolver implements Resolve<Observable<Gene
 
     // can be used to load defaultAppConfig from a JSON config
     private getDefaultAppConfig = () => {
-        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL.replace('<uiAppId>', this.uiAppId)));
+        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL));
     }
 
     // loads uiAppId from json file in assets (appId.json)
