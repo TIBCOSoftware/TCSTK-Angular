@@ -1,0 +1,2328 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Live Apps Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Live Apps Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LiveAppsApplicationConfigurationComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Manages summary card configuration</p>
+
+    </p>
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-application-configuration&gt;&lt;/tcla-live-apps-application-configuration&gt;</code></pre>
+                </div>
+    </div>
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tcla-live-apps-application-configuration</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./live-apps-application-configuration.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./live-apps-application-configuration.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#caseCardConfig">caseCardConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#caseCardConfigService">caseCardConfigService</a>
+                            </li>
+                            <li>
+                                <a href="#caseSummaryComponent">caseSummaryComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#caseTypeColor">caseTypeColor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#caseTypeIcon">caseTypeIcon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#DEFAULT_CASE_STATE_COLOR">DEFAULT_CASE_STATE_COLOR</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#DEFAULT_CASE_STATE_ICON">DEFAULT_CASE_STATE_ICON</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#DEFAULT_CASE_TYPE_COLOR">DEFAULT_CASE_TYPE_COLOR</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#DEFAULT_CASE_TYPE_ICON">DEFAULT_CASE_TYPE_ICON</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#DEFAULT_COLOR_PALETTE">DEFAULT_COLOR_PALETTE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog">dialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMessage">errorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getConfigForCaseType">getConfigForCaseType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getConfigForState">getConfigForState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleCaseTypeColorToggleChange">handleCaseTypeColorToggleChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedCaseTypeConfig">selectedCaseTypeConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedStateConfig">selectedStateConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectState">selectState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setCaseTypeFill">setCaseTypeFill</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setFill">setFill</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setNewCaseTypeIcon">setNewCaseTypeIcon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setNewStateIcon">setNewStateIcon</a>
+                            </li>
+                            <li>
+                                <a href="#stateIconComponents">stateIconComponents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateIconMap">updateIconMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_destroyed$">_destroyed$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#openDialog">openDialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadFile">uploadFile</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#appId">appId</a>
+                            </li>
+                            <li>
+                                <a href="#appTypeLabel">appTypeLabel</a>
+                            </li>
+                            <li>
+                                <a href="#folderId">folderId</a>
+                            </li>
+                            <li>
+                                <a href="#sandboxId">sandboxId</a>
+                            </li>
+                            <li>
+                                <a href="#uiAppId">uiAppId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#configChanged">configChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>, liveapps: <a href="../injectables/LiveAppsService.html">LiveAppsService</a>, caseCardConfigService: <a href="../injectables/TcCaseCardConfigService.html">TcCaseCardConfigService</a>, documentsService: <a href="../injectables/TcDocumentService.html">TcDocumentService</a>, dialog: MatDialog, location: <a href="https://angular.io/api/common/Location" target="_blank">Location</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:291</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>liveapps</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LiveAppsService.html" target="_self" >LiveAppsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>caseCardConfigService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TcCaseCardConfigService.html" target="_self" >TcCaseCardConfigService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>documentsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TcDocumentService.html" target="_self" >TcDocumentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>location</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/Location" target="_blank" >Location</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="appId"></a>
+                        <b>appId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:66</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The LA Application Id</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="appTypeLabel"></a>
+                        <b>appTypeLabel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:71</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The label shown above the case type in the configuration widget</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="folderId"></a>
+                        <b>folderId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:86</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The organisation folder to store/retrieve documents</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sandboxId"></a>
+                        <b>sandboxId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:76</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sandboxId - this comes from claims resolver</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="uiAppId"></a>
+                        <b>uiAppId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:81</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The Application ID of the UI (should ideally be unique as it is shared state key)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="configChanged"></a>
+                        <b>configChanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;CaseCardConfig&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:92</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>~event configChanged : Configuration values changed
+~payload CaseCardConfig : CaseCardConfig object when configuration is changed (so called can do a save with data)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="298"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:298</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>changes</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialog"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            openDialog
+                        </b>
+                        <a href="#openDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openDialog(state: <a href="../classes/CaseTypeState.html">CaseTypeState</a>, isCaseType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="207"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:207</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="../classes/CaseTypeState.html" target="_self" >CaseTypeState</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>isCaseType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            uploadFile
+                        </b>
+                        <a href="#uploadFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadFile(file: File, state: <a href="../classes/CaseTypeState.html">CaseTypeState</a>, isStateIcon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:249</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+                                    <td>
+                                            <code>File</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>state</td>
+                                    <td>
+                                                <code><a href="../classes/CaseTypeState.html" target="_self" >CaseTypeState</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>isStateIcon</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:27</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caseCardConfig"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            caseCardConfig</b>
+                            <a href="#caseCardConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/CaseCardConfig.html" target="_self" >CaseCardConfig</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:95</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caseCardConfigService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            caseCardConfigService</b>
+                            <a href="#caseCardConfigService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/TcCaseCardConfigService.html" target="_self" >TcCaseCardConfigService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="294" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:294</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caseSummaryComponent"></a>
+                        <span class="name">
+                            <b>
+                            caseSummaryComponent</b>
+                            <a href="#caseSummaryComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LiveAppsCaseSummaryComponent.html" target="_self" >QueryList&lt;LiveAppsCaseSummaryComponent&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChildren(LiveAppsCaseSummaryComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:61</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caseTypeColor"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            caseTypeColor</b>
+                            <a href="#caseTypeColor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:99</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="caseTypeIcon"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            caseTypeIcon</b>
+                            <a href="#caseTypeIcon"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:98</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DEFAULT_CASE_STATE_COLOR"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            DEFAULT_CASE_STATE_COLOR</b>
+                            <a href="#DEFAULT_CASE_STATE_COLOR"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>DEFAULT_STATE_COLOR</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:105</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DEFAULT_CASE_STATE_ICON"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            DEFAULT_CASE_STATE_ICON</b>
+                            <a href="#DEFAULT_CASE_STATE_ICON"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;assets/icons/ic-generic-state.svg&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:104</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DEFAULT_CASE_TYPE_COLOR"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            DEFAULT_CASE_TYPE_COLOR</b>
+                            <a href="#DEFAULT_CASE_TYPE_COLOR"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>DEFAULT_TYPE_COLOR</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:103</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DEFAULT_CASE_TYPE_ICON"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            DEFAULT_CASE_TYPE_ICON</b>
+                            <a href="#DEFAULT_CASE_TYPE_ICON"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;assets/icons/ic-generic-casetype.svg&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:102</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DEFAULT_COLOR_PALETTE"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            DEFAULT_COLOR_PALETTE</b>
+                            <a href="#DEFAULT_COLOR_PALETTE"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>DEFAULT_COLORS</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:106</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dialog"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dialog</b>
+                            <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatDialog</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="294" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:294</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessage"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorMessage</b>
+                            <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:94</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getConfigForCaseType"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getConfigForCaseType</b>
+                            <a href="#getConfigForCaseType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:120</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getConfigForState"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getConfigForState</b>
+                            <a href="#getConfigForState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:108</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="handleCaseTypeColorToggleChange"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleCaseTypeColorToggleChange</b>
+                            <a href="#handleCaseTypeColorToggleChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:156</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            refresh</b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="271" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:271</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedCaseTypeConfig"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedCaseTypeConfig</b>
+                            <a href="#selectedCaseTypeConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/IconMap.html" target="_self" >IconMap</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:97</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedStateConfig"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedStateConfig</b>
+                            <a href="#selectedStateConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/IconMap.html" target="_self" >IconMap</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:96</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectState"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectState</b>
+                            <a href="#selectState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:186</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCaseTypeFill"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setCaseTypeFill</b>
+                            <a href="#setCaseTypeFill"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:176</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setFill"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setFill</b>
+                            <a href="#setFill"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:166</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setNewCaseTypeIcon"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setNewCaseTypeIcon</b>
+                            <a href="#setNewCaseTypeIcon"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="238" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:238</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setNewStateIcon"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setNewStateIcon</b>
+                            <a href="#setNewStateIcon"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="227" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:227</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stateIconComponents"></a>
+                        <span class="name">
+                            <b>
+                            stateIconComponents</b>
+                            <a href="#stateIconComponents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/LiveAppsStateIconComponent.html" target="_self" >QueryList&lt;LiveAppsStateIconComponent&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChildren(&#x27;iconcomp&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateIconMap"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            updateIconMap</b>
+                            <a href="#updateIconMap"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-configuration/live-apps-application-configuration.component.ts:132</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_destroyed$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _destroyed$</b>
+                            <a href="#_destroyed$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:23</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  QueryList, SimpleChanges,
+  ViewChild,
+  ViewChildren
+} from &#x27;@angular/core&#x27;;
+import {Observable, of, Subject} from &#x27;rxjs&#x27;;
+import {LiveAppsService} from &#x27;../../services/live-apps.service&#x27;;
+import {CardConfig, CaseTypeState, IconMap} from &#x27;../../models/liveappsdata&#x27;;
+import {map, take, takeUntil} from &#x27;rxjs/operators&#x27;;
+import {HttpClient, HttpHeaders} from &#x27;@angular/common/http&#x27;;
+import {DomSanitizer, SafeHtml} from &#x27;@angular/platform-browser&#x27;;
+import {LiveAppsCaseDataComponent} from &#x27;../live-apps-case-data/live-apps-case-data.component&#x27;;
+import {LiveAppsStateIconComponent} from &#x27;../live-apps-state-icon/live-apps-state-icon.component&#x27;;
+import {LiveAppsCaseSummaryComponent} from &#x27;../live-apps-case-summary/live-apps-case-summary.component&#x27;;
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from &#x27;@angular/material&#x27;;
+import {LiveAppsDocumentUploadDialogComponent} from &#x27;../live-apps-documents/live-apps-documents.component&#x27;;
+import { Location } from &#x27;@angular/common&#x27;;
+import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
+import {CaseCardConfig} from &#x27;../../models/tc-case-card-config&#x27;;
+import {DEFAULT_COLORS, DEFAULT_STATE_COLOR, DEFAULT_TYPE_COLOR, TcCaseCardConfigService} from &#x27;../../services/tc-case-card-config.service&#x27;;
+import {TcDocumentService} from &#x27;../../services/tc-document.service&#x27;;
+
+
+
+/**
+ * Manages summary card configuration
+ *
+ *@example &lt;tcla-live-apps-application-configuration&gt;&lt;/tcla-live-apps-application-configuration&gt;
+ */
+
+@Component({
+  selector: &#x27;tcla-live-apps-application-configuration&#x27;,
+  templateUrl: &#x27;./live-apps-application-configuration.component.html&#x27;,
+  styleUrls: [&#x27;./live-apps-application-configuration.component.css&#x27;]
+})
+export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent implements OnChanges {
+  // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
+  @ViewChildren(&#x27;iconcomp&#x27;) stateIconComponents: QueryList&lt;LiveAppsStateIconComponent&gt;;
+  @ViewChildren(LiveAppsCaseSummaryComponent) caseSummaryComponent: QueryList&lt;LiveAppsCaseSummaryComponent&gt;;
+
+  /**
+   * The LA Application Id
+   */
+  @Input() appId: string;
+
+  /**
+   * The label shown above the case type in the configuration widget
+   */
+  @Input() appTypeLabel: string;
+
+  /**
+   * sandboxId - this comes from claims resolver
+   */
+  @Input() sandboxId: number;
+
+  /**
+   * The Application ID of the UI (should ideally be unique as it is shared state key)
+   */
+  @Input() uiAppId: string;
+
+  /**
+   * The organisation folder to store/retrieve documents
+   */
+  @Input() folderId: string;
+
+  /**
+   * ~event configChanged : Configuration values changed
+   * ~payload CaseCardConfig : CaseCardConfig object when configuration is changed (so called can do a save with data)
+   */
+  @Output() configChanged: EventEmitter&lt;CaseCardConfig&gt; &#x3D; new EventEmitter&lt;CaseCardConfig&gt;();
+
+  public errorMessage: string;
+  public caseCardConfig: CaseCardConfig;
+  public selectedStateConfig: IconMap;
+  public selectedCaseTypeConfig: IconMap;
+  public caseTypeIcon: string;
+  public caseTypeColor: string;
+
+  // prepareExternalUrl will add the base href
+  public DEFAULT_CASE_TYPE_ICON &#x3D; &#x27;assets/icons/ic-generic-casetype.svg&#x27;;
+  public DEFAULT_CASE_TYPE_COLOR &#x3D; DEFAULT_TYPE_COLOR;
+  public DEFAULT_CASE_STATE_ICON &#x3D; &#x27;assets/icons/ic-generic-state.svg&#x27;;
+  public DEFAULT_CASE_STATE_COLOR &#x3D; DEFAULT_STATE_COLOR;
+  public DEFAULT_COLOR_PALETTE &#x3D; DEFAULT_COLORS;
+
+  public getConfigForState &#x3D; (state: CaseTypeState): IconMap &#x3D;&gt; {
+    let reqIconMap: IconMap;
+    if (this.caseCardConfig.cardConfig &amp;&amp; this.caseCardConfig.cardConfig.stateMap) {
+      this.caseCardConfig.cardConfig.stateMap.forEach((stateMap) &#x3D;&gt; {
+        if (stateMap.state &#x3D;&#x3D;&#x3D; state.value) {
+          reqIconMap &#x3D; stateMap;
+        }
+      });
+    }
+    return reqIconMap ? reqIconMap : new IconMap(false, state.value, this.DEFAULT_CASE_STATE_COLOR, this.DEFAULT_CASE_STATE_ICON);
+  }
+
+  public getConfigForCaseType &#x3D; (caseTypeId: string): IconMap &#x3D;&gt; {
+    let reqIconMap: IconMap;
+    if (this.caseCardConfig.cardConfig &amp;&amp; this.caseCardConfig.cardConfig.stateMap) {
+      this.caseCardConfig.cardConfig.stateMap.forEach((stateMap) &#x3D;&gt; {
+        if (stateMap.isCaseType) {
+          reqIconMap &#x3D; stateMap;
+        }
+      });
+    }
+    return reqIconMap ? reqIconMap : new IconMap(true, caseTypeId, this.DEFAULT_CASE_TYPE_COLOR, this.DEFAULT_CASE_TYPE_ICON);
+  }
+
+  public updateIconMap &#x3D; (stateConfig: IconMap) &#x3D;&gt; {
+    let foundMap: IconMap;
+    let updatedMap: IconMap;
+    if (this.caseCardConfig.cardConfig &amp;&amp; this.caseCardConfig.cardConfig.stateMap) {
+      this.caseCardConfig.cardConfig.stateMap.forEach(function(stateMap) {
+        if (stateMap.state &#x3D;&#x3D;&#x3D; stateConfig.state) {
+          foundMap &#x3D; stateConfig;
+          stateMap.state &#x3D; stateConfig.state;
+          stateMap.icon &#x3D; stateConfig.icon;
+          stateMap.fill &#x3D; stateConfig.fill;
+        }
+      });
+      if (foundMap) {
+        foundMap &#x3D; stateConfig;
+      } else {
+        this.caseCardConfig.cardConfig.stateMap.push(stateConfig);
+      }
+    } else {
+      this.caseCardConfig.cardConfig.stateMap &#x3D; [];
+      this.caseCardConfig.cardConfig.stateMap.push(stateConfig);
+    }
+    this.configChanged.emit(this.caseCardConfig);
+  }
+
+  public handleCaseTypeColorToggleChange &#x3D; (changes) &#x3D;&gt; {
+    this.caseCardConfig.cardConfig.useCaseTypeColor &#x3D; changes.checked ? changes.checked : false;
+    if (changes.checked) {
+      this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) &#x3D;&gt; {
+        comp.restylePreview(this.selectedStateConfig.icon, this.caseTypeColor);
+      });
+    }
+    this.configChanged.emit(this.caseCardConfig);
+  }
+
+  public setFill &#x3D; (fill, stateConfig: IconMap) &#x3D;&gt; {
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) &#x3D;&gt; {
+      comp.restylePreview(stateConfig.icon, fill);
+    });
+    this.stateIconComponents.find(function(comp) {
+      return comp.id &#x3D;&#x3D;&#x3D; stateConfig.state;
+    }).refillSVG(fill);
+    this.configChanged.emit(this.caseCardConfig);
+  }
+
+  public setCaseTypeFill &#x3D; (fill, stateConfig: IconMap) &#x3D;&gt; {
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) &#x3D;&gt; {
+      comp.restylePreviewCaseType(stateConfig.icon, fill);
+    });
+    this.stateIconComponents.find(function(comp) {
+      return (comp.id &#x3D;&#x3D;&#x3D; stateConfig.state &amp;&amp; stateConfig.isCaseType);
+    }).refillSVG(fill);
+    this.configChanged.emit(this.caseCardConfig);
+  }
+
+  public selectState &#x3D; (state: CaseTypeState) &#x3D;&gt; {
+    this.selectedStateConfig &#x3D; this.getConfigForState(state);
+    if (!this.caseCardConfig.cardConfig.useCaseTypeColor) {
+      this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) &#x3D;&gt; {
+        comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+      });
+    }
+  }
+
+  /*public saveConfig &#x3D; () &#x3D;&gt; {
+    this.caseCardConfigService.updateCaseCardConfig(this.sandboxId, this.appId, this.uiAppId, this.caseCardConfig)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(caseCardConfig &#x3D;&gt; {
+          this.caseCardConfig &#x3D; caseCardConfig;
+        })
+      ).subscribe(null, error &#x3D;&gt; { console.log(&#x27;Unable to update case card config: &#x27; + error.errorMsg); }
+    );
+  }*/
+
+  public openDialog(state: CaseTypeState, isCaseType: boolean): void {
+
+    if (!isCaseType) {
+      this.selectState(state);
+    } else {
+      state &#x3D; new CaseTypeState().deserialize({ value: this.appTypeLabel });
+    }
+    const dialogRef &#x3D; this.dialog.open(LiveAppsStateIconUploadDialogComponent, {
+      width: &#x27;500px&#x27;,
+      data: { state: state, isCaseType: isCaseType }
+    });
+
+    dialogRef.componentInstance.fileevent.subscribe(($e) &#x3D;&gt; {
+      this.uploadFile($e.file, $e.state, $e.isCaseType);
+    })
+
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+    });
+  }
+
+  public setNewStateIcon &#x3D; (url) &#x3D;&gt; {
+    this.selectedStateConfig.icon &#x3D; url;
+    this.stateIconComponents.find((comp: LiveAppsStateIconComponent) &#x3D;&gt; {
+      return (comp.id &#x3D;&#x3D;&#x3D; this.selectedStateConfig.state);
+    }).refresh(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) &#x3D;&gt; {
+      comp.restylePreview(this.selectedStateConfig.icon, this.selectedStateConfig.fill);
+    });
+    this.updateIconMap(this.selectedStateConfig);
+  }
+
+  public setNewCaseTypeIcon &#x3D; (url) &#x3D;&gt; {
+    this.caseTypeIcon &#x3D; url;
+    this.stateIconComponents.find((comp: LiveAppsStateIconComponent) &#x3D;&gt; {
+      return (comp.id &#x3D;&#x3D;&#x3D; this.appTypeLabel);
+    }).refresh(this.caseTypeIcon, this.caseTypeColor);
+    this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) &#x3D;&gt; {
+      comp.restylePreviewCaseType(this.caseTypeIcon, this.caseTypeColor);
+    });
+    this.updateIconMap(new IconMap(true, this.appTypeLabel, this.caseTypeColor, this.caseTypeIcon));
+  }
+
+  public uploadFile(file: File, state: CaseTypeState, isStateIcon: boolean) {
+    if (file) {
+      const url &#x3D; &#x27;webresource/v1/orgFolders/&#x27; + this.folderId + &#x27;/&#x27; + this.appId + &#x27;.&#x27; + file.name;
+      const dlUrl &#x3D; &#x27;webresource/orgFolders/&#x27; + this.folderId + &#x27;/&#x27; + this.appId + &#x27;.&#x27; + file.name;
+      this.liveapps.clearFromIconSVGTextCache(url);
+      this.documentsService.uploadDocument(&#x27;orgFolders&#x27;, this.folderId, this.sandboxId,
+        file, (this.appId + &#x27;.&#x27; + file.name), &#x27;&#x27;)
+        .pipe(
+          map(val &#x3D;&gt; {
+            if (!isStateIcon) {
+              this.setNewStateIcon(dlUrl);
+            } else {
+              this.setNewCaseTypeIcon(dlUrl);
+            }
+          })
+        )
+        .subscribe(
+          result &#x3D;&gt; null,
+          error &#x3D;&gt; { console.log(&#x27;error&#x27;); this.errorMessage &#x3D; &#x27;Error uploading state icon: &#x27; + error.errorMsg; });
+    }
+  }
+
+  public refresh &#x3D; () &#x3D;&gt; {
+    // need states &amp; cardConfig
+    this.selectedCaseTypeConfig &#x3D; null;
+    this.caseCardConfigService.getCaseCardConfig(this.sandboxId, this.appId, this.uiAppId, this.appTypeLabel, this.DEFAULT_CASE_TYPE_COLOR, this.DEFAULT_CASE_TYPE_ICON, this.DEFAULT_CASE_STATE_COLOR, this.DEFAULT_CASE_STATE_ICON).pipe(
+      take(1),
+      takeUntil(this._destroyed$),
+      map(caseCardConfig &#x3D;&gt; {
+        this.caseCardConfig &#x3D; caseCardConfig;
+        // set default selected to first state for this case type (0 is case type)
+        this.selectedStateConfig &#x3D; this.caseCardConfig.cardConfig.stateMap[1];
+        const caseTypeRec &#x3D; this.caseCardConfig.cardConfig.stateMap.find(function(stateMap) {
+          return stateMap.isCaseType;
+        });
+
+        this.caseTypeIcon &#x3D; caseTypeRec.icon;
+        this.caseTypeColor &#x3D; caseTypeRec.fill;
+        this.selectedCaseTypeConfig &#x3D; this.getConfigForCaseType(this.appTypeLabel);
+      })
+    ).subscribe(
+      null, error &#x3D;&gt; { this.errorMessage &#x3D; &#x27;Error retrieving case card config: &#x27; + error.error.errorMsg; });
+  }
+
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer,
+              private liveapps: LiveAppsService, public caseCardConfigService: TcCaseCardConfigService, private documentsService: TcDocumentService, public dialog: MatDialog, private location: Location) {
+    super();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.appId &amp;&amp; (changes.appId.currentValue !&#x3D;&#x3D; changes.appId.previousValue)) {
+      this.refresh();
+    }
+  }
+
+
+}
+
+@Component({
+  selector: &#x27;tcla-live-apps-state-icon-upload-dialog&#x27;,
+  templateUrl: &#x27;upload-file-dialog/app-live-apps-state-icon-upload-dialog.html&#x27;,
+  styleUrls: [ &#x27;upload-file-dialog/app-live-apps-state-icon-upload-dialog.css&#x27;]
+})
+export class LiveAppsStateIconUploadDialogComponent {
+  @Output() fileevent &#x3D; new EventEmitter&lt;any&gt;();
+  public fileToUpload: File &#x3D; undefined;
+  public description: string &#x3D; undefined;
+  public fileText: string;
+
+  constructor(
+    public dialogRef: MatDialogRef&lt;LiveAppsStateIconUploadDialogComponent&gt;, @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  public uploadFile &#x3D; () &#x3D;&gt; {
+    if (this.fileToUpload) {
+      this.fileevent.emit({ file: this.fileToUpload, state: this.data.state, isCaseType: this.data.isCaseType } );
+      this.dialogRef.close();
+    }
+  }
+
+  setFileDescription(description: string) {
+    this.description &#x3D; description;
+  }
+
+  attachFile(files: FileList) {
+    this.fileToUpload &#x3D; files.item(0);
+    /*const myReader: FileReader &#x3D; new FileReader();
+    myReader.readAsText(this.fileToUpload);
+    this.fileText &#x3D; myReader.result.toString();*/
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;appId&quot; class&#x3D;&quot;tcs-case-card-customization&quot; fxLayout&#x3D;&quot;column&quot;&gt;
+    &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-around stretch&quot; fxFlex&gt;
+      &lt;div fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;start center&quot; fxFlex&gt;
+        &lt;div fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+          &lt;div class&#x3D;&quot;tcs-case-card-customization-section-text&quot;&gt;Preview&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;tcs-case-card-customization-preview&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;start center&quot; fxFlex&gt;
+          &lt;div *ngIf&#x3D;&quot;selectedStateConfig &amp;&amp; caseTypeColor &amp;&amp; caseTypeIcon&quot; style&#x3D;&quot;border-radius: 3px; margin: 5px;&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;space-around center&quot;&gt;
+            &lt;tcla-live-apps-case-summary style&#x3D;&quot;margin: 5px;&quot; [displayType]&#x3D;&quot;&#x27;card&#x27;&quot; [typeBar]&#x3D;&quot;true&quot; [configMode]&#x3D;&quot;true&quot; [configModeColor]&#x3D;&quot;caseCardConfig.cardConfig.useCaseTypeColor ? caseTypeColor : selectedStateConfig.fill&quot; [configModeIcon]&#x3D;&quot;selectedStateConfig.icon&quot; [configModeCaseTypeColor]&#x3D;&quot;caseTypeColor&quot; [configModeCaseTypeIcon]&#x3D;&quot;caseTypeIcon&quot; [configModeAppTypeLabel]&#x3D;&quot;appTypeLabel&quot;&gt;&lt;/tcla-live-apps-case-summary&gt;
+            &lt;tcla-live-apps-case-summary style&#x3D;&quot;margin: 5px;&quot; [displayType]&#x3D;&quot;&#x27;miniCard&#x27;&quot; [typeBar]&#x3D;&quot;true&quot; [configMode]&#x3D;&quot;true&quot; [configModeColor]&#x3D;&quot;caseCardConfig.cardConfig.useCaseTypeColor ? caseTypeColor : selectedStateConfig.fill&quot; [configModeIcon]&#x3D;&quot;selectedStateConfig.icon&quot; [configModeCaseTypeColor]&#x3D;&quot;caseTypeColor&quot; [configModeCaseTypeIcon]&#x3D;&quot;caseTypeIcon&quot; [configModeAppTypeLabel]&#x3D;&quot;appTypeLabel&quot;&gt;&lt;/tcla-live-apps-case-summary&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;tcs-case-card-customization-divider&quot;&gt;&lt;/div&gt;
+      &lt;div fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;start center&quot; fxFlex&gt;
+        &lt;div fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+          &lt;div class&#x3D;&quot;tcs-case-card-customization-section-text&quot;&gt;Configure Icons&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div fxFlex&gt;
+          &lt;div fxFlex class&#x3D;&quot;tcs-case-states-list&quot; *ngIf&#x3D;&quot;caseCardConfig &amp;&amp; caseCardConfig.cardConfig &amp;&amp; caseCardConfig.states&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+            &lt;div class&#x3D;&quot;tcs-case-states-list-inner&quot;&gt;
+              &lt;div class&#x3D;&quot;case-type-color-toggle&quot;&gt;
+                &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+                  &lt;mat-slide-toggle
+                  class&#x3D;&quot;use-case-type-color&quot;
+                  [labelPosition]&#x3D;&quot;&#x27;before&#x27;&quot;
+                  [checked]&#x3D;&quot;caseCardConfig.cardConfig.useCaseTypeColor&quot;
+                  (change)&#x3D;&quot;handleCaseTypeColorToggleChange($event)&quot;&gt;
+                  Use Case Type Color for color bar
+                  &lt;/mat-slide-toggle&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;tcs-case-states-list-row&quot;&gt;
+                  &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+                    &lt;div fxLayoutAlign&#x3D;&quot;start center&quot; style&#x3D;&quot;min-width: 170px;&quot;&gt;Case Type Icon&lt;/div&gt;
+                    &lt;tcla-live-apps-state-icon style&#x3D;&quot;margin-left: 10px; margin-right: 10px; min-width: 14px;&quot; #iconcomp [id]&#x3D;&quot;appTypeLabel&quot; [iconPath]&#x3D;&quot;selectedCaseTypeConfig.icon&quot; [color]&#x3D;&quot;selectedCaseTypeConfig.fill&quot;
+                                               [appId]&#x3D;&quot;appId&quot; [(colorPicker)]&#x3D;&quot;selectedCaseTypeConfig.fill&quot; (colorPickerChange)&#x3D;&quot;setCaseTypeFill($event, selectedCaseTypeConfig)&quot; [cpPresetColors]&#x3D;&quot;DEFAULT_COLOR_PALETTE&quot; [cpPositionOffset]&#x3D;&quot;&#x27;-40%&#x27;&quot;
+                                              matTooltip&#x3D;&quot;Click to change color&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;
+                    &lt;/tcla-live-apps-state-icon&gt;
+                    &lt;mat-icon (click)&#x3D;&quot;openDialog(null, true)&quot; class&#x3D;&quot;tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button&quot; svgIcon&#x3D;&quot;tcs-document-upload&quot;
+                              matTooltip&#x3D;&quot;Click to upload new icon&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;
+                    &lt;/mat-icon&gt;
+                    &lt;mat-icon class&#x3D;&quot;tcs-icon tcs-icon-active tcs-config-button-placeholder&quot;&gt;&lt;/mat-icon&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;tcs-case-states-icon-divider&quot;&gt;&lt;/div&gt;
+              &lt;!-- case state icons --&gt;
+              &lt;div *ngFor&#x3D;&quot;let state of caseCardConfig.states&quot; class&#x3D;&quot;tcs-case-states-list-row&quot; (click)&#x3D;&quot;selectState(state)&quot;&gt;
+                &lt;div *ngIf&#x3D;&quot;getConfigForState(state); let stateConfig;&quot;&gt;
+                  &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+                    &lt;div fxLayoutAlign&#x3D;&quot;start center&quot; style&#x3D;&quot;min-width: 170px;&quot;&gt;{{state.label | ellipsis: 25}}&lt;/div&gt;
+                    &lt;tcla-live-apps-state-icon style&#x3D;&quot;margin-left: 10px; margin-right: 10px; min-width: 14px;&quot; #iconcomp [id]&#x3D;&quot;state.value&quot; [iconPath]&#x3D;&quot;stateConfig.icon&quot; [color]&#x3D;&quot;stateConfig.fill&quot;
+                                               [appId]&#x3D;&quot;appId&quot; [(colorPicker)]&#x3D;&quot;stateConfig.fill&quot; (colorPickerChange)&#x3D;&quot;setFill($event, stateConfig)&quot; [cpPresetColors]&#x3D;&quot;DEFAULT_COLOR_PALETTE&quot; [cpPositionOffset]&#x3D;&quot;&#x27;-40%&#x27;&quot;
+                                              matTooltip&#x3D;&quot;Click to change color&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;
+                    &lt;/tcla-live-apps-state-icon&gt;
+                    &lt;mat-icon (click)&#x3D;&quot;openDialog(state, false)&quot; class&#x3D;&quot;tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button&quot; svgIcon&#x3D;&quot;tcs-document-upload&quot;
+                              matTooltip&#x3D;&quot;Click to upload new icon&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;
+                    &lt;/mat-icon&gt;
+                    &lt;mat-icon class&#x3D;&quot;tcs-icon tcs-icon-active tcs-config-button-placeholder&quot;&gt;&lt;/mat-icon&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;!--div class&#x3D;&quot;tcs-case-card-customization-footer&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;end stretch&quot;&gt;
+    &lt;div class&#x3D;&quot;tcs-case-card-customization-action-buttons&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;center center&quot;&gt;
+      &lt;button class&#x3D;&quot;tcs-save-app-config-button&quot; mat-button (click)&#x3D;&quot;saveConfig()&quot; type&#x3D;&quot;submit&quot;&gt;Save Configuration&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div--&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./live-apps-application-configuration.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tcs-case-card-customization {
+  min-width: 775px;
+  min-height: 370px;
+  /* border-radius: 3px; */
+  /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);*/
+  background-color: #ffffff;
+}
+
+.tcs-case-card-customization * {
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+}
+
+.case-type-color-toggle {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.tcs-case-card-customization-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-case-card-customization .tcs-case-card-customization-header-text {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: black;
+  margin-left: 10px;
+}
+
+.tcs-case-card-customization-action-buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tcs-case-card-customization-divider {
+  padding: 0px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  margin-left:5px;
+  margin-right: 5px;
+  border-left-color: #f4f4f4;
+  border-left-width: 1.1px;
+  border-left-style: solid;
+}
+
+.tcs-case-card-customization .tcs-case-card-customization-section-text {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: black;
+}
+
+.tcs-case-states-list {
+  margin: 5px;
+}
+
+.tcs-case-states-list-inner {
+  overflow-y: auto;
+}
+
+.tcs-case-card-customization-preview {
+  /*margin: 20px;*/
+}
+
+.tcs-case-card-customization-preview app-live-apps-case-summary {
+  overflow-y: auto;
+}
+
+.tcs-case-states-list-row {
+  border-radius: 3px;
+  padding: 3px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.tcs-case-states-list-row:hover {
+  transition: background-color 0.5s;
+  background-color: #EEF0F7;
+}
+
+.tcs-icon-active.tcs-config-button {
+  display: none;
+}
+
+.tcs-icon-active.tcs-config-button-placeholder {
+  display: inline-block;
+  width: 24px;
+}
+
+.tcs-case-states-list-row:hover .tcs-icon-active.tcs-config-button {
+  display: inline-block;
+}
+
+.tcs-case-states-list-row:hover .tcs-icon-active.tcs-config-button-placeholder {
+  display: none;
+}
+
+.tcs-case-states-icon-divider {
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  margin-left:10px;
+  margin-right: 15px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
+}
+
+.tcs-save-app-config-button {
+  height: 35px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="appId" class="tcs-case-card-customization" fxLayout="column">    <div fxLayout="row" fxLayoutAlign="space-around stretch" fxFlex>      <div fxLayout="column" fxLayoutAlign="start center" fxFlex>        <div fxLayout="column" fxLayoutAlign="start center">          <div class="tcs-case-card-customization-section-text">Preview</div>        </div>        <div class="tcs-case-card-customization-preview" fxLayout="column" fxLayoutAlign="start center" fxFlex>          <div *ngIf="selectedStateConfig && caseTypeColor && caseTypeIcon" style="border-radius: 3px; margin: 5px;" fxLayout="column" fxLayoutAlign="space-around center">            <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="\'card\'" [typeBar]="true" [configMode]="true" [configModeColor]="caseCardConfig.cardConfig.useCaseTypeColor ? caseTypeColor : selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>            <tcla-live-apps-case-summary style="margin: 5px;" [displayType]="\'miniCard\'" [typeBar]="true" [configMode]="true" [configModeColor]="caseCardConfig.cardConfig.useCaseTypeColor ? caseTypeColor : selectedStateConfig.fill" [configModeIcon]="selectedStateConfig.icon" [configModeCaseTypeColor]="caseTypeColor" [configModeCaseTypeIcon]="caseTypeIcon" [configModeAppTypeLabel]="appTypeLabel"></tcla-live-apps-case-summary>          </div>        </div>      </div>      <div class="tcs-case-card-customization-divider"></div>      <div fxLayout="column" fxLayoutAlign="start center" fxFlex>        <div fxLayout="column" fxLayoutAlign="start center">          <div class="tcs-case-card-customization-section-text">Configure Icons</div>        </div>        <div fxFlex>          <div fxFlex class="tcs-case-states-list" *ngIf="caseCardConfig && caseCardConfig.cardConfig && caseCardConfig.states" fxLayout="column" fxLayoutAlign="start center">            <div class="tcs-case-states-list-inner">              <div class="case-type-color-toggle">                <div fxLayout="row" fxLayoutAlign="space-between center">                  <mat-slide-toggle                  class="use-case-type-color"                  [labelPosition]="\'before\'"                  [checked]="caseCardConfig.cardConfig.useCaseTypeColor"                  (change)="handleCaseTypeColorToggleChange($event)">                  Use Case Type Color for color bar                  </mat-slide-toggle>                </div>              </div>              <div class="tcs-case-states-list-row">                  <div fxLayout="row" fxLayoutAlign="space-between center">                    <div fxLayoutAlign="start center" style="min-width: 170px;">Case Type Icon</div>                    <tcla-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="appTypeLabel" [iconPath]="selectedCaseTypeConfig.icon" [color]="selectedCaseTypeConfig.fill"                                               [appId]="appId" [(colorPicker)]="selectedCaseTypeConfig.fill" (colorPickerChange)="setCaseTypeFill($event, selectedCaseTypeConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="\'-40%\'"                                              matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">                    </tcla-live-apps-state-icon>                    <mat-icon (click)="openDialog(null, true)" class="tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button" svgIcon="tcs-document-upload"                              matTooltip="Click to upload new icon" matTooltipShowDelay="1000" matTooltipPosition="below">                    </mat-icon>                    <mat-icon class="tcs-icon tcs-icon-active tcs-config-button-placeholder"></mat-icon>                  </div>              </div>              <div class="tcs-case-states-icon-divider"></div>              <!-- case state icons -->              <div *ngFor="let state of caseCardConfig.states" class="tcs-case-states-list-row" (click)="selectState(state)">                <div *ngIf="getConfigForState(state); let stateConfig;">                  <div fxLayout="row" fxLayoutAlign="space-between center">                    <div fxLayoutAlign="start center" style="min-width: 170px;">{{state.label | ellipsis: 25}}</div>                    <tcla-live-apps-state-icon style="margin-left: 10px; margin-right: 10px; min-width: 14px;" #iconcomp [id]="state.value" [iconPath]="stateConfig.icon" [color]="stateConfig.fill"                                               [appId]="appId" [(colorPicker)]="stateConfig.fill" (colorPickerChange)="setFill($event, stateConfig)" [cpPresetColors]="DEFAULT_COLOR_PALETTE" [cpPositionOffset]="\'-40%\'"                                              matTooltip="Click to change color" matTooltipShowDelay="1000" matTooltipPosition="below">                    </tcla-live-apps-state-icon>                    <mat-icon (click)="openDialog(state, false)" class="tcs-icon tcs-icon-active tcs-config-button tcs-document-upload-button" svgIcon="tcs-document-upload"                              matTooltip="Click to upload new icon" matTooltipShowDelay="1000" matTooltipPosition="below">                    </mat-icon>                    <mat-icon class="tcs-icon tcs-icon-active tcs-config-button-placeholder"></mat-icon>                  </div>                </div>              </div>            </div>          </div>        </div>      </div>    </div>  <!--div class="tcs-case-card-customization-footer" fxLayout="column" fxLayoutAlign="end stretch">    <div class="tcs-case-card-customization-action-buttons" fxLayout="row" fxLayoutAlign="center center">      <button class="tcs-save-app-config-button" mat-button (click)="saveConfig()" type="submit">Save Configuration</button>    </div>  </div--></div></div>'
+    var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseOverviewReportComponent', 'selector': 'tcla-live-apps-case-overview-report'},{'name': 'LiveAppsCaseSchemaListComponent', 'selector': 'tcla-live-apps-case-schema-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsCaseTypeOverviewReportComponent', 'selector': 'tcla-live-apps-case-type-overview-report'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsPieComponent', 'selector': 'tcla-live-apps-pie'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsReportingCockpitComponent', 'selector': 'tcla-live-apps-reporting-cockpit'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSandboxComponent', 'selector': 'tcla-live-apps-sandbox'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LiveAppsApplicationConfigurationComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LiveAppsApplicationConfigurationComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

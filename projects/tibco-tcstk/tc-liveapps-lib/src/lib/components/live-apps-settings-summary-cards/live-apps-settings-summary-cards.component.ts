@@ -16,7 +16,6 @@ import { MatSnackBar } from '@angular/material';
  *
  *@example <tcla-live-apps-settings-summary-cards></tcla-live-apps-settings-summary-cards>
  */
-
 @Component({
   selector: 'tcla-live-apps-settings-summary-cards',
   templateUrl: './live-apps-settings-summary-cards.component.html',
