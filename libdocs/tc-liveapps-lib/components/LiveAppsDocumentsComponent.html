@@ -1,0 +1,1835 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Live Apps Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Live Apps Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LiveAppsDocumentsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Document List and upload Component</p>
+<p>This Component allows to list, upload, download, Documents attached to a Case-Instance or a whole Application.
+In the Upload Dialog the User is able to select a local File and enter a short Description.</p>
+<p>The Component stores also the following Data
+- uploading User
+- Timestamp
+- File Size</p>
+<p>Document List
+<img src="../Documents.png" alt="alt-text" class="img-responsive" title="Documents Component Image">
+Document Upload Dialog
+<img src="../Docs-Upload.png" alt="alt-text" class="img-responsive" title="Documents Component Image"></p>
+
+    </p>
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-documents&gt;&lt;/tcla-live-apps-documents&gt;</code></pre>
+                </div>
+    </div>
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tcla-live-apps-documents</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./live-apps-documents.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./live-apps-documents.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog">dialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#documents">documents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadDocument">downloadDocument</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMessage">errorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fileDescription">fileDescription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fileToUpload">fileToUpload</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#listDocuments">listDocuments</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeDocument">removeDocument</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadDocument">uploadDocument</a>
+                            </li>
+                            <li>
+                                <a href="#uploadMessage">uploadMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewDocument">viewDocument</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_destroyed$">_destroyed$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#attachFile">attachFile</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openDialog">openDialog</a>
+                            </li>
+                            <li>
+                                <a href="#setFileDescription">setFileDescription</a>
+                            </li>
+                            <li>
+                                <a href="#uploadFile">uploadFile</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filter">filter</a>
+                            </li>
+                            <li>
+                                <a href="#folderDescription">folderDescription</a>
+                            </li>
+                            <li>
+                                <a href="#folderId">folderId</a>
+                            </li>
+                            <li>
+                                <a href="#folderType">folderType</a>
+                            </li>
+                            <li>
+                                <a href="#sandboxId">sandboxId</a>
+                            </li>
+                            <li>
+                                <a href="#showHeader">showHeader</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(liveapps: <a href="../injectables/LiveAppsService.html">LiveAppsService</a>, documentsService: <a href="../injectables/TcDocumentService.html">TcDocumentService</a>, dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>liveapps</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LiveAppsService.html" target="_self" >LiveAppsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>documentsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TcDocumentService.html" target="_self" >TcDocumentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filter"></a>
+                        <b>filter</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:58</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>NOT used but would allow a search filter on documents</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="folderDescription"></a>
+                        <b>folderDescription</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:63</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>header text on component (defaults to documents)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="folderId"></a>
+                        <b>folderId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:53</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The organisation folder to store/retrieve documents</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="folderType"></a>
+                        <b>folderType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:48</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>orgFolders&#39; or &#39;caseFolders&#39; - different API calls made according to which one this is</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sandboxId"></a>
+                        <b>sandboxId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:43</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sandboxId - this comes from claims resolver</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showHeader"></a>
+                        <b>showHeader</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.showHeader ? this.showHeader : true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:68</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="attachFile"></a>
+                    <span class="name">
+                        <b>
+                            attachFile
+                        </b>
+                        <a href="#attachFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>attachFile(files: FileList)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>files</td>
+                                    <td>
+                                            <code>FileList</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="186"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:186</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialog"></a>
+                    <span class="name">
+                        <b>
+                            openDialog
+                        </b>
+                        <a href="#openDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:172</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFileDescription"></a>
+                    <span class="name">
+                        <b>
+                            setFileDescription
+                        </b>
+                        <a href="#setFileDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setFileDescription(description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:147</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>description</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadFile"></a>
+                    <span class="name">
+                        <b>
+                            uploadFile
+                        </b>
+                        <a href="#uploadFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>uploadFile(fileToUpload, description)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileToUpload</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>description</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:27</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dialog"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dialog</b>
+                            <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatDialog</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="documents"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            documents</b>
+                            <a href="#documents"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Document.html" target="_self" >Document[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:71</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadDocument"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            downloadDocument</b>
+                            <a href="#downloadDocument"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:124</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessage"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorMessage</b>
+                            <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileDescription"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fileDescription</b>
+                            <a href="#fileDescription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:73</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileToUpload"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fileToUpload</b>
+                            <a href="#fileToUpload"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>File</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:72</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listDocuments"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            listDocuments</b>
+                            <a href="#listDocuments"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:80</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            refresh</b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:76</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeDocument"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            removeDocument</b>
+                            <a href="#removeDocument"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:94</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="uploadDocument"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            uploadDocument</b>
+                            <a href="#uploadDocument"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="uploadMessage"></a>
+                        <span class="name">
+                            <b>
+                            uploadMessage</b>
+                            <a href="#uploadMessage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:74</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewDocument"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            viewDocument</b>
+                            <a href="#viewDocument"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-documents/live-apps-documents.component.ts:108</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_destroyed$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _destroyed$</b>
+                            <a href="#_destroyed$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:23</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output} from &#x27;@angular/core&#x27;;
+import {Subject} from &#x27;rxjs&#x27;;
+import {LiveAppsService} from &#x27;../../services/live-apps.service&#x27;;
+import {map, take, takeUntil} from &#x27;rxjs/operators&#x27;;
+import { DocumentList, Document } from &#x27;../../models/tc-document&#x27;;
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from &#x27;@angular/material&#x27;;
+import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
+import {TcDocumentService} from &#x27;../../services/tc-document.service&#x27;;
+
+
+/**
+ * Document List and upload Component
+ *
+ * This Component allows to list, upload, download, Documents attached to a Case-Instance or a whole Application.
+ * In the Upload Dialog the User is able to select a local File and enter a short Description.
+ *
+ * The Component stores also the following Data
+ * - uploading User
+ * - Timestamp
+ * - File Size
+ *
+ * Document List
+ * ![alt-text](../Documents.png &quot;Documents Component Image&quot;)
+ * Document Upload Dialog
+ * ![alt-text](../Docs-Upload.png &quot;Documents Component Image&quot;)
+ *
+ *@example &lt;tcla-live-apps-documents&gt;&lt;/tcla-live-apps-documents&gt;
+ */
+
+@Component({
+  selector: &#x27;tcla-live-apps-documents&#x27;,
+  templateUrl: &#x27;./live-apps-documents.component.html&#x27;,
+  styleUrls: [&#x27;./live-apps-documents.component.css&#x27;]
+})
+export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnInit {
+
+  constructor(private liveapps: LiveAppsService, private documentsService: TcDocumentService, public dialog: MatDialog) {
+    super();
+  }
+  /**
+   * sandboxId - this comes from claims resolver
+   */
+  @Input() sandboxId: number;
+
+  /**
+   * orgFolders&#x27; or &#x27;caseFolders&#x27; - different API calls made according to which one this is
+   */
+  @Input() folderType: string; // &#x27;orgFolders&#x27; or &#x27;caseFolders&#x27;
+
+  /**
+   * The organisation folder to store/retrieve documents
+   */
+  @Input() folderId: string;   // caseRef for caseFolder
+
+  /**
+   * NOT used but would allow a search filter on documents
+   */
+  @Input() filter: string;
+
+  /**
+   * header text on component (defaults to documents)
+   */
+  @Input() folderDescription: string;
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
+  @Input() showHeader: boolean &#x3D; this.showHeader ? this.showHeader : true;
+
+  public errorMessage: string;
+  public documents: Document[];
+  public fileToUpload: File &#x3D; undefined;
+  public fileDescription: string;
+  uploadMessage: string;
+
+  public refresh &#x3D; () &#x3D;&gt; {
+    this.listDocuments();
+  }
+
+  public listDocuments &#x3D; () &#x3D;&gt; {
+    this.documentsService.listDocuments(this.folderType, this.folderId, this.sandboxId, this.filter)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(documentslist &#x3D;&gt; {
+          this.documents &#x3D; documentslist.documents;
+        })
+      ).subscribe(null, error &#x3D;&gt; { this.errorMessage &#x3D; &#x27;Error retrieving case states: &#x27; + error.error.errorMsg; });
+    }
+
+  public uploadDocument &#x3D; (doc) &#x3D;&gt; {
+  }
+
+  public removeDocument &#x3D; (doc) &#x3D;&gt; {
+    this.documentsService.deleteDocument(this.folderType, this.folderId, doc.name, this.sandboxId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(val &#x3D;&gt; {
+          console.log(val);
+          this.refresh();
+        })
+      )
+      .subscribe(
+        null, error &#x3D;&gt; { this.errorMessage &#x3D; &#x27;Error removing document: &#x27; + error.errorMsg; });
+  }
+
+  public viewDocument &#x3D; (doc) &#x3D;&gt; {
+    const viewDocDialogRef &#x3D; this.dialog.open(LiveAppsDocumentViewerDialogComponent, {
+      width: &#x27;75%&#x27;,
+      height: &#x27;75%&#x27;,
+      data: {
+        doc: doc,
+        folderType: this.folderType,
+        folderId: this.folderId,
+        sandboxId: this.sandboxId
+      }
+    });
+
+    viewDocDialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+    });
+  }
+
+  public downloadDocument &#x3D; (doc) &#x3D;&gt; {
+    this.documentsService.downloadDocument(this.folderType, this.folderId, doc.name, doc.artifactVersion, this.sandboxId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(data &#x3D;&gt; {
+          // todo: check if this works on all browsers
+          const downloadURL &#x3D; window.URL.createObjectURL(data);
+          const link &#x3D; document.createElement(&#x27;a&#x27;);
+          link.href &#x3D; downloadURL;
+          link.download &#x3D; doc.name;
+          link.click();
+        })
+      )
+      .subscribe(
+        null, error &#x3D;&gt; { this.errorMessage &#x3D; &#x27;Error downloading document: &#x27; + error.errorMsg; });
+  }
+
+  attachFile(files: FileList) {
+    this.uploadMessage &#x3D; &#x27;&#x27;;
+    this.fileToUpload &#x3D; files.item(0);
+  }
+
+  setFileDescription(description: string) {
+    this.fileDescription &#x3D; description;
+  }
+
+  uploadFile(fileToUpload, description) {
+    this.fileToUpload &#x3D; fileToUpload;
+    this.fileDescription &#x3D; description;
+    if (this.fileToUpload) {
+      this.documentsService.uploadDocument(this.folderType, this.folderId, this.sandboxId,
+        this.fileToUpload, this.fileToUpload.name, this.fileDescription)
+        .pipe(
+          map(val &#x3D;&gt; {
+            console.log(val);
+            this.refresh();
+          })
+        )
+        .subscribe(
+          result &#x3D;&gt; {
+            this.fileToUpload &#x3D; undefined;
+            this.uploadMessage &#x3D; &#x27;File uploaded&#x27;;
+          },
+          error &#x3D;&gt; { console.log(&#x27;error&#x27;); this.errorMessage &#x3D; &#x27;Error uploading document: &#x27; + error.errorMsg; });
+    }
+  }
+
+  openDialog(): void {
+    const dialogRef &#x3D; this.dialog.open(LiveAppsDocumentUploadDialogComponent, {
+      width: &#x27;500px&#x27;,
+      data: {}
+    });
+
+    dialogRef.componentInstance.fileevent.subscribe(($e) &#x3D;&gt; {
+      this.uploadFile($e.file, $e.description);
+    })
+
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+    });
+  }
+
+  ngOnInit() {
+    this.refresh();
+  }
+}
+
+@Component({
+  selector: &#x27;tcla-live-apps-document-upload-dialog&#x27;,
+  templateUrl: &#x27;app-live-apps-document-upload-dialog.html&#x27;,
+  styleUrls: [ &#x27;app-live-apps-document-upload-dialog.css&#x27;]
+})
+export class LiveAppsDocumentUploadDialogComponent {
+
+  @Output() fileevent &#x3D; new EventEmitter&lt;any&gt;();
+  public fileToUpload: File &#x3D; undefined;
+  public description: string &#x3D; undefined;
+
+  constructor(
+    public dialogRef: MatDialogRef&lt;LiveAppsDocumentUploadDialogComponent&gt;) {}
+
+
+  public uploadFile &#x3D; () &#x3D;&gt; {
+    if (this.fileToUpload) {
+      this.fileevent.emit({ file: this.fileToUpload, description: this.description });
+      this.dialogRef.close();
+    }
+  }
+
+  setFileDescription(description: string) {
+    this.description &#x3D; description;
+  }
+
+  attachFile(files: FileList) {
+    // this.uploadMessage &#x3D; &#x27;&#x27;;
+    this.fileToUpload &#x3D; files.item(0);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: &#x27;tcla-live-apps-document-viewer-dialog&#x27;,
+  templateUrl: &#x27;app-live-apps-document-viewer-dialog.html&#x27;,
+  styleUrls: [ &#x27;app-live-apps-document-viewer-dialog.css&#x27;]
+})
+export class LiveAppsDocumentViewerDialogComponent {
+  public doc: Document;
+  public folderType: string;
+  public folderId: string;
+  public sandboxId: number;
+
+  constructor(
+    public dialogRef: MatDialogRef&lt;LiveAppsDocumentUploadDialogComponent&gt;,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.doc &#x3D; this.data.doc;
+    this.folderType &#x3D; this.data.folderType;
+    this.folderId &#x3D; this.data.folderId;
+    this.sandboxId &#x3D; this.data.sandboxId;
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;tcs-documents-pane&quot; fxFill fxLayout&#x3D;&quot;column&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;showHeader&quot; class&#x3D;&quot;tcs-documents-header&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+    &lt;div fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+      &lt;mat-icon class&#x3D;&quot;tcs-icon tcs-icon-active tcs-collaboration-feed&quot; svgIcon&#x3D;&quot;tcs-document-library&quot;&gt;&lt;/mat-icon&gt;
+      &lt;div class&#x3D;&quot;tcs-documents-header-text&quot;&gt;{{folderDescription ? folderDescription : &#x27;Documents&#x27;}}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;mat-icon (click)&#x3D;&quot;openDialog()&quot; class&#x3D;&quot;tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon&quot; matTooltip&#x3D;&quot;Upload Document&quot; matTooltipPosition&#x3D;&quot;left&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; svgIcon&#x3D;&quot;tcs-document-upload&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/div&gt;
+  &lt;div *ngIf&#x3D;&quot;!showHeader&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;end center&quot;&gt;
+    &lt;mat-icon style&#x3D;&quot;margin: 5px&quot; (click)&#x3D;&quot;openDialog()&quot; class&#x3D;&quot;tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon&quot; matTooltip&#x3D;&quot;Upload Document&quot; matTooltipPosition&#x3D;&quot;left&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; svgIcon&#x3D;&quot;tcs-document-upload&quot;&gt;&lt;/mat-icon&gt;
+  &lt;/div&gt;
+  &lt;div fxLayout&#x3D;&quot;column&quot; fxFlex style&#x3D;&quot;overflow: auto&quot;&gt;
+    &lt;div class&#x3D;&quot;tcs-document-list&quot; fxLayout&#x3D;&quot;column&quot;&gt;
+      &lt;div *ngIf&#x3D;&quot;documents &amp;&amp; documents.length &gt; 0&quot;&gt;
+        &lt;div class&#x3D;&quot;tcs-document-detail-box tcs-document&quot; *ngFor&#x3D;&quot;let document of documents | orderByDate: &#x27;lastModifiedDate&#x27;&quot; fxLayout&#x3D;&quot;column&quot;&gt;
+          &lt;div class&#x3D;&quot;tcs-document-box&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot; fxLayout&#x3D;&quot;row&quot; fxFlex&gt;
+            &lt;div fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+              &lt;mat-icon class&#x3D;&quot;tcs-icon tcs-icon-active tcs-document-type-icon&quot; svgIcon&#x3D;&quot;tcs-document-{{document.fileIcon}}&quot;&gt;&lt;/mat-icon&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;tcs-document-details-text-box&quot; fxLayout&#x3D;&quot;column&quot; fxLayoutAlign&#x3D;&quot;center start&quot; fxFlex&gt;
+                &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;start center&quot; fxFill&gt;
+                  &lt;div class&#x3D;&quot;tcs-document-name-text&quot; matTooltip&#x3D;&quot;{{document.name}}&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;{{document.name | ellipsis: 30}}&lt;/div&gt;
+                  &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;end center&quot; fxFlex&gt;
+                    &lt;div class&#x3D;&quot;tcs-document-filesize-text&quot;&gt;&amp;nbsp;({{document.fileSize}})&lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;tcs-document-comment-text&quot; matTooltip&#x3D;&quot;{{document.description}}&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;{{document.description | ellipsis: 50}}&lt;/div&gt;
+              &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+                &lt;div class&#x3D;&quot;tcs-document-modified-text&quot;&gt;{{document.lastModifiedDate | durationSince}}&lt;/div&gt;
+                &lt;div *ngIf&#x3D;&quot;document.lastModifiedByDetails&quot; class&#x3D;&quot;tcs-document-modified-text&quot; matTooltip&#x3D;&quot;{{document.lastModifiedByDetails.username}}&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;&amp;nbsp;by {{document.lastModifiedByDetails.username | ellipsis: 40}}&lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div fxLayoutAlign&#x3D;&quot;end center&quot;&gt;
+              &lt;mat-icon [matMenuTriggerFor]&#x3D;&quot;docActionMenu&quot; class&#x3D;&quot;tcs-icon tcs-icon-active tcs-document-action-icon&quot; svgIcon&#x3D;&quot;tcs-document-action&quot;&gt;&lt;/mat-icon&gt;
+              &lt;mat-menu #docActionMenu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;tcs-icon tcs-icon-active tcs-document-action-icon&quot;&gt;
+                &lt;button class&#x3D;&quot;tcs-document-action-text&quot; mat-menu-item (click)&#x3D;&quot;viewDocument(document)&quot;&gt;View&lt;/button&gt;
+                &lt;button class&#x3D;&quot;tcs-document-action-text&quot; mat-menu-item (click)&#x3D;&quot;downloadDocument(document)&quot;&gt;Download&lt;/button&gt;
+                &lt;button class&#x3D;&quot;tcs-document-action-text&quot; mat-menu-item (click)&#x3D;&quot;removeDocument(document)&quot;&gt;Delete&lt;/button&gt;
+              &lt;/mat-menu&gt;
+
+
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;tcs-document-line&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div *ngIf&#x3D;&quot;!(documents?.length &gt; 0)&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;center start&quot; fxLayoutGap&#x3D;&quot;10px&quot; style&#x3D;&quot;margin-top: 20px;&quot;&gt;
+        &lt;mat-icon [svgIcon]&#x3D;&quot;&#x27;ic-no-docs-icon&#x27;&quot; style&#x3D;&quot;height: 48px; width: 48px;&quot;&gt;&lt;/mat-icon&gt;
+        &lt;div style&#x3D;&quot;height: 100%&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+          &lt;span class&#x3D;&quot;tcs-no-item-text&quot;&gt;No documents found&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--pre&gt;Documents: {{documents | json }}&lt;/pre--&gt;
+
+&lt;!--div fxLayout&#x3D;&quot;column&quot;&gt;
+  &lt;div&gt;
+    &lt;h3&gt;Upload Document&lt;/h3&gt;
+    &lt;div *ngIf&#x3D;&quot;uploadMessage&quot;&gt;{{uploadMessage}}&lt;/div&gt;
+    &lt;div&gt;
+      &lt;form #fileUploadForm&#x3D;&quot;ngForm&quot; (submit)&#x3D;&quot;uploadFile()&quot; fxFlex fxLayout&#x3D;&quot;column&quot;&gt;
+        &lt;div fxLayout&#x3D;&quot;row&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; mat-raised-button (click)&#x3D;&quot;fileInput.click()&quot;&gt;Choose File To Upload&lt;/button&gt;
+          &lt;div *ngIf&#x3D;&quot;fileToUpload&quot;&gt;{{fileToUpload.name}}&lt;/div&gt;
+          &lt;!-- below input is hidden and enabled by above button --&gt;
+          &lt;!--input class&#x3D;&quot;tcs-hidden-input&quot; (change)&#x3D;&quot;attachFile($event.target.files)&quot; #fileInput type&#x3D;&quot;file&quot; id&#x3D;&quot;file&quot;&gt;
+        &lt;/div&gt;
+        &lt;mat-form-field fxFlex&gt;
+          &lt;input matInput name&#x3D;&quot;inputdata.description&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Comments&quot; [(ngModel)]&#x3D;&quot;inputdata.description&quot;/&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-raised-button style&#x3D;&quot;max-width: 100px&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;!fileToUpload&quot;&gt;Upload&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div--&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./live-apps-documents.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tcs-hidden-input {
+  display: none;
+}
+
+.tcs-small-pane {
+  width: 400px;
+  max-width: 400px;
+  height: 386px;
+  max-height: 400px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+.tcs-documents-pane {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
+.tcs-documents-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-documents-header-text {
+  margin-left: 10px;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.tcs-document-name-text {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0081cb;
+}
+
+.tcs-document-comment-text {
+  font-family: Source Sans Pro;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #727272;
+}
+
+.tcs-document-modified-text {
+  font-family: Source Sans Pro;
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+}
+
+.tcs-document-filesize-text {
+  font-family: Source Sans Pro;
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+}
+
+
+.tcs-document-details-text-box {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+:host ::ng-deep .tcs-icon.tcs-document-edit-buttons:hover path.svg-content {
+  fill: #0081cb;
+  cursor: pointer;
+}
+
+:host ::ng-deep .tcs-icon.tcs-document-edit-icon:hover path.svg-content {
+  fill: #0081cb;
+  cursor: pointer;
+}
+
+.tcs-document-detail-box {
+  min-height: 85px;
+  flex-shrink: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-document-detail-box:hover {
+  background-color: #EEF0F7;
+  transition: background-color 0.5s;
+}
+
+.tcs-document-line {
+  margin-left: 20px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
+}
+
+.tcs-document-list {
+  overflow-y: auto;
+}
+
+.tcs-no-item-text {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b6b6b6;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="tcs-documents-pane" fxFill fxLayout="column">  <div *ngIf="showHeader" class="tcs-documents-header" fxLayout="row" fxLayoutAlign="space-between center">    <div fxLayoutAlign="start center">      <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-document-library"></mat-icon>      <div class="tcs-documents-header-text">{{folderDescription ? folderDescription : \'Documents\'}}</div>    </div>    <mat-icon (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" matTooltip="Upload Document" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>  </div>  <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">    <mat-icon style="margin: 5px" (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" matTooltip="Upload Document" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>  </div>  <div fxLayout="column" fxFlex style="overflow: auto">    <div class="tcs-document-list" fxLayout="column">      <div *ngIf="documents && documents.length > 0">        <div class="tcs-document-detail-box tcs-document" *ngFor="let document of documents | orderByDate: \'lastModifiedDate\'" fxLayout="column">          <div class="tcs-document-box" fxLayoutAlign="space-between center" fxLayout="row" fxFlex>            <div fxLayoutAlign="start center">              <mat-icon class="tcs-icon tcs-icon-active tcs-document-type-icon" svgIcon="tcs-document-{{document.fileIcon}}"></mat-icon>            </div>            <div class="tcs-document-details-text-box" fxLayout="column" fxLayoutAlign="center start" fxFlex>                <div fxLayout="row" fxLayoutAlign="start center" fxFill>                  <div class="tcs-document-name-text" matTooltip="{{document.name}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{document.name | ellipsis: 30}}</div>                  <div fxLayout="row" fxLayoutAlign="end center" fxFlex>                    <div class="tcs-document-filesize-text">&nbsp;({{document.fileSize}})</div>                  </div>                </div>                <div class="tcs-document-comment-text" matTooltip="{{document.description}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{document.description | ellipsis: 50}}</div>              <div fxLayout="row" fxLayoutAlign="start center">                <div class="tcs-document-modified-text">{{document.lastModifiedDate | durationSince}}</div>                <div *ngIf="document.lastModifiedByDetails" class="tcs-document-modified-text" matTooltip="{{document.lastModifiedByDetails.username}}" matTooltipShowDelay="1000" matTooltipPosition="below">&nbsp;by {{document.lastModifiedByDetails.username | ellipsis: 40}}</div>              </div>            </div>            <div fxLayoutAlign="end center">              <mat-icon [matMenuTriggerFor]="docActionMenu" class="tcs-icon tcs-icon-active tcs-document-action-icon" svgIcon="tcs-document-action"></mat-icon>              <mat-menu #docActionMenu="matMenu" class="tcs-icon tcs-icon-active tcs-document-action-icon">                <button class="tcs-document-action-text" mat-menu-item (click)="viewDocument(document)">View</button>                <button class="tcs-document-action-text" mat-menu-item (click)="downloadDocument(document)">Download</button>                <button class="tcs-document-action-text" mat-menu-item (click)="removeDocument(document)">Delete</button>              </mat-menu>            </div>          </div>          <div class="tcs-document-line"></div>        </div>      </div>      <div *ngIf="!(documents?.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px" style="margin-top: 20px;">        <mat-icon [svgIcon]="\'ic-no-docs-icon\'" style="height: 48px; width: 48px;"></mat-icon>        <div style="height: 100%" fxLayoutAlign="start center">          <span class="tcs-no-item-text">No documents found</span>        </div>      </div>    </div>  </div></div><!--pre>Documents: {{documents | json }}</pre--><!--div fxLayout="column">  <div>    <h3>Upload Document</h3>    <div *ngIf="uploadMessage">{{uploadMessage}}</div>    <div>      <form #fileUploadForm="ngForm" (submit)="uploadFile()" fxFlex fxLayout="column">        <div fxLayout="row">          <button type="button" mat-raised-button (click)="fileInput.click()">Choose File To Upload</button>          <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>          <!-- below input is hidden and enabled by above button -->          <!--input class="tcs-hidden-input" (change)="attachFile($event.target.files)" #fileInput type="file" id="file">        </div>        <mat-form-field fxFlex>          <input matInput name="inputdata.description" type="text" placeholder="Comments" [(ngModel)]="inputdata.description"/>        </mat-form-field>        <button mat-raised-button style="max-width: 100px" type="submit" [disabled]="!fileToUpload">Upload</button>      </form>    </div>  </div></div--></div>'
+    var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseOverviewReportComponent', 'selector': 'tcla-live-apps-case-overview-report'},{'name': 'LiveAppsCaseSchemaListComponent', 'selector': 'tcla-live-apps-case-schema-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsCaseTypeOverviewReportComponent', 'selector': 'tcla-live-apps-case-type-overview-report'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsPieComponent', 'selector': 'tcla-live-apps-pie'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsReportingCockpitComponent', 'selector': 'tcla-live-apps-reporting-cockpit'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSandboxComponent', 'selector': 'tcla-live-apps-sandbox'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LiveAppsDocumentsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LiveAppsDocumentsComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
