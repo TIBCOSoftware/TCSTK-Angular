@@ -7,7 +7,7 @@ import {CaseRoute} from '../../models/liveappsdata';
 
 
 /**
- * Favorite cases
+ * This Component allows to list your Favorite Cases.
  *
  *@example <tcla-live-apps-favorite-cases></tcla-live-apps-favorite-cases>
  */

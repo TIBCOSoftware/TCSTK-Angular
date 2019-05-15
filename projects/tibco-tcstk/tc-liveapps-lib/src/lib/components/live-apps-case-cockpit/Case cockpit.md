@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][major] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"high level component"} Component Meta -->
 
 
+<p>High level component to allow interaction with case.</p>
+
 
 
 #### Usage
@@ -15,24 +17,27 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-access | RouteAccessControlConfig | --- | 
-appId |  | --- | 
-caseRef |  | --- | 
-exclRecentAppIds | string[] | --- | 
-layout | any[] | --- | 
-roles | Roles | --- | 
-sandboxId |  | --- | 
-typeId |  | --- | 
-uiAppId |  | --- | 
-userId |  | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+access | RouteAccessControlConfig | RouteAccessControlConfig - basically the config for access control
+appId | string | The LA Application Id
+caseRef | string | The case reference
+customFormDefs | CustomFormDefs | Custom Form configuration file
+exclRecentAppIds | string[] | The list of LA Application Ids you want to mark as recent cases when accessed
+layout | any[] | Layout object that can be passed to override default layout of the form renderer
+roles | Roles | Roles - The users current roles
+sandboxId | number | sandboxId - this comes from claims resolver
+typeId | string | The LA Application Type Id (generally 1)
+uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
+userId | string | The ID of the logged user
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-routeAction | EventEmitter<RouteAction> | --- | 
+routeAction | EventEmitter<RouteAction> |   |  
+  | Event |  routeAction  |  Component requests route to another page
+  | Payload |  RouteAction  |  RouteAction object to tell caller to navigate somewhere
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -2,9 +2,7 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"*base component* everything should extend this (but doesnt yet)"} Component Meta -->
 
 
-<p>&lt;%= name %&gt;
-
-Describe your live apps component here</p>
+<p>Generic component extended by others</p>
 
 
 

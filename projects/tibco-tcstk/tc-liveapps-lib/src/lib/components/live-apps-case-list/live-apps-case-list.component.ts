@@ -10,7 +10,6 @@ import {CaseRoute} from '../../models/liveappsdata';
  *
  *@example <tcla-live-apps-case-list></tcla-live-apps-case-list>
  */
-
 @Component({
   selector: 'tcla-live-apps-case-list',
   templateUrl: './live-apps-case-list.component.html',
@@ -61,7 +60,6 @@ export class LiveAppsCaseListComponent extends LiveAppsComponent implements OnIn
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
   /**
-   /**
    * ~event clearMatches : Clear Matches button clicked
    *
    */

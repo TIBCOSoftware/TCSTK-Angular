@@ -15,15 +15,15 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-allSandboxes | boolean | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+allSandboxes | boolean | 
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-selection | EventEmitter | --- | 
+selection | EventEmitter |   |  
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

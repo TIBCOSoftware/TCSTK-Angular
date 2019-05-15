@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"* UX refresh would be nice *"} Component Meta -->
 
 
+<p>Editor component to edit a note</p>
+
 
 
 #### Usage
@@ -15,16 +17,17 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-isReply |  | --- | 
-noteText | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+isReply |  | 
+noteText | string | 
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-noteSubmitted | EventEmitter | --- | 
+noteSubmitted | EventEmitter |   |  
+  | Event |  noteSubmitted  |  Internal
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

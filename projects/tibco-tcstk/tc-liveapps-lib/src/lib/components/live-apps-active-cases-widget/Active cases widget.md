@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Home page active cases widget main component</p>
+
 
 
 #### Usage
@@ -15,21 +17,25 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-appIds | string[] | --- | 
-maxLegendItems | number | --- | 
-sandboxId | number | --- | 
-showHeader | boolean | --- | 
-showPercentages |  | --- | 
-uiAppId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+appIds | string[] | The list of LA Application IDs you want to handle
+maxLegendItems | number | Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
+sandboxId | number | sandboxId - this comes from claims resolver
+showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+showPercentages |  | Whether to show percentages or raw case numbers on the doughnut chart
+uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-selectedCaseType | EventEmitter<CaseTypeReportRecord> | --- | 
-selectedCaseTypeState | EventEmitter<CaseTypeStateReportStateInfo> | --- | 
+selectedCaseType | EventEmitter<CaseTypeReportRecord> |   |  
+  | Event |  selectedCaseType  |  Case Type selected in vizualization
+  | Payload |  CaseTypeReportRecord  |  CaseTypeReportRecord object selected from component
+selectedCaseTypeState | EventEmitter<CaseTypeStateReportStateInfo> |   |  
+  | Event |  selectedCaseTypeState  |  Case Type state selected in vizualization
+  | Payload |  CaseTypeStateReportStateInfo  |  CaseTypeStateReportStateInfo object selected from component (to drive caller to display something different (drill down))
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

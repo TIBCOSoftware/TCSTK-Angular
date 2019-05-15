@@ -2,6 +2,8 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
+<p>Renders list of cases for caserefs</p>
+
 
 
 #### Usage
@@ -15,22 +17,25 @@ This Component can be used by using the following HTML Tag:
 
 #### Inputs
 
-Attribute | Type | Default Value  | Comments
---- | --- | --- | ---
-caseRefs | string[] | --- | 
-displayType | string | --- | 
-headerMessage | string | --- | 
-headerText | string | --- | 
-highlight | string | --- | 
-sandboxId | number | --- | 
-uiAppId | string | --- | 
+Attribute | Type | Comments
+--- | --- | ---
+caseRefs | string[] | List of case references to display in the list
+displayType | string | case card format - list, card, miniCard, staticList (no click event)
+headerMessage | string | Filter text displayed when listing cases after selecting case type and state via report widget
+headerText | string | Text shown in menu bar
+highlight | string | Text to highlight in the list of cases (normall text that was searched)
+sandboxId | number | sandboxId - this comes from claims resolver
+uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs
 
-Attribute | Type | Default Value  | Comments
+Attribute | Type |   | Comments
 --- | --- | --- | ---
-clearMatches | EventEmitter | --- | 
-clickCase | EventEmitter<CaseRoute> | --- | 
+clearMatches | EventEmitter |   |  
+  | Event |  clearMatches  |  Clear Matches button clicked
+clickCase | EventEmitter<CaseRoute> |   |  
+  | Event |  clickCase  |  Case clicked
+  | Payload |  CaseRoute  |  CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

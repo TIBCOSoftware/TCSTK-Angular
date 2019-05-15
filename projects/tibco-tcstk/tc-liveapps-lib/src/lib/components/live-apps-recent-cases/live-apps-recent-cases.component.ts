@@ -6,7 +6,7 @@ import {CaseList, CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 
 /**
- * Recent cases widget
+ * Recent cases widget, this Component list recent visited Cases.
  *
  *@example <tcla-live-apps-recent-cases></tcla-live-apps-recent-cases>
  */

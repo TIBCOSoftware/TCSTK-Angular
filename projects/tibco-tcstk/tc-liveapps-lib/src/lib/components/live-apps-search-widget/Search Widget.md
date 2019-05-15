@@ -1,6 +1,6 @@
 ## Search Widget Component
 
-![Status][draft] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"wrapper"} Component Meta -->
+![Status][auto] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"wrapper"} Component Meta -->
 
 This Component allows to search for existing Cases and list Case Cards.
 
