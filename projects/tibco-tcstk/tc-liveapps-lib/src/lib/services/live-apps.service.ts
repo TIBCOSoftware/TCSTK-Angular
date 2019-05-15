@@ -460,7 +460,12 @@ export class LiveAppsService {
   public runProcess(sandboxId: number, appId: string, processId: string, caseReference: string, data: any): Observable<any> {
     const url = '/process/v1/processes';
     // convert data to an escaped JSON string
-    const dataJson = TcCoreCommonFunctions.escapeString(JSON.stringify(data));
+    let dataJson;
+    if (data) {
+      dataJson = TcCoreCommonFunctions.escapeString(JSON.stringify(data));
+    } else {
+      dataJson = TcCoreCommonFunctions.escapeString(JSON.stringify({}));
+    }
     const body = {
       'id': processId,
       'sandboxId': sandboxId,
