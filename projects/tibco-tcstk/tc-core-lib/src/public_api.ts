@@ -55,7 +55,7 @@ export * from './lib/resolvers/login-prefill.resolver';
 
 // common functions
 export * from './lib/common/tc-core-common-functions';
-
+export * from './lib/common/tc-core-menubar-comm';
 // pipes
 export * from './lib/pipes/duration-since.pipe';
 export * from './lib/pipes/ellipsis.pipe';
