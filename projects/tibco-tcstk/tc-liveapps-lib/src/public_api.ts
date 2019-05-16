@@ -71,6 +71,7 @@ export * from './lib/services/tc-document.service';
 export * from './lib/services/tc-live-apps-config.service';
 export * from './lib/services/tc-roles-service.ts.service';
 export * from './lib/services/tc-live-apps-reporting.service';
+export * from './lib/services/tc-case-card-config.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
