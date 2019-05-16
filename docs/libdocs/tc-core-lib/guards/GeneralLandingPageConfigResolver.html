@@ -331,7 +331,7 @@ export class GeneralLandingPageConfigResolver implements Resolve&lt;Observable&l
                                 return this.getDefaultAppConfig().pipe(
                                     flatMap(config &#x3D;&gt; {
                                         this.defaultLandingPageConfig &#x3D; new GeneralLandingPageConfig().deserialize(config);
-                                        // this..uiAppId &#x3D; this.uiAppId;
+                                        this.defaultLandingPageConfig.uiAppId &#x3D; this.uiAppId;
                                         return this.generalLandingPageConfigService.createGeneralLandingPageConfig(
                                             this.sandboxId,
                                             this.uiAppId,

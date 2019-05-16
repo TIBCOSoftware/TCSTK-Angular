@@ -736,7 +736,7 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
         this.allRoles &#x3D; this.route.snapshot.data.allRolesHolder.roles.filter(element &#x3D;&gt; !element.configuration);
 
         this.sandboxId &#x3D; this.route.snapshot.data.claims.primaryProductionSandbox.id;
-        this.uiAppId &#x3D; &#x27;processdiscovery1&#x27;;
+        this.uiAppId &#x3D; this.route.snapshot.data.landingPagesConfigHolder.uiAppId;
     }
 
     /**

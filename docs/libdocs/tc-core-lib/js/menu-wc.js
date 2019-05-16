@@ -52,13 +52,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/TcCoreLibModule.html" data-type="entity-link">TcCoreLibModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' : 'data-target="#xs-components-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                            'data-target="#components-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' : 'data-target="#xs-components-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' :
-                                            'id="xs-components-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' :
+                                            'id="xs-components-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                             <li class="link">
                                                 <a href="components/TibcoCloudConfigurationComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">TibcoCloudConfigurationComponent</a>
@@ -119,13 +119,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' : 'data-target="#xs-directives-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                        'data-target="#directives-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' : 'data-target="#xs-directives-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' :
-                                        'id="xs-directives-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' :
+                                        'id="xs-directives-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                         <li class="link">
                                             <a href="directives/OnCreateDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">OnCreateDirective</a>
@@ -134,13 +134,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' : 'data-target="#xs-injectables-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                        'data-target="#injectables-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' : 'data-target="#xs-injectables-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' :
-                                        'id="xs-injectables-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' :
+                                        'id="xs-injectables-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                         <li class="link">
                                             <a href="injectables/RequestCacheService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>RequestCacheService</a>
@@ -153,13 +153,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' : 'data-target="#xs-pipes-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                            'data-target="#pipes-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' : 'data-target="#xs-pipes-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' :
-                                            'id="xs-pipes-links-module-TcCoreLibModule-7b6ad1b2a74a812873b56e842429049c"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' :
+                                            'id="xs-pipes-links-module-TcCoreLibModule-91a94efaf9521938ffee2a4e9f2a605b"' }>
                                             <li class="link">
                                                 <a href="pipes/DurationSincePipe.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">DurationSincePipe</a>
@@ -286,6 +286,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
                                     <a href="injectables/LogService.html" data-type="entity-link">LogService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/MessageService.html" data-type="entity-link">MessageService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/RequestCacheService.html" data-type="entity-link">RequestCacheService</a>
