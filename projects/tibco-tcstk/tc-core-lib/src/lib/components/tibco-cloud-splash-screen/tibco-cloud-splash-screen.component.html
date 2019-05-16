@@ -1,26 +1,30 @@
 <div class="tcs-splash-content" fxFill fxLayout="column" fxFill>
  <div fxFill [ngClass]="backGroundImage ? 'custom-splash-bg' : 'default-splash-bg'" [ngStyle]="backGroundImage ? {'background-repeat': 'round', 'background-color': '#FFF', 'background-image': 'url(' + backGroundImage + ')'} : ''">
     <div  class="text-center" id="initscreen">
-      <div class="splash-welcome">{{title}}</div>
-      <div class="splash-welcome-message">
-        <span class="splash-welcome-message">{{subTitle}}</span>
+      <div class="splash-heading-pane">
+      <div ngClass.lt-md="splash-welcome-small" ngClass.gt-sm="splash-welcome-large" class="splash-welcome">{{title}}</div>
+        <div ngClass.lt-md="splash-welcome-message-small" ngClass.gt-sm="splash-welcome-message-large" class="splash-welcome-message">
+          <span>{{subTitle}}</span>
+        </div>
       </div>
-      <div class="splash-modal">
-        <table class="splash-highlightstable">
-          <tbody fxLayout="column" fxLayoutGap="30px">
-          <tr *ngFor="let highlight of highlights" fxLayoutAlign="start center" fxLayoutGap="30px">
-            <td>
-              <div class="splash-oval" fxLayout="row" fxLayoutAlign="center center">
-                <mat-icon class="splash-svg" [svgIcon]="highlight.iconURL"></mat-icon>
-              </div>
-            </td>
-            <td fxLayout="column" fxLayoutAlign="space-around start">
-                <span class="splash-highlight-item-title">{{highlight.title}}</span>
-                <span class="splash-highlight-item-content">{{highlight.content}}</span>
-            </td>
-          </tr>
-          </tbody></table>
-        <button (click)="getStartedClick()" cdkFocusInitial class="splash-get-started-button" mat-button>Get Started</button>
+      <div fxLayout="column" fxLayoutAlign="start center" style="margin-top: 5px;">
+        <div class="splash-modal" ngClass.lt-md="splash-modal-small" ngClass.gt-sm="splash-modal-large">
+          <table class="splash-highlightstable">
+            <tbody fxLayout="column" fxLayoutGap="30px">
+            <tr *ngFor="let highlight of highlights" fxLayoutAlign="start center" fxLayoutGap="30px" fxLayout="row">
+              <td>
+                <div class="splash-oval" ngStyle.gt-sm="height: 86px; width: 86px;" fxLayout="row" fxLayoutAlign="center center">
+                  <mat-icon ngStyle.gt-sm="height: 50px; width: 50px;"class="splash-svg" ngStyle.lt-md="padding: 2px;" [svgIcon]="highlight.iconURL"></mat-icon>
+                </div>
+              </td>
+              <td fxLayout="column" fxLayoutAlign="space-around start">
+                  <span class="splash-highlight-item-title">{{highlight.title}}</span>
+                  <span class="splash-highlight-item-content">{{highlight.content}}</span>
+              </td>
+            </tr>
+            </tbody></table>
+          <button (click)="getStartedClick()" cdkFocusInitial class="splash-get-started-button" mat-button>Get Started</button>
+        </div>
       </div>
     </div>
   </div>
