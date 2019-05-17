@@ -31,7 +31,7 @@ userId | string | The ID of the logged user
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsNotesComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsNotesComponent.html)
+[Link to LiveAppsNotesComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsNotesComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

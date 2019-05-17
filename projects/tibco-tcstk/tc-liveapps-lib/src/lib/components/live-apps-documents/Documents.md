@@ -49,7 +49,7 @@ showHeader | boolean | Whether to show the header bar in the widget - eg. favori
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsDocumentsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsDocumentsComponent.html)
+[Link to LiveAppsDocumentsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsDocumentsComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

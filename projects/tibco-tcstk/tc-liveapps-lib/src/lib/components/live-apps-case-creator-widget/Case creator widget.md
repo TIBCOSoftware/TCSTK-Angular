@@ -36,7 +36,7 @@ caseCreated | EventEmitter<ProcessId> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCaseCreatorWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCaseCreatorWidgetComponent.html)
+[Link to LiveAppsCaseCreatorWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseCreatorWidgetComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

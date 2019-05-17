@@ -32,7 +32,7 @@ creatorSelection | EventEmitter |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCreatorSelectorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCreatorSelectorComponent.html)
+[Link to LiveAppsCreatorSelectorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCreatorSelectorComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -32,7 +32,7 @@ routeAction | EventEmitter<RouteAction> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsReportingCockpitComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsReportingCockpitComponent.html)
+[Link to LiveAppsReportingCockpitComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsReportingCockpitComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
