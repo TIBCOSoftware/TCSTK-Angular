@@ -1,8 +1,5 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {TibcoCloudNavbarComponent} from './components/tibco-cloud-navbar/tibco-cloud-navbar.component';
-import {
-  TibcoCloudMultipleSubscriptionComponent
-} from './components/tibco-cloud-multiple-subscription/tibco-cloud-multiple-subscription.component';
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-login/tibco-cloud-login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
@@ -59,7 +56,6 @@ import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-elemen
   declarations: [
     TibcoCloudNavbarComponent,
     TibcoCloudLoginComponent,
-    TibcoCloudMultipleSubscriptionComponent,
     EllipsisPipe,
     DurationSincePipe,
     HighlightPipe,
@@ -126,7 +122,6 @@ import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-elemen
   exports: [
     TibcoCloudNavbarComponent,
     TibcoCloudLoginComponent,
-    TibcoCloudMultipleSubscriptionComponent,
     TibcoCloudMenuBarComponent,
     EllipsisPipe,
     DurationSincePipe,
