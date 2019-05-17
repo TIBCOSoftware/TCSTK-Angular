@@ -31,6 +31,11 @@ changeRoleEvent | EventEmitter<RoleAttribute> |   |
   | Payload |  RoleAttribute  |  RoleAttribute object emitted when role is c hanged by switcher
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsRoleSwitcherComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsRoleSwitcherComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

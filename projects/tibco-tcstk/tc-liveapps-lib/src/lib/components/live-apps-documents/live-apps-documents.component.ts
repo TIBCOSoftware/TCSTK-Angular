@@ -19,9 +19,9 @@ import {TcDocumentService} from '../../services/tc-document.service';
  * - Timestamp
  * - File Size
  *
- * Document List
+ * Document List<br>
  * ![alt-text](../Documents.png "Documents Component Image")
- * Document Upload Dialog
+ * Document Upload Dialog <br>
  * ![alt-text](../Docs-Upload.png "Documents Component Image")
  *
  *@example <tcla-live-apps-documents></tcla-live-apps-documents>

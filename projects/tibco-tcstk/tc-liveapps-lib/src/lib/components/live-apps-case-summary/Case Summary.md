@@ -45,6 +45,11 @@ deleted | EventEmitter<string> |   |
   | Payload |  string  |  string emitted when summary tries to load data for a case that has been deleted (so it can be hidden.removed from - for example recent cases list)
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsCaseSummaryComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseSummaryComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

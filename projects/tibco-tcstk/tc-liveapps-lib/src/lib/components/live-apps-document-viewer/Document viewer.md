@@ -25,6 +25,11 @@ folderType | string | orgFolders&#39; or &#39;caseFolders&#39; - different API c
 sandboxId | number | sandboxId - this comes from claims resolver
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsDocumentViewerComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsDocumentViewerComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

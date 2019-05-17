@@ -35,6 +35,11 @@ selectedCaseType | EventEmitter<CaseTypeReportRecord> |   |
   | Payload |  CaseTypeReportRecord  |  CaseTypeReportRecord object selected from component
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsActiveCasesReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsActiveCasesReportComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"
