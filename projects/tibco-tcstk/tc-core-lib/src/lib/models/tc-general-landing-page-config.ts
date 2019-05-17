@@ -29,6 +29,7 @@ export class LandingPageConfig {
 export class GeneralLandingPageConfig implements Deserializable {
     id: string;
     version: string;
+    uiAppId: string;
     landingPage: LandingPageConfig[];
     deserialize(input: any) {
         Object.assign(this, input);

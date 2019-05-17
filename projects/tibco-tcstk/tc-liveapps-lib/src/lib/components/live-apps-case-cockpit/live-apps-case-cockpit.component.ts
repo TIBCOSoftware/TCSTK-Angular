@@ -142,7 +142,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   protected _destroyed$ = new Subject();
   protected errorMessage: string;
 
-  constructor(protected liveapps: LiveAppsService, protected buttonsHelper: TcButtonsHelperService, private router: Router, protected rolesService: TcRolesService) {
+  constructor(protected liveapps: LiveAppsService, protected buttonsHelper: TcButtonsHelperService, protected router: Router, protected rolesService: TcRolesService) {
   }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
