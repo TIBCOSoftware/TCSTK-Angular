@@ -38,7 +38,7 @@ clickCase | EventEmitter<CaseRoute> |   |
   | Payload |  CaseRoute  |  CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseListComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseListComponent.html)
 

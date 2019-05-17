@@ -40,7 +40,7 @@ selection | EventEmitter<CaseType> |   |
   | Payload |  CaseType  |  type varies.  but is when something is selected in a drop down it is passed back to the caller
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsApplicationListComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsApplicationListComponent.html)
 

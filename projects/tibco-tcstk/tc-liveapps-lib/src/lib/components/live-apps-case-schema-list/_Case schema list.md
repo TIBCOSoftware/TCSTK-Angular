@@ -30,7 +30,7 @@ Attribute | Type |   | Comments
 selection | EventEmitter |   |  
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseSchemaListComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseSchemaListComponent.html)
 

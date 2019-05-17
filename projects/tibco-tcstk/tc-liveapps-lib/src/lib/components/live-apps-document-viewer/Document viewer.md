@@ -25,7 +25,7 @@ folderType | string | orgFolders&#39; or &#39;caseFolders&#39; - different API c
 sandboxId | number | sandboxId - this comes from claims resolver
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsDocumentViewerComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsDocumentViewerComponent.html)
 

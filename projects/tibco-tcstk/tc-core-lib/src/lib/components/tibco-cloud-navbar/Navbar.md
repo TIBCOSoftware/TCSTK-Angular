@@ -36,7 +36,7 @@ rebrandConfig | any | rebrand config - example: { &quot;backgroundColor&quot;: &
 
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to TibcoCloudNavbarComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudNavbarComponent.html)
 

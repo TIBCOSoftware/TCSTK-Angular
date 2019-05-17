@@ -38,7 +38,7 @@ selectedCaseTypeState | EventEmitter<CaseTypeStateReportStateInfo> |   |
   | Payload |  CaseTypeStateReportStateInfo  |  CaseTypeStateReportStateInfo object selected from component (to drive caller to display something different (drill down))
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsActiveCasesWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsActiveCasesWidgetComponent.html)
 

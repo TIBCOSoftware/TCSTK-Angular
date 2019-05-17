@@ -23,7 +23,7 @@ caseRef | string | The case reference
 sandboxId | number | sandboxId - this comes from claims resolver
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseAuditComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseAuditComponent.html)
 

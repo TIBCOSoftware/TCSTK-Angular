@@ -34,7 +34,7 @@ caseSelected | EventEmitter<string> |   |
   | Payload |  string  |  emits case reference when a case is clicked (so parent can navigate to case)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsSearchWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsSearchWidgetComponent.html)
 

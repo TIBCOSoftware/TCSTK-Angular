@@ -41,7 +41,7 @@ toolbarButtonEvent | EventEmitter<string> |   |
 
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to TibcoCloudMenuBarComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudMenuBarComponent.html)
 

@@ -30,7 +30,7 @@ selectedCaseType | EventEmitter<CaseTypeReportRecord> |   |
   | Payload |  CaseTypeReportRecord  |  CaseTypeReportRecord object selected from component
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseOverviewReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseOverviewReportComponent.html)
 

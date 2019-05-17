@@ -14,7 +14,7 @@ This Component can be used by using the following HTML Tag:
 ```
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsPieComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsPieComponent.html)
 

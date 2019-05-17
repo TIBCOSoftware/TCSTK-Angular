@@ -35,7 +35,7 @@ caseChanged | EventEmitter<ProcessId> |   |
   | Payload |  ProcessId  |  ProcessId object passed when a case has been updated or created by a process (action/creator)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseCreatorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseCreatorComponent.html)
 

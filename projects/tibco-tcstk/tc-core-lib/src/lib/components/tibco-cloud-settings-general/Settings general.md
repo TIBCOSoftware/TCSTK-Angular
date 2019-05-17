@@ -16,7 +16,7 @@ This Component can be used by using the following HTML Tag:
 ```
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to TibcoCloudSettingsGeneralComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudSettingsGeneralComponent.html)
 

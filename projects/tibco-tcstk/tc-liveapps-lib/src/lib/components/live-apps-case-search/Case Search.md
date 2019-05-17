@@ -33,7 +33,7 @@ foundRefs | EventEmitter<CaseSearchResults> |   |
   | Payload |  CaseSearchResults  |  caseRefs matching the search (so parent can display them in case list component)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseSearchComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseSearchComponent.html)
 

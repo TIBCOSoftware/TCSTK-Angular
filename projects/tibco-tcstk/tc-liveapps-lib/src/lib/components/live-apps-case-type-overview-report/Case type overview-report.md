@@ -24,7 +24,7 @@ typeId | string |
 uiAppId | string | 
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseTypeOverviewReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseTypeOverviewReportComponent.html)
 

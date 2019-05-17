@@ -30,7 +30,7 @@ noteSubmitted | EventEmitter |   |
   | Event |  noteSubmitted  |  Internal
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsNotesEditorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsNotesEditorComponent.html)
 

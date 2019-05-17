@@ -30,7 +30,7 @@ creatorSelection | EventEmitter |   |
   | Payload |  LaProcessSelection  |  LaProcessSelection object output when a creator is selected from a drop down
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCreatorSelectorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCreatorSelectorComponent.html)
 

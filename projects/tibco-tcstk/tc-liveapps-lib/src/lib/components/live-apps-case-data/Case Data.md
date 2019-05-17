@@ -32,7 +32,7 @@ typeId | string | The LA Application Type Id (generally 1)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseDataComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseDataComponent.html)
 
