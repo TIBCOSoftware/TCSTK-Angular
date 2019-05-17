@@ -30,6 +30,11 @@ noteSubmitted | EventEmitter |   |
   | Event |  noteSubmitted  |  Internal
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsNotesEditorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsNotesEditorComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

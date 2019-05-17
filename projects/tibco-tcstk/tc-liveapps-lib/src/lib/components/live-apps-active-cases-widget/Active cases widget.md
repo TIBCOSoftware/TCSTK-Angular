@@ -38,6 +38,11 @@ selectedCaseTypeState | EventEmitter<CaseTypeStateReportStateInfo> |   |
   | Payload |  CaseTypeStateReportStateInfo  |  CaseTypeStateReportStateInfo object selected from component (to drive caller to display something different (drill down))
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsActiveCasesWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsActiveCasesWidgetComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

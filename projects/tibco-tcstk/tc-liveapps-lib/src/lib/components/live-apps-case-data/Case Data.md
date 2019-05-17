@@ -32,6 +32,11 @@ typeId | string | The LA Application Type Id (generally 1)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsCaseDataComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseDataComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

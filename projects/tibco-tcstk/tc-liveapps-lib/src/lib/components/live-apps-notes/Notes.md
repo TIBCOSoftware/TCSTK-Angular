@@ -29,6 +29,11 @@ showHeader | boolean | Whether to show the header bar in the widget - eg. favori
 userId | string | The ID of the logged user
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsNotesComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsNotesComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

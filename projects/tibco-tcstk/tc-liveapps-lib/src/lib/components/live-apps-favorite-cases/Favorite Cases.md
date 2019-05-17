@@ -33,6 +33,11 @@ clickCase | EventEmitter<CaseRoute> |   |
   | Payload |  CaseRoute  |  CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
 
 
+<b>full development Documentation</b>
+
+[Link to LiveAppsFavoriteCasesComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsFavoriteCasesComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"
