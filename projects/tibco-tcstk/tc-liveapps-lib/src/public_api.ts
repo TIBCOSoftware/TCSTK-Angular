@@ -14,7 +14,6 @@ export * from './lib/components/live-apps-case-actions/live-apps-case-actions.co
 export * from './lib/components/live-apps-case-audit/live-apps-case-audit.component';
 export * from './lib/components/live-apps-case-data/live-apps-case-data.component';
 export * from './lib/components/live-apps-case-list/live-apps-case-list.component';
-export * from './lib/components/live-apps-case-schema-list/live-apps-case-schema-list.component';
 export * from './lib/components/live-apps-case-state-audit/live-apps-case-state-audit.component';
 export * from './lib/components/live-apps-case-states/live-apps-case-states.component';
 export * from './lib/components/live-apps-case-summary/live-apps-case-summary.component';

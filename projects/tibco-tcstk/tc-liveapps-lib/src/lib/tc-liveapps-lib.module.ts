@@ -34,7 +34,6 @@ import {
     LiveAppsApplicationConfigurationComponent,
     LiveAppsStateIconUploadDialogComponent
 } from './components/live-apps-application-configuration/live-apps-application-configuration.component';
-import { LiveAppsCaseSchemaListComponent } from './components/live-apps-case-schema-list/live-apps-case-schema-list.component';
 import { LiveAppsFavoriteCasesComponent } from './components/live-apps-favorite-cases/live-apps-favorite-cases.component';
 import { LiveAppsCaseAuditComponent } from './components/live-apps-case-audit/live-apps-case-audit.component';
 import { LiveAppsCaseDataComponent } from './components/live-apps-case-data/live-apps-case-data.component';
@@ -91,7 +90,6 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
     declarations: [
         LiveAppsLoginComponent,
         LiveAppsApplicationsComponent,
-        LiveAppsCaseSchemaListComponent,
         LiveAppsCaseDataComponent,
         LiveAppsCaseStatesComponent,
         LiveAppsCaseActionsComponent,
@@ -175,7 +173,6 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
   exports: [
     LiveAppsLoginComponent,
     LiveAppsApplicationsComponent,
-    LiveAppsCaseSchemaListComponent,
     LiveAppsCaseDataComponent,
     LiveAppsCaseStatesComponent,
     LiveAppsCaseActionsComponent,
