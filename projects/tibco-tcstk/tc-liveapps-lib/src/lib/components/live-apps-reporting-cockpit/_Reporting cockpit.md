@@ -30,7 +30,7 @@ routeAction | EventEmitter<RouteAction> |   |
   | Payload |  RouteAction  |  RouteAction object to tell caller to navigate somewhere
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsReportingCockpitComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsReportingCockpitComponent.html)
 

@@ -34,7 +34,7 @@ This Component can be used by using the following HTML Tag:
 
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to TibcoCloudErrorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudErrorComponent.html)
 

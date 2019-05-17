@@ -41,7 +41,7 @@ getStartedEvent | EventEmitter<string> |   |
 
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to TibcoCloudSplashScreenComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudSplashScreenComponent.html)
 

@@ -35,7 +35,7 @@ caseActioned | EventEmitter<ProcessId> |   |
   | Payload |  ProcessId  |  processId of started process in live apps (action)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsActionsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsActionsComponent.html)
 

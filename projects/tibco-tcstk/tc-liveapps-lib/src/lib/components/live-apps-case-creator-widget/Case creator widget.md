@@ -34,7 +34,7 @@ caseCreated | EventEmitter<ProcessId> |   |
   | Payload |  ProcessId  |  ProcessId object output on case creation (details of process started)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseCreatorWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseCreatorWidgetComponent.html)
 

@@ -32,7 +32,7 @@ configureOption | EventEmitter<string> |   |
   | Payload |  string  |  emits Id of option selected in config main page (options)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to TibcoCloudSettingMenuEntryComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudSettingMenuEntryComponent.html)
 

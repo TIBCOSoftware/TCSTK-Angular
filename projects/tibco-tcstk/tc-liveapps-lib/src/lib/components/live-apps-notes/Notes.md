@@ -29,7 +29,7 @@ showHeader | boolean | Whether to show the header bar in the widget - eg. favori
 userId | string | The ID of the logged user
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsNotesComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsNotesComponent.html)
 

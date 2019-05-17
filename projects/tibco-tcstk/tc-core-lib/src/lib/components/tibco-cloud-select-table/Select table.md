@@ -30,7 +30,7 @@ selectedlines | EventEmitter<any> |   |
   | Payload |  any  |  The lines that are selected in the table by the user
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to TibcoCloudSelectTableComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudSelectTableComponent.html)
 

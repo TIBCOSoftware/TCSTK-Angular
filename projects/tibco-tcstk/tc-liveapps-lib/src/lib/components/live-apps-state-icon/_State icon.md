@@ -26,7 +26,7 @@ iconPath | string |
 id | string | 
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsStateIconComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsStateIconComponent.html)
 

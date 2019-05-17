@@ -32,7 +32,7 @@ creatorClicked | EventEmitter<LaProcessSelection> |   |
   | Payload |  LaProcessSelection  |  LaProcessSelection object output when an action is clicked (ie. message to parent to run creator component)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseCreatorsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseCreatorsComponent.html)
 

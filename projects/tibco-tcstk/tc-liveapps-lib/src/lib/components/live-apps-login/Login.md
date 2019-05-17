@@ -34,7 +34,7 @@ Attribute | Type |   | Comments
 loginContext | EventEmitter<LoginContext> |   |  
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsLoginComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsLoginComponent.html)
 

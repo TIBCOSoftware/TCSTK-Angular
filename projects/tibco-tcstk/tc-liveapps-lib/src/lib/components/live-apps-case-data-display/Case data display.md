@@ -26,7 +26,7 @@ layout | any[] | Layout object that can be passed to override default layout of 
 schema | JsonSchema | The schema of the case type
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsCaseDataDisplayComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseDataDisplayComponent.html)
 

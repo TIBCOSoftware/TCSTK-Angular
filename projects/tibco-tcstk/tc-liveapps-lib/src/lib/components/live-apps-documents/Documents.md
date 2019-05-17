@@ -16,11 +16,11 @@ In the Upload Dialog the User is able to select a local File and enter a short D
 
 - File Size</p>
 
-<p>Document List
+<p>Document List<br>
 
 <img src="../Documents.png" alt="alt-text" class="img-responsive" title="Documents Component Image">
 
-Document Upload Dialog
+Document Upload Dialog <br>
 
 <img src="../Docs-Upload.png" alt="alt-text" class="img-responsive" title="Documents Component Image"></p>
 
@@ -47,7 +47,7 @@ sandboxId | number | sandboxId - this comes from claims resolver
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsDocumentsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsDocumentsComponent.html)
 

@@ -34,7 +34,7 @@ configChanged | EventEmitter<CaseCardConfig> |   |
   | Payload |  CaseCardConfig  |  CaseCardConfig object when configuration is changed (so called can do a save with data)
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsApplicationConfigurationComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsApplicationConfigurationComponent.html)
 

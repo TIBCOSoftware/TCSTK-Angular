@@ -28,7 +28,7 @@ previousPhase | string |
 status | string | 
 
 
-<b>full development Documenation</b>
+<b>full development Documentation</b>
 
 [Link to LiveAppsMilestoneComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsMilestoneComponent.html)
 
