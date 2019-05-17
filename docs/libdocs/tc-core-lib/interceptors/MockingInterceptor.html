@@ -1,0 +1,562 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Core Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Core Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interceptor">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Interceptors</li>
+  <li>MockingInterceptor</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/interceptors/mocking-interceptor.ts</code>
+        </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#MOCK_BASE_PATH">MOCK_BASE_PATH</a>
+                            </li>
+                            <li>
+                                <a href="#sendRequest">sendRequest</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#intercept">intercept</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#readMockJSON">readMockJSON</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/interceptors/mocking-interceptor.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="intercept"></a>
+                    <span class="name">
+                        <b>
+                            intercept
+                        </b>
+                        <a href="#intercept"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>intercept(req: HttpRequest<any>, next: <a href="https://angular.io/api/common/http/HttpHandler" target="_blank">HttpHandler</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/interceptors/mocking-interceptor.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                            <code>HttpRequest&lt;any&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>next</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/common/http/HttpHandler" target="_blank" >HttpHandler</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="readMockJSON"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            readMockJSON
+                        </b>
+                        <a href="#readMockJSON"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>readMockJSON(url)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/interceptors/mocking-interceptor.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>url</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="MOCK_BASE_PATH"></a>
+                        <span class="name">
+                            <b>
+                            MOCK_BASE_PATH</b>
+                            <a href="#MOCK_BASE_PATH"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;/assets/mocks&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/interceptors/mocking-interceptor.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sendRequest"></a>
+                        <span class="name">
+                            <b>
+                            sendRequest</b>
+                            <a href="#sendRequest"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/interceptors/mocking-interceptor.ts:122</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {HttpEvent, HttpRequest, HttpResponse, HttpInterceptor, HttpHandler, HttpClient, HttpHeaders} from &#x27;@angular/common/http&#x27;;
+import {Observable, of, onErrorResumeNext, throwError} from &#x27;rxjs&#x27;;
+import {map, catchError, delay} from &#x27;rxjs/operators&#x27;;
+
+@Injectable()
+export class MockingInterceptor implements HttpInterceptor {
+  MOCK_BASE_PATH &#x3D; &#x27;/assets/mocks&#x27;;
+
+  constructor(private http: HttpClient) {
+  }
+
+  public readMockJSON(url): Observable&lt;any&gt; {
+    return this.http.get(url);
+  }
+
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler) {
+
+    // save original request
+    const originalReq &#x3D; req.clone();
+
+    // dont mock anything from assets folder
+    const urlparts &#x3D; req.url.split(&#x27;.&#x27;);
+    const pathparts &#x3D; urlparts[0].split(&#x27;/&#x27;);
+
+    if (pathparts[1] &#x3D;&#x3D;&#x3D; &#x27;assets&#x27;) {
+      return this.sendRequest(originalReq, next);
+    }
+
+
+    // try and find a mock response
+    const resource &#x3D; originalReq.url.split(&#x27;?&#x27;)[0];
+    const segments: string[] &#x3D; resource.split(&#x27;/&#x27;);
+    const seg2: string[] &#x3D; resource.split(&#x27;/&#x27;);
+    let path &#x3D; this.MOCK_BASE_PATH;
+    // ignore the http/url parts if present
+    let responseType &#x3D; &#x27;json&#x27;;
+    if (segments[0] &#x3D;&#x3D;&#x3D; &#x27;http:&#x27; || segments[0] &#x3D;&#x3D;&#x3D; &#x27;https:&#x27;) {
+      segments.splice(0, 3);
+      // we are getting a webresource (will only work for text based resources like svg)
+      if (segments[0] &#x3D;&#x3D;&#x3D; &#x27;webresource&#x27;) {
+        responseType &#x3D; &#x27;text&#x27;;
+      }
+    } else {
+      // just remove the blank part
+      segments.splice(0, 1);
+    }
+    segments.splice(0, segments.length).forEach((seg) &#x3D;&gt; {
+      path &#x3D; path + &#x27;/&#x27; + seg;
+    });
+    if (responseType !&#x3D;&#x3D; &#x27;text&#x27;) {
+      path &#x3D; path + &#x27;.json&#x27;;
+    } else {
+      path &#x3D; path + &#x27;.txt&#x27;;
+    }
+
+    let options &#x3D; {};
+    if (responseType &#x3D;&#x3D;&#x3D; &#x27;text&#x27;) {
+      options &#x3D; { responseType: &#x27;text&#x27; };
+    }
+    const httpRequest &#x3D; new HttpRequest(
+      &lt;any&gt;&#x27;GET&#x27;,
+      path,
+      options
+    );
+    req &#x3D; Object.assign(req, httpRequest);
+    req &#x3D; req.clone();
+    return next.handle(req).pipe(
+      delay(100),
+      map(
+        data &#x3D;&gt; {
+          let d &#x3D; &lt;HttpResponse&lt;any&gt;&gt; data;
+          if (d.status &#x3D;&#x3D;&#x3D; 200) {
+            // return the body of the cached response loaded from file
+            console.log(originalReq.url);
+            let mockedResponse: HttpResponse&lt;any&gt;;
+            if (data[&#x27;body&#x27;][&#x27;mockedResponses&#x27;]) {
+              // multi mocked response file
+              if (data[&#x27;body&#x27;][&#x27;mockedResponses&#x27;][originalReq.url]) {
+                data[&#x27;body&#x27;] &#x3D; data[&#x27;body&#x27;][&#x27;mockedResponses&#x27;][originalReq.url];
+                d &#x3D; &lt;HttpResponse&lt;any&gt;&gt; data;
+                mockedResponse &#x3D; new HttpResponse(d);
+              } else {
+                // no mock for this URL
+                // todo: there is a bug here that this does not trigger the real call
+                throwError(&#x27;no mock for this url - no response sent&#x27;);
+              }
+            } else {
+              // single mocked response file
+              mockedResponse &#x3D; new HttpResponse(d);
+            }
+            return mockedResponse;
+          } else {
+            return data;
+          }
+        }
+      ),
+      catchError(
+        error &#x3D;&gt; {
+          // no mock file so make real request
+          return this.sendRequest(originalReq, next);
+        }
+      )
+    );
+  }
+
+  sendRequest &#x3D; (
+    req: HttpRequest&lt;any&gt;,
+    next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; &#x3D;&gt; {
+    return next.handle(req);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interceptor';
+            var COMPODOC_CURRENT_PAGE_URL = 'MockingInterceptor.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
