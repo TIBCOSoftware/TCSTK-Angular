@@ -9,6 +9,8 @@ import { TcRolesService } from '../../services/tc-roles-service.ts.service';
 /**
  * Landing page
  *
+ * This component allows a configurable landing page on a per role basis
+ *
  * @example <tcla-live-apps-landing-page></tcla-live-apps-landing-page>
  */
 @Component({
