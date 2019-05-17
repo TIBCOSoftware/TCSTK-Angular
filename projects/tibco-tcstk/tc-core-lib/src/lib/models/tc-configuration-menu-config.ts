@@ -1,3 +1,5 @@
+/* Models used by config menu */
+
 import { Deserializable } from './deserializable';
 
 

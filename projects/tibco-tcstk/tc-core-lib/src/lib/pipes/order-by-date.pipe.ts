@@ -1,3 +1,5 @@
+/* orders array by date */
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

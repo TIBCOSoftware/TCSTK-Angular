@@ -1,3 +1,5 @@
+/* Models used to store shared state configuration */
+
 import {Deserializable} from './deserializable';
 
 export class UiAppConfig implements Deserializable {

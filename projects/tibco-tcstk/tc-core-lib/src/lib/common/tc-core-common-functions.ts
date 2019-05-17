@@ -14,13 +14,11 @@ export class TcCoreCommonFunctions {
   }
 
   public static camelCaseToWords(str) {
-
     const re =  str.replace(/([a-z])([A-Z])/g, '$1 $2')
       .replace(/([A-Z])([a-z])/g, ' $1$2')
       .replace(/\ +/g, ' ');
     return re;
   }
-
 
   public static convertToJSON(array) {
     const objArray = [];

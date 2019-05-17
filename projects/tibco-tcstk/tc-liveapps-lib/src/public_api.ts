@@ -23,7 +23,6 @@ export * from './lib/components/live-apps-favorite-cases/live-apps-favorite-case
 export * from './lib/components/live-apps-notes/live-apps-notes.component';
 export * from './lib/components/live-apps-notes-editor/live-apps-notes-editor.component';
 export * from './lib/components/live-apps-recent-cases/live-apps-recent-cases.component';
-export * from './lib/components/live-apps-sandbox/live-apps-sandbox.component';
 export * from './lib/components/live-apps-state-icon/live-apps-state-icon.component';
 export * from './lib/components/live-apps-case-creator/live-apps-case-creator.component';
 export * from './lib/components/live-apps-creator-selector/live-apps-creator-selector.component';
@@ -47,10 +46,6 @@ export * from './lib/components/live-apps-case-creators/live-apps-case-creators.
 export * from './lib/components/live-apps-case-actions-list/live-apps-case-actions-list.component';
 export * from './lib/components/live-apps-document-viewer/live-apps-document-viewer.component';
 export * from './lib/components/live-apps-landing-page/live-apps-landing-page.component';
-export * from './lib/components/live-apps-reporting-cockpit/live-apps-reporting-cockpit.component';
-export * from './lib/components/live-apps-pie/live-apps-pie.component';
-export * from './lib/components/live-apps-case-overview-report/live-apps-case-overview-report.component';
-export * from './lib/components/live-apps-case-type-overview-report/live-apps-case-type-overview-report.component';
 export * from './lib/components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 export * from './lib/components/live-apps-active-cases-report/live-apps-active-cases-report.component';
 

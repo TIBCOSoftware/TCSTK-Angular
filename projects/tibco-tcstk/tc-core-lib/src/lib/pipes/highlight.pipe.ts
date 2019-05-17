@@ -1,3 +1,9 @@
+/* used to highlight search results in a list where search term matches
+ *
+ * original source from https://gist.github.com/adamrecsko/0f28f474eca63e0279455476cc11eca7
+ * post by ankitgrover
+*/
+
 import { Pipe, PipeTransform } from '@angular/core';
 import {SafeHtml} from '@angular/platform-browser';
 
@@ -5,9 +11,6 @@ import {SafeHtml} from '@angular/platform-browser';
   name: 'highlight'
 })
 export class HighlightPipe implements PipeTransform {
-
-// todo: from https://gist.github.com/adamrecsko/0f28f474eca63e0279455476cc11eca7
-// post by ankitgrover
 
   /* use this for single match search */
   static SINGLE_MATCH = 'Single-Match';

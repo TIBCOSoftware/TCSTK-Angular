@@ -1,3 +1,5 @@
+/* Models used by login and authorization services */
+
 import { Deserializable} from './deserializable';
 
 export class Group {

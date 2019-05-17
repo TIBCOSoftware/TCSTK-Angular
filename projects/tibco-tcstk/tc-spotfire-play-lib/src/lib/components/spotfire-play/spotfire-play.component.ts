@@ -5,7 +5,6 @@ import {
   CaseType,
   LiveAppsCaseCreatorComponent,
   LiveAppsCreatorDialogComponent,
-  LiveAppsSandboxComponent,
   LiveAppsService,
   CaseCreatorSelectionContext
 } from '@tibco-tcstk/tc-liveapps-lib';

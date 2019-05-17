@@ -1,3 +1,5 @@
+/* models used by widget header - toolbar inside home page/case page widgets like recent cases etc */
+
 import { Deserializable} from './deserializable';
 
 export class ToolbarButton implements Deserializable {

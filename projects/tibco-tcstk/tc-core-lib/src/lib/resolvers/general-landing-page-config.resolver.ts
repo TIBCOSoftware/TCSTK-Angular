@@ -1,3 +1,10 @@
+/* Used to resolve contents of landing page config file */
+
+/* This resolver will try and read the config from shared state
+ * If a shared state entry does NOT exist it will use the defaults from a config file
+ * Then update shared state with those contents
+ */
+
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -22,9 +29,9 @@ export class GeneralLandingPageConfigResolver implements Resolve<Observable<Gene
     private uiAppId: string;
 
     constructor(
-        private tcSharedState: TcSharedStateService, 
+        private tcSharedState: TcSharedStateService,
         private generalLandingPageConfigService: TcGeneralLandingPageConfigService,
-        private http: HttpClient, 
+        private http: HttpClient,
         private location: Location) { }
     // note appConfigResolver will need sandboxId to create app config state record.
     // So we expect this to have been set by caller (done by tc-liveapps-lib/laConfigResolver).

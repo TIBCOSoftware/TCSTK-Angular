@@ -1,3 +1,5 @@
+/* models used by shared state services */
+
 import { Deserializable} from './deserializable';
 
 export class SharedStateContent implements Deserializable {

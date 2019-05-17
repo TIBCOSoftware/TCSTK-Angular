@@ -1,3 +1,5 @@
+/* models used by general app config */
+
 import {Deserializable} from './deserializable';
 
 export class RoleAttribute {

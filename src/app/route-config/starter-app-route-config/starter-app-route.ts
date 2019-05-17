@@ -10,7 +10,7 @@ import {
   ClaimsResolver,
   GroupsResolver,
   LaConfigResolver,
-  LiveAppsConfigResolver, LiveAppsReportingCockpitComponent, RoleGuard,
+  LiveAppsConfigResolver, RoleGuard,
   RolesResolver
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {SplashComponent} from '../../components/splash/splash.component';
@@ -19,7 +19,6 @@ import {CaseComponent} from '../../routes/case/case.component';
 import {ServiceDetailsConfigResolver, UploadPageComponent} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
-import {ReportingComponent} from '../../routes/reporting/reporting.component';
 import {FormResolver} from '@tibco-tcstk/tc-forms-lib';
 
 export const HOME_ROUTE = 'home';
@@ -76,13 +75,6 @@ export const STARTER_APP_ROUTES =
     path: 'configuration', component: ConfigurationComponent, canActivate: [AuthGuard, RoleGuard],
     resolve: {configurationMenuHolder: ConfigurationMenuConfigResolver},
     children: CONFIGURATION_ROUTE_CONFIG
-  },
-  {
-    path: 'reporting', component: ReportingComponent, canActivate: [AuthGuard],
-    resolve: {
-      laConfigHolder: LaConfigResolver,
-      claims: ClaimsResolver,
-    }
   }
 ];
 

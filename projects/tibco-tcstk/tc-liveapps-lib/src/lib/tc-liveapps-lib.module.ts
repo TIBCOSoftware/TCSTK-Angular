@@ -23,7 +23,6 @@ import { LiveAppsCaseSearchComponent } from './components/live-apps-case-search/
 import { LiveAppsCaseListComponent } from './components/live-apps-case-list/live-apps-case-list.component';
 import { LiveAppsCaseSummaryComponent } from './components/live-apps-case-summary/live-apps-case-summary.component';
 import { LiveAppsStateIconComponent } from './components/live-apps-state-icon/live-apps-state-icon.component';
-import { LiveAppsSandboxComponent } from './components/live-apps-sandbox/live-apps-sandbox.component';
 import { LiveAppsApplicationsComponent } from './components/live-apps-applications/live-apps-applications.component';
 import { LiveAppsNotesComponent } from './components/live-apps-notes/live-apps-notes.component';
 import {
@@ -81,11 +80,7 @@ import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-acti
 import { LiveAppsDocumentViewerComponent } from './components/live-apps-document-viewer/live-apps-document-viewer.component';
 import { LiveAppsLandingPageComponent } from './components/live-apps-landing-page/live-apps-landing-page.component';
 import {ChartsModule} from 'ng2-charts';
-import { LiveAppsPieComponent } from './components/live-apps-pie/live-apps-pie.component';
-import { LiveAppsReportingCockpitComponent } from './components/live-apps-reporting-cockpit/live-apps-reporting-cockpit.component';
-import { LiveAppsCaseOverviewReportComponent } from './components/live-apps-case-overview-report/live-apps-case-overview-report.component';
 import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.service';
-import {LiveAppsCaseTypeOverviewReportComponent} from './components/live-apps-case-type-overview-report/live-apps-case-type-overview-report.component';
 import {Location} from '@angular/common';
 import {RoleGuard} from './guards/role.guard';
 import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
@@ -95,7 +90,6 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
 @NgModule({
     declarations: [
         LiveAppsLoginComponent,
-        LiveAppsSandboxComponent,
         LiveAppsApplicationsComponent,
         LiveAppsCaseSchemaListComponent,
         LiveAppsCaseDataComponent,
@@ -142,10 +136,6 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
         LiveAppsCaseActionsListComponent,
         LiveAppsDocumentViewerComponent,
         LiveAppsLandingPageComponent,
-        LiveAppsPieComponent,
-        LiveAppsReportingCockpitComponent,
-        LiveAppsCaseOverviewReportComponent,
-        LiveAppsCaseTypeOverviewReportComponent,
         LiveAppsActiveCasesWidgetComponent,
         LiveAppsActiveCasesReportComponent,
         LiveAppsActiveCasesForTypeReportComponent
@@ -184,7 +174,6 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
   ],
   exports: [
     LiveAppsLoginComponent,
-    LiveAppsSandboxComponent,
     LiveAppsApplicationsComponent,
     LiveAppsCaseSchemaListComponent,
     LiveAppsCaseDataComponent,
@@ -229,10 +218,6 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
     LiveAppsCaseActionsListComponent,
     LiveAppsDocumentViewerComponent,
     LiveAppsLandingPageComponent,
-    LiveAppsReportingCockpitComponent,
-    LiveAppsPieComponent,
-    LiveAppsCaseOverviewReportComponent,
-    LiveAppsCaseTypeOverviewReportComponent,
     LiveAppsActiveCasesWidgetComponent,
     LiveAppsActiveCasesReportComponent
   ],
