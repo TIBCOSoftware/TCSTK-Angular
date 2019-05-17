@@ -131,8 +131,12 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
 
   isFavorite: boolean;
   valid = false;
-  toolbarButtons: ToolbarButton[];
+  toolbarButtons: ToolbarButton[] = [];
   actionSelection: LaProcessSelection;
+  incConfigButton = true;
+  incFavButton = true;
+  incRefreshButton = true;
+  incHomeButton = true;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   protected _destroyed$ = new Subject();
@@ -142,11 +146,23 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   }
 
   protected createToolbarButtons = (): ToolbarButton[] => {
-    const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.roles, this.access) : true), true);
-    const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', (this.access ? this.rolesService.checkButton('favorite', this.roles, this.access) : true), true);
-    const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.roles, this.access) : true), true);
-    const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
-    const buttons = [ configButton, favButton, refreshButton, homeButton ];
+    const buttons = [];
+    if (this.incConfigButton) {
+      const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.roles, this.access) : true), true);
+      buttons.push(configButton);
+    }
+    if (this.incFavButton) {
+      const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', (this.access ? this.rolesService.checkButton('favorite', this.roles, this.access) : true), true);
+      buttons.push(favButton);
+    }
+    if (this.incRefreshButton) {
+      const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.roles, this.access) : true), true);
+      buttons.push(refreshButton);
+    }
+    if (this.incHomeButton) {
+      const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
+      buttons.push(homeButton);
+    }
     return buttons;
   }
 
@@ -235,21 +251,25 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
       }
       this.valid = true;
     }
-    this.liveapps.isFavoriteCase(this.caseRef, this.uiAppId, this.sandboxId)
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          this.isFavorite = result;
-          this.toolbarButtons = this.createToolbarButtons();
-          return result;
-        })
-      )
-      .subscribe(
-        null, error => {
-          this.errorMessage = 'Error retrieving isFavorite: ' + error.error.errorMsg;
-        }
-      );
+    if (this.incFavButton) {
+      this.liveapps.isFavoriteCase(this.caseRef, this.uiAppId, this.sandboxId)
+        .pipe(
+          take(1),
+          takeUntil(this._destroyed$),
+          map(result => {
+            this.isFavorite = result;
+            this.toolbarButtons = this.toolbarButtons.concat(this.createToolbarButtons());
+            return result;
+          })
+        )
+        .subscribe(
+          null, error => {
+            this.errorMessage = 'Error retrieving isFavorite: ' + error.error.errorMsg;
+          }
+        );
+    } else {
+      this.toolbarButtons = this.toolbarButtons.concat(this.createToolbarButtons());
+    }
   }
 
   ngOnDestroy(): void {
