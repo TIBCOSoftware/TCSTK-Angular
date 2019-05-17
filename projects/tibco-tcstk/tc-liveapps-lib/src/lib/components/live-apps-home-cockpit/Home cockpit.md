@@ -39,6 +39,11 @@ routeAction | EventEmitter<RouteAction> |   |
   | Payload |  RouteAction  |  RouteAction object to tell caller to navigate somewhere
 
 
+<b>full development Documenation</b>
+
+[Link to LiveAppsHomeCockpitComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsHomeCockpitComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

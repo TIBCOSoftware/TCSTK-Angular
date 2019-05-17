@@ -41,6 +41,11 @@ toolbarButtonEvent | EventEmitter<string> |   |
 
 
 
+<b>full development Documenation</b>
+
+[Link to TibcoCloudMenuBarComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudMenuBarComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"

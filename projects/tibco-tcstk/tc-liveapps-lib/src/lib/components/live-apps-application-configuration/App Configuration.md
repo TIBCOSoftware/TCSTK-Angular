@@ -34,6 +34,11 @@ configChanged | EventEmitter<CaseCardConfig> |   |
   | Payload |  CaseCardConfig  |  CaseCardConfig object when configuration is changed (so called can do a save with data)
 
 
+<b>full development Documenation</b>
+
+[Link to LiveAppsApplicationConfigurationComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsApplicationConfigurationComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"
