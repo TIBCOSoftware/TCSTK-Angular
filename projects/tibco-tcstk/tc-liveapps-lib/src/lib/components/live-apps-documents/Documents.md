@@ -47,6 +47,11 @@ sandboxId | number | sandboxId - this comes from claims resolver
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
 
 
+<b>full development Documenation</b>
+
+[Link to LiveAppsDocumentsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsDocumentsComponent.html)
+
+
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
 
 [manually]: https://img.shields.io/badge/Status-manually%20created-yellow.svg?style=flat "manually created"
