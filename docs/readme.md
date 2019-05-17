@@ -1,4 +1,4 @@
-### TIBCO Cloud Starters Component Developer Docs
+### TIBCO Cloud Starters Toolkit - Angular.io Component Developer Docs
 
 #### HowTo's Intro
 
