@@ -1,8 +1,1 @@
-<!-- If the user is not logged in we just show the login components -->
-<tc-tibco-cloud-login  fxFill *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)"  [loginPrefill]="loginPrefill"></tc-tibco-cloud-login>
-
-
-
-<!-- NOT USED - deprecated by using v3 of api - clientId used to identify subscription -->
-<!-- This component is required if user is in multiple subscriptions - they must select a subscription to complete login -->
-<!--tc-tibco-cloud-multiple-subscription *ngIf="subRequired && !loggedIn" [subscriptions]="subscriptions" [token]="accessToken" (subscriptionSelection)="handleLoggedIn($event)"></tc-tibco-cloud-multiple-subscription-->
+<tc-tibco-cloud-login fxFill (loggedIn)="handleLoggedIn($event)" [loginPrefill]="loginPrefill"></tc-tibco-cloud-login>

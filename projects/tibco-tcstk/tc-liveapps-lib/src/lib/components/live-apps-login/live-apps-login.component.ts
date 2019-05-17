@@ -1,19 +1,15 @@
 // Note: This may move to the core library
 
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {LoginContext, UserInfo} from '../../models/liveappsdata';
-import {AccessToken, AuthInfo, LoginPrefill, UiAppConfig} from '@tibco-tcstk/tc-core-lib';
-import {Log} from '@angular/core/testing/src/logger';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {LoginContext} from '../../models/liveappsdata';
+import {LoginPrefill} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {map, take, takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 
 /**
- * Component perfrom a Login in case there is no valid Session yet.
+ * Component perform a Login in case there is no valid Session yet.
  *
  * If the user is not logged in the login component will be displayed automatically.
- * In Case the user is in multiple subscriptions - they must select a subscription to complete login.
  *
  * ![alt-text](../Login.png "Image")
  */
@@ -27,30 +23,19 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
   @Output() loginContext: EventEmitter<LoginContext> = new EventEmitter<LoginContext>();
   @Input() loginPrefill: LoginPrefill;
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor() {
     super();
   }
 
-  authinfo: AuthInfo;
-  loggedIn = false;
-  subRequired = false;
-  subscriptions: any;
-  accessToken: AccessToken;
-  errorMessage: string;
-
   // run when logged in
   handleLoggedIn = (loginInfo) => {
-    this.authinfo = loginInfo.authInfo;
-    this.accessToken = loginInfo.accessToken;
-    this.subRequired = false;
-    this.loggedIn = true;
     sessionStorage.setItem('loggedIn', Date.now().toString());
 
     // emit useful details about the login and session/claims
     this.loginContext.emit(new LoginContext().deserialize(
         {
-          authInfo: this.authinfo,
-          accessToken: this.accessToken
+          authInfo: loginInfo.authInfo,
+          accessToken: loginInfo.accessToken
         }));
   }
 

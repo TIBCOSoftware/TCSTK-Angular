@@ -6,13 +6,11 @@ import {AccessToken, AuthInfo } from '../../models/tc-login';
 import {TcLoginService} from '../../services/tc-login.service';
 
 /**
- * This component will attempt to log the user in. If the user has multiple subscriptions then the
- * component will emit a list of available subscriptions. The user must select a subscription and
- * login to that subscription via the tibcoCloudSubscriptionComponent
+ * This component will attempt to log the user in.
  *
  * ![alt-text](../Cloud-Login.png "Image")
  *
- *  @example <tc-tibco-cloud-login *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)" (subscriptionRequired)="handleSubscription($event)"></tc-tibco-cloud-login>
+ *  @example <tc-tibco-cloud-login *ngIf="!loggedIn (loggedIn)="handleLoggedIn($event)"></tc-tibco-cloud-login>
  */
 @Component({
     selector: 'tc-tibco-cloud-login',
@@ -62,9 +60,6 @@ export class TibcoCloudLoginComponent  implements OnInit {
     }
   }
 
-  /**
-   * need to pass the token from getToken into the authorize call. Hence, using mergeMap below.
-   */
   doLogin() {
         this.loading = true;
         this.loginError = undefined;
