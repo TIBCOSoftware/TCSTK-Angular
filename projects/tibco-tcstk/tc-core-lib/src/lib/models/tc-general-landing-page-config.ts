@@ -1,3 +1,5 @@
+/* models used by landing page config */
+
 import { Deserializable } from './deserializable';
 
 export class LandingPageItemConfig {

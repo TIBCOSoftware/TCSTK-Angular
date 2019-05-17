@@ -1,3 +1,5 @@
+/* reverses the input */
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

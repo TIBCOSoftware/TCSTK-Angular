@@ -1,3 +1,10 @@
+/* Used to resolve contents of general config file */
+
+/* This resolver will try and read the config from shared state
+ * If a shared state entry does NOT exist it will use the defaults from a config file
+ * Then update shared state with those contents
+ */
+
 import { Injectable } from '@angular/core';
 import {Resolve} from '@angular/router';
 import { Observable, of } from 'rxjs';

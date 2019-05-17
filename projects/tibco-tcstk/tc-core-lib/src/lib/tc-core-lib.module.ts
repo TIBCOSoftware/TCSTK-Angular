@@ -32,31 +32,28 @@ import {TcSharedStateService} from './services/tc-shared-state.service';
 import {RequestCacheService} from './services/request-cache.service';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
 import {AuthGuard} from './guards/auth.guard';
-import {TcCoreCommonFunctions} from './common/tc-core-common-functions';
 import {AuthErrorInterceptor} from './interceptors/authentication-error-interceptor';
 import {EllipsisPipe} from './pipes/ellipsis.pipe';
 import {DurationSincePipe} from './pipes/duration-since.pipe';
 import {HighlightPipe} from './pipes/highlight.pipe';
 import {OrderByDatePipe} from './pipes/order-by-date.pipe';
 import {ReversePipe} from './pipes/reverse.pipe';
-import { TibcoCloudWidgetHeaderComponent } from './components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
-import { TibcoCloudMenuBarComponent } from './components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
+import {TibcoCloudWidgetHeaderComponent} from './components/tibco-cloud-widget-header/tibco-cloud-widget-header.component';
+import {TibcoCloudMenuBarComponent} from './components/tibco-cloud-menu-bar/tibco-cloud-menu-bar.component';
 import {TcButtonsHelperService} from './services/tc-buttons-helper.service';
 import {TibcoCloudErrorComponent} from './components/tibco-cloud-error/tibco-cloud-error.component';
-import { OnCreateDirective } from './directives/on-create.directive';
+import {OnCreateDirective} from './directives/on-create.directive';
 import {TcGeneralConfigService} from './services/tc-general-config.service';
 import {TibcoCloudTableComponent} from './components/tibco-cloud-table/tibco-cloud-table.component';
-import { TibcoCloudSelectTableComponent } from './components/tibco-cloud-select-table/tibco-cloud-select-table.component';
+import {TibcoCloudSelectTableComponent} from './components/tibco-cloud-select-table/tibco-cloud-select-table.component';
 import {TibcoCloudSettingMenuEntryComponent} from './components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
 import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
-import { TibcoCloudConfigurationComponent } from './components/tibco-cloud-configuration/tibco-cloud-configuration.component';
+import {TibcoCloudConfigurationComponent} from './components/tibco-cloud-configuration/tibco-cloud-configuration.component';
 import {RouterModule} from '@angular/router';
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 import {CommonModule, Location} from '@angular/common';
-import { TibcoCloudSettingLandingComponent } from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
-import { TibcoCloudNewElementComponent } from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
-
-export const TC_NAVBAR_URL = { url: 'https://account.cloud.tibco.com/tsc-ws-content/tsc-universal-header/globalNavbar.js', type: 'application/javascript' };
+import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
+import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
 
 @NgModule({
   declarations: [
@@ -152,23 +149,26 @@ export const TC_NAVBAR_URL = { url: 'https://account.cloud.tibco.com/tsc-ws-cont
     TcButtonsHelperService,
     AuthGuard,
     // comment this line to disable the CachingInterceptor
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true},
     // error handling interceptor
-    { provide: HTTP_INTERCEPTORS, useClass: AuthErrorInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: AuthErrorInterceptor, multi: true}
     // uncomment this line to use the mock service interceptor
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ],
-  entryComponents: [ TibcoCloudNewElementComponent ]
+  entryComponents: [TibcoCloudNewElementComponent]
 })
 
 export class TcCoreLibModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcCoreLibModule,
-      providers: [ TcSharedStateService, TcGeneralConfigService ]
+      providers: [TcSharedStateService, TcGeneralConfigService]
     };
   }
+
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
+
+    // register all the default Icon SVGs used by this module
 
     this.matIconRegistry.addSvgIconLiteral(
       'ic-error-handler',
@@ -343,74 +343,60 @@ export class TcCoreLibModule {
         '</g>\n' +
         '</svg>')
     );
-    
-      this.matIconRegistry.addSvgIconLiteral(
-          'splash-default-icon',
-          this.domSanitizer.bypassSecurityTrustHtml(
-              '<svg version="1.1" id = "Layer_1" xmlns = "http://www.w3.org/2000/svg" xmlns: xlink = "http://www.w3.org/1999/xlink" x = "0px" y = "0px"\n' +
-              'viewBox = "0 0 64 64" style = "enable-background:new 0 0 64 64;" xml: space = "preserve" >\n' +
-              '<style type="text/css" >\n' +
-              '.st0{ fill: #333333; }\n' +
-              '.st1{ fill: #FBAE17; }\n' +
-              '</style>\n' +
-              '<g>\n' +
-              '<path class="st0" d = "M15.3,26.2H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,26.2,15.3,26.2z" />\n' +
-              '<path class="st0" d = "M15.3,30.3H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,30.3,15.3,30.3z" />\n' +
-              '<path class="st0" d = "M15.3,34.4H8.9c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1h6.4c0.6,0,1,0.4,1,1C16.3,34,15.9,34.4,15.3,34.4z" />\n' +
-              '<path class="st0" d = "M15.3,38.5H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,38.5,15.3,38.5z" />\n' +
-              '<path class="st0" d = "M15.3,42.6H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,42.6,15.3,42.6z" />\n' +
-              '<g>\n' +
-              '<path class="st0" d = "M57.4,9.5H6.9c-1.1,0-2,0.9-2,2V62c0,1.1,0.9,2,2,2h50.5c1.1,0,2-0.9,2-2V11.5C59.4,10.4,58.5,9.5,57.4,9.5z M6.9,19.5h10.8V62H6.9V19.5z M57.4,62H19.7V19.5h37.7V62z M57.4,17.5H6.9v-6h50.5V17.5z"/>\n' +
-              '</g>\n' +
-              '<path class= "st0" d = "M11.6,15.4H10c-0.6,0-1-0.4-1-1s0.4-1,1-1h1.6c0.6,0,1,0.4,1,1S12.2,15.4,11.6,15.4z" />\n' +
-              '<path class="st0" d = "M16.8,15.4h-1.6c-0.6,0-1-0.4-1-1s0.4-1,1-1h1.6c0.6,0,1,0.4,1,1S17.4,15.4,16.8,15.4z" />\n' +
-              '<path class="st0" d = "M21.9,15.4h-1.6c-0.6,0-1-0.4-1-1s0.4-1,1-1h1.6c0.6,0,1,0.4,1,1S22.5,15.4,21.9,15.4z" />\n' +
-              '<g>\n' +
-              '<path class="st0" d = "M52.2,25.9v6.2H24.5v-6.2L52.2,25.9L52.2,25.9z M53.2,23.9H23.5c-0.6,0-1,0.4-1,1v8.2c0,0.6,0.4,1,1,1h29.6c0.6,0,1-0.4,1-1v-8.2C54.2,24.4,53.7,23.9,53.2,23.9L53.2, 23.9z"/>\n' +
-              '</g>\n' +
-              '<g>\n' +
-              '<rect x="24.8" y = "39.5" class= "st1" width = "5" height = "5" />\n' +
-              '<path class="st0" d = "M30.8,37.5h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C31.8,38,31.3,37.5,30.8,37.5zM29.8,44.5h-5v-5h5V44.5z"/>\n' +
-              '</g>\n' +
-              '<g>\n' +
-              '<rect x="35.9" y = "39.5" class= "st1" width = "5" height = "5" />\n' +
-              '<path class="st0" d = "M41.9,37.5h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C42.9,38,42.5,37.5,41.9,37.5zM40.9,44.5h-5v-5h5V44.5z"/>\n' +
-              '</g>\n' +
-              '<g>\n' +
-              '<rect x="47.1" y = "39.5" class= "st1" width = "5" height = "5" />\n' +
-              '<path class="st0" d = "M53.1,37.5h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C54.1,38,53.6,37.5,53.1,37.5zM52.1,44.5h-5v-5h5V44.5z"/>\n' +
-              '</g>\n' +
-              '<g>\n' +
-              '<rect x="24.8" y = "51" class= "st1" width = "5" height = "5" />\n' +
-              '<path class="st0" d = "M30.8,49h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C31.8,49.5,31.3,49,30.8,49z M29.8,56h-5v-5h5V56z"/>\n' +
-              '</g>\n' +
-              '<g>\n' +
-              '<rect x="35.9" y = "51" class= "st1" width = "5" height = "5" />\n' +
-              '<path class="st0" d = "M41.9,49h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C42.9,49.5,42.5,49,41.9,49z M40.9,56h-5v-5h5V56z"/>\n' +
-              '</g>\n' +
-              '<g>\n' +
-              '<rect x="47.1" y = "51" class= "st1" width = "5" height = "5" />\n' +
-              '<path class="st0" d = "M53.1,49h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C54.1,49.5,53.6,49,53.1,49z M52.1,56h-5v-5h5V56z"/>\n' +
-              '</g>\n' +
-              '</g>\n' +
-              '</svg>\n'
-          )
-      );
 
-}
+    this.matIconRegistry.addSvgIconLiteral(
+      'splash-default-icon',
+      this.domSanitizer.bypassSecurityTrustHtml(
+        '<svg version="1.1" id = "Layer_1" xmlns = "http://www.w3.org/2000/svg" xmlns: xlink = "http://www.w3.org/1999/xlink" x = "0px" y = "0px"\n' +
+        'viewBox = "0 0 64 64" style = "enable-background:new 0 0 64 64;" xml: space = "preserve" >\n' +
+        '<style type="text/css" >\n' +
+        '.st0{ fill: #333333; }\n' +
+        '.st1{ fill: #FBAE17; }\n' +
+        '</style>\n' +
+        '<g>\n' +
+        '<path class="st0" d = "M15.3,26.2H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,26.2,15.3,26.2z" />\n' +
+        '<path class="st0" d = "M15.3,30.3H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,30.3,15.3,30.3z" />\n' +
+        '<path class="st0" d = "M15.3,34.4H8.9c-0.6,0-1-0.4-1-1c0-0.6,0.4-1,1-1h6.4c0.6,0,1,0.4,1,1C16.3,34,15.9,34.4,15.3,34.4z" />\n' +
+        '<path class="st0" d = "M15.3,38.5H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,38.5,15.3,38.5z" />\n' +
+        '<path class="st0" d = "M15.3,42.6H8.9c-0.6,0-1-0.4-1-1s0.4-1,1-1h6.4c0.6,0,1,0.4,1,1S15.9,42.6,15.3,42.6z" />\n' +
+        '<g>\n' +
+        '<path class="st0" d = "M57.4,9.5H6.9c-1.1,0-2,0.9-2,2V62c0,1.1,0.9,2,2,2h50.5c1.1,0,2-0.9,2-2V11.5C59.4,10.4,58.5,9.5,57.4,9.5z M6.9,19.5h10.8V62H6.9V19.5z M57.4,62H19.7V19.5h37.7V62z M57.4,17.5H6.9v-6h50.5V17.5z"/>\n' +
+        '</g>\n' +
+        '<path class= "st0" d = "M11.6,15.4H10c-0.6,0-1-0.4-1-1s0.4-1,1-1h1.6c0.6,0,1,0.4,1,1S12.2,15.4,11.6,15.4z" />\n' +
+        '<path class="st0" d = "M16.8,15.4h-1.6c-0.6,0-1-0.4-1-1s0.4-1,1-1h1.6c0.6,0,1,0.4,1,1S17.4,15.4,16.8,15.4z" />\n' +
+        '<path class="st0" d = "M21.9,15.4h-1.6c-0.6,0-1-0.4-1-1s0.4-1,1-1h1.6c0.6,0,1,0.4,1,1S22.5,15.4,21.9,15.4z" />\n' +
+        '<g>\n' +
+        '<path class="st0" d = "M52.2,25.9v6.2H24.5v-6.2L52.2,25.9L52.2,25.9z M53.2,23.9H23.5c-0.6,0-1,0.4-1,1v8.2c0,0.6,0.4,1,1,1h29.6c0.6,0,1-0.4,1-1v-8.2C54.2,24.4,53.7,23.9,53.2,23.9L53.2, 23.9z"/>\n' +
+        '</g>\n' +
+        '<g>\n' +
+        '<rect x="24.8" y = "39.5" class= "st1" width = "5" height = "5" />\n' +
+        '<path class="st0" d = "M30.8,37.5h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C31.8,38,31.3,37.5,30.8,37.5zM29.8,44.5h-5v-5h5V44.5z"/>\n' +
+        '</g>\n' +
+        '<g>\n' +
+        '<rect x="35.9" y = "39.5" class= "st1" width = "5" height = "5" />\n' +
+        '<path class="st0" d = "M41.9,37.5h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C42.9,38,42.5,37.5,41.9,37.5zM40.9,44.5h-5v-5h5V44.5z"/>\n' +
+        '</g>\n' +
+        '<g>\n' +
+        '<rect x="47.1" y = "39.5" class= "st1" width = "5" height = "5" />\n' +
+        '<path class="st0" d = "M53.1,37.5h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C54.1,38,53.6,37.5,53.1,37.5zM52.1,44.5h-5v-5h5V44.5z"/>\n' +
+        '</g>\n' +
+        '<g>\n' +
+        '<rect x="24.8" y = "51" class= "st1" width = "5" height = "5" />\n' +
+        '<path class="st0" d = "M30.8,49h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C31.8,49.5,31.3,49,30.8,49z M29.8,56h-5v-5h5V56z"/>\n' +
+        '</g>\n' +
+        '<g>\n' +
+        '<rect x="35.9" y = "51" class= "st1" width = "5" height = "5" />\n' +
+        '<path class="st0" d = "M41.9,49h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C42.9,49.5,42.5,49,41.9,49z M40.9,56h-5v-5h5V56z"/>\n' +
+        '</g>\n' +
+        '<g>\n' +
+        '<rect x="47.1" y = "51" class= "st1" width = "5" height = "5" />\n' +
+        '<path class="st0" d = "M53.1,49h-7c-0.6,0-1,0.4-1,1v7c0,0.6,0.4,1,1,1h7c0.6,0,1-0.4,1-1v-7C54.1,49.5,53.6,49,53.1,49z M52.1,56h-5v-5h5V56z"/>\n' +
+        '</g>\n' +
+        '</g>\n' +
+        '</svg>\n'
+      )
+    );
 
-  /*loadNavbarJS() {
-    const jsUrls = [
-      TC_NAVBAR_URL
-    ];
-    for (let i = 0; i < jsUrls.length; i++) {
-      const node = document.createElement('script');
-      node.src = jsUrls[i].url;
-      node.type = jsUrls[i].type;
-      node.async = false;
-      node.charset = 'utf-8';
-      document.head.appendChild(node);
-    }
-  }*/
+  }
 }
 

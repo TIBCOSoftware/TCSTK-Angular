@@ -1,3 +1,5 @@
+/* truncates string to a set length using ellipsis ... */
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

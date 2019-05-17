@@ -1,3 +1,7 @@
+/* Used to resolve the default login credentials (username/clientId) when using dev/local login route instead of tibco cloud */
+
+/* Data is stored/retrieved from session storage */
+
 import { Injectable } from '@angular/core';
 import {Resolve} from '@angular/router';
 import { LoginPrefill } from '../models/tc-login';
