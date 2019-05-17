@@ -32,7 +32,7 @@ selectedCaseType | EventEmitter<CaseTypeReportRecord> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCaseOverviewReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCaseOverviewReportComponent.html)
+[Link to LiveAppsCaseOverviewReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseOverviewReportComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

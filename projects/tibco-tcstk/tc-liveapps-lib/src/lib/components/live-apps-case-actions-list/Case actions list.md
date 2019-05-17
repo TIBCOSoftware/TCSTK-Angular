@@ -38,7 +38,7 @@ actionClicked | EventEmitter<LaProcessSelection> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCaseActionsListComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCaseActionsListComponent.html)
+[Link to LiveAppsCaseActionsListComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseActionsListComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

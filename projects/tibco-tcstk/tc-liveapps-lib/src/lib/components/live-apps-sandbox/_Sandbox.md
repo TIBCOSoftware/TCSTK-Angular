@@ -28,7 +28,7 @@ selection | EventEmitter |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsSandboxComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsSandboxComponent.html)
+[Link to LiveAppsSandboxComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsSandboxComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

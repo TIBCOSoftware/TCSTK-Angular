@@ -35,7 +35,7 @@ selection | EventEmitter<CaseType> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsApplicationsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsApplicationsComponent.html)
+[Link to LiveAppsApplicationsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsApplicationsComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -18,7 +18,7 @@ This Component can be used by using the following HTML Tag:
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsSettingsRolesComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsSettingsRolesComponent.html)
+[Link to LiveAppsSettingsRolesComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsSettingsRolesComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -26,7 +26,7 @@ uiAppId | string |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCaseTypeOverviewReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCaseTypeOverviewReportComponent.html)
+[Link to LiveAppsCaseTypeOverviewReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseTypeOverviewReportComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

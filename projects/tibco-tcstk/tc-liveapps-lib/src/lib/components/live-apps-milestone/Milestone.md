@@ -30,7 +30,7 @@ status | string |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsMilestoneComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsMilestoneComponent.html)
+[Link to LiveAppsMilestoneComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsMilestoneComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

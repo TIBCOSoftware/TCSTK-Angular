@@ -33,7 +33,7 @@ changeRoleEvent | EventEmitter<RoleAttribute> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsRoleSwitcherComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsRoleSwitcherComponent.html)
+[Link to LiveAppsRoleSwitcherComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsRoleSwitcherComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -27,7 +27,7 @@ sandboxId | number | sandboxId - this comes from claims resolver
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsDocumentViewerComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsDocumentViewerComponent.html)
+[Link to LiveAppsDocumentViewerComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsDocumentViewerComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

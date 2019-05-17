@@ -36,7 +36,7 @@ caseSelected | EventEmitter<string> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsSearchWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsSearchWidgetComponent.html)
+[Link to LiveAppsSearchWidgetComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsSearchWidgetComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

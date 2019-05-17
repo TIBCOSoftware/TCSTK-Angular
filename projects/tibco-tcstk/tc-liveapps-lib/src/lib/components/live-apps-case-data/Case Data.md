@@ -34,7 +34,7 @@ uiAppId | string | The Application ID of the UI (should ideally be unique as it 
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCaseDataComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCaseDataComponent.html)
+[Link to LiveAppsCaseDataComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseDataComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

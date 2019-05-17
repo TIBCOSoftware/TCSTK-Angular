@@ -40,7 +40,7 @@ clickCase | EventEmitter<CaseRoute> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCaseListComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCaseListComponent.html)
+[Link to LiveAppsCaseListComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseListComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

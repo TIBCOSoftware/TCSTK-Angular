@@ -39,7 +39,7 @@ caseChanged | EventEmitter<ProcessId> |   |
 
 <b>full development Documenation</b>
 
-[Link to LiveAppsCaseActionComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/LiveAppsCaseActionComponent.html)
+[Link to LiveAppsCaseActionComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseActionComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
