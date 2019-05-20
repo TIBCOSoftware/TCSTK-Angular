@@ -182,12 +182,12 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   }
 
   public handleActionSelection = (actionSelection) => {
-    this.actionSelection = actionSelection;
     this.caseActionsComponent.toggleEnable();
+    this.actionSelection = actionSelection;
   }
 
   public actionTabCreated = (data) => {
-    // the tab isn't actually it the tab-group at this point but this should still work as length is current tab + 1
+    // the tab isn't actually in the tab-group at this point but this should still work as length is current tab + 1
     this.dataTabGroups.selectedIndex = this.dataTabGroups._tabs.length;
   }
 
