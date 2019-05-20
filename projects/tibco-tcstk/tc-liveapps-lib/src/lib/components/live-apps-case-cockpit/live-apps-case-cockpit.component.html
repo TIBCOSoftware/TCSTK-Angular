@@ -21,7 +21,7 @@
                 <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false" [customFormDefs]="customFormDefs"></tcla-live-apps-case-data>
             </mat-tab>
             <mat-tab #actionTab #dataTabs *ngIf="actionSelection">
-              <ng-template mat-tab-label fxLayout="row" fxFlex>
+              <ng-template mat-tab-label>
                 {{actionSelection?.process?.name ? actionSelection.process.name : 'Action' }}
                 <mat-icon fxLayoutAlign="end start" class="tcs-cancel-action-button" [svgIcon]="'tcs-close-icon'" (click)="handleCancelAction()"></mat-icon>
               </ng-template>
