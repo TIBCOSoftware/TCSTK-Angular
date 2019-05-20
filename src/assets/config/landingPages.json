@@ -1,0 +1,31 @@
+{
+    "id": "124",
+    "version": "1.0",
+    "landingPage": [
+        {
+            "key": "id1",
+            "description": "Default landing page",
+            "title": "Welcome to your App",
+            "subtitle": "Empower process owners to mitigate risks and optimize processes",
+            "highlights": [
+                {
+                    "title": "Streamline",
+                    "iconURL": "",
+                    "content": "Reduce losses and avoid adverse risk events through business processes, controls, and analytics"
+                },
+                {
+                    "title": "Collaborate",
+                    "iconURL": "",
+                    "content": "A simple yet refined user experience to foster collaboration via case management, interaction feeds, attached documents, etc."
+                },
+                {
+                    "title": "Track",
+                    "iconURL": "",
+                    "content": "Provide in-depth, real-time visibility into the risk investigation process - e.g. high priority cases; action audit trails, etc."
+                }
+            ],
+            "backgroundURL": "",
+            "homeRoute": "/starterApp/home"
+        }
+    ]
+}

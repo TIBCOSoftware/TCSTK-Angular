@@ -6,7 +6,6 @@ import {
   LiveAppsSettingsComponent, LiveAppsSettingsRecentCasesComponent,
   LiveAppsSettingsRolesComponent, LiveAppsSettingsSummaryCardsComponent
 } from '@tibco-tcstk/tc-liveapps-lib';
-import {PdSettingsAdministrationComponent, PdSettingsConfigurationComponent} from '@tibco-tcstk/tc-process-discovery-lib';
 import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 
 export const CONFIGURATION_ROUTE_CONFIG = [
@@ -55,8 +54,6 @@ export const CONFIGURATION_ROUTE_CONFIG = [
       generalConfigHolder: GeneralConfigResolver
     }
   },
-  {path: 'process-discovery-configuration', component: PdSettingsConfigurationComponent, resolve: {claims: ClaimsResolver}},
-  {path: 'process-discovery-administration', component: PdSettingsAdministrationComponent, resolve: {}},
   {
     path: 'upload-services-settings',
     component: SettingsCwmServicesComponent,

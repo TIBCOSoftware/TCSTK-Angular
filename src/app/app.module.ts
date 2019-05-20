@@ -33,7 +33,6 @@ import { ConfigurationComponent } from './routes/configuration/configuration.com
 import { SplashComponent } from './components/splash/splash.component';
 import { SplashPDComponent } from './components/splash-pd/splash-pd.component';
 import {CasesearchComponent} from './routes/casesearch/casesearch.component';
-import { CaseTestComponent } from './components/case-test/case-test.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +45,7 @@ import { CaseTestComponent } from './components/case-test/case-test.component';
     ConfigurationComponent,
     SplashComponent,
     SplashPDComponent,
-    CasesearchComponent,
-    CaseTestComponent
+    CasesearchComponent
   ],
   imports: [
     AppRoutingModule,
