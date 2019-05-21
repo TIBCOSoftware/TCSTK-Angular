@@ -425,17 +425,9 @@ export class AuthErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((err: any) &#x3D;&gt; {
           if (err instanceof HttpErrorResponse) {
-            // error: &quot;Logged out due to inactivity. Hit refresh.↵&quot;
-            // headers: HttpHeaders {normalizedNames: Map(0), lazyUpdate: null, lazyInit: ƒ}
-            // message: &quot;Http failure response for https://localhost:4200/clientstate/states?$filter&#x3D;type&#x3D;PRIVATE%20and%20name&#x3D;%27testappjs.recentcases.tibcolabs.client.context.PRIVATE%27: 419 OK&quot;
-            // name: &quot;HttpErrorResponse&quot;
-            // ok: false
-            // status: 419
-            // statusText: &quot;OK&quot;
             if (err.status &#x3D;&#x3D;&#x3D; 419) {
               // timed out
               // should only be used if not on tibco cloud (and hence using our login route)
-              // TODO: Externalize redirect URL
               // check if we are hosted on tibco.cloud.com
               const host &#x3D; window.location.hostname.split(&#x27;.&#x27;);
               const hostDomain &#x3D; host[host.length - 3] + &#x27;.&#x27; + host[host.length - 2] + &#x27;.&#x27; + host[host.length - 1];
