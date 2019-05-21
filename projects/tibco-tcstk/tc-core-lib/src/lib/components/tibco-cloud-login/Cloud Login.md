@@ -2,11 +2,7 @@
 ![Status][auto] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":""} Component Meta -->
 
 
-<p>This component will attempt to log the user in. If the user has multiple subscriptions then the
-
-component will emit a list of available subscriptions. The user must select a subscription and
-
-login to that subscription via the tibcoCloudSubscriptionComponent</p>
+<p>This component will attempt to log the user in.</p>
 
 <p><img src="../Cloud-Login.png" alt="alt-text" class="img-responsive" title="Image"></p>
 
@@ -18,7 +14,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tc-tibco-cloud-login *ngIf="!loggedIn && !subRequired" (loggedIn)="handleLoggedIn($event)" (subscriptionRequired)="handleSubscription($event)"></tc-tibco-cloud-login>
+<tc-tibco-cloud-login *ngIf="!loggedIn (loggedIn)="handleLoggedIn($event)"></tc-tibco-cloud-login>
 ```
 
 #### Inputs

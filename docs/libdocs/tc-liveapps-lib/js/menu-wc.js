@@ -52,13 +52,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/TcLiveappsLibModule.html" data-type="entity-link">TcLiveappsLibModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' : 'data-target="#xs-components-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' }>
+                                            'data-target="#components-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' : 'data-target="#xs-components-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' :
-                                            'id="xs-components-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' :
+                                            'id="xs-components-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' }>
                                             <li class="link">
                                                 <a href="components/LiveAppsActionsComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsActionsComponent</a>
@@ -140,14 +140,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsCaseListComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LiveAppsCaseOverviewReportComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsCaseOverviewReportComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/LiveAppsCaseSchemaListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsCaseSchemaListComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/LiveAppsCaseSearchComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsCaseSearchComponent</a>
                                             </li>
@@ -162,10 +154,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/LiveAppsCaseSummaryComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsCaseSummaryComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/LiveAppsCaseTypeOverviewReportComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsCaseTypeOverviewReportComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/LiveAppsComponent.html"
@@ -228,24 +216,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsNotesEditorComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LiveAppsPieComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsPieComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/LiveAppsRecentCasesComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsRecentCasesComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LiveAppsReportingCockpitComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsReportingCockpitComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/LiveAppsRoleSwitcherComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsRoleSwitcherComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/LiveAppsSandboxComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LiveAppsSandboxComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/LiveAppsSearchWidgetComponent.html"
@@ -279,13 +255,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' : 'data-target="#xs-pipes-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' }>
+                                            'data-target="#pipes-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' : 'data-target="#xs-pipes-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' :
-                                            'id="xs-pipes-links-module-TcLiveappsLibModule-a16653316037f552580f9f5a1756458e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' :
+                                            'id="xs-pipes-links-module-TcLiveappsLibModule-854211c0ee9db60a561442d7a0004132"' }>
                                             <li class="link">
                                                 <a href="pipes/ParseAuditMessagePipe.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ParseAuditMessagePipe</a>
