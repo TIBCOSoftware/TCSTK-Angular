@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign = "center start">
+<div fxFill fxLayout="row" fxLayoutAlign = "center start">
   <div class="tcs-rendered-form">
     <json-schema-form #renderedForm *ngIf="!useCustomForm && formSchema"
       loadExternalAssets="false"
@@ -11,7 +11,9 @@
       (formLayout)="handleLayoutOutput($event)"
     >
     </json-schema-form>
-    <custom-form *ngIf="useCustomForm" [formRef]="formRef" [data]="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
+
+    <!-- form-app="''" - this is to work around an issue where the element doesnt display the form properly unless we pass in an additional input - angular bug? -->
+    <custom-form *ngIf="useCustomForm && formRef && formData" form-app="''" [formRef]="formRef" [data]="formData" (formSubmitted)="submitForm($event.detail)"></custom-form>
     <span *ngIf="!formSchema && !useCustomForm">A form cannot be generated as no schema is available. Use a supported form or register a custom form app.</span>
   </div>
 </div>
