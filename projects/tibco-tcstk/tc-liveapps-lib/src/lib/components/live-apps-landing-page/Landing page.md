@@ -4,6 +4,8 @@
 
 <p>Landing page</p>
 
+<p>This component allows a configurable landing page on a per role basis</p>
+
 
 
 #### Usage

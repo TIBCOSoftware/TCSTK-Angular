@@ -69,9 +69,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>This component will attempt to log the user in. If the user has multiple subscriptions then the
-component will emit a list of available subscriptions. The user must select a subscription and
-login to that subscription via the tibcoCloudSubscriptionComponent</p>
+        <p>This component will attempt to log the user in.</p>
 <p><img src="../Cloud-Login.png" alt="alt-text" class="img-responsive" title="Image"></p>
 
     </p>
@@ -89,7 +87,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
     </p>
     <div class="io-description">
                 <div>
-                    <pre class="line-numbers"><code class="language-html">&lt;tc-tibco-cloud-login *ngIf=&quot;!loggedIn &amp;&amp; !subRequired&quot; (loggedIn)=&quot;handleLoggedIn($event)&quot; (subscriptionRequired)=&quot;handleSubscription($event)&quot;&gt;&lt;/tc-tibco-cloud-login&gt;</code></pre>
+                    <pre class="line-numbers"><code class="language-html">&lt;tc-tibco-cloud-login *ngIf=&quot;!loggedIn (loggedIn)=&quot;handleLoggedIn($event)&quot;&gt;&lt;/tc-tibco-cloud-login&gt;</code></pre>
                 </div>
     </div>
 
@@ -241,7 +239,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -299,7 +297,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:30</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -329,7 +327,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:26</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -370,16 +368,14 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:63</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>need to pass the token from getToken into the authorize call. Hence, using mergeMap below.</p>
-</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -415,7 +411,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -442,7 +438,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -469,7 +465,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -496,7 +492,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -522,7 +518,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -549,7 +545,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -576,7 +572,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -603,7 +599,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -630,7 +626,7 @@ login to that subscription via the tibcoCloudSubscriptionComponent</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-login/tibco-cloud-login.component.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -651,13 +647,11 @@ import {AccessToken, AuthInfo } from &#x27;../../models/tc-login&#x27;;
 import {TcLoginService} from &#x27;../../services/tc-login.service&#x27;;
 
 /**
- * This component will attempt to log the user in. If the user has multiple subscriptions then the
- * component will emit a list of available subscriptions. The user must select a subscription and
- * login to that subscription via the tibcoCloudSubscriptionComponent
+ * This component will attempt to log the user in.
  *
  * ![alt-text](../Cloud-Login.png &quot;Image&quot;)
  *
- *  @example &lt;tc-tibco-cloud-login *ngIf&#x3D;&quot;!loggedIn &amp;&amp; !subRequired&quot; (loggedIn)&#x3D;&quot;handleLoggedIn($event)&quot; (subscriptionRequired)&#x3D;&quot;handleSubscription($event)&quot;&gt;&lt;/tc-tibco-cloud-login&gt;
+ *  @example &lt;tc-tibco-cloud-login *ngIf&#x3D;&quot;!loggedIn (loggedIn)&#x3D;&quot;handleLoggedIn($event)&quot;&gt;&lt;/tc-tibco-cloud-login&gt;
  */
 @Component({
     selector: &#x27;tc-tibco-cloud-login&#x27;,
@@ -707,9 +701,6 @@ export class TibcoCloudLoginComponent  implements OnInit {
     }
   }
 
-  /**
-   * need to pass the token from getToken into the authorize call. Hence, using mergeMap below.
-   */
   doLogin() {
         this.loading &#x3D; true;
         this.loginError &#x3D; undefined;
@@ -847,7 +838,7 @@ export class TibcoCloudLoginComponent  implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div fxFill fxLayoutAlign="center start">  <div fxFlex.gt-sm="grow 75" class="la-login-div" ngStyle.lt-md="height: 100%; width:100%" ngStyle.gt-sm="max-width: 500px; margin-top: 10px;">    <mat-card fxFlex class="la-login-card" fxLayout="column">        <div fxflex class="la-outer-form-div" fxLayoutAlign="start stretch">          <form #laLoginForm="ngForm" class="la-login-form" (submit)="doLogin()" fxLayout="column" fxFlex disabled="loading">            <mat-form-field>              <input matInput placeholder="Email Address" [(ngModel)]="name" name="email" required>            </mat-form-field>            <mat-form-field>              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>            </mat-form-field>            <mat-accordion>              <mat-expansion-panel [expanded]="!clientId">                <mat-expansion-panel-header>                  <mat-panel-title>API Access Keys</mat-panel-title>                </mat-expansion-panel-header>                <mat-form-field fxFlex>                  <input matInput placeholder="Client Id" [(ngModel)]="clientId"  name="ClientID" required>                </mat-form-field>              </mat-expansion-panel>            </mat-accordion>            <div class="la-login-button-div" fxFlex fxLayoutAlign="center start">              <button ngStyle.lt-md="width: 100%;" type="submit" mat-raised-button color="primary" [disabled]="!laLoginForm.form.valid || loading">Login</button>            </div>          </form>        </div>        <div fxFlex class="spacer"></div>        <div class="la-login-info-pane">          <div *ngIf="loading">            Logging in...          </div>          <div *ngIf="loginError" style="color: red">{{loginError}}</div>        </div>    </mat-card>  </div></div></div>'
-    var COMPONENTS = [{'name': 'TibcoCloudConfigurationComponent', 'selector': 'tc-tibco-cloud-configuration'},{'name': 'TibcoCloudErrorComponent', 'selector': 'tc-tibco-cloud-error'},{'name': 'TibcoCloudLoginComponent', 'selector': 'tc-tibco-cloud-login'},{'name': 'TibcoCloudMenuBarComponent', 'selector': 'tc-tibco-cloud-menu-bar'},{'name': 'TibcoCloudMultipleSubscriptionComponent', 'selector': 'tc-tibco-cloud-multiple-subscription'},{'name': 'TibcoCloudNavbarComponent', 'selector': 'tc-tibco-cloud-navbar'},{'name': 'TibcoCloudNewElementComponent', 'selector': 'tc-tibco-cloud-new-element'},{'name': 'TibcoCloudSelectTableComponent', 'selector': 'tc-tibco-cloud-select-table'},{'name': 'TibcoCloudSettingLandingComponent', 'selector': 'tc-tibco-cloud-setting-landing'},{'name': 'TibcoCloudSettingMenuEntryComponent', 'selector': 'tc-tibco-cloud-setting-menu-entry'},{'name': 'TibcoCloudSettingsGeneralComponent', 'selector': 'tc-tibco-cloud-settings-general'},{'name': 'TibcoCloudSplashScreenComponent', 'selector': 'tc-tibco-cloud-splash-screen'},{'name': 'TibcoCloudTableComponent', 'selector': 'tc-tibco-cloud-table'},{'name': 'TibcoCloudWidgetHeaderComponent', 'selector': 'tc-tibco-cloud-widget-header'}];
+    var COMPONENTS = [{'name': 'TibcoCloudConfigurationComponent', 'selector': 'tc-tibco-cloud-configuration'},{'name': 'TibcoCloudErrorComponent', 'selector': 'tc-tibco-cloud-error'},{'name': 'TibcoCloudLoginComponent', 'selector': 'tc-tibco-cloud-login'},{'name': 'TibcoCloudMenuBarComponent', 'selector': 'tc-tibco-cloud-menu-bar'},{'name': 'TibcoCloudNavbarComponent', 'selector': 'tc-tibco-cloud-navbar'},{'name': 'TibcoCloudNewElementComponent', 'selector': 'tc-tibco-cloud-new-element'},{'name': 'TibcoCloudSelectTableComponent', 'selector': 'tc-tibco-cloud-select-table'},{'name': 'TibcoCloudSettingLandingComponent', 'selector': 'tc-tibco-cloud-setting-landing'},{'name': 'TibcoCloudSettingMenuEntryComponent', 'selector': 'tc-tibco-cloud-setting-menu-entry'},{'name': 'TibcoCloudSettingsGeneralComponent', 'selector': 'tc-tibco-cloud-settings-general'},{'name': 'TibcoCloudSplashScreenComponent', 'selector': 'tc-tibco-cloud-splash-screen'},{'name': 'TibcoCloudTableComponent', 'selector': 'tc-tibco-cloud-table'},{'name': 'TibcoCloudWidgetHeaderComponent', 'selector': 'tc-tibco-cloud-widget-header'}];
     var DIRECTIVES = [{'name': 'OnCreateDirective', 'selector': '[tcOnCreate]'}];
     var ACTUAL_COMPONENT = {'name': 'TibcoCloudLoginComponent'};
 </script>
