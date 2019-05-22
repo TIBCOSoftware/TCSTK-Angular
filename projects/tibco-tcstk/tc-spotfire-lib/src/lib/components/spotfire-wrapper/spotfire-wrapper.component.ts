@@ -11,9 +11,6 @@ export class SpotfireWrapperComponent extends SpotfireViewerComponent implements
     // No var please (or set a contructor)
     ngOnInit(): void {
         this.showPage(this.page);
-        // this.markingEvent.subscribe(
-        //     e => console.log('MARKING MySpot', e)
-        // );
     }
 
     showPage(page: string) {
