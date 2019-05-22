@@ -2,11 +2,9 @@
 ![Status][auto] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"wrapper"} Component Meta -->
 
 
-<p>Component perfrom a Login in case there is no valid Session yet.</p>
+<p>Component perform a Login in case there is no valid Session yet.</p>
 
-<p>If the user is not logged in the login component will be displayed automatically.
-
-In Case the user is in multiple subscriptions - they must select a subscription to complete login.</p>
+<p>If the user is not logged in the login component will be displayed automatically.</p>
 
 <p><img src="../Login.png" alt="alt-text" class="img-responsive" title="Image"></p>
 
