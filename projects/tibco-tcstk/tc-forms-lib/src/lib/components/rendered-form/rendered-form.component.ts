@@ -38,7 +38,8 @@ export class RenderedFormComponent implements OnInit, OnChanges {
 
   formSchema: any;
   formLayout: any[];
-  formData: any;
+  formData: any = {};
+  test: string;
   useCustomForm: boolean;
 
   submitForm = (data: any) => {

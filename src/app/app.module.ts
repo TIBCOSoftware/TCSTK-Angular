@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {CaseGuard, TcLiveappsLibModule} from '@tibco-tcstk/tc-liveapps-lib';
@@ -84,6 +84,7 @@ import {CasesearchComponent} from './routes/casesearch/casesearch.component';
   providers: [LogService],
   exports: [
   ],
+  schemas: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
