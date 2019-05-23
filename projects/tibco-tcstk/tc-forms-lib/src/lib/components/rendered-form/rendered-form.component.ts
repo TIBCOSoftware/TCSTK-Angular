@@ -75,6 +75,9 @@ export class RenderedFormComponent implements OnInit, OnChanges {
     }
     if (changes.data && changes.data.currentValue && (changes.data.currentValue !== changes.data.previousValue)) {
       this.formData = this.data;
+      console.log('Initial Form Data:');
+      console.log(this.formData);
+      console.log(JSON.stringify(this.formData));
     }
     if (changes.layout && changes.layout.currentValue && (changes.layout.currentValue !== changes.layout.previousValue)) {
       this.formLayout = this.layout;

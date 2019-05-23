@@ -52,8 +52,10 @@ export class LiveAppsCreatorsComponent implements OnInit {
 
   // handle form submit
   handleSubmit = (data: ProcessId) => {
-    this.caseCreated.emit(data)
-    this.creatorSelector.reset();
+    this.caseCreated.emit(data);
+    /*if (this.creatorSelector) {
+      this.creatorSelector.reset();
+    }*/
   }
 
   // handle case creator selection
