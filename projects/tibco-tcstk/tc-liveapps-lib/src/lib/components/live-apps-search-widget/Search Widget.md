@@ -6,6 +6,8 @@
 
 This Component allows to search for existing Cases and list Case Cards.</p>
 
+<p><img src="../live-apps-search-widget.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

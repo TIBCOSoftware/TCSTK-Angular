@@ -4,6 +4,8 @@
 
 <p>Configuration of roles</p>
 
+<p><img src="../live-apps-settings-roles.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

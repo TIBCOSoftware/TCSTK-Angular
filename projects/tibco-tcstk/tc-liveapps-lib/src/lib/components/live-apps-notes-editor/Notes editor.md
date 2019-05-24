@@ -4,6 +4,8 @@
 
 <p>Editor component to edit a note</p>
 
+<p><img src="../live-apps-notes-editor.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

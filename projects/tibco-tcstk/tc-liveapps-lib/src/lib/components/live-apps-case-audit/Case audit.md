@@ -4,6 +4,8 @@
 
 <p>Render audit trail for a case</p>
 
+<p>  <img src="../live-apps-case-audit.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

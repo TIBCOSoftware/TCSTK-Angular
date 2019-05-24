@@ -18,7 +18,7 @@ In the Upload Dialog the User is able to select a local File and enter a short D
 
 <p>Document List<br>
 
-<img src="../Documents.png" alt="alt-text" class="img-responsive" title="Documents Component Image">
+<img src="../live-apps-documents.png" alt="alt-text" class="img-responsive" title="Documents Component Image">
 
 Document Upload Dialog <br>
 

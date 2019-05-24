@@ -4,7 +4,7 @@
 
 <p>Selection of app + searching for cases</p>
 
-<p><img src="../case-search.png" alt="alt-text" class="img-responsive" title="Image"></p>
+<p>  <img src="../live-apps-case-search.png" alt="alt-text" class="img-responsive" title="Image"></p>
 
 
 

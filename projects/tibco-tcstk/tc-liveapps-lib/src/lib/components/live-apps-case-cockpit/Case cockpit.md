@@ -4,6 +4,8 @@
 
 <p>High level component to allow interaction with case.</p>
 
+<p>  <img src="../live-apps-case-cockpit.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

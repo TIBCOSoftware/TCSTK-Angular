@@ -4,6 +4,8 @@
 
 <p>Renders case action buttons</p>
 
+<p><img src="../live-apps-case-actions.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

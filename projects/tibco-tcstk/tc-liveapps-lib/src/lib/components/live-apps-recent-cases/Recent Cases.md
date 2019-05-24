@@ -4,6 +4,8 @@
 
 <p>Recent cases widget, this Component list recent visited Cases.</p>
 
+<p><img src="../live-apps-recent-cases.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

@@ -4,6 +4,8 @@
 
 <p>Configuration of summary cards</p>
 
+<p><img src="../live-apps-settings-summary-cards.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

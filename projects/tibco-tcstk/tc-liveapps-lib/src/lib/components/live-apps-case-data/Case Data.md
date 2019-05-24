@@ -4,7 +4,7 @@
 
 <p>Displays data for a case in a widget (high level)</p>
 
-<p><img src="../Case-Data.png" alt="alt-text" class="img-responsive" title="Image"></p>
+<p><img src="../live-apps-case-data.png" alt="alt-text" class="img-responsive" title="Image"></p>
 
 
 

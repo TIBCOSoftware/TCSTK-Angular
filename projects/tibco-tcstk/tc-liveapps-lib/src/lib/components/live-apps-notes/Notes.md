@@ -6,7 +6,7 @@
 
 Any Note can have Sub-Notes to allow real collaboration.</p>
 
-<p><img src="../Notes.png" alt="alt-text" class="img-responsive" title="Notes Component Image"></p>
+<p><img src="../live-apps-notes.png" alt="alt-text" class="img-responsive" title="Notes Component Image"></p>
 
 
 

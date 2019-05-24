@@ -4,6 +4,8 @@
 
 <p>Manages general settings for Config page</p>
 
+<p><img src="../tibco-cloud-settings-general.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

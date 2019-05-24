@@ -4,6 +4,8 @@
 
 <p>Case States/Milestone view</p>
 
+<p><img src="../live-apps-case-states.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage
