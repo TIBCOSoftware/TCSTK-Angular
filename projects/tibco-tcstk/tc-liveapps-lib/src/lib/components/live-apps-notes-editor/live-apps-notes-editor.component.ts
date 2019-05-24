@@ -5,6 +5,8 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 /**
  * Editor component to edit a note
  *
+ * ![alt-text](../live-apps-notes-editor.png "")
+ *
  *@example <tcla-live-apps-notes-editor></tcla-live-apps-notes-editor>
  */
 @Component({

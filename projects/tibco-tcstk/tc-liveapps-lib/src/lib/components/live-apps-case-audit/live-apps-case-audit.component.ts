@@ -7,6 +7,8 @@ import {TcCaseAuditService} from '../../services/tc-case-audit.service';
 /**
  * Render audit trail for a case
  *
+ *  ![alt-text](../live-apps-case-audit.png "Image")
+ *
  *@example <tcla-live-apps-case-audit></tcla-live-apps-case-audit>
  */
 @Component({

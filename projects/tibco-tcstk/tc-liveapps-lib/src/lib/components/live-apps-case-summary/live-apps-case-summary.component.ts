@@ -22,6 +22,10 @@ import {TcCaseCardConfigService} from '../../services/tc-case-card-config.servic
 /**
  * Renders case summary cards
  *
+ * ![alt-text](../live-apps-case-summary.png "Image")
+ *
+ * ![alt-text](../live-apps-case-summary-2.png "Image")
+ *
  *@example <tcla-live-apps-case-summary></tcla-live-apps-case-summary>
  */
 

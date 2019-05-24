@@ -19,6 +19,8 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 /**
  * High level component to allow home page view of system
  *
+ * ![alt-text](../live-apps-home-cockpit.png "Documents Component Image")
+ *
  *@example <tcla-live-apps-home-cockpit></tcla-live-apps-home-cockpit>
  */
 @Component({

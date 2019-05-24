@@ -5,6 +5,8 @@ import {TcCaseStatesService} from '../../services/tc-case-states.service';
 /**
  * Render a dynamic milestone SVG
  *
+ * ![alt-text](../live-apps-milestone.png "Documents Component Image")
+ *
  *@example <tcla-live-apps-milestone></tcla-live-apps-milestone>
  */
 @Component({
