@@ -9,6 +9,8 @@ import {ConfigurationMenuConfig} from '../../models/tc-configuration-menu-config
 /**
  * TIBCO Cloud Configuration Component
  *
+ * ![alt-text](../tibco-cloud-configuration.png "")
+ *
  * @example <tc-tibco-cloud-configuration></tc-tibco-cloud-configuration>
  */
 @Component({
