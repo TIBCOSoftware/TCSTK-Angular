@@ -235,7 +235,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-creators/live-apps-creators.component.ts:62</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-creators/live-apps-creators.component.ts:64</a></div>
                             </td>
                         </tr>
 
@@ -441,8 +441,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-creators/live-apps-creators.component.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-creators/live-apps-creators.component.ts:68</a></div>
                 </td>
             </tr>
 
@@ -519,7 +519,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-creators/live-apps-creators.component.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-creators/live-apps-creators.component.ts:62</a></div>
                             </td>
                         </tr>
 
@@ -639,8 +639,10 @@ export class LiveAppsCreatorsComponent implements OnInit {
 
   // handle form submit
   handleSubmit &#x3D; (data: ProcessId) &#x3D;&gt; {
-    this.caseCreated.emit(data)
-    this.creatorSelector.reset();
+    this.caseCreated.emit(data);
+    /*if (this.creatorSelector) {
+      this.creatorSelector.reset();
+    }*/
   }
 
   // handle case creator selection
