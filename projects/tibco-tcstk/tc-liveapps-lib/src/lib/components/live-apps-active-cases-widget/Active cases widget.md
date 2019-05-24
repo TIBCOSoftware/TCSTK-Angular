@@ -4,6 +4,8 @@
 
 <p>Home page active cases widget main component</p>
 
+<p><img src="../live-apps-active-cases-widget.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

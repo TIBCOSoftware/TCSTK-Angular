@@ -4,6 +4,8 @@
 
 <p>TIBCO Cloud Menu Bar</p>
 
+<p>  <img src="../tibco-cloud-menu-bar.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

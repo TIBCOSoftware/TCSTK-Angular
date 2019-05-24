@@ -4,6 +4,8 @@
 
 <p>renders a single icon for a state</p>
 
+<p><img src="../live-apps-state-icon.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

@@ -4,6 +4,8 @@
 
 <p>High level component to allow home page view of system</p>
 
+<p><img src="../live-apps-home-cockpit.png" alt="alt-text" class="img-responsive" title="Documents Component Image"></p>
+
 
 
 #### Usage

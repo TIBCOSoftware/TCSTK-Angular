@@ -4,6 +4,8 @@
 
 <p>Provides case audit summary for states</p>
 
+<p><img src="../live-apps-case-state-audit.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

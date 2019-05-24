@@ -4,6 +4,8 @@
 
 <p>Header bar for small widgets (like recent cases etc on home)</p>
 
+<p><img src="../tibco-cloud-widget-header.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

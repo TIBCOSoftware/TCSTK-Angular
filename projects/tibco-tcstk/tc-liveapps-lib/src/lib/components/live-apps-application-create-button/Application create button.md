@@ -4,6 +4,8 @@
 
 <p>Special rendering of LiveAppsApplicationsComponent</p>
 
+<p><img src="../live-apps-application-create-button.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

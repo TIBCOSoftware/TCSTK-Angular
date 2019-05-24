@@ -4,6 +4,8 @@
 
 <p>This Component allows to list your Favorite Cases.</p>
 
+<p><img src="../live-apps-favorite-cases.png" alt="alt-text" class="img-responsive" title="Documents Component Image"></p>
+
 
 
 #### Usage

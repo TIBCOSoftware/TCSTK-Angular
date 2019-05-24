@@ -4,6 +4,8 @@
 
 <p>Renders case data in a form</p>
 
+<p><img src="../live-apps-case-data-display.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

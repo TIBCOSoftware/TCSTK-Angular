@@ -4,6 +4,10 @@
 
 <p>Renders case summary cards</p>
 
+<p><img src="../live-apps-case-summary.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
+<p><img src="../live-apps-case-summary-2.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

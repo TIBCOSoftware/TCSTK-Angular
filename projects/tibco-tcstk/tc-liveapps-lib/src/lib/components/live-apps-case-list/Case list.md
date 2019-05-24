@@ -4,6 +4,8 @@
 
 <p>Renders list of cases for caserefs</p>
 
+<p><img src="../live-apps-case-list.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

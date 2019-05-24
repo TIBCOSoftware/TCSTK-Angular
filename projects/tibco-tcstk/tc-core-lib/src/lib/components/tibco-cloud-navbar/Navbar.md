@@ -4,7 +4,7 @@
 
 <p>TIBCO Cloud Navigation Bar</p>
 
-<p><img src="../Navigation-Bar.png" alt="alt-text" class="img-responsive" title="Image"></p>
+<p><img src="../tibco-cloud-navbar.png" alt="alt-text" class="img-responsive" title="Image"></p>
 
 
 

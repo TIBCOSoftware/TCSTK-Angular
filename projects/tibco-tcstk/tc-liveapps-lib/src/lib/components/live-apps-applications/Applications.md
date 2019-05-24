@@ -4,6 +4,8 @@
 
 <p>Lists live apps applications in drop down list allowing selection of app</p>
 
+<p><img src="../live-apps-applications.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage

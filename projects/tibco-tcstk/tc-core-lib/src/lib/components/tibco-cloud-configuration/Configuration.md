@@ -4,6 +4,8 @@
 
 <p>TIBCO Cloud Configuration Component</p>
 
+<p><img src="../tibco-cloud-configuration.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

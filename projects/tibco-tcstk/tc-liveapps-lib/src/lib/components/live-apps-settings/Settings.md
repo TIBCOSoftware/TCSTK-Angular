@@ -4,6 +4,8 @@
 
 <p>Allow Selection of live apps applications (part of config)</p>
 
+<p><img src="../live-apps-settings.png" alt="alt-text" class="img-responsive"></p>
+
 
 
 #### Usage

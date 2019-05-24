@@ -4,6 +4,8 @@
 
 <p>Renders the menu options for each config menu</p>
 
+<p><img src="../tibco-cloud-setting-menu-entry.png" alt="alt-text" class="img-responsive" title="Image"></p>
+
 
 
 #### Usage
