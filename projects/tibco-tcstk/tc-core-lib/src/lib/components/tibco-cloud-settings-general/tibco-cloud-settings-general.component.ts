@@ -9,6 +9,8 @@ import { MatSnackBar } from '@angular/material';
 /**
  * Manages general settings for Config page
  *
+ * ![alt-text](../tibco-cloud-settings-general.png "Image")
+ *
  *@example <tc-tibco-cloud-settings-general></tc-tibco-cloud-settings-general>
  */
 @Component({
