@@ -10,6 +10,8 @@ import { MatSnackBar } from '@angular/material';
 /**
  * Allow Selection of live apps applications (part of config)
  *
+ * ![alt-text](../live-apps-settings.png "")
+ *
  *@example <tcla-live-apps-settings></tcla-live-apps-settings>
  */
 @Component({

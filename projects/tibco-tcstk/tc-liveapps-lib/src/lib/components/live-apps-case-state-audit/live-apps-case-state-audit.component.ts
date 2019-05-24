@@ -10,6 +10,8 @@ import {StateAuditEvent} from '../../models/tc-case-states';
 /**
  * Provides case audit summary for states
  *
+ * ![alt-text](../live-apps-case-state-audit.png "Image")
+ *
  *@example <tcla-live-apps-case-state-audit></tcla-live-apps-case-state-audit>
  */
 @Component({

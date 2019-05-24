@@ -13,6 +13,8 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 /**
  * Renders case action buttons
  *
+ * ![alt-text](../live-apps-case-actions.png "Image")
+ *
  *@example <tcla-live-apps-case-actions></tcla-live-apps-case-actions>
  */
 @Component({

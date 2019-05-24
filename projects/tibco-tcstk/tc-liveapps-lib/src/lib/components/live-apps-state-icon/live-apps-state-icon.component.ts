@@ -12,6 +12,8 @@ import {GENERIC_CASETYPE_ICON_SVG, GENERIC_STATE_ICON_SVG} from '../../services/
 /**
  * renders a single icon for a state
  *
+ * ![alt-text](../live-apps-state-icon.png "")
+ *
  *@example <tcla-live-apps-state-icon></tcla-live-apps-state-icon>
  */
 

@@ -8,6 +8,8 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 /**
  * Recent cases widget, this Component list recent visited Cases.
  *
+ * ![alt-text](../live-apps-recent-cases.png "")
+ *
  *@example <tcla-live-apps-recent-cases></tcla-live-apps-recent-cases>
  */
 @Component({

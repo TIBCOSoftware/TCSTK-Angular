@@ -8,6 +8,8 @@ import {CaseRoute} from '../../models/liveappsdata';
 /**
  * Renders list of cases for caserefs
  *
+ * ![alt-text](../live-apps-case-list.png "Image")
+ *
  *@example <tcla-live-apps-case-list></tcla-live-apps-case-list>
  */
 @Component({

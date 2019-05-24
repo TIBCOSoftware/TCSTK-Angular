@@ -5,6 +5,8 @@ import {ToolbarButton} from '../../models/tc-widget-header';
 /**
  * TIBCO Cloud Menu Bar
  *
+ *  ![alt-text](../tibco-cloud-menu-bar.png "")
+ *
  * @example <tc-tibco-cloud-menu-bar></tc-tibco-cloud-menu-bar>
  */
 @Component({

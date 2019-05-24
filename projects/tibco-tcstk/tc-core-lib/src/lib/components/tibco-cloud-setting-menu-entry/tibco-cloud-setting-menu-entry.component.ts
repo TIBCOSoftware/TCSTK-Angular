@@ -4,6 +4,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 /**
  * Renders the menu options for each config menu
  *
+ * ![alt-text](../tibco-cloud-setting-menu-entry.png "Image")
+ *
  *@example <tc-tibco-cloud-setting-menu-entry></tc-tibco-cloud-setting-menu-entry>
  */
 

@@ -11,6 +11,8 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 /**
  * Lists live apps applications in drop down list allowing selection of app
  *
+ * ![alt-text](../live-apps-applications.png "Image")
+ *
  *@example <tcla-live-apps-applications></tcla-live-apps-applications>
  */
 
