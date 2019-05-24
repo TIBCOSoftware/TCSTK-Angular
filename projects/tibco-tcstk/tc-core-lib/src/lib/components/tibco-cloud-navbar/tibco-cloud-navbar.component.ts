@@ -7,9 +7,9 @@ declare var GlobalNavbar: any;
 
 /**
  * TIBCO Cloud Navigation Bar
- * 
- * ![alt-text](../Navigation-Bar.png "Image")
- * 
+ *
+ * ![alt-text](../tibco-cloud-navbar.png "Image")
+ *
  * @example <tc-tibco-cloud-navbar appName=""></tc-tibco-cloud-navbar>
  */
 @Component({

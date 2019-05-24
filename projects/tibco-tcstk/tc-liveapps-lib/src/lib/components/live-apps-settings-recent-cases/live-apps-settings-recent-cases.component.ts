@@ -9,6 +9,8 @@ import {LiveAppsSettingsComponent} from '../live-apps-settings/live-apps-setting
 /**
  * Allow Selection of live apps applications (part of config)
  *
+ * ![alt-text](../live-apps-settings-recent-cases.png "")
+ *
  *@example <tcla-live-apps-settings-recent-cases></tcla-live-apps-settings-recent-cases>
  */
 

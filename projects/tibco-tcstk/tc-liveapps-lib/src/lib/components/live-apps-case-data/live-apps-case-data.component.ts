@@ -11,7 +11,7 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 /**
  * Displays data for a case in a widget (high level)
  *
- * ![alt-text](../Case-Data.png "Image")
+ * ![alt-text](../live-apps-case-data.png "Image")
  *
  *@example <tcla-live-apps-case-data></tcla-live-apps-case-data>
  */

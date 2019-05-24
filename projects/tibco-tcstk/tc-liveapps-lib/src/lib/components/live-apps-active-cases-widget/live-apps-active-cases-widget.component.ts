@@ -12,6 +12,8 @@ import {LiveAppsActiveCasesForTypeReportComponent} from '../live-apps-active-cas
 /**
  * Home page active cases widget main component
  *
+ * ![alt-text](../live-apps-active-cases-widget.png "Image")
+ *
  *@example <tcla-live-apps-active-cases-widget></tcla-live-apps-active-cases-widget>
  */
 

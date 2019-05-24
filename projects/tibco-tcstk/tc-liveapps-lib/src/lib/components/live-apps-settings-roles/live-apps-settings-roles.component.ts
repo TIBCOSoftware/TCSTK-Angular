@@ -7,6 +7,8 @@ import { MatSnackBar, MatDialog } from '@angular/material';
 /**
  * Configuration of roles
  *
+ * ![alt-text](../live-apps-settings-roles.png "")
+ *
  *@example <tcla-live-apps-settings-roles></tcla-live-apps-settings-roles>
  */
 @Component({

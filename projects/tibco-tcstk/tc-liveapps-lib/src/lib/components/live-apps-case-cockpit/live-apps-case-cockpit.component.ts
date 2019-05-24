@@ -36,6 +36,8 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 /**
  * High level component to allow interaction with case.
  *
+ *  ![alt-text](../live-apps-case-cockpit.png "Image")
+ *
  *@example <tcla-live-apps-case-cockpit></tcla-live-apps-case-cockpit>
  */
 @Component({

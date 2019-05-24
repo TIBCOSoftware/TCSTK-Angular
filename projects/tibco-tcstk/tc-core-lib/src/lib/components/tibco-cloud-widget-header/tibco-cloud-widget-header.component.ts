@@ -5,6 +5,8 @@ import {ToolbarButton} from '../../models/tc-widget-header';
 /**
  * Header bar for small widgets (like recent cases etc on home)
  *
+ * ![alt-text](../tibco-cloud-widget-header.png "Image")
+ *
  *@example <tc-tibco-cloud-widget-header></tc-tibco-cloud-widget-header>
  */
 @Component({
