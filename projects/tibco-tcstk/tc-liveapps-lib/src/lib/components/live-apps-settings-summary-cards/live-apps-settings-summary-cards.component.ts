@@ -14,6 +14,8 @@ import { MatSnackBar } from '@angular/material';
 /**
  * Configuration of summary cards
  *
+ * ![alt-text](../live-apps-settings-summary-cards.png "")
+ *
  *@example <tcla-live-apps-settings-summary-cards></tcla-live-apps-settings-summary-cards>
  */
 @Component({

@@ -12,7 +12,7 @@ import {TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
  * This Component allows to list, and add Notes to a Case-Instance or other Context e.g. a whole Application.
  * Any Note can have Sub-Notes to allow real collaboration.
  *
- * ![alt-text](../Notes.png "Notes Component Image")
+ * ![alt-text](../live-apps-notes.png "Notes Component Image")
  *
  *@example <tcla-live-apps-notes></tcla-live-apps-notes>
  */

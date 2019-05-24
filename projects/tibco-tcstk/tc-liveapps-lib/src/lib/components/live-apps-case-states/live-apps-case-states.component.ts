@@ -12,6 +12,8 @@ import {DurationSincePipe} from '@tibco-tcstk/tc-core-lib';
 /**
  * Case States/Milestone view
  *
+ * ![alt-text](../live-apps-case-states.png "Image")
+ *
  *@example <tcla-live-apps-case-states></tcla-live-apps-case-states>
  */
 @Component({

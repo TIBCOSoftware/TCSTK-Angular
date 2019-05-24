@@ -20,7 +20,7 @@ import {TcDocumentService} from '../../services/tc-document.service';
  * - File Size
  *
  * Document List<br>
- * ![alt-text](../Documents.png "Documents Component Image")
+ * ![alt-text](../live-apps-documents.png "Documents Component Image")
  * Document Upload Dialog <br>
  * ![alt-text](../Docs-Upload.png "Documents Component Image")
  *

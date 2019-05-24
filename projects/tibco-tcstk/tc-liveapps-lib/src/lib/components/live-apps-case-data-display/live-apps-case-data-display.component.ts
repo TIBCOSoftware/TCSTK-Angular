@@ -6,6 +6,8 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 /**
  * Renders case data in a form
  *
+ * ![alt-text](../live-apps-case-data-display.png "Image")
+ *
  *@example <tcla-live-apps-case-data-display></tcla-live-apps-case-data-display>
  */
 
