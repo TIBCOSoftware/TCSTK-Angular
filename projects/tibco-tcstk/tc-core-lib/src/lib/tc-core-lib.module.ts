@@ -46,7 +46,7 @@ import {TibcoCloudSelectTableComponent} from './components/tibco-cloud-select-ta
 import {TibcoCloudSettingMenuEntryComponent} from './components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
 import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
 import {TibcoCloudConfigurationComponent} from './components/tibco-cloud-configuration/tibco-cloud-configuration.component';
-import {RouterModule} from '@angular/router';
+import {NavigationEnd, Router, RouterModule} from '@angular/router';
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 import {CommonModule, Location} from '@angular/common';
 import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
@@ -161,7 +161,16 @@ export class TcCoreLibModule {
     };
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router) {
+
+    // subscribe to route changes
+
+    this.router.events.subscribe((value) => {
+      if (value instanceof NavigationEnd) {
+        console.log('Router event:');
+        console.log(value);
+      }
+    });
 
     // register all the default Icon SVGs used by this module
 
