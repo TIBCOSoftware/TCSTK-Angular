@@ -139,6 +139,10 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   incFavButton = true;
   incRefreshButton = true;
   incHomeButton = true;
+  dataTabActive = 0;
+  dataTabId;
+  actionTabId;
+  actionTabActive = false;
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   protected _destroyed$ = new Subject();
@@ -191,6 +195,8 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   public actionTabCreated = (data) => {
     // the tab isn't actually in the tab-group at this point but this should still work as length is current tab + 1
     this.dataTabGroups.selectedIndex = this.dataTabGroups._tabs.length;
+    this.actionTabId = this.dataTabGroups._tabs.length;
+    this.actionTabActive = true;
   }
 
   public handleCancelAction = () => {
@@ -205,6 +211,15 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
     setTimeout(() => {
       this.refresh();
     }, 1000);
+  }
+
+  public handleDataTabChanged = (tabNumber: number) => {
+    this.dataTabId = tabNumber;
+    if (tabNumber === this.actionTabId) {
+      this.actionTabActive = true;
+    } else {
+      this.actionTabActive = false;
+    }
   }
 
   public refresh = () => {
