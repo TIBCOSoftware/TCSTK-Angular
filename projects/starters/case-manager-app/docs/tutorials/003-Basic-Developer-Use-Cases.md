@@ -37,5 +37,6 @@ You will be then able to use this component instead of the original one by repla
 - a simple layout 
 - change Change Icon 
 - Understand Share State
+- implement contextual Help Pages
 
 
