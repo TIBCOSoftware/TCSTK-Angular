@@ -1,6 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {CaseAction, CaseActionsList, CaseCreator, CaseCreatorsList, CaseType, CaseTypesList, Process} from '../models/liveappsdata';
+import {
+  CaseAction,
+  CaseActionsList,
+  CaseCreator,
+  CaseCreatorsList,
+  CaseType,
+  CaseTypesList,
+  JsonSchema,
+  Process
+} from '../models/liveappsdata';
 import {LaProcessSelection} from '../models/tc-case-processes';
 import {LiveAppsService} from './live-apps.service';
 import {Observable} from 'rxjs';
@@ -105,6 +114,12 @@ export class TcCaseProcessesService {
                 // now find the selected action
                 caseActionList.forEach((actionDef) => {
                   if (action.id === actionDef.id) {
+                    if (!actionDef.jsonSchema) {
+                      // create blank form schema
+                      actionDef.jsonSchema = new JsonSchema();
+                      actionDef.jsonSchema.type = 'object';
+                      actionDef.jsonSchema.properties = [];
+                    }
                     processSelection = new LaProcessSelection(
                       'action', schema, this.getCaseIDAttributeName(casetype), actionDef,
                       // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
@@ -115,7 +130,7 @@ export class TcCaseProcessesService {
                 });
                 if (!processSelection) {
                   // no schema for this process
-                  const process: Process = new Process().deserialize({ jsonSchema: undefined, name: action.name, id: action.id });
+                  const process: Process = new Process().deserialize({ jsonSchema: { $schema: 'NOSCHEMA' }, name: action.name, id: action.id });
                   processSelection = new LaProcessSelection(
                     'action', schema, this.getCaseIDAttributeName(casetype), process,
                     // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
@@ -128,6 +143,12 @@ export class TcCaseProcessesService {
                 // now find the selected action
                 caseCreatorList.forEach((creatorDef) => {
                   if (creator.id === creatorDef.id) {
+                    if (!creatorDef.jsonSchema) {
+                      // create blank form schema
+                      creatorDef.jsonSchema = new JsonSchema();
+                      creatorDef.jsonSchema.type = 'object';
+                      creatorDef.jsonSchema.properties = [];
+                    }
                     processSelection = new LaProcessSelection(
                       'creator', schema, this.getCaseIDAttributeName(casetype), creatorDef,
                       // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
@@ -138,7 +159,7 @@ export class TcCaseProcessesService {
                 });
                 if (!processSelection) {
                   // no schema for this process
-                  const process: Process = new Process().deserialize({ jsonSchema: undefined, name: creator.name, id: creator.id });
+                  const process: Process = new Process().deserialize({ jsonSchema: { $schema: 'NOSCHEMA' }, name: creator.name, id: creator.id });
                   processSelection = new LaProcessSelection(
                     'creator', schema, this.getCaseIDAttributeName(casetype), process,
                     // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
