@@ -76,8 +76,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#subject">subject</a>
+                                <a href="#queues">queues</a>
                             </li>
                         </ul>
                     </td>
@@ -93,6 +92,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#clearMessages">clearMessages</a>
+                            </li>
+                            <li>
+                                <a href="#createQueueIfNotExists">createQueueIfNotExists</a>
                             </li>
                             <li>
                                 <a href="#getMessage">getMessage</a>
@@ -112,6 +114,24 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:9</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -133,15 +153,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>clearMessages()</code>
+<code>clearMessages(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:20</a></div>
                 </td>
             </tr>
 
@@ -150,8 +170,109 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createQueueIfNotExists"></a>
+                    <span class="name">
+                        <b>
+                            createQueueIfNotExists
+                        </b>
+                        <a href="#createQueueIfNotExists"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createQueueIfNotExists(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -172,15 +293,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getMessage()</code>
+<code>getMessage(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:25</a></div>
                 </td>
             </tr>
 
@@ -189,8 +310,39 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -211,15 +363,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>sendMessage(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>sendMessage(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:15</a></div>
                 </td>
             </tr>
 
@@ -238,6 +390,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                                 <tr>
                                     <td>message</td>
                                     <td>
@@ -276,23 +440,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="subject"></a>
+                        <a name="queues"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
-                            subject</b>
-                            <a href="#subject"><span class="icon ion-ios-link"></span></a>
+                            queues</b>
+                            <a href="#queues"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new Subject&lt;any&gt;()</code>
+                            <i>Type : </i>    <code>Array&lt;literal type&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    {name: &#x27;sample.queue&#x27;, subject: new Subject&lt;any&gt;()}
+  ]</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/common/tc-core-menubar-comm.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -305,24 +476,49 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { Observable, Subject } from &#x27;rxjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {Observable, Subject} from &#x27;rxjs&#x27;;
 
-@Injectable({ providedIn: &#x27;root&#x27; })
+@Injectable({providedIn: &#x27;root&#x27;})
 export class MessageService {
-    private subject &#x3D; new Subject&lt;any&gt;();
 
-    sendMessage(message: string) {
-        this.subject.next({ text: message });
-    }
+  queues: Array&lt;{ name: string, subject: Subject&lt;any&gt; }&gt; &#x3D; [
+    {name: &#x27;sample.queue&#x27;, subject: new Subject&lt;any&gt;()}
+  ];
 
-    clearMessages() {
-        this.subject.next();
-    }
+  constructor() {
+    // console.log(&#x27;Message service Created...&#x27;);
+  }
 
-    getMessage(): Observable&lt;any&gt; {
-        return this.subject.asObservable();
+  sendMessage(name: string, message: string) {
+    this.createQueueIfNotExists(name);
+    this.queues.filter(x &#x3D;&gt; x.name &#x3D;&#x3D;&#x3D; name)[0].subject.next({text: message});
+  }
+
+  clearMessages(name: string) {
+    this.createQueueIfNotExists(name);
+    this.queues.filter(x &#x3D;&gt; x.name &#x3D;&#x3D;&#x3D; name)[0].subject.next();
+  }
+
+  getMessage(name: string): Observable&lt;any&gt; {
+    this.createQueueIfNotExists(name);
+    return this.queues.filter(x &#x3D;&gt; x.name &#x3D;&#x3D;&#x3D; name)[0].subject.asObservable();
+  }
+
+  createQueueIfNotExists(name: string) {
+    let queueExist &#x3D; false;
+    for (const q of this.queues) {
+      if (q.name &#x3D;&#x3D;&#x3D; name) {
+        // console.log(&#x27;Queue Exist: &#x27; + q.name);
+        queueExist &#x3D; true;
+      }
     }
+    if (!queueExist) {
+      console.log(&#x27;Creating Queue: &#x27; + name);
+      const tempQueue &#x3D; {name: name, subject: new Subject&lt;any&gt;()};
+      this.queues.push(tempQueue);
+    }
+  }
 }
 </code></pre>
     </div>
