@@ -89,11 +89,11 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
 
   public selectAction(action: CaseAction) {
 
-    this.caseProcessesService.getProcessDetails(this.caseRef, this.appId, this.typeId, this.sandboxId, action, null,100).pipe(
+    this.caseProcessesService.getProcessDetails(this.caseRef, this.appId, this.typeId, this.sandboxId, action, null, 100).pipe(
       take(1),
       takeUntil(this._destroyed$),
       tap(processDetails => {
-        if (!processDetails || !processDetails.process) {
+        if (!processDetails || !processDetails.process || (processDetails.process.jsonSchema.$schema === 'NOSCHEMA')) {
           // This will be triggered when no form schema is available
           // Typically happens when:
           // 1) The form has elements that are not supported by the Live Apps API for form schemas such as participant selectors
