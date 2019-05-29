@@ -796,8 +796,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/tc-core-lib.module.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="161"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/tc-core-lib.module.ts:161</a></div>
                 </td>
             </tr>
 
@@ -866,11 +866,12 @@ import {TibcoCloudSelectTableComponent} from &#x27;./components/tibco-cloud-sele
 import {TibcoCloudSettingMenuEntryComponent} from &#x27;./components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component&#x27;;
 import {TibcoCloudSettingsGeneralComponent} from &#x27;./components/tibco-cloud-settings-general/tibco-cloud-settings-general.component&#x27;;
 import {TibcoCloudConfigurationComponent} from &#x27;./components/tibco-cloud-configuration/tibco-cloud-configuration.component&#x27;;
-import {RouterModule} from &#x27;@angular/router&#x27;;
+import {NavigationEnd, Router, RouterModule} from &#x27;@angular/router&#x27;;
 import {TibcoCloudSplashScreenComponent} from &#x27;./components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component&#x27;;
 import {CommonModule, Location} from &#x27;@angular/common&#x27;;
 import {TibcoCloudSettingLandingComponent} from &#x27;./components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component&#x27;;
 import {TibcoCloudNewElementComponent} from &#x27;./components/tibco-cloud-new-element/tibco-cloud-new-element.component&#x27;;
+import {MessageService} from &#x27;./common/tc-core-menubar-comm&#x27;;
 
 @NgModule({
   declarations: [
@@ -974,6 +975,9 @@ import {TibcoCloudNewElementComponent} from &#x27;./components/tibco-cloud-new-e
 })
 
 export class TcCoreLibModule {
+
+  private ms: MessageService;
+
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcCoreLibModule,
@@ -981,7 +985,15 @@ export class TcCoreLibModule {
     };
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageService) {
+    this.ms &#x3D; messageService;
+    // subscribe to route changes
+    this.router.events.subscribe((value) &#x3D;&gt; {
+      if (value instanceof NavigationEnd) {
+        // console.log(&#x27;Router event: &#x27; + value.url);
+        this.ms.sendMessage(&#x27;help&#x27;, value.url);
+      }
+    });
 
     // register all the default Icon SVGs used by this module
 
