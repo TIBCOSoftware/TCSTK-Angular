@@ -51,7 +51,8 @@ import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-s
 import {CommonModule, Location} from '@angular/common';
 import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
 import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
-import {MessageService} from './common/tc-core-menubar-comm';
+import {MessageQueueService} from './common/tc-core-queue-comm';
+import {MessageTopicService} from './common/tc-core-topic-comm';
 
 @NgModule({
   declarations: [
@@ -156,7 +157,7 @@ import {MessageService} from './common/tc-core-menubar-comm';
 
 export class TcCoreLibModule {
 
-  private ms: MessageService;
+  private ms: MessageTopicService;
 
   static forRoot(): ModuleWithProviders {
     return {
@@ -165,12 +166,13 @@ export class TcCoreLibModule {
     };
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageService) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageTopicService) {
     this.ms = messageService;
     // subscribe to route changes
     this.router.events.subscribe((value) => {
+      // console.log('Router event: ' , value);
       if (value instanceof NavigationEnd) {
-        // console.log('Router event: ' + value.url);
+        // console.log('NAVIGATION END: ' + value.url);
         this.ms.sendMessage('help', value.url);
       }
     });
