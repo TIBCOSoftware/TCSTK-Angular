@@ -7,15 +7,14 @@ import {Directive, EventEmitter, Input, OnInit, Output} from '@angular/core';
   exportAs: 'onCreate'
 })
 export class OnCreateDirective implements OnInit {
-  // @Output() created: EventEmitter<string> = new EventEmitter<string>();
   @Input() idx: Number;
-  @Output() fireCreated: EventEmitter<Number> = new EventEmitter<Number>();
+  @Output() fireCreated = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.fireCreated.emit(this.idx);
+    this.fireCreated.emit();
   }
 
 }

@@ -113,7 +113,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
 
   ngOnChanges(changes: SimpleChanges) {
     // handle input param changes
-    if (changes.process && (changes.process.currentValue !== changes.process.previousValue)) {
+    if (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue)) {
       if (changes.process.currentValue.process.jsonSchema.$schema === 'NOSCHEMA') {
         this.schema = undefined;
       } else {
