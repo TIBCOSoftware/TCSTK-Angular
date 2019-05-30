@@ -84,7 +84,9 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     if ((changes.caseRef && changes.caseRef.currentValue && (changes.caseRef.currentValue !== changes.caseRef.previousValue))
       || (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue))) {
       // get case data if anything changes
-      this.getCaseData(this.caseRef);
+      if (changes.process.currentValue) {
+        this.getCaseData(this.caseRef);
+      }
     }
   }
 

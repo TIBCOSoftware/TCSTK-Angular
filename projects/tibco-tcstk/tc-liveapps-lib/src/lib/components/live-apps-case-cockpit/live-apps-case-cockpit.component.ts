@@ -47,8 +47,8 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 })
 export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild('dataTabGroup') matTabGroup: MatTabGroup;
-  @ViewChildren('dataTabs') inclusiveTabs: QueryList<MatTab>;
+  @ViewChild('contextTabGroup') matTabGroup: MatTabGroup;
+  @ViewChildren('contextTabs') inclusiveTabs: QueryList<MatTab>;
   @ContentChildren('projectedTab') tabsFromNgContent: QueryList<MatTab>;
 
   // this default layout displays all data but will hide buttons
@@ -112,6 +112,26 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
    * Layout object that can be passed to override default layout of the form renderer
    */
   @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
+
+  /**
+   * Whether to show notes in context panel (default true)
+   */
+  @Input() showNotes: boolean = this.showNotes ? this.showNotes : true;
+
+  /**
+   * Whether to show documents in context panel (default true)
+   */
+  @Input() showDocuments: boolean = this.showDocuments ? this.showDocuments : true;
+
+  /**
+   * Whether to show states in context panel (default true)
+   */
+  @Input() showStates: boolean = this.showStates ? this.showStates :  true;
+
+  /**
+   * Whether to show audit in context panel (default true)
+   */
+  @Input() showAudit: boolean = this.showAudit ? this.showAudit :  true;
 
 
   /**
