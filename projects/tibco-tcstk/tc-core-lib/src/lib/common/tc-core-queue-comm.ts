@@ -2,14 +2,14 @@ import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class MessageService {
+export class MessageQueueService {
 
   queues: Array<{ name: string, subject: Subject<any> }> = [
     {name: 'sample.queue', subject: new Subject<any>()}
   ];
 
   constructor() {
-    // console.log('Message service Created...');
+     console.log('Queue Message service Created...');
   }
 
   sendMessage(name: string, message: string) {

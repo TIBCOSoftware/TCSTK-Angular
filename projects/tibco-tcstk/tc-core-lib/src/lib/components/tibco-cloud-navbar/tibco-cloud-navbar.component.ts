@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, ElementRef, Input, SystemJsNgModuleLoader} from '@angular/core';
 import {Location} from '@angular/common';
 import { TcCoreCommonFunctions } from '../../common/tc-core-common-functions';
-import {MessageService} from '../../common/tc-core-menubar-comm';
+import {MessageTopicService} from '../../common/tc-core-topic-comm';
 
 declare var GlobalNavbar: any;
 
@@ -53,13 +53,13 @@ export class TibcoCloudNavbarComponent implements OnInit {
 
   private navbar;
 
-  private ms: MessageService;
+  private ms: MessageTopicService;
 
   /**
    * single empty Constructor of TIBCO Cloud Navigation Bar
    */
 
-  constructor(private location: Location, private messageService: MessageService) {
+  constructor(private location: Location, private messageService: MessageTopicService) {
     this.ms = messageService;
   }
 
@@ -175,7 +175,6 @@ export class TibcoCloudNavbarComponent implements OnInit {
           this.findHelpFile(helpUrl + 'help.html');
         } else {
           console.log('No valid help file found...');
-          // TODO: Maybe Fall back to base help config
           this.navbar.customizePanel('help', '<b> No Help Page Found</b>');  // set HTML string
 
         }
