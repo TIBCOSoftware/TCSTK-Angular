@@ -14,7 +14,7 @@
     </div>
     <div fxLayout="row" style="overflow: hidden; height: 100%">
       <div fxFlex fxLayoutGap="20px">
-        <div fxLayout="column" fxFlex>
+        <div fxLayout="column" fxFlex="1 0 50">
           <mat-tab-group #dataTabGroup [ngStyle]="{ 'height': !actionTabActive ? '100%' : '0%' }" style="overflow: hidden; min-height: 49px" (selectedIndexChange)="handleDataTabChanged($event)">
             <mat-tab label="Case Data">
               <ng-template matTabContent>
@@ -33,7 +33,7 @@
             <tcla-live-apps-case-action [customFormDefs]="customFormDefs" [process]="actionSelection" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted($event)"></tcla-live-apps-case-action>
           </div>
         </div>
-        <div fxLayout="column" fxFlex fxLayoutGap="20px" style="overflow: hidden;">
+        <div fxLayout="column" fxFlex="1 1 50" fxLayoutGap="20px" style="overflow: hidden;" *ngIf="showAudit || showNotes || showDocuments || showStates || tabsFromNgContent.length > 0">
           <mat-tab-group #contextTabGroup style="overflow: hidden; height: 100%">
             <ng-content></ng-content>
             <mat-tab #contextTabs label="Notes" *ngIf="showNotes">
