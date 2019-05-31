@@ -134,7 +134,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -225,8 +225,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -345,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -453,8 +453,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:65</a></div>
                 </td>
             </tr>
 
@@ -549,8 +549,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:178</a></div>
                 </td>
             </tr>
 
@@ -695,7 +695,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:99</a></div>
                             </td>
                         </tr>
 
@@ -722,7 +722,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:77</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/services/tc-case-processes.service.ts:86</a></div>
                             </td>
                         </tr>
 
@@ -737,7 +737,16 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import {HttpClient} from &#x27;@angular/common/http&#x27;;
-import {CaseAction, CaseActionsList, CaseCreator, CaseCreatorsList, CaseType, CaseTypesList, Process} from &#x27;../models/liveappsdata&#x27;;
+import {
+  CaseAction,
+  CaseActionsList,
+  CaseCreator,
+  CaseCreatorsList,
+  CaseType,
+  CaseTypesList,
+  JsonSchema,
+  Process
+} from &#x27;../models/liveappsdata&#x27;;
 import {LaProcessSelection} from &#x27;../models/tc-case-processes&#x27;;
 import {LiveAppsService} from &#x27;./live-apps.service&#x27;;
 import {Observable} from &#x27;rxjs&#x27;;
@@ -842,6 +851,12 @@ export class TcCaseProcessesService {
                 // now find the selected action
                 caseActionList.forEach((actionDef) &#x3D;&gt; {
                   if (action.id &#x3D;&#x3D;&#x3D; actionDef.id) {
+                    if (!actionDef.jsonSchema) {
+                      // create blank form schema
+                      actionDef.jsonSchema &#x3D; new JsonSchema();
+                      actionDef.jsonSchema.type &#x3D; &#x27;object&#x27;;
+                      actionDef.jsonSchema.properties &#x3D; [];
+                    }
                     processSelection &#x3D; new LaProcessSelection(
                       &#x27;action&#x27;, schema, this.getCaseIDAttributeName(casetype), actionDef,
                       // Format of ref is &lt;applicationName&gt;.&lt;applicationInternalName&gt;.&lt;processType&gt;.&lt;processName&gt;
@@ -852,7 +867,7 @@ export class TcCaseProcessesService {
                 });
                 if (!processSelection) {
                   // no schema for this process
-                  const process: Process &#x3D; new Process().deserialize({ jsonSchema: undefined, name: action.name, id: action.id });
+                  const process: Process &#x3D; new Process().deserialize({ jsonSchema: { $schema: &#x27;NOSCHEMA&#x27; }, name: action.name, id: action.id });
                   processSelection &#x3D; new LaProcessSelection(
                     &#x27;action&#x27;, schema, this.getCaseIDAttributeName(casetype), process,
                     // Format of ref is &lt;applicationName&gt;.&lt;applicationInternalName&gt;.&lt;processType&gt;.&lt;processName&gt;
@@ -865,6 +880,12 @@ export class TcCaseProcessesService {
                 // now find the selected action
                 caseCreatorList.forEach((creatorDef) &#x3D;&gt; {
                   if (creator.id &#x3D;&#x3D;&#x3D; creatorDef.id) {
+                    if (!creatorDef.jsonSchema) {
+                      // create blank form schema
+                      creatorDef.jsonSchema &#x3D; new JsonSchema();
+                      creatorDef.jsonSchema.type &#x3D; &#x27;object&#x27;;
+                      creatorDef.jsonSchema.properties &#x3D; [];
+                    }
                     processSelection &#x3D; new LaProcessSelection(
                       &#x27;creator&#x27;, schema, this.getCaseIDAttributeName(casetype), creatorDef,
                       // Format of ref is &lt;applicationName&gt;.&lt;applicationInternalName&gt;.&lt;processType&gt;.&lt;processName&gt;
@@ -875,7 +896,7 @@ export class TcCaseProcessesService {
                 });
                 if (!processSelection) {
                   // no schema for this process
-                  const process: Process &#x3D; new Process().deserialize({ jsonSchema: undefined, name: creator.name, id: creator.id });
+                  const process: Process &#x3D; new Process().deserialize({ jsonSchema: { $schema: &#x27;NOSCHEMA&#x27; }, name: creator.name, id: creator.id });
                   processSelection &#x3D; new LaProcessSelection(
                     &#x27;creator&#x27;, schema, this.getCaseIDAttributeName(casetype), process,
                     // Format of ref is &lt;applicationName&gt;.&lt;applicationInternalName&gt;.&lt;processType&gt;.&lt;processName&gt;
