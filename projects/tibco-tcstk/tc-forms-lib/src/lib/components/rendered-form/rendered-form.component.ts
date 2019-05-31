@@ -29,6 +29,8 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() data: any = {};
   @Input() options: any[];
   @Input() formRef: string;
+  @Input() caseRef: string;
+  @Input() appId: string;
   @Input() customFormDefs: CustomFormDefs;
   /**
    * ~event formSubmit : form submitted

@@ -31,6 +31,17 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
   @Input() caseData: string;
 
   /**
+   * The case reference
+   */
+
+  @Input() appId: string
+  /**
+   * The applicationId
+   */
+
+  @Input() caseRef: string;
+
+  /**
    * The schema of the case type
    */
   @Input() schema: JsonSchema;
