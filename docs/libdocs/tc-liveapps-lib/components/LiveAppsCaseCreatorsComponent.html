@@ -449,8 +449,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creators/live-apps-case-creators.component.ts:96</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creators/live-apps-case-creators.component.ts:95</a></div>
                 </td>
             </tr>
 
@@ -864,12 +864,11 @@ export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements 
   }
 
   public selectCreator(creator: CaseCreator) {
-
     this.caseProcessesService.getProcessDetails(null, this.appId, this.typeId, this.sandboxId, null, creator, 100).pipe(
       take(1),
       takeUntil(this._destroyed$),
       tap(processDetails &#x3D;&gt; {
-        if (!processDetails || !processDetails.process || !processDetails.process.jsonSchema) {
+        if (!processDetails || !processDetails.process || (processDetails.process.jsonSchema.$schema &#x3D;&#x3D;&#x3D; &#x27;NOSCHEMA&#x27;)) {
           // This will be triggered when no form schema is available
           // Typically happens when:
           // 1) The form has elements that are not supported by the Live Apps API for form schemas such as participant selectors
