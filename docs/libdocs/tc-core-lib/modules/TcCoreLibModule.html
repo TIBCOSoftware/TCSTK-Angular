@@ -796,8 +796,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="161"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/tc-core-lib.module.ts:161</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/tc-core-lib.module.ts:162</a></div>
                 </td>
             </tr>
 
@@ -871,7 +871,8 @@ import {TibcoCloudSplashScreenComponent} from &#x27;./components/tibco-cloud-spl
 import {CommonModule, Location} from &#x27;@angular/common&#x27;;
 import {TibcoCloudSettingLandingComponent} from &#x27;./components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component&#x27;;
 import {TibcoCloudNewElementComponent} from &#x27;./components/tibco-cloud-new-element/tibco-cloud-new-element.component&#x27;;
-import {MessageService} from &#x27;./common/tc-core-menubar-comm&#x27;;
+import {MessageQueueService} from &#x27;./common/tc-core-queue-comm&#x27;;
+import {MessageTopicService} from &#x27;./common/tc-core-topic-comm&#x27;;
 
 @NgModule({
   declarations: [
@@ -976,7 +977,7 @@ import {MessageService} from &#x27;./common/tc-core-menubar-comm&#x27;;
 
 export class TcCoreLibModule {
 
-  private ms: MessageService;
+  private ms: MessageTopicService;
 
   static forRoot(): ModuleWithProviders {
     return {
@@ -985,12 +986,13 @@ export class TcCoreLibModule {
     };
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageService) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageTopicService) {
     this.ms &#x3D; messageService;
     // subscribe to route changes
     this.router.events.subscribe((value) &#x3D;&gt; {
+      // console.log(&#x27;Router event: &#x27; , value);
       if (value instanceof NavigationEnd) {
-        // console.log(&#x27;Router event: &#x27; + value.url);
+        // console.log(&#x27;NAVIGATION END: &#x27; + value.url);
         this.ms.sendMessage(&#x27;help&#x27;, value.url);
       }
     });
