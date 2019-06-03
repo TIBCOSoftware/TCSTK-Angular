@@ -61,42 +61,51 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   options: any;
 
   handleSubmit = (data, caseRef) => {
-    // run the process
-    this.liveapps.runProcess(this.sandboxId, this.applicationId, this.process.process.id, caseRef, data)
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(response => {
-          if (response) {
-            if (!response.data.errorMsg) {
-              // parse data to object
-              response.data = JSON.parse(response.data);
-              // case created send back response including caseIdentifier if one is present
-              let caseIdentifier;
-              let caseReference;
-              if (response.caseIdentifier) {
-                caseIdentifier = response.caseIdentifier;
+    // if no_process_submit then no need to run process as this was done inside a custom form app
+    if (data !== 'NO_PROCESS_SUBMIT') {
+      // run the process
+      this.liveapps.runProcess(this.sandboxId, this.applicationId, this.process.process.id, caseRef, data)
+        .pipe(
+          take(1),
+          takeUntil(this._destroyed$),
+          map(response => {
+            if (response) {
+              if (!response.data.errorMsg) {
+                // parse data to object
+                response.data = JSON.parse(response.data);
+                // case created send back response including caseIdentifier if one is present
+                let caseIdentifier;
+                let caseReference;
+                if (response.caseIdentifier) {
+                  caseIdentifier = response.caseIdentifier;
+                }
+                if (response.caseReference) {
+                  caseReference = response.caseReference;
+                }
+                const processResponse = new ProcessId().deserialize({'caseIdentifier': caseIdentifier, 'caseReference': caseReference});
+                this.caseChanged.emit(processResponse);
+                this.schema = undefined;
+                this.data = undefined;
+                this.layout = undefined;
+              } else {
+                console.error('Unable to run case creator');
+                console.error(response.data.errorMsg);
               }
-              if (response.caseReference) {
-                caseReference = response.caseReference;
-              }
-              const processResponse = new ProcessId().deserialize({'caseIdentifier': caseIdentifier, 'caseReference': caseReference });
-              this.caseChanged.emit(processResponse);
-              this.schema = undefined;
-              this.data = undefined;
-              this.layout = undefined;
-            } else {
-              console.error('Unable to run case creator');
-              console.error(response.data.errorMsg);
             }
+          })
+        )
+        .subscribe(success => success, error => {
+            console.error('Unable to run case creator');
+            console.error(error);
           }
-        })
-      )
-      .subscribe(success => success, error => {
-          console.error('Unable to run case creator');
-          console.error(error);
-        }
-      );
+        );
+    } else {
+      const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': undefined});
+      this.caseChanged.emit(processResponse);
+      this.schema = undefined;
+      this.data = undefined;
+      this.layout = undefined;
+    }
   }
 
   constructor(protected liveapps: LiveAppsService) {
