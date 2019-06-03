@@ -46,7 +46,7 @@ export class LiveAppsLandingPageComponent implements OnInit {
                 map(result => {
                     this.title = result.title;
                     this.subtitle = result.subtitle;
-                    this.backgroundImage = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.backgroundURL);
+                    this.backgroundImage = (result.backgroundURL != '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.backgroundURL) : '');
 
                     this.highlights = new Array();
                     this.highlights.push(new LandingPageItemConfig().deserialize({
