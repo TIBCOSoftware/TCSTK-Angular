@@ -13,7 +13,7 @@ These Tutorials, part of the full [TIBCO Cloud™ Starters Toolkit](https://tibc
 
 Ready to use Angular Apps
 
-- [Case Manager App](https://tibcosoftware.github.io/TCSTK-case-manager-app/) - [Git Source](https://github.com/TIBCOSoftware/TCSTK-case-manager-app/)
+- [Case Manager App Pages](https://tibcosoftware.github.io/TCSTK-case-manager-app/) :: [Git Source](https://github.com/TIBCOSoftware/TCSTK-case-manager-app/)
 
 > more to be added over time.
 
