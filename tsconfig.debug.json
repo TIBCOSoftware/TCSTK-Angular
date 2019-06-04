@@ -37,12 +37,6 @@
       "@tibco-tcstk/tc-forms-lib/*": [
         "dist/tibco-tcstk/tc-forms-lib/*"
       ],
-      "@tibco-tcstk/tc-spotfire-play-lib": [
-        "projects/tibco-tcstk/tc-spotfire-play-lib/src/public_api"
-      ],
-      "@tibco-tcstk/tc-spotfire-play-lib/*": [
-        "dist/tibco-tcstk/tc-spotfire-play-lib/*"
-      ],
       "@tibco-tcstk/tc-check-workflow-monitor-lib": [
         "projects/tibco-tcstk/tc-check-workflow-monitor-lib/src/public_api"
       ],
