@@ -43,12 +43,6 @@
       "@tibco-tcstk/tc-handsontable-lib/*": [
         "dist/tibco-tcstk/tc-handsontable-lib/*"
       ],
-      "@tibco-tcstk/tc-process-discovery-lib": [
-        "projects/tibco-tcstk/tc-process-discovery-lib/src/public_api"
-      ],
-      "@tibco-tcstk/tc-process-discovery-lib/*": [
-        "dist/tibco-tcstk/tc-process-discovery-lib/*"
-      ],
       "@tibco-tcstk/tc-spotfire-play-lib": [
         "projects/tibco-tcstk/tc-spotfire-play-lib/src/public_api"
       ],
