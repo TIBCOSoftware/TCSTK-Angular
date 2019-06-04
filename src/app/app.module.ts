@@ -23,7 +23,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
-import {TcHandsontableLibModule} from '@tibco-tcstk/tc-handsontable-lib';
 import {TcSpotfirePlayLibModule} from '@tibco-tcstk/tc-spotfire-play-lib';
 import {TcCheckWorkflowMonitorLibModule} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from '@tibco-tcstk/tc-spotfire-lib';
@@ -50,7 +49,6 @@ import {CasesearchComponent} from './routes/casesearch/casesearch.component';
     AppRoutingModule,
     TcCoreLibModule,
     TcFormsLibModule,
-    TcHandsontableLibModule,
     TcSpotfireLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,

@@ -283,41 +283,6 @@
         }
       }
     },
-    "@tibco-tcstk/tc-handsontable-lib": {
-      "root": "projects/tibco-tcstk/tc-handsontable-lib",
-      "sourceRoot": "projects/tibco-tcstk/tc-handsontable-lib/src",
-      "projectType": "library",
-      "prefix": "tctab",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.lib.json",
-            "project": "projects/tibco-tcstk/tc-handsontable-lib/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/tibco-tcstk/tc-handsontable-lib/src/test.ts",
-            "tsConfig": "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tibco-tcstk/tc-handsontable-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.lib.json",
-              "projects/tibco-tcstk/tc-handsontable-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "@tibco-tcstk/tc-spotfire-play-lib": {
       "root": "projects/tibco-tcstk/tc-spotfire-play-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-spotfire-play-lib/src",

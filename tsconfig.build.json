@@ -37,12 +37,6 @@
       "@tibco-tcstk/tc-forms-lib/*": [
         "dist/tibco-tcstk/tc-forms-lib/*"
       ],
-      "@tibco-tcstk/tc-handsontable-lib": [
-        "dist/tibco-tcstk/tc-handsontable-lib"
-      ],
-      "@tibco-tcstk/tc-handsontable-lib/*": [
-        "dist/tibco-tcstk/tc-handsontable-lib/*"
-      ],
       "@tibco-tcstk/tc-spotfire-play-lib": [
         "dist/tibco-tcstk/tc-spotfire-play-lib"
       ],
