@@ -21,7 +21,9 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+appId | string | The case reference
 caseData | string | The case data
+caseRef | string | The applicationId
 customFormDefs | CustomFormDefs | Custom Form configuration file
 formRef | string | Custom Form Reference
 layout | any[] | Layout object that can be passed to override default layout of the form renderer
