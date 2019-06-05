@@ -61,16 +61,6 @@ export const STARTER_APP_ROUTES =
     }
   },
   {
-    path: 'upload',
-    component: UploadPageComponent,
-    canActivate: [AuthGuard],
-    resolve: {
-      laConfigHolder: LaConfigResolver,
-      claims: ClaimsResolver,
-      serviceDetailsConfigResolver: ServiceDetailsConfigResolver
-    }
-  },
-  {
     path: 'configuration', component: ConfigurationComponent, canActivate: [AuthGuard, RoleGuard],
     resolve: {configurationMenuHolder: ConfigurationMenuConfigResolver},
     children: CONFIGURATION_ROUTE_CONFIG
