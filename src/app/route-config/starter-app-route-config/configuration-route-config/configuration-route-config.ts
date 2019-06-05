@@ -11,7 +11,6 @@ import {
   LiveAppsSettingsComponent, LiveAppsSettingsRecentCasesComponent,
   LiveAppsSettingsRolesComponent, LiveAppsSettingsSummaryCardsComponent
 } from '@tibco-tcstk/tc-liveapps-lib';
-import {ServiceDetailsConfigResolver, SettingsCwmServicesComponent} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 
 export const CONFIGURATION_ROUTE_CONFIG = [
   {
@@ -69,13 +68,6 @@ export const CONFIGURATION_ROUTE_CONFIG = [
     }
   },
   {
-    path: 'upload-services-settings',
-    component: SettingsCwmServicesComponent,
-    resolve: {
-      serviceDetailsConfigResolver: ServiceDetailsConfigResolver
-    }
-  },
-  {
     path: '**', redirectTo: '/starterApp/configuration/general-application-settings'
   }
 ];
@@ -85,6 +77,5 @@ export const CONFIGURATION_ROUTE_PROVIDERS = [
   ClaimsResolver,
   AllRolesResolver,
   AllGroupsResolver,
-  ServiceDetailsConfigResolver,
   GeneralLandingPageConfigResolver
 ]

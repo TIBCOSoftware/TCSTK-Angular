@@ -23,7 +23,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
-import {TcCheckWorkflowMonitorLibModule} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from '@tibco-tcstk/tc-spotfire-lib';
 import {SettingsComponent} from './routes/settings/settings.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
@@ -71,8 +70,7 @@ import {CasesearchComponent} from './routes/casesearch/casesearch.component';
     MatTooltipModule,
     MatTabsModule,
     MatButtonToggleModule,
-    ReactiveFormsModule,
-    TcCheckWorkflowMonitorLibModule
+    ReactiveFormsModule
   ],
   providers: [LogService],
   exports: [

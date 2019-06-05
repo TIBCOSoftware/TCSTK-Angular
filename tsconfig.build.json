@@ -37,12 +37,6 @@
       "@tibco-tcstk/tc-forms-lib/*": [
         "dist/tibco-tcstk/tc-forms-lib/*"
       ],
-      "@tibco-tcstk/tc-check-workflow-monitor-lib": [
-        "dist/tibco-tcstk/tc-check-workflow-monitor-lib"
-      ],
-      "@tibco-tcstk/tc-check-workflow-monitor-lib/*": [
-        "dist/tibco-tcstk/tc-check-workflow-monitor-lib/*"
-      ],
       "@tibco-tcstk/tc-spotfire-lib": [
         "dist/tibco-tcstk/tc-spotfire-lib"
       ],
