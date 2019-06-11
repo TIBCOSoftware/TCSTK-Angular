@@ -47,6 +47,7 @@ export * from './lib/components/live-apps-document-viewer/live-apps-document-vie
 export * from './lib/components/live-apps-landing-page/live-apps-landing-page.component';
 export * from './lib/components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 export * from './lib/components/live-apps-active-cases-report/live-apps-active-cases-report.component';
+export * from './lib/components/live-apps-search-widget/live-apps-search-widget.component'
 
 // data
 export * from './lib/models/liveappsdata';
