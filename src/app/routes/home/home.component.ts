@@ -8,7 +8,6 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
   selector: 'laapp-home',
   templateUrl: './templates/home.component.casemanager.html',
   // templateUrl: './templates/home.component.liveapps.html',
-  // templateUrl: './templates/home.component.processdiscovery.html',
   // templateUrl: './templates/home.component.spotfireplay.html',
   styleUrls: ['./home.component.css']
 })

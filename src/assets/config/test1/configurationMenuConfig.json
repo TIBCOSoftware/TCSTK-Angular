@@ -30,14 +30,6 @@
       "options": [
         "Settings"
       ]
-    },
-    {
-      "entry": "Process Discovery",
-      "icon": "tcs-starters-icon",
-      "options": [
-        "Configuration",
-        "Administration"
-      ]
     }
   ]
 }

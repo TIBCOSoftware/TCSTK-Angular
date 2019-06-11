@@ -9,9 +9,10 @@ here the next Steps we like to take for the Angular Components in priority and a
 
 ## Releases
 
-### Release 1.0.0
+### Release 1.0.1 
+first public available release
 
-- initial Release with 58 Core, and LiveApps Components
-- ready to use Case Manager App for LiveApps
+- initial Release with 58 Core, and Live Apps Components
+- ready to use Case Manager App for Live Apps
 - angular schematics Tooling
 - npm Tooling
