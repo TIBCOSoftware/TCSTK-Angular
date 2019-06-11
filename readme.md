@@ -1,40 +1,12 @@
 # Overview
 
-This repo contains Angular 7 components and sample code for creating cloud starter applications using existing components on top of Tibco Cloud Services. More Details here on [TIBCO Cloud™ Starters Toolkit](https://tibcosoftware.github.io/TCSToolkit/)
+This Repository contains Angular.io components and sample code for creating cloud starter applications using ready to use components on top of Tibco Cloud Services. More Details here on the [TIBCO Cloud™ Starters Toolkit Site](https://tibcosoftware.github.io/TCSToolkit/)
+
+Quick Guide and deep dive Developer Documentations can be found [here](https://tibcosoftware.github.io/TCSTK-Angular/)
+
+## early Preview Recording
 
 ![](./docs/CloudStartersDeveloperToolkit.gif)
-
-### Documents
-
-![alt text](screenshots/Documents.png)
-
-### Notes
-
-![alt text](screenshots/Notes.png)
-
-### Case Search
-
-![alt text](screenshots/Case-search.png)
-
-### Favorite Cases
-
-![alt text](screenshots/Favorites.png)
-
-### Recent Cases
-
-![alt text](screenshots/Recent.png)
-
-### Summary Cards
-
-![alt text](screenshots/Summary.png)
-
-### Card Config
-
-![alt text](screenshots/Card-config.png)
-
-### Navbar
-
-![alt text](screenshots/Navbar.png)
 
 # First Step
 

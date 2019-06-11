@@ -37,30 +37,6 @@
       "@tibco-tcstk/tc-forms-lib/*": [
         "dist/tibco-tcstk/tc-forms-lib/*"
       ],
-      "@tibco-tcstk/tc-handsontable-lib": [
-        "projects/tibco-tcstk/tc-handsontable-lib/src/public_api"
-      ],
-      "@tibco-tcstk/tc-handsontable-lib/*": [
-        "dist/tibco-tcstk/tc-handsontable-lib/*"
-      ],
-      "@tibco-tcstk/tc-process-discovery-lib": [
-        "projects/tibco-tcstk/tc-process-discovery-lib/src/public_api"
-      ],
-      "@tibco-tcstk/tc-process-discovery-lib/*": [
-        "dist/tibco-tcstk/tc-process-discovery-lib/*"
-      ],
-      "@tibco-tcstk/tc-spotfire-play-lib": [
-        "projects/tibco-tcstk/tc-spotfire-play-lib/src/public_api"
-      ],
-      "@tibco-tcstk/tc-spotfire-play-lib/*": [
-        "dist/tibco-tcstk/tc-spotfire-play-lib/*"
-      ],
-      "@tibco-tcstk/tc-check-workflow-monitor-lib": [
-        "projects/tibco-tcstk/tc-check-workflow-monitor-lib/src/public_api"
-      ],
-      "@tibco-tcstk/tc-check-workflow-monitor-lib/*": [
-        "dist/tibco-tcstk/tc-check-workflow-monitor-lib/*"
-      ],
       "@tibco-tcstk/tc-spotfire-lib": [
         "projects/tibco-tcstk/tc-spotfire-lib/src/public_api"
       ],

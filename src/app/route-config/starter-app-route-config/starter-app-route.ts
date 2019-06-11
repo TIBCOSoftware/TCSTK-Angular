@@ -16,7 +16,6 @@ import {
 import {SplashComponent} from '../../components/splash/splash.component';
 import {SplashPDComponent} from '../../components/splash-pd/splash-pd.component';
 import {CaseComponent} from '../../routes/case/case.component';
-import {ServiceDetailsConfigResolver, UploadPageComponent} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
 import {FormResolver} from '@tibco-tcstk/tc-forms-lib';
@@ -59,16 +58,6 @@ export const STARTER_APP_ROUTES =
       roles: RolesResolver,
       access: AccessResolver,
       customFormDefs: FormResolver
-    }
-  },
-  {
-    path: 'upload',
-    component: UploadPageComponent,
-    canActivate: [AuthGuard],
-    resolve: {
-      laConfigHolder: LaConfigResolver,
-      claims: ClaimsResolver,
-      serviceDetailsConfigResolver: ServiceDetailsConfigResolver
     }
   },
   {

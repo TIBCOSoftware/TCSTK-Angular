@@ -46,25 +46,25 @@ export class LiveAppsLandingPageComponent implements OnInit {
                 map(result => {
                     this.title = result.title;
                     this.subtitle = result.subtitle;
-                    this.backgroundImage = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.backgroundURL);
+                    this.backgroundImage = (result.backgroundURL != '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.backgroundURL) : '');
 
                     this.highlights = new Array();
                     this.highlights.push(new LandingPageItemConfig().deserialize({
                         title: result.highlights[0].title,
                         content: result.highlights[0].content,
-                        iconURL: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.highlights[0].iconURL)
+                        iconURL: result.highlights[0].iconURL
                     }));
 
                     this.highlights.push(new LandingPageItemConfig().deserialize({
                         title: result.highlights[1].title,
                         content: result.highlights[1].content,
-                        iconURL: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.highlights[1].iconURL)
+                        iconURL: result.highlights[1].iconURL
                     }));
 
                     this.highlights.push(new LandingPageItemConfig().deserialize({
                         title: result.highlights[2].title,
                         content: result.highlights[2].content,
-                        iconURL: TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.highlights[2].iconURL)
+                        iconURL: result.highlights[2].iconURL
                     }));
 
                     this.navigateURL = result.homeRoute;

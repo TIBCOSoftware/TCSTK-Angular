@@ -23,10 +23,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
-import {TcHandsontableLibModule} from '@tibco-tcstk/tc-handsontable-lib';
-import {TcProcessDiscoveryLibModule} from '@tibco-tcstk/tc-process-discovery-lib';
-import {TcSpotfirePlayLibModule} from '@tibco-tcstk/tc-spotfire-play-lib';
-import {TcCheckWorkflowMonitorLibModule} from '@tibco-tcstk/tc-check-workflow-monitor-lib';
 import {TcSpotfireLibModule} from '@tibco-tcstk/tc-spotfire-lib';
 import {SettingsComponent} from './routes/settings/settings.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
@@ -51,9 +47,7 @@ import {CasesearchComponent} from './routes/casesearch/casesearch.component';
     AppRoutingModule,
     TcCoreLibModule,
     TcFormsLibModule,
-    TcHandsontableLibModule,
     TcSpotfireLibModule,
-    TcProcessDiscoveryLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,
     BrowserModule,
@@ -76,10 +70,7 @@ import {CasesearchComponent} from './routes/casesearch/casesearch.component';
     MatTooltipModule,
     MatTabsModule,
     MatButtonToggleModule,
-    ReactiveFormsModule,
-    TcSpotfirePlayLibModule,
-    TcProcessDiscoveryLibModule,
-    TcCheckWorkflowMonitorLibModule
+    ReactiveFormsModule
   ],
   providers: [LogService],
   exports: [

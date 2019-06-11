@@ -258,7 +258,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creator/live-apps-case-creator.component.ts:100</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creator/live-apps-case-creator.component.ts:109</a></div>
                             </td>
                         </tr>
 
@@ -521,8 +521,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="114"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creator/live-apps-case-creator.component.ts:114</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creator/live-apps-case-creator.component.ts:123</a></div>
                 </td>
             </tr>
 
@@ -591,8 +591,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creator/live-apps-case-creator.component.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-creator/live-apps-case-creator.component.ts:115</a></div>
                 </td>
             </tr>
 
@@ -896,42 +896,51 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   options: any;
 
   handleSubmit &#x3D; (data, caseRef) &#x3D;&gt; {
-    // run the process
-    this.liveapps.runProcess(this.sandboxId, this.applicationId, this.process.process.id, caseRef, data)
-      .pipe(
-        take(1),
-        takeUntil(this._destroyed$),
-        map(response &#x3D;&gt; {
-          if (response) {
-            if (!response.data.errorMsg) {
-              // parse data to object
-              response.data &#x3D; JSON.parse(response.data);
-              // case created send back response including caseIdentifier if one is present
-              let caseIdentifier;
-              let caseReference;
-              if (response.caseIdentifier) {
-                caseIdentifier &#x3D; response.caseIdentifier;
+    // if no_process_submit then no need to run process as this was done inside a custom form app
+    if (data !&#x3D;&#x3D; &#x27;NO_PROCESS_SUBMIT&#x27;) {
+      // run the process
+      this.liveapps.runProcess(this.sandboxId, this.applicationId, this.process.process.id, caseRef, data)
+        .pipe(
+          take(1),
+          takeUntil(this._destroyed$),
+          map(response &#x3D;&gt; {
+            if (response) {
+              if (!response.data.errorMsg) {
+                // parse data to object
+                response.data &#x3D; JSON.parse(response.data);
+                // case created send back response including caseIdentifier if one is present
+                let caseIdentifier;
+                let caseReference;
+                if (response.caseIdentifier) {
+                  caseIdentifier &#x3D; response.caseIdentifier;
+                }
+                if (response.caseReference) {
+                  caseReference &#x3D; response.caseReference;
+                }
+                const processResponse &#x3D; new ProcessId().deserialize({&#x27;caseIdentifier&#x27;: caseIdentifier, &#x27;caseReference&#x27;: caseReference});
+                this.caseChanged.emit(processResponse);
+                this.schema &#x3D; undefined;
+                this.data &#x3D; undefined;
+                this.layout &#x3D; undefined;
+              } else {
+                console.error(&#x27;Unable to run case creator&#x27;);
+                console.error(response.data.errorMsg);
               }
-              if (response.caseReference) {
-                caseReference &#x3D; response.caseReference;
-              }
-              const processResponse &#x3D; new ProcessId().deserialize({&#x27;caseIdentifier&#x27;: caseIdentifier, &#x27;caseReference&#x27;: caseReference });
-              this.caseChanged.emit(processResponse);
-              this.schema &#x3D; undefined;
-              this.data &#x3D; undefined;
-              this.layout &#x3D; undefined;
-            } else {
-              console.error(&#x27;Unable to run case creator&#x27;);
-              console.error(response.data.errorMsg);
             }
+          })
+        )
+        .subscribe(success &#x3D;&gt; success, error &#x3D;&gt; {
+            console.error(&#x27;Unable to run case creator&#x27;);
+            console.error(error);
           }
-        })
-      )
-      .subscribe(success &#x3D;&gt; success, error &#x3D;&gt; {
-          console.error(&#x27;Unable to run case creator&#x27;);
-          console.error(error);
-        }
-      );
+        );
+    } else {
+      const processResponse &#x3D; new ProcessId().deserialize({&#x27;caseIdentifier&#x27;: undefined, &#x27;caseReference&#x27;: undefined});
+      this.caseChanged.emit(processResponse);
+      this.schema &#x3D; undefined;
+      this.data &#x3D; undefined;
+      this.layout &#x3D; undefined;
+    }
   }
 
   constructor(protected liveapps: LiveAppsService) {
@@ -972,7 +981,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div fxFill&gt;
-&lt;tcfrm-rendered-form *ngIf&#x3D;&quot;process&quot; style&#x3D;&quot;min-height:500px; overflow: auto;&quot; [customFormDefs]&#x3D;customFormDefs [formRef]&#x3D;&quot;process.ref&quot; [customFormDefs]&#x3D;&quot;customFormDefs&quot; [schema]&#x3D;&quot;schema&quot; [layout]&#x3D;&quot;layout&quot; [data]&#x3D;&quot;data&quot; [options]&#x3D;&quot;options&quot; (formSubmit)&#x3D;&quot;handleSubmit($event, undefined)&quot;&gt;&lt;/tcfrm-rendered-form&gt;
+&lt;tcfrm-rendered-form *ngIf&#x3D;&quot;process&quot; style&#x3D;&quot;min-height:500px; overflow: auto;&quot; [customFormDefs]&#x3D;customFormDefs [formRef]&#x3D;&quot;process.ref&quot; [appId]&#x3D;&quot;applicationId&quot; [customFormDefs]&#x3D;&quot;customFormDefs&quot; [schema]&#x3D;&quot;schema&quot; [layout]&#x3D;&quot;layout&quot; [data]&#x3D;&quot;data&quot; [options]&#x3D;&quot;options&quot; (formSubmit)&#x3D;&quot;handleSubmit($event, undefined)&quot;&gt;&lt;/tcfrm-rendered-form&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -1009,7 +1018,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div fxFill><tcfrm-rendered-form *ngIf="process" style="min-height:500px; overflow: auto;" [customFormDefs]=customFormDefs [formRef]="process.ref" [customFormDefs]="customFormDefs" [schema]="schema" [layout]="layout" [data]="data" [options]="options" (formSubmit)="handleSubmit($event, undefined)"></tcfrm-rendered-form></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div fxFill><tcfrm-rendered-form *ngIf="process" style="min-height:500px; overflow: auto;" [customFormDefs]=customFormDefs [formRef]="process.ref" [appId]="applicationId" [customFormDefs]="customFormDefs" [schema]="schema" [layout]="layout" [data]="data" [options]="options" (formSubmit)="handleSubmit($event, undefined)"></tcfrm-rendered-form></div></div>'
     var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LiveAppsCaseCreatorComponent'};
