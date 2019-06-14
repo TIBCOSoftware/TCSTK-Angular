@@ -1,4 +1,4 @@
-<button mat-button [matMenuTriggerFor]="creatorApplicationMenu">
+<button mat-button [matMenuTriggerFor]="creatorApplicationMenu" (click)="handleCreateCaseClick()">
   <mat-icon [svgIcon]="'tcs-case-start-icon'"></mat-icon>
   <span class="tcs-case-create-button-text"> Create Case</span>
 </button>
