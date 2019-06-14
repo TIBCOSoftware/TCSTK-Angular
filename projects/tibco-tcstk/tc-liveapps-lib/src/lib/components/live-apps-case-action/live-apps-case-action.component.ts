@@ -52,7 +52,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
             this.originalData = {
               [this.process.process.name]: casedata
             };
-            const caseTypeName = this.getMainCaseTypeFromSchema(this.typeId, this.process).applicationInternalName;
+            // JS: use name rather than internalObjectName to handle appliction name change
+            const caseTypeName = this.getMainCaseTypeFromSchema(this.typeId, this.process).name;
             this.data = {
               [caseTypeName]: casedata
             };
