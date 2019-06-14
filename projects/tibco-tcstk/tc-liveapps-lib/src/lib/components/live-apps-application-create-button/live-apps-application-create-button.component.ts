@@ -21,4 +21,12 @@ export class LiveAppsApplicationCreateButtonComponent extends LiveAppsApplicatio
     this.selection.emit(application);
   }
 
+  public handleCreateCaseClick = () => {
+    // console.log('Select Case: ' + this.applications.casetypes.length);
+    if (this.applications.casetypes.length === 1) {
+      // Open Case Directly
+      // console.log('Opening Case Directly...');
+      this.handleCreatorAppSelection(this.applications.casetypes[0]);
+    }
+  }
 }
