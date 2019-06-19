@@ -46,6 +46,11 @@ export class TibcoCloudSettingLandingComponent implements OnInit {
 
         this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
         this.uiAppId = this.route.snapshot.data.landingPagesConfigHolder.uiAppId;
+
+        // If there is only one landing page selects it automatically
+        if (this.landingPages.length == 1) {
+            this.selectedWelcomePage = this.landingPages[0];
+        }
     }
 
     /**
