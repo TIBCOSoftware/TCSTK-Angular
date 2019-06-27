@@ -56,7 +56,7 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                const newRole = new RoleAttribute().deserialize({id: result.id, display: result.name });
+                const newRole = new RoleAttribute().deserialize({id: result.id, display: result.name, priority: 1 });
                 this.generalConfig.roles.push(newRole);
             }
         });

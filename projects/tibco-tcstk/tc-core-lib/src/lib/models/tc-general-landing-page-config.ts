@@ -21,7 +21,6 @@ export class LandingPageConfig {
     public homeRoute: string;
     public highlights: LandingPageItemConfig[];
     roles: string[];
-    priority: number;
     deserialize(input: any) {
         Object.assign(this, input);
         return this;

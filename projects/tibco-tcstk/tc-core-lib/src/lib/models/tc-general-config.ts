@@ -9,6 +9,7 @@ export class RoleAttribute {
   public welcome: string;
   public imageUrl: string;
   public configuration: boolean;
+  public priority: number;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;

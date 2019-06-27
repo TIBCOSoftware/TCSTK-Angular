@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { TcCoreCommonFunctions, TcGeneralLandingPageConfigService, LandingPageItemConfig } from '@tibco-tcstk/tc-core-lib';
+import { TcCoreCommonFunctions, LandingPageItemConfig, TcGeneralLandingPageService } from '@tibco-tcstk/tc-core-lib';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { TcRolesService } from '../../services/tc-roles-service.ts.service';
@@ -31,52 +31,46 @@ export class LiveAppsLandingPageComponent implements OnInit {
         private location: Location,
         private route: ActivatedRoute,
         private router: Router,
-        private landingPageService: TcGeneralLandingPageConfigService,
+        private landingPageService: TcGeneralLandingPageService,
         private rolesService: TcRolesService
     ) { }
 
     ngOnInit() {
         const uiAppId = this.route.snapshot.data.generalConfigHolder.uiAppId;
-        const rolesIds = this.route.snapshot.data.rolesHolder.roles.filter(element => !element.configuration).map(a => a.id);
+        const roleId = this.route.snapshot.data.activeRoleHolder.id;
 
-        if (rolesIds.length === 0) {
-            this.router.navigate(['errorHandler/NO_ROLE/NO_ROLE']);
-        } else {
-            this.landingPageService.getLandingPageForRoles(rolesIds, uiAppId).pipe(
-                map(result => {
-                    this.title = result.title;
-                    this.subtitle = result.subtitle;
-                    this.backgroundImage = (result.backgroundURL != '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.backgroundURL) : '');
+            this.landingPageService.getLandingPageForRole(roleId, uiAppId).pipe(
+                map(landingPage => {
+                    if (landingPage != undefined){
+                        this.title = landingPage.title;
+                        this.subtitle = landingPage.subtitle;
+                        this.backgroundImage = (landingPage.backgroundURL != '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, landingPage.backgroundURL) : '');
 
-                    this.highlights = new Array();
-                    this.highlights.push(new LandingPageItemConfig().deserialize({
-                        title: result.highlights[0].title,
-                        content: result.highlights[0].content,
-                        iconURL: result.highlights[0].iconURL
-                    }));
+                        this.highlights = new Array();
+                        this.highlights.push(new LandingPageItemConfig().deserialize({
+                            title: landingPage.highlights[0].title,
+                            content: landingPage.highlights[0].content,
+                            iconURL: landingPage.highlights[0].iconURL
+                        }));
 
-                    this.highlights.push(new LandingPageItemConfig().deserialize({
-                        title: result.highlights[1].title,
-                        content: result.highlights[1].content,
-                        iconURL: result.highlights[1].iconURL
-                    }));
+                        this.highlights.push(new LandingPageItemConfig().deserialize({
+                            title: landingPage.highlights[1].title,
+                            content: landingPage.highlights[1].content,
+                            iconURL: landingPage.highlights[1].iconURL
+                        }));
 
-                    this.highlights.push(new LandingPageItemConfig().deserialize({
-                        title: result.highlights[2].title,
-                        content: result.highlights[2].content,
-                        iconURL: result.highlights[2].iconURL
-                    }));
+                        this.highlights.push(new LandingPageItemConfig().deserialize({
+                            title: landingPage.highlights[2].title,
+                            content: landingPage.highlights[2].content,
+                            iconURL: landingPage.highlights[2].iconURL
+                        }));
 
-                    this.navigateURL = result.homeRoute;
-
-                    // Set the role
-                    const workingRoleId = result.roles.filter(element => rolesIds.some(r => element.indexOf(r) >= 0));
-                    const workingRole = this.route.snapshot.data.generalConfigHolder.roles.filter(element => element.id === workingRoleId[0])[0];
-                    this.rolesService.setCurrentRole(workingRole);
-
+                        this.navigateURL = landingPage.homeRoute;
+                    } else {
+                        this.router.navigate(['errorHandler/NO_ROLE/NO_ROLE']);
+                    }
                 })
             ).subscribe();
-        }
     }
 
     public moveHome = (): void => {

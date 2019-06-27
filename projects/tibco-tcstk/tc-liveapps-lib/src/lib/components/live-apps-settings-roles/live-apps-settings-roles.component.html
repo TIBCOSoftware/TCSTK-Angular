@@ -1,43 +1,52 @@
-  <div fxLayout="column" fxFill>
-    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'"
-                                  [headerText]="'Role Configuration'"></tc-tibco-cloud-widget-header>
+<div fxLayout="column" fxFill>
+    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Role Configuration'">
+    </tc-tibco-cloud-widget-header>
     <div fxFlex style="padding: 20px; overflow: hidden" fxLayout="column">
-      <div style="overflow: auto;">
-        <div fxLayout="column" fxFlex>
-          <p>You can configure roles by here:</p>
-          <br>
-          <!-- Role specific -->
-            <mat-accordion>
-              <mat-expansion-panel *ngFor="let role of generalConfig.roles" (opened)="selectedRole(role)">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>{{role.display}}</mat-panel-title>
-                </mat-expansion-panel-header>
-                <div fxLayoutGap="5px">
-                  <mat-form-field style="min-width: 400px">
-                    <input matInput placeholder="Id" [(ngModel)]="role.id" readonly>
-                  </mat-form-field>
-                  <mat-form-field style="min-width: 400px">
-                    <input matInput placeholder="Display Name" [(ngModel)]="role.display">
-                  </mat-form-field>
-                  <mat-form-field style="min-width: 400px">
-                    <mat-select [disableOptionCentering]="true" placeholder="Live Apps Group" [(value)]="role.group">
-                      <mat-option *ngFor="let group of groups.groups" [value]="group.name">
-                        <span matTooltip="{{group.description}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{group.name}}</span>
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                  <mat-slide-toggle [(ngModel)]="role.configuration">Configuration role</mat-slide-toggle>
-                </div>
-              </mat-expansion-panel>
-            </mat-accordion>
-        </div>
+        <div style="overflow: auto;">
+            <div fxLayout="column" fxFlex>
+                <p>You can configure roles by here:</p>
+                <br>
+                <!-- Role specific -->
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let role of generalConfig.roles" (opened)="selectedRole(role)">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>{{role.display}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div fxLayout="column">
+                            <div fxLayoutGap="10px">
+                                <mat-form-field fxFlex="20" style="min-width: 100px;">
+                                    <input matInput placeholder="Id" [(ngModel)]="role.id" readonly>
+                                </mat-form-field>
+                                <mat-form-field fxFlex="40" style="min-width: 400px;">
+                                    <input matInput placeholder="Display Name" [(ngModel)]="role.display">
+                                </mat-form-field>
+                                <mat-form-field fxFlex="40" style="min-width: 400px;">
+                                    <mat-select [disableOptionCentering]="true" placeholder="Live Apps Group" [(value)]="role.group">
+                                        <mat-option *ngFor="let group of groups.groups" [value]="group.name">
+                                            <span matTooltip="{{group.description}}" matTooltipShowDelay="1000"
+                                                matTooltipPosition="below">{{group.name}}</span>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div fxLayoutGap="5px">
+                                <mat-form-field fxFlex="20">
+                                    <input matInput type="number" min="0" max="10" placeholder="Priority" [(ngModel)]="role.priority">
+                                </mat-form-field>
+                                <mat-slide-toggle [(ngModel)]="role.configuration">Configuration role</mat-slide-toggle>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
 
-      </div>
-      <div fxFlex class="tcs-filler-panel"></div>
-      <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px" style="min-height: 50px">
-        <button mat-raised-button color="secondary" [disabled]="!currentRole" (click)="deleteRoleFunction()">Delete</button>
-        <button mat-raised-button color="secondary" (click)="createRoleFunction()">New</button>
-        <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
-      </div>
+        </div>
+        <div fxFlex class="tcs-filler-panel"></div>
+        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px" style="min-height: 50px">
+            <button mat-raised-button color="secondary" [disabled]="!currentRole"
+                (click)="deleteRoleFunction()">Delete</button>
+            <button mat-raised-button color="secondary" (click)="createRoleFunction()">New</button>
+            <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+        </div>
     </div>
-  </div>
+</div>
