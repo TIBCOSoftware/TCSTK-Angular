@@ -70,32 +70,5 @@ export class TcGeneralLandingPageConfigService {
                 })
             );
     }
-
-    public getLandingPage = (key: string, uiAppId: string): Observable<LandingPageConfig> => {
-        const landingPage = this.getGeneralLandingPageConfig(uiAppId, true, true).pipe(
-            map(landingPages => {
-                const page = landingPages.landingPage.filter(element => element.key === key )[0];
-                return page;
-            })            
-        )   
-        return landingPage;
-    }
-
-    public getLandingPageForRoles = (roles: string[], uiAppId: string): Observable<LandingPageConfig> => {
-        const landingPage = this.getGeneralLandingPageConfig(uiAppId, true, true).pipe(
-            map(landingPages => {
-                const candidatePages = landingPages.landingPage.filter(element => roles.some(r => element.roles.indexOf(r) >= 0));
-                if (candidatePages.length == 1) {
-                    return candidatePages[0];
-                } else {
-                    const higherPriority = Math.max.apply(Math, candidatePages.map(function (o) { return o.priority; }))
-                    const candidatePage = candidatePages.find(function (o) { return o.priority == higherPriority; })
-                    return candidatePage;
-                }
-            })
-        )
-        return landingPage;
-
-    } 
 }
 

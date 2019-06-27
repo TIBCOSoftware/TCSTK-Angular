@@ -9,7 +9,7 @@ export class TcRolesService {
     
     constructor() { }
 
-    currentRole = new RoleAttribute();
+    private currentRole = undefined;
 
     private hasRoleAccess = (roleReq: string, roles: Roles): boolean => {
         const reqRole = roles.roles.find(role => {
