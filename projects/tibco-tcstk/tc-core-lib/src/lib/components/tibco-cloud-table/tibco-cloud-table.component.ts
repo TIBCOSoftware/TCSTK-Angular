@@ -10,8 +10,8 @@ import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 })
 export class TibcoCloudTableComponent implements OnInit, OnChanges {
   @Input() jsonSource: string;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   dataSource: TibcoCloudTableDataSource;
 

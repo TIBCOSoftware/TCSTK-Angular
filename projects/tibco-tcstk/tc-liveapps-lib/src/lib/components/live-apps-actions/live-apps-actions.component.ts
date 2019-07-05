@@ -17,7 +17,7 @@ import {LiveAppsCaseActionsComponent} from '../live-apps-case-actions/live-apps-
 })
 export class LiveAppsActionsComponent implements OnInit {
 
-  @ViewChild(LiveAppsCaseActionsComponent) actionSelector: LiveAppsCaseActionsComponent
+  @ViewChild(LiveAppsCaseActionsComponent, {static: false}) actionSelector: LiveAppsCaseActionsComponent
 
   /**
    * The case reference

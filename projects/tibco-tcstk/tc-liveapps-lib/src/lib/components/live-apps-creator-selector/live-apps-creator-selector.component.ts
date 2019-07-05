@@ -15,7 +15,7 @@ import {MatSelect} from '@angular/material';
   styleUrls: ['./live-apps-creator-selector.component.css']
 })
 export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implements OnChanges {
-  @ViewChild('creatorSelector') creatorSelector: MatSelect;
+  @ViewChild('creatorSelector', {static: false}) creatorSelector: MatSelect;
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string;

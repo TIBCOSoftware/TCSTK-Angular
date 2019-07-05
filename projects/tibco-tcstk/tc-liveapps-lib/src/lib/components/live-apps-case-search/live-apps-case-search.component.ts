@@ -20,7 +20,7 @@ import {map, tap} from 'rxjs/operators';
 })
 
 export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
-  @ViewChild('searchBox') searchBox: ElementRef;
+  @ViewChild('searchBox', {static: false}) searchBox: ElementRef;
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -38,7 +38,7 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
    */
   @Output() foundRefs: EventEmitter<CaseSearchResults> = new EventEmitter<CaseSearchResults>();
 
-  @ViewChild(LiveAppsApplicationsComponent) applicationsComponent: LiveAppsApplicationsComponent;
+  @ViewChild(LiveAppsApplicationsComponent, {static: false}) applicationsComponent: LiveAppsApplicationsComponent;
 
   searchTerm$: Subject<string>;
   searchValue: Observable<String>;

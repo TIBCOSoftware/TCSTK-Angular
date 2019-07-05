@@ -16,7 +16,7 @@ import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
   styleUrls: ['./live-apps-creators.component.css']
 })
 export class LiveAppsCreatorsComponent implements OnInit {
-  @ViewChild('creatorSelector') creatorSelector: LiveAppsCreatorSelectorComponent;
+  @ViewChild('creatorSelector', {static: false}) creatorSelector: LiveAppsCreatorSelectorComponent;
   /**
    * sandboxId - this comes from claims resolver
    */

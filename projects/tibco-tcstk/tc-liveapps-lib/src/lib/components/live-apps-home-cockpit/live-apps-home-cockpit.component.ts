@@ -85,12 +85,12 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
    */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
-  @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;
-  @ViewChild(LiveAppsRecentCasesComponent) recentsComponent: LiveAppsRecentCasesComponent;
-  @ViewChild(LiveAppsSearchWidgetComponent) searchComponent: LiveAppsSearchWidgetComponent;
-  @ViewChild(LiveAppsNotesComponent) collaborationComponent: LiveAppsNotesComponent;
-  @ViewChild(LiveAppsDocumentsComponent) documentsComponent: LiveAppsDocumentsComponent;
-  @ViewChild(LiveAppsActiveCasesWidgetComponent) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
+  @ViewChild(LiveAppsFavoriteCasesComponent, {static: false}) favoritesComponent: LiveAppsFavoriteCasesComponent;
+  @ViewChild(LiveAppsRecentCasesComponent, {static: false}) recentsComponent: LiveAppsRecentCasesComponent;
+  @ViewChild(LiveAppsSearchWidgetComponent, {static: false}) searchComponent: LiveAppsSearchWidgetComponent;
+  @ViewChild(LiveAppsNotesComponent, {static: false}) collaborationComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsDocumentsComponent, {static: false}) documentsComponent: LiveAppsDocumentsComponent;
+  @ViewChild(LiveAppsActiveCasesWidgetComponent, {static: false}) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
 
   public toolbarButtons: ToolbarButton[] = [];
   public caseStartButtonActive: boolean;
