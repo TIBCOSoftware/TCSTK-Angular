@@ -37,8 +37,8 @@ import {TcCaseCardConfigService} from '../../services/tc-case-card-config.servic
 
 export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit, OnChanges {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
-  @ViewChild('caseStateIcon') stateIconComponent: LiveAppsStateIconComponent;
-  @ViewChild('caseTypeIcon') caseTypeIconComponent: LiveAppsStateIconComponent;
+  @ViewChild('caseStateIcon', {static: false}) stateIconComponent: LiveAppsStateIconComponent;
+  @ViewChild('caseTypeIcon', {static: false}) caseTypeIconComponent: LiveAppsStateIconComponent;
 
   /**
    * Whether to use static data (ie. when in app config box)

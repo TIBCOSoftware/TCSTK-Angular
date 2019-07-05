@@ -21,6 +21,10 @@ import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-co
 })
 export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implements  OnInit {
 
+  constructor(private reportingService: TcLiveAppsReportingService) {
+    super();
+  }
+
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -58,7 +62,7 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
    */
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
-  @ViewChild(BaseChartDirective) caseReportChart: BaseChartDirective;
+  @ViewChild(BaseChartDirective, {static: false}) caseReportChart: BaseChartDirective;
 
   public errorMessage: string;
   public caseTypesReport: CaseTypesReport;
@@ -151,10 +155,6 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
       }
     }
   };
-
-  constructor(private reportingService: TcLiveAppsReportingService) {
-    super();
-  }
 
   private initReportDataToChart = (reportData: CaseTypesReport) => {
     this.doughnutChartData = [];

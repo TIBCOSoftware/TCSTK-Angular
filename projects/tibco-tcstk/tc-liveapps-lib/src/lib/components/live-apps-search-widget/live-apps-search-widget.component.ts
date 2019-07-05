@@ -42,7 +42,7 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   @Output() caseSelected: EventEmitter<string> = new EventEmitter<string>();
 
 
-  @ViewChild(LiveAppsCaseSearchComponent) caseSearchComponent: LiveAppsCaseSearchComponent;
+  @ViewChild(LiveAppsCaseSearchComponent, {static: false}) caseSearchComponent: LiveAppsCaseSearchComponent;
   // case search
   matchedRefs: string[] = [];
   searchString: string;

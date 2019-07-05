@@ -22,7 +22,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
   /**
    * Reference Element
    */
-  @ViewChild('navbar') private navbarRef: ElementRef;
+  @ViewChild('navbar', { static: true }) private navbarRef: ElementRef;
   /**
    * diaplayed Application Name
    */

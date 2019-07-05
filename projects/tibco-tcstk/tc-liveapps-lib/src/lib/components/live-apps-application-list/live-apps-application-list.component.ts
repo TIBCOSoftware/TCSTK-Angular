@@ -17,7 +17,7 @@ import {MatSelectionList} from '@angular/material';
   styleUrls: ['./live-apps-application-list.component.css']
 })
 export class LiveAppsApplicationListComponent extends LiveAppsApplicationsComponent implements OnInit, OnChanges {
-  @ViewChild (MatSelectionList) appSelectionList: MatSelectionList;
+  @ViewChild (MatSelectionList, {static: false}) appSelectionList: MatSelectionList;
 
   /**
    * The app Ids selected (output)
