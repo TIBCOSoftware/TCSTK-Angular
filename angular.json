@@ -247,41 +247,6 @@
           }
         }
       }
-    },
-    "@tibco-tcstk/tc-spotfire-lib": {
-      "root": "projects/tibco-tcstk/tc-spotfire-lib",
-      "sourceRoot": "projects/tibco-tcstk/tc-spotfire-lib/src",
-      "projectType": "library",
-      "prefix": "tcsf",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
-            "project": "projects/tibco-tcstk/tc-spotfire-lib/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/tibco-tcstk/tc-spotfire-lib/src/test.ts",
-            "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/tibco-tcstk/tc-spotfire-lib/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
-              "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "tc-liveapps"
