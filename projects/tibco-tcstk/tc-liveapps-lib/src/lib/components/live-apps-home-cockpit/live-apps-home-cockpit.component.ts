@@ -55,7 +55,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @Input() userId: string;
 
   /**
-   * * NOT USED but is the email address of the user (comes from resolver)
+   * * Email address of the user (comes from resolver)
    */
   @Input() email: string;
 
