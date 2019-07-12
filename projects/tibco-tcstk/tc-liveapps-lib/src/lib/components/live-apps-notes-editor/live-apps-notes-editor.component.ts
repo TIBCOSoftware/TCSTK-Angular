@@ -30,6 +30,7 @@ export class LiveAppsNotesEditorComponent extends LiveAppsComponent {
 
   public submitNote = (noteText) => {
     this.noteSubmitted.emit(noteText);
+    this.noteText = undefined;
   }
 
 }
