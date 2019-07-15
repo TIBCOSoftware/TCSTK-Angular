@@ -18,6 +18,7 @@ export class ShowcaseComponent implements OnInit {
   public userId: string;
   public email: string;
   public widgetSize = 100;
+  public fixedHeight = false;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -31,6 +32,10 @@ export class ShowcaseComponent implements OnInit {
     } else {
       this.widgetSize = 100;
     }
+  }
+
+  toggleWidgetHeight = () => {
+    this.fixedHeight = !this.fixedHeight;
   }
 
   ngOnInit() {
