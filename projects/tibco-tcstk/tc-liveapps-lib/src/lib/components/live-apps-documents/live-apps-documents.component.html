@@ -4,12 +4,20 @@
       <mat-icon class="tcs-icon tcs-icon-active tcs-collaboration-feed" svgIcon="tcs-document-library"></mat-icon>
       <div class="tcs-documents-header-text">{{folderDescription ? folderDescription : 'Documents'}}</div>
     </div>
-    <mat-icon (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" matTooltip="Upload Document" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
+    <mat-icon (click)="openDialog()" [ngClass]="{'tcs-icon-disabled' : uploadProgress < 100}" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" [matTooltip]="(uploadProgress && uploadProgress !== 100) ? 'Please wait for existing document to upload' : 'Upload Document'" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
   </div>
   <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">
-    <mat-icon style="margin: 5px" (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" matTooltip="Upload Document" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
+    <mat-icon style="margin: 5px" [ngClass]="{'tcs-icon-disabled' : uploadProgress < 100}" (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" [matTooltip]="(uploadProgress && uploadProgress !== 100) ? 'Please wait for existing document to upload' : 'Upload Document'" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
   </div>
   <div fxLayout="column" fxFlex style="overflow: auto">
+    <div *ngIf="uploadProgress">
+      <div>{{uploadMessage}}</div>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="uploadProgress"
+      >
+      </mat-progress-bar>
+    </div>
     <div class="tcs-document-list" fxLayout="column">
       <div *ngIf="documents && documents.length > 0">
         <div class="tcs-document-detail-box tcs-document" *ngFor="let document of documents | orderByDate: 'lastModifiedDate'" fxLayout="column">
@@ -55,27 +63,4 @@
     </div>
   </div>
 </div>
-
-<!--pre>Documents: {{documents | json }}</pre-->
-
-<!--div fxLayout="column">
-  <div>
-    <h3>Upload Document</h3>
-    <div *ngIf="uploadMessage">{{uploadMessage}}</div>
-    <div>
-      <form #fileUploadForm="ngForm" (submit)="uploadFile()" fxFlex fxLayout="column">
-        <div fxLayout="row">
-          <button type="button" mat-raised-button (click)="fileInput.click()">Choose File To Upload</button>
-          <div *ngIf="fileToUpload">{{fileToUpload.name}}</div>
-          <!-- below input is hidden and enabled by above button -->
-          <!--input class="tcs-hidden-input" (change)="attachFile($event.target.files)" #fileInput type="file" id="file">
-        </div>
-        <mat-form-field fxFlex>
-          <input matInput name="inputdata.description" type="text" placeholder="Comments" [(ngModel)]="inputdata.description"/>
-        </mat-form-field>
-        <button mat-raised-button style="max-width: 100px" type="submit" [disabled]="!fileToUpload">Upload</button>
-      </form>
-    </div>
-  </div>
-</div-->
 
