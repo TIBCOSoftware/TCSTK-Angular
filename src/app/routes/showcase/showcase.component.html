@@ -1,14 +1,43 @@
-<mat-tab-group fxFill>
-  <mat-tab label="Search">
-    <div style="height: 100%; margin:20px" fxLayout="column" fxLayoutAlign="start stretch">
-      <div fxLayout="row" fxLayoutAlign="end center">
-        <mat-icon (click)="toggleWidgetSize()">fullscreen_exit</mat-icon>
+<div fxLayout="column" fxFill>
+  <div>
+    <tc-tibco-cloud-menu-bar [headerText]="'Preview Components'">
+      <div>
+          <div fxLayout="row" fxLayoutAlign="end center">
+            <div style="min-width:125px" fxLayoutAlign="end center">
+              <span>{{fixedHeight ? 'Fixed Height' : 'Scroll'}}</span>
+              <mat-icon style="margin-left: 5px" class="tcs-size-icon" (click)="toggleWidgetHeight()">aspect_ratio</mat-icon>
+            </div>
+            <div style="min-width:125px" fxLayoutAlign="center center">
+              <span>{{widgetSize}}% width</span>
+              <mat-icon style="margin-left: 5px" class="tcs-size-icon" (click)="toggleWidgetSize()">fullscreen_exit</mat-icon>
+            </div>
+          </div>
       </div>
-      <div fxLayout="row">
-        <div class="demo-widget-border" [fxFlex]="widgetSize">
-          <tcla-live-apps-search-widget [appIds]="liveAppsConfig.applicationIds" [sandboxId]="sandboxId" [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-search-widget>
+    </tc-tibco-cloud-menu-bar>
+  </div>
+  <div fxFlex style="overflow: hidden">
+    <mat-tab-group fxFill>
+      <mat-tab label="Search">
+        <div fxFill style="padding:20px" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="row">
+            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+              <tcla-live-apps-search-widget [appIds]="liveAppsConfig.applicationIds" [sandboxId]="sandboxId"
+                                            [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-search-widget>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+      </mat-tab>
+      <mat-tab label="Favorite">
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="row">
+            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+              <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
+                                             [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-favorite-cases>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

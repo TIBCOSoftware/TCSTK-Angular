@@ -1,4 +1,14 @@
 .demo-widget-border {
   border-color: white;
   border-style: dashed;
+  padding: 10px;
+}
+
+.tcs-fixed-height {
+  max-height: 100%;
+}
+
+:host ::ng-deep .tcs-size-icon:hover {
+  color: #0081cb;
+  cursor: pointer;
 }
