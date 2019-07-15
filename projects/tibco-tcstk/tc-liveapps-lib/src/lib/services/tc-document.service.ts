@@ -189,7 +189,7 @@ export class TcDocumentService {
     });
     const formData: FormData = new FormData();
     formData.append('artifactContents', fileToUpload);
-    return this.http.post(url, formData, { headers: headers, reportProgress: true });
+    return this.http.post(url, formData, { headers: headers, reportProgress: true, observe: 'events' });
   }
 
   private getIcon(extension: string): string {

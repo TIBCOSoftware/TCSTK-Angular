@@ -3,12 +3,24 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {
   MatAccordion,
   MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule,
-  MatSelectModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatSnackBarModule, MatSlideToggleModule, MatIconRegistry
+  MatListModule,
+  MatMenuModule,
+  MatOptionModule,
+  MatSelectModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatSnackBarModule,
+  MatSlideToggleModule,
+  MatIconRegistry,
+  MatProgressBarModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -163,6 +175,7 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
     MatSnackBarModule,
     ScrollDispatchModule,
     MatSlideToggleModule,
+    MatProgressBarModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,
