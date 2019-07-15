@@ -36,7 +36,7 @@ This Component can be used by using the following HTML Tag:
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudErrorComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudErrorComponent.html)
+[Link to TibcoCloudErrorComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudErrorComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

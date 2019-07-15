@@ -36,7 +36,7 @@ configChanged | EventEmitter<CaseCardConfig> |   |
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsApplicationConfigurationComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsApplicationConfigurationComponent.html)
+[Link to LiveAppsApplicationConfigurationComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsApplicationConfigurationComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

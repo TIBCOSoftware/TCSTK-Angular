@@ -37,7 +37,7 @@ toolbarButtonEvent | EventEmitter<string> |   |
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudWidgetHeaderComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudWidgetHeaderComponent.html)
+[Link to TibcoCloudWidgetHeaderComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudWidgetHeaderComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

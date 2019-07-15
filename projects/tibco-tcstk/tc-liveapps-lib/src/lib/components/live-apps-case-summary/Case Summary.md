@@ -51,7 +51,7 @@ deleted | EventEmitter<string> |   |
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsCaseSummaryComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseSummaryComponent.html)
+[Link to LiveAppsCaseSummaryComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsCaseSummaryComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

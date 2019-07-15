@@ -36,7 +36,7 @@ configureOption | EventEmitter<string> |   |
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudSettingMenuEntryComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudSettingMenuEntryComponent.html)
+[Link to TibcoCloudSettingMenuEntryComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudSettingMenuEntryComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
