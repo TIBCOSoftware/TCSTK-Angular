@@ -489,7 +489,7 @@ This Component allows to search for existing Cases and list Case Cards.</p>
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseSearchComponent)<br />
+                                @ViewChild(LiveAppsCaseSearchComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -807,7 +807,7 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   @Output() caseSelected: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
 
 
-  @ViewChild(LiveAppsCaseSearchComponent) caseSearchComponent: LiveAppsCaseSearchComponent;
+  @ViewChild(LiveAppsCaseSearchComponent, {static: false}) caseSearchComponent: LiveAppsCaseSearchComponent;
   // case search
   matchedRefs: string[] &#x3D; [];
   searchString: string;

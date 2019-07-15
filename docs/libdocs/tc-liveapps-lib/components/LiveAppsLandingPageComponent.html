@@ -203,7 +203,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(location: <a href="https://angular.io/api/common/Location" target="_blank">Location</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, landingPageService: TcGeneralLandingPageConfigService, rolesService: <a href="../injectables/TcRolesService.html">TcRolesService</a>)</code>
+<code>constructor(location: <a href="https://angular.io/api/common/Location" target="_blank">Location</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, landingPageService: TcGeneralLandingPageService, rolesService: <a href="../injectables/TcRolesService.html">TcRolesService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -265,7 +265,7 @@
                                                         <td>landingPageService</td>
                                                   
                                                         <td>
-                                                                    <code>TcGeneralLandingPageConfigService</code>
+                                                                    <code>TcGeneralLandingPageService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -424,7 +424,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-landing-page/live-apps-landing-page.component.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-landing-page/live-apps-landing-page.component.ts:76</a></div>
                             </td>
                         </tr>
 
@@ -523,7 +523,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Location } from &#x27;@angular/common&#x27;;
-import { TcCoreCommonFunctions, TcGeneralLandingPageConfigService, LandingPageItemConfig } from &#x27;@tibco-tcstk/tc-core-lib&#x27;;
+import { TcCoreCommonFunctions, LandingPageItemConfig, TcGeneralLandingPageService } from &#x27;@tibco-tcstk/tc-core-lib&#x27;;
 import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
 import { TcRolesService } from &#x27;../../services/tc-roles-service.ts.service&#x27;;
@@ -554,52 +554,46 @@ export class LiveAppsLandingPageComponent implements OnInit {
         private location: Location,
         private route: ActivatedRoute,
         private router: Router,
-        private landingPageService: TcGeneralLandingPageConfigService,
+        private landingPageService: TcGeneralLandingPageService,
         private rolesService: TcRolesService
     ) { }
 
     ngOnInit() {
         const uiAppId &#x3D; this.route.snapshot.data.generalConfigHolder.uiAppId;
-        const rolesIds &#x3D; this.route.snapshot.data.rolesHolder.roles.filter(element &#x3D;&gt; !element.configuration).map(a &#x3D;&gt; a.id);
+        const roleId &#x3D; this.route.snapshot.data.activeRoleHolder.id;
 
-        if (rolesIds.length &#x3D;&#x3D;&#x3D; 0) {
-            this.router.navigate([&#x27;errorHandler/NO_ROLE/NO_ROLE&#x27;]);
-        } else {
-            this.landingPageService.getLandingPageForRoles(rolesIds, uiAppId).pipe(
-                map(result &#x3D;&gt; {
-                    this.title &#x3D; result.title;
-                    this.subtitle &#x3D; result.subtitle;
-                    this.backgroundImage &#x3D; (result.backgroundURL !&#x3D; &#x27;&#x27; ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, result.backgroundURL) : &#x27;&#x27;);
+            this.landingPageService.getLandingPageForRole(roleId, uiAppId).pipe(
+                map(landingPage &#x3D;&gt; {
+                    if (landingPage !&#x3D; undefined){
+                        this.title &#x3D; landingPage.title;
+                        this.subtitle &#x3D; landingPage.subtitle;
+                        this.backgroundImage &#x3D; (landingPage.backgroundURL !&#x3D; &#x27;&#x27; ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, landingPage.backgroundURL) : &#x27;&#x27;);
 
-                    this.highlights &#x3D; new Array();
-                    this.highlights.push(new LandingPageItemConfig().deserialize({
-                        title: result.highlights[0].title,
-                        content: result.highlights[0].content,
-                        iconURL: result.highlights[0].iconURL
-                    }));
+                        this.highlights &#x3D; new Array();
+                        this.highlights.push(new LandingPageItemConfig().deserialize({
+                            title: landingPage.highlights[0].title,
+                            content: landingPage.highlights[0].content,
+                            iconURL: landingPage.highlights[0].iconURL
+                        }));
 
-                    this.highlights.push(new LandingPageItemConfig().deserialize({
-                        title: result.highlights[1].title,
-                        content: result.highlights[1].content,
-                        iconURL: result.highlights[1].iconURL
-                    }));
+                        this.highlights.push(new LandingPageItemConfig().deserialize({
+                            title: landingPage.highlights[1].title,
+                            content: landingPage.highlights[1].content,
+                            iconURL: landingPage.highlights[1].iconURL
+                        }));
 
-                    this.highlights.push(new LandingPageItemConfig().deserialize({
-                        title: result.highlights[2].title,
-                        content: result.highlights[2].content,
-                        iconURL: result.highlights[2].iconURL
-                    }));
+                        this.highlights.push(new LandingPageItemConfig().deserialize({
+                            title: landingPage.highlights[2].title,
+                            content: landingPage.highlights[2].content,
+                            iconURL: landingPage.highlights[2].iconURL
+                        }));
 
-                    this.navigateURL &#x3D; result.homeRoute;
-
-                    // Set the role
-                    const workingRoleId &#x3D; result.roles.filter(element &#x3D;&gt; rolesIds.some(r &#x3D;&gt; element.indexOf(r) &gt;&#x3D; 0));
-                    const workingRole &#x3D; this.route.snapshot.data.generalConfigHolder.roles.filter(element &#x3D;&gt; element.id &#x3D;&#x3D;&#x3D; workingRoleId[0])[0];
-                    this.rolesService.setCurrentRole(workingRole);
-
+                        this.navigateURL &#x3D; landingPage.homeRoute;
+                    } else {
+                        this.router.navigate([&#x27;errorHandler/NO_ROLE/NO_ROLE&#x27;]);
+                    }
                 })
             ).subscribe();
-        }
     }
 
     public moveHome &#x3D; (): void &#x3D;&gt; {

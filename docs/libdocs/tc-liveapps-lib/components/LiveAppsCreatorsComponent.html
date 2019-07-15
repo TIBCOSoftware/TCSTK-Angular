@@ -487,7 +487,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;creatorSelector&#x27;)<br />
+                                @ViewChild(&#x27;creatorSelector&#x27;, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -603,7 +603,7 @@ import {CustomFormDefs} from &#x27;@tibco-tcstk/tc-forms-lib&#x27;;
   styleUrls: [&#x27;./live-apps-creators.component.css&#x27;]
 })
 export class LiveAppsCreatorsComponent implements OnInit {
-  @ViewChild(&#x27;creatorSelector&#x27;) creatorSelector: LiveAppsCreatorSelectorComponent;
+  @ViewChild(&#x27;creatorSelector&#x27;, {static: false}) creatorSelector: LiveAppsCreatorSelectorComponent;
   /**
    * sandboxId - this comes from claims resolver
    */

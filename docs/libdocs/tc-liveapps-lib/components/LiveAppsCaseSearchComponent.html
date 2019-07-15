@@ -484,7 +484,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsApplicationsComponent)<br />
+                                @ViewChild(LiveAppsApplicationsComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -681,7 +681,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;searchBox&#x27;)<br />
+                                @ViewChild(&#x27;searchBox&#x27;, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -980,7 +980,7 @@ import {map, tap} from &#x27;rxjs/operators&#x27;;
 })
 
 export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
-  @ViewChild(&#x27;searchBox&#x27;) searchBox: ElementRef;
+  @ViewChild(&#x27;searchBox&#x27;, {static: false}) searchBox: ElementRef;
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -998,7 +998,7 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
    */
   @Output() foundRefs: EventEmitter&lt;CaseSearchResults&gt; &#x3D; new EventEmitter&lt;CaseSearchResults&gt;();
 
-  @ViewChild(LiveAppsApplicationsComponent) applicationsComponent: LiveAppsApplicationsComponent;
+  @ViewChild(LiveAppsApplicationsComponent, {static: false}) applicationsComponent: LiveAppsApplicationsComponent;
 
   searchTerm$: Subject&lt;string&gt;;
   searchValue: Observable&lt;String&gt;;

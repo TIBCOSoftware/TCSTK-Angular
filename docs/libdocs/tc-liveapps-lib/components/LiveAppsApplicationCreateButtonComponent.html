@@ -148,6 +148,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#handleCreateCaseClick">handleCreateCaseClick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#handleCreatorAppSelection">handleCreatorAppSelection</a>
                             </li>
                             <li>
@@ -527,6 +531,33 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="handleCreateCaseClick"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleCreateCaseClick</b>
+                            <a href="#handleCreateCaseClick"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-application-create-button/live-apps-application-create-button.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="handleCreatorAppSelection"></a>
                         <span class="name">
                             <b>
@@ -786,12 +817,20 @@ export class LiveAppsApplicationCreateButtonComponent extends LiveAppsApplicatio
     this.selection.emit(application);
   }
 
+  public handleCreateCaseClick &#x3D; () &#x3D;&gt; {
+    // console.log(&#x27;Select Case: &#x27; + this.applications.casetypes.length);
+    if (this.applications.casetypes.length &#x3D;&#x3D;&#x3D; 1) {
+      // Open Case Directly
+      // console.log(&#x27;Opening Case Directly...&#x27;);
+      this.handleCreatorAppSelection(this.applications.casetypes[0]);
+    }
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;button mat-button [matMenuTriggerFor]&#x3D;&quot;creatorApplicationMenu&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;button mat-button [matMenuTriggerFor]&#x3D;&quot;creatorApplicationMenu&quot; (click)&#x3D;&quot;handleCreateCaseClick()&quot;&gt;
   &lt;mat-icon [svgIcon]&#x3D;&quot;&#x27;tcs-case-start-icon&#x27;&quot;&gt;&lt;/mat-icon&gt;
   &lt;span class&#x3D;&quot;tcs-case-create-button-text&quot;&gt; Create Case&lt;/span&gt;
 &lt;/button&gt;
@@ -844,7 +883,7 @@ export class LiveAppsApplicationCreateButtonComponent extends LiveAppsApplicatio
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><button mat-button [matMenuTriggerFor]="creatorApplicationMenu">  <mat-icon [svgIcon]="\'tcs-case-start-icon\'"></mat-icon>  <span class="tcs-case-create-button-text"> Create Case</span></button><mat-menu #creatorApplicationMenu="matMenu">  <button mat-menu-item *ngFor="let application of applications.casetypes" (click)="handleCreatorAppSelection(application)">{{application.applicationName}}</button></mat-menu></div>'
+        var COMPONENT_TEMPLATE = '<div><button mat-button [matMenuTriggerFor]="creatorApplicationMenu" (click)="handleCreateCaseClick()">  <mat-icon [svgIcon]="\'tcs-case-start-icon\'"></mat-icon>  <span class="tcs-case-create-button-text"> Create Case</span></button><mat-menu #creatorApplicationMenu="matMenu">  <button mat-menu-item *ngFor="let application of applications.casetypes" (click)="handleCreatorAppSelection(application)">{{application.applicationName}}</button></mat-menu></div>'
     var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LiveAppsApplicationCreateButtonComponent'};

@@ -517,7 +517,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseActionsComponent)<br />
+                                @ViewChild(LiveAppsCaseActionsComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -634,7 +634,7 @@ import {LiveAppsCaseActionsComponent} from &#x27;../live-apps-case-actions/live-
 })
 export class LiveAppsActionsComponent implements OnInit {
 
-  @ViewChild(LiveAppsCaseActionsComponent) actionSelector: LiveAppsCaseActionsComponent
+  @ViewChild(LiveAppsCaseActionsComponent, {static: false}) actionSelector: LiveAppsCaseActionsComponent
 
   /**
    * The case reference

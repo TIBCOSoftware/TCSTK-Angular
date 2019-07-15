@@ -660,7 +660,7 @@ export class CaseType {
   id:  string;
   isCase: boolean
   label: any;
-  name: Metadata;
+  name: string;
   jsonSchema: JsonSchema;
   deserialize(input: any): this {
     Object.assign(this, input);

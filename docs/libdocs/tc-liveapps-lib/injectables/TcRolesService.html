@@ -79,6 +79,7 @@
                                 <a href="#amIConfigurator">amIConfigurator</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#currentRole">currentRole</a>
                             </li>
                             <li>
@@ -364,6 +365,7 @@
                         <a name="currentRole"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Private</span>
                             currentRole</b>
                             <a href="#currentRole"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -371,7 +373,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new RoleAttribute()</code>
+                            <i>Default value : </i><code>undefined</code>
                         </td>
                     </tr>
                         <tr>
@@ -506,7 +508,7 @@ export class TcRolesService {
     
     constructor() { }
 
-    currentRole &#x3D; new RoleAttribute();
+    private currentRole &#x3D; undefined;
 
     private hasRoleAccess &#x3D; (roleReq: string, roles: Roles): boolean &#x3D;&gt; {
         const reqRole &#x3D; roles.roles.find(role &#x3D;&gt; {

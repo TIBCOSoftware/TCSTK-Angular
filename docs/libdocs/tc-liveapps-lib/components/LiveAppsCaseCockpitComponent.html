@@ -1200,7 +1200,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseActionsComponent)<br />
+                                @ViewChild(LiveAppsCaseActionsComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1236,7 +1236,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseAuditComponent)<br />
+                                @ViewChild(LiveAppsCaseAuditComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1272,7 +1272,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseDataComponent)<br />
+                                @ViewChild(LiveAppsCaseDataComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1308,7 +1308,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsDocumentsComponent)<br />
+                                @ViewChild(LiveAppsDocumentsComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1344,7 +1344,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsNotesComponent)<br />
+                                @ViewChild(LiveAppsNotesComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1380,7 +1380,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseStateAuditComponent)<br />
+                                @ViewChild(LiveAppsCaseStateAuditComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1416,7 +1416,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseStatesComponent)<br />
+                                @ViewChild(LiveAppsCaseStatesComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1452,7 +1452,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsCaseSummaryComponent)<br />
+                                @ViewChild(LiveAppsCaseSummaryComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1547,7 +1547,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;dataTabGroup&#x27;)<br />
+                                @ViewChild(&#x27;dataTabGroup&#x27;, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1970,7 +1970,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;contextTabGroup&#x27;)<br />
+                                @ViewChild(&#x27;contextTabGroup&#x27;, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -2186,7 +2186,7 @@ import {CustomFormDefs} from &#x27;@tibco-tcstk/tc-forms-lib&#x27;;
 })
 export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild(&#x27;contextTabGroup&#x27;) matTabGroup: MatTabGroup;
+  @ViewChild(&#x27;contextTabGroup&#x27;, {static: false}) matTabGroup: MatTabGroup;
   @ViewChildren(&#x27;contextTabs&#x27;) inclusiveTabs: QueryList&lt;MatTab&gt;;
   @ContentChildren(&#x27;projectedTab&#x27;) tabsFromNgContent: QueryList&lt;MatTab&gt;;
 
@@ -2280,15 +2280,15 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   @Output() routeAction: EventEmitter&lt;RouteAction&gt; &#x3D; new EventEmitter&lt;RouteAction&gt;();
 
 // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
-  @ViewChild(LiveAppsCaseSummaryComponent) caseSummaryComponent: LiveAppsCaseSummaryComponent;
-  @ViewChild(LiveAppsCaseDataComponent) caseDataComponent: LiveAppsCaseDataComponent;
-  @ViewChild(LiveAppsCaseActionsComponent) caseActionsComponent: LiveAppsCaseActionsComponent;
-  @ViewChild(LiveAppsCaseAuditComponent) caseAuditComponent: LiveAppsCaseAuditComponent;
-  @ViewChild(LiveAppsDocumentsComponent) caseDocumentsComponent: LiveAppsDocumentsComponent;
-  @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
-  @ViewChild(LiveAppsCaseStatesComponent) caseStatesComponent: LiveAppsCaseStatesComponent;
-  @ViewChild(LiveAppsCaseStateAuditComponent) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
-  @ViewChild(&#x27;dataTabGroup&#x27;) dataTabGroups: MatTabGroup;
+  @ViewChild(LiveAppsCaseSummaryComponent, {static: false}) caseSummaryComponent: LiveAppsCaseSummaryComponent;
+  @ViewChild(LiveAppsCaseDataComponent, {static: false}) caseDataComponent: LiveAppsCaseDataComponent;
+  @ViewChild(LiveAppsCaseActionsComponent, {static: false}) caseActionsComponent: LiveAppsCaseActionsComponent;
+  @ViewChild(LiveAppsCaseAuditComponent, {static: false}) caseAuditComponent: LiveAppsCaseAuditComponent;
+  @ViewChild(LiveAppsDocumentsComponent, {static: false}) caseDocumentsComponent: LiveAppsDocumentsComponent;
+  @ViewChild(LiveAppsNotesComponent, {static: false}) caseNotesComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsCaseStatesComponent, {static: false}) caseStatesComponent: LiveAppsCaseStatesComponent;
+  @ViewChild(LiveAppsCaseStateAuditComponent, {static: false}) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
+  @ViewChild(&#x27;dataTabGroup&#x27;, {static: false}) dataTabGroups: MatTabGroup;
 
   isFavorite: boolean;
   valid &#x3D; false;

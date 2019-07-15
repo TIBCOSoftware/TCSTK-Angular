@@ -644,7 +644,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;navbar&#x27;)<br />
+                                @ViewChild(&#x27;navbar&#x27;, {static: true})<br />
                             </code>
                         </td>
                     </tr>
@@ -693,7 +693,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
   /**
    * Reference Element
    */
-  @ViewChild(&#x27;navbar&#x27;) private navbarRef: ElementRef;
+  @ViewChild(&#x27;navbar&#x27;, { static: true }) private navbarRef: ElementRef;
   /**
    * diaplayed Application Name
    */

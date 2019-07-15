@@ -565,7 +565,7 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
 
         dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
             if (result) {
-                const newRole &#x3D; new RoleAttribute().deserialize({id: result.id, display: result.name });
+                const newRole &#x3D; new RoleAttribute().deserialize({id: result.id, display: result.name, priority: 1 });
                 this.generalConfig.roles.push(newRole);
             }
         });
@@ -575,50 +575,58 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">  &lt;div fxLayout&#x3D;&quot;column&quot; fxFill&gt;
-    &lt;tc-tibco-cloud-widget-header style&#x3D;&quot;height: 40px;&quot; [icon]&#x3D;&quot;&#x27;tcs-capabilities&#x27;&quot;
-                                  [headerText]&#x3D;&quot;&#x27;Role Configuration&#x27;&quot;&gt;&lt;/tc-tibco-cloud-widget-header&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div fxLayout&#x3D;&quot;column&quot; fxFill&gt;
+    &lt;tc-tibco-cloud-widget-header style&#x3D;&quot;height: 40px;&quot; [icon]&#x3D;&quot;&#x27;tcs-capabilities&#x27;&quot; [headerText]&#x3D;&quot;&#x27;Role Configuration&#x27;&quot;&gt;
+    &lt;/tc-tibco-cloud-widget-header&gt;
     &lt;div fxFlex style&#x3D;&quot;padding: 20px; overflow: hidden&quot; fxLayout&#x3D;&quot;column&quot;&gt;
-      &lt;div style&#x3D;&quot;overflow: auto;&quot;&gt;
-        &lt;div fxLayout&#x3D;&quot;column&quot; fxFlex&gt;
-          &lt;p&gt;You can configure roles by here:&lt;/p&gt;
-          &lt;br&gt;
-          &lt;!-- Role specific --&gt;
-            &lt;mat-accordion&gt;
-              &lt;mat-expansion-panel *ngFor&#x3D;&quot;let role of generalConfig.roles&quot; (opened)&#x3D;&quot;selectedRole(role)&quot;&gt;
-                &lt;mat-expansion-panel-header&gt;
-                  &lt;mat-panel-title&gt;{{role.display}}&lt;/mat-panel-title&gt;
-                &lt;/mat-expansion-panel-header&gt;
-                &lt;div fxLayoutGap&#x3D;&quot;5px&quot;&gt;
-                  &lt;mat-form-field style&#x3D;&quot;min-width: 400px&quot;&gt;
-                    &lt;input matInput placeholder&#x3D;&quot;Id&quot; [(ngModel)]&#x3D;&quot;role.id&quot; readonly&gt;
-                  &lt;/mat-form-field&gt;
-                  &lt;mat-form-field style&#x3D;&quot;min-width: 400px&quot;&gt;
-                    &lt;input matInput placeholder&#x3D;&quot;Display Name&quot; [(ngModel)]&#x3D;&quot;role.display&quot;&gt;
-                  &lt;/mat-form-field&gt;
-                  &lt;mat-form-field style&#x3D;&quot;min-width: 400px&quot;&gt;
-                    &lt;mat-select [disableOptionCentering]&#x3D;&quot;true&quot; placeholder&#x3D;&quot;Live Apps Group&quot; [(value)]&#x3D;&quot;role.group&quot;&gt;
-                      &lt;mat-option *ngFor&#x3D;&quot;let group of groups.groups&quot; [value]&#x3D;&quot;group.name&quot;&gt;
-                        &lt;span matTooltip&#x3D;&quot;{{group.description}}&quot; matTooltipShowDelay&#x3D;&quot;1000&quot; matTooltipPosition&#x3D;&quot;below&quot;&gt;{{group.name}}&lt;/span&gt;
-                      &lt;/mat-option&gt;
-                    &lt;/mat-select&gt;
-                  &lt;/mat-form-field&gt;
-                  &lt;mat-slide-toggle [(ngModel)]&#x3D;&quot;role.configuration&quot;&gt;Configuration role&lt;/mat-slide-toggle&gt;
-                &lt;/div&gt;
-              &lt;/mat-expansion-panel&gt;
-            &lt;/mat-accordion&gt;
-        &lt;/div&gt;
+        &lt;div style&#x3D;&quot;overflow: auto;&quot;&gt;
+            &lt;div fxLayout&#x3D;&quot;column&quot; fxFlex&gt;
+                &lt;p&gt;You can configure roles by here:&lt;/p&gt;
+                &lt;br&gt;
+                &lt;!-- Role specific --&gt;
+                &lt;mat-accordion&gt;
+                    &lt;mat-expansion-panel *ngFor&#x3D;&quot;let role of generalConfig.roles&quot; (opened)&#x3D;&quot;selectedRole(role)&quot;&gt;
+                        &lt;mat-expansion-panel-header&gt;
+                            &lt;mat-panel-title&gt;{{role.display}}&lt;/mat-panel-title&gt;
+                        &lt;/mat-expansion-panel-header&gt;
+                        &lt;div fxLayout&#x3D;&quot;column&quot;&gt;
+                            &lt;div fxLayoutGap&#x3D;&quot;10px&quot;&gt;
+                                &lt;mat-form-field fxFlex&#x3D;&quot;20&quot; style&#x3D;&quot;min-width: 100px;&quot;&gt;
+                                    &lt;input matInput placeholder&#x3D;&quot;Id&quot; [(ngModel)]&#x3D;&quot;role.id&quot; readonly&gt;
+                                &lt;/mat-form-field&gt;
+                                &lt;mat-form-field fxFlex&#x3D;&quot;40&quot; style&#x3D;&quot;min-width: 400px;&quot;&gt;
+                                    &lt;input matInput placeholder&#x3D;&quot;Display Name&quot; [(ngModel)]&#x3D;&quot;role.display&quot;&gt;
+                                &lt;/mat-form-field&gt;
+                                &lt;mat-form-field fxFlex&#x3D;&quot;40&quot; style&#x3D;&quot;min-width: 400px;&quot;&gt;
+                                    &lt;mat-select [disableOptionCentering]&#x3D;&quot;true&quot; placeholder&#x3D;&quot;Live Apps Group&quot; [(value)]&#x3D;&quot;role.group&quot;&gt;
+                                        &lt;mat-option *ngFor&#x3D;&quot;let group of groups.groups&quot; [value]&#x3D;&quot;group.name&quot;&gt;
+                                            &lt;span matTooltip&#x3D;&quot;{{group.description}}&quot; matTooltipShowDelay&#x3D;&quot;1000&quot;
+                                                matTooltipPosition&#x3D;&quot;below&quot;&gt;{{group.name}}&lt;/span&gt;
+                                        &lt;/mat-option&gt;
+                                    &lt;/mat-select&gt;
+                                &lt;/mat-form-field&gt;
+                            &lt;/div&gt;
+                            &lt;div fxLayoutGap&#x3D;&quot;5px&quot;&gt;
+                                &lt;mat-form-field fxFlex&#x3D;&quot;20&quot;&gt;
+                                    &lt;input matInput type&#x3D;&quot;number&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;10&quot; placeholder&#x3D;&quot;Priority&quot; [(ngModel)]&#x3D;&quot;role.priority&quot;&gt;
+                                &lt;/mat-form-field&gt;
+                                &lt;mat-slide-toggle [(ngModel)]&#x3D;&quot;role.configuration&quot;&gt;Configuration role&lt;/mat-slide-toggle&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/mat-expansion-panel&gt;
+                &lt;/mat-accordion&gt;
+            &lt;/div&gt;
 
-      &lt;/div&gt;
-      &lt;div fxFlex class&#x3D;&quot;tcs-filler-panel&quot;&gt;&lt;/div&gt;
-      &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;end end&quot; fxLayoutGap&#x3D;&quot;10px&quot; style&#x3D;&quot;min-height: 50px&quot;&gt;
-        &lt;button mat-raised-button color&#x3D;&quot;secondary&quot; [disabled]&#x3D;&quot;!currentRole&quot; (click)&#x3D;&quot;deleteRoleFunction()&quot;&gt;Delete&lt;/button&gt;
-        &lt;button mat-raised-button color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;createRoleFunction()&quot;&gt;New&lt;/button&gt;
-        &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;runSaveFunction()&quot;&gt;Save&lt;/button&gt;
-      &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div fxFlex class&#x3D;&quot;tcs-filler-panel&quot;&gt;&lt;/div&gt;
+        &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;end end&quot; fxLayoutGap&#x3D;&quot;10px&quot; style&#x3D;&quot;min-height: 50px&quot;&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;secondary&quot; [disabled]&#x3D;&quot;!currentRole&quot;
+                (click)&#x3D;&quot;deleteRoleFunction()&quot;&gt;Delete&lt;/button&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;secondary&quot; (click)&#x3D;&quot;createRoleFunction()&quot;&gt;New&lt;/button&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;runSaveFunction()&quot;&gt;Save&lt;/button&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -653,7 +661,7 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>  <div fxLayout="column" fxFill>    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="\'tcs-capabilities\'"                                  [headerText]="\'Role Configuration\'"></tc-tibco-cloud-widget-header>    <div fxFlex style="padding: 20px; overflow: hidden" fxLayout="column">      <div style="overflow: auto;">        <div fxLayout="column" fxFlex>          <p>You can configure roles by here:</p>          <br>          <!-- Role specific -->            <mat-accordion>              <mat-expansion-panel *ngFor="let role of generalConfig.roles" (opened)="selectedRole(role)">                <mat-expansion-panel-header>                  <mat-panel-title>{{role.display}}</mat-panel-title>                </mat-expansion-panel-header>                <div fxLayoutGap="5px">                  <mat-form-field style="min-width: 400px">                    <input matInput placeholder="Id" [(ngModel)]="role.id" readonly>                  </mat-form-field>                  <mat-form-field style="min-width: 400px">                    <input matInput placeholder="Display Name" [(ngModel)]="role.display">                  </mat-form-field>                  <mat-form-field style="min-width: 400px">                    <mat-select [disableOptionCentering]="true" placeholder="Live Apps Group" [(value)]="role.group">                      <mat-option *ngFor="let group of groups.groups" [value]="group.name">                        <span matTooltip="{{group.description}}" matTooltipShowDelay="1000" matTooltipPosition="below">{{group.name}}</span>                      </mat-option>                    </mat-select>                  </mat-form-field>                  <mat-slide-toggle [(ngModel)]="role.configuration">Configuration role</mat-slide-toggle>                </div>              </mat-expansion-panel>            </mat-accordion>        </div>      </div>      <div fxFlex class="tcs-filler-panel"></div>      <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px" style="min-height: 50px">        <button mat-raised-button color="secondary" [disabled]="!currentRole" (click)="deleteRoleFunction()">Delete</button>        <button mat-raised-button color="secondary" (click)="createRoleFunction()">New</button>        <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>      </div>    </div>  </div></div>'
+        var COMPONENT_TEMPLATE = '<div><div fxLayout="column" fxFill>    <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="\'tcs-capabilities\'" [headerText]="\'Role Configuration\'">    </tc-tibco-cloud-widget-header>    <div fxFlex style="padding: 20px; overflow: hidden" fxLayout="column">        <div style="overflow: auto;">            <div fxLayout="column" fxFlex>                <p>You can configure roles by here:</p>                <br>                <!-- Role specific -->                <mat-accordion>                    <mat-expansion-panel *ngFor="let role of generalConfig.roles" (opened)="selectedRole(role)">                        <mat-expansion-panel-header>                            <mat-panel-title>{{role.display}}</mat-panel-title>                        </mat-expansion-panel-header>                        <div fxLayout="column">                            <div fxLayoutGap="10px">                                <mat-form-field fxFlex="20" style="min-width: 100px;">                                    <input matInput placeholder="Id" [(ngModel)]="role.id" readonly>                                </mat-form-field>                                <mat-form-field fxFlex="40" style="min-width: 400px;">                                    <input matInput placeholder="Display Name" [(ngModel)]="role.display">                                </mat-form-field>                                <mat-form-field fxFlex="40" style="min-width: 400px;">                                    <mat-select [disableOptionCentering]="true" placeholder="Live Apps Group" [(value)]="role.group">                                        <mat-option *ngFor="let group of groups.groups" [value]="group.name">                                            <span matTooltip="{{group.description}}" matTooltipShowDelay="1000"                                                matTooltipPosition="below">{{group.name}}</span>                                        </mat-option>                                    </mat-select>                                </mat-form-field>                            </div>                            <div fxLayoutGap="5px">                                <mat-form-field fxFlex="20">                                    <input matInput type="number" min="0" max="10" placeholder="Priority" [(ngModel)]="role.priority">                                </mat-form-field>                                <mat-slide-toggle [(ngModel)]="role.configuration">Configuration role</mat-slide-toggle>                            </div>                        </div>                    </mat-expansion-panel>                </mat-accordion>            </div>        </div>        <div fxFlex class="tcs-filler-panel"></div>        <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="10px" style="min-height: 50px">            <button mat-raised-button color="secondary" [disabled]="!currentRole"                (click)="deleteRoleFunction()">Delete</button>            <button mat-raised-button color="secondary" (click)="createRoleFunction()">New</button>            <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>        </div>    </div></div></div>'
     var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LiveAppsSettingsRolesComponent'};

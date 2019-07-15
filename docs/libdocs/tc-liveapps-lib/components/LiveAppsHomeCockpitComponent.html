@@ -753,7 +753,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsActiveCasesWidgetComponent)<br />
+                                @ViewChild(LiveAppsActiveCasesWidgetComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -844,7 +844,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsNotesComponent)<br />
+                                @ViewChild(LiveAppsNotesComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -935,7 +935,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsDocumentsComponent)<br />
+                                @ViewChild(LiveAppsDocumentsComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -971,7 +971,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsFavoriteCasesComponent)<br />
+                                @ViewChild(LiveAppsFavoriteCasesComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1193,7 +1193,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsRecentCasesComponent)<br />
+                                @ViewChild(LiveAppsRecentCasesComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1256,7 +1256,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsSearchWidgetComponent)<br />
+                                @ViewChild(LiveAppsSearchWidgetComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1423,12 +1423,12 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
    */
   @Output() routeAction: EventEmitter&lt;RouteAction&gt; &#x3D; new EventEmitter&lt;RouteAction&gt;();
 
-  @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;
-  @ViewChild(LiveAppsRecentCasesComponent) recentsComponent: LiveAppsRecentCasesComponent;
-  @ViewChild(LiveAppsSearchWidgetComponent) searchComponent: LiveAppsSearchWidgetComponent;
-  @ViewChild(LiveAppsNotesComponent) collaborationComponent: LiveAppsNotesComponent;
-  @ViewChild(LiveAppsDocumentsComponent) documentsComponent: LiveAppsDocumentsComponent;
-  @ViewChild(LiveAppsActiveCasesWidgetComponent) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
+  @ViewChild(LiveAppsFavoriteCasesComponent, {static: false}) favoritesComponent: LiveAppsFavoriteCasesComponent;
+  @ViewChild(LiveAppsRecentCasesComponent, {static: false}) recentsComponent: LiveAppsRecentCasesComponent;
+  @ViewChild(LiveAppsSearchWidgetComponent, {static: false}) searchComponent: LiveAppsSearchWidgetComponent;
+  @ViewChild(LiveAppsNotesComponent, {static: false}) collaborationComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsDocumentsComponent, {static: false}) documentsComponent: LiveAppsDocumentsComponent;
+  @ViewChild(LiveAppsActiveCasesWidgetComponent, {static: false}) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
 
   public toolbarButtons: ToolbarButton[] &#x3D; [];
   public caseStartButtonActive: boolean;
