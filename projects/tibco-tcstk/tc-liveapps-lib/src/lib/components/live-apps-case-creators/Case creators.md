@@ -34,7 +34,7 @@ creatorClicked | EventEmitter<LaProcessSelection> |   |
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsCaseCreatorsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseCreatorsComponent.html)
+[Link to LiveAppsCaseCreatorsComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsCaseCreatorsComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

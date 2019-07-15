@@ -39,6 +39,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+customActions | string[] | Custom Document Buttons (array of text)
 filter | string | NOT used but would allow a search filter on documents
 folderDescription | string | header text on component (defaults to documents)
 folderId | string | The organisation folder to store/retrieve documents
@@ -46,10 +47,16 @@ folderType | string | orgFolders&#39; or &#39;caseFolders&#39; - different API c
 sandboxId | number | sandboxId - this comes from claims resolver
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
 
+#### Outputs
+
+Attribute | Type |   | Comments
+--- | --- | --- | ---
+customActionClicked | EventEmitter<DocumentAction> |   |  
+
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsDocumentsComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsDocumentsComponent.html)
+[Link to LiveAppsDocumentsComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsDocumentsComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
