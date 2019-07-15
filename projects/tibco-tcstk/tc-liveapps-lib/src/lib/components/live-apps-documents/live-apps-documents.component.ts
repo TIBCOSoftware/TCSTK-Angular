@@ -6,7 +6,6 @@ import {DocumentList, Document, DocumentAction} from '../../models/tc-document';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcDocumentService} from '../../services/tc-document.service';
-import {ProcessId} from '@tibco-tcstk/tc-liveapps-lib';
 
 
 /**
