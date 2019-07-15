@@ -1,6 +1,15 @@
 import {Deserializable} from '@tibco-tcstk/tc-core-lib';
 import {UserInfo} from './liveappsdata';
 
+export class DocumentAction implements Deserializable {
+  action: string;
+  document: Document;
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
 export class Document implements Deserializable {
   artifactCheckSum: string;
   artifactRef: string;

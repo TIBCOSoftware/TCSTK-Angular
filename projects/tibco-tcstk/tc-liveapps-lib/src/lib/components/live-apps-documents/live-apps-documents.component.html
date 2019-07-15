@@ -37,6 +37,7 @@
                 <button class="tcs-document-action-text" mat-menu-item (click)="viewDocument(document)">View</button>
                 <button class="tcs-document-action-text" mat-menu-item (click)="downloadDocument(document)">Download</button>
                 <button class="tcs-document-action-text" mat-menu-item (click)="removeDocument(document)">Delete</button>
+                <button *ngFor="let customAction of customActions" class="tcs-document-action-text" mat-menu-item (click)="customActionClick(customAction, document)">{{customAction}}</button>
               </mat-menu>
 
 
