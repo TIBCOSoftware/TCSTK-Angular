@@ -610,7 +610,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;creatorSelector&#x27;)<br />
+                                @ViewChild(&#x27;creatorSelector&#x27;, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -786,7 +786,7 @@ import {MatSelect} from &#x27;@angular/material&#x27;;
   styleUrls: [&#x27;./live-apps-creator-selector.component.css&#x27;]
 })
 export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implements OnChanges {
-  @ViewChild(&#x27;creatorSelector&#x27;) creatorSelector: MatSelect;
+  @ViewChild(&#x27;creatorSelector&#x27;, {static: false}) creatorSelector: MatSelect;
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string;

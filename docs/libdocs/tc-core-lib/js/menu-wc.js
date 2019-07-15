@@ -302,6 +302,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/TcGeneralLandingPageConfigService.html" data-type="entity-link">TcGeneralLandingPageConfigService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/TcGeneralLandingPageService.html" data-type="entity-link">TcGeneralLandingPageService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/TcLoginService.html" data-type="entity-link">TcLoginService</a>
                                 </li>
                                 <li class="link">

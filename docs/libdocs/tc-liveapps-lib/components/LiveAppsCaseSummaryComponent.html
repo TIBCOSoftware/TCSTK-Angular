@@ -1079,7 +1079,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;caseTypeIcon&#x27;)<br />
+                                @ViewChild(&#x27;caseTypeIcon&#x27;, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1300,7 +1300,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;caseStateIcon&#x27;)<br />
+                                @ViewChild(&#x27;caseStateIcon&#x27;, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1504,8 +1504,8 @@ import {TcCaseCardConfigService} from &#x27;../../services/tc-case-card-config.s
 
 export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit, OnChanges {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
-  @ViewChild(&#x27;caseStateIcon&#x27;) stateIconComponent: LiveAppsStateIconComponent;
-  @ViewChild(&#x27;caseTypeIcon&#x27;) caseTypeIconComponent: LiveAppsStateIconComponent;
+  @ViewChild(&#x27;caseStateIcon&#x27;, {static: false}) stateIconComponent: LiveAppsStateIconComponent;
+  @ViewChild(&#x27;caseTypeIcon&#x27;, {static: false}) caseTypeIconComponent: LiveAppsStateIconComponent;
 
   /**
    * Whether to use static data (ie. when in app config box)

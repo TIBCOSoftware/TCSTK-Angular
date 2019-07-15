@@ -281,7 +281,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-action/live-apps-case-action.component.ts:69</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-action/live-apps-case-action.component.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -731,8 +731,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-action/live-apps-case-action.component.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-action/live-apps-case-action.component.ts:81</a></div>
                 </td>
             </tr>
 
@@ -801,8 +801,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-action/live-apps-case-action.component.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-case-action/live-apps-case-action.component.ts:76</a></div>
                 </td>
             </tr>
 
@@ -1307,7 +1307,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
             this.originalData &#x3D; {
               [this.process.process.name]: casedata
             };
-            const caseTypeName &#x3D; this.getMainCaseTypeFromSchema(this.typeId, this.process).applicationInternalName;
+            // JS: use name rather than internalObjectName to handle appliction name change
+            const caseTypeName &#x3D; this.getMainCaseTypeFromSchema(this.typeId, this.process).name;
             this.data &#x3D; {
               [caseTypeName]: casedata
             };

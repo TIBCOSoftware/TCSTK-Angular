@@ -558,6 +558,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="guards/LiveAppsConfigResolver.html" data-type="entity-link">LiveAppsConfigResolver</a>
                             </li>
                             <li class="link">
+                                <a href="guards/RoleActiveResolver.html" data-type="entity-link">RoleActiveResolver</a>
+                            </li>
+                            <li class="link">
                                 <a href="guards/RoleGuard.html" data-type="entity-link">RoleGuard</a>
                             </li>
                             <li class="link">

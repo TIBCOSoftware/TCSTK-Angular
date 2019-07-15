@@ -67,25 +67,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#getLandingPage">getLandingPage</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#getLandingPageForRoles">getLandingPageForRoles</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -474,66 +455,6 @@
         </tbody>
     </table>
 </section>
-            <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getLandingPage"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            getLandingPage</b>
-                            <a href="#getLandingPage"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/services/tc-general-landing-page-config.service.ts:74</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="getLandingPageForRoles"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            getLandingPageForRoles</b>
-                            <a href="#getLandingPageForRoles"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-core-lib/src/lib/services/tc-general-landing-page-config.service.ts:84</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-</section>
 
     </div>
 
@@ -611,33 +532,6 @@ export class TcGeneralLandingPageConfigService {
                 })
             );
     }
-
-    public getLandingPage &#x3D; (key: string, uiAppId: string): Observable&lt;LandingPageConfig&gt; &#x3D;&gt; {
-        const landingPage &#x3D; this.getGeneralLandingPageConfig(uiAppId, true, true).pipe(
-            map(landingPages &#x3D;&gt; {
-                const page &#x3D; landingPages.landingPage.filter(element &#x3D;&gt; element.key &#x3D;&#x3D;&#x3D; key )[0];
-                return page;
-            })            
-        )   
-        return landingPage;
-    }
-
-    public getLandingPageForRoles &#x3D; (roles: string[], uiAppId: string): Observable&lt;LandingPageConfig&gt; &#x3D;&gt; {
-        const landingPage &#x3D; this.getGeneralLandingPageConfig(uiAppId, true, true).pipe(
-            map(landingPages &#x3D;&gt; {
-                const candidatePages &#x3D; landingPages.landingPage.filter(element &#x3D;&gt; roles.some(r &#x3D;&gt; element.roles.indexOf(r) &gt;&#x3D; 0));
-                if (candidatePages.length &#x3D;&#x3D; 1) {
-                    return candidatePages[0];
-                } else {
-                    const higherPriority &#x3D; Math.max.apply(Math, candidatePages.map(function (o) { return o.priority; }))
-                    const candidatePage &#x3D; candidatePages.find(function (o) { return o.priority &#x3D;&#x3D; higherPriority; })
-                    return candidatePage;
-                }
-            })
-        )
-        return landingPage;
-
-    } 
 }
 
 </code></pre>

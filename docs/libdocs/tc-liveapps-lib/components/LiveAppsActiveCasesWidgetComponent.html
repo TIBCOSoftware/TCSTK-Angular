@@ -559,7 +559,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsActiveCasesReportComponent)<br />
+                                @ViewChild(LiveAppsActiveCasesReportComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -595,7 +595,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(LiveAppsActiveCasesForTypeReportComponent)<br />
+                                @ViewChild(LiveAppsActiveCasesForTypeReportComponent, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -853,8 +853,8 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   @Output() selectedCaseTypeState: EventEmitter&lt;CaseTypeStateReportStateInfo&gt; &#x3D; new EventEmitter&lt;CaseTypeStateReportStateInfo&gt;();
 
 
-  @ViewChild(LiveAppsActiveCasesReportComponent) activeCasesComp: LiveAppsActiveCasesReportComponent;
-  @ViewChild(LiveAppsActiveCasesForTypeReportComponent) activeCaseTypeComp: LiveAppsActiveCasesForTypeReportComponent;
+  @ViewChild(LiveAppsActiveCasesReportComponent, {static: false}) activeCasesComp: LiveAppsActiveCasesReportComponent;
+  @ViewChild(LiveAppsActiveCasesForTypeReportComponent, {static: false}) activeCaseTypeComp: LiveAppsActiveCasesForTypeReportComponent;
 
   public selectedCaseTypeReport: CaseTypeReportRecord;
 

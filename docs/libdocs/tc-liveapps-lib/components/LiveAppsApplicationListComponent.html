@@ -784,7 +784,7 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(MatSelectionList)<br />
+                                @ViewChild(MatSelectionList, {static: false})<br />
                             </code>
                         </td>
                     </tr>
@@ -1189,7 +1189,7 @@ import {MatSelectionList} from &#x27;@angular/material&#x27;;
   styleUrls: [&#x27;./live-apps-application-list.component.css&#x27;]
 })
 export class LiveAppsApplicationListComponent extends LiveAppsApplicationsComponent implements OnInit, OnChanges {
-  @ViewChild (MatSelectionList) appSelectionList: MatSelectionList;
+  @ViewChild (MatSelectionList, {static: false}) appSelectionList: MatSelectionList;
 
   /**
    * The app Ids selected (output)
