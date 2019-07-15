@@ -40,7 +40,7 @@ loggedIn | EventEmitter |   |
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudLoginComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudLoginComponent.html)
+[Link to TibcoCloudLoginComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudLoginComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

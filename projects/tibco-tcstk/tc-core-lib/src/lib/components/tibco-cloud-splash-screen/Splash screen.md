@@ -43,7 +43,7 @@ getStartedEvent | EventEmitter<string> |   |
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudSplashScreenComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudSplashScreenComponent.html)
+[Link to TibcoCloudSplashScreenComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudSplashScreenComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
