@@ -1,0 +1,2225 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>TIBCO Cloud Starters Toolkit - Live Apps Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">TIBCO Cloud Starters Toolkit - Live Apps Library</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LiveAppsNotesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This Component allows to list, and add Notes to a Case-Instance or other Context e.g. a whole Application.
+Any Note can have Sub-Notes to allow real collaboration.</p>
+<p><img src="../live-apps-notes.png" alt="alt-text" class="img-responsive" title="Notes Component Image"></p>
+
+    </p>
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;tcla-live-apps-notes&gt;&lt;/tcla-live-apps-notes&gt;</code></pre>
+                </div>
+    </div>
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>tcla-live-apps-notes</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./live-apps-notes.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./live-apps-notes.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createReply">createReply</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createThread">createThread</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#createToolbarButtons">createToolbarButtons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteNote">deleteNote</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#delNoteId">delNoteId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editNote">editNote</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#end">end</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMessage">errorMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getBatch">getBatch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getNotifications">getNotifications</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#handleToolbarButtonEvent">handleToolbarButtonEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#newNote">newNote</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#newNoteId">newNoteId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#notes">notes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#recreateButtonsForNotifications">recreateButtonsForNotifications</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setupNotificationButtons">setupNotificationButtons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#skip">skip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#subscribe">subscribe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#subscribed">subscribed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#threads">threads</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleNewReply">toggleNewReply</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleReplies">toggleReplies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toolbarButtons">toolbarButtons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#top">top</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#unsubscribe">unsubscribe</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateButtonDef">updateButtonDef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateNote">updateNote</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_destroyed$">_destroyed$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#relatedItemId">relatedItemId</a>
+                            </li>
+                            <li>
+                                <a href="#relatedItemType">relatedItemType</a>
+                            </li>
+                            <li>
+                                <a href="#showHeader">showHeader</a>
+                            </li>
+                            <li>
+                                <a href="#userId">userId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(liveapps: <a href="../injectables/LiveAppsService.html">LiveAppsService</a>, buttonsHelper: TcButtonsHelperService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>liveapps</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LiveAppsService.html" target="_self" >LiveAppsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>buttonsHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code>TcButtonsHelperService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="relatedItemId"></a>
+                        <b>relatedItemId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:34</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>itemId for notes collection</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="relatedItemType"></a>
+                        <b>relatedItemType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:29</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>itemType for notes collection</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showHeader"></a>
+                        <b>showHeader</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.showHeader ? this.showHeader : true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:44</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userId"></a>
+                        <b>userId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:39</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The ID of the logged user</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="262"
+                            class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:262</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:27</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createReply"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            createReply</b>
+                            <a href="#createReply"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:117</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createThread"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            createThread</b>
+                            <a href="#createThread"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:131</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createToolbarButtons"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            createToolbarButtons</b>
+                            <a href="#createToolbarButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:148</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteNote"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deleteNote</b>
+                            <a href="#deleteNote"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:248</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delNoteId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            delNoteId</b>
+                            <a href="#delNoteId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editNote"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            editNote</b>
+                            <a href="#editNote"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="229" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:229</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="end"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            end</b>
+                            <a href="#end"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessage"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorMessage</b>
+                            <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBatch"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getBatch</b>
+                            <a href="#getBatch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:73</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getNotifications"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getNotifications</b>
+                            <a href="#getNotifications"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:182</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="handleToolbarButtonEvent"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            handleToolbarButtonEvent</b>
+                            <a href="#handleToolbarButtonEvent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:169</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newNote"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            newNote</b>
+                            <a href="#newNote"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newNoteId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            newNoteId</b>
+                            <a href="#newNoteId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="notes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            notes</b>
+                            <a href="#notes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Note.html" target="_self" >Note[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recreateButtonsForNotifications"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            recreateButtonsForNotifications</b>
+                            <a href="#recreateButtonsForNotifications"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:177</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refresh"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            refresh</b>
+                            <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setupNotificationButtons"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setupNotificationButtons</b>
+                            <a href="#setupNotificationButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:157</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="skip"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            skip</b>
+                            <a href="#skip"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subscribe"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            subscribe</b>
+                            <a href="#subscribe"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:201</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subscribed"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            subscribed</b>
+                            <a href="#subscribed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="threads"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            threads</b>
+                            <a href="#threads"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/ThreadList.html" target="_self" >ThreadList</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleNewReply"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toggleNewReply</b>
+                            <a href="#toggleNewReply"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:103</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleReplies"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toggleReplies</b>
+                            <a href="#toggleReplies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:99</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toolbarButtons"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toolbarButtons</b>
+                            <a href="#toolbarButtons"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ToolbarButton[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="top"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            top</b>
+                            <a href="#top"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>5</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="unsubscribe"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            unsubscribe</b>
+                            <a href="#unsubscribe"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:216</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateButtonDef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            updateButtonDef</b>
+                            <a href="#updateButtonDef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:162</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateNote"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            updateNote</b>
+                            <a href="#updateNote"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="233" class="link-to-prism">C:/GoDev/src/TCST-Angular/projects/tibco-tcstk/tc-liveapps-lib/src/lib/components/live-apps-notes/live-apps-notes.component.ts:233</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_destroyed$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _destroyed$</b>
+                            <a href="#_destroyed$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../components/LiveAppsComponent.html" target="_self" >LiveAppsComponent</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../components/LiveAppsComponent.html#source" target="_self" >LiveAppsComponent:23</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, OnDestroy, OnInit} from &#x27;@angular/core&#x27;;
+import {Subject} from &#x27;rxjs&#x27;;
+import {LiveAppsService} from &#x27;../../services/live-apps.service&#x27;;
+import {map, take, takeUntil} from &#x27;rxjs/operators&#x27;;
+import {Note, NoteThread, NotificationList, ThreadList} from &#x27;../../models/liveappsdata&#x27;;
+import {LiveAppsComponent} from &#x27;../live-apps-component/live-apps-component.component&#x27;;
+import {ToolbarButton} from &#x27;@tibco-tcstk/tc-core-lib&#x27;;
+import {TcButtonsHelperService} from &#x27;@tibco-tcstk/tc-core-lib&#x27;;
+
+
+/**
+ * This Component allows to list, and add Notes to a Case-Instance or other Context e.g. a whole Application.
+ * Any Note can have Sub-Notes to allow real collaboration.
+ *
+ * ![alt-text](../live-apps-notes.png &quot;Notes Component Image&quot;)
+ *
+ *@example &lt;tcla-live-apps-notes&gt;&lt;/tcla-live-apps-notes&gt;
+ */
+@Component({
+  selector: &#x27;tcla-live-apps-notes&#x27;,
+  templateUrl: &#x27;./live-apps-notes.component.html&#x27;,
+  styleUrls: [&#x27;./live-apps-notes.component.css&#x27;]
+})
+
+export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit {
+  /**
+   * itemType for notes collection
+   */
+  @Input() relatedItemType: string; // use &#x27;CASE_APP&#x27; to share notes with case manager
+
+  /**
+   * itemId for notes collection
+   */
+  @Input() relatedItemId: string; // &#x27;caseRef&#x27; for case related
+
+  /**
+   * The ID of the logged user
+   */
+  @Input() userId: string;
+
+  /**
+   * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+   */
+  @Input() showHeader: boolean &#x3D; this.showHeader ? this.showHeader : true;
+
+  public notes: Note[];
+  public errorMessage: string;
+  public newNote: any &#x3D; {};
+  public newNoteId: number;
+  public delNoteId: number;
+  public threads: ThreadList;
+  public subscribed: Boolean;
+  public skip &#x3D; 0;
+  public top &#x3D; 5;
+  public end &#x3D; false;
+  public toolbarButtons: ToolbarButton[] &#x3D; [];
+
+  constructor(private liveapps: LiveAppsService, private buttonsHelper: TcButtonsHelperService) {
+    super();
+  }
+
+  public refresh &#x3D; () &#x3D;&gt; {
+    this.skip &#x3D; 0;
+    this.top &#x3D; 5;
+    this.end &#x3D; false;
+    if (this.threads &amp;&amp; this.threads.threads) {
+      this.threads.threads.length &#x3D; 0;
+    }
+    this.getBatch();
+    this.getNotifications();
+  }
+
+  public getBatch &#x3D; () &#x3D;&gt; {
+    if (!this.end) {
+      this.liveapps.getThreads(this.relatedItemType, this.relatedItemId, this.skip, this.top)
+        .pipe(
+          take(1),
+          takeUntil(this._destroyed$),
+          map(threadList &#x3D;&gt; {
+            if (!this.threads) {
+              this.threads &#x3D; threadList;
+            } else {
+              // this will strip any duplicates that may have been retrieved due to fast scrolling
+              const filteredEvents &#x3D; threadList.threads.filter(x &#x3D;&gt; this.threads.threads.every(y &#x3D;&gt; y.note.id !&#x3D;&#x3D; x.note.id));
+              this.threads.threads &#x3D; this.threads.threads.concat(filteredEvents);
+            }
+            if (threadList.threads.length &lt; this.top) {
+              this.end &#x3D; true;
+            } else {
+              this.skip &#x3D; this.skip + threadList.threads.length - 1;
+            }
+          })
+        ).subscribe(null, error &#x3D;&gt; {
+        this.errorMessage &#x3D; &#x27;Error retrieving notes: &#x27; + error.error.errorMsg;
+      });
+    }
+  }
+
+  public toggleReplies &#x3D; (thread) &#x3D;&gt; {
+    thread.showReplies &#x3D; !thread.showReplies;
+  }
+
+  public toggleNewReply &#x3D; (thread) &#x3D;&gt; {
+    if (!thread.newReply) {
+      thread.newReply &#x3D; {};
+    }
+    if (thread.showReplies &amp;&amp; !thread.showNewReply) {
+      thread.newReply &#x3D; {};
+      thread.showNewReply &#x3D; true;
+    } else {
+      thread.showNewReply &#x3D; !thread.showNewReply;
+      thread.showReplies &#x3D; !thread.showReplies;
+    }
+
+  }
+
+  public createReply &#x3D; (thread, replyText) &#x3D;&gt; {
+    this.liveapps.createReplyNote(thread.note, replyText, thread.note.id)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result &#x3D;&gt; {
+          this.newNoteId &#x3D; result;
+          thread.newReply.text &#x3D; undefined;
+          this.refresh();
+        })
+      )
+      .subscribe(null, error &#x3D;&gt; this.errorMessage &#x3D; &#x27;Error creating new note: &#x27; + error.error.errorMessage);
+  }
+
+  public createThread &#x3D; (noteText) &#x3D;&gt; {
+    if (noteText !&#x3D;&#x3D; undefined) {
+      this.liveapps.createNote(this.relatedItemType, &#x27;RT_CASE&#x27;, this.relatedItemId, &#x27;comments update&#x27;, &#x27;&#x27;, &#x27;&#x27;, noteText)
+        .pipe(
+          take(1),
+          takeUntil(this._destroyed$),
+          map(result &#x3D;&gt; {
+            this.newNoteId &#x3D; result;
+            this.newNote.text &#x3D; undefined;
+            this.refresh();
+          })
+        )
+        .subscribe(null, error &#x3D;&gt; this.errorMessage &#x3D; &#x27;Error creating new note: &#x27; + error.error.errorMessage);
+    }
+  }
+
+
+  protected createToolbarButtons &#x3D; (subscribed): ToolbarButton[] &#x3D;&gt; {
+    const subscribeButton: ToolbarButton &#x3D; this.buttonsHelper.createButton(
+      &#x27;subscribe&#x27;, &#x27;tcs-collaboration-unsubscribed&#x27;, true, &#x27;Enable Notifications&#x27;, !subscribed, !subscribed);
+    const unSubscribeButton: ToolbarButton &#x3D; this.buttonsHelper.createButton(
+      &#x27;unsubscribe&#x27;, &#x27;tcs-collaboration-subscribed&#x27;, true, &#x27;Disable Notifications&#x27;, subscribed, subscribed);
+    const buttons &#x3D; [ subscribeButton, unSubscribeButton ];
+    return buttons;
+  }
+
+  public setupNotificationButtons &#x3D; (subscribed: boolean) &#x3D;&gt; {
+    const buttons: ToolbarButton[] &#x3D; this.createToolbarButtons(subscribed);
+    this.buttonsHelper.updateButtons(buttons, this.toolbarButtons);
+  }
+
+  public updateButtonDef &#x3D; (updatedToolbarButtons: ToolbarButton[]) &#x3D;&gt; {
+    updatedToolbarButtons.forEach( updatedButton &#x3D;&gt; {
+      const idx &#x3D; this.toolbarButtons.findIndex(item &#x3D;&gt; item.id &#x3D;&#x3D;&#x3D; updatedButton.id);
+      this.toolbarButtons[idx] &#x3D; updatedButton;
+    });
+  }
+
+  public handleToolbarButtonEvent &#x3D; (id) &#x3D;&gt; {
+    if (id &#x3D;&#x3D;&#x3D; &#x27;subscribe&#x27;) {
+      this.subscribe();
+    } else if (id &#x3D;&#x3D;&#x3D; &#x27;unsubscribe&#x27;) {
+      this.unsubscribe();
+    }
+  }
+
+  public recreateButtonsForNotifications &#x3D; (subscribed) &#x3D;&gt; {
+      const buttons: ToolbarButton[] &#x3D; this.createToolbarButtons(subscribed);
+      this.buttonsHelper.updateButtons(buttons, this.toolbarButtons);
+  }
+
+  public getNotifications &#x3D; () &#x3D;&gt; {
+    this.liveapps.getNotifications(this.relatedItemType, this.relatedItemId, this.userId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result &#x3D;&gt; {
+          const notificationList: NotificationList &#x3D; result;
+          if (notificationList.notifications.length &gt; 0) {
+            this.subscribed &#x3D; true;
+            this.setupNotificationButtons(true);
+          } else {
+            this.subscribed &#x3D; false;
+            this.setupNotificationButtons(false);
+          }
+        })
+      )
+      .subscribe(null, error &#x3D;&gt; this.errorMessage &#x3D; &#x27;Error creating new note: &#x27; + error.error.errorMessage);
+  }
+
+  public subscribe &#x3D; () &#x3D;&gt; {
+    this.liveapps.subscribeToNotes(this.relatedItemType, this.relatedItemId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result &#x3D;&gt; {
+          if (result) {
+            this.subscribed &#x3D; true;
+            this.recreateButtonsForNotifications(true);
+          }
+        })
+      )
+      .subscribe(null, error &#x3D;&gt; this.errorMessage &#x3D; &#x27;Error creating new note: &#x27; + error.error.errorMessage);
+  }
+
+  public unsubscribe &#x3D; () &#x3D;&gt; {
+    this.liveapps.unsubscribeToNotes(this.relatedItemType, this.relatedItemId, this.userId)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result &#x3D;&gt; {
+          this.subscribed &#x3D; false;
+          this.recreateButtonsForNotifications(false);
+        })
+      )
+      .subscribe(null, error &#x3D;&gt; this.errorMessage &#x3D; &#x27;Error creating new note: &#x27; + error.error.errorMessage);
+  }
+
+  public editNote &#x3D; (thread) &#x3D;&gt; {
+    thread.editMode &#x3D; !thread.editMode;
+  }
+
+  public updateNote &#x3D; (note, updatedText) &#x3D;&gt; {
+    console.log(&#x27;Updating note&#x27;);
+    note.text &#x3D; updatedText;
+    this.liveapps.updateNote(note, note.id)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result &#x3D;&gt; {
+          console.log(&#x27;Note updated&#x27;);
+          this.refresh();
+        })
+      )
+      .subscribe(null, error &#x3D;&gt; this.errorMessage &#x3D; &#x27;Error updating note: &#x27; + error.error.errorMessage);
+  }
+
+  public deleteNote &#x3D; (id) &#x3D;&gt; {
+    console.log(&#x27;Deleting note&#x27;);
+    this.liveapps.deleteNote(id)
+      .pipe(
+        take(1),
+        takeUntil(this._destroyed$),
+        map(result &#x3D;&gt; {
+          console.log(&#x27;Note deleted: &#x27; + result);
+          this.refresh();
+        })
+      )
+      .subscribe(null, error &#x3D;&gt; this.errorMessage &#x3D; &#x27;Error creating new note: &#x27; + error.error.errorMessage);
+  }
+
+  ngOnInit() {
+    this.refresh();
+    this.newNote.text &#x3D; &#x27;&#x27;;
+
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;tcs-notes-pane&quot; fxLayout&#x3D;&quot;column&quot; fxFill style&#x3D;&quot;overflow: hidden;&quot;&gt;
+  &lt;tc-tibco-cloud-widget-header fxFlex&#x3D;&quot;nogrow&quot; [headerText]&#x3D;&quot;&#x27;Notes&#x27;&quot; [icon]&#x3D;&quot;&#x27;tcs-collaboration-feed&#x27;&quot;
+                                [toolbarButtons]&#x3D;&quot;toolbarButtons&quot; [showHeader]&#x3D;&quot;showHeader&quot;
+                                (toolbarButtonEvent)&#x3D;&quot;handleToolbarButtonEvent($event)&quot;&gt;&lt;/tc-tibco-cloud-widget-header&gt;
+  &lt;div class&#x3D;&quot;tcs-collaboration-pane&quot; fxLayout&#x3D;&quot;column&quot; fxFlex&#x3D;&quot;grow&quot; style&#x3D;&quot;height: 100%;&quot;&gt;
+    &lt;div class&#x3D;&quot;tcs-collaboration-existing-threads&quot; fxLayout&#x3D;&quot;column&quot; fxFlex&gt;
+      &lt;!--div *ngIf&#x3D;&quot;threads &amp;&amp; threads.threads.length &gt; 0&quot;--&gt;
+      &lt;div style&#x3D;&quot;height: 100%;&quot;&gt;
+        &lt;cdk-virtual-scroll-viewport style&#x3D;&quot;height: 100%&quot; itemSize&#x3D;&quot;50&quot; (scrolledIndexChange)&#x3D;&quot;getBatch()&quot;&gt;
+
+          &lt;!--div class&#x3D;&quot;tcs-collaboration-detail-box tcs-collaboration-thread&quot; [ngClass]&#x3D;&quot;{ editing: thread.editMode }&quot; *ngFor&#x3D;&quot;let thread of threads.threads | reverse&quot; fxLayout&#x3D;&quot;column&quot;--&gt;
+          &lt;div *ngIf&#x3D;&quot;threads &amp;&amp; threads.threads&quot;&gt;
+            &lt;div class&#x3D;&quot;tcs-collaboration-detail-box tcs-collaboration-thread&quot; [ngClass]&#x3D;&quot;{ editing: thread.editMode }&quot;
+                 *cdkVirtualFor&#x3D;&quot;let thread of threads.threads&quot; fxLayout&#x3D;&quot;column&quot;&gt;
+              &lt;div class&#x3D;&quot;tcs-thread-box&quot;&gt;
+                &lt;!-- collaboration threads --&gt;
+                &lt;div class&#x3D;&quot;tcs-collaboration-entry&quot;&gt;
+                  &lt;div *ngIf&#x3D;&quot;!thread.editMode&quot;&gt;
+                    &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between start&quot;&gt;
+                      &lt;span class&#x3D;&quot;tcs-collaboration-thread-author&quot;&gt;{{thread.note.createdByName}}&lt;/span&gt;
+                      &lt;div fxLayoutAlign&#x3D;&quot;row&quot;&gt;
+                      &lt;span *ngIf&#x3D;&quot;thread.note.modifiedDate &gt; thread.note.createdDate&quot; class&#x3D;&quot;tcs-collaboration-edited&quot;&gt;Edited
+                      &lt;/span&gt;
+                        &lt;span class&#x3D;&quot;tcs-collaboration-thread-date&quot;&gt;{{thread.note.modifiedDate | durationSince}}&lt;/span&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;span class&#x3D;&quot;tcs-collaboration-thread-text&quot; matTooltip&#x3D;&quot;{{thread.note.text}}&quot;
+                          matTooltipShowDelay&#x3D;&quot;1000&quot;
+                          matTooltipPosition&#x3D;&quot;below&quot;&gt;{{thread.note.text | ellipsis: 70}}&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;tcla-live-apps-notes-editor *ngIf&#x3D;&quot;thread.editMode&quot; [noteText]&#x3D;&quot;thread.note.text&quot;
+                                               (noteSubmitted)&#x3D;&quot;updateNote(thread.note, $event)&quot;&gt;&lt;/tcla-live-apps-notes-editor&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;tcs-icon-row&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+                  &lt;div class&#x3D;&quot;tcs-collaboration-thread-icon-left&quot;&gt;
+                    &lt;mat-icon (click)&#x3D;&quot;deleteNote(thread.note.id)&quot;
+                              class&#x3D;&quot;tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon&quot;
+                              svgIcon&#x3D;&quot;tcs-collaboration-delete&quot;&gt;&lt;/mat-icon&gt;
+                    &lt;mat-icon (click)&#x3D;&quot;editNote(thread)&quot;
+                              class&#x3D;&quot;tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon&quot;
+                              svgIcon&#x3D;&quot;tcs-collaboration-edit&quot;&gt;&lt;/mat-icon&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;tcs-collaboration-thread-icon-right&quot; fxLayoutAlign&#x3D;&quot;end center&quot; fxLayoutGap&#x3D;&quot;8px&quot;&gt;
+                    &lt;span *ngIf&#x3D;&quot;thread.note.thread.totalCount &gt; 1&quot; class&#x3D;&quot;tcs-collaboration-thread-replies&quot;
+                          (click)&#x3D;&quot;toggleReplies(thread)&quot;&gt;{{thread.note.thread.totalCount - 1}} replies&lt;/span&gt;
+                    &lt;mat-icon (click)&#x3D;&quot;toggleNewReply(thread)&quot; class&#x3D;&quot;tcs-icon tcs-collaboration-reply-icon&quot;
+                              svgIcon&#x3D;&quot;tcs-collaboration-reply&quot;&gt;&lt;/mat-icon&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;tcs-collaboration-line&quot;&gt;&lt;/div&gt;
+              &lt;!-- replies --&gt;
+              &lt;div class&#x3D;&quot;tcs-collaboration-reply-box&quot; *ngIf&#x3D;&quot;thread.showReplies&quot;&gt;
+                &lt;div fxLayout&#x3D;&quot;column&quot;&gt;
+                  &lt;tcla-live-apps-notes-editor class&#x3D;&quot;tcs-collaboration-new-reply-component&quot; *ngIf&#x3D;&quot;thread.showNewReply&quot;
+                                               [isReply]&#x3D;&quot;true&quot; [noteText]&#x3D;&quot;thread.newReply.text&quot;
+                                               (noteSubmitted)&#x3D;&quot;createReply(thread, $event)&quot;&gt;&lt;/tcla-live-apps-notes-editor&gt;
+                  &lt;div class&#x3D;&quot;tcs-collaboration-line&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;tcs-collaboration-detail-box tcs-collaboration-reply&quot;
+                     [ngClass]&#x3D;&quot;{ editing: reply.editMode }&quot; *ngFor&#x3D;&quot;let reply of thread.thread | reverse&quot;
+                     fxLayout&#x3D;&quot;column&quot;&gt;
+                  &lt;div class&#x3D;&quot;tcs-thread-box&quot; fxLayout&#x3D;&quot;row&quot;&gt;
+                    &lt;mat-icon class&#x3D;&quot;tcs-icon tcs-collaboration-reply-item-icon&quot;
+                              svgIcon&#x3D;&quot;tcs-collaboration-reply&quot;&gt;&lt;/mat-icon&gt;
+                    &lt;div fxLayout&#x3D;&quot;column&quot; class&#x3D;&quot;tcs-collaboration-reply-details&quot;&gt;
+                      &lt;div class&#x3D;&quot;tcs-collaboration-entry&quot;&gt;
+                        &lt;div *ngIf&#x3D;&quot;!reply.editMode&quot;&gt;
+                          &lt;div fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between start&quot;&gt;
+                            &lt;span class&#x3D;&quot;tcs-collaboration-thread-author&quot;&gt;{{reply.createdByName}}&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;tcs-collaboration-thread-date&quot;&gt;{{reply.modifiedDate | durationSince}}&lt;/span&gt;
+                          &lt;/div&gt;
+                          &lt;span class&#x3D;&quot;tcs-collaboration-thread-text&quot; matTooltip&#x3D;&quot;{{reply.text}}&quot;
+                                matTooltipShowDelay&#x3D;&quot;1000&quot;
+                                matTooltipPosition&#x3D;&quot;below&quot;&gt;{{reply.text | ellipsis: 60}}&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;tcla-live-apps-notes-editor *ngIf&#x3D;&quot;reply.editMode&quot; [noteText]&#x3D;&quot;reply.text&quot;
+                                                     (noteSubmitted)&#x3D;&quot;updateNote(reply, $event)&quot;&gt;&lt;/tcla-live-apps-notes-editor&gt;
+                      &lt;/div&gt;
+                      &lt;div class&#x3D;&quot;tcs-icon-row&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;space-between center&quot;&gt;
+                        &lt;div class&#x3D;&quot;tcs-collaboration-thread-icon-left&quot;&gt;
+                          &lt;mat-icon (click)&#x3D;&quot;deleteNote(reply.id)&quot;
+                                    class&#x3D;&quot;tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon&quot;
+                                    svgIcon&#x3D;&quot;tcs-collaboration-delete&quot;&gt;&lt;/mat-icon&gt;
+                          &lt;mat-icon (click)&#x3D;&quot;editNote(reply)&quot;
+                                    class&#x3D;&quot;tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon&quot;
+                                    svgIcon&#x3D;&quot;tcs-collaboration-edit&quot;&gt;&lt;/mat-icon&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;tcs-collaboration-reply-line&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div *ngIf&#x3D;&quot;!(threads?.threads?.length &gt; 0)&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;center start&quot; fxLayoutGap&#x3D;&quot;10px&quot;
+               style&#x3D;&quot;margin-top: 20px;&quot;&gt;
+            &lt;mat-icon [svgIcon]&#x3D;&quot;&#x27;ic-no-notes-icon&#x27;&quot; style&#x3D;&quot;height: 48px; width: 48px;&quot;&gt;&lt;/mat-icon&gt;
+            &lt;div style&#x3D;&quot;height: 100%&quot; fxLayout&#x3D;&quot;row&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+              &lt;span class&#x3D;&quot;tcs-no-item-text&quot;&gt;No notes found&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/cdk-virtual-scroll-viewport&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;tcla-live-apps-notes-editor class&#x3D;&quot;tcs-collaboration-new-note-component&quot; [noteText]&#x3D;&quot;newNote.text&quot;
+                                 (noteSubmitted)&#x3D;&quot;createThread($event)&quot;&gt;&lt;/tcla-live-apps-notes-editor&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./live-apps-notes.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tcs-notes-pane {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+}
+
+.tcs-collaboration-pane {
+  padding-top: 10px;
+}
+
+.tcs-collaboration-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-collaboration-header-text {
+  margin-left: 10px;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.tcs-collaboration-thread-icon-left {
+  height: 24px;
+  width: 50px;
+}
+
+.tcs-collaboration-existing-threads {
+  overflow-y: auto;
+  /*height: 70%;*/
+}
+
+.tcs-collaboration-detail-box {
+  min-height: 85px;
+  flex-shrink: 0;
+}
+
+.tcs-collaboration-detail-box.editing {
+  min-height: 109px;
+}
+
+.tcs-collaboration-detail-box.editing &gt; .tcs-thread-box {
+  height: 110px;
+  background-color: #EEF0F7;
+}
+
+.tcs-collaboration-new-reply-box {
+  transition: background-color 0.5s;
+  background-color: #EEF0F7;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-collaboration-detail-box.tcs-collaboration-reply.editing {
+  min-height: 100px;
+}
+
+.tcs-collaboration-reply {
+  padding-left: 20px;
+}
+
+.tcs-thread-box {
+  height: 86px;
+}
+
+.tcs-thread-box:hover {
+  background-color: #EEF0F7;
+  transition: background-color 0.5s;
+}
+
+
+
+.tcs-thread-box:hover .tcs-icon.tcs-icon-active {
+  display: inline-block;
+}
+
+.tcs-thread-box .tcs-icon.tcs-icon-active {
+  display: none;
+}
+
+.tcs-collaboration-entry {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tcs-icon-row {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+}
+
+.tcs-collaboration-thread-author {
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+}
+
+.tcs-collaboration-thread-text {
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+}
+
+.tcs-collaboration-thread-date {
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+}
+
+.tcs-collaboration-edited {
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #EF5350;
+  padding-right: 4px;
+}
+
+.tcs-collaboration-reply-icon {
+  transform: scale(-1,1);
+}
+
+.tcs-collaboration-reply-item-icon {
+  transform: scale(1,-1);
+  margin-top: 10px;
+}
+
+.tcs-collaboration-reply-box {
+  /*margin-left: 20px;*/
+}
+
+.tcs-collaboration-reply-details {
+  width: 100%;
+}
+
+.tcs-collaboration-thread-replies {
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #0081cb;
+}
+
+.tcs-icon {
+  height: 20px;
+  width: 20px;
+}
+
+:host ::ng-deep .tcs-icon.tcs-collaboration-edit-buttons:hover path.svg-content {
+  fill: #0081cb;
+  cursor: pointer;
+}
+
+:host ::ng-deep .tcs-icon.tcs-collaboration-edit-buttons:hover g.svg-content {
+  fill: #0081cb;
+  cursor: pointer;
+}
+
+.tcs-icon.tcs-collaboration-edit-icon {
+  margin-left: 5px;
+}
+
+.tcs-icon.tcs-collaboration-send-icon {
+  height: 24px;
+  width: 24px;
+  margin-left: 12px;
+}
+
+:host ::ng-deep .tcs-icon.tcs-collaboration-send-icon:hover path.svg-content {
+  fill: #0081cb;
+}
+
+.tcs-collaboration-line {
+  margin-left: 20px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
+}
+
+.tcs-collaboration-reply-line {
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  border-bottom-color: #f4f4f4;
+  border-bottom-width: 1.1px;
+  border-bottom-style: solid;
+}
+
+.tcs-collaboration-new-thread {
+  margin-left: 20px;
+  margin-right: 20px;
+  /*margin-top: 10px;*/
+  max-height: 85px;
+  height: 85px;
+  min-height: 85px;
+}
+
+.tcs-collaboration-edit-thread {
+  margin-top: 10px;
+}
+
+.tcs-collaboration-new-reply {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tcs-collaboration-input  {
+   height: 55px;
+   max-width: 100%;
+   border-color: #d5e6ff;
+   font-size: 11px;
+   font-weight: normal;
+   font-style: normal;
+   font-stretch: normal;
+   line-height: normal;
+   letter-spacing: -0.1px;
+   color: #b6b6b6;
+   resize: none;
+   border-radius: 3px;
+ }
+
+.tcs-collaboration-reply-textbox {
+  height: 55px;
+  max-width: 100%;
+  border-color: #d5e6ff;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+  resize: none;
+  border-radius: 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tcs-collaboration-edit  {
+  height: 55px;
+  max-width: 100%;
+  border-color: #d5e6ff;
+  font-size: 11px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.1px;
+  color: #b6b6b6;
+  resize: none;
+  border-radius: 3px;
+}
+
+.tcs-collaboration-new-thread-form {
+  max-width: 90%;
+  max-height: 100%;
+}
+
+.tcs-collaboration-new-note-component {
+  height: 85px;
+  min-height: 85px;
+  max-height: 85px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.tcs-collaboration-new-reply-component {
+  height: 85px;
+  min-height: 85px;
+  max-height: 85px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.tcs-no-item-text {
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b6b6b6;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="tcs-notes-pane" fxLayout="column" fxFill style="overflow: hidden;">  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="\'Notes\'" [icon]="\'tcs-collaboration-feed\'"                                [toolbarButtons]="toolbarButtons" [showHeader]="showHeader"                                (toolbarButtonEvent)="handleToolbarButtonEvent($event)"></tc-tibco-cloud-widget-header>  <div class="tcs-collaboration-pane" fxLayout="column" fxFlex="grow" style="height: 100%;">    <div class="tcs-collaboration-existing-threads" fxLayout="column" fxFlex>      <!--div *ngIf="threads && threads.threads.length > 0"-->      <div style="height: 100%;">        <cdk-virtual-scroll-viewport style="height: 100%" itemSize="50" (scrolledIndexChange)="getBatch()">          <!--div class="tcs-collaboration-detail-box tcs-collaboration-thread" [ngClass]="{ editing: thread.editMode }" *ngFor="let thread of threads.threads | reverse" fxLayout="column"-->          <div *ngIf="threads && threads.threads">            <div class="tcs-collaboration-detail-box tcs-collaboration-thread" [ngClass]="{ editing: thread.editMode }"                 *cdkVirtualFor="let thread of threads.threads" fxLayout="column">              <div class="tcs-thread-box">                <!-- collaboration threads -->                <div class="tcs-collaboration-entry">                  <div *ngIf="!thread.editMode">                    <div fxLayout="row" fxLayoutAlign="space-between start">                      <span class="tcs-collaboration-thread-author">{{thread.note.createdByName}}</span>                      <div fxLayoutAlign="row">                      <span *ngIf="thread.note.modifiedDate > thread.note.createdDate" class="tcs-collaboration-edited">Edited                      </span>                        <span class="tcs-collaboration-thread-date">{{thread.note.modifiedDate | durationSince}}</span>                      </div>                    </div>                    <span class="tcs-collaboration-thread-text" matTooltip="{{thread.note.text}}"                          matTooltipShowDelay="1000"                          matTooltipPosition="below">{{thread.note.text | ellipsis: 70}}</span>                  </div>                  <tcla-live-apps-notes-editor *ngIf="thread.editMode" [noteText]="thread.note.text"                                               (noteSubmitted)="updateNote(thread.note, $event)"></tcla-live-apps-notes-editor>                </div>                <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">                  <div class="tcs-collaboration-thread-icon-left">                    <mat-icon (click)="deleteNote(thread.note.id)"                              class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon"                              svgIcon="tcs-collaboration-delete"></mat-icon>                    <mat-icon (click)="editNote(thread)"                              class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon"                              svgIcon="tcs-collaboration-edit"></mat-icon>                  </div>                  <div class="tcs-collaboration-thread-icon-right" fxLayoutAlign="end center" fxLayoutGap="8px">                    <span *ngIf="thread.note.thread.totalCount > 1" class="tcs-collaboration-thread-replies"                          (click)="toggleReplies(thread)">{{thread.note.thread.totalCount - 1}} replies</span>                    <mat-icon (click)="toggleNewReply(thread)" class="tcs-icon tcs-collaboration-reply-icon"                              svgIcon="tcs-collaboration-reply"></mat-icon>                  </div>                </div>              </div>              <div class="tcs-collaboration-line"></div>              <!-- replies -->              <div class="tcs-collaboration-reply-box" *ngIf="thread.showReplies">                <div fxLayout="column">                  <tcla-live-apps-notes-editor class="tcs-collaboration-new-reply-component" *ngIf="thread.showNewReply"                                               [isReply]="true" [noteText]="thread.newReply.text"                                               (noteSubmitted)="createReply(thread, $event)"></tcla-live-apps-notes-editor>                  <div class="tcs-collaboration-line"></div>                </div>                <div class="tcs-collaboration-detail-box tcs-collaboration-reply"                     [ngClass]="{ editing: reply.editMode }" *ngFor="let reply of thread.thread | reverse"                     fxLayout="column">                  <div class="tcs-thread-box" fxLayout="row">                    <mat-icon class="tcs-icon tcs-collaboration-reply-item-icon"                              svgIcon="tcs-collaboration-reply"></mat-icon>                    <div fxLayout="column" class="tcs-collaboration-reply-details">                      <div class="tcs-collaboration-entry">                        <div *ngIf="!reply.editMode">                          <div fxLayout="row" fxLayoutAlign="space-between start">                            <span class="tcs-collaboration-thread-author">{{reply.createdByName}}</span>                            <span class="tcs-collaboration-thread-date">{{reply.modifiedDate | durationSince}}</span>                          </div>                          <span class="tcs-collaboration-thread-text" matTooltip="{{reply.text}}"                                matTooltipShowDelay="1000"                                matTooltipPosition="below">{{reply.text | ellipsis: 60}}</span>                        </div>                        <tcla-live-apps-notes-editor *ngIf="reply.editMode" [noteText]="reply.text"                                                     (noteSubmitted)="updateNote(reply, $event)"></tcla-live-apps-notes-editor>                      </div>                      <div class="tcs-icon-row" fxLayout="row" fxLayoutAlign="space-between center">                        <div class="tcs-collaboration-thread-icon-left">                          <mat-icon (click)="deleteNote(reply.id)"                                    class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-delete-icon"                                    svgIcon="tcs-collaboration-delete"></mat-icon>                          <mat-icon (click)="editNote(reply)"                                    class="tcs-icon tcs-icon-active tcs-collaboration-edit-buttons tcs-collaboration-edit-icon"                                    svgIcon="tcs-collaboration-edit"></mat-icon>                        </div>                      </div>                    </div>                  </div>                  <div class="tcs-collaboration-reply-line"></div>                </div>              </div>            </div>          </div>          <div *ngIf="!(threads?.threads?.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px"               style="margin-top: 20px;">            <mat-icon [svgIcon]="\'ic-no-notes-icon\'" style="height: 48px; width: 48px;"></mat-icon>            <div style="height: 100%" fxLayout="row" fxLayoutAlign="start center">              <span class="tcs-no-item-text">No notes found</span>            </div>          </div>        </cdk-virtual-scroll-viewport>      </div>    </div>    <tcla-live-apps-notes-editor class="tcs-collaboration-new-note-component" [noteText]="newNote.text"                                 (noteSubmitted)="createThread($event)"></tcla-live-apps-notes-editor>  </div></div></div>'
+    var COMPONENTS = [{'name': 'LiveAppsActionsComponent', 'selector': 'tcla-live-apps-actions'},{'name': 'LiveAppsActiveCasesForTypeReportComponent', 'selector': 'tcla-live-apps-active-cases-for-type-report'},{'name': 'LiveAppsActiveCasesReportComponent', 'selector': 'tcla-live-apps-active-cases-report'},{'name': 'LiveAppsActiveCasesWidgetComponent', 'selector': 'tcla-live-apps-active-cases-widget'},{'name': 'LiveAppsAppConfigurationWidgetComponent', 'selector': 'tcla-live-apps-app-configuration-widget'},{'name': 'LiveAppsApplicationConfigurationComponent', 'selector': 'tcla-live-apps-application-configuration'},{'name': 'LiveAppsApplicationCreateButtonComponent', 'selector': 'tcla-live-apps-application-create-button'},{'name': 'LiveAppsApplicationListComponent', 'selector': 'tcla-live-apps-application-list'},{'name': 'LiveAppsApplicationsComponent', 'selector': 'tcla-live-apps-applications'},{'name': 'LiveAppsCaseActionComponent', 'selector': 'tcla-live-apps-case-action'},{'name': 'LiveAppsCaseActionsComponent', 'selector': 'tcla-live-apps-case-actions'},{'name': 'LiveAppsCaseActionsListComponent', 'selector': 'tcla-live-apps-case-actions-list'},{'name': 'LiveAppsCaseAuditComponent', 'selector': 'tcla-live-apps-case-audit'},{'name': 'LiveAppsCaseCockpitComponent', 'selector': 'tcla-live-apps-case-cockpit'},{'name': 'LiveAppsCaseCreatorComponent', 'selector': 'tcla-live-apps-case-creator'},{'name': 'LiveAppsCaseCreatorsComponent', 'selector': 'tcla-live-apps-case-creators'},{'name': 'LiveAppsCaseCreatorWidgetComponent', 'selector': 'tcla-live-apps-case-creator-widget'},{'name': 'LiveAppsCaseDataComponent', 'selector': 'tcla-live-apps-case-data'},{'name': 'LiveAppsCaseDataDisplayComponent', 'selector': 'tcla-live-apps-case-data-display'},{'name': 'LiveAppsCaseListComponent', 'selector': 'tcla-live-apps-case-list'},{'name': 'LiveAppsCaseSearchComponent', 'selector': 'tcla-live-apps-case-search'},{'name': 'LiveAppsCaseStateAuditComponent', 'selector': 'tcla-live-apps-case-state-audit'},{'name': 'LiveAppsCaseStatesComponent', 'selector': 'tcla-live-apps-case-states'},{'name': 'LiveAppsCaseSummaryComponent', 'selector': 'tcla-live-apps-case-summary'},{'name': 'LiveAppsComponent', 'selector': 'tcla-live-apps-component'},{'name': 'LiveAppsCreatorDialogComponent', 'selector': 'tcla-live-apps-creator-dialog'},{'name': 'LiveAppsCreatorsComponent', 'selector': 'tcla-live-apps-creators'},{'name': 'LiveAppsCreatorSelectorComponent', 'selector': 'tcla-live-apps-creator-selector'},{'name': 'LiveAppsDocumentsComponent', 'selector': 'tcla-live-apps-documents'},{'name': 'LiveAppsDocumentUploadDialogComponent', 'selector': 'tcla-live-apps-document-upload-dialog'},{'name': 'LiveAppsDocumentViewerComponent', 'selector': 'tcla-live-apps-document-viewer'},{'name': 'LiveAppsDocumentViewerDialogComponent', 'selector': 'tcla-live-apps-document-viewer-dialog'},{'name': 'LiveAppsFavoriteCasesComponent', 'selector': 'tcla-live-apps-favorite-cases'},{'name': 'LiveAppsHomeCockpitComponent', 'selector': 'tcla-live-apps-home-cockpit'},{'name': 'LiveAppsLandingPageComponent', 'selector': 'tcla-live-apps-landing-page'},{'name': 'LiveAppsLoginComponent', 'selector': 'tcla-live-apps-login'},{'name': 'LiveAppsMilestoneComponent', 'selector': 'tcla-live-apps-milestone'},{'name': 'LiveAppsNotesComponent', 'selector': 'tcla-live-apps-notes'},{'name': 'LiveAppsNotesEditorComponent', 'selector': 'tcla-live-apps-notes-editor'},{'name': 'LiveAppsRecentCasesComponent', 'selector': 'tcla-live-apps-recent-cases'},{'name': 'LiveAppsRoleSwitcherComponent', 'selector': 'tcla-live-apps-role-switcher'},{'name': 'LiveAppsSearchWidgetComponent', 'selector': 'tcla-live-apps-search-widget'},{'name': 'LiveAppsSettingsComponent', 'selector': 'tcla-live-apps-settings'},{'name': 'LiveAppsSettingsRecentCasesComponent', 'selector': 'tcla-live-apps-settings-recent-cases'},{'name': 'LiveAppsSettingsRolesComponent', 'selector': 'tcla-live-apps-settings-roles'},{'name': 'LiveAppsSettingsSummaryCardsComponent', 'selector': 'tcla-live-apps-settings-summary-cards'},{'name': 'LiveAppsStateIconComponent', 'selector': 'tcla-live-apps-state-icon'},{'name': 'LiveAppsStateIconUploadDialogComponent', 'selector': 'tcla-live-apps-state-icon-upload-dialog'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LiveAppsNotesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LiveAppsNotesComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
