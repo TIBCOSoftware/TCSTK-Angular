@@ -2,10 +2,11 @@ import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output} from 
 import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
-import { DocumentList, Document } from '../../models/tc-document';
+import {DocumentList, Document, DocumentAction} from '../../models/tc-document';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcDocumentService} from '../../services/tc-document.service';
+import {ProcessId} from '@tibco-tcstk/tc-liveapps-lib';
 
 
 /**
@@ -67,6 +68,16 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
    */
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
+  /**
+   * Custom Document Buttons (array of text)
+   */
+  @Input() customActions: string[]
+
+  /**
+   * Custom Document Action Event: fired when a custom action is clicked for a document (outputs the action name and a document (DocumentAction))
+   */
+  @Output() customActionClicked: EventEmitter<DocumentAction> = new EventEmitter<DocumentAction>()
+
   public errorMessage: string;
   public documents: Document[];
   public fileToUpload: File = undefined;
@@ -75,6 +86,15 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
 
   public refresh = () => {
     this.listDocuments();
+  }
+
+  public customActionClick = (action: string, document: Document) => {
+    this.customActionClicked.emit(new DocumentAction().deserialize(
+      {
+        action,
+        document
+      }
+    ));
   }
 
   public listDocuments = () => {
