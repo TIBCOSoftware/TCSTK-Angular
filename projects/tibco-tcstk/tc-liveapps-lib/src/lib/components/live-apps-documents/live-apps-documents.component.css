@@ -91,6 +91,15 @@
   padding-bottom: 2px;
 }
 
+:host ::ng-deep .tcs-icon-disabled.tcs-icon.tcs-document-edit-buttons path.svg-content {
+  fill: #b6b6b6;
+}
+
+:host ::ng-deep .tcs-icon-disabled.tcs-icon.tcs-document-edit-buttons:hover path.svg-content {
+  fill: #b6b6b6;
+  cursor: not-allowed;
+}
+
 :host ::ng-deep .tcs-icon.tcs-document-edit-buttons:hover path.svg-content {
   fill: #0081cb;
   cursor: pointer;

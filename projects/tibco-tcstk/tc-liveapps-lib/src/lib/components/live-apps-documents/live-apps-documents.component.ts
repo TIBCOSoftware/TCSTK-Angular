@@ -6,6 +6,7 @@ import {DocumentList, Document, DocumentAction} from '../../models/tc-document';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcDocumentService} from '../../services/tc-document.service';
+import {HttpEventType} from '@angular/common/http';
 
 
 /**
@@ -82,6 +83,7 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   public fileToUpload: File = undefined;
   public fileDescription: string;
   uploadMessage: string;
+  public uploadProgress: number;
 
   public refresh = () => {
     this.listDocuments();
@@ -104,7 +106,8 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
         map(documentslist => {
           this.documents = documentslist.documents;
         })
-      ).subscribe(null, error => { this.errorMessage = 'Error retrieving case states: ' + error.error.errorMsg; });
+      )
+      .subscribe(null, error => { this.errorMessage = 'Error retrieving case states: ' + error.error.errorMsg; });
     }
 
   public uploadDocument = (doc) => {
@@ -169,37 +172,48 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
 
   uploadFile(fileToUpload, description) {
     this.fileToUpload = fileToUpload;
+    this.uploadMessage = 'Uploading: ' + fileToUpload.name;
     this.fileDescription = description;
+    this.uploadProgress = 0;
     if (this.fileToUpload) {
       this.documentsService.uploadDocument(this.folderType, this.folderId, this.sandboxId,
         this.fileToUpload, this.fileToUpload.name, this.fileDescription)
-        .pipe(
-          map(val => {
-            console.log(val);
-            this.refresh();
-          })
-        )
         .subscribe(
-          result => {
-            this.fileToUpload = undefined;
-            this.uploadMessage = 'File uploaded';
+          (response: any) => {
+            if (response.type === HttpEventType.UploadProgress) {
+              this.uploadProgress = Math.round(100 * response.loaded / response.total);
+            }
+            if (this.uploadProgress === 100) {
+              this.fileToUpload = undefined;
+              this.uploadMessage = 'Uploaded: ' + fileToUpload.name;
+              // api seems not to show new documents straight away sometimes - so this minimizes the chances of that if file > 1mb
+               if (fileToUpload.size > 1000000) {
+                 setTimeout(() => { this.refresh(); }, 2000);
+               } else {
+                 this.refresh();
+               }
+               setTimeout(() => { this.uploadMessage = ''; this.uploadProgress = undefined; }, 5000);
+            }
           },
           error => { console.log('error'); this.errorMessage = 'Error uploading document: ' + error.errorMsg; });
     }
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(LiveAppsDocumentUploadDialogComponent, {
-      width: '500px',
-      data: {}
-    });
+    // only allow if upload not in progress
+    if (!this.uploadProgress || this.uploadProgress === 100) {
+      const dialogRef = this.dialog.open(LiveAppsDocumentUploadDialogComponent, {
+        width: '500px',
+        data: {}
+      });
 
-    dialogRef.componentInstance.fileevent.subscribe(($e) => {
-      this.uploadFile($e.file, $e.description);
-    })
+      dialogRef.componentInstance.fileevent.subscribe(($e) => {
+        this.uploadFile($e.file, $e.description);
+      })
 
-    dialogRef.afterClosed().subscribe(result => {
-    });
+      dialogRef.afterClosed().subscribe(result => {
+      });
+    }
   }
 
   ngOnInit() {
