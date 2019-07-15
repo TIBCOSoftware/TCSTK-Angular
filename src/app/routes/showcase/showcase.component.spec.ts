@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SplashPDComponent } from './splash-pd.component';
+import { ShowcaseComponent } from './showcase.component';
 
-describe('SplashPDComponent', () => {
-  let component: SplashPDComponent;
-  let fixture: ComponentFixture<SplashPDComponent>;
+describe('ShowcaseComponent', () => {
+  let component: ShowcaseComponent;
+  let fixture: ComponentFixture<ShowcaseComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SplashPDComponent ]
+      declarations: [ ShowcaseComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SplashPDComponent);
+    fixture = TestBed.createComponent(ShowcaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
