@@ -24,7 +24,7 @@ Attribute | Type | Comments
 access | RouteAccessControlConfig | RouteAccessControlConfig - basically the config for access control
 appIds | string[] | The list of LA Application IDs you want to handle
 customFormDefs | CustomFormDefs | Custom Form configuration file
-email | string | <ul><li>NOT USED but is the email address of the user (comes from resolver)</li></ul>
+email | string | <ul><li>Email address of the user (comes from resolver)</li></ul>
 roles | Roles | Roles - The users current roles
 sandboxId | number | sandboxId - this comes from claims resolver
 title | string | page title comes from config resolver
@@ -43,7 +43,7 @@ routeAction | EventEmitter<RouteAction> |   |
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsHomeCockpitComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsHomeCockpitComponent.html)
+[Link to LiveAppsHomeCockpitComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsHomeCockpitComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

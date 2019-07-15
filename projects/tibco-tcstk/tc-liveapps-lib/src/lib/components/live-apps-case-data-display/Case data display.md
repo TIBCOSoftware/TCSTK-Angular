@@ -32,7 +32,7 @@ schema | JsonSchema | The schema of the case type
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsCaseDataDisplayComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsCaseDataDisplayComponent.html)
+[Link to LiveAppsCaseDataDisplayComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsCaseDataDisplayComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -37,7 +37,7 @@ selectedCaseType | EventEmitter<CaseTypeReportRecord> |   |
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsActiveCasesReportComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-liveapps-lib/components/LiveAppsActiveCasesReportComponent.html)
+[Link to LiveAppsActiveCasesReportComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsActiveCasesReportComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

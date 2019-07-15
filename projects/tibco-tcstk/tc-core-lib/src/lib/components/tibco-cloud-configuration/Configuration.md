@@ -35,7 +35,7 @@ routeAction | EventEmitter<RouteAction> |   |
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudConfigurationComponent](https://tibcosoftware.github.io/TCSTK-Angular/libdocs/tc-core-lib/components/TibcoCloudConfigurationComponent.html)
+[Link to TibcoCloudConfigurationComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudConfigurationComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
