@@ -86,5 +86,9 @@ export class RenderedFormComponent implements OnInit, OnChanges {
     }
   }
 
+  onChanges = ($event) => {
+    this.data = $event;
+  }
+
 
 }

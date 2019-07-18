@@ -5,8 +5,9 @@
       framework="material-design"
       [schema]="formSchema"
       [layout]="formLayout"
-      [(data)]="formData"
+      [data]="formData"
       [options]="options"
+      (onChanges)="onChanges($event)"
       (onSubmit)="submitForm($event)"
       (formLayout)="handleLayoutOutput($event)"
     >
