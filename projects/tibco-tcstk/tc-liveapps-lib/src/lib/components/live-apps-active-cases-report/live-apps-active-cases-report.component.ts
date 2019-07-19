@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CaseTypeReportRecord, CaseTypesReport} from '../../models/tc-live-apps-reporting';
 import {BaseChartDirective, defaultColors, Label, MultiDataSet, SingleDataSet} from 'ng2-charts';
 import {ChartType} from 'chart.js';
@@ -8,6 +8,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 
 import {copy} from 'angular6-json-schema-form';
 import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-config.service';
+import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 /**
  * Home page active cases widget sub component
@@ -19,7 +20,7 @@ import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-co
   templateUrl: './live-apps-active-cases-report.component.html',
   styleUrls: ['./live-apps-active-cases-report.component.css']
 })
-export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implements  OnInit {
+export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implements  OnInit, AfterViewChecked {
 
   constructor(private reportingService: TcLiveAppsReportingService) {
     super();
@@ -63,12 +64,15 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   @Output() selectedCaseType: EventEmitter<CaseTypeReportRecord> = new EventEmitter<CaseTypeReportRecord>();
 
   @ViewChild(BaseChartDirective, {static: false}) caseReportChart: BaseChartDirective;
+  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
 
   public errorMessage: string;
   public caseTypesReport: CaseTypesReport;
   public totalActiveCaseCount: number;
   public totalTerminatedCaseCount: number;
   public renderChart = false;
+  public widgetWidth: number;
+  public widgetHeight: number;
 
   public doughnutChartLabels: Label[];
   public doughnutChartData: SingleDataSet = [];
@@ -206,14 +210,14 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   public refresh = () => {
     this.reportingService.getCaseTypesReport(this.sandboxId, this.appIds, this.uiAppId).pipe(
       take(1),
-      takeUntil(this._destroyed$),
-      map(report => {
-        this.caseTypesReport = report;
-        this.initReportDataToChart(report);
-        return report;
-      }))
+      takeUntil(this._destroyed$)
+    )
       .subscribe(
-        null, error => { this.errorMessage = 'Error retrieving case types report: ' + error.error.errorMsg; }
+        report => {
+          this.caseTypesReport = report;
+          this.initReportDataToChart(report);
+          return report;
+          }, error => { this.errorMessage = 'Error retrieving case types report: ' + error.error.errorMsg; }
       );
   }
 
@@ -236,6 +240,16 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
     // console.log(event, active);
+  }
+
+  ngAfterViewChecked() {
+    if (this.componentDiv && this.caseReportChart && this.componentDiv.nativeElement.offsetWidth) {
+      if (this.widgetWidth !== this.componentDiv.nativeElement.offsetWidth || this.widgetHeight !== this.componentDiv.nativeElement.offsetHeight) {
+        this.widgetWidth = this.componentDiv.nativeElement.offsetWidth;
+        this.widgetHeight = this.componentDiv.nativeElement.offsetHeight;
+        this.caseReportChart.chart.resize();
+      }
+    }
   }
 
   ngOnInit() {

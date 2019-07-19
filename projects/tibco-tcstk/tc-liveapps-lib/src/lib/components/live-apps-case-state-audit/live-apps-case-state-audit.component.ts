@@ -48,15 +48,14 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
     this.caseStatesService.getCaseStateAuditWithTerminal(this.caseRef, this.sandboxId, this.appId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(auditeventlist => {
-          this.auditEvents = auditeventlist.auditEvents;
-          if (!this.auditEvents || this.auditEvents.length <= 0) {
-            console.error('Unable to create states audit view. Case Audit likely removed due to subscription retention period.');
-          }
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg; });
+      auditeventlist => {
+        this.auditEvents = auditeventlist.auditEvents;
+        if (!this.auditEvents || this.auditEvents.length <= 0) {
+          console.error('Unable to create states audit view. Case Audit likely removed due to subscription retention period.');
+        }
+      }, error => { this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg; });
   }
 
   ngOnInit() {

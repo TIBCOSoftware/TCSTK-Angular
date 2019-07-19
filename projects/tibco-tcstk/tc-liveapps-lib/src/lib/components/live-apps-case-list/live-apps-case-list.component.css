@@ -1,13 +1,16 @@
 .tcs-case-list-box {
   width: 100%;
-  min-height: 366px;
+  /* min-height: 366px; */
+  height: 100%;
   border-radius: 3px;
   box-shadow: 0 2px 8px 0 #dedede;
   background-color: #ffffff;
 }
 
 .tcs-case-list-header {
+  min-height: 40px;
   height: 40px;
+  max-height: 40px;
   border-radius: 3px 3px 0px 0px;
   box-shadow: 0 1px 2px 0 #dedede;
   padding-left: 20px;
@@ -30,8 +33,12 @@
 .tcs-case-list-flow-list {
   margin: 24px;
   overflow-y: auto;
-  height: 278px;
-  max-height: 278px;
+  /* height: 278px;
+  max-height: 278px;*/
+}
+
+:host ::ng-deep .tcs-case-list-flow-list.cdk-virtual-scroll-orientation-vertical .cdk-virtual-scroll-content-wrapper {
+  width: 100%;
 }
 
 .tcs-case-list-item-box {

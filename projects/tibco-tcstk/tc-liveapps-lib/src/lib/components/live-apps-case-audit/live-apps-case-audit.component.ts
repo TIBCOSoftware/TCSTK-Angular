@@ -46,19 +46,18 @@ export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnD
     this.caseAuditService.getCaseAudit(this.caseRef, this.sandboxId, this.startat, this.top)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(auditeventlist => {
-          // this will strip any duplicates that may have been retrieved due to fast scrolling
-          const filteredEvents = auditeventlist.auditevents.filter(x => this.auditEvents.every(y => y.key.value !== x.key.value))
-          this.auditEvents = this.auditEvents.concat(filteredEvents);
-          if (auditeventlist.auditevents.length < this.top) {
-            this.end = true;
-          } else {
-            this.startat = auditeventlist.auditevents[auditeventlist.auditevents.length - 1].key.value;
-          }
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
-      null, error => {
+      auditeventlist => {
+        // this will strip any duplicates that may have been retrieved due to fast scrolling
+        const filteredEvents = auditeventlist.auditevents.filter(x => this.auditEvents.every(y => y.key.value !== x.key.value))
+        this.auditEvents = this.auditEvents.concat(filteredEvents);
+        if (auditeventlist.auditevents.length < this.top) {
+          this.end = true;
+        } else {
+          this.startat = auditeventlist.auditevents[auditeventlist.auditevents.length - 1].key.value;
+        }
+      }, error => {
         this.errorMessage = 'Error retrieving case audit: ' + error.error.errorMsg;
       });
   }

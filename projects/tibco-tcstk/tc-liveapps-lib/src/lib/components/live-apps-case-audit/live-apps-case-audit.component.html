@@ -6,240 +6,243 @@
   <!--div *ngIf="auditEvents && auditEvents.length > 0" class="tcs-case-audit-container">
 
   </div-->
-  <div class="audit-template" style="height: 100%">
-  <cdk-virtual-scroll-viewport style="height: 100%" itemSize="50" (scrolledIndexChange)="getNextBatch($event)">
-    <ul style=""
-         *cdkVirtualFor="let item of auditEvents; let i = index">
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_INSTANCE_CREATED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="BP_INSTANCE_CREATED"></mat-icon>
-        </div>
-        <div class="audit-details">
-          <li>
-            <span *ngIf="item.principalName">{{item.principalName.value}} </span>
-            <span>
+  <div class="audit-template" fxFlex>
+    <cdk-virtual-scroll-viewport style="height: 100%" itemSize="50" (scrolledIndexChange)="getNextBatch($event)">
+      <ul style=""
+          *cdkVirtualFor="let item of auditEvents; let i = index">
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_INSTANCE_CREATED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="BP_INSTANCE_CREATED"></mat-icon>
+          </div>
+          <div class="audit-details">
+            <li>
+              <span *ngIf="item.principalName">{{item.principalName.value}} </span>
+              <span>
                       <span> started </span>
                       <b>{{item.procName.value}}</b>
                       <span> on {{item.creationTime.value | date:'full'}}</span>
                   </span>
-          </li>
+            </li>
+          </div>
+          <div class="audit-line"></div>
         </div>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_AUTO_STARTED_INSTANCE'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="BP_AUTO_STARTED_INSTANCE"></mat-icon>
-        </div>
-        <li>
-          <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
-          <span>
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_AUTO_STARTED_INSTANCE'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="BP_AUTO_STARTED_INSTANCE"></mat-icon>
+          </div>
+          <li>
+            <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
+            <span>
                     <b>{{item.procName.value}}</b>
                     <span> auto initiated on {{item.creationTime.value | date:'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE'">
-        <!-- todo: JS fix this -->
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE'">
+          <!-- todo: JS fix this -->
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE"></mat-icon>
+          </div>
+          <li>
           <span>
                     <b>{{item.procName.value}}</b>
 					<span> deadline auto initiated on {{item.creationTime.value | date:'full'}}</span>
           <span>. </span>
           <span> Time to deadline {{item.delayTime.value}}></span>. </span>
-          <!--span class="skip-delay" *ngIf="isInstanceDelayed(item)" ng-click="skipDelay(item)" skip"></span>
-                </span-->
-        </li>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_START_TIMER_EXPIRED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="BP_DELAYED_AUTO_START_TIMER_EXPIRED"></mat-icon>
+            <!--span class="skip-delay" *ngIf="isInstanceDelayed(item)" ng-click="skipDelay(item)" skip"></span>
+                  </span-->
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_START_TIMER_EXPIRED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="BP_DELAYED_AUTO_START_TIMER_EXPIRED"></mat-icon>
+          </div>
+          <li>
           <span>
             <b>{{item.procName.value}}</b>
 					  <span> deadline reached {{item.creationTime.value | date: 'full'}}></span>
           </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
-          <span>
+        <div class="tcs-case-audit-dtl"
+             *ngIf="item.messageId.value === 'BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="BP_DELAYED_AUTO_STARTED_INSTANCE_CANCELLED_DUE_TO_STATE_CHANGE"></mat-icon>
+          </div>
+          <li>
+            <!--span *ngIf="item.principalName">{{item.principalName.value}} </span-->
+            <span>
                     <b>{{item.procName.value}}</b>
             <span> deadline cancelled {{item.creationTime.value | date: 'full'}}</span>
           </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_TASK_CREATED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
+        <div class="tcs-case-audit-dtl"
+             *ngIf="item.messageId.value === 'BP_TASK_CREATED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
+          </div>
+          <li>
                 <span>
                     <b>{{item.taskName.value}}</b>
                     <span> initiated on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_CREATED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="CM_CASE_CREATED"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
-          <span class="spanPadding">
+
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_CREATED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="CM_CASE_CREATED"></mat-icon>
+          </div>
+          <li>
+            <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+            <span class="spanPadding">
                     <span> created </span>
                     <b> {{item.label.value}}</b>
                     <span> in state</span>
                     <span class="audit-state">"{{item.caseState.value}}"</span>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_UPDATED_STATE_CHANGED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="CM_CASE_UPDATED_STATE_CHANGED"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
-          <span class="spanPadding">
+
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_UPDATED_STATE_CHANGED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="CM_CASE_UPDATED_STATE_CHANGED"></mat-icon>
+          </div>
+          <li>
+            <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+            <span class="spanPadding">
                     <span> updated </span>
                     <b> {{item.label.value}}</b>
                     <span>, new state is></span>
                     <span class="audit-state"> "{{item.caseState.value}}" </span>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_UPDATED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="CM_CASE_UPDATED"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
-          <span class="spanPadding">
+
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'CM_CASE_UPDATED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="CM_CASE_UPDATED"></mat-icon>
+          </div>
+          <li>
+            <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+            <span class="spanPadding">
                     <span> updated </span>
                     <b> {{item.label.value}} </b>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_CREATED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_CREATED"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
-          <span class="spanPadding">
+
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_CREATED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="WR_FOLDER_ARTIFACT_CREATED"></mat-icon>
+          </div>
+          <li>
+            <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+            <span class="spanPadding">
                     <span> uploaded </span>
                     <span>{{item.artifactName.value}}</span>
                     <span> on {{item.creationTime.value | date:'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_UPDATED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_UPDATED"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
-          <span class="spanPadding">
+
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_UPDATED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="WR_FOLDER_ARTIFACT_UPDATED"></mat-icon>
+          </div>
+          <li>
+            <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+            <span class="spanPadding">
                     <span> updated </span>
                     <span>{{item.artifactName.value}}</span>
                     <span> on {{item.creationTime.value | date:'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_DELETED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="WR_FOLDER_ARTIFACT_DELETED"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <span *ngIf="item.principalName">{{item.principalName.value}}</span>
-          <span class="spanPadding">
+
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'WR_FOLDER_ARTIFACT_DELETED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="WR_FOLDER_ARTIFACT_DELETED"></mat-icon>
+          </div>
+          <li>
+            <span *ngIf="item.principalName">{{item.principalName.value}}</span>
+            <span class="spanPadding">
                     <span> deleted </span>
                     <span>{{item.artifactName.value}}</span>
                     <span> on {{item.creationTime.value | date:'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_TASK_COMPLETED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
-          <span *ngIf="item.principalName">{{item.principalName.value}} </span>
-          <span>
+
+        <div class="tcs-case-audit-dtl"
+             *ngIf="item.messageId.value === 'BP_TASK_COMPLETED' && ['User Task','Email Task','Calculation Task','TCI Task','AuditSafe Task'].indexOf(item.taskType.value) > -1">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="{{item.taskType.value}}"></mat-icon>
+          </div>
+          <li>
+            <span *ngIf="item.principalName">{{item.principalName.value}} </span>
+            <span>
                     <span> completed </span>
                     <b> {{item.taskName.value}} </b>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_INSTANCE_COMPLETED'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="BP_INSTANCE_COMPLETED"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
+        <div class="tcs-case-audit-dtl" *ngIf="item.messageId.value === 'BP_INSTANCE_COMPLETED'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="BP_INSTANCE_COMPLETED"></mat-icon>
+          </div>
+          <li>
                 <span>
                     <b>{{item.procName.value}} </b>
                     <span> on {{item.creationTime.value | date: 'full'}}</span>
                 </span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === 'ERROR'">
-        <div class="audit-icon-container">
-          <mat-icon svgIcon="ERROR"></mat-icon>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
+        <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === 'ERROR'">
+          <div class="audit-icon-container">
+            <mat-icon svgIcon="ERROR"></mat-icon>
+          </div>
+          <li>
                 <span *ngIf="item.principalName">{{item.principalName.value}} has error at {{item.taskName.value}}
                 </span>
-          <b> {{item.message.value | parseAuditMessage : item }}</b>
-          <span> on {{item.creationTime.value | date: 'full'}}</span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
-      <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === 'WARN'">
-        <div class="audit-icon-container warn-icon">
-          <mat-icon svgIcon="ERROR"></mat-icon>
+            <b> {{item.message.value | parseAuditMessage : item }}</b>
+            <span> on {{item.creationTime.value | date: 'full'}}</span>
+          </li>
+          <div class="audit-line"></div>
         </div>
-        <li>
+        <div class="tcs-case-audit-dtl" *ngIf="item.severity.value === 'WARN'">
+          <div class="audit-icon-container warn-icon">
+            <mat-icon svgIcon="ERROR"></mat-icon>
+          </div>
+          <li>
                 <span *ngIf="item.principalName">{{item.principalName.value}} has warning at {{item.taskName.value}}>
                 </span>
-          <b> {{item.message.value | parseAuditMessage : item }}</b>
-          <span> on {{item.creationTime.value | date: 'full'}}</span>
-        </li>
-        <div class="audit-line"></div>
-      </div>
+            <b> {{item.message.value | parseAuditMessage : item }}</b>
+            <span> on {{item.creationTime.value | date: 'full'}}</span>
+          </li>
+          <div class="audit-line"></div>
+        </div>
 
 
-    </ul>
-  </cdk-virtual-scroll-viewport>
+      </ul>
+    </cdk-virtual-scroll-viewport>
   </div>
 </div>

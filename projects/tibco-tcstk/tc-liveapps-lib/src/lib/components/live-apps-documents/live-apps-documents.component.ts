@@ -102,12 +102,11 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
     this.documentsService.listDocuments(this.folderType, this.folderId, this.sandboxId, this.filter)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(documentslist => {
-          this.documents = documentslist.documents;
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => { this.errorMessage = 'Error retrieving case states: ' + error.error.errorMsg; });
+      .subscribe(documentslist => {
+        this.documents = documentslist.documents;
+      }, error => { this.errorMessage = 'Error retrieving case states: ' + error.error.errorMsg; });
     }
 
   public uploadDocument = (doc) => {
@@ -117,14 +116,13 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
     this.documentsService.deleteDocument(this.folderType, this.folderId, doc.name, this.sandboxId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(val => {
-          console.log(val);
-          this.refresh();
-        })
+        takeUntil(this._destroyed$)
       )
       .subscribe(
-        null, error => { this.errorMessage = 'Error removing document: ' + error.errorMsg; });
+        val => {
+          console.log(val);
+          this.refresh();
+        }, error => { this.errorMessage = 'Error removing document: ' + error.errorMsg; });
   }
 
   public viewDocument = (doc) => {
@@ -147,18 +145,17 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
     this.documentsService.downloadDocument(this.folderType, this.folderId, doc.name, doc.artifactVersion, this.sandboxId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(data => {
+        takeUntil(this._destroyed$)
+      )
+      .subscribe(
+        data => {
           // todo: check if this works on all browsers
           const downloadURL = window.URL.createObjectURL(data);
           const link = document.createElement('a');
           link.href = downloadURL;
           link.download = doc.name;
           link.click();
-        })
-      )
-      .subscribe(
-        null, error => { this.errorMessage = 'Error downloading document: ' + error.errorMsg; });
+        }, error => { this.errorMessage = 'Error downloading document: ' + error.errorMsg; });
   }
 
   attachFile(files: FileList) {

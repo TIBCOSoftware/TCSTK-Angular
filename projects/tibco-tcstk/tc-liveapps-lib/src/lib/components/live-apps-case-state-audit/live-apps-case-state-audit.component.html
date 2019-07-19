@@ -1,5 +1,5 @@
 <div class="tcs-state-audit-pane" fxLayout="column" fxFill style="overflow: hidden;">
-  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'States'" [icon]="'tcs-case-state-audit-icon'"></tc-tibco-cloud-widget-header>
+  <tc-tibco-cloud-widget-header [headerText]="'States'" [icon]="'tcs-case-state-audit-icon'"></tc-tibco-cloud-widget-header>
   <div *ngIf="auditEvents && auditEvents.length > 0" class="tcs-state-audit-container">
     <div class="tcs-state-audit-details" fxLayout="column" fxLayoutAlign="start start">
       <div *ngFor="let state of auditEvents; first as isFirst; last as isLast"

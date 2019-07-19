@@ -39,6 +39,7 @@ export * from './lib/models/tc-login';
 export * from './lib/models/tc-routing-actions';
 export * from './lib/models/tc-shared-state';
 export * from './lib/models/tc-widget-header';
+export * from './lib/models/tc-component';
 
 // interceptor
 export * from './lib/interceptors/caching-interceptor';

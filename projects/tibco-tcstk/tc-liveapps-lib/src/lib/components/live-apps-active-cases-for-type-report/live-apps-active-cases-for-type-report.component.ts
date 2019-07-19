@@ -1,6 +1,17 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import {ChartType} from 'chart.js';
-import {Label, MultiDataSet} from 'ng2-charts';
+import {BaseChartDirective, Label, MultiDataSet} from 'ng2-charts';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
 import {CaseTypeStateReport, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
@@ -19,7 +30,7 @@ import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-co
   templateUrl: './live-apps-active-cases-for-type-report.component.html',
   styleUrls: ['./live-apps-active-cases-for-type-report.component.css']
 })
-export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent implements OnInit, OnChanges {
+export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent implements OnInit, OnChanges, AfterViewChecked {
 
 
 
@@ -59,7 +70,8 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
    */
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 
-  // @ViewChild(BaseChartDirective) caseTypeStateReportChart: BaseChartDirective;
+  @ViewChild(BaseChartDirective, {static: false}) caseTypeStateReportChart: BaseChartDirective;
+  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
 
   public errorMessage: string;
   public caseTypeStateReport: CaseTypeStateReport;
@@ -70,6 +82,8 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   public doughnutChartType: ChartType = 'doughnut';
   public chartColors: any[] = [];
   public defaultColors: string[] = DEFAULT_COLORS.slice().reverse();
+  public widgetWidth: number;
+  public widgetHeight: number;
 
   public legendData: any;
   public totalActiveCaseCount: number;
@@ -205,14 +219,14 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
   public refresh = () => {
     this.reportingService.getCaseTypeStateReport(this.sandboxId, this.appId, this.typeId, false, this.uiAppId).pipe(
       take(1),
-      takeUntil(this._destroyed$),
-      map(report => {
-        this.caseTypeStateReport = report;
-        this.initReportDataToChart(report, status);
-        return report;
-      }))
+      takeUntil(this._destroyed$)
+    )
       .subscribe(
-        null, error => { this.errorMessage = 'Error retrieving case types report: ' + error.error.errorMsg; }
+        report => {
+          this.caseTypeStateReport = report;
+          this.initReportDataToChart(report, status);
+          return report;
+        }, error => { this.errorMessage = 'Error retrieving case types report: ' + error.error.errorMsg; }
       );
   }
 
@@ -237,6 +251,15 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
     // console.log(event, active);
   }
 
+  ngAfterViewChecked() {
+    if (this.componentDiv && this.caseTypeStateReport && this.componentDiv.nativeElement.offsetWidth) {
+      if (this.widgetWidth !== this.componentDiv.nativeElement.offsetWidth || this.widgetHeight !== this.componentDiv.nativeElement.offsetHeight) {
+        this.widgetWidth = this.componentDiv.nativeElement.offsetWidth;
+        this.widgetHeight = this.componentDiv.nativeElement.offsetHeight;
+        this.caseTypeStateReportChart.chart.resize();
+      }
+    }
+  }
 
   ngOnInit() {
   }

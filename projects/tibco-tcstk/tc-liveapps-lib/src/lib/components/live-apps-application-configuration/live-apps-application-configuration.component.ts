@@ -253,17 +253,14 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
       this.liveapps.clearFromIconSVGTextCache(url);
       this.documentsService.uploadDocument('orgFolders', this.folderId, this.sandboxId,
         file, (this.appId + '.' + file.name), '')
-        .pipe(
-          map(val => {
+        .subscribe(
+          val => {
             if (!isStateIcon) {
               this.setNewStateIcon(dlUrl);
             } else {
               this.setNewCaseTypeIcon(dlUrl);
             }
-          })
-        )
-        .subscribe(
-          result => null,
+          },
           error => { console.log('error'); this.errorMessage = 'Error uploading state icon: ' + error.errorMsg; });
     }
   }
@@ -273,8 +270,9 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
     this.selectedCaseTypeConfig = null;
     this.caseCardConfigService.getCaseCardConfig(this.sandboxId, this.appId, this.uiAppId, this.appTypeLabel, this.DEFAULT_CASE_TYPE_COLOR, this.DEFAULT_CASE_TYPE_ICON, this.DEFAULT_CASE_STATE_COLOR, this.DEFAULT_CASE_STATE_ICON).pipe(
       take(1),
-      takeUntil(this._destroyed$),
-      map(caseCardConfig => {
+      takeUntil(this._destroyed$)
+    ).subscribe(
+      caseCardConfig => {
         this.caseCardConfig = caseCardConfig;
         // set default selected to first state for this case type (0 is case type)
         this.selectedStateConfig = this.caseCardConfig.cardConfig.stateMap[1];
@@ -284,10 +282,8 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
         this.caseTypeIcon = caseTypeRec.icon;
         this.caseTypeColor = caseTypeRec.fill;
-        this.selectedCaseTypeConfig = this.getConfigForCaseType(this.appTypeLabel);
-      })
-    ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving case card config: ' + error.error.errorMsg; });
+        this.selectedCaseTypeConfig = this.getConfigForCaseType(this.appTypeLabel)
+      }, error => { this.errorMessage = 'Error retrieving case card config: ' + error.error.errorMsg; });
   }
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer,

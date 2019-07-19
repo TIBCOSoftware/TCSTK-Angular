@@ -417,10 +417,8 @@ export class LiveAppsService {
               content = this.newCasesRecord(caseRef, maxSize);
               this.sharedStateService.createSharedState(ssName, 'PRIVATE', '', sandboxId, undefined, undefined, undefined, content).subscribe();
             }
-
             return casesEntry;
           }
-
         )
       ).subscribe(null, error => console.log('Unable to set recent cases: ' + error));
   }

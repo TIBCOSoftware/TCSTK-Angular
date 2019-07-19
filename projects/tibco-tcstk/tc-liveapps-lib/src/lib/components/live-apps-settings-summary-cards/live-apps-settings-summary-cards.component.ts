@@ -45,12 +45,10 @@ export class LiveAppsSettingsSummaryCardsComponent extends LiveAppsSettingsCompo
     this.caseCardConfigService.updateCaseCardConfig(this.sandboxId, this.selectedApp.applicationId, this.generalConfig.uiAppId, this.caseCardConfig)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(caseCardConfig => {
-          this.caseCardConfig = caseCardConfig;
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
           result => {
+              this.caseCardConfig = result;
               this.snackBar.open('Summary cards settings saved', 'OK', {
                   duration: 3000
               });

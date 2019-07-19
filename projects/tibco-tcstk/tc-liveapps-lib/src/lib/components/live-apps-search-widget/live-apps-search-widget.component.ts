@@ -1,9 +1,21 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import {CaseSearchResults, CaseType} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {LiveAppsCaseSearchComponent} from '../live-apps-case-search/live-apps-case-search.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
+import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 /**
  * High Level search widget component (wraps others)
@@ -19,7 +31,7 @@ import {Subject} from 'rxjs';
   templateUrl: './live-apps-search-widget.component.html',
   styleUrls: ['./live-apps-search-widget.component.css']
 })
-export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
+export class LiveAppsSearchWidgetComponent extends LiveAppsComponent implements OnInit, AfterViewInit {
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -36,6 +48,11 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
   @Input() appIds: string[];
 
   /**
+   * The fixed height of the case list results pane
+   */
+  @Input() resultsHeight: string = this.resultsHeight ?  this.resultsHeight : '400px';
+
+  /**
    * ~event caseSelected : Case Clicked
    * ~payload string : emits case reference when a case is clicked (so parent can navigate to case)
    */
@@ -43,6 +60,10 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
 
 
   @ViewChild(LiveAppsCaseSearchComponent, {static: false}) caseSearchComponent: LiveAppsCaseSearchComponent;
+  @ViewChild('componentDiv', { static: false }) componentDiv: ElementRef;
+  @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
+
+  widget: TcComponent;
   // case search
   matchedRefs: string[] = [];
   searchString: string;
@@ -85,6 +106,15 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent {
         this.matchedRefs = results.caserefs;
       }
     );
+  }
+
+  ngAfterViewInit() {
+    super.ngAfterViewInit();
+    this.containerChanges$.subscribe();
+  }
+
+  ngOnInit() {
+    super.ngOnInit();
   }
 
 }

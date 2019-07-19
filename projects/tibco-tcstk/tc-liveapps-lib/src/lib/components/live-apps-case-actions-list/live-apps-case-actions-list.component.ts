@@ -28,28 +28,26 @@ export class LiveAppsCaseActionsListComponent extends LiveAppsCaseActionsCompone
 
     public refresh = () => {
         // retrieve the schema for this case type so we can display case creators and case actions for this case type
-        this.liveapps.getCaseTypeSchema(this.sandboxId, this.appId, 100).pipe(
-            map(schema => {
-                // this.appSchema = schema;
-                schema.casetypes.forEach((casetype) => {
-                    // the schema will contain definitions for both the 'case' and any defined types in that case.
-                    // We want the schema for this 'case'.
-                    if (casetype.applicationId === this.appId && casetype.id === this.typeId) {
-                        if (casetype.jsonSchema !== undefined) {
-                            // this.caseType = casetype;
-                            this.caseActionList = casetype.actions ? casetype.actions : [];
-                            // if (this.caseActionList.length == 1) {
-                            //     this.selectProcess(this.caseActionList[0]);
-                            // }
-                        } else {
-                            console.error('No schema returned for this case type: You may need to update/re-deploy the live apps application');
-                        }
-                    }
+        this.liveapps.getCaseTypeSchema(this.sandboxId, this.appId, 100)
+        .subscribe(schema => {
+          // this.appSchema = schema;
+          schema.casetypes.forEach((casetype) => {
+              // the schema will contain definitions for both the 'case' and any defined types in that case.
+              // We want the schema for this 'case'.
+              if (casetype.applicationId === this.appId && casetype.id === this.typeId) {
+                if (casetype.jsonSchema !== undefined) {
+                  // this.caseType = casetype;
+                  this.caseActionList = casetype.actions ? casetype.actions : [];
+                  // if (this.caseActionList.length == 1) {
+                  //     this.selectProcess(this.caseActionList[0]);
+                  // }
+                } else {
+                  console.error('No schema returned for this case type: You may need to update/re-deploy the live apps application');
                 }
-                );
+              }
             }
-            )
-        ).subscribe();
+          );
+        });
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -76,12 +74,11 @@ export class LiveAppsCaseActionsListComponent extends LiveAppsCaseActionsCompone
                     console.error('No schema available for this case type: The form may not be supported or you may need to update/re-deploy the live apps application');
                 }
             }
-            ),
-            map(processSchema => {
-                this.actionClicked.emit(processSchema);
-                return processSchema;
-            })
+            )
         )
-            .subscribe(null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
+            .subscribe(processSchema => {
+              this.actionClicked.emit(processSchema);
+              return processSchema;
+            }, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
     }
 }

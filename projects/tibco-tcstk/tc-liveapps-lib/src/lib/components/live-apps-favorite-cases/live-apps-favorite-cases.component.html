@@ -1,4 +1,4 @@
-<div class="tcs-case-favorites-box" fxLayout="column" fxFill>
+<div #componentDiv class="tcs-case-favorites-box" fxLayout="column" fxFill>
     <div *ngIf="showHeader" class="tcs-case-favorites-header" fxLayout="row" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center">
         <mat-icon class="tcs-icon tcs-favorites-icon" svgIcon="tcs-favorites-icon"></mat-icon>
@@ -10,14 +10,14 @@
     <mat-icon style="margin: 5px" (click)="clearFavoriteCases()" class="tcs-icon tcs-icon-active tcs-clear-favorite-icon" svgIcon="tcs-clear-icon" matTooltip="Clear Favorites" matTooltipPosition="left" matTooltipShowDelay="1000"></mat-icon>
   </div>
     <div *ngIf="favoriteCases.length > 0" class="tcs-case-favorites-flow-list" fxLayout="column" fxLayout="row wrap">
-      <div class="tcs-case-favorite-item-box" *ngFor="let case of favoriteCases" fxFlex>
+      <div class="tcs-case-favorite-item-box" *ngFor="let case of favoriteCases" [fxFlex]="cardWidthPct">
         <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="case" (clickCase)="clickCaseAction($event)" (deleted)="handleDeleted($event)"></tcla-live-apps-case-summary>
         <div class="tcs-case-summary-line"></div>
       </div>
     </div>
-    <div *ngIf="!(favoriteCases.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px" style="margin-top: 20px;">
+    <div *ngIf="!(favoriteCases.length > 0)" fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="10px" style="margin: 20px;">
       <mat-icon [svgIcon]="'ic-no-cases-icon'" style="height: 48px; width: 48px;"></mat-icon>
-      <div style="height: 100%" fxLayoutAlign="start center">
+      <div style="height: 100%; margin: 5px" fxLayoutAlign="start center">
         <span class="tcs-no-item-text">No cases found</span>
       </div>
     </div>
