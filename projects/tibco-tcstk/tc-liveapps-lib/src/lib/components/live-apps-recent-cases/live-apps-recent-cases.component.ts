@@ -16,7 +16,6 @@ import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {CaseList, CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {LiveAppsStateIconComponent} from '@tibco-tcstk/tc-liveapps-lib';
 import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 /**
