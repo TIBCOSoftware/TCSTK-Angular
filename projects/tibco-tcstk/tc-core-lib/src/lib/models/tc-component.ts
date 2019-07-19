@@ -1,4 +1,5 @@
-import {Deserializable, Sandbox} from '@tibco-tcstk/tc-core-lib';
+import {Sandbox} from '../models/tc-login';
+import {Deserializable} from '../models/deserializable';
 import {ElementRef} from '@angular/core';
 
 export class TcComponent implements Deserializable {
