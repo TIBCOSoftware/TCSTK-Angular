@@ -1,5 +1,5 @@
 import {HashLocationStrategy, Location} from '@angular/common';
-import {TcComponent} from '@tibco-tcstk/tc-core-lib';
+import {TcComponent} from '../models/tc-component';
 
 // @dynamic
 export class TcCoreCommonFunctions {
