@@ -1,4 +1,4 @@
-<div class="tcs-case-list-box" fxLayout="column">
+<div class="tcs-case-list-box" fxLayout="column" fxFill>
   <div class="tcs-case-list-header" fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex fxLayoutAlign="start center">
       <mat-icon class="tcs-icon tcs-caselist-icon" svgIcon="tcs-caselist-icon"></mat-icon>
@@ -14,19 +14,13 @@
     </div>
   </div>
 
-  <!--div *ngIf="displayType != 'list'" class="tcs-case-list-flow-list" fxLayout="column">
-    <div class="tcs-case-list-item-box" *ngFor="let caseRef of caseRefs">
-      <tcla-live-apps-case-summary style="max-width: 297px;" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="caseRef" [highlight]="highlight" (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-summary>
-      <div class="tcs-case-summary-line"></div>
-    </div>
-  </div-->
-
-  <div *ngIf="displayType === 'list'" fxFlex fxLayout="column">
-    <cdk-virtual-scroll-viewport class="tcs-case-list-flow-list" itemSize="56">
+  <div style="height: 100%;" fxLayout="row">
+    <cdk-virtual-scroll-viewport fxFlex class="tcs-case-list-flow-list" itemSize="56">
       <div class="tcs-case-list-item-box" *cdkVirtualFor="let caseRef of caseRefs; templateCacheSize: 0; let index = index">
-        <tcla-live-apps-case-summary style="max-width: 297px;" [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="caseRef" [highlight]="highlight" (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-summary>
+        <tcla-live-apps-case-summary #componentChildDiv [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="caseRef" [highlight]="highlight" (clickCase)="clickCaseAction($event)"></tcla-live-apps-case-summary>
         <div class="tcs-case-summary-line"></div>
       </div>
     </cdk-virtual-scroll-viewport>
   </div>
+
 </div>

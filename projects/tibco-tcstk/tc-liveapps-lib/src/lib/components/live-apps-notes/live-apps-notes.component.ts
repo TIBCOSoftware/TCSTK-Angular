@@ -12,6 +12,8 @@ import {TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
  * This Component allows to list, and add Notes to a Case-Instance or other Context e.g. a whole Application.
  * Any Note can have Sub-Notes to allow real collaboration.
  *
+ * Note that since this component uses a virtual scroll the parent container must have height set or the notes won't appear
+ *
  * ![alt-text](../live-apps-notes.png "Notes Component Image")
  *
  *@example <tcla-live-apps-notes></tcla-live-apps-notes>
@@ -51,7 +53,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   public threads: ThreadList;
   public subscribed: Boolean;
   public skip = 0;
-  public top = 5;
+  public top = 20;
   public end = false;
   public toolbarButtons: ToolbarButton[] = [];
 
@@ -61,7 +63,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
 
   public refresh = () => {
     this.skip = 0;
-    this.top = 5;
+    this.top = 20;
     this.end = false;
     if (this.threads && this.threads.threads) {
       this.threads.threads.length = 0;
@@ -75,22 +77,21 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
       this.liveapps.getThreads(this.relatedItemType, this.relatedItemId, this.skip, this.top)
         .pipe(
           take(1),
-          takeUntil(this._destroyed$),
-          map(threadList => {
-            if (!this.threads) {
-              this.threads = threadList;
-            } else {
-              // this will strip any duplicates that may have been retrieved due to fast scrolling
-              const filteredEvents = threadList.threads.filter(x => this.threads.threads.every(y => y.note.id !== x.note.id));
-              this.threads.threads = this.threads.threads.concat(filteredEvents);
-            }
-            if (threadList.threads.length < this.top) {
-              this.end = true;
-            } else {
-              this.skip = this.skip + threadList.threads.length - 1;
-            }
-          })
-        ).subscribe(null, error => {
+          takeUntil(this._destroyed$)
+        ).subscribe(threadList => {
+        if (!this.threads) {
+          this.threads = threadList;
+        } else {
+          // this will strip any duplicates that may have been retrieved due to fast scrolling
+          const filteredEvents = threadList.threads.filter(x => this.threads.threads.every(y => y.note.id !== x.note.id));
+          this.threads.threads = this.threads.threads.concat(filteredEvents);
+        }
+        if (threadList.threads.length < this.top) {
+          this.end = true;
+        } else {
+          this.skip = this.skip + threadList.threads.length - 1;
+        }
+      }, error => {
         this.errorMessage = 'Error retrieving notes: ' + error.error.errorMsg;
       });
     }
@@ -118,14 +119,13 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     this.liveapps.createReplyNote(thread.note, replyText, thread.note.id)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          this.newNoteId = result;
-          thread.newReply.text = undefined;
-          this.refresh();
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+      .subscribe(result => {
+        this.newNoteId = result;
+        thread.newReply.text = undefined;
+        this.refresh();
+      }, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
   }
 
   public createThread = (noteText) => {
@@ -133,14 +133,13 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
       this.liveapps.createNote(this.relatedItemType, 'RT_CASE', this.relatedItemId, 'comments update', '', '', noteText)
         .pipe(
           take(1),
-          takeUntil(this._destroyed$),
-          map(result => {
-            this.newNoteId = result;
-            this.newNote.text = undefined;
-            this.refresh();
-          })
+          takeUntil(this._destroyed$)
         )
-        .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+        .subscribe(result => {
+          this.newNoteId = result;
+          this.newNote.text = undefined;
+          this.refresh();
+        }, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
     }
   }
 
@@ -183,47 +182,44 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     this.liveapps.getNotifications(this.relatedItemType, this.relatedItemId, this.userId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          const notificationList: NotificationList = result;
-          if (notificationList.notifications.length > 0) {
-            this.subscribed = true;
-            this.setupNotificationButtons(true);
-          } else {
-            this.subscribed = false;
-            this.setupNotificationButtons(false);
-          }
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+      .subscribe(result => {
+        const notificationList: NotificationList = result;
+        if (notificationList.notifications.length > 0) {
+          this.subscribed = true;
+          this.setupNotificationButtons(true);
+        } else {
+          this.subscribed = false;
+          this.setupNotificationButtons(false);
+        }
+      }, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
   }
 
   public subscribe = () => {
     this.liveapps.subscribeToNotes(this.relatedItemType, this.relatedItemId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          if (result) {
-            this.subscribed = true;
-            this.recreateButtonsForNotifications(true);
-          }
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+      .subscribe(result => {
+        if (result) {
+          this.subscribed = true;
+          this.recreateButtonsForNotifications(true);
+        }
+      }, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
   }
 
   public unsubscribe = () => {
     this.liveapps.unsubscribeToNotes(this.relatedItemType, this.relatedItemId, this.userId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          this.subscribed = false;
-          this.recreateButtonsForNotifications(false);
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+      .subscribe(result => {
+        this.subscribed = false;
+        this.recreateButtonsForNotifications(false);
+      }, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
   }
 
   public editNote = (thread) => {
@@ -236,13 +232,12 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     this.liveapps.updateNote(note, note.id)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          console.log('Note updated');
-          this.refresh();
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => this.errorMessage = 'Error updating note: ' + error.error.errorMessage);
+      .subscribe(result => {
+        console.log('Note updated');
+        this.refresh();
+      }, error => this.errorMessage = 'Error updating note: ' + error.error.errorMessage);
   }
 
   public deleteNote = (id) => {
@@ -250,17 +245,16 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
     this.liveapps.deleteNote(id)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          console.log('Note deleted: ' + result);
-          this.refresh();
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
+      .subscribe(result => {
+        console.log('Note deleted: ' + result);
+        this.refresh();
+      }, error => this.errorMessage = 'Error creating new note: ' + error.error.errorMessage);
   }
 
   ngOnInit() {
-    this.refresh();
+    // this.refresh();
     this.newNote.text = '';
 
   }

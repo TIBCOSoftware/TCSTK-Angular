@@ -59,15 +59,14 @@ export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements 
     this.caseProcessesService.getCaseCreators(this.sandboxId, this.appId, this.typeId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(casecreators => {
-          this.casecreators = casecreators.creators;
-          if (this.casecreators.length === 1) {
-            this.selectCreator(this.casecreators[0]);
-          }
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
+      casecreators => {
+        this.casecreators = casecreators.creators;
+        if (this.casecreators.length === 1) {
+          this.selectCreator(this.casecreators[0]);
+        }
+      }, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
   public selectCreator(creator: CaseCreator) {
@@ -83,13 +82,13 @@ export class LiveAppsCaseCreatorsComponent extends LiveAppsComponent implements 
             console.error('No schema available for this case type: The form may not be supported or you may need to update/re-deploy the live apps application. Alternatively use a custom form.');
           }
         }
-      ),
-      map(processSchema => {
+      )
+    )
+    .subscribe(processSchema => {
         this.creatorClicked.emit(processSchema);
         return processSchema;
-      })
-    )
-    .subscribe(null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
+      }
+      , error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
   ngOnInit() {

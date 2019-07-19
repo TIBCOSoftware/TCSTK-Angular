@@ -75,12 +75,11 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
     this.caseProcessesService.getCaseActionsForCaseRef(this.caseRef, this.sandboxId, this.appId, this.typeId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(caseactions => {
-          this.caseactions = caseactions.actions;
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
+      caseactions => {
+        this.caseactions = caseactions.actions;
+      }, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
   public toggleEnable = () => {
@@ -101,13 +100,12 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
             console.error('No schema available for this case type: The form may not be supported or you may need to update/re-deploy the live apps application');
           }
         }
-      ),
-      map(processSchema => {
-        this.actionClicked.emit(processSchema);
-        return processSchema;
-      })
+      )
     )
-    .subscribe(null, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
+    .subscribe(processSchema => {
+      this.actionClicked.emit(processSchema);
+      return processSchema;
+    }, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
   ngOnInit() {

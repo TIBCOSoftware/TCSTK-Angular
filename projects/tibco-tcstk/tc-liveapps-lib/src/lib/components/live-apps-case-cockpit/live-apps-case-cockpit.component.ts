@@ -292,15 +292,14 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
       this.liveapps.isFavoriteCase(this.caseRef, this.uiAppId, this.sandboxId)
         .pipe(
           take(1),
-          takeUntil(this._destroyed$),
-          map(result => {
+          takeUntil(this._destroyed$)
+        )
+        .subscribe(
+          result => {
             this.isFavorite = result;
             this.toolbarButtons = this.toolbarButtons.concat(this.createToolbarButtons());
             return result;
-          })
-        )
-        .subscribe(
-          null, error => {
+          }, error => {
             this.errorMessage = 'Error retrieving isFavorite: ' + error.error.errorMsg;
           }
         );

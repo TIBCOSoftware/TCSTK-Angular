@@ -73,23 +73,22 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
     this.liveapps.getApplications(this.sandboxId, this.appIds, 100, bypassCache)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(applicationList => {
-          this.applications = applicationList;
-          if (this.selectedApp.applicationId) {
-            this.selectedApp = applicationList.casetypes.find((casetype) => {
-              return casetype.applicationId === this.selectedApp.applicationId;
-            });
-            // this.selection.emit(this.selectedApp);
-          } else
-          // select first as default
-            if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
-              this.selectedApp = applicationList.casetypes[0];
-              this.selection.emit(applicationList.casetypes[0]);
-          }
-        })
+        takeUntil(this._destroyed$)
       )
-      .subscribe(null, error => { this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; });
+      .subscribe(applicationList => {
+        this.applications = applicationList;
+        if (this.selectedApp.applicationId) {
+          this.selectedApp = applicationList.casetypes.find((casetype) => {
+            return casetype.applicationId === this.selectedApp.applicationId;
+          });
+          // this.selection.emit(this.selectedApp);
+        } else
+        // select first as default
+        if (applicationList.casetypes.length > 0 && this.selectFirstApp) {
+          this.selectedApp = applicationList.casetypes[0];
+          this.selection.emit(applicationList.casetypes[0]);
+        }
+      }, error => { this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; });
   }
 
   ngOnInit(): void {

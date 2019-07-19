@@ -18,24 +18,160 @@
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
       <mat-tab label="Search">
-        <div fxFill style="padding:20px" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row">
-            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-search-widget [appIds]="liveAppsConfig.applicationIds" [sandboxId]="sandboxId"
-                                            [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-search-widget>
+        <ng-template matTabContent>
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="column" style="height:100%">
+            <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
+            <span class="tcs-component-notes">*** The search results pane defaults to a min of 400px. This can be changed using the [resultsHeight] parameter ***</span>
+            <div fxLayout="row" style="height: 100%;">
+              <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-search-widget #componentDiv [appIds]="liveAppsConfig.applicationIds" [sandboxId]="sandboxId"
+                                              [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-search-widget>
+              </div>
             </div>
           </div>
         </div>
+        </ng-template>
       </mat-tab>
       <mat-tab label="Favorite">
+        <ng-template matTabContent>
         <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row">
+          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
             <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
+              <tcla-live-apps-favorite-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
                                              [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-favorite-cases>
             </div>
           </div>
         </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Recent">
+        <ng-template matTabContent>
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+              <tcla-live-apps-recent-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
+                                             [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-recent-cases>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Collaboration">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="column" style="height:100%">
+              <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
+              <div fxLayout="row" style="height: 100%;">
+                <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
+                  <tcla-live-apps-notes #componentDiv [userId]="userId" [showHeader]="true" [relatedItemId]="generalConfig.uiAppId" [relatedItemType]="'CASE_APP'"></tcla-live-apps-notes>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Documents">
+        <ng-template matTabContent>
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+              <tcla-live-apps-documents #componentDiv [showHeader]="true" [sandboxId]="sandboxId" [folderId]="generalConfig.uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Active Cases">
+        <ng-template matTabContent>
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+              <tcla-live-apps-active-cases-widget #componentDiv [sandboxId]="sandboxId" [appIds]="liveAppsConfig.applicationIds" [showHeader]="true" [showPercentages]="true" [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-active-cases-widget>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="States (Milestones)">
+        <ng-template matTabContent>
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+              <tcla-live-apps-case-states #componentDiv *ngIf="metadata" fxFlex [sandboxId]="sandboxId" [caseRef]="caseRef" [appId]="metadata.applicationId"></tcla-live-apps-case-states>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="States (Case States Audit)">
+        <ng-template matTabContent>
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+              <tcla-live-apps-case-state-audit #componentDiv *ngIf="metadata" [caseRef]="caseRef" [sandboxId]="sandboxId" [appId]="metadata.applicationId"></tcla-live-apps-case-state-audit>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Audit">
+        <ng-template matTabContent>
+        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+          <div fxLayout="column" style="height:100%">
+            <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
+            <div fxLayout="row" style="height: 100%;">
+              <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-case-audit #componentDiv [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-audit>
+              </div>
+            </div>
+          </div>
+        </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Summary Card (miniCard)">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'miniCard'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Summary Card (card)">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'card'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Summary Card (list)">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'list'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Summary Card (staticList)">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticList'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+              </div>
+            </div>
+          </div>
+        </ng-template>
       </mat-tab>
     </mat-tab-group>
   </div>

@@ -67,34 +67,33 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
       this.liveapps.runProcess(this.sandboxId, this.applicationId, this.process.process.id, caseRef, data)
         .pipe(
           take(1),
-          takeUntil(this._destroyed$),
-          map(response => {
-            if (response) {
-              if (!response.data.errorMsg) {
-                // parse data to object
-                response.data = JSON.parse(response.data);
-                // case created send back response including caseIdentifier if one is present
-                let caseIdentifier;
-                let caseReference;
-                if (response.caseIdentifier) {
-                  caseIdentifier = response.caseIdentifier;
-                }
-                if (response.caseReference) {
-                  caseReference = response.caseReference;
-                }
-                const processResponse = new ProcessId().deserialize({'caseIdentifier': caseIdentifier, 'caseReference': caseReference});
-                this.caseChanged.emit(processResponse);
-                this.schema = undefined;
-                this.data = undefined;
-                this.layout = undefined;
-              } else {
-                console.error('Unable to run case creator');
-                console.error(response.data.errorMsg);
-              }
-            }
-          })
+          takeUntil(this._destroyed$)
         )
-        .subscribe(success => success, error => {
+        .subscribe(response => {
+          if (response) {
+            if (!response.data.errorMsg) {
+              // parse data to object
+              response.data = JSON.parse(response.data);
+              // case created send back response including caseIdentifier if one is present
+              let caseIdentifier;
+              let caseReference;
+              if (response.caseIdentifier) {
+                caseIdentifier = response.caseIdentifier;
+              }
+              if (response.caseReference) {
+                caseReference = response.caseReference;
+              }
+              const processResponse = new ProcessId().deserialize({'caseIdentifier': caseIdentifier, 'caseReference': caseReference});
+              this.caseChanged.emit(processResponse);
+              this.schema = undefined;
+              this.data = undefined;
+              this.layout = undefined;
+            } else {
+              console.error('Unable to run case creator');
+              console.error(response.data.errorMsg);
+            }
+          }
+        }, error => {
             console.error('Unable to run case creator');
             console.error(error);
           }

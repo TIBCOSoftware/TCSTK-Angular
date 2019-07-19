@@ -54,17 +54,13 @@ export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnI
       this.liveapps.getIconSVGText(url)
         .pipe(
           take(1),
-          takeUntil(this._destroyed$),
-          map(val => {
-              this.svgcontents = val;
-              val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
-              const newval = this.sanitizer.bypassSecurityTrustHtml(val);
-              return newval;
-            }
-          )
+          takeUntil(this._destroyed$)
         )
         .subscribe(val => {
-            this.iconSVG = val;
+            this.svgcontents = val;
+            val = val.toString().replace('fill="<DYNAMICFILL>"', 'fill="' + fill + '"');
+            const newval = this.sanitizer.bypassSecurityTrustHtml(val);
+            this.iconSVG = newval;
           }
           , error => {
             console.log('Unable to retrieve icon: ' + error.errorMsg);

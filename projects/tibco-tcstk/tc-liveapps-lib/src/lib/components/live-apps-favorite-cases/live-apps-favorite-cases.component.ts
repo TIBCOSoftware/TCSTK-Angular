@@ -1,9 +1,21 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {CaseRoute} from '../../models/liveappsdata';
+import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 
 /**
@@ -18,7 +30,7 @@ import {CaseRoute} from '../../models/liveappsdata';
   templateUrl: './live-apps-favorite-cases.component.html',
   styleUrls: ['./live-apps-favorite-cases.component.css']
 })
-export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements OnInit {
+export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements OnInit, AfterViewInit {
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -48,6 +60,7 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
 
   public favoriteCases: string[];
   public errorMessage: string;
+  public cardWidthPct: Number;
 
   public clickCaseAction = (caseRoute: CaseRoute) => {
     this.clickCase.emit(caseRoute);
@@ -58,12 +71,11 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
     this.liveapps.getFavoriteCases(this.uiAppId, this.sandboxId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(favoriteCases => {
-          this.favoriteCases = favoriteCases.caseRefs || [];
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving favorite cases: ' + error.error.errorMsg; });
+      favoriteCases => {
+        this.favoriteCases = favoriteCases.caseRefs || [];
+      }, error => { this.errorMessage = 'Error retrieving favorite cases: ' + error.error.errorMsg; });
   }
 
   public clearFavoriteCases = () => {
@@ -81,7 +93,15 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
     super();
   }
 
+  ngAfterViewInit() {
+    super.ngAfterViewInit();
+    this.containerChanges$.subscribe(widget => {
+      this.cardWidthPct = TcCoreCommonFunctions.calcSummaryCardPct(widget);
+    });
+  }
+
   ngOnInit() {
+    super.ngOnInit();
     this.refresh();
   }
 

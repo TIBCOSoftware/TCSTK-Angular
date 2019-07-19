@@ -1,9 +1,23 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {CaseList, CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
+import {LiveAppsStateIconComponent} from '@tibco-tcstk/tc-liveapps-lib';
+import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 /**
  * Recent cases widget, this Component list recent visited Cases.
@@ -17,7 +31,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
   templateUrl: './live-apps-recent-cases.component.html',
   styleUrls: ['./live-apps-recent-cases.component.css']
 })
-export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements OnInit {
+export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements OnInit, AfterViewInit {
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -43,9 +57,12 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
    */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
+  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
 
   public recentCases: string[];
   public errorMessage: string;
+  public widget: TcComponent;
+  public cardWidthPct: Number;
 
   public clickCaseAction = (caseRoute: CaseRoute) => {
     this.clickCase.emit(caseRoute);
@@ -56,12 +73,11 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
     this.liveapps.getRecentCases(this.uiAppId, this.sandboxId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(recentCases => {
-          this.recentCases = recentCases.caseRefs || [];
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving recent cases: ' + error.error.errorMsg; });
+      next => {
+        this.recentCases = next.caseRefs || [];
+      }, error => { this.errorMessage = 'Error retrieving recent cases: ' + error.error.errorMsg; });
   }
 
   public clearRecentCases = () => {
@@ -79,7 +95,17 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
     super();
   }
 
+
+  ngAfterViewInit() {
+    super.ngAfterViewInit();
+    this.cardWidthPct = TcCoreCommonFunctions.calcSummaryCardPct(this.widget);
+    this.containerChanges$.subscribe(widget => {
+      this.cardWidthPct = TcCoreCommonFunctions.calcSummaryCardPct(widget);
+    });
+  }
+
   ngOnInit() {
+    super.ngOnInit();
     this.refresh();
   }
 

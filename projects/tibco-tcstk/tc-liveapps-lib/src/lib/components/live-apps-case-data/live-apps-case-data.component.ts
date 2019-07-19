@@ -81,16 +81,15 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
     this.caseDataService.getCaseWithSchema(this.caseRef, this.sandboxId, this.appId, this.typeId, this.uiAppId)
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          this.casedata = result.caseInfo.untaggedCasedataObj;
-          this.metadata = result.caseInfo.metadata;
-          this.summary = result.caseInfo.summaryObj;
-          this.schema = result.caseSchema;
-          this.formRef = result.applicationName + '.' + result.applicationInternalName + '.casedata.' + this.customDataId;
-        })
+        takeUntil(this._destroyed$)
       ).subscribe(
-      null, error => { this.errorMessage = 'Error retrieving case data: ' + error.error.errorMsg; });
+      result => {
+        this.casedata = result.caseInfo.untaggedCasedataObj;
+        this.metadata = result.caseInfo.metadata;
+        this.summary = result.caseInfo.summaryObj;
+        this.schema = result.caseSchema;
+        this.formRef = result.applicationName + '.' + result.applicationInternalName + '.casedata.' + this.customDataId;
+      }, error => { this.errorMessage = 'Error retrieving case data: ' + error.error.errorMsg; });
   }
 
   ngOnInit() {

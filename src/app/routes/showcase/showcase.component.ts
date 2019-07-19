@@ -1,7 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {Claim, GeneralConfig} from '@tibco-tcstk/tc-core-lib';
-import {CaseType, LiveAppsConfig} from '@tibco-tcstk/tc-liveapps-lib';
+import {
+  CaseInfo,
+  CaseType,
+  LiveAppsComponent,
+  LiveAppsConfig,
+  LiveAppsService,
+  Metadata,
+  TcCaseDataService
+} from '@tibco-tcstk/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
+import {map, take, takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'laapp-showcase',
@@ -19,8 +28,13 @@ export class ShowcaseComponent implements OnInit {
   public email: string;
   public widgetSize = 100;
   public fixedHeight = false;
+  public caseRef: string;
+  public casedata: any;
+  public metadata: Metadata;
+  public summary: any;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService) { }
+  @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
 
   toggleWidgetSize = () => {
     if (this.widgetSize === 100) {
@@ -32,6 +46,9 @@ export class ShowcaseComponent implements OnInit {
     } else {
       this.widgetSize = 100;
     }
+    this.componentDivs.forEach(component => {
+      component.resize();
+    });
   }
 
   toggleWidgetHeight = () => {
@@ -46,6 +63,22 @@ export class ShowcaseComponent implements OnInit {
     this.userName = this.claims.firstName + ' ' + this.claims.lastName;
     this.email = this.claims.email;
     this.userId = this.claims.id;
+    // get sample case
+    this.liveAppsService.getCases(this.sandboxId, this.liveAppsConfig.applicationIds[0], '1', 0, 1)
+      .subscribe(
+      next => {
+        if (next.caseinfos[0]) {
+          this.caseRef =  next.caseinfos[0].caseReference;
+          this.casedata = next.caseinfos[0].untaggedCasedataObj;
+          this.metadata = next.caseinfos[0].metadata;
+          this.summary = next.caseinfos[0].summaryObj;
+        } else {
+          console.error('No cases for this appId: ', this.liveAppsConfig.applicationIds[0]);
+        }
+      },
+      error => {
+        console.error('Error retrieving case data: ' + error.error.errorMsg);
+      });
   }
 
 }

@@ -1,5 +1,6 @@
 import {
-  Component,
+  AfterViewInit,
+  Component, ElementRef,
   EventEmitter,
   Input, OnChanges,
   OnDestroy,
@@ -18,6 +19,8 @@ import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
+import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {ActivatedRoute, Router} from '@angular/router';
 
 /**
  * Renders case summary cards
@@ -35,10 +38,11 @@ import {TcCaseCardConfigService} from '../../services/tc-case-card-config.servic
   styleUrls: ['./live-apps-case-summary.component.css']
 })
 
-export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit, OnChanges {
+export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit, OnChanges, AfterViewInit {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
   @ViewChild('caseStateIcon', {static: false}) stateIconComponent: LiveAppsStateIconComponent;
   @ViewChild('caseTypeIcon', {static: false}) caseTypeIconComponent: LiveAppsStateIconComponent;
+  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
 
   /**
    * Whether to use static data (ie. when in app config box)
@@ -152,22 +156,21 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
         .pipe(
           take(1),
           takeUntil(this._destroyed$),
-          map(caseinfo => {
-            if (!caseinfo.deleted) {
-              this.appId = caseinfo.metadata.applicationId;
-              this.typeId = caseinfo.metadata.typeId;
-              this.casedata = caseinfo.untaggedCasedataObj;
-              this.metadata = caseinfo.metadata;
-              this.summary = caseinfo.summaryObj;
-              this.summaryKeys = Object.keys(this.summary);
-              this.summaryValues = Object.values(this.summary);
-            } else {
-              // notify parent case has been deleted
-              this.deleted.emit(this.caseRef);
-            }
-          })
         ).subscribe(
-        null, error => {
+        caseinfo => {
+          if (!caseinfo.deleted) {
+            this.appId = caseinfo.metadata.applicationId;
+            this.typeId = caseinfo.metadata.typeId;
+            this.casedata = caseinfo.untaggedCasedataObj;
+            this.metadata = caseinfo.metadata;
+            this.summary = caseinfo.summaryObj;
+            this.summaryKeys = Object.keys(this.summary);
+            this.summaryValues = Object.values(this.summary);
+          } else {
+            // notify parent case has been deleted
+            this.deleted.emit(this.caseRef);
+          }
+        }, error => {
           this.errorMessage = 'Error retrieving case data: ' + error.error.errorMsg;
         });
     } else {
@@ -215,7 +218,13 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
     super();
   }
 
+  ngAfterViewInit() {
+    super.ngAfterViewInit();
+    this.containerChanges$.subscribe();
+  }
+
   ngOnInit() {
+    super.ngOnInit();
     this.refresh();
   }
 

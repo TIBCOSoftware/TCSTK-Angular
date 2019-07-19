@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {Subject} from 'rxjs';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';

@@ -10,22 +10,26 @@
 
   <div class="tcs-home-content" fxLayout="column" fxFlex="grow" fxLayoutAlign="start stretch" style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">
 
-    <div fxFlex class="searchCasesWidget" style="min-height: 86px">
+    <div fxFlex="1 1 auto" class="searchCasesWidget" style="min-height: 86px;">
       <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
     </div>
 
     <div fxFlex="noshrink" style="margin-bottom: 20px; overflow: auto; min-height: 400px" fxLayoutGap="20px" fxLayout="row" fxLayout.lt-md="column">
       <div fxFlex.gt-sm="grow" fxLayout="row" style="height: 100%;" [ngStyle.lt-md]="'min-height: 400px;'">
         <mat-tab-group fxFlex>
-          <mat-tab label="Favorite Cases">
-            <div class="favoriteCasesWidget" fxFill>
-              <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
-            </div>
-          </mat-tab>
           <mat-tab label="Recent Cases">
-            <div class="recentCasesWidget" fxFill>
-              <tcla-live-apps-recent-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
-            </div>
+            <ng-template matTabContent>
+              <div class="recentCasesWidget" fxFill>
+                <tcla-live-apps-recent-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
+              </div>
+            </ng-template>
+          </mat-tab>
+          <mat-tab label="Favorite Cases">
+            <ng-template matTabContent>
+              <div class="favoriteCasesWidget" fxFill>
+                <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
+              </div>
+            </ng-template>
           </mat-tab>
         </mat-tab-group>
       </div>

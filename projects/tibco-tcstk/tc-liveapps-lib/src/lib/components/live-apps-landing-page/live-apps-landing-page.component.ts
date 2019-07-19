@@ -39,38 +39,38 @@ export class LiveAppsLandingPageComponent implements OnInit {
         const uiAppId = this.route.snapshot.data.generalConfigHolder.uiAppId;
         const roleId = this.route.snapshot.data.activeRoleHolder.id;
 
-            this.landingPageService.getLandingPageForRole(roleId, uiAppId).pipe(
-                map(landingPage => {
-                    if (landingPage != undefined){
-                        this.title = landingPage.title;
-                        this.subtitle = landingPage.subtitle;
-                        this.backgroundImage = (landingPage.backgroundURL != '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, landingPage.backgroundURL) : '');
+            this.landingPageService.getLandingPageForRole(roleId, uiAppId).subscribe(
+              landingPage => {
+                if (landingPage !== undefined) {
+                  this.title = landingPage.title;
+                  this.subtitle = landingPage.subtitle;
+                  this.backgroundImage = (landingPage.backgroundURL !== '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, landingPage.backgroundURL) : '');
 
-                        this.highlights = new Array();
-                        this.highlights.push(new LandingPageItemConfig().deserialize({
-                            title: landingPage.highlights[0].title,
-                            content: landingPage.highlights[0].content,
-                            iconURL: landingPage.highlights[0].iconURL
-                        }));
+                  this.highlights = new Array();
+                  this.highlights.push(new LandingPageItemConfig().deserialize({
+                    title: landingPage.highlights[0].title,
+                    content: landingPage.highlights[0].content,
+                    iconURL: landingPage.highlights[0].iconURL
+                  }));
 
-                        this.highlights.push(new LandingPageItemConfig().deserialize({
-                            title: landingPage.highlights[1].title,
-                            content: landingPage.highlights[1].content,
-                            iconURL: landingPage.highlights[1].iconURL
-                        }));
+                  this.highlights.push(new LandingPageItemConfig().deserialize({
+                    title: landingPage.highlights[1].title,
+                    content: landingPage.highlights[1].content,
+                    iconURL: landingPage.highlights[1].iconURL
+                  }));
 
-                        this.highlights.push(new LandingPageItemConfig().deserialize({
-                            title: landingPage.highlights[2].title,
-                            content: landingPage.highlights[2].content,
-                            iconURL: landingPage.highlights[2].iconURL
-                        }));
+                  this.highlights.push(new LandingPageItemConfig().deserialize({
+                    title: landingPage.highlights[2].title,
+                    content: landingPage.highlights[2].content,
+                    iconURL: landingPage.highlights[2].iconURL
+                  }));
 
-                        this.navigateURL = landingPage.homeRoute;
-                    } else {
-                        this.router.navigate(['errorHandler/NO_ROLE/NO_ROLE']);
-                    }
-                })
-            ).subscribe();
+                  this.navigateURL = landingPage.homeRoute;
+                } else {
+                  this.router.navigate(['errorHandler/NO_ROLE/NO_ROLE']);
+                }
+              }
+            );
     }
 
     public moveHome = (): void => {

@@ -9,7 +9,7 @@
   <div *ngIf="!showHeader" fxLayout="row" fxLayoutAlign="end center">
     <mat-icon style="margin: 5px" [ngClass]="{'tcs-icon-disabled' : uploadProgress < 100}" (click)="openDialog()" class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" [matTooltip]="(uploadProgress && uploadProgress !== 100) ? 'Please wait for existing document to upload' : 'Upload Document'" matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
   </div>
-  <div fxLayout="column" fxFlex style="overflow: auto">
+  <div fxLayout="column" style="overflow: auto">
     <div *ngIf="uploadProgress">
       <div>{{uploadMessage}}</div>
       <mat-progress-bar

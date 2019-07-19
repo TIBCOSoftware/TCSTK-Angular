@@ -22,10 +22,7 @@ export class TcSpotfireConfigService {
     const content: SharedStateContent = new SharedStateContent();
     content.json = TcCoreCommonFunctions.escapeString(JSON.stringify(spotfireConfig));
 
-    return this.sharedStateService.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
-      .pipe(
-        map(value => value)
-      );
+    return this.sharedStateService.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content);
   }
 
   public getSpotfireConfig(uiAppId: string, useCache: boolean, flushCache: boolean): Observable<SpotfireConfig> {

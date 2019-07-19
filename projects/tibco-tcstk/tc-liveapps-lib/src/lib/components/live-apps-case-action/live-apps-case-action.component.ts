@@ -45,24 +45,23 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     this.liveapps.getCase(this.caseRef, this.sandboxId, this.applicationId, this.typeId )
       .pipe(
         take(1),
-        takeUntil(this._destroyed$),
-        map(result => {
-          if (result.metadata.applicationId === this.applicationId.toString()) {
-            const casedata = result.untaggedCasedataObj;
-            this.originalData = {
-              [this.process.process.name]: casedata
-            };
-            // JS: use name rather than internalObjectName to handle appliction name change
-            const caseTypeName = this.getMainCaseTypeFromSchema(this.typeId, this.process).name;
-            this.data = {
-              [caseTypeName]: casedata
-            };
-          } else {
-            console.error('The selected case is not the right case type for this action');
-          }
-        })
-    )
-      .subscribe(success => success, error => {
+        takeUntil(this._destroyed$)
+      )
+      .subscribe(result => {
+        if (result.metadata.applicationId === this.applicationId.toString()) {
+          const casedata = result.untaggedCasedataObj;
+          this.originalData = {
+            [this.process.process.name]: casedata
+          };
+          // JS: use name rather than internalObjectName to handle appliction name change
+          const caseTypeName = this.getMainCaseTypeFromSchema(this.typeId, this.process).name;
+          this.data = {
+            [caseTypeName]: casedata
+          };
+        } else {
+          console.error('The selected case is not the right case type for this action');
+        }
+      }, error => {
         // Emit any error retrieving case data to the parent
         console.error('Unable to retrieve case data');
         console.error(error);

@@ -53,17 +53,15 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
   public refresh = () => {
     this.caseStatesService.getTracker(this.caseRef, this.sandboxId, this.appId).pipe(
       take(1),
-      takeUntil(this._destroyed$),
-      map(tracker => {
+      takeUntil(this._destroyed$)
+    ).subscribe(
+      tracker => {
         this.tracker = tracker;
         if (!tracker.valid) {
           console.error('Unable to create milestone trailer. Case Audit likely removed due to subscription retention period.');
         }
         return tracker;
-      }
-        )
-    ).subscribe(
-      null, error => { this.errorMessage = 'Error constructing state tracker: ' + error.error.errorMsg; });
+      }, error => { this.errorMessage = 'Error constructing state tracker: ' + error.error.errorMsg; });
   }
 
   constructor(private caseStatesService: TcCaseStatesService, private durationSince: DurationSincePipe) {

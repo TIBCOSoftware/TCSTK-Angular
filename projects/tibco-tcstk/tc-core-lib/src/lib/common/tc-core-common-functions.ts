@@ -1,4 +1,5 @@
 import {HashLocationStrategy, Location} from '@angular/common';
+import {TcComponent} from '@tibco-tcstk/tc-core-lib';
 
 // @dynamic
 export class TcCoreCommonFunctions {
@@ -75,6 +76,20 @@ export class TcCoreCommonFunctions {
       return str;
     } else {
       return location.prepareExternalUrl(str);
+    }
+  }
+
+  public static calcSummaryCardPct = (width: TcComponent) => {
+    if (width.gtLg) {
+      return 20;
+    } else if (width.gtMd) {
+      return 25;
+    } else if (width.gtSm) {
+      return 33;
+    } else if (width.gtXs) {
+      return 50;
+    } else {
+      return 100;
     }
   }
 
