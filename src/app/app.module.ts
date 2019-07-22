@@ -26,7 +26,6 @@ import {CaseComponent} from './routes/case/case.component';
 import {SettingsComponent} from './routes/settings/settings.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
 import { SplashComponent } from './components/splash/splash.component';
-import {CasesearchComponent} from './routes/casesearch/casesearch.component';
 import { ShowcaseComponent } from './routes/showcase/showcase.component';
 
 @NgModule({
@@ -39,7 +38,6 @@ import { ShowcaseComponent } from './routes/showcase/showcase.component';
     SettingsComponent,
     ConfigurationComponent,
     SplashComponent,
-    CasesearchComponent,
     ShowcaseComponent
   ],
   imports: [

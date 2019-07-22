@@ -65,6 +65,12 @@ export class RenderedFormComponent implements OnInit, OnChanges {
       this.useCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
         return (form === changes.formRef.currentValue);
       }) !== -1);
+      console.warn('*** Custom Form configuration (customForm.json): ', this.customFormDefs);
+      if (this.useCustomForm) {
+        console.warn('*** > Using custom form (formRef):', this.formRef);
+      } else {
+        console.warn('*** > Using auto-rendered form (formRef):', this.formRef);
+      }
     }
     if (changes.schema && changes.schema.currentValue && (changes.schema.currentValue !== changes.schema.previousValue)) {
       const tmpSchema = changes.schema.currentValue;
@@ -73,13 +79,12 @@ export class RenderedFormComponent implements OnInit, OnChanges {
         delete tmpSchema.$schema;
       }
       this.formSchema = tmpSchema;
-      console.log(JSON.stringify(this.formSchema));
+      console.warn('*** Form Schema: ', JSON.stringify(this.formSchema));
     }
     if (changes.data && changes.data.currentValue && (changes.data.currentValue !== changes.data.previousValue)) {
       this.formData = this.data;
-      console.log('Initial Form Data:');
-      console.log(this.formData);
-      console.log(JSON.stringify(this.formData));
+      console.warn('*** Initial Form Data:', this.formData);
+      console.warn('*** Initial Form Data (JSON):', JSON.stringify(this.formData));
     }
     if (changes.layout && changes.layout.currentValue && (changes.layout.currentValue !== changes.layout.previousValue)) {
       this.formLayout = this.layout;
