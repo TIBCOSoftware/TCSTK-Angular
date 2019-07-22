@@ -1,11 +1,7 @@
 {
   "customForms": [
-  "!Approvals.Approvals.action.Approve",
-  "!Approvals.Approvals.action.UpdateApprovals",
-  "!Approvals.Approvals.action.SendApprovals",
   "!Partner Request.PartnerRequest.creator.New Product Notification",
   "!Partner Request.PartnerRequest.casedata.default",
-  "!Partner Request.PartnerRequest.action.Update Request Metrics",
-  "!Expenses.Expenses.creator.Create Expenses"
+  "!Partner Request.PartnerRequest.action.Update Request Metrics"
   ]
 }

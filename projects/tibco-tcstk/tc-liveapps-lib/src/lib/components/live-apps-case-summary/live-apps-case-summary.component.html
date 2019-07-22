@@ -181,10 +181,6 @@
             <div *ngIf="metadata.createdByDetails">Created {{metadata.creationTimestamp | durationSince}} by {{metadata.createdByDetails.username ? metadata.createdByDetails.username : 'system'}}</div>
           </div>
         </div>
-
-        <div class="tcs-case-summary-mini-card-right" fxLayout="row" fxLayoutAlign="end center" matTooltipPosition="left" matTooltipShowDelay="1000" matTooltip="Open Case">
-          <mat-icon class="tcs-icon tcs-case-summary-details-icon" svgIcon="tcs-summary-details-button"></mat-icon>
-        </div>
       </div>
     </mat-card>
   </div>
