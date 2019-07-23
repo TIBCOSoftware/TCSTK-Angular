@@ -45,6 +45,8 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   useCustomForm: boolean;
 
   submitForm = (data: any) => {
+    console.warn('*** Forms: Submitting form with payload: ', data);
+    console.warn('*** Forms: JSON: ', JSON.stringify(data));
     this.formSubmit.emit(data);
   }
 
@@ -65,11 +67,11 @@ export class RenderedFormComponent implements OnInit, OnChanges {
       this.useCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
         return (form === changes.formRef.currentValue);
       }) !== -1);
-      console.warn('*** Custom Form configuration (customForm.json): ', this.customFormDefs);
+      console.warn('*** Forms: Custom Form configuration (customForm.json): ', this.customFormDefs);
       if (this.useCustomForm) {
-        console.warn('*** > Using custom form (formRef):', this.formRef);
+        console.warn('*** Forms: > Using custom form (formRef):', this.formRef);
       } else {
-        console.warn('*** > Using auto-rendered form (formRef):', this.formRef);
+        console.warn('*** Forms: > Using auto-rendered form (formRef):', this.formRef);
       }
     }
     if (changes.schema && changes.schema.currentValue && (changes.schema.currentValue !== changes.schema.previousValue)) {
@@ -79,12 +81,12 @@ export class RenderedFormComponent implements OnInit, OnChanges {
         delete tmpSchema.$schema;
       }
       this.formSchema = tmpSchema;
-      console.warn('*** Form Schema: ', JSON.stringify(this.formSchema));
+      console.warn('*** Forms: Form Schema: ', JSON.stringify(this.formSchema));
     }
     if (changes.data && changes.data.currentValue && (changes.data.currentValue !== changes.data.previousValue)) {
       this.formData = this.data;
-      console.warn('*** Initial Form Data:', this.formData);
-      console.warn('*** Initial Form Data (JSON):', JSON.stringify(this.formData));
+      console.warn('*** Forms: Initial Form Data:', this.formData);
+      console.warn('*** Forms: Initial Form Data (JSON):', JSON.stringify(this.formData));
     }
     if (changes.layout && changes.layout.currentValue && (changes.layout.currentValue !== changes.layout.previousValue)) {
       this.formLayout = this.layout;

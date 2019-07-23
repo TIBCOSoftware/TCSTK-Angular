@@ -15,7 +15,7 @@
     <div fxLayout="row" style="overflow: hidden; height: 100%">
       <div fxFlex fxLayoutGap="20px" fxLayout.gt-md="row" fxLayout.lt-lg="column" ngStyle.lt-lg="overflow: auto">
         <div fxLayout="column" fxFlex.gt-md="1 0 50" fxFlex.lt-lg="none">
-          <mat-tab-group #dataTabGroup [ngStyle]="{ 'height': !actionTabActive ? '100%' : '0%' }" style="overflow: hidden; min-height: 49px" (selectedIndexChange)="handleDataTabChanged($event)">
+          <mat-tab-group #dataTabGroup style="overflow: hidden; min-height: 49px;" (selectedIndexChange)="handleDataTabChanged($event)">
             <mat-tab label="Case Data">
               <ng-template matTabContent>
                 <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false" [customFormDefs]="customFormDefs"></tcla-live-apps-case-data>
