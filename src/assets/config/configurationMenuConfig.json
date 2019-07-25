@@ -6,14 +6,8 @@
       "options": [
         "Settings",
         "Roles",
-        "Landing Page"
-      ]
-    },
-    {
-      "entry": "Integration",
-      "icon": "tcs-integration-icon",
-      "options": [
-        "Settings"
+        "Landing Page",
+        "Access Control"
       ]
     },
     {
@@ -23,13 +17,6 @@
         "App Selection",
         "Recent Cases",
         "Summary Cards"
-      ]
-    },
-    {
-      "entry": "Spotfire",
-      "icon": "tcs-spotfire-icon",
-      "options": [
-        "Settings"
       ]
     }
   ]

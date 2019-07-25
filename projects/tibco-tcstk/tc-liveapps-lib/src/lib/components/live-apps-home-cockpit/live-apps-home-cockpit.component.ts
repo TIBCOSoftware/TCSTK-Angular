@@ -10,7 +10,7 @@ import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
 import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-documents.component';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
-import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
+import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
 import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
@@ -72,7 +72,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   /**
    * RouteAccessControlConfig - basically the config for access control
    */
-  @Input() access: RouteAccessControlConfig;
+  @Input() access: RouteAccessControlConfigurationElement;
 
   /**
    * Custom Form configuration file
@@ -112,11 +112,11 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     // you can use the rolesService to either disable or hide the button as required - it returns true if the user has the roleId specified
     // const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', true, this.rolesService.checkRole('Partner Portal Configurator', this.roles));
     if (this.incConfigButton) {
-      const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.roles, this.access) : true), true);
+      const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.access) : true), true);
       buttons.push(configButton);
     }
     if (this.incRefreshButton) {
-      const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.roles, this.access) : true), true);
+      const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.access) : true), true);
       buttons.push(refreshButton);
     }
     return buttons;
@@ -200,7 +200,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
 
   ngOnInit() {
     this.toolbarButtons = this.toolbarButtons.concat(this.createToolbarButtons());
-    this.caseStartButtonActive = this.access ? this.rolesService.checkButton('caseStart', this.roles, this.access) : true;
+    this.caseStartButtonActive = this.access ? this.rolesService.checkButton('caseStart', this.access) : true;
   }
 
 }

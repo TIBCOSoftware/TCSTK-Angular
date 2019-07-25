@@ -27,21 +27,24 @@ export class Roles {
   }
 }
 
-export class RouteAccessDef {
-  routeUrl: string;
-  requiredRoleId: string;
-}
-
-export class ButtonAccessDef {
-  buttonId: string;
-  requiredRoleId: string;
-}
-
 export class RouteAccessControlConfig {
-  routes: RouteAccessDef[];
-  buttons: ButtonAccessDef[];
-  deserialize(input: any): this {
-    Object.assign(this, input);
-    return this;
-  }
+    id: string;
+    uiAppId: string;
+    allowedRoutes: string[];
+    allowedButtonIds: string[];
+    configuration: RouteAccessControlConfigurationElement[];
+    deserialize(input: any): this {
+        Object.assign(this, input);
+        return this;
+    }
+}
+
+export class RouteAccessControlConfigurationElement {
+    roleId: string;
+    routes: string[];
+    buttonIds: string[];                                                                                  
+    deserialize(input: any): this {
+        Object.assign(this, input);
+        return this;
+    }
 }

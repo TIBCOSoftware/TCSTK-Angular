@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRoute } from '@angular/router';
+import { Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { LiveAppsService } from '../services/live-apps.service';
 import { GeneralConfigResolver, RoleAttribute, TcGeneralConfigService, TcSharedStateService } from '@tibco-tcstk/tc-core-lib';
@@ -15,7 +15,6 @@ export class RoleActiveResolver implements Resolve<Observable<RoleAttribute>> {
     constructor(
         private rolesService: TcRolesService, 
         private liveAppsService: LiveAppsService, 
-        private route: ActivatedRoute,
         private tcSharedStateService: TcSharedStateService,
         private generalConfigService: TcGeneralConfigService, 
         private httpClient: HttpClient,
