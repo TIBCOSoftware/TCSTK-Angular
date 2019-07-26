@@ -28,7 +28,7 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
 import {MatTab, MatTabGroup} from '@angular/material';
 import {QueryList} from '@angular/core';
 import { RouteAction } from '@tibco-tcstk/tc-core-lib';
-import {Roles, RouteAccessControlConfig} from '../../models/tc-groups-data';
+import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
@@ -101,7 +101,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   /**
    * RouteAccessControlConfig - basically the config for access control
    */
-  @Input() access: RouteAccessControlConfig;
+  @Input() access: RouteAccessControlConfigurationElement;
 
   /**
    * Custom Form configuration file
@@ -174,15 +174,15 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   protected createToolbarButtons = (): ToolbarButton[] => {
     const buttons = [];
     if (this.incConfigButton) {
-      const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.roles, this.access) : true), true);
+      const configButton = this.buttonsHelper.createButton('config', 'tcs-capabilities', true, 'Config', (this.access ? this.rolesService.checkButton('configure', this.access) : true), true);
       buttons.push(configButton);
     }
     if (this.incFavButton) {
-      const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', (this.access ? this.rolesService.checkButton('favorite', this.roles, this.access) : true), true);
+      const favButton = this.buttonsHelper.createButton('favorite', 'tcs-favorites-icon', this.isFavorite, 'Toggle Favorite', (this.access ? this.rolesService.checkButton('favorite', this.access) : true), true);
       buttons.push(favButton);
     }
     if (this.incRefreshButton) {
-      const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.roles, this.access) : true), true);
+      const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.access) : true), true);
       buttons.push(refreshButton);
     }
     if (this.incHomeButton) {
