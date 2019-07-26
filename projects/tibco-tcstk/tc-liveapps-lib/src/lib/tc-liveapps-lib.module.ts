@@ -20,7 +20,8 @@ import {
   MatSnackBarModule,
   MatSlideToggleModule,
   MatIconRegistry,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatTableModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -97,6 +98,7 @@ import {RoleGuard} from './guards/role.guard';
 import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 import { LiveAppsActiveCasesReportComponent } from './components/live-apps-active-cases-report/live-apps-active-cases-report.component';
 import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-apps-active-cases-for-type-report/live-apps-active-cases-for-type-report.component';
+import { LiveAppsSettingsAccessControlComponent } from './components/live-apps-settings-access-control/live-apps-settings-access-control.component';
 
 @NgModule({
     declarations: [
@@ -148,7 +150,8 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
         LiveAppsLandingPageComponent,
         LiveAppsActiveCasesWidgetComponent,
         LiveAppsActiveCasesReportComponent,
-        LiveAppsActiveCasesForTypeReportComponent
+        LiveAppsActiveCasesForTypeReportComponent,
+        LiveAppsSettingsAccessControlComponent
     ],
   imports: [
     TcCoreLibModule,
@@ -176,6 +179,7 @@ import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-app
     ScrollDispatchModule,
     MatSlideToggleModule,
     MatProgressBarModule,
+    MatTableModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,

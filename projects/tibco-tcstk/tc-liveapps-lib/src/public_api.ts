@@ -48,6 +48,7 @@ export * from './lib/components/live-apps-landing-page/live-apps-landing-page.co
 export * from './lib/components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 export * from './lib/components/live-apps-active-cases-report/live-apps-active-cases-report.component';
 export * from './lib/components/live-apps-search-widget/live-apps-search-widget.component'
+export * from './lib/components/live-apps-settings-access-control/live-apps-settings-access-control.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -80,6 +81,7 @@ export * from './lib/resolvers/all-roles.resolver';
 export * from './lib/resolvers/case-data.resolver';
 export * from './lib/resolvers/access.resolver';
 export * from './lib/resolvers/role-active.resolver';
+export * from './lib/resolvers/accessControlConfiguration.resolver';
 
 // guards
 export * from './lib/guards/case.guard';
