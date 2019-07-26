@@ -1,68 +1,68 @@
 // This guard is to check whether the user has appropriate role to access a route based on config settings
 
-import {Inject, Injectable} from '@angular/core';
-import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
-import {LiveAppsService} from '../services/live-apps.service';
-import {HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
-import {catchError, flatMap, map, mergeMap} from 'rxjs/operators';
-import {forkJoin, Observable, of, throwError} from 'rxjs';
-import {ClaimsResolver} from '../resolvers/claims.resolver';
-import {Claim, GeneralConfigResolver, TcCoreCommonFunctions, TcGeneralConfigService, TcSharedStateService} from '@tibco-tcstk/tc-core-lib';
-import {Location} from '@angular/common';
-import {Roles, RouteAccessControlConfig, RouteAccessDef} from '../models/tc-groups-data';
-import {RolesResolver} from '../resolvers/roles.resolver';
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
+import { LiveAppsService } from '../services/live-apps.service';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { forkJoin, Observable } from 'rxjs';
+import { TcCoreCommonFunctions, TcGeneralConfigService, TcSharedStateService } from '@tibco-tcstk/tc-core-lib';
+import { Location } from '@angular/common';
+import { RoleActiveResolver } from '../resolvers/role-active.resolver';
+import { TcRolesService } from '../services/tc-roles-service.ts.service';
+import { TcAccessControlService } from '../services/tc-access-control.service';
+import { AccessControlConfigurationResolver } from '../resolvers/accessControlConfiguration.resolver';
+import { AccessResolver } from '../resolvers/access.resolver';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
 
-  DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/routeAccessControl.json');
+    DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/routeAccessControl.json');
 
-  constructor(private liveapps: LiveAppsService, private router: Router, private http: HttpClient, private location: Location, private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService) {
-  }
+    constructor(
+        private liveapps: LiveAppsService, 
+        // private router: Router, 
+        private rolesService: TcRolesService,
+        private http: HttpClient, 
+        private location: Location, 
+        private route: ActivatedRoute,
+        private sharedStateService: TcSharedStateService, 
+        private generalConfigService: TcGeneralConfigService,
+        private accessControlService: TcAccessControlService
+    ) {}
 
-  // can be used to load defaultAppConfig from a JSON config
-  private getRouteAccessControlConfig = (): Observable<RouteAccessControlConfig> => {
-    const headers = new HttpHeaders().set('cacheResponse', 'true');
-    return this.http.get(this.DEFAULT_CONFIG_URL, { headers }).pipe(
-      map(configContents => new RouteAccessControlConfig().deserialize(configContents))
-    );
-  }
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
 
-  private getRouteDef = (routeAccessConfig: RouteAccessControlConfig, route: ActivatedRouteSnapshot): RouteAccessDef => {
-    return routeAccessConfig.routes.find(routeRec => {
-      return (routeRec.routeUrl === route.routeConfig.path);
-    });
-  }
+        let guardRoute = '';
+        route.pathFromRoot.map(element => {
+            if (element.url.length === 1) {
+                guardRoute += '/' + element.url[0];
+            }
+        })
 
-  private hasAccess = (config: RouteAccessDef, roles: Roles): boolean => {
-    const reqRole = roles.roles.find(role => {
-      return (role.id === config.requiredRoleId);
-    })
-    return reqRole ? true : false;
-  }
+        // we will need the active user role
+        const activeResolver$ = new AccessResolver(this.location, this.http, this.accessControlService, this.rolesService, this.liveapps, this.route, this.sharedStateService, this.generalConfigService).resolve();
+        
+        // access control configuration to check current URL is on allowedRoutes
+        const accessControlConfig$ = new AccessControlConfigurationResolver(this.location, this.http, this.accessControlService).resolve();
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    // get route config
-    const routeConfig$ = this.getRouteAccessControlConfig();
+        // run both in parallel then check access
+        return forkJoin(activeResolver$, accessControlConfig$).pipe(
+            map(([activeResolver, accessControlConfig]) => {
 
-    // we will need the roles we currently have
-    const currentRolesRes = new RolesResolver(this.sharedStateService, this.generalConfigService, this.http, this.liveapps, this.location)
-    const currentRoles$ = currentRolesRes.resolve();
+                // if guardRoute is not in allowedRoutes then OK
+                if (accessControlConfig.allowedRoutes.indexOf(guardRoute) === -1) {
+                    return true;
+                }
 
-    // run both in parallel then check access
-    const decision$ = forkJoin(routeConfig$, currentRoles$).pipe(
-      map(([routeConfig, currentRoles]) => {
-        const routeConfigRec = this.getRouteDef(routeConfig, route);
-        if (this.hasAccess(routeConfigRec, currentRoles)) {
-          return true;
-        } else {
-          console.error('You do not have access to this page: ', route);
-          this.router.navigate(['/errorHandler/' + 'NO_ROUTE_ACCESS/' + 'Route <' + route.url + '> requires role <' + routeConfigRec.requiredRoleId + '>' ]);
-          return false;
-        }
-      }));
-
-    return decision$;
-  }
+                // Check guardRoute in active user role routes
+                if (activeResolver.routes.indexOf(guardRoute) > -1){
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+        );
+    }
 
 }
