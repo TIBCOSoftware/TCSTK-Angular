@@ -31,7 +31,7 @@
       "*": "/"
     }
   },
-  "/idm/v1/login-oauth": {
+  "/idm/v2/login-oauth": {
     "target": {
       "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
@@ -109,7 +109,59 @@
       "*": "localhost"
     }
   },
+  "/work/": {
+    "target": {
+      "host": "liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.cloud.tibco.com"
+    }
+  },
+  "/organisation": {
+    "target": {
+      "host": "liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.cloud.tibco.com"
+    }
+  },
   "/organisation/v1/": {
+    "target": {
+      "host": "liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.cloud.tibco.com"
+    }
+  },
+  "/apps": {
+    "target": {
+      "host": "liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.cloud.tibco.com"
+    }
+  },
+  "/case": {
     "target": {
       "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",

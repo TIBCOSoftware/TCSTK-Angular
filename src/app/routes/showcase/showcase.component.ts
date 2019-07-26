@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {Claim, GeneralConfig} from '@tibco-tcstk/tc-core-lib';
 import {
   CaseInfo,
@@ -6,8 +6,7 @@ import {
   LiveAppsComponent,
   LiveAppsConfig,
   LiveAppsService,
-  Metadata,
-  TcCaseDataService
+  Metadata
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, take, takeUntil} from 'rxjs/operators';
@@ -17,7 +16,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
   templateUrl: './showcase.component.html',
   styleUrls: ['./showcase.component.css']
 })
-export class ShowcaseComponent implements OnInit {
+export class ShowcaseComponent implements OnInit, OnDestroy {
   public generalConfig: GeneralConfig;
   public liveAppsConfig: LiveAppsConfig;
   public sandboxId: number;
@@ -27,7 +26,7 @@ export class ShowcaseComponent implements OnInit {
   public userId: string;
   public email: string;
   public widgetSize = 100;
-  public fixedHeight = false;
+  public fixedHeight = true;
   public caseRef: string;
   public casedata: any;
   public metadata: Metadata;
@@ -35,6 +34,7 @@ export class ShowcaseComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService) { }
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
+
 
   toggleWidgetSize = () => {
     if (this.widgetSize === 100) {
@@ -55,7 +55,13 @@ export class ShowcaseComponent implements OnInit {
     this.fixedHeight = !this.fixedHeight;
   }
 
-  ngOnInit() {
+  receiveMessage = (event: MessageEvent) => {
+    if (typeof(event.data) && (event.data.action === 'wiCompleted')) {
+      console.log('WI Complete: ', event);
+    }
+  }
+
+    ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.claims = this.route.snapshot.data.claims;
@@ -79,6 +85,10 @@ export class ShowcaseComponent implements OnInit {
       error => {
         console.error('Error retrieving case data: ' + error.error.errorMsg);
       });
+  }
+
+  ngOnDestroy() {
+
   }
 
 }
