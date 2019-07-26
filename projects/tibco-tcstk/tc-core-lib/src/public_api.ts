@@ -28,6 +28,7 @@ export * from './lib/services/tc-buttons-helper.service';
 export * from './lib/services/tc-general-config.service';
 export * from './lib/services/tc-general-landing-page-config.service';
 export * from './lib/services/tc-general-landing-page.service';
+export * from './lib/services/tc-visibility.service';
 
 // models
 export * from './lib/models/deserializable';
