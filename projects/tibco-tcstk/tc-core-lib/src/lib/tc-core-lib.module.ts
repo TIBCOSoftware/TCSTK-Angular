@@ -53,6 +53,7 @@ import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-settin
 import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
 import {MessageQueueService} from './common/tc-core-queue-comm';
 import {MessageTopicService} from './common/tc-core-topic-comm';
+import {TcVisibilityService} from './services/tc-visibility.service';
 
 @NgModule({
   declarations: [
@@ -143,6 +144,7 @@ import {MessageTopicService} from './common/tc-core-topic-comm';
   ],
   providers: [
     RequestCacheService,
+    TcVisibilityService,
     TcButtonsHelperService,
     AuthGuard,
     // comment this line to disable the CachingInterceptor
