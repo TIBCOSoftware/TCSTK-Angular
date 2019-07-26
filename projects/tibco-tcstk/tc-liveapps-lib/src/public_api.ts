@@ -49,6 +49,7 @@ export * from './lib/components/live-apps-active-cases-widget/live-apps-active-c
 export * from './lib/components/live-apps-active-cases-report/live-apps-active-cases-report.component';
 export * from './lib/components/live-apps-search-widget/live-apps-search-widget.component'
 export * from './lib/components/live-apps-settings-access-control/live-apps-settings-access-control.component';
+export * from './lib/components/live-apps-legacy-form/live-apps-legacy-form.component';
 
 // data
 export * from './lib/models/liveappsdata';
