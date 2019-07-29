@@ -61,6 +61,10 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     }
   }
 
+  handleCaseClick = (event) => {
+    console.log('Case click event: ', event);
+  }
+
     ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;

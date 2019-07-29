@@ -39,7 +39,7 @@
           <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
             <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
               <tcla-live-apps-favorite-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
-                                             [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-favorite-cases>
+                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-favorite-cases>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
           <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
             <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
               <tcla-live-apps-recent-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
-                                             [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-recent-cases>
+                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-recent-cases>
             </div>
           </div>
         </div>
@@ -168,6 +168,18 @@
             <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
               <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
                 <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Workitems">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-workitems #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
+                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-workitems>
               </div>
             </div>
           </div>

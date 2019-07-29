@@ -50,6 +50,7 @@ export * from './lib/components/live-apps-active-cases-report/live-apps-active-c
 export * from './lib/components/live-apps-search-widget/live-apps-search-widget.component'
 export * from './lib/components/live-apps-settings-access-control/live-apps-settings-access-control.component';
 export * from './lib/components/live-apps-legacy-form/live-apps-legacy-form.component';
+export * from './lib/components/live-apps-workitems/live-apps-workitems.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -70,6 +71,7 @@ export * from './lib/services/tc-live-apps-config.service';
 export * from './lib/services/tc-roles-service.ts.service';
 export * from './lib/services/tc-live-apps-reporting.service';
 export * from './lib/services/tc-case-card-config.service';
+export * from './lib/services/tc-workitems.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
