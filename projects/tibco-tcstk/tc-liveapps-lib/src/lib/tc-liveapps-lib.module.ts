@@ -100,6 +100,7 @@ import { LiveAppsActiveCasesReportComponent } from './components/live-apps-activ
 import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-apps-active-cases-for-type-report/live-apps-active-cases-for-type-report.component';
 import { LiveAppsSettingsAccessControlComponent } from './components/live-apps-settings-access-control/live-apps-settings-access-control.component';
 import {LiveAppsLegacyFormComponent} from './components/live-apps-legacy-form/live-apps-legacy-form.component';
+import {LiveAppsWorkitemsComponent} from './components/live-apps-workitems/live-apps-workitems.component';
 
 @NgModule({
     declarations: [
@@ -153,7 +154,8 @@ import {LiveAppsLegacyFormComponent} from './components/live-apps-legacy-form/li
         LiveAppsActiveCasesReportComponent,
         LiveAppsActiveCasesForTypeReportComponent,
         LiveAppsSettingsAccessControlComponent,
-        LiveAppsLegacyFormComponent
+        LiveAppsLegacyFormComponent,
+        LiveAppsWorkitemsComponent
     ],
   imports: [
     TcCoreLibModule,
@@ -236,7 +238,8 @@ import {LiveAppsLegacyFormComponent} from './components/live-apps-legacy-form/li
     LiveAppsLandingPageComponent,
     LiveAppsActiveCasesWidgetComponent,
     LiveAppsActiveCasesReportComponent,
-    LiveAppsLegacyFormComponent
+    LiveAppsLegacyFormComponent,
+    LiveAppsWorkitemsComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
