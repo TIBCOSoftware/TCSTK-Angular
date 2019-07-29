@@ -33,7 +33,7 @@ import {TcVisibilityService} from '@tibco-tcstk/tc-core-lib';
   templateUrl: './live-apps-legacy-form.component.html',
   styleUrls: ['./live-apps-legacy-form.component.css']
 })
-export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements OnDestroy, OnInit, AfterViewInit {
+export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements OnDestroy, OnInit, OnDestroy, AfterViewInit {
 
   @Input() legacyIframeId = this.legacyIframeId ?  this.legacyIframeId : 'legacyFrame';
   @Input() workitemId: number;
@@ -41,6 +41,7 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
   private target;
   private formDiv;
   private wiActive = false;
+  private openWiId;
 
   constructor (private visibilityService: TcVisibilityService, private host: ElementRef) {
     super();
@@ -53,18 +54,21 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
     window.addEventListener('message', this.receiveMessage, false);
     // position the form iframe over the workitemDiv placeholder
     this.wiActive = true;
+    this.openWiId = wiId;
     this.resizeWi();
   }
 
   receiveMessage = (event) => {
     if (event.data.action === 'wiCompleted') {
       console.log(event);
+      this.openWiId = undefined;
     }
   }
 
   cancelWi = (wiId) => {
-    this.formDiv.contentWindow.postMessage({ 'action': 'cancelWI', 'wiId': wiId}, '*');
+    this.formDiv.contentWindow.postMessage({ 'action': 'cancelWI', 'wiId': this.openWiId}, '*');
     this.wiActive = false;
+    this.openWiId = undefined;
     this.hideWi();
   }
 
@@ -86,11 +90,6 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
       this.formDiv.style.position = 'absolute';
       this.formDiv.style.zIndex = '10000';
     }, 1000);
-  }
-
-  ngOnDestroy() {
-    console.log('destroyed');
-    this.cancelWi(this.workitemId);
   }
 
   ngAfterViewInit() {
@@ -120,5 +119,11 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
   }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    if (this.openWiId) {
+      this.cancelWi(this.workitemId);
+    }
   }
 }
