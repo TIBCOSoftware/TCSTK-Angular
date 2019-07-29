@@ -47,7 +47,14 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
     super();
   }
 
-  renderWi = (wiId: number) => {
+  public isFormActive() {
+    return this.wiActive;
+  }
+
+  public renderWi = (wiId: number) => {
+    if (this.wiActive && this.openWiId) {
+      this.cancelWi(wiId);
+    }
     // send message to external form app
     console.log('send msg');
     this.formDiv.contentWindow.postMessage({ 'action': 'openWI', 'wiId': wiId}, '*');
@@ -58,28 +65,29 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
     this.resizeWi();
   }
 
-  receiveMessage = (event) => {
+  private receiveMessage = (event) => {
     if (event.data.action === 'wiCompleted') {
       console.log(event);
+      this.wiActive = false;
       this.openWiId = undefined;
     }
   }
 
-  cancelWi = (wiId) => {
+  public cancelWi = (wiId) => {
     this.formDiv.contentWindow.postMessage({ 'action': 'cancelWI', 'wiId': this.openWiId}, '*');
     this.wiActive = false;
     this.openWiId = undefined;
     this.hideWi();
   }
 
-  hideWi = () => {
+  private hideWi = () => {
   // hide the iframe!
       this.formDiv.style.top = '-1000px';
       this.formDiv.style.left = '-1000px';
       this.formDiv.style.zIndex = '1';
   }
 
-  resizeWi = () => {
+  private resizeWi = () => {
     // position the form iframe over the workitemDiv placeholder
     setTimeout(handler => {
       const rect = this.target.getBoundingClientRect();
@@ -110,7 +118,9 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
           if (!this.wiActive) {
             this.target = document.getElementById('componentDiv');
             this.formDiv = document.getElementById(this.legacyIframeId);
-            this.renderWi(this.workitemId);
+            if (this.workitemId) {
+              this.renderWi(this.workitemId);
+            }
           } else {
             this.resizeWi();
           }
