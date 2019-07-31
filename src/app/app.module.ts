@@ -42,7 +42,7 @@ import { ShowcaseComponent } from './routes/showcase/showcase.component';
   ],
   imports: [
     AppRoutingModule,
-    TcCoreLibModule,
+    TcCoreLibModule.forRoot(),
     TcFormsLibModule,
     TcLiveappsLibModule.forRoot(),
     FlexLayoutModule,

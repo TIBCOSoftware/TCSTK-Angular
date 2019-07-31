@@ -15,22 +15,23 @@
     <div fxLayout="row" style="overflow: hidden; height: 100%">
       <div fxFlex fxLayoutGap="20px" fxLayout.gt-md="row" fxLayout.lt-lg="column" ngStyle.lt-lg="overflow: auto">
         <div fxLayout="column" fxFlex.gt-md="1 0 50" fxFlex.lt-lg="none">
-          <mat-tab-group #dataTabGroup style="overflow: hidden; min-height: 49px;" (selectedIndexChange)="handleDataTabChanged($event)">
+          <mat-tab-group id="dataTabGroup" #dataTabGroup style="overflow: hidden; min-height: 49px; height: 100%;" (selectedTabChange)="handleTabChange($event)" [selectedIndex]="selected.value">
             <mat-tab label="Case Data">
               <ng-template matTabContent>
                 <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false" [customFormDefs]="customFormDefs"></tcla-live-apps-case-data>
               </ng-template>
             </mat-tab>
-            <mat-tab #actionTab *ngIf="actionSelection" tcOnCreate (fireCreated)="actionTabCreated($event)">
-              <ng-template mat-tab-label>
-                {{actionSelection?.process?.name ? actionSelection.process.name : 'Action' }}
-                <mat-icon fxLayoutAlign="end start" class="tcs-cancel-action-button" [svgIcon]="'tcs-close-icon'" (click)="handleCancelAction()"></mat-icon>
-              </ng-template>
+            <mat-tab *ngFor="let tab of formTabs" [label]="tab.type === 'actionTab' ? 'actionTab' : 'wiTab'">
+                <ng-template mat-tab-label>
+                  <span>{{tab.title}}</span>
+                  <mat-icon fxLayoutAlign="end start" class="tcs-cancel-action-button" [svgIcon]="'tcs-close-icon'" (click)="handleTabCancel(tab)"></mat-icon>
+                </ng-template>
+                <tcla-live-apps-legacy-form *ngIf="tab.type === 'wiTab'" class="live-apps-widget" [workitemId]="tab.workitemId" (workitemComplete)="handleWorkitemComplete($event)" fxFill></tcla-live-apps-legacy-form>
             </mat-tab>
           </mat-tab-group>
-          <!-- using a hidden tab for actions so they are NOT reloaded on tab switch -->
-          <div [hidden]="!actionTabActive" style="overflow: auto">
-            <tcla-live-apps-case-action [customFormDefs]="customFormDefs" [process]="actionSelection" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted($event)"></tcla-live-apps-case-action>
+          <!-- Using a hidden tab here to workaround the fact that web components seems to disappear on tab change-->
+          <div *ngIf="selectedTab" [hidden]="!actionVisible" style="overflow: auto; height: 100%">
+            <tcla-live-apps-case-action [customFormDefs]="customFormDefs" [process]="selectedTab.action" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted(selectedTab)"></tcla-live-apps-case-action>
           </div>
         </div>
         <div fxLayout="column" fxFlex.gt-md="1 1 50" fxFlex.lt-lg="none" ngStyle.lt-lg="min-height: 500px" fxLayoutGap="20px" style="overflow: hidden;" *ngIf="showAudit || showNotes || showDocuments || showStates || tabsFromNgContent.length > 0">

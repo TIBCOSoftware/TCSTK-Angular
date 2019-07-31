@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ContentChildren,
-  Directive,
+  Directive, ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
@@ -25,13 +25,15 @@ import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-
 import {LiveAppsService} from '../../services/live-apps.service';
 import {ToolbarButton, TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
-import {MatTab, MatTabGroup} from '@angular/material';
+import {MatTab, MatTabChangeEvent, MatTabGroup} from '@angular/material';
 import {QueryList} from '@angular/core';
 import { RouteAction } from '@tibco-tcstk/tc-core-lib';
 import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
-
+import {LiveAppsLegacyFormComponent} from '../live-apps-legacy-form/live-apps-legacy-form.component';
+import {CaseAction, FormTab} from '../../models/liveappsdata';
+import {FormControl} from '@angular/forms';
 
 /**
  * High level component to allow interaction with case.
@@ -82,6 +84,11 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
    * The case reference
    */
   @Input() caseRef: string;
+
+  /**
+   * The workitem Id
+   */
+  @Input() workitemId: number;
 
   /**
    * The ID of the logged user
@@ -149,20 +156,21 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   @ViewChild(LiveAppsNotesComponent, {static: false}) caseNotesComponent: LiveAppsNotesComponent;
   @ViewChild(LiveAppsCaseStatesComponent, {static: false}) caseStatesComponent: LiveAppsCaseStatesComponent;
   @ViewChild(LiveAppsCaseStateAuditComponent, {static: false}) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
+  @ViewChild(LiveAppsLegacyFormComponent, {static: false}) workitemComponent: LiveAppsLegacyFormComponent;
   @ViewChild('dataTabGroup', {static: false}) dataTabGroups: MatTabGroup;
+  @ViewChild('dataTabGroup', {static: false}) dataTabGroupEl: ElementRef;
 
   isFavorite: boolean;
   valid = false;
   toolbarButtons: ToolbarButton[] = [];
-  actionSelection: LaProcessSelection;
   incConfigButton = true;
   incFavButton = true;
   incRefreshButton = true;
   incHomeButton = true;
-  dataTabActive = 0;
-  dataTabId;
-  actionTabId;
-  actionTabActive = false;
+  formTabs: FormTab[] = [];
+  selectedTab: FormTab;
+  actionVisible = false;
+  selected = new FormControl(0);
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received
   protected _destroyed$ = new Subject();
@@ -207,39 +215,22 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
     }
   }
 
-  public handleActionSelection = (actionSelection) => {
-    this.caseActionsComponent.toggleEnable();
-    this.actionSelection = actionSelection;
+  public handleActionSelection = (actionSelection: LaProcessSelection) => {
+    // this.caseActionsComponent.toggleEnable();
+    // this.actionSelection = actionSelection;
+    this.addActionFormTab(actionSelection);
   }
 
-  public actionTabCreated = (data) => {
-    // the tab isn't actually in the tab-group at this point but this should still work as length is current tab + 1
-    this.dataTabGroups.selectedIndex = this.dataTabGroups._tabs.length;
-    this.actionTabId = this.dataTabGroups._tabs.length;
-    this.actionTabActive = true;
-  }
-
-  public handleCancelAction = () => {
-    this.actionSelection = undefined;
+  public handleActionCompleted = (formTab: FormTab) => {
     this.caseActionsComponent.toggleEnable();
-  }
-
-  public handleActionCompleted = (processId: string) => {
-    this.actionSelection = undefined;
-    this.caseActionsComponent.toggleEnable();
+    this.formTabs.splice(this.formTabs.findIndex(tab => {
+      return tab.type === 'actionTab' && tab.action === formTab.action;
+    }), 1);
+    this.selected.setValue(0);
     // to allow case to update async before we refresh
     setTimeout(() => {
       this.refresh();
     }, 1000);
-  }
-
-  public handleDataTabChanged = (tabNumber: number) => {
-    this.dataTabId = tabNumber;
-    if (tabNumber === this.actionTabId) {
-      this.actionTabActive = true;
-    } else {
-      this.actionTabActive = false;
-    }
   }
 
   public refresh = () => {
@@ -280,6 +271,82 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
     this.toolbarButtons = this.buttonsHelper.updateButtons([updatedFavButton], this.toolbarButtons);
   }
 
+  public handleWorkitemComplete = (wiId) => {
+    this.formTabs.splice(this.formTabs.findIndex(tab => {
+      return tab.type === 'wiTab' && tab.workitemId === wiId;
+    }), 1);
+    this.selected.setValue(0);
+    setTimeout(() => {
+      this.refresh();
+    }, 1000);
+  }
+
+  public handleTabCancel = (formTab: FormTab) => {
+    if (formTab.type === 'wiTab') {
+      this.workitemComponent.cancelWi(formTab.workitemId);
+      this.formTabs.splice(this.formTabs.findIndex(tab => {
+        return tab.type === 'wiTab' && tab.workitemId === tab.workitemId;
+      }), 1);
+
+      // if we are closing the selected tab then switch to the first tab
+      const currentTabIdx = this.dataTabGroups._tabs.toArray().findIndex(tab => {
+        return tab.textLabel === 'wiTab';
+      });
+      if (currentTabIdx === this.dataTabGroups.selectedIndex) {
+        this.selected.setValue(0);
+      }
+    } else if (formTab.type === 'actionTab') {
+      this.formTabs.splice(this.formTabs.findIndex(tab => {
+        return tab.type === 'actionTab' && tab.action === formTab.action;
+      }), 1);
+      // if we are closing the selected tab then switch to the first tab
+      const currentTabIdx = this.dataTabGroups._tabs.toArray().findIndex(tab => {
+        return tab.textLabel === 'actionTab';
+      });
+      if (currentTabIdx === this.dataTabGroups.selectedIndex) {
+        this.selected.setValue(0);
+      }
+      this.caseActionsComponent.toggleEnable();
+    }
+  }
+
+  public addWiFormTab = (wiId) => {
+      this.formTabs.push(
+        new FormTab().deserialize({
+          type: 'wiTab',
+          title: 'WorkItem: ' + wiId,
+          workitemId: wiId
+        }));
+      this.selected.setValue(this.formTabs.length);
+  }
+
+  public addActionFormTab = (actionSelection: LaProcessSelection) => {
+    const newTab = new FormTab().deserialize({
+      type: 'actionTab',
+      title: 'Action: ' + actionSelection.process.name,
+      workitemId: undefined,
+      action: actionSelection
+    });
+    this.formTabs.push(newTab);
+    this.selectedTab = newTab;
+    setTimeout(handler => {
+      this.selected.setValue(this.formTabs.length);
+    })
+    this.caseActionsComponent.toggleEnable();
+  }
+
+  handleTabChange = (tabChange: MatTabChangeEvent) => {
+    if (tabChange.tab.textLabel === 'actionTab') {
+      document.getElementById('dataTabGroup').style.height = '0px';
+      setTimeout(handler => {
+        this.actionVisible = true;
+      });
+    } else {
+      document.getElementById('dataTabGroup').style.height = '100%';
+      this.actionVisible = false;
+    }
+  }
+
   ngOnInit() {
     if (!isNaN(Number(this.caseRef))) {
       // dont set recent if it is in the exclude app list
@@ -315,5 +382,9 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   ngAfterViewInit(): void {
     this.matTabGroup._tabs.reset([...this.inclusiveTabs.toArray(), ...this.tabsFromNgContent.toArray()]);
     // this.matTabGroup.afterViewInit();
+
+    if (this.workitemId) {
+      this.addWiFormTab(this.workitemId);
+    }
   }
 }

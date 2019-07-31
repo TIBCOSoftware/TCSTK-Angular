@@ -13,8 +13,8 @@
     <div fxFlex="1 1 auto" class="searchCasesWidget" style="min-height: 86px;">
       <tcla-live-apps-search-widget [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
     </div>
-
-    <div fxFlex="noshrink" style="margin-bottom: 20px; overflow: auto; min-height: 400px" fxLayoutGap="20px" fxLayout="row" fxLayout.lt-md="column">
+    <!--div fxFlex="noshrink" style="margin-bottom: 20px; overflow: auto; min-height: 400px" fxLayoutGap="20px" fxLayout="row" fxLayout.lt-md="column"-->
+    <div fxFlex="grow" style="margin-bottom: 20px; overflow: auto; min-height: 400px; max-height: 75vh;" fxLayoutGap="20px" fxLayout="row" fxLayout.lt-md="column">
       <div fxFlex.gt-sm="grow" fxLayout="row" style="height: 100%;" [ngStyle.lt-md]="'min-height: 400px;'">
         <mat-tab-group fxFlex>
           <mat-tab label="Recent Cases">
@@ -28,6 +28,14 @@
             <ng-template matTabContent>
               <div class="favoriteCasesWidget" fxFill>
                 <tcla-live-apps-favorite-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-favorite-cases>
+              </div>
+            </ng-template>
+          </mat-tab>
+          <mat-tab *ngIf="showWorkitems" label="Workitems">
+            <ng-template matTabContent>
+              <div class="favoriteCasesWidget" fxFill>
+                <tcla-live-apps-workitems #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
+                                          [uiAppId]="uiAppId" [appIds]="appIds" (clickCase)="clickCaseAction($event)"></tcla-live-apps-workitems>
               </div>
             </ng-template>
           </mat-tab>
