@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule} from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {
   MatAccordion,
@@ -21,7 +21,7 @@ import {
   MatSlideToggleModule,
   MatIconRegistry,
   MatProgressBarModule,
-  MatTableModule
+  MatTableModule, MatProgressSpinnerModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -180,6 +180,7 @@ import {LiveAppsWorkitemsComponent} from './components/live-apps-workitems/live-
     MatToolbarModule,
     MatExpansionModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     ScrollDispatchModule,
     MatSlideToggleModule,
     MatProgressBarModule,

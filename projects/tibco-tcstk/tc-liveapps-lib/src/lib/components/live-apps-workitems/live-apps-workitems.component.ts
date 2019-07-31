@@ -45,6 +45,11 @@ export class LiveAppsWorkitemsComponent extends LiveAppsComponent implements OnI
   @Input() uiAppId: string;
 
   /**
+   * The list of LA Application IDs you want to handle
+   */
+  @Input() appIds: string[];
+
+  /**
    * case card format - list, card, miniCard, staticList (no click event)
    */
   @Input() displayType: string = this.displayType ? this.displayType : 'wiMiniCard'; // miniCard, card, list
@@ -72,7 +77,7 @@ export class LiveAppsWorkitemsComponent extends LiveAppsComponent implements OnI
 
   public refresh = () => {
     this.workitems = [];
-    this.workitemsService.getWorkitems(this.sandboxId, 0, 20)
+    this.workitemsService.getWorkitems(this.sandboxId, this.appIds, 0, 20)
       .pipe(
         take(1),
         takeUntil(this._destroyed$)

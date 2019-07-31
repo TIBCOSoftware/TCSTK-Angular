@@ -4,23 +4,13 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
   OnDestroy,
   OnInit,
-  Output,
-  SimpleChanges,
-  ViewChild
+  Output
 } from '@angular/core';
-import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
-import {fromEvent} from 'rxjs/internal/observable/fromEvent';
-import {map} from 'rxjs/internal/operators/map';
-import {defer} from 'rxjs/internal/observable/defer';
-import {concat} from 'rxjs/internal/operators/concat';
-import {of} from 'rxjs/internal/observable/of';
+import {LegacyIframeService, TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 import {TcVisibilityService} from '@tibco-tcstk/tc-core-lib';
-
 
 /**
  * Wraps legacy angularjs form renderer
@@ -33,17 +23,18 @@ import {TcVisibilityService} from '@tibco-tcstk/tc-core-lib';
   templateUrl: './live-apps-legacy-form.component.html',
   styleUrls: ['./live-apps-legacy-form.component.css']
 })
-export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements OnDestroy, OnInit, OnDestroy, AfterViewInit {
+export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements OnDestroy, OnDestroy, AfterViewInit {
 
   @Input() legacyIframeId = this.legacyIframeId ?  this.legacyIframeId : 'legacyFrame';
   @Input() workitemId: number;
+  @Output() workitemComplete = new EventEmitter();
 
   private target;
   private formDiv;
   private wiActive = false;
   private openWiId;
 
-  constructor (private visibilityService: TcVisibilityService, private host: ElementRef) {
+  constructor (private visibilityService: TcVisibilityService, private host: ElementRef, private legacyIframeService: LegacyIframeService) {
     super();
   }
 
@@ -53,12 +44,12 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
 
   public renderWi = (wiId: number) => {
     if (this.wiActive && this.openWiId) {
+      // opening a new workitem so cancel old one
       this.cancelWi(wiId);
     }
+
     // send message to external form app
-    console.log('send msg');
-    this.formDiv.contentWindow.postMessage({ 'action': 'openWI', 'wiId': wiId}, '*');
-    window.addEventListener('message', this.receiveMessage, false);
+    this.formDiv.contentWindow.postMessage({ 'action': 'openWI', 'wiId': wiId}, window.location.origin);
     // position the form iframe over the workitemDiv placeholder
     this.wiActive = true;
     this.openWiId = wiId;
@@ -69,12 +60,15 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
     if (event.data.action === 'wiCompleted') {
       console.log(event);
       this.wiActive = false;
+      const wiId = this.openWiId;
       this.openWiId = undefined;
+      this.hideWi();
+      this.workitemComplete.emit(wiId);
     }
   }
 
   public cancelWi = (wiId) => {
-    this.formDiv.contentWindow.postMessage({ 'action': 'cancelWI', 'wiId': this.openWiId}, '*');
+    this.formDiv.contentWindow.postMessage({ 'action': 'cancelWI', 'wiId': this.openWiId}, window.location.origin);
     this.wiActive = false;
     this.openWiId = undefined;
     this.hideWi();
@@ -100,6 +94,37 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
     }, 1000);
   }
 
+  private initialize = () => {
+    // listen for messages from the iframe
+    window.addEventListener('message', this.receiveMessage, false);
+
+    // we only want to render the workitem when the element is visible
+    const inSight$ = this.visibilityService.elementInSight(this.host);
+    inSight$.subscribe(next => {
+      console.log('INSIGHT: ', next);
+      if (!next) {
+        // element not visible so hide the workitem if it is showing
+        if (this.wiActive && this.target) {
+          this.hideWi();
+        }
+      } else {
+        // element is visible
+        if (!this.wiActive) {
+          // if workitem not already showing - show it
+          // first get a handle on the target div and the legacy iframe
+          this.target = document.getElementById('componentDiv');
+          this.formDiv = document.getElementById(this.legacyIframeId);
+          if (this.workitemId) {
+            // trigger display of the workitem
+            this.renderWi(this.workitemId);
+          }
+        } else {
+          this.resizeWi();
+        }
+      }
+    });
+  }
+
   ngAfterViewInit() {
     super.ngAfterViewInit();
     this.containerChanges$.subscribe(widget => {
@@ -107,28 +132,15 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
         this.resizeWi();
       }
     });
-    const inSight$ = this.visibilityService.elementInSight(this.host);
-    inSight$.subscribe(next => {
-      console.log('INSIGHT: ', next);
-        if (!next) {
-          if (this.wiActive && this.target) {
-            this.hideWi();
-          }
-        } else {
-          if (!this.wiActive) {
-            this.target = document.getElementById('componentDiv');
-            this.formDiv = document.getElementById(this.legacyIframeId);
-            if (this.workitemId) {
-              this.renderWi(this.workitemId);
-            }
-          } else {
-            this.resizeWi();
-          }
-        }
-    });
-  }
 
-  ngOnInit() {
+    // wait for iframe to load before doing anything else
+    // this observable will emit true once the iFrame is loaded
+    this.legacyIframeService.data.subscribe(loaded => {
+      if (loaded) {
+        // iframe is loaded
+        this.initialize();
+      }
+    });
   }
 
   ngOnDestroy() {
