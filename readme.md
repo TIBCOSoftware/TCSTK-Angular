@@ -10,7 +10,9 @@ Quick Guide and deep dive Developer Documentations can be found [here](https://t
 
 This repo contains angular libraries which can be used to create custom UI for TIBCO Cloud™ Services such as Live Apps.
 
-Typically you wont be using this repo but instead will use the TIBCO Cloud™ Starters Toolkit - Command Line Interface to generate applications. This will pull the libraries from npm.
+Typically you wont be using this repo but instead will use the TIBCO Cloud™ Starters Toolkit - Command Line Interface to generate applications. This will pull the libraries from npm:
+
+https://github.com/TIBCOSoftware/tcstk-cloud-cli
 
 However, if required you can pull this repo and run a version of the sample Case Manager Application. This can be useful for debugging and extending the libraries.
 
