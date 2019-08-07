@@ -1,4 +1,12 @@
-import {AccessToken, AuthInfo, Deserializable, Claim} from '@tibco-tcstk/tc-core-lib';
+import {AccessToken, AuthInfo, Deserializable, Claim, DeserializableClass} from '@tibco-tcstk/tc-core-lib';
+import {LaProcessSelection} from '../models/tc-case-processes';
+
+export class FormTab extends DeserializableClass implements Deserializable {
+  type: string;
+  title: string;
+  workitemId: number;
+  action: LaProcessSelection;
+}
 
 export class NoteThread {
   constructor(public threadId: string,
@@ -16,6 +24,7 @@ export class CaseRoute {
   public caseRef: string;
   public appId: string;
   public typeId: string;
+  public workitemId: number;
   deserialize(input: any): this {
     Object.assign(this, input);
     return this;

@@ -1,46 +1,46 @@
+### TIBCO Cloud™ Starters Toolkit -- Angular Libraries
+
 # Overview
 
-This Repository contains Angular.io components and sample code for creating cloud starter applications using ready to use components on top of Tibco Cloud Services. More Details here on the [TIBCO Cloud™ Starters Toolkit Site](https://tibcosoftware.github.io/TCSToolkit/)
+This Repository contains Angular.io components and sample code for creating TIBCO Cloud™ Starter applications. More Details here on the [TIBCO Cloud™ Starters Toolkit Site](https://tibcosoftware.github.io/TCSToolkit/)
 
 Quick Guide and deep dive Developer Documentations can be found [here](https://tibcosoftware.github.io/TCSTK-Angular/)
 
-## early Preview Recording
+# Repo Contents
 
-![](./docs/CloudStartersDeveloperToolkit.gif)
+This repo contains angular libraries which can be used to create custom UI for TIBCO Cloud™ Services such as Live Apps.
 
-# First Step
+Typically you wont be using this repo but instead will use the TIBCO Cloud™ Starters Toolkit - Command Line Interface to generate applications. This will pull the libraries from npm:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+[TIBCO Cloud™ Starters Command Line Interface Repo](https://github.com/TIBCOSoftware/tcstk-cloud-cli)
 
-npm install --save-dev @angular-devkit/build-angular
+However, if required you can pull this repo and run a version of the sample Case Manager Application. This can be useful for debugging and extending the libraries.
 
-## Development server
+# Pre requisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In order to use the applications you will need to create a TIBCO Cloud™ Live Apps Subscription. You can create a free trial account here:
+[TIBCO Cloud™ Live Apps](https://www.tibco.com/products/tibco-cloud-live-apps)
 
-ng serve --proxy-config proxy.conf.prod.json --ssl true --source-map
+You will need to obtain your Client Id API key from the TIBCO Cloud™ Settings pages:
+[TIBCO Cloud™ Settings](https://account.cloud.tibco.com/manage/settings/advanced)
 
-## Code scaffolding
+Click Display Client Id to get the key.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Getting a Client ID](https://www.youtube.com/embed/MuzQDo1RPxU)
 
-## Build
+# Steps to run this repo with a sample application
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1) Clone the repo using your IDE of choice
+2) Run npm install
+3) Run the appropriate serve command for your region (eu/us/au):
+  
+  eg) npm run serve_eu
+  
+4) Open https://localhost:4200 in a browser, enter username/password and Client Id key to login
 
-To build prod:
 
-ng build --base-href /webresource/apps/<appname>/ --deploy-url /webresource/apps/<appname>/ --prod
-
-where <appname> is the UI appname you will deploy to WRP
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further Angular CLI help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+/*
+* Copyright © 2019. TIBCO Software Inc.
+* This file is subject to the license terms contained
+* in the license file that is distributed with this file.
+ */

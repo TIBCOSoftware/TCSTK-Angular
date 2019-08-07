@@ -80,6 +80,16 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   @Input() caseRef: string;
 
   /**
+   * Card Description
+   */
+  @Input() description: string;
+
+  /**
+   * Workitem Id
+   */
+  @Input() workitemId: string;
+
+  /**
    * sandboxId - this comes from claims resolver
    */
   @Input() sandboxId: number;
@@ -134,7 +144,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   color: string;
 
   public clickCaseAction = () => {
-    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseRef, appId: this.appId, typeId: this.typeId});
+    const caseRoute = new CaseRoute().deserialize({ caseRef: this.caseRef, appId: this.appId, typeId: this.typeId, workitemId: this.workitemId});
     this.clickCase.emit(caseRoute);
   }
 
