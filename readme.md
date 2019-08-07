@@ -12,16 +12,17 @@ This repo contains angular libraries which can be used to create custom UI for T
 
 Typically you wont be using this repo but instead will use the TIBCO Cloud™ Starters Toolkit - Command Line Interface to generate applications. This will pull the libraries from npm:
 
-https://github.com/TIBCOSoftware/tcstk-cloud-cli
+[TIBCO Cloud™ Starters Command Line Interface Repo](https://github.com/TIBCOSoftware/tcstk-cloud-cli)
 
 However, if required you can pull this repo and run a version of the sample Case Manager Application. This can be useful for debugging and extending the libraries.
 
 # Pre reqs
 
 In order to use the applications you will need to create a TIBCO Cloud™ Live Apps Subscription. You can create a free trial account here:
-https://www.tibco.com/products/tibco-cloud-live-apps
+[TIBCO Cloud™ Live Apps](https://www.tibco.com/products/tibco-cloud-live-apps)
 
-You will need to obtain your Client Id API key from the TIBCO Cloud™ Settings pages: https://account.cloud.tibco.com/manage/settings/advanced
+You will need to obtain your Client Id API key from the TIBCO Cloud™ Settings pages:
+[TIBCO Cloud™ Settings](https://account.cloud.tibco.com/manage/settings/advanced)
 
 Click Display Client Id to get the key.
 
