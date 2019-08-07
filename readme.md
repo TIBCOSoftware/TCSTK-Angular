@@ -31,9 +31,9 @@ Click Display Client Id to get the key.
 1) Clone the repo using your IDE of choice
 2) Run npm install
 3) Run the appropriate serve command for your region (eu/us/au):
-  npm run serve_eu
-  npm run serve_us
-  npm run serve_au
+  
+  eg) npm run serve_eu
+  
 4) Open https://localhost:4200 in a browser, enter username/password and Client Id key to login
 
 
