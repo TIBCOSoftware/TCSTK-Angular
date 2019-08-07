@@ -79,8 +79,10 @@ export class LiveAppsComponent implements OnDestroy, AfterViewInit, OnInit {
     }).pipe(
       distinctUntilChanged(),
       map(width => {
+        if (this.widget && width) {
           this.widget.width = width;
-          return this.widget;
+        }
+        return this.widget;
       }
     )
     );

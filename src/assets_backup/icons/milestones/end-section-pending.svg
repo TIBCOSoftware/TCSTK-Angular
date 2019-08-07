@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">
-    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M0 0h76c9.941 0 18 8.059 18 18s-8.059 18-18 18H0c6.095-3.675 10.172-10.361 10.172-18C10.172 10.361 6.095 3.675 0 0z"/>
-    <text class="pending-text" fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">
-        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>
-    </text>
-</svg>

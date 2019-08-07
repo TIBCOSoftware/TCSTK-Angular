@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule} from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {
   MatAccordion,
@@ -21,7 +21,7 @@ import {
   MatSlideToggleModule,
   MatIconRegistry,
   MatProgressBarModule,
-  MatTableModule
+  MatTableModule, MatProgressSpinnerModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -99,6 +99,8 @@ import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-activ
 import { LiveAppsActiveCasesReportComponent } from './components/live-apps-active-cases-report/live-apps-active-cases-report.component';
 import { LiveAppsActiveCasesForTypeReportComponent } from './components/live-apps-active-cases-for-type-report/live-apps-active-cases-for-type-report.component';
 import { LiveAppsSettingsAccessControlComponent } from './components/live-apps-settings-access-control/live-apps-settings-access-control.component';
+import {LiveAppsLegacyFormComponent} from './components/live-apps-legacy-form/live-apps-legacy-form.component';
+import {LiveAppsWorkitemsComponent} from './components/live-apps-workitems/live-apps-workitems.component';
 
 @NgModule({
     declarations: [
@@ -151,7 +153,9 @@ import { LiveAppsSettingsAccessControlComponent } from './components/live-apps-s
         LiveAppsActiveCasesWidgetComponent,
         LiveAppsActiveCasesReportComponent,
         LiveAppsActiveCasesForTypeReportComponent,
-        LiveAppsSettingsAccessControlComponent
+        LiveAppsSettingsAccessControlComponent,
+        LiveAppsLegacyFormComponent,
+        LiveAppsWorkitemsComponent
     ],
   imports: [
     TcCoreLibModule,
@@ -176,6 +180,7 @@ import { LiveAppsSettingsAccessControlComponent } from './components/live-apps-s
     MatToolbarModule,
     MatExpansionModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     ScrollDispatchModule,
     MatSlideToggleModule,
     MatProgressBarModule,
@@ -233,7 +238,9 @@ import { LiveAppsSettingsAccessControlComponent } from './components/live-apps-s
     LiveAppsDocumentViewerComponent,
     LiveAppsLandingPageComponent,
     LiveAppsActiveCasesWidgetComponent,
-    LiveAppsActiveCasesReportComponent
+    LiveAppsActiveCasesReportComponent,
+    LiveAppsLegacyFormComponent,
+    LiveAppsWorkitemsComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [

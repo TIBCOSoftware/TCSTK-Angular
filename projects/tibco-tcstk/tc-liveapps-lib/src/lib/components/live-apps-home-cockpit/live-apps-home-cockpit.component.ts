@@ -70,6 +70,11 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @Input() roles: Roles;
 
   /**
+   * Workitems - Whether to show the workitems list
+   */
+  @Input() showWorkitems: boolean = this.showWorkitems ? this.showWorkitems : false;
+
+  /**
    * RouteAccessControlConfig - basically the config for access control
    */
   @Input() access: RouteAccessControlConfigurationElement;

@@ -39,7 +39,7 @@
           <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
             <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
               <tcla-live-apps-favorite-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
-                                             [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-favorite-cases>
+                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-favorite-cases>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@
           <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
             <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
               <tcla-live-apps-recent-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
-                                             [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-recent-cases>
+                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-recent-cases>
             </div>
           </div>
         </div>
@@ -173,6 +173,31 @@
           </div>
         </ng-template>
       </mat-tab>
+      <mat-tab label="Workitems">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-workitems #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
+                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-workitems>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <!-- using workitem requires the legacy workitem app to be deployed and run as a hidden iframe in starterApp) -->
+      <!-- Using ng-template will cause the form to cancel/reload between tab changes -->
+      <!--mat-tab label="Workitem">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-legacy-form [workitemId]="17869"></tcla-live-apps-legacy-form>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab-->
     </mat-tab-group>
   </div>
 </div>

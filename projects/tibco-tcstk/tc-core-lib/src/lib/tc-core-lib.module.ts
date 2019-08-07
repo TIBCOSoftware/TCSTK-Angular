@@ -53,6 +53,8 @@ import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-settin
 import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
 import {MessageQueueService} from './common/tc-core-queue-comm';
 import {MessageTopicService} from './common/tc-core-topic-comm';
+import {TcVisibilityService} from './services/tc-visibility.service';
+import {LegacyIframeService} from './services/legacy-iframe.service';
 
 @NgModule({
   declarations: [
@@ -143,7 +145,9 @@ import {MessageTopicService} from './common/tc-core-topic-comm';
   ],
   providers: [
     RequestCacheService,
+    TcVisibilityService,
     TcButtonsHelperService,
+    LegacyIframeService,
     AuthGuard,
     // comment this line to disable the CachingInterceptor
     {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true},
@@ -158,15 +162,16 @@ import {MessageTopicService} from './common/tc-core-topic-comm';
 export class TcCoreLibModule {
 
   private ms: MessageTopicService;
+  private li: LegacyIframeService;
 
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TcCoreLibModule,
-      providers: [TcSharedStateService, TcGeneralConfigService]
+      providers: [TcSharedStateService, TcGeneralConfigService, LegacyIframeService]
     };
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageTopicService) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageTopicService, private legacyIFrameService: LegacyIframeService) {
     this.ms = messageService;
     // subscribe to route changes
     this.router.events.subscribe((value) => {
@@ -176,6 +181,10 @@ export class TcCoreLibModule {
         this.ms.sendMessage('help', value.url);
       }
     });
+
+    // This service is used to handle async iframe loading
+    this.li = legacyIFrameService;
+    this.li.data.subscribe();
 
     // register all the default Icon SVGs used by this module
 
