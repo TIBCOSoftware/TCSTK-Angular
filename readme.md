@@ -16,7 +16,7 @@ Typically you wont be using this repo but instead will use the TIBCO Cloud™ St
 
 However, if required you can pull this repo and run a version of the sample Case Manager Application. This can be useful for debugging and extending the libraries.
 
-# Pre reqs
+# Pre requisites
 
 In order to use the applications you will need to create a TIBCO Cloud™ Live Apps Subscription. You can create a free trial account here:
 [TIBCO Cloud™ Live Apps](https://www.tibco.com/products/tibco-cloud-live-apps)
