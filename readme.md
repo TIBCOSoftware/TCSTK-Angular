@@ -26,9 +26,7 @@ You will need to obtain your Client Id API key from the TIBCO Cloud™ Settings 
 
 Click Display Client Id to get the key.
 
-**How to obtain API Key Client ID**
-
-<iframe width="250" height="150" src="https://www.youtube.com/embed/MuzQDo1RPxU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Getting a Client ID](https://www.youtube.com/embed/MuzQDo1RPxU)
 
 # Steps to run this repo with a sample application
 
