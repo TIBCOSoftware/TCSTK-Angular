@@ -91,14 +91,19 @@ export class TibcoCloudNavbarComponent implements OnInit {
         },
         products: {
           visible: false
+        },
+        region: {
+            visible: false
         }
       },
       customProfilePanel: {
         account: {
-          visible: false
+          visible: false,
+          disabled: true
         },
         subscriptions: {
-          visible: false
+          visible: false,
+          disabled: true
         },
         organization: {
           visible: false
