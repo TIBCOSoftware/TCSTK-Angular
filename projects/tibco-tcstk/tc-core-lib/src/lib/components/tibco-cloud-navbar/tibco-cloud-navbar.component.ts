@@ -94,6 +94,9 @@ export class TibcoCloudNavbarComponent implements OnInit {
         },
         region: {
             visible: false
+        },
+        accountswitcher: {
+          visible: false
         }
       },
       customProfilePanel: {
