@@ -1,6 +1,6 @@
 {
   "name": "@tibco-tcstk/tc-forms-lib",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^8.1.2",
     "@angular/core": "^8.1.2",
@@ -8,5 +8,23 @@
     "@angular/flex-layout": "^8.0.0-beta.26",
     "angular6-json-schema-form": "^7.3.0",
     "lodash-es": "^4.17.15"
-  }
+  },
+  "author": {
+    "name": "TIBCO Labs",
+    "email": "tibcolabs@tibco.com",
+    "url": "http://www.tibco.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TIBCOSoftware/TCSTK-Angular"
+  },
+  "homepage": "https://tibcosoftware.github.io/TCSToolkit/",
+  "keywords": [
+    "tibco",
+    "cloud",
+    "tci",
+    "liveapps",
+    "angular"
+  ],
+  "license": "TIBCO"
 }

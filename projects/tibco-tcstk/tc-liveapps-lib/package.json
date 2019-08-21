@@ -1,6 +1,6 @@
 {
   "name": "@tibco-tcstk/tc-liveapps-lib",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.lib.json"
   },
@@ -15,5 +15,23 @@
     "chartjs-plugin-doughnutlabel": "^2.0.3",
     "@tibco-tcstk/tc-core-lib": "^1.1.0",
     "@tibco-tcstk/tc-forms-lib": "^1.1.0"
-  }
+  },
+  "author": {
+    "name": "TIBCO Labs",
+    "email": "tibcolabs@tibco.com",
+    "url": "http://www.tibco.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TIBCOSoftware/TCSTK-Angular"
+  },
+  "homepage": "https://tibcosoftware.github.io/TCSToolkit/",
+  "keywords": [
+    "tibco",
+    "cloud",
+    "tci",
+    "liveapps",
+    "angular"
+  ],
+  "license": "TIBCO"
 }
