@@ -1,8 +1,5 @@
-#TIBCO Cloud™ Starters Toolkit - Core Library
-The core library contains the core capabilties required for any cloud starter application.
-
-The other TCSTK libraries will be dependant on this library.
-This library does not depend on other TCSTK libraries to avoid circular dependencies.
+# TIBCO Cloud™ Starters Toolkit - Spotfire Library
+The Spotfire library contains components to use Spotfire Reports with Cloud Starter Applications.
 
 ---
 For more information see the documentation page: 
