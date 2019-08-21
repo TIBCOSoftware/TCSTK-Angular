@@ -9,5 +9,23 @@
     "ngx-color-picker": "^7.5.0",
     "@tibco-tcstk/tc-core-lib": "^1.1.0",
     "@tibco/spotfire-wrapper": "^0.2.3"
-  }
+  },
+  "author": {
+    "name": "TIBCO Labs",
+    "email": "tibcolabs@tibco.com",
+    "url": "http://www.tibco.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TIBCOSoftware/TCSTK-Angular"
+  },
+  "homepage": "https://tibcosoftware.github.io/TCSToolkit/",
+  "keywords": [
+    "tibco",
+    "cloud",
+    "tci",
+    "liveapps",
+    "angular"
+  ],
+  "license": "TIBCO"
 }

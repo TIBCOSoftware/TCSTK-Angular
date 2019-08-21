@@ -1,11 +1,29 @@
 {
   "name": "@tibco-tcstk/tc-core-lib",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.lib.json"
   },
   "peerDependencies": {
     "@angular/common": "^8.1.2",
     "@angular/core": "^8.1.2"
-  }
+  },
+  "author": {
+    "name": "TIBCO Labs",
+    "email": "tibcolabs@tibco.com",
+    "url": "http://www.tibco.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TIBCOSoftware/TCSTK-Angular"
+  },
+  "homepage": "https://tibcosoftware.github.io/TCSToolkit/",
+  "keywords": [
+    "tibco",
+    "cloud",
+    "tci",
+    "liveapps",
+    "angular"
+  ],
+  "license": "TIBCO"
 }
