@@ -33,5 +33,6 @@
     "liveapps",
     "angular"
   ],
-  "license": "OTHER"
+  "license": "OTHER",
+  "description": "TCSTK Library that contains Live Apps components for your TIBCO Cloud Starter"
 }
