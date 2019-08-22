@@ -9,7 +9,7 @@
     "@angular/core": "^8.1.2",
     "@angular/material": "^8.1.1",
     "@angular/flex-layout": "^8.0.0-beta.26",
-    "ngx-color-picker": "^7.5.0",
+    "ngx-color-picker": "^8.1.0",
     "ng2-charts": "^2.3.0",
     "chartjs-plugin-datalabels": "^0.6.0",
     "chartjs-plugin-doughnutlabel": "^2.0.3",
