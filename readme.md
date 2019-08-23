@@ -38,8 +38,10 @@ Click Display Client Id to get the key.
   
 4) Open https://localhost:4200 in a browser, enter username/password and Client Id key to login
 
-
+# License
 
 Copyright © 2019. TIBCO Software Inc.
 This file is subject to the license terms contained
 in the license file that is distributed with this file.
+
+Please see license.txt for details of license and dependent third party components referenced by this library.
