@@ -179,17 +179,17 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
           (response: any) => {
             if (response.type === HttpEventType.UploadProgress) {
               this.uploadProgress = Math.round(100 * response.loaded / response.total);
-            }
-            if (this.uploadProgress === 100) {
-              this.fileToUpload = undefined;
-              this.uploadMessage = 'Uploaded: ' + fileToUpload.name;
-              // api seems not to show new documents straight away sometimes - so this minimizes the chances of that if file > 1mb
-               if (fileToUpload.size > 1000000) {
-                 setTimeout(() => { this.refresh(); }, 2000);
-               } else {
-                 this.refresh();
-               }
-               setTimeout(() => { this.uploadMessage = ''; this.uploadProgress = undefined; }, 5000);
+              if (this.uploadProgress === 100) {
+                this.fileToUpload = undefined;
+                this.uploadMessage = 'Uploaded: ' + fileToUpload.name;
+                // api seems not to show new documents straight away sometimes - so this minimizes the chances of that if file > 1mb
+                if (fileToUpload.size > 1000000) {
+                  setTimeout(() => { this.refresh(); }, 2000);
+                } else {
+                  this.refresh();
+                }
+                setTimeout(() => { this.uploadMessage = ''; this.uploadProgress = undefined; }, 5000);
+              }
             }
           },
           error => { console.log('error'); this.errorMessage = 'Error uploading document: ' + error.errorMsg; });
