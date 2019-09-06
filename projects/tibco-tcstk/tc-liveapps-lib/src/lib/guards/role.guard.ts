@@ -8,7 +8,6 @@ import { map } from 'rxjs/operators';
 import { forkJoin, Observable } from 'rxjs';
 import { TcCoreCommonFunctions, TcGeneralConfigService, TcSharedStateService } from '@tibco-tcstk/tc-core-lib';
 import { Location } from '@angular/common';
-import { RoleActiveResolver } from '../resolvers/role-active.resolver';
 import { TcRolesService } from '../services/tc-roles-service.ts.service';
 import { TcAccessControlService } from '../services/tc-access-control.service';
 import { AccessControlConfigurationResolver } from '../resolvers/accessControlConfiguration.resolver';
