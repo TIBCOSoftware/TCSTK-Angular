@@ -13,7 +13,7 @@ import {
   LiveAppsConfigResolver, RoleGuard,
   RolesResolver
 } from '@tibco-tcstk/tc-liveapps-lib';
-import {SplashComponent} from '../../components/splash/splash.component';
+import {SplashComponent} from '../../routes/splash/splash.component';
 import {CaseComponent} from '../../routes/case/case.component';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';

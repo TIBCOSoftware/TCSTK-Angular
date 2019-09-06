@@ -1,11 +1,8 @@
 <!-- make case screen full height-->
 <div fxFill fxLayout="column" style="overflow: hidden;">
   <tc-tibco-cloud-navbar class="tcla-cloud-navbar" [appName]="config.applicationTitle" [docUrl]="config.documentationUrl"></tc-tibco-cloud-navbar>
-  <!--tc-tibco-cloud-navbar class="tcla-cloud-navbar" [appName]="config.applicationTitle" [docUrl]="config.documentationUrl" [rebrandConfig]="{ 'backgroundColor': '#cfcfcf', 'fontColor': '#682782', 'fontFamily': 'Oswald', 'iconColor': 'red' }" [logoUrl]="'assets/mylogo.png'"></tc-tibco-cloud-navbar-->
   <!-- this is now full height '-' size of header -->
   <div fxFlex class="tcs-starter-app-router-pane" fxLayout="row" fxLayoutAlign="start, stretch">
     <router-outlet></router-outlet>
   </div>
 </div>
-<!--iframe id="legacyFrame" style="box-sizing: border-box; border: none; position: absolute; left:1000px;top:-1000px; height: 0px" src="/webresource/apps/workitem-app/index.html#/workitem/-1"></iframe-->
-

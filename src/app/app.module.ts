@@ -17,15 +17,14 @@ import {
   MatTabsModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {LogService, TcCoreLibModule} from '@tibco-tcstk/tc-core-lib';
-import {LoginComponent} from './components/login/login.component';
+import {LoginComponent} from './routes/login/login.component';
 import {HomeComponent} from './routes/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
-import {SettingsComponent} from './routes/settings/settings.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
-import { SplashComponent } from './components/splash/splash.component';
+import { SplashComponent } from './routes/splash/splash.component';
 import { ShowcaseComponent } from './routes/showcase/showcase.component';
 
 @NgModule({
@@ -35,7 +34,6 @@ import { ShowcaseComponent } from './routes/showcase/showcase.component';
     StarterAppComponent,
     HomeComponent,
     CaseComponent,
-    SettingsComponent,
     ConfigurationComponent,
     SplashComponent,
     ShowcaseComponent

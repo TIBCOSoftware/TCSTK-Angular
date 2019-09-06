@@ -1,4 +1,4 @@
-import {LoginComponent} from '../components/login/login.component';
+import {LoginComponent} from '../routes/login/login.component';
 import {
   AuthGuard,
   GeneralConfigResolver,
