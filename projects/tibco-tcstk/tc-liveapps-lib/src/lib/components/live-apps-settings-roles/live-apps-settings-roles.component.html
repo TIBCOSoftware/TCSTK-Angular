@@ -21,7 +21,7 @@
                                     <input matInput placeholder="Display Name" [(ngModel)]="role.display">
                                 </mat-form-field>
                                 <mat-form-field fxFlex="40" style="min-width: 400px;">
-                                    <mat-select [disableOptionCentering]="true" placeholder="Live Apps Group" [(value)]="role.group">
+                                    <mat-select [disableOptionCentering]="true" placeholder="Live Apps Group" [(value)]="role.group" [disabled]="role.id === 'Administrator'">
                                         <mat-option *ngFor="let group of groups.groups" [value]="group.name">
                                             <span matTooltip="{{group.description}}" matTooltipShowDelay="1000"
                                                 matTooltipPosition="below">{{group.name}}</span>
