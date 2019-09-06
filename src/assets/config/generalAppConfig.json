@@ -8,12 +8,6 @@
       "group": "System: ALL_USERS",
       "display": "User",
       "priority": 5
-    },
-    {
-      "id": "Administrator",
-      "group": "System: ADMINISTRATOR",
-      "display": "Administrator",
-      "priority": 7
     }
   ],
   "displayName": true,

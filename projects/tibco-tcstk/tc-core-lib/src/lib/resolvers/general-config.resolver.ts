@@ -5,6 +5,13 @@
  * Then update shared state with those contents
  */
 
+export const DEFAULT_ADMIN_GROUP = new RoleAttribute().deserialize({
+  id: 'Administrator',
+  'group': 'System: ADMINISTRATOR',
+  'display': 'Administrator',
+  'priority': 7
+});
+
 import { Injectable } from '@angular/core';
 import {Resolve, Router} from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -13,7 +20,7 @@ import {catchError, flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
 import {TcSharedStateService} from '../services/tc-shared-state.service';
 import {HttpClient} from '@angular/common/http';
 import {TcGeneralConfigService} from '../services/tc-general-config.service';
-import {GeneralConfig} from '../models/tc-general-config';
+import {GeneralConfig, RoleAttribute} from '../models/tc-general-config';
 import {Location} from '@angular/common';
 import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
 
@@ -63,6 +70,12 @@ export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>>
               return this.getDefaultAppConfig().pipe(
                 flatMap(config => {
                   this.defaultAppConfig = new GeneralConfig().deserialize(config);
+                  // check to see if we have an admin config
+                  const adminDef = this.defaultAppConfig.roles.find(role => role.id === 'Administrator');
+                  // if no admin config then use default
+                  if (!adminDef) {
+                    this.defaultAppConfig.roles.push(DEFAULT_ADMIN_GROUP);
+                  }
                   this.defaultAppConfig.uiAppId = this.uiAppId;
                   return this.generalConfigService.createGeneralConfig(
                     this.sandboxId,
