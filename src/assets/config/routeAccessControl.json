@@ -1,20 +1,19 @@
 {
-    "allowedRoutes": ["/starterApp/pd", "/starterApp/pd/insifnsdf", "R3", "configuration"],
-    "allowedButtonIds": ["caseStart", "refresh", "favorite", "configure"],
-    "configuration": [
-        {
-            "roleId": "Administrator",
-            "routes": ["/starterApp/pd", "R3"],
-            "buttonIds": ["configure"]
-        },
-        {
-            "roleId": "User",
-            "routes": [],
-            "buttonIds": [
-                "caseStart", "refresh", "favorite", "configure"
-            ]
-        }
-    ]
+  "allowedRoutes": ["/starterApp/configuration"],
+  "allowedButtonIds": ["caseStart","refresh","favorite","configure"],
+  "configuration": [
+    {
+      "roleId": "Administrator",
+      "routes": ["/starterApp/configuration"],
+      "buttonIds": ["caseStart","refresh","favorite","configure"]
+    },
+    {
+      "roleId": "User",
+      "routes": [],
+      "buttonIds": ["caseStart","refresh","favorite"]
+    }
+  ]
 }
+
 
 
