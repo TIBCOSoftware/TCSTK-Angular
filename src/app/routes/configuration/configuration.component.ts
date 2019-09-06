@@ -6,7 +6,7 @@ import {ConfigurationMenuConfig} from '@tibco-tcstk/tc-core-lib';
 import { TcRolesService } from '@tibco-tcstk/tc-liveapps-lib';
 
 @Component({
-  selector: 'laapp-configuration',
+  selector: 'app-configuration',
   templateUrl: './configuration.component.html',
   styleUrls: ['./configuration.component.css']
 })

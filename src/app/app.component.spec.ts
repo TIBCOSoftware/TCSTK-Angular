@@ -17,14 +17,14 @@ import {
   MatListModule, MatMenuModule, MatOptionModule, MatSelectModule,
   MatTabsModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
-import {LoginComponent} from './components/login/login.component';
+import {LoginComponent} from './routes/login/login.component';
 import {ShowcaseComponent} from './routes/showcase/showcase.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
 import {SettingsComponent} from './routes/settings/settings.component';
 import {HomeComponent} from './routes/home/home.component';
 import {ConfigurationComponent} from './routes/configuration/configuration.component';
 import {CaseComponent} from './routes/case/case.component';
-import {SplashComponent} from './components/splash/splash.component';
+import {SplashComponent} from './routes/splash/splash.component';
 import {LogService} from '@tibco-tcstk/tc-core-lib';
 import { Location } from '@angular/common';
 import {Router} from '@angular/router';
