@@ -31,7 +31,7 @@ export class AccessResolver implements Resolve<Observable<RouteAccessControlConf
  
         const accessControlConfiguration$ = new AccessControlConfigurationResolver(this.location, this.http, this.accessControlService).resolve();
         
-        // we will need the activer user role
+        // we will need the active user role
         const activeRoleRes = new RoleActiveResolver(this.rolesService, this.liveapps, this.sharedStateService, this.generalConfigService, this.http, this.location, this.router);
         const activeRole$ = activeRoleRes.resolve();
 
