@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRoute } from '@angular/router';
+import {Resolve, ActivatedRoute, Router} from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { RouteAccessControlConfigurationElement } from '../models/tc-groups-data';
 import { HttpClient } from '@angular/common/http';
@@ -23,7 +23,8 @@ export class AccessResolver implements Resolve<Observable<RouteAccessControlConf
         private liveapps: LiveAppsService,
         private route: ActivatedRoute,
         private sharedStateService: TcSharedStateService,
-        private generalConfigService: TcGeneralConfigService
+        private generalConfigService: TcGeneralConfigService,
+        private router: Router
     ) { }
 
     resolve(): Observable<RouteAccessControlConfigurationElement> {
@@ -31,13 +32,13 @@ export class AccessResolver implements Resolve<Observable<RouteAccessControlConf
         const accessControlConfiguration$ = new AccessControlConfigurationResolver(this.location, this.http, this.accessControlService).resolve();
         
         // we will need the activer user role
-        const activeRoleRes = new RoleActiveResolver(this.rolesService, this.liveapps, this.sharedStateService, this.generalConfigService, this.http, this.location);
+        const activeRoleRes = new RoleActiveResolver(this.rolesService, this.liveapps, this.sharedStateService, this.generalConfigService, this.http, this.location, this.router);
         const activeRole$ = activeRoleRes.resolve();
 
         // run both in parallel then check access
         const accessControl$ = forkJoin(accessControlConfiguration$, activeRole$).pipe(
             map(([accessConfig, activeRole]) => {
-                return accessConfig.configuration.find(element => element.roleId == activeRole.id);
+                return accessConfig.configuration.find(element => element.roleId === activeRole.id);
             })
         );
 

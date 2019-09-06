@@ -1,7 +1,7 @@
 // This guard is to check whether the user has appropriate role to access a route based on config settings
 
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute } from '@angular/router';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, ActivatedRoute, Router} from '@angular/router';
 import { LiveAppsService } from '../services/live-apps.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -20,15 +20,15 @@ export class RoleGuard implements CanActivate {
     DEFAULT_CONFIG_URL = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/config/routeAccessControl.json');
 
     constructor(
-        private liveapps: LiveAppsService, 
-        // private router: Router, 
+        private liveapps: LiveAppsService,
         private rolesService: TcRolesService,
-        private http: HttpClient, 
-        private location: Location, 
+        private http: HttpClient,
+        private location: Location,
         private route: ActivatedRoute,
-        private sharedStateService: TcSharedStateService, 
+        private sharedStateService: TcSharedStateService,
         private generalConfigService: TcGeneralConfigService,
-        private accessControlService: TcAccessControlService
+        private accessControlService: TcAccessControlService,
+        private router: Router
     ) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
@@ -41,8 +41,8 @@ export class RoleGuard implements CanActivate {
         })
 
         // we will need the active user role
-        const activeResolver$ = new AccessResolver(this.location, this.http, this.accessControlService, this.rolesService, this.liveapps, this.route, this.sharedStateService, this.generalConfigService).resolve();
-        
+        const activeResolver$ = new AccessResolver(this.location, this.http, this.accessControlService, this.rolesService, this.liveapps, this.route, this.sharedStateService, this.generalConfigService, this.router).resolve();
+
         // access control configuration to check current URL is on allowedRoutes
         const accessControlConfig$ = new AccessControlConfigurationResolver(this.location, this.http, this.accessControlService).resolve();
 

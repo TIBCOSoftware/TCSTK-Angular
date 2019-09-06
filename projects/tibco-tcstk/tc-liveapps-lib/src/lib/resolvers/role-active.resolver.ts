@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve } from '@angular/router';
+import {Resolve, Router} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { LiveAppsService } from '../services/live-apps.service';
 import { GeneralConfigResolver, RoleAttribute, TcGeneralConfigService, TcSharedStateService } from '@tibco-tcstk/tc-core-lib';
@@ -18,7 +18,8 @@ export class RoleActiveResolver implements Resolve<Observable<RoleAttribute>> {
         private tcSharedStateService: TcSharedStateService,
         private generalConfigService: TcGeneralConfigService, 
         private httpClient: HttpClient,
-        private location: Location) {
+        private location: Location,
+        private router: Router) {
     }
 
     resolve(): Observable<RoleAttribute> {
@@ -26,7 +27,7 @@ export class RoleActiveResolver implements Resolve<Observable<RoleAttribute>> {
         const currentRole = this.rolesService.getCurrentRole();
 
         if (currentRole == undefined){
-            let generalConfigResolver = new GeneralConfigResolver(this.tcSharedStateService, this.generalConfigService, this.httpClient, this.location);
+            let generalConfigResolver = new GeneralConfigResolver(this.tcSharedStateService, this.generalConfigService, this.httpClient, this.location, this.router);
             const claimResolver$ = new ClaimsResolver(this.liveAppsService);
             return claimResolver$.resolve().pipe(
                 flatMap(claim => {

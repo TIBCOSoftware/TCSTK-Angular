@@ -6,10 +6,10 @@
  */
 
 import { Injectable } from '@angular/core';
-import {Resolve} from '@angular/router';
+import {Resolve, Router} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import {UiAppConfig, UiAppIdConfig} from '../models/tc-app-config';
-import {flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
+import {catchError, flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
 import {TcSharedStateService} from '../services/tc-shared-state.service';
 import {HttpClient} from '@angular/common/http';
 import {TcGeneralConfigService} from '../services/tc-general-config.service';
@@ -27,7 +27,8 @@ export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>>
   public defaultAppConfig: GeneralConfig;
   private uiAppId: string;
 
-  constructor(private tcSharedState: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private location: Location) {}
+  // tslint:disable-next-line:max-line-length
+  constructor(private tcSharedState: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private location: Location, private router: Router) {}
   // note appConfigResolver will need sandboxId to create app config state record.
   // So we expect this to have been set by caller (done by tc-liveapps-lib/laConfigResolver).
 
@@ -92,6 +93,22 @@ export class GeneralConfigResolver implements Resolve<Observable<GeneralConfig>>
                               )
                           );
                          // return newAppConfig;
+                        }),
+                        catchError(err => {
+                          console.error(err);
+                          // tslint:disable-next-line:max-line-length
+                          let errMessage;
+                          const errCode = 'NOT_ADMIN_INIT';
+                          if (err.error && err.error.errorMsg) {
+                            errMessage = err.error.errorMsg;
+                            // tslint:disable-next-line:max-line-length
+                            console.error('NOT_ADMIN_INIT: Unable to create new shared state entry. Login as a user with Admin Group access first to initialize shared state: ');
+                          } else {
+                            errMessage = 'Unknown Error - check console logs';
+                            console.error('Unknown error creating shared state');
+                          }
+                          this.router.navigate(['/errorHandler/' + errCode + '/' + errMessage]);
+                          return of(err);
                         })
                     );
                 })
