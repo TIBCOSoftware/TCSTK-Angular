@@ -32,7 +32,7 @@ export const CONFIGURATION_ROUTE_CONFIG = [
     }
   },
   {
-    path: "general-application-landing-page",
+    path: 'general-application-landing-page',
     component: TibcoCloudSettingLandingComponent,
     resolve: {
       landingPagesConfigHolder: GeneralLandingPageConfigResolver,
@@ -41,7 +41,7 @@ export const CONFIGURATION_ROUTE_CONFIG = [
     }
     },
     {
-        path: "general-application-landing-page",
+        path: 'general-application-landing-page',
         component: TibcoCloudSettingLandingComponent,
         resolve: {
             landingPagesConfigHolder: GeneralLandingPageConfigResolver,
@@ -50,14 +50,14 @@ export const CONFIGURATION_ROUTE_CONFIG = [
         }
   },
     {
-        path: "general-application-access-control",
+        path: 'general-application-access-control',
         component: LiveAppsSettingsAccessControlComponent,
         resolve: {
             claims: ClaimsResolver,
             accessControlConfigHolder: AccessControlConfigurationResolver,
             allRoles: AllRolesResolver
         }
-    }, 
+    },
   {
     path: 'live-apps-app-selection',
     component: LiveAppsSettingsComponent,
@@ -97,4 +97,4 @@ export const CONFIGURATION_ROUTE_PROVIDERS = [
     AllGroupsResolver,
     GeneralLandingPageConfigResolver,
     AccessControlConfigurationResolver
-]
+];
