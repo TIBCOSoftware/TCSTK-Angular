@@ -5,6 +5,8 @@
  * Then update shared state with those contents
  */
 
+import {GeneralLandingPageConfigResolver} from '@tibco-tcstk/tc-core-lib';
+
 export const DEFAULT_ADMIN_GROUP = new RoleAttribute().deserialize({
   id: 'Administrator',
   'group': 'System: ADMINISTRATOR',

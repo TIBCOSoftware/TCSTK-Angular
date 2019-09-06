@@ -2,7 +2,7 @@ import {HomeComponent} from '../../routes/home/home.component';
 import {
   AuthGuard,
   ConfigurationMenuConfigResolver,
-  GeneralConfigResolver,
+  GeneralConfigResolver, GeneralLandingPageConfigResolver,
 } from '@tibco-tcstk/tc-core-lib';
 import {
   AccessResolver,
@@ -20,7 +20,7 @@ import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './conf
 import {FormResolver} from '@tibco-tcstk/tc-forms-lib';
 import {ShowcaseComponent} from '../../routes/showcase/showcase.component';
 
-export const HOME_ROUTE = 'home';
+export const HOME_ROUTE = 'splash';
 
 export const STARTER_APP_ROUTES =
 [
@@ -40,7 +40,10 @@ export const STARTER_APP_ROUTES =
   {
     path: 'splash',
     component: SplashComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    resolve: {
+      landingPagesConfigHolder: GeneralLandingPageConfigResolver
+    }
   },
   {
     path: 'case/:appId/:typeId/:caseRef',
