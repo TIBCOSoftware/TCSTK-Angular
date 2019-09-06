@@ -258,10 +258,14 @@ export class TcCaseCardConfigService {
 
   public getCaseWithSummary(caseRef: string, sandboxId: number, uiAppId: string): Observable<CaseInfo> {
     // get the base caseinfo from the API, then call parseCaseInfo to create an Observable with all the extra data we need
-    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
+    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=cr, uc, m, s';
     return this.http.get(url).pipe(
       mergeMap(caseinfo => {
           const caseinf = new CaseInfo().deserialize(caseinfo);
+          if (caseinf.caseReference === undefined) {
+            // case is likely no longer visible to this user so handle as deleted
+            return of(new CaseInfo().deserialize( { deleted: true }));
+          }
           return this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId, uiAppId);
         }
       ),

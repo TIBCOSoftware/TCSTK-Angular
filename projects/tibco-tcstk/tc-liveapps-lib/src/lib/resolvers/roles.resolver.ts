@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Resolve} from '@angular/router';
+import {Resolve, Router} from '@angular/router';
 import {forkJoin, Observable, of} from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Claim, GeneralConfigResolver, RoleAttribute, TcGeneralConfigService, TcSharedStateService} from '@tibco-tcstk/tc-core-lib';
@@ -14,13 +14,13 @@ import {group} from '@angular/animations';
 @Injectable()
 export class RolesResolver implements Resolve<Observable<Roles>> {
 
-  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location) {
+  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location, private router: Router) {
   }
 
   resolve(): Observable<Roles> {
 
     // we will need the general config to understand the roles definition
-    const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location);
+    const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location, this.router);
 
     // aim is to return an object that only contains roles where the user is a member of the matching group
 

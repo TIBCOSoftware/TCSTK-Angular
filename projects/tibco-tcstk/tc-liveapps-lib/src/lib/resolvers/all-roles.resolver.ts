@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
+import {ActivatedRouteSnapshot, Resolve, Router} from '@angular/router';
 import {forkJoin, Observable, of} from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Claim, GeneralConfigResolver, RoleAttribute, TcGeneralConfigService, TcSharedStateService} from '@tibco-tcstk/tc-core-lib';
@@ -14,7 +14,7 @@ import {group} from '@angular/animations';
 @Injectable()
 export class AllRolesResolver implements Resolve<Observable<Roles>> {
 
-  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location) {
+  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location, private router: Router) {
   }
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<Roles> {
@@ -31,7 +31,7 @@ export class AllRolesResolver implements Resolve<Observable<Roles>> {
         })
       );
 
-    const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location);
+    const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location, this.router);
 
     return claims$.pipe(
       switchMap(claiminfo => {
