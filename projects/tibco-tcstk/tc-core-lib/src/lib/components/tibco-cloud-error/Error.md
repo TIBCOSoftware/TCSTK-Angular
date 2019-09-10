@@ -6,11 +6,13 @@
 
 <ul>
 
-<li>NO_ROLE :: You are not a Member of this Application, please contact the Application- or Subscription-Owner.</li>
+<li>NO_ROLE :: You are not a Member of this Application, please contact the Application- or Subscription-Owner</li>
 
-<li>NO_ACCESS :: You are not entitled to access this Application, please contact the Application- or Subscription-Owner.</li>
+<li>NO_ACCESS :: You are not entitled to access this Application, please contact the Application- or Subscription-Owner</li>
 
 <li>NO_ROUTE_ACCESS :: Sorry but you do not have the required role to access this page of the application, please contact the application owner</li>
+
+<li>NOT_ADMIN_INIT :: Before using this application a member of the TIBCO Live Apps Admin Group must login to set initial configuration</li>
 
 </ul>
 

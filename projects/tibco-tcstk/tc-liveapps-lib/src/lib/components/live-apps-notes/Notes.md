@@ -6,6 +6,8 @@
 
 Any Note can have Sub-Notes to allow real collaboration.</p>
 
+<p>Note that since this component uses a virtual scroll the parent container must have height set or the notes won&#39;t appear</p>
+
 <p><img src="../live-apps-notes.png" alt="alt-text" class="img-responsive" title="Notes Component Image"></p>
 
 
