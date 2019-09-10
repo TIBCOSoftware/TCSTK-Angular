@@ -21,7 +21,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
-access | RouteAccessControlConfig | RouteAccessControlConfig - basically the config for access control
+access | RouteAccessControlConfigurationElement | RouteAccessControlConfig - basically the config for access control
 appId | string | The LA Application Id
 caseRef | string | The case reference
 customFormDefs | CustomFormDefs | Custom Form configuration file
@@ -36,6 +36,7 @@ showStates | boolean | Whether to show states in context panel (default true)
 typeId | string | The LA Application Type Id (generally 1)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 userId | string | The ID of the logged user
+workitemId | number | The workitem Id
 
 #### Outputs
 

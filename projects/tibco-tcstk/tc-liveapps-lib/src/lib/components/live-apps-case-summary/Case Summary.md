@@ -31,11 +31,13 @@ configModeCaseTypeColor | string | static data for app config box
 configModeCaseTypeIcon | string | static data for app config box
 configModeColor | string | static data for app config box
 configModeIcon | string | static data for app config box
+description | string | Card Description
 displayType | string | case card format - list, card, miniCard, staticList (no click event)
 highlight | string | Text to highlight in the list of cases (normall text that was searched)
 sandboxId | number | sandboxId - this comes from claims resolver
 typeBar | boolean | Whether to display the colored &quot;bar&quot; on a summary card (on left or top)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
+workitemId | string | Workitem Id
 
 #### Outputs
 

@@ -1,12 +1,10 @@
 
-![Status][auto] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"wrapper"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>High Level search widget component (wraps others)
+<p>Workitems widget, this Component lists workitems.</p>
 
-This Component allows to search for existing Cases and list Case Cards.</p>
-
-<p><img src="../live-apps-search-widget.png" alt="alt-text" class="img-responsive"></p>
+<p><img src="../live-apps-workitems.png" alt="alt-text" class="img-responsive"></p>
 
 
 
@@ -16,7 +14,7 @@ This Component allows to search for existing Cases and list Case Cards.</p>
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-search-widget></tcla-live-apps-search-widget>
+<tcla-live-apps-workitems></tcla-live-apps-workitems>
 ```
 
 #### Inputs
@@ -24,22 +22,23 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appIds | string[] | The list of LA Application IDs you want to handle
-resultsHeight | string | The fixed height of the case list results pane
+displayType | string | case card format - list, card, miniCard, staticList (no click event)
 sandboxId | number | sandboxId - this comes from claims resolver
+showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs
 
 Attribute | Type |   | Comments
 --- | --- | --- | ---
-caseSelected | EventEmitter<string> |   |  
-  | Event |  caseSelected  |  Case Clicked
-  | Payload |  string  |  emits case reference when a case is clicked (so parent can navigate to case)
+clickCase | EventEmitter<CaseRoute> |   |  
+  | Event |  clickCase  |  Case clicked
+  | Payload |  CaseRoute  |  CaseRoute object output when case is clicked so calling component can route accordingly - ie. route to case
 
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsSearchWidgetComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsSearchWidgetComponent.html)
+[Link to LiveAppsWorkitemsComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsWorkitemsComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
