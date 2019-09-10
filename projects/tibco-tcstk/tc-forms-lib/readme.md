@@ -4,7 +4,7 @@
 The Forms library contains components to display Live Apps forms for use with Cloud Starter Applications.
 
 ---
-For more information see the [TCSTK Documentation](https://tibcosoftware.github.io/TCSToolkit/Angular/docs/1.%20Getting%20Started/)
+For more information see the [TCSTK Documentation](https://tibcosoftware.github.io/TCSToolkit/)
 ---
 Copyright © 2019. TIBCO Software Inc.
 This file is subject to the license terms contained
