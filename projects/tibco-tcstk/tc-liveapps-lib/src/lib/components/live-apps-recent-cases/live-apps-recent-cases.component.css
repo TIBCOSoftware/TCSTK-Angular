@@ -28,8 +28,9 @@
 }
 
 .tcs-case-recent-flow-list {
-  margin: 24px;
+  margin: 10px;
   overflow-y: auto;
+  padding: 4px;
 }
 
 .tcs-case-recent-item-box {
@@ -38,7 +39,7 @@
   margin-left: 5px;
   margin-right: 5px;*/
   /*max-width: 288px;*/
-  padding: 2px;
+  padding: 5px;
 }
 
 .tcs-icon.tcs-icon-active:hover {
