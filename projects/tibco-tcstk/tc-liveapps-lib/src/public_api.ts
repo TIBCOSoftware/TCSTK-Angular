@@ -47,10 +47,12 @@ export * from './lib/components/live-apps-document-viewer/live-apps-document-vie
 export * from './lib/components/live-apps-landing-page/live-apps-landing-page.component';
 export * from './lib/components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 export * from './lib/components/live-apps-active-cases-report/live-apps-active-cases-report.component';
-export * from './lib/components/live-apps-search-widget/live-apps-search-widget.component'
+export * from './lib/components/live-apps-search-widget/live-apps-search-widget.component';
 export * from './lib/components/live-apps-settings-access-control/live-apps-settings-access-control.component';
 export * from './lib/components/live-apps-legacy-form/live-apps-legacy-form.component';
+export * from './lib/components/live-apps-legacy-process/live-apps-legacy-process.component';
 export * from './lib/components/live-apps-workitems/live-apps-workitems.component';
+export * from './lib/components/live-apps-settings-forms/live-apps-settings-forms.component';
 
 // data
 export * from './lib/models/liveappsdata';
