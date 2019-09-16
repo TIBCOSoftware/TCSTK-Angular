@@ -78,13 +78,11 @@ export class LiveAppsLegacyProcessComponent extends LiveAppsComponent implements
 
   private receiveMessage = (event) => {
     if (event.data.action === 'processComplete') {
-      console.log(event);
       this.processActive = false;
       this.openProcessId = undefined;
       this.hideProcess();
       this.processComplete.emit();
     } else if (event.data.action === 'processCancelled') {
-      console.log(event);
       this.processActive = false;
       this.openProcessId = undefined;
       this.hideProcess();
@@ -129,7 +127,6 @@ export class LiveAppsLegacyProcessComponent extends LiveAppsComponent implements
     // we only want to render the process when the element is visible
     const inSight$ = this.visibilityService.elementInSight(this.host);
     inSight$.subscribe(next => {
-      console.log('INSIGHT: ', next);
       if (!next) {
         // element not visible so hide the process if it is showing
         if (this.processActive && this.target) {

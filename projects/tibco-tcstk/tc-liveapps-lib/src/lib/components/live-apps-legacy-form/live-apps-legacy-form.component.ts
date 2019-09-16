@@ -58,7 +58,6 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
 
   private receiveMessage = (event) => {
     if (event.data.action === 'wiCompleted') {
-      console.log(event);
       this.wiActive = false;
       const wiId = this.openWiId;
       this.openWiId = undefined;
@@ -101,7 +100,6 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
     // we only want to render the workitem when the element is visible
     const inSight$ = this.visibilityService.elementInSight(this.host);
     inSight$.subscribe(next => {
-      console.log('INSIGHT: ', next);
       if (!next) {
         // element not visible so hide the workitem if it is showing
         if (this.wiActive && this.target) {

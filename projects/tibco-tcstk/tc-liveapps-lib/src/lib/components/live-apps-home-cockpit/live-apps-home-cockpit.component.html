@@ -44,7 +44,7 @@
                 </div>
               </ng-template>
             </mat-tab>
-            <!--mat-tab *ngIf="legacyWorkitems" label="Workitems">
+            <mat-tab *ngIf="legacyWorkitems" label="Workitems">
               <ng-template matTabContent>
                 <div class="favoriteCasesWidget" fxFill>
                   <tcla-live-apps-workitems #componentDiv class="padded-widget" [showHeader]="true"
@@ -53,7 +53,7 @@
                                             (clickCase)="clickCaseAction($event)"></tcla-live-apps-workitems>
                 </div>
               </ng-template>
-            </mat-tab-->
+            </mat-tab>
           </mat-tab-group>
         </div>
 

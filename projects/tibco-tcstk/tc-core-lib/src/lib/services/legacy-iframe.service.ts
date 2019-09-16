@@ -33,7 +33,7 @@ export class LegacyIframeService {
   private receiveMessage = (event) => {
     if (event.data.action === 'workitemAppReady') {
       this.iWorkitemFrameReady.next(true);
-      console.log('*** service iframe ready');
+      console.log('*** workitems iframe ready');
     } else if (event.data.action === 'processAppReady') {
       this.iProcessFrameReady.next(true);
       console.log('*** process iframe ready');

@@ -34,10 +34,14 @@ export class HomeComponent implements OnInit {
     if (routeAction.action === 'caseClicked') {
       const caseRoute = new CaseRoute().deserialize(routeAction.context);
       // case clicked - navigate to case - note need to pass appId and caseId
-      this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.typeId + '/' + caseRoute.caseRef]);
+      if (routeAction.context.workitemId) {
+        this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.typeId + '/' + caseRoute.caseRef, {workitemId: routeAction.context.workitemId}]);
+      } else {
+        this.router.navigate(['/starterApp/case/' + caseRoute.appId + '/' + caseRoute.typeId + '/' + caseRoute.caseRef]);
+      }
     }
     if (routeAction.action === 'configClicked') {
-      // config clicked route to config page
+      // route to config page
       this.router.navigate(['/starterApp/configuration/']);
     }
 

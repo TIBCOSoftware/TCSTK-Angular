@@ -8,9 +8,8 @@
     <div fxLayout="row" fxLayoutAlign="start start">
       <tcla-live-apps-case-states fxFlex [sandboxId]="sandboxId" [caseRef]="caseRef" [appId]="appId"></tcla-live-apps-case-states>
     </div>
-
     <div fxLayout="row" fxLayoutAlign="end center" class="tcs-actions-bar">
-      <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseRef]="caseRef" [caseState]="'Created'" [maxActions]="5" (actionClicked)="handleActionSelection($event)"></tcla-live-apps-case-actions>
+      <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="appId" [caseRef]="caseRef" [maxActions]="5" (actionClicked)="handleActionSelection($event)"></tcla-live-apps-case-actions>
     </div>
     <div fxLayout="row" style="overflow: hidden; height: 100%">
       <div fxFlex fxLayoutGap="20px" fxLayout.gt-md="row" fxLayout.lt-lg="column" ngStyle.lt-lg="overflow: auto">
@@ -31,12 +30,17 @@
           </mat-tab-group>
           <!-- Using a hidden tab here to workaround the fact that web components seems to disappear on tab change-->
           <div *ngIf="selectedTab" [hidden]="!actionVisible" style="overflow: auto; height: 100%">
-            <tcla-live-apps-case-action [customFormDefs]="customFormDefs" [process]="selectedTab.action" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted(selectedTab)"></tcla-live-apps-case-action>
+            <tcla-live-apps-case-action [customFormDefs]="customFormDefs" [legacyActions]="legacyActions" [process]="selectedTab.action" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted(selectedTab)"></tcla-live-apps-case-action>
           </div>
         </div>
         <div fxLayout="column" fxFlex.gt-md="1 1 50" fxFlex.lt-lg="none" ngStyle.lt-lg="min-height: 500px" fxLayoutGap="20px" style="overflow: hidden;" *ngIf="showAudit || showNotes || showDocuments || showStates || tabsFromNgContent.length > 0">
           <mat-tab-group #contextTabGroup style="overflow: hidden; height: 100%">
             <ng-content></ng-content>
+            <mat-tab #contextTabs label="Workitems" *ngIf="legacyWorkitems && showWorkitems">
+              <ng-template matTabContent>
+                <tcla-live-apps-workitems [caseRef]="caseRef" [uiAppId]="uiAppId" [displayType]="'miniCard'" [sandboxId]="sandboxId" [showHeader]="true" (clickCase)="handleClickWorkitem($event)"></tcla-live-apps-workitems>
+              </ng-template>
+            </mat-tab>
             <mat-tab #contextTabs label="Notes" *ngIf="showNotes">
               <ng-template matTabContent>
                 <tcla-live-apps-notes class="live-apps-widget" [relatedItemType]="'CASE_APP'" [relatedItemId]="caseRef" [userId]="userId"></tcla-live-apps-notes>

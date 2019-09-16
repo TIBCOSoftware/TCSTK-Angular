@@ -10,6 +10,7 @@
       <tcla-live-apps-creators [sandboxId]="sandboxId" [applicationId]="application.applicationId"
                                [typeId]="application.id" [dataOverride]="initialData"
                                [customFormDefs]="customFormDefs"
+                               [legacyCreators]="legacyCreators"
                                (caseCreated)="handleCaseCreated($event)"></tcla-live-apps-creators>
     </div>
     <div *ngIf="createdCase" class="tcs-case-created-confirmation-details" fxLayout="row" fxLayoutAlign="center start">
@@ -17,9 +18,9 @@
         case successfully submitted</span>
       </div>
   </div>
-  <div class="tcs-spacer"></div>
-  <mat-dialog-actions *ngIf="createdCase" class="tcs-dialog-actions" fxLayout="row" fxLayoutAlign="end center">
-    <button mat-button mat-flat-button color="primary" (click)="openCase()">Open Case</button>
+  <!--div class="tcs-spacer"></div-->
+  <mat-dialog-actions *ngIf="createdCase" class="tcs-dialog-actions" style="height: 100%" fxLayout="row" fxLayoutAlign="end end">
+    <button *ngIf="createdCase.caseReference" mat-button mat-flat-button color="primary" (click)="openCase()">Open Case</button>
     <button mat-button (click)="closeDialog()">Close</button>
   </mat-dialog-actions>
 </div>

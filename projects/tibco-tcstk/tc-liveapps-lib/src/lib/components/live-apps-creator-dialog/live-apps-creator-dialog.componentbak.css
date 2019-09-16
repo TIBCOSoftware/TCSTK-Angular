@@ -13,11 +13,6 @@
   padding-right: 20px;
   background-color: #ffffff;
   border-bottom: 1px solid #dcdcdc;
-  min-height: 63px;
-}
-
-.tcs-case-creation-dialog.mat-dialog-content {
-  height: 100%;
 }
 
 .tcs-case-creation-dialog-toolbar-text {
@@ -31,7 +26,6 @@
 }
 
 .tcs-case-creation-dialog-details {
-  height: 100%;
   padding: 20px;
 }
 
@@ -61,7 +55,7 @@
 }
 
 .tcs-case-created-confirmation-details {
-  padding: 20px;
+  margin-top: 20px;
 }
 
 .tcs-case-creation-dialog-icons {

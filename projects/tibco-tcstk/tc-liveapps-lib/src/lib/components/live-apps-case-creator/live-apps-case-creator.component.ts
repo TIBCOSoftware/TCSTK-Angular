@@ -48,6 +48,12 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
    */
   @Input() customFormDefs: CustomFormDefs;
 
+  /**
+   * Enable legacy creators
+   */
+  @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
+
+
 
   /**
    * ~event caseChanged : Case action started (process started)
@@ -59,6 +65,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   schema: any;
   layout: any[];
   options: any;
+  isCustomForm = false;
 
   handleSubmit = (data, caseRef) => {
     // if no_process_submit then no need to run process as this was done inside a custom form app
@@ -107,6 +114,17 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     }
   }
 
+  handleLegacyProcessComplete = () => {
+    const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': undefined});
+    this.caseChanged.emit(processResponse);
+  }
+
+  handleLegacyProcessCancelled = () => {
+    // -1 for caseReference means cancelled
+    const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': '-1'});
+    this.caseChanged.emit(processResponse);
+  }
+
   constructor(protected liveapps: LiveAppsService) {
     super();
   }
@@ -122,6 +140,9 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   ngOnChanges(changes: SimpleChanges) {
     // handle input param changes
     if (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue)) {
+      this.isCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
+        return (form === this.process.ref);
+      }) !== -1);
       if (changes.process.currentValue.process.jsonSchema.$schema === 'NOSCHEMA') {
         this.schema = undefined;
       } else {

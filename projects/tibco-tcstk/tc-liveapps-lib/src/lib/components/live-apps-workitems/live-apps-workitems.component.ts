@@ -1,20 +1,15 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
-  OnDestroy,
   OnInit,
   Output,
   ViewChild
 } from '@angular/core';
-import {LiveAppsService} from '../../services/live-apps.service';
-import {Subject} from 'rxjs';
-import {map, take, takeUntil} from 'rxjs/operators';
-import {CaseList, CaseRoute} from '../../models/liveappsdata';
+import {take, takeUntil} from 'rxjs/operators';
+import {CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 import {TcWorkitemsService} from '../../services/tc-workitems.service';
@@ -50,6 +45,11 @@ export class LiveAppsWorkitemsComponent extends LiveAppsComponent implements OnI
   @Input() appIds: string[];
 
   /**
+   * The caseRef for which to display workitems
+   */
+  @Input() caseRef: string;
+
+  /**
    * case card format - list, card, miniCard, staticList (no click event)
    */
   @Input() displayType: string = this.displayType ? this.displayType : 'wiMiniCard'; // miniCard, card, list
@@ -57,6 +57,8 @@ export class LiveAppsWorkitemsComponent extends LiveAppsComponent implements OnI
    * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
    */
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
+
+
 
   /**
    * ~event clickCase : Case clicked
@@ -77,7 +79,7 @@ export class LiveAppsWorkitemsComponent extends LiveAppsComponent implements OnI
 
   public refresh = () => {
     this.workitems = [];
-    this.workitemsService.getWorkitems(this.sandboxId, this.appIds, 0, 20)
+    this.workitemsService.getWorkitems(this.sandboxId, this.appIds, this.caseRef, 0, 20)
       .pipe(
         take(1),
         takeUntil(this._destroyed$)

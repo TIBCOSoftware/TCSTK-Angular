@@ -44,11 +44,6 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   @Input() sandboxId: number;
 
   /**
-   * The state of the case
-   */
-  @Input() caseState: string;
-
-  /**
    * Max Actions that can be run simultaneously
    */
   @Input() maxActions = 1;

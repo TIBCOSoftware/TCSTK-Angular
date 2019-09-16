@@ -43,6 +43,12 @@ export class LiveAppsCreatorsComponent implements OnInit {
   @Input() customFormDefs: CustomFormDefs;
 
   /**
+   * Enable legacy creators
+   */
+  @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
+
+
+  /**
    * ~event caseCreated : Case Creator started (process started)
    * ~payload ProcessId : ProcessId object output on case creation (details of process started)
    */
