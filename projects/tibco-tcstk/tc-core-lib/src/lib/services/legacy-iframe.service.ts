@@ -20,8 +20,10 @@ import {BehaviorSubject} from 'rxjs';
 
 export class LegacyIframeService {
 
-  private iFrameReady = new BehaviorSubject(false);
-  public data = this.iFrameReady.asObservable();
+  private iWorkitemFrameReady = new BehaviorSubject(false);
+  private iProcessFrameReady = new BehaviorSubject(false);
+  public workitemStatus = this.iWorkitemFrameReady.asObservable();
+  public processStatus = this.iProcessFrameReady.asObservable();
 
   constructor() {
     console.log('*** service waiting for message');
@@ -30,8 +32,11 @@ export class LegacyIframeService {
 
   private receiveMessage = (event) => {
     if (event.data.action === 'workitemAppReady') {
-      this.iFrameReady.next(true);
+      this.iWorkitemFrameReady.next(true);
       console.log('*** service iframe ready');
+    } else if (event.data.action === 'processAppReady') {
+      this.iProcessFrameReady.next(true);
+      console.log('*** process iframe ready');
     }
   }
 

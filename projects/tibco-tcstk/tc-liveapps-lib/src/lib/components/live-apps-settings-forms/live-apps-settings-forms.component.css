@@ -1,0 +1,27 @@
+.tcs-live-apps-summary-cards-settings {
+  overflow: hidden;
+}
+
+.tcs-card-config-widget-pane {
+  overflow: hidden;
+}
+
+.tcs-settings-text {
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
+.tcs-checkbox-label {
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}

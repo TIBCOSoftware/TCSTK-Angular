@@ -184,7 +184,8 @@ export class TcCoreLibModule {
 
     // This service is used to handle async iframe loading
     this.li = legacyIFrameService;
-    this.li.data.subscribe();
+    this.li.workitemStatus.subscribe();
+    this.li.processStatus.subscribe();
 
     // register all the default Icon SVGs used by this module
 

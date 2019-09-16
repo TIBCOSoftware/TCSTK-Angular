@@ -6,6 +6,9 @@ export class LiveAppsConfig implements Deserializable {
   recentExcludedAppIds: string[];
   caseIconsFolderId: string;
   documentAppId: string;
+  legacyCreators: boolean;
+  legacyActions: boolean;
+  legacyWorkitems: boolean;
   collaborationAppId: string;
   deserialize(input: any) {
     Object.assign(this, input);

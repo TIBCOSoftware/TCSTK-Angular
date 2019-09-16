@@ -25,7 +25,7 @@ import {TcVisibilityService} from '@tibco-tcstk/tc-core-lib';
 })
 export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements OnDestroy, OnDestroy, AfterViewInit {
 
-  @Input() legacyIframeId = this.legacyIframeId ?  this.legacyIframeId : 'legacyFrame';
+  @Input() legacyIframeId = this.legacyIframeId ?  this.legacyIframeId : 'legacyWorkitemFrame';
   @Input() workitemId: number;
   @Output() workitemComplete = new EventEmitter();
 
@@ -112,7 +112,7 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
         if (!this.wiActive) {
           // if workitem not already showing - show it
           // first get a handle on the target div and the legacy iframe
-          this.target = document.getElementById('componentDiv');
+          this.target = document.getElementById('workitemDiv');
           this.formDiv = document.getElementById(this.legacyIframeId);
           if (this.workitemId) {
             // trigger display of the workitem
@@ -135,7 +135,7 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
 
     // wait for iframe to load before doing anything else
     // this observable will emit true once the iFrame is loaded
-    this.legacyIframeService.data.subscribe(loaded => {
+    this.legacyIframeService.workitemStatus.subscribe(loaded => {
       if (loaded) {
         // iframe is loaded
         this.initialize();
