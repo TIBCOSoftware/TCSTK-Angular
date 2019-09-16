@@ -2,8 +2,9 @@
   <div fxLayout="row" style="margin-top: 10px; margin-bottom: 10px;">
     <tcla-live-apps-case-search fxFlex fxLayoutAlign="center center" [sandboxId]="sandboxId" [appIds]="appIds" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
   </div>
-  <div *ngIf="matchedRefs.length>0" fxLayout="row" fxLayoutAlign="space-around start" [ngStyle]="{'min-height' : resultsHeight}" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px">
-      <tcla-live-apps-case-list #componentChildDiv fxFlex style="height: 100%" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [caseRefs]="matchedRefs" [displayType]="widget.gtXs ? 'list' : 'miniCard'" [headerText]="'Matching Cases'" [headerMessage]="message" [highlight]="searchString" (clickCase)="clickCaseAction($event)" (clearMatches)="handleClearMatches()"></tcla-live-apps-case-list>
-      <!--tcla-live-apps-case-list #componentChildDiv fxFlex style="height: 100%" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [caseRefs]="matchedRefs" [displayType]="'list'" [headerText]="'Matching Cases'" [headerMessage]="message" [highlight]="searchString" (clickCase)="clickCaseAction($event)" (clearMatches)="handleClearMatches()"></tcla-live-apps-case-list-->
+  <div *ngIf="matchedRefs.length>0" fxLayout="row" fxLayoutAlign="space-around start" [ngStyle]="{'min-height' : resultsHeight}" style="margin-left: 50px; margin-right: 50px; margin-top: 20px; margin-bottom: 20px; height: 100%;">
+    <tcla-live-apps-case-list #componentChildDiv fxFlex style="height: 100%" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [caseRefs]="matchedRefs" [displayType]="widget.gtXs ? 'list' : 'miniCard'" [headerText]="'Matching Cases'" [headerMessage]="message" [highlight]="searchString" (clickCase)="clickCaseAction($event)" (clearMatches)="handleClearMatches()"></tcla-live-apps-case-list>
+    <!--tcla-live-apps-case-list #componentChildDiv fxFlex style="height: 100%" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [caseRefs]="matchedRefs" [displayType]="'list'" [headerText]="'Matching Cases'" [headerMessage]="message" [highlight]="searchString" (clickCase)="clickCaseAction($event)" (clearMatches)="handleClearMatches()"></tcla-live-apps-case-list-->
   </div>
 </div>
+
