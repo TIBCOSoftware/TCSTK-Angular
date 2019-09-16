@@ -32,8 +32,10 @@ import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement}
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 import {LiveAppsLegacyFormComponent} from '../live-apps-legacy-form/live-apps-legacy-form.component';
-import {CaseAction, FormTab} from '../../models/liveappsdata';
+import {CaseAction, CaseRoute, FormTab} from '../../models/liveappsdata';
 import {FormControl} from '@angular/forms';
+import {LiveAppsCaseActionComponent} from '../live-apps-case-action/live-apps-case-action.component';
+import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-workitems.component';
 
 /**
  * High level component to allow interaction with case.
@@ -116,9 +118,24 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   @Input() customFormDefs: CustomFormDefs;
 
   /**
+   * Enable legacy workitems
+   */
+  @Input() legacyWorkitems: boolean = this.legacyWorkitems ? this.legacyWorkitems : false;
+
+  /**
+   * Enable legacy actions
+   */
+  @Input() legacyActions: boolean = this.legacyActions ? this.legacyActions : false;
+
+  /**
    * Layout object that can be passed to override default layout of the form renderer
    */
   @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
+
+  /**
+   * Whether to show workitems in context panel (default true)
+   */
+  @Input() showWorkitems: boolean = this.showWorkitems ? this.showWorkitems :  true;
 
   /**
    * Whether to show notes in context panel (default true)
@@ -151,12 +168,14 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   @ViewChild(LiveAppsCaseSummaryComponent, {static: false}) caseSummaryComponent: LiveAppsCaseSummaryComponent;
   @ViewChild(LiveAppsCaseDataComponent, {static: false}) caseDataComponent: LiveAppsCaseDataComponent;
   @ViewChild(LiveAppsCaseActionsComponent, {static: false}) caseActionsComponent: LiveAppsCaseActionsComponent;
+  @ViewChild(LiveAppsCaseActionComponent, {static: false}) caseActionComponent: LiveAppsCaseActionComponent;
   @ViewChild(LiveAppsCaseAuditComponent, {static: false}) caseAuditComponent: LiveAppsCaseAuditComponent;
   @ViewChild(LiveAppsDocumentsComponent, {static: false}) caseDocumentsComponent: LiveAppsDocumentsComponent;
   @ViewChild(LiveAppsNotesComponent, {static: false}) caseNotesComponent: LiveAppsNotesComponent;
   @ViewChild(LiveAppsCaseStatesComponent, {static: false}) caseStatesComponent: LiveAppsCaseStatesComponent;
   @ViewChild(LiveAppsCaseStateAuditComponent, {static: false}) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
   @ViewChild(LiveAppsLegacyFormComponent, {static: false}) workitemComponent: LiveAppsLegacyFormComponent;
+  @ViewChild(LiveAppsWorkitemsComponent, {static: false}) caseWorkitemsComponent: LiveAppsWorkitemsComponent;
   @ViewChild('dataTabGroup', {static: false}) dataTabGroups: MatTabGroup;
   @ViewChild('dataTabGroup', {static: false}) dataTabGroupEl: ElementRef;
 
@@ -233,6 +252,18 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
     }, 1000);
   }
 
+  public handleClickWorkitem = (caseroute: CaseRoute) => {
+    console.log(caseroute.workitemId);
+    // remove any existing WI
+    const exWiTabIdx = this.formTabs.findIndex(tab => {
+      return tab.type === 'wiTab' && tab.workitemId === tab.workitemId;
+    });
+    if (exWiTabIdx && exWiTabIdx !== -1) {
+      this.formTabs.splice(exWiTabIdx, 1);
+    }
+    this.addWiFormTab(caseroute.workitemId);
+  }
+
   public refresh = () => {
     if (this.caseSummaryComponent) {
       this.caseSummaryComponent.refresh();
@@ -261,6 +292,9 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
     if (this.caseNotesComponent) {
       this.caseNotesComponent.refresh();
     }
+    if (this.caseWorkitemsComponent) {
+      this.caseWorkitemsComponent.refresh();
+    }
   }
 
   public toggleFavorite = () => {
@@ -285,7 +319,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
     if (formTab.type === 'wiTab') {
       this.workitemComponent.cancelWi(formTab.workitemId);
       this.formTabs.splice(this.formTabs.findIndex(tab => {
-        return tab.type === 'wiTab' && tab.workitemId === tab.workitemId;
+        return tab.type === 'wiTab' && tab.workitemId === formTab.workitemId;
       }), 1);
 
       // if we are closing the selected tab then switch to the first tab
@@ -306,6 +340,7 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
       if (currentTabIdx === this.dataTabGroups.selectedIndex) {
         this.selected.setValue(0);
       }
+      this.caseActionComponent.cancelAction();
       this.caseActionsComponent.toggleEnable();
     }
   }

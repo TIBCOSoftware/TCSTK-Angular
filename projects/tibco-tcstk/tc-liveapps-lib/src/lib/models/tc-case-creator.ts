@@ -6,7 +6,8 @@ export class CaseCreatorSelectionContext {
   constructor(public application: CaseType,
               public initialData: any,
               public sandboxId: number,
-              public customFormDefs: CustomFormDefs
+              public customFormDefs: CustomFormDefs,
+              public legacyCreators: boolean
   ) {}
 }
 

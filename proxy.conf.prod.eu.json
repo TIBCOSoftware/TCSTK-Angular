@@ -230,6 +230,19 @@
       "Origin": "https://eu.liveapps.cloud.tibco.com"
     }
   },
+  "/pageflow/": {
+    "target": {
+      "host": "eu.liveapps.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://eu.liveapps.cloud.tibco.com"
+    }
+  },
   "/pageflow/v1/": {
     "target": {
       "host": "eu.liveapps.cloud.tibco.com",

@@ -25,6 +25,7 @@ export class CaseComponent implements OnInit {
   public roles: Roles;
   public access: RouteAccessControlConfigurationElement;
   public customFormDefs: CustomFormDefs;
+  public workitemId: number;
 
   public layout: any[] = undefined;
   // case data is laid out using a default layout inside <tcla-live-apps-case-cockpit>
@@ -63,6 +64,7 @@ export class CaseComponent implements OnInit {
     this.caseRef = this.route.snapshot.params.caseRef;
     this.appId = this.route.snapshot.params.appId;
     this.typeId = this.route.snapshot.params.typeId;
+    this.workitemId = this.route.snapshot.params['workitemId'];
   }
 
 }

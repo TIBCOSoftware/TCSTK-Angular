@@ -12,24 +12,32 @@ export class TcWorkitemsService {
   constructor(private http: HttpClient) { }
 
 // todo: Note this is not a public API - update when Public API available
-  public getWorkitems(sandboxId: number, appIds: string[], skip: number, top: number): Observable<Workitem[]> {
+  public getWorkitems(sandboxId: number, appIds: string[], caseRef: string, skip: number, top: number): Observable<Workitem[]> {
     // https://eu.liveapps.cloud.tibco.com/work/workListItems?$sandbox=31&$skip=0&$top=100
+    // https://eu.liveapps.cloud.tibco.com/work/workListItems?$sandbox=31&$skip=0&$top=100&$filter=caseref%20eq%20275481
     let url = '/work/workListItems?$sandbox=' + sandboxId
       + '&$skip=' + skip
       + '&$top=' + top
-    const filterStr = 'applicationId eq \'<appId>\'';
-    let filter: string;
 
-    if (appIds && appIds.length > 0) {
-      appIds.forEach(appId => {
-        if (!filter) {
-          filter = filterStr.replace('<appId>', appId);
-        } else {
-          filter = filter + ' or ' + filterStr.replace('<appId>', appId);
-        }
-      });
-      url = url + '&$filter=' + filter;
+    let filter: string;
+    if (!caseRef) {
+      // filter using appIds
+      const filterStr = 'applicationId eq \'<appId>\'';
+
+      if (appIds && appIds.length > 0) {
+        appIds.forEach(appId => {
+          if (!filter) {
+            filter = filterStr.replace('<appId>', appId);
+          } else {
+            filter = filter + ' or ' + filterStr.replace('<appId>', appId);
+          }
+        });
+      }
+    } else {
+      // filter using caseRef
+      filter = 'caseref eq ' + caseRef;
     }
+    url = url + '&$filter=' + filter;
 
     return this.http.get(url)
       .pipe(

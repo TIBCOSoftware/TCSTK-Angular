@@ -21,6 +21,7 @@ export class LiveAppsCreatorDialogComponent {
   public initialData: any;
   public createdCase: ProcessId;
   public customFormDefs: CustomFormDefs;
+  public legacyCreators: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<LiveAppsCreatorDialogComponent>,
@@ -29,10 +30,18 @@ export class LiveAppsCreatorDialogComponent {
     this.sandboxId = data.sandboxId;
     this.initialData = data.initialData;
     this.customFormDefs = data.customFormDefs;
+    this.legacyCreators = data.legacyCreators;
   }
 
   public handleCaseCreated = (createdCase: ProcessId) => {
     this.createdCase = createdCase;
+    if (!this.createdCase.caseIdentifier && !this.createdCase.caseReference) {
+      // legacy process form (no case reference available)
+    } else if (this.createdCase.caseReference === '-1') {
+      // legacy process cancelled
+      this.dialogRef.close();
+    }
+
   }
 
   openCase = () => {

@@ -14,6 +14,7 @@ import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement}
 import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-workitems.component';
 
 
 /**
@@ -70,11 +71,6 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @Input() roles: Roles;
 
   /**
-   * Workitems - Whether to show the workitems list
-   */
-  @Input() showWorkitems: boolean = this.showWorkitems ? this.showWorkitems : false;
-
-  /**
    * RouteAccessControlConfig - basically the config for access control
    */
   @Input() access: RouteAccessControlConfigurationElement;
@@ -83,6 +79,16 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
    * Custom Form configuration file
    */
   @Input() customFormDefs: CustomFormDefs;
+
+  /**
+   * Enable legacy workitems
+   */
+  @Input() legacyWorkitems: boolean = this.legacyWorkitems ? this.legacyWorkitems : false;
+
+  /**
+   * Enable legacy creators
+   */
+  @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
 
   /**
    * ~event routeAction : Component requests route to another page
@@ -96,6 +102,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
   @ViewChild(LiveAppsNotesComponent, {static: false}) collaborationComponent: LiveAppsNotesComponent;
   @ViewChild(LiveAppsDocumentsComponent, {static: false}) documentsComponent: LiveAppsDocumentsComponent;
   @ViewChild(LiveAppsActiveCasesWidgetComponent, {static: false}) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
+  @ViewChild(LiveAppsWorkitemsComponent, {static: false}) workitemsComponent: LiveAppsWorkitemsComponent;
 
   public toolbarButtons: ToolbarButton[] = [];
   public caseStartButtonActive: boolean;
@@ -152,7 +159,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
       }
     }
     // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
-    this.openCreatorDialog(application, undefined, this.sandboxId, this.customFormDefs);
+    this.openCreatorDialog(application, undefined, this.sandboxId, this.customFormDefs, this.legacyCreators);
   }
 
   public handleReportCaseTypeSelection = (caseTypeReportRecord: CaseTypeReportRecord) => {
@@ -165,14 +172,14 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
   }
 
-  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs) => {
+  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs, legacyCreators) => {
     const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
       width: '60%',
       height: '80%',
       maxWidth: '100vw',
       maxHeight: '100vh',
       panelClass: 'tcs-style-dialog',
-      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs)
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs, legacyCreators)
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -200,6 +207,9 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
     if (this.activeCasesComponent) {
       this.activeCasesComponent.refresh();
+    }
+    if (this.workitemsComponent) {
+      this.workitemsComponent.refresh();
     }
   }
 

@@ -4,6 +4,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {CaseType, ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
+import {LiveAppsLegacyProcessComponent} from '../live-apps-legacy-process/live-apps-legacy-process.component';
 
 
 /**
@@ -28,7 +29,15 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
    */
   @Input() showHeader: boolean;
 
+  /**
+   * Enable legacy actions
+   */
+  @Input() legacyActions: boolean = this.legacyActions ? this.legacyActions : false;
+
+  @ViewChild(LiveAppsLegacyProcessComponent, {static: false}) legacyProcessComponent: LiveAppsLegacyProcessComponent;
+
   originalData: any;
+  caseState: string;
 
   private getMainCaseTypeFromSchema(typeId: string, process: LaProcessSelection): CaseType {
     let requestedType: CaseType;
@@ -50,6 +59,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
       .subscribe(result => {
         if (result.metadata.applicationId === this.applicationId.toString()) {
           const casedata = result.untaggedCasedataObj;
+          this.caseState = casedata.state;
           this.originalData = {
             [this.process.process.name]: casedata
           };
@@ -66,6 +76,12 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
         console.error('Unable to retrieve case data');
         console.error(error);
       });
+  }
+
+  public cancelAction = () => {
+    if (this.legacyProcessComponent) {
+      this.legacyProcessComponent.cancelProcess();
+    }
   }
 
   constructor(private lasvc: LiveAppsService) {
@@ -86,6 +102,12 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
       // get case data if anything changes
       if (changes.process.currentValue) {
         this.getCaseData(this.caseRef);
+      }
+    }
+    // handle process change for legacy action process
+    if (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue)) {
+      if (this.legacyProcessComponent) {
+        this.legacyProcessComponent.changeProcess(changes.process.currentValue);
       }
     }
   }
