@@ -1,31 +1,34 @@
 {
-    "id": "124",
-    "version": "1.0",
-    "landingPage": [
+  "id": "",
+  "version": "1.0",
+  "landingPage": [
+    {
+      "key": "id1",
+      "description": "User",
+      "title": "Welcome to your Case Management App",
+      "subtitle": "A highly customizable Case Management application to manage Live Apps cases",
+      "highlights": [
         {
-            "key": "id1",
-            "description": "Default landing page",
-            "title": "Welcome to your App",
-            "subtitle": "Empower process owners to mitigate risks and optimize processes",
-            "highlights": [
-                {
-                    "title": "Streamline",
-                    "iconURL": "",
-                    "content": "Reduce losses and avoid adverse risk events through business processes, controls, and analytics"
-                },
-                {
-                    "title": "Collaborate",
-                    "iconURL": "",
-                    "content": "A simple yet refined user experience to foster collaboration via case management, interaction feeds, attached documents, etc."
-                },
-                {
-                    "title": "Track",
-                    "iconURL": "",
-                    "content": "Provide in-depth, real-time visibility into the risk investigation process - e.g. high priority cases; action audit trails, etc."
-                }
-            ],
-            "backgroundURL": "",
-            "homeRoute": "/starterApp/home"
+          "title": "Engage",
+          "iconURL": "ic-documentation",
+          "content": "Handle all case related requests in a single place - e.g. create cases, action cases, approve requests."
+        },
+        {
+          "title": "Collaborate",
+          "iconURL": "ic-community",
+          "content": "Collaborate on cases using unstructured data such as notes and documents."
+        },
+        {
+          "title": "Track",
+          "iconURL": "ic-graph",
+          "content": "Track and respond to high priority cases using actions; review status using audit trails."
         }
-    ]
+      ],
+      "backgroundURL": "",
+      "homeRoute": "/starterApp/home/",
+      "roles": ["User"],
+      "priority": 5
+    }
+  ]
 }
+
