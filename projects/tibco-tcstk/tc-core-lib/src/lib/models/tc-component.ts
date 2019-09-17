@@ -33,7 +33,7 @@ gtLg	'(min-width: 1920px)'
   }
 
   get xl() {
-    return (this.width >= 1920 && this.width <= 5000);
+    return (this.width >= 1920);
   }
 
   get ltSm() {
