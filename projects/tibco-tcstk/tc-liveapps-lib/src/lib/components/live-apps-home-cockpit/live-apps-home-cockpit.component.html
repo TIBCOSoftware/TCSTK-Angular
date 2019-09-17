@@ -13,16 +13,16 @@
   </div>
 
   <div class="tcs-home-content"
-       style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">
-    <div fxLayout="column">
-      <div fxFlex="1 1 auto" class="searchCasesWidget" style="min-height: 86px;">
+       style="padding-left: 20px; padding-right: 20px; margin-top: 10px; padding-bottom: 120px; height: 100%; display: block;">
+    <div style="height: 100%;">
+      <div class="searchCasesWidget" style="min-height: 86px;">
         <tcla-live-apps-search-widget fxFlex [appIds]="appIds" [sandboxId]="sandboxId" [uiAppId]="uiAppId"
                                       (caseSelected)="clickCaseAction($event)"></tcla-live-apps-search-widget>
       </div>
       <!--div style="background-color: red; height: 600px; width: 100%;">TEST BOX</div-->
 
       <!--div fxFlex="noshrink" style="margin-bottom: 20px; overflow: auto; min-height: 400px" fxLayoutGap="20px" fxLayout="row" fxLayout.lt-md="column"-->
-      <div style="margin-bottom: 20px; overflow: auto; min-height: 400px; max-height: 750px" fxLayoutGap="20px"
+      <div style="margin-bottom: 20px; overflow: hidden; height: 100%; min-height: 750px; padding-bottom: 10px;" fxLayoutGap="20px"
            fxLayout="row" fxLayout.lt-md="column">
         <div fxFlex.gt-sm="grow" fxLayout="row" style="" [ngStyle.lt-md]="'min-height: 400px;'">
           <mat-tab-group fxFlex>
