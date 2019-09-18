@@ -17,6 +17,14 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
+      <mat-tab label="Messaging">
+        <ng-template matTabContent>
+          <div fxFill fxLayout="row">
+            <tcmsg-eftl-message-receiver style="padding: 5px" fxFlex [wssUrl]="wssUrl" [apiKey]="apiKey" [clientId]="generalConfig.uiAppId+'-receiver-'+userId" durable="mydurable" [matcher]="matcher"></tcmsg-eftl-message-receiver>
+            <tcmsg-eftl-message-sender style="padding: 5px;" fxFlex [wssUrl]="wssUrl" [apiKey]="apiKey" [clientId]="generalConfig.uiAppId+'-sender-'+userId" event="event1"></tcmsg-eftl-message-sender>
+          </div>
+        </ng-template>
+      </mat-tab>
       <mat-tab label="Search">
         <ng-template matTabContent>
         <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
