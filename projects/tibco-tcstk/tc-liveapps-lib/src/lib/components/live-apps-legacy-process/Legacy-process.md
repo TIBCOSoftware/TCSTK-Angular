@@ -1,8 +1,8 @@
 
-![Status][auto] ![Component Type][top] <!--Component Meta {"created_by":"JS", "reviewed_by":"JG", "last_modified_by":"JS", "comment":"init"} Component Meta -->
+![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>Wraps case creator selection and execution of creator</p>
+<p>Wraps legacy angularjs form renderer</p>
 
 
 
@@ -12,32 +12,32 @@
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-creators></tcla-live-apps-creators>
+<tcla-live-apps-legacy-form></tcla-live-apps-legacy-form>
 ```
 
 #### Inputs
 
 Attribute | Type | Comments
 --- | --- | ---
-applicationId | string | lA appId ??
-customFormDefs | CustomFormDefs | Custom Form configuration file
-dataOverride | any | Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
-legacyCreators | boolean | Enable legacy creators
-sandboxId | number | sandboxId - this comes from claims resolver
-typeId | string | The LA Application Type Id (generally 1)
+applicationId | string | 
+caseRef | string | 
+caseState | string | 
+legacyIframeId |  | 
+process | LaProcessSelection | 
+type | string | 
+typeId | string | 
 
 #### Outputs
 
 Attribute | Type |   | Comments
 --- | --- | --- | ---
-caseCreated | EventEmitter<ProcessId> |   |  
-  | Event |  caseCreated  |  Case Creator started (process started)
-  | Payload |  ProcessId  |  ProcessId object output on case creation (details of process started)
+processCancelled | EventEmitter |   |  
+processComplete | EventEmitter |   |  
 
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsCreatorsComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsCreatorsComponent.html)
+[Link to LiveAppsLegacyProcessComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsLegacyProcessComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

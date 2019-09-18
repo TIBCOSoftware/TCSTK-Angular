@@ -25,9 +25,10 @@ access | RouteAccessControlConfigurationElement | RouteAccessControlConfig - bas
 appIds | string[] | The list of LA Application IDs you want to handle
 customFormDefs | CustomFormDefs | Custom Form configuration file
 email | string | <ul><li>Email address of the user (comes from resolver)</li></ul>
+legacyCreators | boolean | Enable legacy creators
+legacyWorkitems | boolean | Enable legacy workitems
 roles | Roles | Roles - The users current roles
 sandboxId | number | sandboxId - this comes from claims resolver
-showWorkitems | boolean | Workitems - Whether to show the workitems list
 title | string | page title comes from config resolver
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 userId | string | The ID of the logged user

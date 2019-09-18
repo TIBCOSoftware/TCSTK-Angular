@@ -22,6 +22,7 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appIds | string[] | The list of LA Application IDs you want to handle
+caseRef | string | The caseRef for which to display workitems
 displayType | string | case card format - list, card, miniCard, staticList (no click event)
 sandboxId | number | sandboxId - this comes from claims resolver
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
