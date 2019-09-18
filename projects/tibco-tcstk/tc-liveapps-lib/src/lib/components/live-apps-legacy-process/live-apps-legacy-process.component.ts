@@ -116,8 +116,7 @@ export class LiveAppsLegacyProcessComponent extends LiveAppsComponent implements
       this.formDiv.style.height = rect.height.toString() + 'px';
       this.formDiv.style.width = rect.width.toString() + 'px';
       this.formDiv.style.position = 'absolute';
-      this.formDiv.style.zIndex = (this.type === 'creator') ? '1001' : '1000';
-      // this.formDiv.style.zIndex = '1000';
+      this.formDiv.style.zIndex = '1001';
     }, 1000);
   }
 
