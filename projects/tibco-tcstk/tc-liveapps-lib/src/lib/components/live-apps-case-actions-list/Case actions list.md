@@ -22,7 +22,6 @@ Attribute | Type | Comments
 seletedActionId | string | The actionId selected (output)
 appId | string | The LA Application Id
 caseRef | string | The case reference
-caseState | string | The state of the case
 maxActions |  | Max Actions that can be run simultaneously
 sandboxId | number | sandboxId - this comes from claims resolver
 typeId | string | The LA Application Type Id (generally 1)

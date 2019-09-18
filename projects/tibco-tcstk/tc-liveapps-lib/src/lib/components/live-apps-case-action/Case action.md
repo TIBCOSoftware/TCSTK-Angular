@@ -20,10 +20,12 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 caseRef | string | The case reference
+legacyActions | boolean | Enable legacy actions
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
 applicationId | string | LA application ID
 customFormDefs | CustomFormDefs | Custom Form configuration file
 dataOverride | any | Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
+legacyCreators | boolean | Enable legacy creators
 process | LaProcessSelection | The process definition of the action or creator to execute
 sandboxId | number | sandboxId - this comes from claims resolver
 typeId | string | The LA Application Type Id (generally 1)
