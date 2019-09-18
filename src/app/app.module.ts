@@ -17,6 +17,7 @@ import {
   MatTabsModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {LogService, TcCoreLibModule} from '@tibco-tcstk/tc-core-lib';
+import {TcMessagingLibModule} from '@tibco-tcstk/tc-messaging-lib';
 import {LoginComponent} from './routes/login/login.component';
 import {HomeComponent} from './routes/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -43,6 +44,7 @@ import { ShowcaseComponent } from './routes/showcase/showcase.component';
     TcCoreLibModule.forRoot(),
     TcFormsLibModule,
     TcLiveappsLibModule.forRoot(),
+    TcMessagingLibModule,
     FlexLayoutModule,
     BrowserModule,
     FormsModule,

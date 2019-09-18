@@ -1,0 +1,13 @@
+<div class="tcs-message-pane" fxLayout="column" style="overflow: hidden;">
+  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'Send Messages'" [icon]="'tcs-collaboration-feed'"
+                                [toolbarButtons]="" [showHeader]="true"></tc-tibco-cloud-widget-header>
+
+  <div fxFlex style="height: 100%" fxLayout="row" fxLayoutAlign="center end">
+    <div fxFlex fxLayout="row" fxLayoutAlign="start start" style="padding: 5px;">
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Input" [(ngModel)]="msg.contents">
+      </mat-form-field>
+      <button mat-button *ngIf="connected" (click)="send()">SEND</button>
+    </div>
+  </div>
+</div>
