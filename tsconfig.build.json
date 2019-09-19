@@ -36,6 +36,12 @@
       ],
       "@tibco-tcstk/tc-forms-lib/*": [
         "dist/tibco-tcstk/tc-forms-lib/*"
+      ],
+      "@tibco-tcstk/tc-messaging-lib": [
+        "dist/tibco-tcstk/tc-messaging-lib"
+      ],
+      "@tibco-tcstk/tc-messaging-lib/*": [
+        "dist/tibco-tcstk/tc-messaging-lib/*"
       ]
     }
   }

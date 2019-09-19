@@ -1,0 +1,8 @@
+<div class="tcs-message-pane" fxLayout="column" style="overflow: hidden;">
+  <tc-tibco-cloud-widget-header fxFlex="nogrow" [headerText]="'Received Messages'" [icon]="'tcs-collaboration-feed'"
+                                [toolbarButtons]="" [showHeader]="true"></tc-tibco-cloud-widget-header>
+  <div fxLayout="column">
+  <div *ngFor="let msgcontent of messages">
+    {{msgcontent.text}}
+  </div>
+</div>
