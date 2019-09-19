@@ -24,8 +24,8 @@ export class EFTLService {
         },
         onDisconnect: (connection, code, reason) => {
           console.error('eFTL: connection lost, ' + reason);
+          throwError({ connection: connection, code: code, reason: reason });
           this.connection = undefined;
-          sendResult.next('Dissconnected');
         }
       }
     );
@@ -46,7 +46,8 @@ export class EFTLService {
           sendResult.next(response);
         },
         onError: (response, code, reason) => {
-          sendResult.next(response);
+          console.error('eFTL: unable to send message:', response);
+          throwError({ response: response, code: code, reason: reason });
         }
       });
     } else {
@@ -63,11 +64,10 @@ export class EFTLService {
         durable: durable,
         onMessage: (message) => {
           sendResult.next(message);
-          console.log('eFTL: message received:', message.get('text'));
         },
         onError: (subscription, code, reason) => {
-          throwError('eFTL: subscription error', reason);
-          console.log('eFTL: subscription error:', subscription, code, reason);
+          console.error('eFTL: subscription error:', subscription, code, reason);
+          throwError({ subscription: subscription, code: code, reason: reason });
         }
       });
     } else {
