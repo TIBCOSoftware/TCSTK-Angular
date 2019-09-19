@@ -18,7 +18,7 @@
 
 import { Injectable } from '@angular/core';
 import {SharedStateContent, SharedStateEntry, SharedStateList} from '../models/tc-shared-state';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
 import {Location} from '@angular/common';
@@ -151,5 +151,13 @@ export class TcSharedStateService {
       );
   }
 
-  /* UI App Config */
+  public deleteSharedState(id: number): Observable<string> {
+    const url = '/clientstate/v1/states/' + id;
+    return this.http.delete(url)
+      .pipe(
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(result => 'success')
+      );
+  }
+
 }

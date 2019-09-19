@@ -1,0 +1,64 @@
+<div fxLayout="column" class="tcs-live-apps-settings-pane" fxFill>
+  <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Messaging Configuration'">
+  </tc-tibco-cloud-widget-header>
+  <div fxFlex style="padding: 20px; overflow: hidden" fxLayout="column">
+    <div style="overflow: auto;">
+      <div fxLayout="column" fxFlex>
+        <p class="tcs-settings-text">Configure Tibco Cloud Messaging connections for this application:</p>
+        <br>
+        <!-- Role specific -->
+        <mat-accordion>
+          <!-- expanded forces panel to open when added by user -->
+          <mat-expansion-panel *ngFor="let connection of messagingConfig.connections" [expanded]="connection.id === newPanelId" (opened)="selectedConnection(connection)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>{{connection.name}}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div fxLayout="column">
+              <div fxLayoutGap="10px" fxLayout="row wrap">
+                <mat-form-field fxFlex>
+                  <input matInput placeholder="Id" [(ngModel)]="connection.id" readonly>
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                  <input matInput placeholder="Name" [(ngModel)]="connection.name" required>
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                  <input matInput placeholder="Event" [(ngModel)]="connection.event" required>
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                  <input matInput placeholder="Matcher" [(ngModel)]="connection.matcher" required>
+                </mat-form-field>
+                <mat-form-field fxFlex>
+                  <input matInput placeholder="Durable" [(ngModel)]="connection.durable" required>
+                </mat-form-field>
+              </div>
+              <div fxLayoutGap="10px" fxLayout="row wrap">
+                <mat-form-field fxFlex style="min-width: 1000px;">
+                  <input matInput placeholder="WSS URL" [(ngModel)]="connection.wssUrl" required>
+                </mat-form-field>
+                <mat-form-field fxFlex style="min-width: 1000px;">
+                  <input matInput placeholder="API Key" type="password" [(ngModel)]="connection.apiKey" required>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+    </div>
+    <div fxFlex class="tcs-filler-panel"></div>
+    <div fxLayout="row" fxLayoutAlign="start end" fxLayoutGap="10px" style="min-height: 50px" *ngIf="(messagingConfig.id || isAdmin); else cannotCreate">
+      <div fxLayoutAlign="start end">
+        <button mat-raised-button color="seconday" *ngIf="messagingConfig?.id" (click)="clearMessagingConfig()">Clear All Saved Messsage Config</button>
+      </div>
+      <div fxLayoutAlign="end end" fxFlex fxLayoutGap="10px">
+        <button mat-raised-button color="secondary" [disabled]="!currentConnection"
+                (click)="deleteConnectionFunction()">Delete Connection</button>
+        <button mat-raised-button color="secondary" (click)="createConnectionFunction()">Create Connection</button>
+        <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+      </div>
+    </div>
+    <ng-template  #cannotCreate>
+        <span class="tcs-warning-text">Warning: You must be a member of the administrators group to save messaging configuration</span>
+    </ng-template>
+  </div>
+</div>
