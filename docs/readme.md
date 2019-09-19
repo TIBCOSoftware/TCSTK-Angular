@@ -21,8 +21,7 @@ Ready to use Angular Apps
 
 auto-generated deep dive Component Library Documentation for Angular.io Developers
 
-- [TC Core Lib](libdocs/tc-core-lib/index.html)
-- [TC LiveApps Lib](libdocs/tc-liveapps-lib/index.html)
+- [TC Library Docs](https://tibcosoftware.github.io/TCSTK-Libdocs/)
 
 > more to be added over time.
 
