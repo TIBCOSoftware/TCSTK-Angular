@@ -18,6 +18,13 @@
         "Recent Cases",
         "Summary Cards"
       ]
+    },
+    {
+      "entry": "Messaging",
+      "icon": "tcs-messaging-sm-icon",
+      "options": [
+        "Connections"
+      ]
     }
   ]
 }

@@ -19,10 +19,13 @@
     <mat-tab-group fxFill>
       <mat-tab label="Messaging">
         <ng-template matTabContent>
-          <div fxFill fxLayout="row">
-            <tcmsg-eftl-message-receiver style="padding: 5px" fxFlex [wssUrl]="wssUrl" [apiKey]="apiKey" [clientId]="generalConfig.uiAppId+'-receiver-'+userId" durable="mydurable" [matcher]="matcher"></tcmsg-eftl-message-receiver>
-            <tcmsg-eftl-message-sender style="padding: 5px;" fxFlex [wssUrl]="wssUrl" [apiKey]="apiKey" [clientId]="generalConfig.uiAppId+'-sender-'+userId" event="event1"></tcmsg-eftl-message-sender>
+          <div fxFill fxLayout="row" *ngIf="messagingConnection; else noConfig">
+            <tcmsg-eftl-message-receiver style="padding: 5px" fxFlex [wssUrl]="messagingConnection.wssUrl" [apiKey]="messagingConnection.apiKey" [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-receiver-'+userId" [durable]="messagingConnection.durable" [matcher]="messagingConnection.matcher"></tcmsg-eftl-message-receiver>
+            <tcmsg-eftl-message-sender style="padding: 5px;" fxFlex [wssUrl]="messagingConnection.wssUrl" [apiKey]="messagingConnection.apiKey" [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-sender-'+userId" [event]="messagingConnection.event"></tcmsg-eftl-message-sender>
           </div>
+          <ng-template #noConfig>
+            <span>First configure a messaging connection to use messaging</span>
+          </ng-template>
         </ng-template>
       </mat-tab>
       <mat-tab label="Search">
