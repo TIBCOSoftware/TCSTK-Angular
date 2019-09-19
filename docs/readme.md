@@ -4,7 +4,7 @@
 
 These Tutorials, part of the full [TIBCO Cloud™ Starters Toolkit](https://tibcosoftware.github.io/TCSToolkit/) as well.
 
-- [1. Getting Started](1. Getting Started)
+- [1. Getting Started](1. Prerequisites)
 - [2. App from Scratch](2. App from Scratch)
 - [3. Customize an App](3. Customize an App)
 - [4. Create Components](4. Create Components)
