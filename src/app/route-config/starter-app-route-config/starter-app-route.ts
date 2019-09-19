@@ -19,6 +19,7 @@ import {ConfigurationComponent} from '../../routes/configuration/configuration.c
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
 import {FormResolver} from '@tibco-tcstk/tc-forms-lib';
 import {ShowcaseComponent} from '../../routes/showcase/showcase.component';
+import {MessagingConfigResolver} from '@tibco-tcstk/tc-messaging-lib';
 
 export const HOME_ROUTE = 'splash';
 
@@ -64,7 +65,8 @@ export const STARTER_APP_ROUTES =
     canActivate: [AuthGuard],
     resolve: {
       claims: ClaimsResolver,
-      laConfigHolder: LaConfigResolver
+      laConfigHolder: LaConfigResolver,
+      messagingConfig: MessagingConfigResolver
     }
   },
   {

@@ -1,0 +1,13 @@
+{
+  "connections": [
+    {
+      "name": "My Connection",
+      "wssUrl": "wss://eu.messaging.cloud.tibco.com/tcm/...",
+      "apiKey": "...",
+      "clientIdPrefix": "rcv1",
+      "event": "event1",
+      "matcher": "{\"event\": \"event1\"}",
+      "durable": "mydurable"
+    }
+  ]
+}

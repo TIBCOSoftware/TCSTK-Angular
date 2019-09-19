@@ -17,6 +17,7 @@ import {
   AccessControlConfigurationResolver,
   LiveAppsSettingsFormsComponent
 } from '@tibco-tcstk/tc-liveapps-lib';
+import {EftlMessagingSettingsComponent, MessagingConfigResolver} from '@tibco-tcstk/tc-messaging-lib';
 
 export const CONFIGURATION_ROUTE_CONFIG = [
   {
@@ -45,25 +46,25 @@ export const CONFIGURATION_ROUTE_CONFIG = [
       claims: ClaimsResolver,
       allRolesHolder: AllRolesResolver
     }
-    },
-    {
-        path: 'general-application-landing-page',
-        component: TibcoCloudSettingLandingComponent,
-        resolve: {
-            landingPagesConfigHolder: GeneralLandingPageConfigResolver,
-            claims: ClaimsResolver,
-            allRolesHolder: AllRolesResolver
-        }
   },
-    {
-        path: 'general-application-access-control',
-        component: LiveAppsSettingsAccessControlComponent,
-        resolve: {
-            claims: ClaimsResolver,
-            accessControlConfigHolder: AccessControlConfigurationResolver,
-            allRoles: AllRolesResolver
-        }
-    },
+  {
+    path: 'general-application-landing-page',
+    component: TibcoCloudSettingLandingComponent,
+    resolve: {
+      landingPagesConfigHolder: GeneralLandingPageConfigResolver,
+      claims: ClaimsResolver,
+      allRolesHolder: AllRolesResolver
+    }
+  },
+  {
+    path: 'general-application-access-control',
+    component: LiveAppsSettingsAccessControlComponent,
+    resolve: {
+      claims: ClaimsResolver,
+      accessControlConfigHolder: AccessControlConfigurationResolver,
+      allRoles: AllRolesResolver
+    }
+  },
   {
     path: 'live-apps-app-selection',
     component: LiveAppsSettingsComponent,
@@ -101,15 +102,25 @@ export const CONFIGURATION_ROUTE_CONFIG = [
     }
   },
   {
+    path: 'messaging-connections',
+    component: EftlMessagingSettingsComponent,
+    resolve: {
+      claims: ClaimsResolver,
+      generalConfigHolder: GeneralConfigResolver,
+      messagingConfig: MessagingConfigResolver,
+    }
+  },
+  {
     path: '**', redirectTo: '/starterApp/configuration/general-application-settings'
   }
 ];
 
 export const CONFIGURATION_ROUTE_PROVIDERS = [
-    GeneralConfigResolver,
-    ClaimsResolver,
-    AllRolesResolver,
-    AllGroupsResolver,
-    GeneralLandingPageConfigResolver,
-    AccessControlConfigurationResolver
+  GeneralConfigResolver,
+  ClaimsResolver,
+  AllRolesResolver,
+  AllGroupsResolver,
+  GeneralLandingPageConfigResolver,
+  AccessControlConfigurationResolver,
+  MessagingConfigResolver
 ];

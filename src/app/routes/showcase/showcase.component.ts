@@ -10,6 +10,7 @@ import {
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, take, takeUntil} from 'rxjs/operators';
+import {MessagingConfig, MessagingConnection} from '@tibco-tcstk/tc-messaging-lib';
 
 @Component({
   selector: 'laapp-showcase',
@@ -31,11 +32,13 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public casedata: any;
   public metadata: Metadata;
   public summary: any;
-  public matcher = '{"event": "event1"}';
-  public apiKey = '';
-  public wssUrl = '';
+  public messagingConfig: MessagingConfig;
+  public messagingConnection: MessagingConnection;
 
-  constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService) {
+    this.messagingConfig = this.route.snapshot.data.messagingConfig;
+    this.messagingConnection = (this.messagingConfig.connections && this.messagingConfig.connections.length > 0) ? this.messagingConfig.connections[0] : undefined;
+  }
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
 
 

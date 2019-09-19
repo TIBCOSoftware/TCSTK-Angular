@@ -36,7 +36,8 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
     }
 
     deleteRoleFunction = (): void => {
-        this.generalConfig.roles = this.generalConfig.roles.filter(element => element.id != this.currentRole.id);
+        this.generalConfig.roles = this.generalConfig.roles.filter(element => element.id !== this.currentRole.id);
+        this.currentRole = undefined;
     }
 
     selectedRole = (role: RoleAttribute): void => {
@@ -45,10 +46,6 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
 
     createRoleFunction = (): void => {
         const dialogRef = this.dialog.open(TibcoCloudNewElementComponent, {
-            width: '50%',
-            height: '30%',
-            maxWidth: '100vw',
-            maxHeight: '100vh',
             panelClass: 'tcs-style-dialog',
             data: { resourceType: 'Role' }
 
