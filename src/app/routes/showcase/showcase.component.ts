@@ -31,6 +31,9 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public casedata: any;
   public metadata: Metadata;
   public summary: any;
+  public matcher = '{"event": "event1"}';
+  public apiKey = '';
+  public wssUrl = '';
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService) { }
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
