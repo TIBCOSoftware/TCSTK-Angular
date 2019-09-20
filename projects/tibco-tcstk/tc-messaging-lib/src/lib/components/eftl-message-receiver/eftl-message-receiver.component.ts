@@ -1,6 +1,14 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {EFTLService} from '../../services/e-ftl.service';
 
+/**
+ * Sample receiver component for Tibco Web Messaging
+ *
+ * See Tibco Cloud Messaging docs for parameter information
+ *
+ *@example <tcmsg-eftl-message-receiver></tcmsg-eftl-message-receiver>
+ */
+
 @Component({
   selector: 'tcmsg-eftl-message-receiver',
   templateUrl: './eftl-message-receiver.component.html',
@@ -8,14 +16,29 @@ import {EFTLService} from '../../services/e-ftl.service';
 })
 export class EftlMessageReceiverComponent implements OnChanges {
 
+  /**
+   * Web messaging URL
+   */
   @Input() wssUrl: string;
 
+  /**
+   * API Key
+   */
   @Input() apiKey: string;
 
+  /**
+   * Client Id for subscription
+   */
   @Input() clientId: string;
 
+  /**
+   * Matcher string
+   */
   @Input() matcher: string;
 
+  /**
+   * Durable Name
+   */
   @Input() durable: string;
 
   public messages: any[] = [];

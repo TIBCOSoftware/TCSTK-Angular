@@ -8,11 +8,11 @@ import {MessagingConnection} from '../../models/messaging-connection';
 
 
 /**
- * Configuration of messaging
+ * Component to manage configuration of Tibco Cloud Messaging connections
  *
  * ![alt-text](../messaging-settings.png "")
  *
- *@example <tcmsg-messaging-settings></tcmsg-messaging-settings>
+ *@example <tcmsg-eftl-messaging-settings></tcmsg-eftl-messaging-settings>
  */
 @Component({
   selector: 'tcmsg-eftl-messaging-settings',
