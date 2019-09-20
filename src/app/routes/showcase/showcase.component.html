@@ -20,8 +20,8 @@
       <mat-tab label="Messaging">
         <ng-template matTabContent>
           <div fxFill fxLayout="row" *ngIf="messagingConnection; else noConfig">
-            <tcmsg-eftl-message-receiver style="padding: 5px" fxFlex [wssUrl]="messagingConnection.wssUrl" [apiKey]="messagingConnection.apiKey" [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-receiver-'+userId" [durable]="messagingConnection.durable" [matcher]="messagingConnection.matcher"></tcmsg-eftl-message-receiver>
             <tcmsg-eftl-message-sender style="padding: 5px;" fxFlex [wssUrl]="messagingConnection.wssUrl" [apiKey]="messagingConnection.apiKey" [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-sender-'+userId" [event]="messagingConnection.event"></tcmsg-eftl-message-sender>
+            <tcmsg-eftl-message-receiver style="padding: 5px" fxFlex [wssUrl]="messagingConnection.wssUrl" [apiKey]="messagingConnection.apiKey" [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-receiver-'+userId" [durable]="messagingConnection.durable" [matcher]="messagingConnection.matcher"></tcmsg-eftl-message-receiver>
           </div>
           <ng-template #noConfig>
             <span>First configure a messaging connection to use messaging</span>
