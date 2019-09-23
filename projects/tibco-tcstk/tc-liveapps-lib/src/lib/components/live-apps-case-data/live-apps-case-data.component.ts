@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {CaseInfo, JsonSchema, Metadata} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs';
+import {ReplaySubject} from 'rxjs';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseDataService} from '../../services/tc-case-data.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
@@ -67,6 +67,10 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   @Input() customDataId = this.customDataId ? this.customDataId : 'default';
 
   public casedata: any;
+  protected casedata$ = new ReplaySubject<any>();
+  protected summary$ = new ReplaySubject<any>();
+  protected metadata$ = new ReplaySubject<Metadata>();
+  protected schema$ = new ReplaySubject<JsonSchema>();
   public summary: any;
   public metadata: Metadata;
   public errorMessage: string;
@@ -89,6 +93,10 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
         this.summary = result.caseInfo.summaryObj;
         this.schema = result.caseSchema;
         this.formRef = result.applicationName + '.' + result.applicationInternalName + '.casedata.' + this.customDataId;
+        this.casedata$.next(this.casedata);
+        this.summary$.next(this.summary);
+        this.metadata$.next(this.metadata);
+        this.schema$.next(this.schema);
       }, error => { this.errorMessage = 'Error retrieving case data: ' + error.error.errorMsg; });
   }
 
