@@ -23,7 +23,7 @@ export class LiveAppsSettingsRolesComponent extends TibcoCloudSettingsGeneralCom
 
     public currentRole: RoleAttribute;
 
-    constructor(protected route: ActivatedRoute, protected generalConfigService: TcGeneralConfigService, protected snackBar: MatSnackBar, private dialog: MatDialog) {
+    constructor(protected route: ActivatedRoute, protected generalConfigService: TcGeneralConfigService, protected snackBar: MatSnackBar, protected dialog: MatDialog) {
         super(route, generalConfigService, snackBar);
     }
 

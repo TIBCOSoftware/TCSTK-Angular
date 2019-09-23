@@ -79,7 +79,7 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
   }
 
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 

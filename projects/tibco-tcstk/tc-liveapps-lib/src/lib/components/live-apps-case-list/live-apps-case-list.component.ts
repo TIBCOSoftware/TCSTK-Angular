@@ -77,7 +77,7 @@ export class LiveAppsCaseListComponent extends LiveAppsComponent implements OnIn
     this.clearMatches.emit();
   }
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 

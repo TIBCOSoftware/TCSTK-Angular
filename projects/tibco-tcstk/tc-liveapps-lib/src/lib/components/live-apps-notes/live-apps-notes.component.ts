@@ -57,7 +57,7 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   public end = false;
   public toolbarButtons: ToolbarButton[] = [];
 
-  constructor(private liveapps: LiveAppsService, private buttonsHelper: TcButtonsHelperService) {
+  constructor(protected liveapps: LiveAppsService, protected buttonsHelper: TcButtonsHelperService) {
     super();
   }
 

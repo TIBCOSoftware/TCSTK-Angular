@@ -73,7 +73,7 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   public schema: JsonSchema;
   public formRef: string;
 
-  constructor(private caseDataService: TcCaseDataService) {
+  constructor(protected caseDataService: TcCaseDataService) {
     super();
   }
 

@@ -59,7 +59,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
    * single empty Constructor of TIBCO Cloud Navigation Bar
    */
 
-  constructor(private location: Location, private messageService: MessageTopicService) {
+  constructor(protected location: Location, protected messageService: MessageTopicService) {
     this.ms = messageService;
   }
 

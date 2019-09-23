@@ -12,7 +12,7 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 export class TibcoCloudTableDataSource extends DataSource<any> {
   data;
 
-  constructor(private paginator: MatPaginator, private sort: MatSort, private d) {
+  constructor(protected paginator: MatPaginator, protected sort: MatSort, protected d) {
     super();
     this.data = d;
     //this._updateChangeSubscription();

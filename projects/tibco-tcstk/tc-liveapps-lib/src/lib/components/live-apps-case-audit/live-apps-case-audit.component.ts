@@ -68,7 +68,7 @@ export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnD
     }
   }
 
-  constructor(private caseAuditService: TcCaseAuditService) {
+  constructor(protected caseAuditService: TcCaseAuditService) {
     super();
   }
 

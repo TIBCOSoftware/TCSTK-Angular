@@ -25,7 +25,7 @@ export class TibcoCloudErrorComponent implements OnInit {
   /**
    * todo: Add logger
    */
-  constructor(private route: ActivatedRoute) {
+  constructor(protected route: ActivatedRoute) {
     this.message = '';
     this.route.params.subscribe(params => {
       console.log(params); // log the entire params object

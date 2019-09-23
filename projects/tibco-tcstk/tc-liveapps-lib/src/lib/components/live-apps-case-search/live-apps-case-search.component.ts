@@ -50,7 +50,7 @@ export class LiveAppsCaseSearchComponent extends LiveAppsComponent {
   // case type selector
   public selectedApp: CaseType = new CaseType();
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 

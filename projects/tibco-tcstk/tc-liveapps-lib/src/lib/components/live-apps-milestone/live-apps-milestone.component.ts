@@ -26,7 +26,7 @@ export class LiveAppsMilestoneComponent implements OnInit {
   public sectionSVG: SafeHtml;
   public milestoneSvg: string;
 
-  constructor(private caseStatesService: TcCaseStatesService) { }
+  constructor(protected caseStatesService: TcCaseStatesService) { }
 
   ngOnInit() {
     // work out which section the MS trailer is (first/middle/end)

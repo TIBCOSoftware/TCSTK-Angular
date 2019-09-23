@@ -35,7 +35,7 @@ import {HttpEventType} from '@angular/common/http';
 })
 export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnInit {
 
-  constructor(private liveapps: LiveAppsService, private documentsService: TcDocumentService, public dialog: MatDialog) {
+  constructor(protected liveapps: LiveAppsService, protected documentsService: TcDocumentService, public dialog: MatDialog) {
     super();
   }
   /**

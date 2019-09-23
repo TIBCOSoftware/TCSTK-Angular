@@ -28,7 +28,7 @@ export class TibcoCloudSelectTableComponent extends TibcoCloudTableComponent {
     element.highlighted = !element.highlighted;
   }
 
-  constructor(private logger: LogService) { /*, private tcfunctions: TcFunctionsService) {*/
+  constructor(protected logger: LogService) { /*, protected tcfunctions: TcFunctionsService) {*/
     super();
     logger.info('Select Table Started... ');
   }

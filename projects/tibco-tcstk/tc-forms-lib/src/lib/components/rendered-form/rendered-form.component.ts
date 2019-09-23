@@ -55,7 +55,7 @@ export class RenderedFormComponent implements OnInit, OnChanges {
     console.log(JSON.stringify(layout));
   }
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(protected route: ActivatedRoute) { }
 
   ngOnInit() {
   }

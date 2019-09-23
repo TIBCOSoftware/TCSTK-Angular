@@ -34,7 +34,7 @@ export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements On
   private wiActive = false;
   private openWiId;
 
-  constructor (private visibilityService: TcVisibilityService, private host: ElementRef, private legacyIframeService: LegacyIframeService) {
+  constructor (protected visibilityService: TcVisibilityService, protected host: ElementRef, protected legacyIframeService: LegacyIframeService) {
     super();
   }
 

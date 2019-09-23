@@ -90,7 +90,7 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
     this.liveapps.unsetRecentCase(caseRef, this.uiAppId, this.sandboxId);
   }
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 

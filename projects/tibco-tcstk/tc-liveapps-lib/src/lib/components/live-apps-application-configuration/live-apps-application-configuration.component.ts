@@ -286,8 +286,8 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
       }, error => { this.errorMessage = 'Error retrieving case card config: ' + error.error.errorMsg; });
   }
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer,
-              private liveapps: LiveAppsService, public caseCardConfigService: TcCaseCardConfigService, private documentsService: TcDocumentService, public dialog: MatDialog, private location: Location) {
+  constructor(protected http: HttpClient, protected sanitizer: DomSanitizer,
+              protected liveapps: LiveAppsService, public caseCardConfigService: TcCaseCardConfigService, protected documentsService: TcDocumentService, public dialog: MatDialog, protected location: Location) {
     super();
   }
 

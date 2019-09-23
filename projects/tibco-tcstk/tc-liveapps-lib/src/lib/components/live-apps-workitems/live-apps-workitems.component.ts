@@ -96,7 +96,7 @@ export class LiveAppsWorkitemsComponent extends LiveAppsComponent implements OnI
       })), 1);
   }
 
-  constructor(private workitemsService: TcWorkitemsService) {
+  constructor(protected workitemsService: TcWorkitemsService) {
     super();
   }
 

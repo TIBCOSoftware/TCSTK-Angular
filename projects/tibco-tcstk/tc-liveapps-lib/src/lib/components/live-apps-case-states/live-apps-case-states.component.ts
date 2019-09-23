@@ -64,7 +64,7 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
       }, error => { this.errorMessage = 'Error constructing state tracker: ' + error.error.errorMsg; });
   }
 
-  constructor(private caseStatesService: TcCaseStatesService, private durationSince: DurationSincePipe) {
+  constructor(protected caseStatesService: TcCaseStatesService, protected durationSince: DurationSincePipe) {
     super();
   }
 

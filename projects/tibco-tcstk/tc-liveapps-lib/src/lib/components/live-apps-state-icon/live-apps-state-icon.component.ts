@@ -32,7 +32,7 @@ export class LiveAppsStateIconComponent extends LiveAppsComponent implements OnI
   public iconSVG: SafeHtml;
   public svgcontents: string = undefined;
 
-  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private liveapps: LiveAppsService, private location: Location) {
+  constructor(protected sanitizer: DomSanitizer, protected http: HttpClient, protected liveapps: LiveAppsService, protected location: Location) {
     super();
   }
 

@@ -40,7 +40,7 @@ export class LiveAppsCaseStateAuditComponent extends LiveAppsComponent implement
   public errorMessage: string;
 
 
-  constructor(private caseStatesService: TcCaseStatesService) {
+  constructor(protected caseStatesService: TcCaseStatesService) {
     super();
   }
 
