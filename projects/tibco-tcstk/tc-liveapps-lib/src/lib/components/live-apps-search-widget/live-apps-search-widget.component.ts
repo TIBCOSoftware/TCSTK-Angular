@@ -69,7 +69,7 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent implements 
   searchString: string;
   message: string;
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 

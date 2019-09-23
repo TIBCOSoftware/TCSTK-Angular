@@ -22,7 +22,7 @@ import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 })
 export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implements  OnInit, AfterViewChecked {
 
-  constructor(private reportingService: TcLiveAppsReportingService) {
+  constructor(protected reportingService: TcLiveAppsReportingService) {
     super();
   }
 

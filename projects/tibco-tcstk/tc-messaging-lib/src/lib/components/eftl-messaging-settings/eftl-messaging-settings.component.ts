@@ -31,7 +31,7 @@ export class EftlMessagingSettingsComponent implements OnInit {
   public newPanelId: string;
   public isAdmin = false;
 
-  constructor(protected route: ActivatedRoute, protected messagingConfigService: EFTLConfigService, protected snackBar: MatSnackBar, private dialog: MatDialog) {
+  constructor(protected route: ActivatedRoute, protected messagingConfigService: EFTLConfigService, protected snackBar: MatSnackBar, protected dialog: MatDialog) {
   }
 
   protected getLiveAppsConfigService(): EFTLConfigService {

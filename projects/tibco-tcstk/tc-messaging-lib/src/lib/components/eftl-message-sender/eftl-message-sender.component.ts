@@ -39,7 +39,7 @@ export class EftlMessageSenderComponent implements OnChanges {
   public connected = false;
   public msg: any = { contents: '' };
 
-  constructor(private eFTLService: EFTLService) { }
+  constructor(protected eFTLService: EFTLService) { }
 
   send = () => {
     this.eFTLService.sendMessage(this.msg.contents, this.event).subscribe(

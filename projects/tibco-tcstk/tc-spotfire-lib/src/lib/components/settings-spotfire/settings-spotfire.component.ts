@@ -25,9 +25,9 @@ export class SettingsSpotfireComponent implements OnInit {
     private sandboxId: number;
 
     constructor(
-        private route: ActivatedRoute,
-        private spotfireConfigService: TcSpotfireConfigService,
-        private snackBar: MatSnackBar
+      protected route: ActivatedRoute,
+      protected spotfireConfigService: TcSpotfireConfigService,
+      protected snackBar: MatSnackBar
     ) { }
 
     ngOnInit() {

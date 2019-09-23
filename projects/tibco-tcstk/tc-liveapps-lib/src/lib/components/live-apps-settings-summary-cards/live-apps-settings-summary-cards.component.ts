@@ -28,7 +28,7 @@ export class LiveAppsSettingsSummaryCardsComponent extends LiveAppsSettingsCompo
   public caseCardConfig: CaseCardConfig;
   public selectedApp: CaseType;
 
-  constructor(private caseCardConfigService: TcCaseCardConfigService, private routeExt: ActivatedRoute, private liveAppsConfigServiceExt: TcLiveAppsConfigService, protected snackBar: MatSnackBar) {
+  constructor(protected caseCardConfigService: TcCaseCardConfigService, protected routeExt: ActivatedRoute, protected liveAppsConfigServiceExt: TcLiveAppsConfigService, protected snackBar: MatSnackBar) {
     super(routeExt, liveAppsConfigServiceExt, snackBar);
   }
 

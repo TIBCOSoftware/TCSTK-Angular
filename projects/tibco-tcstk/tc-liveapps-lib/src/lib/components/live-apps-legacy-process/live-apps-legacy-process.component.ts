@@ -41,7 +41,7 @@ export class LiveAppsLegacyProcessComponent extends LiveAppsComponent implements
   private processActive = false;
   private openProcessId;
 
-  constructor (private visibilityService: TcVisibilityService, private host: ElementRef, private legacyIframeService: LegacyIframeService) {
+  constructor (protected visibilityService: TcVisibilityService, protected host: ElementRef, protected legacyIframeService: LegacyIframeService) {
     super();
   }
 

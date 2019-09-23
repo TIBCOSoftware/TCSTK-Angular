@@ -166,7 +166,7 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
     }
   };
 
-  constructor(private reportingService: TcLiveAppsReportingService) {
+  constructor(protected reportingService: TcLiveAppsReportingService) {
     super();
   }
 

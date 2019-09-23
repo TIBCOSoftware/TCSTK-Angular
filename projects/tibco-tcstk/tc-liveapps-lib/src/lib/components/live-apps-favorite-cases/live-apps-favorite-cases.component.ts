@@ -89,7 +89,7 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
   }
 
 
-  constructor(private liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService) {
     super();
   }
 

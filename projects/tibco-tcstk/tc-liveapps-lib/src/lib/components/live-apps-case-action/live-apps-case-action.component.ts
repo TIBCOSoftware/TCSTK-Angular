@@ -84,7 +84,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     }
   }
 
-  constructor(private lasvc: LiveAppsService) {
+  constructor(protected lasvc: LiveAppsService) {
     super(lasvc);
   }
 

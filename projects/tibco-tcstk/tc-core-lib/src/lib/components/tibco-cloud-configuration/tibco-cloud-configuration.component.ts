@@ -31,7 +31,7 @@ export class TibcoCloudConfigurationComponent implements OnInit {
   configName: string;
   toolbarButtons: ToolbarButton[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private buttonsHelper: TcButtonsHelperService, private location: Location) { }
+  constructor(protected router: Router, protected route: ActivatedRoute, protected buttonsHelper: TcButtonsHelperService, protected location: Location) { }
 
   private createToolbarButtons = (): ToolbarButton[] => {
     const homeButton = this.buttonsHelper.createButton('close', 'tcs-close-icon', true, 'Close', true, true);
