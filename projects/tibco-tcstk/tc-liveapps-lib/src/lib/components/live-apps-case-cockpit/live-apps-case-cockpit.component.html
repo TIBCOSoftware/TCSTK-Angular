@@ -17,7 +17,7 @@
           <mat-tab-group id="dataTabGroup" #dataTabGroup style="overflow: hidden; min-height: 49px; height: 100%;" (selectedTabChange)="handleTabChange($event)" [selectedIndex]="selected.value">
             <mat-tab label="Case Data">
               <ng-template matTabContent>
-                <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false" [customFormDefs]="customFormDefs"></tcla-live-apps-case-data>
+                <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false" [customFormDefs]="customFormDefs" (refreshEvent)="refresh()"></tcla-live-apps-case-data>
               </ng-template>
             </mat-tab>
             <mat-tab *ngFor="let tab of formTabs" [label]="tab.type === 'actionTab' ? 'actionTab' : 'wiTab'">
