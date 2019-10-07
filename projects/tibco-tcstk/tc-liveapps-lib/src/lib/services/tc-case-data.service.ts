@@ -81,7 +81,7 @@ export class TcCaseDataService {
     // Combine the results of both calls into a single response
     const test1 = zip(caseSchema, caseData).pipe(
       map(caseInfoArray => {
-        return new CaseInfoWithSchema().deserialize({ caseInfo: caseInfoArray[1], caseSchema: caseInfoArray[0].jsonSchema, applicationName: caseInfoArray[0].applicationName, applicationInternalName: caseInfoArray[0].applicationInternalName });
+        return new CaseInfoWithSchema().deserialize({ caseInfo: caseInfoArray[1], caseSchema: caseInfoArray[0].jsonSchema, applicationName: caseInfoArray[0].applicationName, applicationInternalName: caseInfoArray[0].applicationInternalName, name: caseInfoArray[0].name });
       })
     );
     return test1;

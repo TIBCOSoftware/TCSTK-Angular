@@ -12,7 +12,7 @@ import {
 } from '../models/liveappsdata';
 import {LaProcessSelection} from '../models/tc-case-processes';
 import {LiveAppsService} from './live-apps.service';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {flatMap, map, tap} from 'rxjs/operators';
 import {TcCaseDataService} from './tc-case-data.service';
 
@@ -189,5 +189,31 @@ export class TcCaseProcessesService {
             }
           )
         );
+    }
+
+    public caseDataFormUpdate(
+      caseRef: string,
+      appId: string,
+      typeId: string,
+      sandboxId: number,
+      updateActionLabel: string,
+      data: any
+    ): Observable<any> {
+
+    // get the creator details
+      const creators$ = this.getCaseActionsForCaseRef(caseRef, sandboxId, appId, typeId);
+      return creators$.pipe(
+        flatMap((actions: CaseActionsList) => {
+          const updateAction = actions.actions.find(act => {
+            return act.label === updateActionLabel;
+          });
+          if (updateAction) {
+            return this.liveAppsService.runProcess(sandboxId, appId, updateAction.id, caseRef, data);
+          } else {
+            console.error('No update action found with label:', updateActionLabel)
+            throwError('No update action found with label: ' + updateActionLabel);
+          }
+        })
+      );
     }
 }

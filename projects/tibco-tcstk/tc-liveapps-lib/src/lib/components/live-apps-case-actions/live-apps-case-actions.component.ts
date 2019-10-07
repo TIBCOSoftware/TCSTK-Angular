@@ -48,6 +48,13 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
    */
   @Input() maxActions = 1;
 
+
+  /**
+   * Dont show buttons for any actions that start with this string.
+   * eg: '$' will remove the action $Update
+   */
+  @Input() actionFilter: string[];
+
   /**
    * ~event actionClicked : Case Action selected
    * ~payload LaProcessSelection : LaProcessSelection object output when an action is clicked (ie. message to parent to run action component)
@@ -73,6 +80,18 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
         takeUntil(this._destroyed$)
       ).subscribe(
       caseactions => {
+        if (this.actionFilter) {
+          caseactions.actions = caseactions.actions.filter(act => {
+            // check if it matches any of the actionFilters
+            let test = true;
+            this.actionFilter.forEach(actfilter => {
+              if (test && act.label.substr(0, actfilter.length) === actfilter) {
+                test = false;
+              }
+            });
+            return test;
+          });
+        }
         this.caseactions = caseactions.actions;
       }, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }

@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {CaseInfo, JsonSchema, Metadata} from '../../models/liveappsdata';
 import {map, take, takeUntil} from 'rxjs/operators';
@@ -66,6 +66,11 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
    */
   @Input() customDataId = this.customDataId ? this.customDataId : 'default';
 
+  /**
+   * Emit event to cause refresh of page
+   * **/
+  @Output() refreshEvent = new EventEmitter();
+
   public casedata: any;
   protected casedata$ = new ReplaySubject<any>();
   protected summary$ = new ReplaySubject<any>();
@@ -76,9 +81,14 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   public errorMessage: string;
   public schema: JsonSchema;
   public formRef: string;
+  public name: string;
 
   constructor(protected caseDataService: TcCaseDataService) {
     super();
+  }
+
+  public triggerRefresh = () => {
+    this.refreshEvent.emit();
   }
 
   public refresh = () => {
@@ -92,6 +102,7 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
         this.metadata = result.caseInfo.metadata;
         this.summary = result.caseInfo.summaryObj;
         this.schema = result.caseSchema;
+        this.name = result.name;
         this.formRef = result.applicationName + '.' + result.applicationInternalName + '.casedata.' + this.customDataId;
         this.casedata$.next(this.casedata);
         this.summary$.next(this.summary);
