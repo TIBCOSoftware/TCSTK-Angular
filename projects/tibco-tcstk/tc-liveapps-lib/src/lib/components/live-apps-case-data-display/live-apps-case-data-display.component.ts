@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CaseType, CaseTypesList, JsonSchema} from '../../models/liveappsdata';
-import {LaProcessSelection} from '../../models/tc-case-processes';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 
 /**
  * Renders case data in a form
@@ -26,6 +26,11 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
   ];
 
   /**
+   * SandboxId
+   */
+  @Input() sandboxId: number;
+
+  /**
    * The case data
    */
   @Input() caseData: string;
@@ -39,7 +44,18 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
    * The applicationId
    */
 
+  @Input() typeId: string
+  /**
+   * The typeId
+   */
+
   @Input() caseRef: string;
+
+  /**
+   * The 'name' of the main case type
+   */
+
+  @Input() name: string;
 
   /**
    * The schema of the case type
@@ -61,9 +77,29 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
    */
   @Input() formRef: string;
 
+  /**
+   * Emit event to cause refresh of page
+   * **/
+  @Output() refreshEvent = new EventEmitter();
+
   options;
 
-  constructor() { }
+  constructor(protected caseProcessService: TcCaseProcessesService) { }
+
+  public updateDataAction(data: any) {
+    data = {
+      [this.name]: data
+    }
+
+    this.caseProcessService.caseDataFormUpdate(this.caseRef, this.appId, this.typeId, this.sandboxId, '$Update', data).subscribe(
+      next => {
+        this.refreshEvent.emit();
+      },
+      error1 => {
+        console.error('Unable to trigger update of case data');
+      }
+    );
+  }
 
   ngOnInit() {
     // since this is the 'display' of case data we set to readonly and no validation

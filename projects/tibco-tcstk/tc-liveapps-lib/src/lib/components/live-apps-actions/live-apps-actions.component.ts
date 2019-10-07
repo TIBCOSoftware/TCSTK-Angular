@@ -49,6 +49,12 @@ export class LiveAppsActionsComponent implements OnInit {
    */
   @Input() customFormDefs: CustomFormDefs;
 
+  /**
+   * Dont show buttons for any actions that start with this string.
+   * eg: '$' will remove the action $Update
+   */
+  @Input() actionFilter: string[];
+
 
   /**
    * ~event caseActioned : Case action starterd (process started)
