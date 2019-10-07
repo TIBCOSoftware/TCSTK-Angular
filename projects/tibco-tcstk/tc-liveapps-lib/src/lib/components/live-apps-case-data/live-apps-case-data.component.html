@@ -1,4 +1,4 @@
 <div class="tcs-case-data-pane" fxLayout="column" fxFill style="overflow: hidden;">
   <tc-tibco-cloud-widget-header *ngIf="showHeader" fxFlex="nogrow" [headerText]="'Case Data'" [icon]="'tcs-case-data-icon'"></tc-tibco-cloud-widget-header>
-  <tcla-live-apps-case-data-display fxFlex="grow" id="readOnlyDiv" style="overflow:auto" *ngIf="casedata && schema" [schema]="schema" [caseRef]="caseRef" [appId]="appId" [caseData]="casedata" [layout]="layout" [customFormDefs]="customFormDefs" [formRef]="formRef"></tcla-live-apps-case-data-display>
+  <tcla-live-apps-case-data-display fxFlex="grow" id="readOnlyDiv" style="overflow:auto" *ngIf="casedata && schema" [schema]="schema" [sandboxId]="sandboxId" [caseRef]="caseRef" [appId]="appId" [typeId]="typeId" [caseData]="casedata" [layout]="layout" [customFormDefs]="customFormDefs" [formRef]="formRef" [name]="name" (refreshEvent)="triggerRefresh()"></tcla-live-apps-case-data-display>
 </div>
