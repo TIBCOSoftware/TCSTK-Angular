@@ -243,6 +243,7 @@ import {LiveAppsSettingsFormsComponent} from './components/live-apps-settings-fo
     LiveAppsLandingPageComponent,
     LiveAppsActiveCasesWidgetComponent,
     LiveAppsActiveCasesReportComponent,
+    LiveAppsActiveCasesForTypeReportComponent,
     LiveAppsLegacyFormComponent,
     LiveAppsLegacyProcessComponent,
     LiveAppsSettingsFormsComponent,
