@@ -8,12 +8,10 @@ import {
   AccessResolver,
   CaseGuard,
   ClaimsResolver,
-  AllGroupsResolver,
+  GroupsResolver,
   LaConfigResolver,
   LiveAppsConfigResolver, RoleGuard,
-  RolesResolver,
-  LiveAppsLandingPageComponent,
-  RoleActiveResolver
+  RolesResolver
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {SplashComponent} from '../../routes/splash/splash.component';
 import {CaseComponent} from '../../routes/case/case.component';
@@ -34,7 +32,7 @@ export const STARTER_APP_ROUTES =
     resolve: {
       claims: ClaimsResolver,
       laConfigHolder: LaConfigResolver,
-      groups: AllGroupsResolver,
+      groups: GroupsResolver,
       roles: RolesResolver,
       access: AccessResolver,
       customFormDefs: FormResolver
@@ -48,18 +46,6 @@ export const STARTER_APP_ROUTES =
       landingPagesConfigHolder: GeneralLandingPageConfigResolver
     }
   },
-
-    {
-        path: 'splash2',
-        component: LiveAppsLandingPageComponent,
-        canActivate: [AuthGuard],
-        resolve: {
-            generalConfigHolder: GeneralConfigResolver,
-            rolesHolder: RolesResolver,
-            activeRoleHolder: RoleActiveResolver
-        }
-    },
-
   {
     path: 'case/:appId/:typeId/:caseRef',
     component: CaseComponent,
@@ -67,7 +53,7 @@ export const STARTER_APP_ROUTES =
     resolve: {
       laConfigHolder: LaConfigResolver,
       claims: ClaimsResolver,
-      groups: AllGroupsResolver,
+      groups: GroupsResolver,
       roles: RolesResolver,
       access: AccessResolver,
       customFormDefs: FormResolver
@@ -98,10 +84,9 @@ export const STARTER_APP_PROVIDERS = [
   GeneralConfigResolver,
   ConfigurationMenuConfigResolver,
   RolesResolver,
-  AllGroupsResolver,
+  GroupsResolver,
   AccessResolver,
-  FormResolver,
-        RoleActiveResolver
+  FormResolver
   ],
   CONFIGURATION_ROUTE_PROVIDERS
 ];
