@@ -81,7 +81,6 @@ export * from './lib/services/tc-workitems.service';
 export * from './lib/resolvers/claims.resolver';
 export * from './lib/resolvers/liveapps-config.resolver';
 export * from './lib/resolvers/la-config.resolver';
-export * from './lib/resolvers/groups.resolver';
 export * from './lib/resolvers/roles.resolver';
 export * from './lib/resolvers/all-groups.resolver';
 export * from './lib/resolvers/all-roles.resolver';

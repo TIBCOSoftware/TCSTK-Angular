@@ -1,7 +1,6 @@
 import {
   GeneralConfigResolver,
   GeneralLandingPageConfigResolver,
-  TibcoCloudSettingLandingComponent,
   TibcoCloudSettingsGeneralComponent
 } from '@tibco-tcstk/tc-core-lib';
 import {
@@ -15,7 +14,8 @@ import {
   LiveAppsSettingsSummaryCardsComponent,
   LiveAppsSettingsAccessControlComponent,
   AccessControlConfigurationResolver,
-  LiveAppsSettingsFormsComponent
+  LiveAppsSettingsFormsComponent,
+  LiveAppsSettingsLandingComponent
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {EftlMessagingSettingsComponent, MessagingConfigResolver} from '@tibco-tcstk/tc-messaging-lib';
 
@@ -40,16 +40,7 @@ export const CONFIGURATION_ROUTE_CONFIG = [
   },
   {
     path: 'general-application-landing-page',
-    component: TibcoCloudSettingLandingComponent,
-    resolve: {
-      landingPagesConfigHolder: GeneralLandingPageConfigResolver,
-      claims: ClaimsResolver,
-      allRolesHolder: AllRolesResolver
-    }
-  },
-  {
-    path: 'general-application-landing-page',
-    component: TibcoCloudSettingLandingComponent,
+      component: LiveAppsSettingsLandingComponent,
     resolve: {
       landingPagesConfigHolder: GeneralLandingPageConfigResolver,
       claims: ClaimsResolver,
