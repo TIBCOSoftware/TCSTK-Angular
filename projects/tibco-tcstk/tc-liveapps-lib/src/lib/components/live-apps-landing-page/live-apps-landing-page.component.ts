@@ -44,7 +44,7 @@ export class LiveAppsLandingPageComponent implements OnInit {
                 if (landingPage !== undefined) {
                   this.title = landingPage.title;
                   this.subtitle = landingPage.subtitle;
-                  this.backgroundImage = (landingPage.backgroundURL !== '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, landingPage.backgroundURL) : '');
+                    this.backgroundImage = (landingPage.backgroundURL !== '' ? TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, '/webresource/orgFolders/' + this.route.snapshot.data.landingPagesConfigHolder.uiAppId + '/background/' + landingPage.backgroundURL) : '');
 
                   this.highlights = new Array();
                   this.highlights.push(new LandingPageItemConfig().deserialize({
