@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar, MatDialog } from '@angular/material';
-import { Claim, GeneralLandingPageConfig, LandingPageConfig, RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, LandingPageItemConfig } from '@tibco-tcstk/tc-core-lib';
+import { Claim, GeneralLandingPageConfig, LandingPageConfig, RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, LandingPageItemConfig, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
 import { TcDocumentService } from '../../services/tc-document.service';
-import { TibcoCloudUploadDialogComponent } from 'projects/tibco-tcstk/tc-core-lib/src/lib/components/tibco-cloud-upload-dialog/tibco-cloud-upload-dialog.component';
 
 /**
  * Configuration page home
