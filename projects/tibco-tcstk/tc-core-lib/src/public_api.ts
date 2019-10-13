@@ -18,6 +18,7 @@ export * from './lib/components/tibco-cloud-configuration/tibco-cloud-configurat
 export * from './lib/components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 export * from './lib/components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
 export * from './lib/components/tibco-cloud-new-element/tibco-cloud-new-element.component';
+export * from './lib/components/tibco-cloud-upload-dialog/tibco-cloud-upload-dialog.component';
 
 // services
 export * from './lib/services/tc-login.service';

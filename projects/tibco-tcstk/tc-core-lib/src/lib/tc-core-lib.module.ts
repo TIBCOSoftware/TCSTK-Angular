@@ -50,8 +50,8 @@ import {NavigationEnd, Router, RouterModule} from '@angular/router';
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 import {CommonModule, Location} from '@angular/common';
 import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
+import { TibcoCloudUploadDialogComponent } from './components/tibco-cloud-upload-dialog/tibco-cloud-upload-dialog.component';
 import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
-import {MessageQueueService} from './common/tc-core-queue-comm';
 import {MessageTopicService} from './common/tc-core-topic-comm';
 import {TcVisibilityService} from './services/tc-visibility.service';
 import {LegacyIframeService} from './services/legacy-iframe.service';
@@ -76,7 +76,8 @@ import {LegacyIframeService} from './services/legacy-iframe.service';
     TibcoCloudConfigurationComponent,
     TibcoCloudSplashScreenComponent,
     TibcoCloudSettingLandingComponent,
-    TibcoCloudNewElementComponent
+    TibcoCloudNewElementComponent,
+    TibcoCloudUploadDialogComponent
   ],
   imports: [
     RouterModule,
@@ -141,7 +142,8 @@ import {LegacyIframeService} from './services/legacy-iframe.service';
     TibcoCloudSettingsGeneralComponent,
     TibcoCloudConfigurationComponent,
     TibcoCloudSplashScreenComponent,
-    TibcoCloudNewElementComponent
+    TibcoCloudNewElementComponent,
+    TibcoCloudUploadDialogComponent
   ],
   providers: [
     RequestCacheService,
@@ -156,7 +158,7 @@ import {LegacyIframeService} from './services/legacy-iframe.service';
     // uncomment this line to use the mock service interceptor
     // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
   ],
-  entryComponents: [TibcoCloudNewElementComponent]
+  entryComponents: [TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent]
 })
 
 export class TcCoreLibModule {
