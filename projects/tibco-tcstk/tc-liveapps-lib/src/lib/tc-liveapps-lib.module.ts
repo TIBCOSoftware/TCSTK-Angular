@@ -103,6 +103,7 @@ import {LiveAppsLegacyFormComponent} from './components/live-apps-legacy-form/li
 import {LiveAppsWorkitemsComponent} from './components/live-apps-workitems/live-apps-workitems.component';
 import {LiveAppsLegacyProcessComponent} from './components/live-apps-legacy-process/live-apps-legacy-process.component';
 import {LiveAppsSettingsFormsComponent} from './components/live-apps-settings-forms/live-apps-settings-forms.component';
+import { LiveAppsSettingsLandingComponent } from './components/live-apps-settings-landing/live-apps-settings-landing.component';
 
 @NgModule({
     declarations: [
@@ -159,7 +160,8 @@ import {LiveAppsSettingsFormsComponent} from './components/live-apps-settings-fo
         LiveAppsLegacyFormComponent,
         LiveAppsLegacyProcessComponent,
         LiveAppsSettingsFormsComponent,
-        LiveAppsWorkitemsComponent
+        LiveAppsWorkitemsComponent,
+        LiveAppsSettingsLandingComponent
     ],
   imports: [
     TcCoreLibModule,

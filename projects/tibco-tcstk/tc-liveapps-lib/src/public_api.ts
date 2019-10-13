@@ -54,6 +54,7 @@ export * from './lib/components/live-apps-legacy-form/live-apps-legacy-form.comp
 export * from './lib/components/live-apps-legacy-process/live-apps-legacy-process.component';
 export * from './lib/components/live-apps-workitems/live-apps-workitems.component';
 export * from './lib/components/live-apps-settings-forms/live-apps-settings-forms.component';
+export * from './lib/components/live-apps-settings-landing/live-apps-settings-landing.component';
 
 // data
 export * from './lib/models/liveappsdata';
