@@ -44,6 +44,7 @@ export const STARTER_APP_ROUTES =
     component: LiveAppsLandingPageComponent,
     canActivate: [AuthGuard],
     resolve: {
+        landingPagesConfigHolder: GeneralLandingPageConfigResolver,
       generalConfigHolder: GeneralConfigResolver,
       rolesHolder: RolesResolver,
       activeRoleHolder: RoleActiveResolver
