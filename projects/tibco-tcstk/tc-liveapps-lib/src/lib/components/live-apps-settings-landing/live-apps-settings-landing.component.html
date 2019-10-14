@@ -49,10 +49,10 @@
                     <div>Hightlights</div>
                     <div *ngFor="let highlight of selectedWelcomePage.highlights; let i = index" fxLayoutGap="10px">
                         <div fxFlex="15">
-                            <mat-form-field fxFlex>
+                            <mat-form-field fxFlex="80">
                                 <input matInput placeholder="Icon URL" [(ngModel)]="highlight.iconURL">
                             </mat-form-field>
-                            <mat-icon (click)="openDialog('.svg', 'hightlight', i)"
+                            <mat-icon fxFlex="20" (click)="openDialog('.svg', 'hightlight', i)"
                                 class="tcs-icon tcs-icon-active tcs-document-edit-buttons tcs-document-upload-icon" matTooltip="Upload Document"
                                 matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
                         </div>
