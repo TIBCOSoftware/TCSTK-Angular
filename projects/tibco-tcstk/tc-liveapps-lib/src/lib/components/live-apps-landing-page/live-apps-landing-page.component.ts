@@ -23,7 +23,7 @@ export class LiveAppsLandingPageComponent implements OnInit {
     public title: string;
     public subtitle: string;
     public backgroundImage: string;
-    public verticalPadding: string;
+    public topMargin: string;
     public highlights: LandingPageItemConfig[];
 
     private navigateURL: string;
@@ -46,7 +46,7 @@ export class LiveAppsLandingPageComponent implements OnInit {
                     this.title = landingPage.title;
                     this.subtitle = landingPage.subtitle;
                     this.backgroundImage = (landingPage.backgroundURL !== '' ? '/webresource/orgFolders/' + this.route.snapshot.data.landingPagesConfigHolder.uiAppId + '/background/' + landingPage.backgroundURL : '');
-                    this.verticalPadding = landingPage.verticalPadding ? landingPage.verticalPadding + 'px' : '0px';
+                    this.topMargin = landingPage.topMargin ? landingPage.topMargin + 'px' : '0px';
                     this.highlights = new Array();
                     this.highlights.push(new LandingPageItemConfig().deserialize({
                         title: landingPage.highlights[0].title,
