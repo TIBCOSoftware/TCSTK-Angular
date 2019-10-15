@@ -1,10 +1,11 @@
 <div class="tcs-splash-content" fxFill fxLayout="column" fxFill>
  <div fxFill [ngClass]="backGroundImage ? 'custom-splash-bg' : 'default-splash-bg'" [ngStyle]="backGroundImage ? {'background-repeat': 'round', 'background-color': '#FFF', 'background-image': 'url(' + backGroundImage + ')'} : ''">
-    <div  class="text-center" id="initscreen">
+     <div [ngStyle]="{'position': 'relative', 'height': verticalPadding, 'width': '1px'}"></div>
+    <div class="text-center" id="initscreen">
       <div class="splash-heading-pane">
-      <div ngClass.lt-md="splash-welcome-small" ngClass.gt-sm="splash-welcome-large" class="splash-welcome">{{title}}</div>
-        <div ngClass.lt-md="splash-welcome-message-small" ngClass.gt-sm="splash-welcome-message-large" class="splash-welcome-message">
-          <span>{{subTitle}}</span>
+        <div ngClass.lt-md="splash-welcome-small" ngClass.gt-sm="splash-welcome-large" class="splash-welcome">{{title}}</div>
+            <div ngClass.lt-md="splash-welcome-message-small" ngClass.gt-sm="splash-welcome-message-large" class="splash-welcome-message">
+            <span>{{subTitle}}</span>
         </div>
       </div>
       <div fxLayout="column" fxLayoutAlign="start center" style="margin-top: 5px;">
