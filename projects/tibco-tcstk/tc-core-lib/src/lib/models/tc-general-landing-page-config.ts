@@ -18,6 +18,7 @@ export class LandingPageConfig {
     public title: string;
     public subtitle: string;
     public backgroundURL: string;
+    public verticalPadding: number;
     public homeRoute: string;
     public highlights: LandingPageItemConfig[];
     roles: string[];
