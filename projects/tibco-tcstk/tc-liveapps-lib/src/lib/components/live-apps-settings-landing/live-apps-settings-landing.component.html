@@ -35,15 +35,18 @@
                                 matTooltipPosition="left" matTooltipShowDelay="1000" svgIcon="tcs-document-upload"></mat-icon>
                         </div>
                         <mat-form-field fxFlex="50">
-                            <input matInput placeholder="Home route" [(ngModel)]="selectedWelcomePage.homeRoute">
+                            <input matInput placeholder="Vertical padding (px)" type="number" min="0" [(ngModel)]="selectedWelcomePage.verticalPadding">
                         </mat-form-field>
                     </div>
                     <div fxLayoutGap="10px">
-                        <mat-form-field fxFlex="80">
+                        <mat-form-field fxFlex="50">
                             <mat-label>Used in roles</mat-label>
                             <mat-select [(ngModel)]="selectedWelcomePage.roles" [compareWith]="compareObjects" multiple>
                                 <mat-option *ngFor="let role of allRoles" [value]="role.id">{{role.display}}</mat-option>
                             </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="50">
+                            <input matInput placeholder="Home route" [(ngModel)]="selectedWelcomePage.homeRoute">
                         </mat-form-field>
                     </div>
                     <div>Hightlights</div>
