@@ -28,9 +28,9 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
    */
   @Input() backGroundImage: string;
   /**
-   * Vertical scroll for the text panel. Default is 0px 
+   * Space above the highlight panel. Default is 0px 
    */
-  @Input() verticalPadding: string = this.verticalPadding ? this.verticalPadding : '0px';
+  @Input() topMargin: string = this.topMargin ? this.topMargin : '0px';
   /**
    * Bullet Point Item Configuration with Icon's and Text
    */

@@ -9,8 +9,7 @@
                     <span>{{subTitle}}</span>
                 </div>
             </div>
-            <div [ngStyle]="{'position': 'relative', 'height': verticalPadding, 'width': '1px'}"></div>
-            <div fxLayout="column" fxLayoutAlign="start center" style="margin-top: 5px;">
+            <div fxLayout="column" fxLayoutAlign="start center" [ngStyle]="{'margin-top': topMargin}">
                 <div class="splash-modal" ngClass.lt-md="splash-modal-small" ngClass.gt-sm="splash-modal-large">
                     <table class="splash-highlightstable">
                         <tbody fxLayout="column" fxLayoutGap="30px">
