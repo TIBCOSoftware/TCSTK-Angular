@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar, MatDialog } from '@angular/material';
-import { Claim, GeneralLandingPageConfig, LandingPageConfig, RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, LandingPageItemConfig, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
+import { Claim, RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
 import { TcDocumentService } from '../../services/tc-document.service';
+import { GeneralLandingPageConfig, LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-apps-landing-page-config';
 
 /**
  * Configuration page home

@@ -28,6 +28,10 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
    */
   @Input() backGroundImage: string;
   /**
+   * Space above the highlight panel. Default is 0px 
+   */
+  @Input() topMargin: string = this.topMargin ? this.topMargin : '0px';
+  /**
    * Bullet Point Item Configuration with Icon's and Text
    */
   @Input() highlights: LandingPageItemConfig[];

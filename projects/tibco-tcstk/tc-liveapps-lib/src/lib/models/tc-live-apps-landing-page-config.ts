@@ -1,6 +1,7 @@
+import { Deserializable } from '@tibco-tcstk/tc-core-lib';
+
 /* models used by landing page config */
 
-import { Deserializable } from './deserializable';
 
 export class LandingPageItemConfig {
     public title: string;
