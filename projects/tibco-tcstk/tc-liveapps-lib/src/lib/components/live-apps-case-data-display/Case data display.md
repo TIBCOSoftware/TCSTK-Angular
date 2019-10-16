@@ -23,11 +23,20 @@ Attribute | Type | Comments
 --- | --- | ---
 appId | string | The case reference
 caseData | string | The case data
-caseRef | string | The applicationId
+caseRef | string | The typeId
 customFormDefs | CustomFormDefs | Custom Form configuration file
 formRef | string | Custom Form Reference
 layout | any[] | Layout object that can be passed to override default layout of the form renderer
+name | string | The &#39;name&#39; of the main case type
+sandboxId | number | SandboxId
 schema | JsonSchema | The schema of the case type
+typeId | string | The applicationId
+
+#### Outputs
+
+Attribute | Type |   | Comments
+--- | --- | --- | ---
+refreshEvent | EventEmitter |   |  
 
 
 <b>full development Documentation</b>

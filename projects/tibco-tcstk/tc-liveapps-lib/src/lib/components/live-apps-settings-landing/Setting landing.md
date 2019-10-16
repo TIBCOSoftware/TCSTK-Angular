@@ -12,7 +12,7 @@
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-settings-landing></tcla-live-apps-settings-landing>
+<tcla-live-apps-setting-landing></tcla-live-apps-setting-landing>
 ```
 
 

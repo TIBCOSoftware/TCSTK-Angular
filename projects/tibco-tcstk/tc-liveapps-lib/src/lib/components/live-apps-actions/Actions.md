@@ -19,6 +19,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+actionFilter | string[] | Dont show buttons for any actions that start with this string.eg: &#39;$&#39; will remove the action $Update
 applicationId | string | LA Application ID
 caseRef | string | The case reference
 caseState | string | The state of the case

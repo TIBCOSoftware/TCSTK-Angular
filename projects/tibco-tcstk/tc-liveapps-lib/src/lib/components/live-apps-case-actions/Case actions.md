@@ -21,6 +21,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+actionFilter | string[] | Dont show buttons for any actions that start with this string.eg: &#39;$&#39; will remove the action $Update
 appId | string | The LA Application Id
 caseRef | string | The case reference
 maxActions |  | Max Actions that can be run simultaneously

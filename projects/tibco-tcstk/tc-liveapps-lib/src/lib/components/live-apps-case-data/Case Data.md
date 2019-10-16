@@ -31,6 +31,12 @@ showHeader | boolean | Whether to show the header bar in the widget - eg. favori
 typeId | string | The LA Application Type Id (generally 1)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
+#### Outputs
+
+Attribute | Type |   | Comments
+--- | --- | --- | ---
+refreshEvent | EventEmitter |   |  
+
 
 <b>full development Documentation</b>
 
