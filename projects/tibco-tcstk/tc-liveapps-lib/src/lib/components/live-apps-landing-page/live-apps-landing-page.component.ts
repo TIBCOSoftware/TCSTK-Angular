@@ -23,8 +23,9 @@ export class LiveAppsLandingPageComponent implements OnInit {
     public title: string;
     public subtitle: string;
     public backgroundImage: string;
+    public topMargin: string;
     public highlights: LandingPageItemConfig[];
-    
+
     private navigateURL: string;
 
     constructor(
@@ -39,37 +40,38 @@ export class LiveAppsLandingPageComponent implements OnInit {
         const uiAppId = this.route.snapshot.data.generalConfigHolder.uiAppId;
         const roleId = this.route.snapshot.data.activeRoleHolder.id;
 
-            this.landingPageService.getLandingPageForRole(roleId, uiAppId).subscribe(
-              landingPage => {
+        this.landingPageService.getLandingPageForRole(roleId, uiAppId).subscribe(
+            landingPage => {
                 if (landingPage !== undefined) {
-                  this.title = landingPage.title;
-                  this.subtitle = landingPage.subtitle;
-                  this.backgroundImage = (landingPage.backgroundURL !== '' ? '/webresource/orgFolders/' + this.route.snapshot.data.landingPagesConfigHolder.uiAppId + '/background/' + landingPage.backgroundURL : '');
-                  this.highlights = new Array();
-                  this.highlights.push(new LandingPageItemConfig().deserialize({
-                    title: landingPage.highlights[0].title,
-                    content: landingPage.highlights[0].content,
-                    iconURL: landingPage.highlights[0].iconURL
-                  }));
+                    this.title = landingPage.title;
+                    this.subtitle = landingPage.subtitle;
+                    this.backgroundImage = (landingPage.backgroundURL !== '' ? '/webresource/orgFolders/' + this.route.snapshot.data.landingPagesConfigHolder.uiAppId + '/background/' + landingPage.backgroundURL : '');
+                    this.topMargin = landingPage.topMargin ? landingPage.topMargin + 'px' : '0px';
+                    this.highlights = new Array();
+                    this.highlights.push(new LandingPageItemConfig().deserialize({
+                        title: landingPage.highlights[0].title,
+                        content: landingPage.highlights[0].content,
+                        iconURL: landingPage.highlights[0].iconURL
+                    }));
 
-                  this.highlights.push(new LandingPageItemConfig().deserialize({
-                    title: landingPage.highlights[1].title,
-                    content: landingPage.highlights[1].content,
-                    iconURL: landingPage.highlights[1].iconURL
-                  }));
+                    this.highlights.push(new LandingPageItemConfig().deserialize({
+                        title: landingPage.highlights[1].title,
+                        content: landingPage.highlights[1].content,
+                        iconURL: landingPage.highlights[1].iconURL
+                    }));
 
-                  this.highlights.push(new LandingPageItemConfig().deserialize({
-                    title: landingPage.highlights[2].title,
-                    content: landingPage.highlights[2].content,
-                    iconURL: landingPage.highlights[2].iconURL
-                  }));
+                    this.highlights.push(new LandingPageItemConfig().deserialize({
+                        title: landingPage.highlights[2].title,
+                        content: landingPage.highlights[2].content,
+                        iconURL: landingPage.highlights[2].iconURL
+                    }));
 
-                  this.navigateURL = landingPage.homeRoute;
+                    this.navigateURL = landingPage.homeRoute;
                 } else {
-                  this.router.navigate(['errorHandler/NO_ROLE/NO_ROLE']);
+                    this.router.navigate(['errorHandler/NO_ROLE/NO_ROLE']);
                 }
-              }
-            );
+            }
+        );
     }
 
     public moveHome = (): void => {

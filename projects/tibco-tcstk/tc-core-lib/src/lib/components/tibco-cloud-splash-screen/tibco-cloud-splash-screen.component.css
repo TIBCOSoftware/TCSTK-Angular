@@ -74,7 +74,9 @@
 }
 
 .splash-modal-small {
-
+  box-shadow: 10px 10px 20px 0 rgba(33, 33, 33, 0.04);
+  background-color: #ffffff;
+  width: 100%;
 }
 
 .splash-oval {
