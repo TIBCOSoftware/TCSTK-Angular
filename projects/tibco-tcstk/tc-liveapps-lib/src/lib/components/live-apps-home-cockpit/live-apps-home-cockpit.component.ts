@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {CaseRoute, CaseType} from '../../models/liveappsdata';
 import {ToolbarButton, TcButtonsHelperService, RouteAction} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsFavoriteCasesComponent} from '../live-apps-favorite-cases/live-apps-favorite-cases.component';
@@ -29,7 +29,7 @@ import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-worki
   templateUrl: './live-apps-home-cockpit.component.html',
   styleUrls: ['./live-apps-home-cockpit.component.css']
 })
-export class LiveAppsHomeCockpitComponent implements OnInit {
+export class LiveAppsHomeCockpitComponent implements OnChanges {
   /**
    * The Application ID of the UI (should ideally be unique as it is shared state key)
    */
@@ -110,6 +110,7 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
 
   incConfigButton = true;
   incRefreshButton = true;
+  cockpitReady = false;
 
   public clickCaseAction = (caseRoute: CaseRoute) => {
     // case clicked - tell parent (will pass caseRef and appId)
@@ -213,9 +214,20 @@ export class LiveAppsHomeCockpitComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  initialize() {
     this.toolbarButtons = this.toolbarButtons.concat(this.createToolbarButtons());
     this.caseStartButtonActive = this.access ? this.rolesService.checkButton('caseStart', this.access) : true;
+    this.cockpitReady = true;
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('*** change: ', changes);
+    // on first set call initialize
+    if (changes.access.firstChange && changes.appIds.firstChange && changes.sandboxId.firstChange && changes.uiAppId.firstChange) {
+      this.initialize();
+    }
+  }
+
+
 
 }
