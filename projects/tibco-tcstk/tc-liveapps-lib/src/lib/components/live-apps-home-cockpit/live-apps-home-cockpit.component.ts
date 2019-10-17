@@ -221,7 +221,7 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('*** change: ', changes);
+
     // on first set call initialize
     if (changes.appIds.firstChange && changes.sandboxId.firstChange && changes.uiAppId.firstChange) {
       this.initialize();
