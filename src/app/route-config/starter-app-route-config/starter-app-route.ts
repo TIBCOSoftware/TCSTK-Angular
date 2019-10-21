@@ -12,7 +12,6 @@ import {
   LaConfigResolver,
   LiveAppsConfigResolver, RoleGuard,
   RolesResolver,
-  LiveAppsLandingPageComponent,
   RoleActiveResolver
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {CaseComponent} from '../../routes/case/case.component';
@@ -21,6 +20,7 @@ import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './conf
 import {FormResolver} from '@tibco-tcstk/tc-forms-lib';
 import {ShowcaseComponent} from '../../routes/showcase/showcase.component';
 import {MessagingConfigResolver} from '@tibco-tcstk/tc-messaging-lib';
+import { SplashComponent } from 'src/app/routes/splash/splash.component';
 
 export const HOME_ROUTE = 'splash';
 
@@ -41,10 +41,10 @@ export const STARTER_APP_ROUTES =
   },
   {
     path: 'splash',
-    component: LiveAppsLandingPageComponent,
+    component: SplashComponent,
     canActivate: [AuthGuard],
     resolve: {
-        landingPagesConfigHolder: GeneralLandingPageConfigResolver,
+      landingPagesConfigHolder: GeneralLandingPageConfigResolver,
       generalConfigHolder: GeneralConfigResolver,
       rolesHolder: RolesResolver,
       activeRoleHolder: RoleActiveResolver

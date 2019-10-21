@@ -29,8 +29,9 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button (click)="getStartedClick()" cdkFocusInitial class="splash-get-started-button" mat-button>Get
-                        Started</button>
+                    <div fxLayoutGap="10px">
+                        <button *ngFor="let actionButton of actionButtons" (click)="getStartedClick(actionButton.route)" cdkFocusInitial class="splash-get-started-button" mat-button>{{actionButton.text}}</button>
+                    </div>
                 </div>
             </div>
         </div>

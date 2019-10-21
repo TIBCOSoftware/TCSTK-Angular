@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar, MatDialog } from '@angular/material';
-import { Claim, RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
+import { RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
 import { TcDocumentService } from '../../services/tc-document.service';
 import { GeneralLandingPageConfig, LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-apps-landing-page-config';
 
@@ -17,7 +17,6 @@ import { GeneralLandingPageConfig, LandingPageConfig, LandingPageItemConfig } fr
 })
 export class LiveAppsSettingsLandingComponent implements OnInit {
 
-    private claims: Claim;
     private landingPagesConfig: GeneralLandingPageConfig;
     private sandboxId: number;
     private uiAppId: string;

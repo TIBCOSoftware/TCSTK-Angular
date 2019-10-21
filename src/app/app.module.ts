@@ -26,6 +26,7 @@ import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
 import { ShowcaseComponent } from './routes/showcase/showcase.component';
+import { SplashComponent } from './routes/splash/splash.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ShowcaseComponent } from './routes/showcase/showcase.component';
     HomeComponent,
     CaseComponent,
     ConfigurationComponent,
-    ShowcaseComponent
+    ShowcaseComponent,
+    SplashComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { TcCoreCommonFunctions, LandingPageItemConfig, TcGeneralLandingPageService } from '@tibco-tcstk/tc-core-lib';
-import { Router, ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { TcRolesService } from '../../services/tc-roles-service.ts.service';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { LandingPageItemConfig, TcGeneralLandingPageService, ActionButtonConfig, RouteAction } from '@tibco-tcstk/tc-core-lib';
+import { Router } from '@angular/router';
 
 /**
  * Landing page
@@ -20,32 +16,32 @@ import { TcRolesService } from '../../services/tc-roles-service.ts.service';
 })
 export class LiveAppsLandingPageComponent implements OnInit {
 
+    @Input() uiAppId: string;
+    @Input() roleId: string;
+    @Output() getStartedEvent: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
+
     public title: string;
     public subtitle: string;
     public backgroundImage: string;
     public topMargin: string;
     public highlights: LandingPageItemConfig[];
+    public actionButtons: ActionButtonConfig[];
 
-    private navigateURL: string;
+    public navigateURL: string;
 
     constructor(
-        private location: Location,
-        private route: ActivatedRoute,
         private router: Router,
-        private landingPageService: TcGeneralLandingPageService,
-        private rolesService: TcRolesService
+        private landingPageService: TcGeneralLandingPageService
     ) { }
 
     ngOnInit() {
-        const uiAppId = this.route.snapshot.data.generalConfigHolder.uiAppId;
-        const roleId = this.route.snapshot.data.activeRoleHolder.id;
 
-        this.landingPageService.getLandingPageForRole(roleId, uiAppId).subscribe(
+        this.landingPageService.getLandingPageForRole(this.roleId, this.uiAppId).subscribe(
             landingPage => {
                 if (landingPage !== undefined) {
                     this.title = landingPage.title;
                     this.subtitle = landingPage.subtitle;
-                    this.backgroundImage = (landingPage.backgroundURL !== '' ? '/webresource/orgFolders/' + this.route.snapshot.data.landingPagesConfigHolder.uiAppId + '/background/' + landingPage.backgroundURL : '');
+                    this.backgroundImage = (landingPage.backgroundURL !== '' ? '/webresource/orgFolders/' + this.uiAppId + '/background/' + landingPage.backgroundURL : '');
                     this.topMargin = landingPage.topMargin ? landingPage.topMargin + 'px' : '0px';
                     this.highlights = new Array();
                     this.highlights.push(new LandingPageItemConfig().deserialize({
@@ -66,16 +62,19 @@ export class LiveAppsLandingPageComponent implements OnInit {
                         iconURL: landingPage.highlights[2].iconURL
                     }));
 
+                    this.actionButtons = new Array();
+                    this.actionButtons.push(new ActionButtonConfig().deserialize({text: 'Get started', route: landingPage.homeRoute}));
+
                     this.navigateURL = landingPage.homeRoute;
                 } else {
-                    this.router.navigate(['errorHandler/NO_ROLE/NO_ROLE']);
+                    this.router.navigate(['errorHandler/NO_LANDING/NO_LANDING']);
                 }
             }
         );
     }
 
-    public moveHome = (): void => {
-        this.router.navigate([this.navigateURL]);
+    public getStartedClick = (route: RouteAction): void => {
+        this.getStartedEvent.emit(route);
     }
 
 }
