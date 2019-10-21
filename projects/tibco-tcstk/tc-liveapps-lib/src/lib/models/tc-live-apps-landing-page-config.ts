@@ -1,7 +1,14 @@
 import { Deserializable } from '@tibco-tcstk/tc-core-lib';
 
 /* models used by landing page config */
-
+export class ActionButtonConfig {
+    public text: string;
+    public route: string;
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
+    }
+}
 
 export class LandingPageItemConfig {
     public title: string;
@@ -22,6 +29,7 @@ export class LandingPageConfig {
     public topMargin: number;
     public homeRoute: string;
     public highlights: LandingPageItemConfig[];
+    public actionButton: ActionButtonConfig[];
     roles: string[];
     deserialize(input: any) {
         Object.assign(this, input);

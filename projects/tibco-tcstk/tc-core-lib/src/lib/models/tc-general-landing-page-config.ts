@@ -2,6 +2,15 @@
 
 import { Deserializable } from './deserializable';
 
+export class ActionButtonConfig {
+    public text: string;
+    public route: string;
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
+    }
+}
+
 export class LandingPageItemConfig {
     public title: string;
     public content: string;
@@ -21,7 +30,8 @@ export class LandingPageConfig {
     public topMargin: number;
     public homeRoute: string;
     public highlights: LandingPageItemConfig[];
-    roles: string[];
+    public actionButton: ActionButtonConfig[];
+    public roles: string[];
     deserialize(input: any) {
         Object.assign(this, input);
         return this;

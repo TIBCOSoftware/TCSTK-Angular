@@ -1,7 +1,8 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { TcCoreCommonFunctions } from '../../common/tc-core-common-functions';
 import { Location } from '@angular/common';
-import { LandingPageItemConfig } from '../../models/tc-general-landing-page-config';
+import { LandingPageItemConfig, ActionButtonConfig } from '../../models/tc-general-landing-page-config';
+import { RouteAction } from '../../models/tc-routing-actions';
 
 /**
  * Splash Screen
@@ -35,12 +36,16 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
    * Bullet Point Item Configuration with Icon's and Text
    */
   @Input() highlights: LandingPageItemConfig[];
+  /** 
+   * Buttons configuration with text and route to go.
+   */
+  @Input() actionButtons: ActionButtonConfig[];
 
   /**
    * ~event getStartedEvent : Get Started Clicked
    * ~payload string : emits that user clicked get started button on cloud splash screen
    */
-  @Output() getStartedEvent: EventEmitter<string> = new EventEmitter<string>();
+    @Output() getStartedEvent: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
     /**
      * Shows Application Overview like Configured
@@ -58,8 +63,8 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
     /**
      * Get Started Click to open the Application
      */
-    getStartedClick = (): void => {
-        this.getStartedEvent.emit('test');
+    getStartedClick = (route: string): void => {
+        this.getStartedEvent.emit(new RouteAction('buttonClicked', route));
     }
 
 
