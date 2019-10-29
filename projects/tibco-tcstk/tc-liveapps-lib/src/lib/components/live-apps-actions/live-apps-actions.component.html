@@ -1,4 +1,4 @@
 <div fxLayout="column" fxFlexFill>
   <tcla-live-apps-case-actions [sandboxId]="sandboxId" [typeId]="typeId" [appId]="applicationId" [caseRef]="caseRef" [maxActions]="5" [actionFilter]="actionFilter" (actionClicked)="handleActionClicked($event)"></tcla-live-apps-case-actions>
-  <tcla-live-apps-case-action *ngIf="selectedAction" [process]="selectedAction" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="applicationId" [sandboxId]="sandboxId"></tcla-live-apps-case-action>
+  <tcla-live-apps-case-action *ngIf="selectedAction" [process]="selectedAction" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="applicationId" [sandboxId]="sandboxId" [formsFramework]="formsFramework"></tcla-live-apps-case-action>
 </div>

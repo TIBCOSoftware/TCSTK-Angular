@@ -17,7 +17,7 @@
           <mat-tab-group id="dataTabGroup" #dataTabGroup style="overflow: hidden; min-height: 49px; height: 100%;" (selectedTabChange)="handleTabChange($event)" [selectedIndex]="selected.value">
             <mat-tab label="Case Data">
               <ng-template matTabContent>
-                <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false" [customFormDefs]="customFormDefs" (refreshEvent)="refresh()"></tcla-live-apps-case-data>
+                <tcla-live-apps-case-data class="live-apps-widget" fxFill [caseRef]="caseRef" [sandboxId]="sandboxId" [uiAppId]="uiAppId" [appId]="appId" [typeId]="typeId" [layout]="layout" [showHeader]="false" [customFormDefs]="customFormDefs" [formsFramework]="formsFramework" (refreshEvent)="refresh()"></tcla-live-apps-case-data>
               </ng-template>
             </mat-tab>
             <mat-tab *ngFor="let tab of formTabs" [label]="tab.type === 'actionTab' ? 'actionTab' : 'wiTab'">
@@ -30,7 +30,7 @@
           </mat-tab-group>
           <!-- Using a hidden tab here to workaround the fact that web components seems to disappear on tab change-->
           <div *ngIf="selectedTab" [hidden]="!actionVisible" style="overflow: auto; height: 100%">
-            <tcla-live-apps-case-action [customFormDefs]="customFormDefs" [legacyActions]="legacyActions" [process]="selectedTab.action" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" (caseChanged)="handleActionCompleted(selectedTab)"></tcla-live-apps-case-action>
+            <tcla-live-apps-case-action [customFormDefs]="customFormDefs" [legacyActions]="legacyActions" [process]="selectedTab.action" [caseRef]="caseRef" [typeId]="typeId" [applicationId]="appId" [sandboxId]="sandboxId" [formsFramework]="formsFramework" (caseChanged)="handleActionCompleted(selectedTab)"></tcla-live-apps-case-action>
           </div>
         </div>
         <div fxLayout="column" fxFlex.gt-md="1 1 50" fxFlex.lt-lg="none" ngStyle.lt-lg="min-height: 500px" fxLayoutGap="20px" style="overflow: hidden;" *ngIf="showAudit || showNotes || showDocuments || showStates || tabsFromNgContent.length > 0">

@@ -2,7 +2,7 @@
   <div class="tcs-rendered-form">
     <json-schema-form #renderedForm *ngIf="!useCustomForm && formSchema"
       loadExternalAssets="false"
-      framework="material-design"
+      [framework]="formsFramework"
       [schema]="formSchema"
       [layout]="formLayout"
       [data]="formData"

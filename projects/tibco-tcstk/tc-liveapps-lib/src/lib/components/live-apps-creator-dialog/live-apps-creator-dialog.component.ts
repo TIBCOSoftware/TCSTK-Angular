@@ -22,6 +22,7 @@ export class LiveAppsCreatorDialogComponent {
   public createdCase: ProcessId;
   public customFormDefs: CustomFormDefs;
   public legacyCreators: boolean;
+  public formsFramework: string;
 
   constructor(
     public dialogRef: MatDialogRef<LiveAppsCreatorDialogComponent>,
@@ -31,6 +32,7 @@ export class LiveAppsCreatorDialogComponent {
     this.initialData = data.initialData;
     this.customFormDefs = data.customFormDefs;
     this.legacyCreators = data.legacyCreators;
+    this.formsFramework = data.formsFramework;
   }
 
   public handleCaseCreated = (createdCase: ProcessId) => {

@@ -34,6 +34,13 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
    */
   @Input() legacyActions: boolean = this.legacyActions ? this.legacyActions : false;
 
+  /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+
+
   @ViewChild(LiveAppsLegacyProcessComponent, {static: false}) legacyProcessComponent: LiveAppsLegacyProcessComponent;
 
   originalData: any;

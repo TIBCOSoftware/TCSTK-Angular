@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
+import { Bootstrap4FrameworkModule} from 'angular6-json-schema-form';
 import {RenderedFormComponent} from './components/rendered-form/rendered-form.component';
 import {
   MatButtonModule,
@@ -33,6 +34,7 @@ import {BrowserModule} from '@angular/platform-browser';
     MatSelectModule,
     MatToolbarModule,
     MaterialDesignFrameworkModule,
+    Bootstrap4FrameworkModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,

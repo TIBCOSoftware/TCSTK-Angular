@@ -133,6 +133,12 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
   @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
 
   /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+
+  /**
    * Whether to show workitems in context panel (default true)
    */
   @Input() showWorkitems: boolean = this.showWorkitems ? this.showWorkitems :  true;

@@ -9,6 +9,7 @@ export class LiveAppsConfig implements Deserializable {
   legacyCreators: boolean;
   legacyActions: boolean;
   legacyWorkitems: boolean;
+  formsFramework: string;
   collaborationAppId: string;
   deserialize(input: any) {
     Object.assign(this, input);

@@ -91,6 +91,12 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
   @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
 
   /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+
+  /**
    * ~event routeAction : Component requests route to another page
    * ~payload RouteAction : RouteAction object to tell caller to navigate somewhere
    */
@@ -160,7 +166,7 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
       }
     }
     // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
-    this.openCreatorDialog(application, undefined, this.sandboxId, this.customFormDefs, this.legacyCreators);
+    this.openCreatorDialog(application, undefined, this.sandboxId, this.customFormDefs, this.legacyCreators, this.formsFramework);
   }
 
   public handleReportCaseTypeSelection = (caseTypeReportRecord: CaseTypeReportRecord) => {
@@ -173,14 +179,14 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
     }
   }
 
-  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs, legacyCreators) => {
+  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework) => {
     const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
       width: '60%',
       height: '80%',
       maxWidth: '100vw',
       maxHeight: '100vh',
       panelClass: 'tcs-style-dialog',
-      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs, legacyCreators)
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework)
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -47,6 +47,12 @@ export class LiveAppsCreatorsComponent implements OnInit {
    */
   @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
 
+  /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+
 
   /**
    * ~event caseCreated : Case Creator started (process started)
