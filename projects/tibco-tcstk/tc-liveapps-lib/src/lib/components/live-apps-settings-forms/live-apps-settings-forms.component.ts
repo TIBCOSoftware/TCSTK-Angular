@@ -56,7 +56,8 @@ export class LiveAppsSettingsFormsComponent extends LiveAppsComponent implements
       collaborationAppId: this.liveAppsConfig.documentAppId,
       legacyCreators: this.liveAppsConfig.legacyCreators,
       legacyActions: this.liveAppsConfig.legacyActions,
-      legacyWorkitems: this.liveAppsConfig.legacyWorkitems
+      legacyWorkitems: this.liveAppsConfig.legacyWorkitems,
+      formsFramework: this.liveAppsConfig.formsFramework
     });
     this.liveAppsConfigService.updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe(
       result => {

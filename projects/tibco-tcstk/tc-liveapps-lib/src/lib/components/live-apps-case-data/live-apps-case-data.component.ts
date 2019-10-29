@@ -57,6 +57,12 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   @Input() layout: any[];
 
   /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+
+  /**
    * Custom Form configuration file
    */
   @Input() customFormDefs: CustomFormDefs;

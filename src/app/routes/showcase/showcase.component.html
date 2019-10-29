@@ -17,6 +17,27 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
+      <mat-tab label="Creator Selection">
+        <ng-template matTabContent>
+          <tcla-live-apps-application-create-button *ngIf="!selectedCreatorApp"
+                                                    style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId"
+                                                    [appIds]="liveAppsConfig.applicationIds"
+                                                    (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
+          <tcla-live-apps-creators *ngIf="selectedCreatorApp" [sandboxId]="sandboxId" [applicationId]="selectedCreatorApp.applicationId"
+                                   [typeId]="selectedCreatorApp.id" [dataOverride]="initialData"
+                                   [customFormDefs]="customFormDefs"
+                                   formsFramework="material-design"
+                                   [legacyCreators]="legacyCreators"
+                                   (caseCreated)="handleCaseCreated($event)"></tcla-live-apps-creators>
+          <!--tcla-live-apps-creators *ngIf="selectedCreatorApp" [sandboxId]="sandboxId" [applicationId]="selectedCreatorApp.applicationId"
+                                   [typeId]="selectedCreatorApp.id" [dataOverride]="initialData"
+                                   [customFormDefs]="customFormDefs"
+                                   formsFramework="bootstrap-4"
+                                   [legacyCreators]="legacyCreators"
+                                   (caseCreated)="handleCaseCreated($event)"></tcla-live-apps-creators-->
+
+        </ng-template>
+      </mat-tab>
       <mat-tab label="Messaging">
         <ng-template matTabContent>
           <div fxFill fxLayout="row" *ngIf="messagingConnection; else noConfig">

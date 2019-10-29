@@ -53,7 +53,11 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
    */
   @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
 
-
+  /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
 
   /**
    * ~event caseChanged : Case action started (process started)

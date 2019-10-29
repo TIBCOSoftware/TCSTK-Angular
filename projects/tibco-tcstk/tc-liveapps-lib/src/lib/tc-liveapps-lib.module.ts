@@ -21,6 +21,7 @@ import {
   MatSlideToggleModule,
   MatIconRegistry,
   MatProgressBarModule,
+  MatRadioModule,
   MatTableModule, MatProgressSpinnerModule
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
@@ -191,6 +192,7 @@ import { LiveAppsSettingsLandingComponent } from './components/live-apps-setting
     MatSlideToggleModule,
     MatProgressBarModule,
     MatTableModule,
+    MatRadioModule,
     FormsModule,
     FlexLayoutModule,
     ColorPickerModule,

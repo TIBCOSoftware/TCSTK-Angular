@@ -50,6 +50,13 @@ export class LiveAppsActionsComponent implements OnInit {
   @Input() customFormDefs: CustomFormDefs;
 
   /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+
+
+  /**
    * Dont show buttons for any actions that start with this string.
    * eg: '$' will remove the action $Update
    */

@@ -63,6 +63,12 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
   @Input() schema: JsonSchema;
 
   /**
+   * Allow override of forms framework
+   * Options: bootstrap-4 or material-design
+   */
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+
+  /**
    * Layout object that can be passed to override default layout of the form renderer
    */
   @Input() layout: any[] = this.layout ? this.layout : this.DEFAULT_CASE_DATA_LAYOUT;

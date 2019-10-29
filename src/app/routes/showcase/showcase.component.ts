@@ -6,7 +6,7 @@ import {
   LiveAppsComponent,
   LiveAppsConfig,
   LiveAppsService,
-  Metadata
+  Metadata, ProcessId
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map, take, takeUntil} from 'rxjs/operators';
@@ -34,6 +34,10 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public summary: any;
   public messagingConfig: MessagingConfig;
   public messagingConnection: MessagingConnection;
+  public selectedCreatorApp: CaseType;
+  public initialData;
+  public customFormDefs;
+  public legacyCreators;
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService) {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;
@@ -71,7 +75,33 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     console.log('Case click event: ', event);
   }
 
-    ngOnInit() {
+  public handleCreatorAppSelection = (application: CaseType) => {
+    /*const EXAMPLE_INITIAL_DATA = {
+      PartnerRequest: {
+        Customer_v1: {
+          CustomerReference_v1: 'CST-1111',
+          Name_v1: 'Roger Willis',
+        },
+        RequestDescription_v1: 'Where is my order?',
+        RequestDetails_v1: {
+          OrderReference_v1: 'ORD-55333',
+          PartReference_v1: 'PRT-102020',
+        },
+        RequestType_v1: 'Packaging Supplies'
+      }
+    }*/
+    this.initialData = undefined;
+    this.customFormDefs = {};
+    this.legacyCreators = false;
+    this.selectedCreatorApp = application;
+  }
+
+  public handleCaseCreated = (createdCase: ProcessId) => {
+    alert('Case created: ' + createdCase.caseReference);
+    this.selectedCreatorApp = undefined;
+  }
+
+  ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.claims = this.route.snapshot.data.claims;

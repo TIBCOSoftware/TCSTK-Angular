@@ -1,3 +1,4 @@
 {
-  "applicationIds": []
+  "applicationIds": [],
+  "formsFramework": "material-design"
 }

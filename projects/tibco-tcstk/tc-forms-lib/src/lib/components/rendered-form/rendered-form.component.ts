@@ -31,6 +31,7 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() formRef: string;
   @Input() caseRef: string;
   @Input() appId: string;
+  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
   @Input() customFormDefs: CustomFormDefs;
   /**
    * ~event formSubmit : form submitted
@@ -64,9 +65,11 @@ export class RenderedFormComponent implements OnInit, OnChanges {
     // handle input param changes
     if (this.customFormDefs && changes.formRef && changes.formRef.currentValue && (changes.formRef.currentValue !== changes.formRef.previousValue)) {
       // check if this is a custom form
-      this.useCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
-        return (form === changes.formRef.currentValue);
-      }) !== -1);
+      if (this.customFormDefs && this.customFormDefs.customForms) {
+        this.useCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
+          return (form === changes.formRef.currentValue);
+        }) !== -1);
+      }
       console.warn('*** Forms: Custom Form configuration (customForm.json): ', this.customFormDefs);
       if (this.useCustomForm) {
         console.warn('*** Forms: > Using custom form (formRef):', this.formRef);
