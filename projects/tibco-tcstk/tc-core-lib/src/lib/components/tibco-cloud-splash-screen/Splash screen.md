@@ -19,16 +19,18 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+actionButtons | ActionButtonConfig[] | Buttons configuration with text and route to go.
 backGroundImage | string | Splash Configured Background Image URL to a SVG, PNG or Jpeg
 highlights | LandingPageItemConfig[] | Bullet Point Item Configuration with Icon&#39;s and Text
 subTitle | string | Splash Sub-Title
 title | string | Splash Screen main Title
+topMargin | string | Space above the highlight panel. Default is 0px 
 
 #### Outputs
 
 Attribute | Type |   | Comments
 --- | --- | --- | ---
-getStartedEvent | EventEmitter<string> |   |  
+getStartedEvent | EventEmitter<RouteAction> |   |  
   | Event |  getStartedEvent  |  Get Started Clicked
   | Payload |  string  |  emits that user clicked get started button on cloud splash screen
 

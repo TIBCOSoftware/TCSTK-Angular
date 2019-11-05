@@ -17,6 +17,19 @@ This Component can be used by using the following HTML Tag:
 <tcla-live-apps-landing-page></tcla-live-apps-landing-page>
 ```
 
+#### Inputs
+
+Attribute | Type | Comments
+--- | --- | ---
+roleId | string | 
+uiAppId | string | 
+
+#### Outputs
+
+Attribute | Type |   | Comments
+--- | --- | --- | ---
+getStartedEvent | EventEmitter<RouteAction> |   |  
+
 
 <b>full development Documentation</b>
 

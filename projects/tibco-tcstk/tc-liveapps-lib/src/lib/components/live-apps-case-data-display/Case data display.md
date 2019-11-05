@@ -26,6 +26,7 @@ caseData | string | The case data
 caseRef | string | The typeId
 customFormDefs | CustomFormDefs | Custom Form configuration file
 formRef | string | Custom Form Reference
+formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
 layout | any[] | Layout object that can be passed to override default layout of the form renderer
 name | string | The &#39;name&#39; of the main case type
 sandboxId | number | SandboxId

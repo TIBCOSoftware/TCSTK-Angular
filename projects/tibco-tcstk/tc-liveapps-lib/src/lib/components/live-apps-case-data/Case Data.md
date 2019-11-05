@@ -25,6 +25,7 @@ appId | string | The LA Application Id
 caseRef | string | The case reference
 customDataId |  | not used
 customFormDefs | CustomFormDefs | Custom Form configuration file
+formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
 layout | any[] | Layout object that can be passed to override default layout of the form renderer
 sandboxId | number | sandboxId - this comes from claims resolver
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
