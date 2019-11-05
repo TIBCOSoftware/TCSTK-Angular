@@ -26,6 +26,7 @@ appId | string | The LA Application Id
 caseRef | string | The case reference
 customFormDefs | CustomFormDefs | Custom Form configuration file
 exclRecentAppIds | string[] | The list of LA Application Ids you want to mark as recent cases when accessed
+formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
 layout | any[] | Layout object that can be passed to override default layout of the form renderer
 legacyActions | boolean | Enable legacy actions
 legacyWorkitems | boolean | Enable legacy workitems

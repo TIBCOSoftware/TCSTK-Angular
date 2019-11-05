@@ -24,6 +24,7 @@ applicationId | string | LA Application ID
 caseRef | string | The case reference
 caseState | string | The state of the case
 customFormDefs | CustomFormDefs | Custom Form configuration file
+formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
 sandboxId | number | sandboxId - this comes from claims resolver
 typeId | string | The LA Application Type Id (generally 1)
 
