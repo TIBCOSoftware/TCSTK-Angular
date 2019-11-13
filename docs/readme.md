@@ -8,7 +8,7 @@ App contains all kind of Case Management Features like Case Search, Case Details
 
 ![alt-text](CMpreview.png "Case Manager Preview Image")
 
-- [Pattern App Details](/Angular/starters/TCSTK-case-manager-app/readme/) 
+- [Pattern App Details](https://tibcosoftware.github.io/TCSToolkit/Angular/starters/TCSTK-case-manager-app/readme/) 
 - [Git Source](https://github.com/TIBCOSoftware/TCSTK-case-manager-app/)
 
 ### More?
