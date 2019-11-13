@@ -1,30 +1,23 @@
-### TIBCO Cloud Starters Toolkit - Angular.io Component Developer Docs
+### available Pattern Apps
 
-#### HowTo's Intro
+Pattern Apps are Pre-built applications connected with one or more TIBCO Cloud Service Offerings as a ready to use Solution Template and available as Source for Developers on GitHub and NPM.
 
-These Tutorials, part of the full [TIBCO Cloud™ Starters Toolkit](https://tibcosoftware.github.io/TCSToolkit/) as well.
+#### Case Manager App
 
-- [1. Getting Started](1. Prerequisites)
-- [2. App from Scratch](2. App from Scratch)
-- [3. Customize an App](3. Customize an App)
-- [4. Create Components](4. Create Components)
+App contains all kind of Case Management Features like Case Search, Case Details, Case Actions, Audit Trails, Case Notes, Collaboration, etc. This Pattern App is very TIBCO Cloud LiveApps centric.
 
-#### Apps
+![alt-text](CMpreview.png "Case Manager Preview Image")
 
-Ready to use Angular Apps
+- [Pattern App Details](/Angular/starters/TCSTK-case-manager-app/readme/) 
+- [Git Source](https://github.com/TIBCOSoftware/TCSTK-case-manager-app/)
 
-- [Case Manager App Pages](https://tibcosoftware.github.io/TCSTK-case-manager-app/) :: [Git Source](https://github.com/TIBCOSoftware/TCSTK-case-manager-app/)
+### More?
 
-> more to be added over time.
+Watch out for very soon upcoming additional Apps:
 
-#### Library Docs
-
-auto-generated deep dive Component Library Documentation for Angular.io Developers
-
-- [TC Library Docs](https://tibcosoftware.github.io/TCSTK-Libdocs/)
+- Base App ... just containing a few empty Views
+- Messaging App ... as a real-time Client 
 
 > more to be added over time.
 
-#### GitHub Repo
 
-full Source and all Libraries in the [TCST Angular GitHub Repository](https://github.com/TIBCOSoftware/TCSTK-Angular/).
