@@ -1,20 +1,20 @@
 {
   "name": "@tibco-tcstk/tc-liveapps-lib",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.lib.json"
   },
   "peerDependencies": {
-    "@angular/common": "^8.1.2",
-    "@angular/core": "^8.1.2",
-    "@angular/material": "^8.1.1",
-    "@angular/flex-layout": "^8.0.0-beta.26",
-    "ngx-color-picker": "^8.1.0",
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14",
+    "@angular/material": "^8.2.3",
+    "@angular/flex-layout": "^8.0.0-beta.27",
+    "ngx-color-picker": "^8.2.0",
     "ng2-charts": "^2.3.0",
-    "chartjs-plugin-datalabels": "^0.6.0",
+    "chartjs-plugin-datalabels": "^0.7.0",
     "chartjs-plugin-doughnutlabel": "^2.0.3",
-    "@tibco-tcstk/tc-core-lib": "^1.0.0",
-    "@tibco-tcstk/tc-forms-lib": "^1.0.0"
+    "@tibco-tcstk/tc-core-lib": "^1.1.1",
+    "@tibco-tcstk/tc-forms-lib": "^1.1.1"
   },
   "author": {
     "name": "TIBCO Labs",
