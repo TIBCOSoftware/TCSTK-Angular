@@ -4,10 +4,10 @@ import {
   ContentChildren,
   Directive, ElementRef,
   EventEmitter,
-  Input,
+  Input, OnChanges,
   OnDestroy,
   OnInit,
-  Output,
+  Output, SimpleChanges,
   ViewChild,
   ViewChildren
 } from '@angular/core';
@@ -49,7 +49,7 @@ import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-worki
   templateUrl: './live-apps-case-cockpit.component.html',
   styleUrls: ['./live-apps-case-cockpit.component.css']
 })
-export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterViewInit {
+export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, AfterViewInit {
 
   @ViewChild('contextTabGroup', {static: false}) matTabGroup: MatTabGroup;
   @ViewChildren('contextTabs') inclusiveTabs: QueryList<MatTab>;
@@ -388,7 +388,13 @@ export class LiveAppsCaseCockpitComponent implements OnInit, OnDestroy, AfterVie
     }
   }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.caseRef && this.uiAppId && this.appId && this.sandboxId && this.typeId) {
+      this.initialize();
+    }
+  }
+
+  public initialize = () => {
     if (!isNaN(Number(this.caseRef))) {
       // dont set recent if it is in the exclude app list
       if (!this.exclRecentAppIds || (this.exclRecentAppIds.indexOf(this.appId) === -1)) {
