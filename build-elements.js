@@ -8,6 +8,6 @@ const concat = require('concat');
     './dist/tc-liveapps/scripts.js'
   ]
   await fs.ensureDir('elements')
-  await concat(files, 'src/assets/tcstk-elements.js');
-  await fs.copyFile('./dist/tc-liveapps/styles.css', 'src/assets/tcstk-elements.css')
+  await concat(files, 'src/tcstk-elements.js');
+  await fs.copyFile('./dist/tc-liveapps/styles.css', 'src/tcstk-elements.css')
 })()

@@ -27,6 +27,7 @@ function main(){
   }
   if(task == 'build'){
      //cp ./src/app/app.module.build ./src/app/app.module.ts; ng build custom-form-app --prod --output-hashing=none && node build-elements.js; cp ./src/app/app.module.dev ./src/app/app.module.ts
+    run('npm run build_all_libs')
     fs.copyFileSync('./tsconfig.build.json', './tsconfig.json');
     fs.copyFileSync('./src/app/app.module.build', './src/app/app.module.ts');
     run('ng build tc-liveapps --prod --output-hashing=none');

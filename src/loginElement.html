@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Starters Home Page</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:900,200,700,300,600,400' rel='stylesheet' type='text/css'>
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"  type="text/css" rel="stylesheet" />
+  <script src="tcstk-elements.js"></script>
+  <link href="tcstk-elements.css" type="text/css" rel="stylesheet"/>
+  <link href="../styles.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+<!--
+
+***** live-apps-login *****
+
+/**
+   * Notify parent that user is logged in ok.
+   */
+  @Output() loginContext = new EventEmitter<LoginContext>();
+  /**
+   * Pre-fill dialog with username/clientId
+   */
+  @Input() loginPrefill: LoginPrefill;
+
+  LoginPrefill = { emailId: 'user@tibco.com', clientId: 'secretkey' };
+
+  LoginContext = { authInfo: AuthInfo; accessToken: AccessToken; }
+
+  authInfo = {
+              firstName: "firstname",
+              lastName: "lastname",
+              orgName: "XXXX Org",
+              ts: 121212121,
+              userId: "xxxxmgwsy2km3oxgk3pyzonwtixxxx",
+              userName: "user@tibco.com"
+            }
+
+  Note accessToken will be undefined
+-->
+
+<live-apps-login id="laLoginElement"></live-apps-login>
+
+<script>
+  const loginPrefillEmailId = window.localStorage.getItem('tcs-login-email-id');
+  const loginPrefillClientId = window.localStorage.getItem('tcs-login-client-id');
+  const loginPrefill = {
+    emailId: loginPrefillEmailId,
+    clientId: loginPrefillClientId
+  }
+  // handle event from live-apps-login
+  const laLoginElement = document.getElementById('laLoginElement');
+  laLoginElement.loginPrefill = loginPrefill;
+  laLoginElement.addEventListener('loginContext', function(event) {
+    alert('Logged In', JSON.stringify(event.detail));
+    console.log('Login context: ', event.detail);
+  });
+</script>
+
+</body>
+</html>
