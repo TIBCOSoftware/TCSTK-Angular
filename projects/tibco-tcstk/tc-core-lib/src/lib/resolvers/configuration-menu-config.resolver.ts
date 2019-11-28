@@ -5,7 +5,7 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UiAppIdConfig } from '../models/tc-app-config';
 import { map, flatMap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { ConfigurationMenuConfig } from '../models/tc-configuration-menu-config';
 import { Location } from '@angular/common';
 import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
@@ -27,7 +27,8 @@ export class ConfigurationMenuConfigResolver implements Resolve<Observable<Confi
 
     // loads uiAppId from json file in assets (appId.json)
     private getAppId = (): Observable<UiAppIdConfig> => {
-        return this.http.get(this.APP_ID_URL).pipe(
+      const headers = new HttpHeaders().set('cacheResponse', 'true');
+      return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
             map(uiAppId => {
                 const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
                 return uiAppIdConfig;

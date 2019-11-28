@@ -17,9 +17,10 @@
     "build_cwm": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build --prod --base-href /webresource/apps/cwm/index.html --deploy-url /webresource/apps/cwm/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
     "build_pd": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build --prod --base-href /webresource/apps/pd/index.html --deploy-url /webresource/apps/pd/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
     "build_msg": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-messaging-lib && cp tsconfig.debug.json tsconfig.json",
-    "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && cp tsconfig.debug.json tsconfig.json",
+    "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build @tibco-tcstk/tc-messaging-lib && cp tsconfig.debug.json tsconfig.json",
     "npm_pack": "cd dist/tc-liveapps-lib && npm pack",
-    "package": "npm run build_lib && npm run npm_pack"
+    "package": "npm run build_lib && npm run npm_pack",
+    "build:elements": "node os-independent.js -task build"
   },
   "private": true,
   "dependencies": {
@@ -55,12 +56,15 @@
     "@angular/cli": "~8.3.19",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "~8.2.14",
+    "@angular/elements": "^8.2.14",
     "@types/node": "~12.12.14",
     "codelyzer": "^5.2.0",
     "ng-packagr": "^5.7.1",
     "ts-node": "~8.5.2",
     "tsickle": "^0.36.0",
     "tslint": "~5.20.1",
-    "typescript": "~3.4.5"
+    "typescript": "~3.4.5",
+    "fs-extra": "^8.1.0",
+    "concat": "^1.0.3"
   }
 }

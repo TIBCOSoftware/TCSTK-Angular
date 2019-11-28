@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { flatMap, map, mergeMap, switchMap } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { TcSpotfireConfigService } from '../services/tc-spotfire-config.service';
 import { SpotfireConfig } from '../models/tc-spotfire-config';
 import { Location } from '@angular/common';
@@ -20,9 +20,9 @@ export class SpotfireConfigResolver implements Resolve<Observable<SpotfireConfig
     private uiAppId: string;
 
     constructor(
-        private tcSharedState: TcSharedStateService, 
-        private spotfireConfigService: TcSpotfireConfigService, 
-        private http: HttpClient, 
+        private tcSharedState: TcSharedStateService,
+        private spotfireConfigService: TcSpotfireConfigService,
+        private http: HttpClient,
         private location: Location
     ) {}
 
@@ -37,7 +37,8 @@ export class SpotfireConfigResolver implements Resolve<Observable<SpotfireConfig
 
     // loads uiAppId from json file in assets (appId.json)
     private getAppId = (): Observable<UiAppIdConfig> => {
-        return this.http.get(this.APP_ID_URL).pipe(
+        const headers = new HttpHeaders().set('cacheResponse', 'true');
+        return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
         map(uiAppId => {
             const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
             this.uiAppId = uiAppIdConfig.uiAppId;
@@ -82,7 +83,7 @@ export class SpotfireConfigResolver implements Resolve<Observable<SpotfireConfig
                     }
                 )
             )
-            )   
+            )
         )
         return spotfireConfig;
     }
