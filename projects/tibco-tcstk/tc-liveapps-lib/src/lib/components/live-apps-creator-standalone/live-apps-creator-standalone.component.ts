@@ -63,7 +63,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
    * ~event caseChanged : Case action started (process started)
    * ~payload ProcessId : ProcessId object passed when a case has been updated or created by a process (action/creator)
    */
-  @Output() caseChanged: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
+  @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   data: any;
   layout: any[];
@@ -96,7 +96,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
                   caseReference = response.caseReference;
                 }
                 const processResponse = new ProcessId().deserialize({'caseIdentifier': caseIdentifier, 'caseReference': caseReference});
-                this.caseChanged.emit(processResponse);
+                this.caseCreated.emit(processResponse);
                 this.process = undefined;
                 this.data = undefined;
                 this.layout = undefined;
@@ -112,7 +112,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
         );
     } else {
       const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': undefined});
-      this.caseChanged.emit(processResponse);
+      this.caseCreated.emit(processResponse);
       this.process = undefined;
       this.data = undefined;
       this.layout = undefined;
@@ -121,13 +121,13 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
 
   handleLegacyProcessComplete = () => {
     const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': undefined});
-    this.caseChanged.emit(processResponse);
+    this.caseCreated.emit(processResponse);
   }
 
   handleLegacyProcessCancelled = () => {
     // -1 for caseReference means cancelled
     const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': '-1'});
-    this.caseChanged.emit(processResponse);
+    this.caseCreated.emit(processResponse);
   }
 
   constructor(protected liveapps: LiveAppsService, protected processesService: TcCaseProcessesService) {
