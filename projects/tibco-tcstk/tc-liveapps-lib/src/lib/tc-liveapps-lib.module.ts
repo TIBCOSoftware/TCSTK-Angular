@@ -107,6 +107,7 @@ import {LiveAppsSettingsFormsComponent} from './components/live-apps-settings-fo
 import { LiveAppsSettingsLandingComponent } from './components/live-apps-settings-landing/live-apps-settings-landing.component';
 import { LiveAppsHomeCockpitStandaloneComponent } from './components/live-apps-home-cockpit-standalone/live-apps-home-cockpit-standalone.component';
 import { LiveAppsCaseCockpitStandaloneComponent } from './components/live-apps-case-cockpit-standalone/live-apps-case-cockpit-standalone.component';
+import { LiveAppsCreatorStandaloneComponent } from './components/live-apps-creator-standalone/live-apps-creator-standalone.component';
 
 @NgModule({
     declarations: [
@@ -166,7 +167,8 @@ import { LiveAppsCaseCockpitStandaloneComponent } from './components/live-apps-c
         LiveAppsWorkitemsComponent,
         LiveAppsSettingsLandingComponent,
         LiveAppsHomeCockpitStandaloneComponent,
-        LiveAppsCaseCockpitStandaloneComponent
+        LiveAppsCaseCockpitStandaloneComponent,
+        LiveAppsCreatorStandaloneComponent
     ],
   imports: [
     TcCoreLibModule,
@@ -257,7 +259,8 @@ import { LiveAppsCaseCockpitStandaloneComponent } from './components/live-apps-c
     LiveAppsSettingsFormsComponent,
     LiveAppsWorkitemsComponent,
     LiveAppsHomeCockpitStandaloneComponent,
-    LiveAppsCaseCockpitStandaloneComponent
+    LiveAppsCaseCockpitStandaloneComponent,
+    LiveAppsCreatorStandaloneComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [

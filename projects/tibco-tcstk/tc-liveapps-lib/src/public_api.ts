@@ -57,6 +57,7 @@ export * from './lib/components/live-apps-settings-forms/live-apps-settings-form
 export * from './lib/components/live-apps-settings-landing/live-apps-settings-landing.component';
 export * from './lib/components/live-apps-home-cockpit-standalone/live-apps-home-cockpit-standalone.component';
 export * from './lib/components/live-apps-case-cockpit-standalone/live-apps-case-cockpit-standalone.component';
+export * from './lib/components/live-apps-creator-standalone/live-apps-creator-standalone.component';
 
 // data
 export * from './lib/models/liveappsdata';
