@@ -56,6 +56,7 @@ import {
 import { Deserializable} from '@tibco-tcstk/tc-core-lib';
 import {split} from 'ts-node';
 import {Location} from '@angular/common';
+import {StateTrackerData} from '../models/tc-case-states';
 
 @Injectable({
   providedIn: 'root'
@@ -197,6 +198,27 @@ export class LiveAppsService {
           }
         )
       );
+  }
+
+  private combinedSearch = (appId: string[], sandboxId: number, term: string, force: boolean, skip: number, top: number, stateId: number): Observable<CaseSearchResults> => {
+    // for each appId create an obervable
+    const forkJoinArray$ = [];
+    appId.forEach(app => {
+      forkJoinArray$.push(this.caseSearchEntries(term, sandboxId, app, '1', force, skip, top, stateId));
+    })
+
+    // run all three calls in parallel
+    return forkJoin(forkJoinArray$).pipe(
+      map(resultArr => {
+        const results = new CaseSearchResults();
+        results.searchString = term;
+        // combine results into a single array
+        resultArr.forEach((res: CaseSearchResults) => {
+            results.caserefs = results.caserefs.concat(res.caserefs);
+        });
+        return results;
+      })
+    );
   }
 
   public getCaseTypes(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
