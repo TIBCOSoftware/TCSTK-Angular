@@ -17,11 +17,11 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
-      <!-- mat-tab label="Creator">
+      <mat-tab label="Creator">
         <ng-template matTabContent>
-          <tcla-live-apps-creator-standalone applicationId="2335" typeId="1" [sandboxId]="3534" processName="New Product Notification"></tcla-live-apps-creator-standalone>
+          <tcla-live-apps-creator-standalone applicationId="2335" typeId="1" [sandboxId]="3534" processName="New Product Notification" [legacyCreators]="false"></tcla-live-apps-creator-standalone>
         </ng-template>
-      </mat-tab -->
+      </mat-tab>
       <mat-tab label="Creator Selection">
         <ng-template matTabContent>
           <tcla-live-apps-application-create-button *ngIf="!selectedCreatorApp"

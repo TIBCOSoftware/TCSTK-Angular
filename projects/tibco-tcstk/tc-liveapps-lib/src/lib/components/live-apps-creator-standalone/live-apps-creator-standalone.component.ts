@@ -71,6 +71,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
   process: Process;
   isCustomForm = false;
   customFormDefs: string[] = [];
+  useLegacy = false;
 
   handleSubmit = (data, caseRef) => {
     // if no_process_submit then no need to run process as this was done inside a custom form app
@@ -147,23 +148,23 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
     if (this.applicationId && this.processName && this.typeId && this.sandboxId) {
       if (this.legacyCreators) {
         // use legacy creator iframe
-      } else {
-        // use rendered form
-        if (this.customFormTag) {
-          // use custom form
-          this.customFormDefs = [this.customFormTag];
-        }
-        // get schema
-        this.processesService.getCreator(this.sandboxId, this.applicationId, this.typeId, this.processName).subscribe(
-          next => {
-            this.process = next;
-          },
-          error => {
-            console.error('Unable to get creator info');
-            console.error(error);
-          }
-        );
+        this.useLegacy = this.legacyCreators;
       }
+      // use rendered form
+      if (this.customFormTag) {
+        // use custom form
+        this.customFormDefs = [this.customFormTag];
+      }
+      // get schema
+      this.processesService.getCreator(this.sandboxId, this.applicationId, this.typeId, this.processName).subscribe(
+        next => {
+          this.process = next;
+        },
+        error => {
+          console.error('Unable to get creator info');
+          console.error(error);
+        }
+      );
     }
   }
 
