@@ -185,6 +185,7 @@ export class Process {
   jsonSchema: JsonSchema;
   name: string;
   id: string;
+  formTag: string;
   unsupportedForm: boolean;
   deserialize(input: any): this {
     Object.assign(this, input);

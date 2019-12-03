@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 import { UiAppIdConfig } from '../models/tc-app-config';
 import { flatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { TcSharedStateService } from '../services/tc-shared-state.service';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { GeneralConfig } from '../models/tc-general-config';
 import { Location } from '@angular/common';
 import { TcCoreCommonFunctions } from '../common/tc-core-common-functions';
@@ -47,7 +47,8 @@ export class GeneralLandingPageConfigResolver implements Resolve<Observable<Gene
 
     // loads uiAppId from json file in assets (appId.json)
     private getAppId = (): Observable<UiAppIdConfig> => {
-        return this.http.get(this.APP_ID_URL).pipe(
+        const headers = new HttpHeaders().set('cacheResponse', 'true');
+        return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
             map(uiAppId => {
                 const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
                 this.uiAppId = uiAppIdConfig.uiAppId;
