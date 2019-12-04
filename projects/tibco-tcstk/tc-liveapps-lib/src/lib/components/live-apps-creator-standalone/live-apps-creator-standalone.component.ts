@@ -4,6 +4,7 @@ import {CaseCreator, Process, ProcessId} from '../../models/liveappsdata';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {take, takeUntil} from 'rxjs/operators';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
+import {TcCaseDataService} from '../../services/tc-case-data.service';
 
 /**
  * Handles rendering of case creator form.
@@ -131,7 +132,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
     this.caseCreated.emit(processResponse);
   }
 
-  constructor(protected liveapps: LiveAppsService, protected processesService: TcCaseProcessesService) {
+  constructor(protected liveapps: LiveAppsService, protected processesService: TcCaseProcessesService, protected caseDataService: TcCaseDataService) {
     super();
   }
 
@@ -156,7 +157,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
         this.customFormDefs = [this.customFormTag];
       }
       // get schema
-      this.processesService.getCreator(this.sandboxId, this.applicationId, this.typeId, this.processName).subscribe(
+      this.processesService.getProcess(this.sandboxId, this.applicationId, this.typeId, this.processName, 'creator').subscribe(
         next => {
           this.process = next;
         },

@@ -3,7 +3,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule, Injector} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {
-  CaseGuard,
+  CaseGuard, LiveAppsActionStandaloneComponent,
   LiveAppsCaseCockpitComponent, LiveAppsCreatorStandaloneComponent,
   LiveAppsHomeCockpitComponent,
   LiveAppsLoginComponent,
@@ -86,7 +86,8 @@ import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneCom
     LiveAppsCaseCockpitComponent,
     LiveAppsHomeCockpitStandaloneComponent,
     LiveAppsCaseCockpitStandaloneComponent,
-    LiveAppsCreatorStandaloneComponent
+    LiveAppsCreatorStandaloneComponent,
+    LiveAppsActionStandaloneComponent
   ]
 })
 export class AppModule {
@@ -113,6 +114,9 @@ export class AppModule {
       const creatorEleStandAlone = createCustomElement(LiveAppsCreatorStandaloneComponent,
         {injector: this.injector});
       customElements.define('live-apps-creator', creatorEleStandAlone);
+      const actionEleStandAlone = createCustomElement(LiveAppsActionStandaloneComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-action', actionEleStandAlone);
     }
   }
 }

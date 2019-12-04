@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Starters Action Page</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:900,200,700,300,600,400' rel='stylesheet' type='text/css'>
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"  type="text/css" rel="stylesheet" />
+  <script src="tcstk-elements.js"></script>
+  <link href="tcstk-elements.css" type="text/css" rel="stylesheet"/>
+  <link href="element-styles.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+
+<!--
+***** live-apps-action element *****
+-->
+
+
+<!--
+ **** Note when using legacy (OOTB case manager) forms ****
+
+ 1: Legacy forms only works when UI app is deployed to Tibco Cloud
+ 2: Requires deployment of process-app as appId 'process-app'
+ 3: Uncomment below iframe and set laCreatorElement.legacyCreators = true
+ 4: Creating a case using legacy forms does NOT return a case reference or case Id
+
+ ****
+-->
+<!--iframe id="legacyProcessFrame" style="box-sizing: border-box; border: none; position: absolute; left:1000px;top:-1000px; height: 0px" src="/webresource/apps/process-app/index.html#/process/-1"></iframe-->
+
+<live-apps-action class="tcstk-elements-main-component" sandbox-id=3534 id="laActionElement" type-id="1" process-name="Submit Request for Review" application-id="2335" case-ref="3135151"></live-apps-action>
+
+<script>
+  // handle event from creator element on case creation
+  const laActionElement = document.getElementById('laActionElement');
+  // can't pass booleans as attributes on web components (will always be true if passed)
+  // laActionElement.legacyActions = true;
+  laActionElement.addEventListener('caseCreated', function(event) {
+    console.log(event.detail);
+  });
+</script>
+
+</body>
+</html>
