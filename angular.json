@@ -48,6 +48,7 @@
               "src/assets",
               "src/loginElement.html",
               "src/creatorElement.html",
+              "src/actionElement.html",
               "src/caseElement.html",
               "src/homeElement.html",
               "src/tcstk-elements.js",

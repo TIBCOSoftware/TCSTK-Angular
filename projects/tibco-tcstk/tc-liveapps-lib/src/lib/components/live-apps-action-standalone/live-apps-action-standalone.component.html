@@ -1,0 +1,4 @@
+<div fxFill>
+  <tcfrm-rendered-form *ngIf="process && !useLegacy" style="overflow: auto;" [formsFramework]="formsFramework" [customFormDefs]=customFormDefs [formRef]="process.formTag" [appId]="applicationId" [customFormDefs]="customFormDefs" [schema]="process.jsonSchema" [layout]="layout" [data]="data" [caseRef]="caseRef" [options]="options" (formSubmit)="handleSubmit($event, caseRef)"></tcfrm-rendered-form>
+  <tcla-live-apps-legacy-process *ngIf="process && useLegacy && caseRef" [process]="{ process: process }" [type]="'action'" [applicationId]="applicationId" [typeId]="typeId" [caseRef]="caseRef" [caseState]="caseState" (processCancelled)="handleLegacyProcessCancelled()" (processComplete)="handleLegacyProcessComplete()" class="live-apps-widget" fxFill></tcla-live-apps-legacy-process>
+</div>

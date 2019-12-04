@@ -83,10 +83,10 @@ export class TcCaseProcessesService {
       );
   }
 
-  public getCreator(sandboxId: number, appId: string, typeId: string, processName: string): Observable<Process> {
+  public getProcess(sandboxId: number, appId: string, typeId: string, processName: string, processType: string): Observable<Process> {
     let url = '/case/v1/types?$sandbox=' + sandboxId;
     url = url + '&$filter=applicationId eq ' + appId;
-    url = url + '&$select=b,c';
+    url = url + '&$select=b,c,ac';
     return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -96,12 +96,12 @@ export class TcCaseProcessesService {
               return casetype.id === '1';
             });
             if (ctype.length > 0) {
-              const matches = ctype[0].creators.filter((process: Process) => {
+              const matches = ctype[0][processType + 's'].filter((process: Process) => {
                 return process.name === processName;
               });
               if (matches && matches.length > 0) {
                 // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
-                matches[0].formTag = casetypes[0].applicationName + '.' + casetypes[0].applicationInternalName + '.' + 'creator' + '.' + matches[0].name;
+                matches[0].formTag = casetypes[0].applicationName + '.' + casetypes[0].applicationInternalName + '.' + processType + '.' + matches[0].name;
                 return matches[0];
               }
             } else {
