@@ -71,7 +71,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
   options: any;
   process: Process;
   isCustomForm = false;
-  customFormDefs: string[] = [];
+  customFormDefs: any;
   useLegacy = false;
 
   handleSubmit = (data, caseRef) => {
@@ -154,7 +154,7 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
       // use rendered form
       if (this.customFormTag) {
         // use custom form
-        this.customFormDefs = [this.customFormTag];
+        this.customFormDefs = { customForms: [this.customFormTag] };
       }
       // get schema
       this.processesService.getProcess(this.sandboxId, this.applicationId, this.typeId, this.processName, 'creator').subscribe(
