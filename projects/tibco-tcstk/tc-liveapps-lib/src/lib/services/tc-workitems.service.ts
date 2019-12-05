@@ -21,10 +21,10 @@ export class TcWorkitemsService {
 
     let filter: string;
     if (!caseRef) {
-      // filter using appIds
-      const filterStr = 'applicationId eq \'<appId>\'';
-
+      let filterStr;
       if (appIds && appIds.length > 0) {
+        // filter using appIds
+        filterStr = 'applicationId eq \'<appId>\'';
         appIds.forEach(appId => {
           if (!filter) {
             filter = filterStr.replace('<appId>', appId);
@@ -37,7 +37,10 @@ export class TcWorkitemsService {
       // filter using caseRef
       filter = 'caseref eq ' + caseRef;
     }
-    url = url + '&$filter=' + filter;
+    if (filter) {
+      url = url + '&$filter=' + filter;
+    }
+
 
     return this.http.get(url)
       .pipe(

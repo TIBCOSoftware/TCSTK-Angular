@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import {CaseInfoWithSchema, PurgeResult} from '../models/tc-case-data';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {TcCaseCardConfigService} from './tc-case-card-config.service';
+import {LaProcessSelection} from '../models/tc-case-processes';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,16 @@ import {TcCaseCardConfigService} from './tc-case-card-config.service';
 export class TcCaseDataService {
 
   constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private caseCardConfigService: TcCaseCardConfigService) { }
+
+  public getMainCaseTypeFromSchema(typeId: string, process: LaProcessSelection): CaseType {
+    let requestedType: CaseType;
+    process.appSchema.casetypes.forEach((cType) => {
+      if (cType.id === typeId) {
+        requestedType = cType;
+      }
+    });
+    return requestedType;
+  }
 
   public getCaseState(caseRef: string, sandboxId: number): Observable<string> {
     const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=s';
