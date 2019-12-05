@@ -79,7 +79,7 @@ export class LiveAppsActionStandaloneComponent extends LiveAppsCreatorStandalone
   options: any;
   process: Process;
   isCustomForm = false;
-  customFormDefs: string[] = [];
+  customFormDefs: any;
   useLegacy = false;
   caseState: string;
 
@@ -93,7 +93,7 @@ export class LiveAppsActionStandaloneComponent extends LiveAppsCreatorStandalone
       // use rendered form
       if (this.customFormTag) {
         // use custom form
-        this.customFormDefs = [this.customFormTag];
+        this.customFormDefs = { customForms: [this.customFormTag] };
       }
       // get process details and case data
       const forkJoinArray = [];
