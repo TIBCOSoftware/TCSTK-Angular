@@ -83,6 +83,38 @@ export class TcCaseProcessesService {
       );
   }
 
+  public getProcess(sandboxId: number, appId: string, typeId: string, processName: string, processType: string): Observable<Process> {
+    let url = '/case/v1/types?$sandbox=' + sandboxId;
+    url = url + '&$filter=applicationId eq ' + appId;
+    url = url + '&$select=b,c,ac';
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map((casetypes: CaseType[]) => {
+          if (casetypes && casetypes.length > 0) {
+            const ctype = casetypes.filter(casetype => {
+              return casetype.id === '1';
+            });
+            if (ctype.length > 0) {
+              const matches = ctype[0][processType + 's'].filter((process: Process) => {
+                return process.name === processName;
+              });
+              if (matches && matches.length > 0) {
+                // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                matches[0].formTag = casetypes[0].applicationName + '.' + casetypes[0].applicationInternalName + '.' + processType + '.' + matches[0].name;
+                return matches[0];
+              }
+            } else {
+              throwError('Unable to find process schema for processName: ' + processName);
+            }
+          } else {
+            throwError('Unable to find casetype for appId: ' + appId);
+          }
+        }
+      )
+      );
+  }
+
   private getCaseIDAttributeName = (caseType: CaseType) => {
     let caseIdAttrib: any;
     caseType.attributes.forEach((attribute) => {

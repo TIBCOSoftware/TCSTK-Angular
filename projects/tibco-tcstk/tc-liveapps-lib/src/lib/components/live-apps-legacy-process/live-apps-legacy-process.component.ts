@@ -64,7 +64,7 @@ export class LiveAppsLegacyProcessComponent extends LiveAppsComponent implements
     this.formDiv.contentWindow.postMessage({
       action: this.type === 'creator' ? 'runCreator' : 'runAction',
       processId: process.process.id,
-      caseRef: process.caseReference,
+      caseRef: this.caseRef,
       caseState: this.caseState,
       applicationId: this.applicationId,
       typeId: this.typeId
