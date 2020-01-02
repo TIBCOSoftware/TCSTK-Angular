@@ -21,6 +21,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
 import {Location} from '@angular/common';
 import {EMAIL_ID_KEY, CLIENT_ID_KEY} from '../resolvers/login-prefill.resolver';
+import {TC_API_KEY, TC_BASE_URL} from '../common/tc-base-url';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,10 @@ export class TcLoginService {
     localStorage.setItem(EMAIL_ID_KEY, username);
     localStorage.setItem(CLIENT_ID_KEY, clientID);
 
-
-    const url = '/idm/v3/login-oauth';
+    let url = TC_BASE_URL + '/idm/v3/login-oauth';
+    if (TC_API_KEY) {
+      url = url + '?' + TC_API_KEY;
+    }
     const body = new HttpParams()
       .set('Email', username)
       .set('Password', password)
@@ -45,14 +48,17 @@ export class TcLoginService {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
 
-    return this.http.post(url, body.toString(), { headers })
+    return this.http.post(url, body.toString(), { headers, withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map( authInfo => new AuthInfo().deserialize(authInfo)));
   }
 
   public loginV2(username, password): Observable<AccessToken> {
-    const url = '/as/token.oauth2';
+    let url = TC_BASE_URL + '/as/token.oauth2';
+    if (TC_API_KEY) {
+      url = url + '?' + TC_API_KEY;
+    }
     const body = new HttpParams()
       .set('username', username)
       .set('password', password)
@@ -61,7 +67,7 @@ export class TcLoginService {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
 
-    return this.http.post(url, body.toString(), { headers })
+    return this.http.post(url, body.toString(), { headers, withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map( accessToken => new AccessToken().deserialize(accessToken)));
@@ -70,7 +76,10 @@ export class TcLoginService {
 
   // Provide ability to authorize against live apps (note tenantId: bpm)
   public laAuthorize(accessToken: AccessToken, accountId): Observable<AuthInfo> {
-    const url = '/idm/v2/login-oauth';
+    let url = TC_BASE_URL + '/idm/v2/login-oauth';
+    if (TC_API_KEY) {
+      url = url + '?' + TC_API_KEY;
+    }
     const body = new HttpParams()
       .set('AccessToken', accessToken.access_token)
       .set('TenantId', 'bpm')
@@ -79,7 +88,7 @@ export class TcLoginService {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
 
-    return this.http.post(url, body.toString(), { headers })
+    return this.http.post(url, body.toString(), { headers, withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map( authInfo => new AuthInfo().deserialize(authInfo)));

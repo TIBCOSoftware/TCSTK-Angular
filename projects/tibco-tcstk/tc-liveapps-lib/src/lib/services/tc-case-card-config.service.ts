@@ -1,5 +1,13 @@
 import {Injectable} from '@angular/core';
-import {SharedStateContent, SharedStateEntry, SharedStateList, TcCoreCommonFunctions, TcSharedStateService, UiAppConfig} from '@tibco-tcstk/tc-core-lib';
+import {
+  SharedStateContent,
+  SharedStateEntry,
+  SharedStateList, TC_API_KEY,
+  TC_BASE_URL,
+  TcCoreCommonFunctions,
+  TcSharedStateService,
+  UiAppConfig
+} from '@tibco-tcstk/tc-core-lib';
 import {forkJoin, Observable, of, throwError} from 'rxjs';
 import {ApiResponseError, CardConfig, CaseInfo, CaseTypeState, CaseTypeStatesList, IconMap, UserInfo} from '../models/liveappsdata';
 import {LiveAppsService} from './live-apps.service';
@@ -258,8 +266,11 @@ export class TcCaseCardConfigService {
 
   public getCaseWithSummary(caseRef: string, sandboxId: number, uiAppId: string): Observable<CaseInfo> {
     // get the base caseinfo from the API, then call parseCaseInfo to create an Observable with all the extra data we need
-    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=cr, uc, m, s';
-    return this.http.get(url).pipe(
+    let url = TC_BASE_URL + '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=cr, uc, m, s';
+    if (TC_API_KEY) {
+      url = url + '&' + TC_API_KEY;
+    }
+    return this.http.get(url, { withCredentials: true }).pipe(
       mergeMap(caseinfo => {
           const caseinf = new CaseInfo().deserialize(caseinfo);
           if (caseinf.caseReference === undefined) {

@@ -55,6 +55,7 @@ import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-elemen
 import {MessageTopicService} from './common/tc-core-topic-comm';
 import {TcVisibilityService} from './services/tc-visibility.service';
 import {LegacyIframeService} from './services/legacy-iframe.service';
+import {TC_BASE_URL} from './common/tc-base-url';
 
 @NgModule({
   declarations: [
