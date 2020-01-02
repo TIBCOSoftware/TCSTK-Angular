@@ -18,7 +18,7 @@ export class FormResolver implements Resolve<Observable<CustomFormDefs>> {
 
   resolve(): Observable<CustomFormDefs> {
     const headers = new HttpHeaders().set('cacheResponse', 'true');
-    return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.CUSTOM_FORMS_CONFIG_URL), { headers }).pipe(
+    return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.CUSTOM_FORMS_CONFIG_URL), { headers, withCredentials: true }).pipe(
       map(formsConfig => {
         return new CustomFormDefs().deserialize(formsConfig);
       })

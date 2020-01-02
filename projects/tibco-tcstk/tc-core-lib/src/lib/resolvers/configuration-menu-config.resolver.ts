@@ -22,13 +22,13 @@ export class ConfigurationMenuConfigResolver implements Resolve<Observable<Confi
 
     // can be used to load defaultAppConfig from a JSON config
     private getConfigurationMenuConfig = (uiAppId: string) => {
-        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL.replace('<uiAppId>', uiAppId)));
+        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL.replace('<uiAppId>', uiAppId)), { withCredentials: true });
     }
 
     // loads uiAppId from json file in assets (appId.json)
     private getAppId = (): Observable<UiAppIdConfig> => {
       const headers = new HttpHeaders().set('cacheResponse', 'true');
-      return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
+      return this.http.get(this.APP_ID_URL, { headers: headers, withCredentials: true}).pipe(
             map(uiAppId => {
                 const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
                 return uiAppIdConfig;

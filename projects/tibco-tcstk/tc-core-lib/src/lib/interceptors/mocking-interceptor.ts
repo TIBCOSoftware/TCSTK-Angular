@@ -26,7 +26,7 @@ export class MockingInterceptor implements HttpInterceptor {
   }
 
   public readMockJSON(url): Observable<any> {
-    return this.http.get(url);
+    return this.http.get(url, { withCredentials: true });
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
