@@ -1,0 +1,122 @@
+import { BrowserModule } from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, Injector} from '@angular/core';
+
+import { AppComponent } from './app.component';
+import {
+  CaseGuard, LiveAppsActionStandaloneComponent,
+  LiveAppsCaseCockpitComponent, LiveAppsCreatorStandaloneComponent,
+  LiveAppsHomeCockpitComponent,
+  LiveAppsLoginComponent,
+  TcLiveappsLibModule
+} from '@tibco-tcstk/tc-liveapps-lib';
+import {Location} from '@angular/common';
+import { RouterModule } from '@angular/router';
+import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {
+  MatButtonModule, MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule, MatDialogModule,
+  MatExpansionModule,
+  MatFormFieldModule, MatIconModule, MatInputModule,
+  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule,
+  MatTabsModule, MatToolbarModule, MatTooltipModule
+} from '@angular/material';
+import {CachingInterceptor, LogService, TcCoreLibModule} from '@tibco-tcstk/tc-core-lib';
+import {TcMessagingLibModule} from '@tibco-tcstk/tc-messaging-lib';
+import {LoginComponent} from './routes/login/login.component';
+import {HomeComponent} from './routes/home/home.component';
+import {AppRoutingModule} from './app-routing.module';
+import {StarterAppComponent} from './routes/starter-app/starter-app.component';
+import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
+import {CaseComponent} from './routes/case/case.component';
+import { ConfigurationComponent } from './routes/configuration/configuration.component';
+import { ShowcaseComponent } from './routes/showcase/showcase.component';
+import { SplashComponent } from './routes/splash/splash.component';
+import {createCustomElement} from '@angular/elements';
+import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneComponent} from '@tibco-tcstk/tc-liveapps-lib';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    StarterAppComponent,
+    HomeComponent,
+    CaseComponent,
+    ConfigurationComponent,
+    ShowcaseComponent,
+    SplashComponent
+  ],
+  imports: [
+    AppRoutingModule,
+    TcCoreLibModule.forRoot(),
+    TcFormsLibModule,
+    TcLiveappsLibModule.forRoot(),
+    TcMessagingLibModule,
+    FlexLayoutModule,
+    BrowserModule,
+    FormsModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatTabsModule,
+    MatButtonToggleModule,
+    ReactiveFormsModule
+  ],
+  providers: [LogService],
+  exports: [
+  ],
+  schemas: [],
+  entryComponents: [
+    LiveAppsLoginComponent,
+    LiveAppsHomeCockpitComponent,
+    LiveAppsCaseCockpitComponent,
+    LiveAppsHomeCockpitStandaloneComponent,
+    LiveAppsCaseCockpitStandaloneComponent,
+    LiveAppsCreatorStandaloneComponent,
+    LiveAppsActionStandaloneComponent
+  ]
+})
+export class AppModule {
+
+  constructor(private injector: Injector) {}
+
+  ngDoBootstrap() {
+    if (!customElements.get('live-apps-login')) {
+      const loginEle = createCustomElement(LiveAppsLoginComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-login', loginEle);
+      const homeEle = createCustomElement(LiveAppsHomeCockpitComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-home-comp', homeEle);
+      const homeEleStandAlone = createCustomElement(LiveAppsHomeCockpitStandaloneComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-home', homeEleStandAlone);
+      const caseEle = createCustomElement(LiveAppsCaseCockpitComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-case-comp', caseEle);
+      const caseEleStandAlone = createCustomElement(LiveAppsCaseCockpitStandaloneComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-case', caseEleStandAlone);
+      const creatorEleStandAlone = createCustomElement(LiveAppsCreatorStandaloneComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-creator', creatorEleStandAlone);
+      const actionEleStandAlone = createCustomElement(LiveAppsActionStandaloneComponent,
+        {injector: this.injector});
+      customElements.define('live-apps-action', actionEleStandAlone);
+    }
+  }
+}

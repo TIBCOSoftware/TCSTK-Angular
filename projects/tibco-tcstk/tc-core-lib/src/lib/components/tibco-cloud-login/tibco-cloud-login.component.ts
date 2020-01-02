@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {AccountsInfo, LoginPrefill, Subscription} from '../../models/tc-login';
 import {Observable, ObservableInput} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
@@ -18,7 +18,7 @@ import {TcLoginService} from '../../services/tc-login.service';
     styleUrls: ['./tibco-cloud-login.component.css']
 })
 
-export class TibcoCloudLoginComponent  implements OnInit {
+export class TibcoCloudLoginComponent implements OnChanges {
 
   /**
    * Notify parent that user is logged in ok.
@@ -48,18 +48,6 @@ export class TibcoCloudLoginComponent  implements OnInit {
 
   }
 
-  /**
-  * @ignore
-  */
-  ngOnInit() {
-    console.log('Login Init');
-
-    if (this.loginPrefill) {
-      this.name = this.loginPrefill.emailId;
-      this.clientId = this.loginPrefill.clientId;
-    }
-  }
-
   doLogin() {
         this.loading = true;
         this.loginError = undefined;
@@ -85,4 +73,12 @@ export class TibcoCloudLoginComponent  implements OnInit {
               console.error(error);
           });
     }
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+    if (this.loginPrefill) {
+      this.name = this.loginPrefill.emailId;
+      this.clientId = this.loginPrefill.clientId;
+    }
+  }
 }

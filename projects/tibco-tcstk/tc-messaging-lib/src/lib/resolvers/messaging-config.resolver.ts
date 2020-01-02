@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 import {Resolve, Router} from '@angular/router';
 import {Observable, of, throwError} from 'rxjs';
 import {catchError, flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Location} from '@angular/common';
 import {EFTLConfigService} from '../services/e-ftl-config.service';
 import {MessagingConfig} from '../models/messaging-config';
@@ -43,7 +43,8 @@ export class MessagingConfigResolver implements Resolve<Observable<MessagingConf
 
   // loads uiAppId from json file in assets (appId.json)
   private getAppId = (): Observable<UiAppIdConfig> => {
-    return this.http.get(this.APP_ID_URL).pipe(
+      const headers = new HttpHeaders().set('cacheResponse', 'true');
+      return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
       map(uiAppId => {
         const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
         this.uiAppId = uiAppIdConfig.uiAppId;

@@ -36,7 +36,8 @@ export class AccessControlConfigurationResolver implements Resolve<Observable<Ro
 
     // loads uiAppId from json file in assets (appId.json)
     private getAppId = (): Observable<UiAppIdConfig> => {
-        return this.http.get(this.APP_ID_URL).pipe(
+        const headers = new HttpHeaders().set('cacheResponse', 'true');
+        return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
             map(uiAppId => {
                 const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
                 this.uiAppId = uiAppIdConfig.uiAppId;

@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import {TcCoreCommonFunctions, UiAppConfig, UiAppIdConfig} from '@tibco-tcstk/tc-core-lib';
 import {flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
 import {TcSharedStateService} from '@tibco-tcstk/tc-core-lib';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {TcLiveAppsConfigService} from '../services/tc-live-apps-config.service';
 import {LiveAppsConfig} from '../models/tc-liveapps-config';
 import {TcCaseCardConfigService} from '../services/tc-case-card-config.service';
@@ -35,7 +35,8 @@ export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig
 
   // loads uiAppId from json file in assets (appId.json)
   private getAppId = (): Observable<UiAppIdConfig> => {
-    return this.http.get(this.APP_ID_URL).pipe(
+    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
       map(uiAppId => {
           const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
           this.uiAppId = uiAppIdConfig.uiAppId;
