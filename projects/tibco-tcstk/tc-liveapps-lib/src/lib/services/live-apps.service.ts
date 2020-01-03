@@ -830,5 +830,22 @@ export class LiveAppsService {
       );
   }
 
+  public tokenRefresh(): Observable<any> {
+    if (TC_BASE_URL) {
+      return this.tokenRefreshCustom();
+    } else {
+      return this.getClaims();
+    }
+  }
 
+  public tokenRefreshCustom(): Observable<any> {
+    let url = TC_BASE_URL + '/tokenRefresh';
+    if (TC_API_KEY) {
+      url = url + '?' + TC_API_KEY;
+    }
+    return this.http.get(url, { withCredentials: true } )
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+      );
+  }
 }
