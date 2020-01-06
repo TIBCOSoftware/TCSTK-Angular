@@ -1,3 +1,8 @@
+::ng-deep .tcs-dynamic-action-list .mat-option {
+  min-width: 200px !important;
+  max-width: 200px !important;
+}
+
 .tcs-case-action-button {
   margin-left: 5px;
   margin-right: 5px;

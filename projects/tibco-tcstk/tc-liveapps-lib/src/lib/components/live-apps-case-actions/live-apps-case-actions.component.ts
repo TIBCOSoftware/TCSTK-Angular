@@ -34,6 +34,11 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   @Input() appId: string;
 
   /**
+   * Whether to load actions on component load. Default false.
+   */
+  @Input() loadOnDemand = this.loadOnDemand ? this.loadOnDemand : false
+
+  /**
    * The LA Application Type Id (generally 1)
    */
   @Input() typeId: string;
@@ -64,6 +69,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   public caseactions: CaseAction[];
   public errorMessage: string;
   public disabled = false;
+  public isLoading = true;
 
   appSchema: CaseTypesList;
   caseType: CaseType;
@@ -74,12 +80,14 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   public refresh = () => {
+    this.isLoading = true;
     this.caseProcessesService.getCaseActionsForCaseRef(this.caseRef, this.sandboxId, this.appId, this.typeId)
       .pipe(
         take(1),
         takeUntil(this._destroyed$)
       ).subscribe(
       caseactions => {
+        this.caseactions = [];
         if (this.actionFilter) {
           caseactions.actions = caseactions.actions.filter(act => {
             // check if it matches any of the actionFilters
@@ -93,6 +101,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
           });
         }
         this.caseactions = caseactions.actions;
+        this.isLoading = false;
       }, error => { this.errorMessage = 'Error retrieving case actions: ' + error.error.errorMsg; });
   }
 
@@ -123,6 +132,12 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   ngOnInit() {
+    if (!this.loadOnDemand) {
+      this.refresh();
+    }
+  }
+
+  loadActions(event) {
     this.refresh();
   }
 
