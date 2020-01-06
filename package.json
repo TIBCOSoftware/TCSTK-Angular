@@ -51,8 +51,8 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.19",
-    "@angular-devkit/build-ng-packagr": "~0.803.19",
+    "@angular-devkit/build-angular": "~0.803.21",
+    "@angular-devkit/build-ng-packagr": "~0.803.21",
     "@angular/cli": "~8.3.21",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "~8.2.14",
@@ -60,8 +60,8 @@
     "@types/node": "~12.12.22",
     "codelyzer": "^5.2.1",
     "ng-packagr": "^5.7.1",
-    "ts-node": "~8.5.2",
-    "tsickle": "^0.36.0",
+    "ts-node": "~8.5.4",
+    "tsickle": "^0.37.1",
     "tslint": "~5.20.1",
     "typescript": "~3.4.5",
     "fs-extra": "^8.1.0",
