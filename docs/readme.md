@@ -2,6 +2,15 @@
 
 Pattern Apps are Pre-built applications connected with one or more TIBCO Cloud Service Offerings as a ready to use Solution Template and available as Source for Developers on GitHub and NPM.
 
+#### Base App
+
+App contains the essentials for you to build your TIBCO Cloud solution from scratch, including from authorization and navigation to standard configuration options.
+
+![alt-text](Basepreview.png "Base App Preview Image")
+
+- [Pattern App Details](https://tibcosoftware.github.io/TCSToolkit/Angular/starters/TCSTK-base-app/readme/) 
+- [Git Source](https://github.com/TIBCOSoftware/TCSTK-base-app/)
+
 #### Case Manager App
 
 App contains all kind of Case Management Features like Case Search, Case Details, Case Actions, Audit Trails, Case Notes, Collaboration, etc. This Pattern App is very TIBCO Cloud LiveApps centric.
@@ -15,8 +24,8 @@ App contains all kind of Case Management Features like Case Search, Case Details
 
 Watch out for very soon upcoming additional Apps:
 
-- Base App ... just containing a few empty Views
 - Messaging App ... as a real-time Client 
+- Analytics App ... connecting to TIBCO Cloud Spotfire 
 
 > more to be added over time.
 
