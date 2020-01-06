@@ -1,4 +1,21 @@
-<div fxLayout="row">
+<div *ngIf="loadOnDemand">
+  <div fxLayout="row" fxLayoutAlign="center center" style="width: 100px">
+    <mat-select fxFlex class="tcs-case-action-option" panelClass="tcs-dynamic-action-list" (openedChange)="loadActions($event)" [disableOptionCentering]="false" placeholder="Actions" matTooltip="" matTooltipShowDelay="1000" matTooltipPosition="below">
+      <mat-option disabled *ngIf="isLoading">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <span>Loading</span>
+          <div fxFlex fxLayoutAlign="end center">
+            <mat-spinner class="spinner" diameter="20"></mat-spinner>
+          </div>
+        </div>
+      </mat-option>
+      <mat-option *ngFor="let action of caseactions" [value]="" (click)="selectAction(action)">
+        <span>{{action.label}}</span>
+      </mat-option>
+    </mat-select>
+  </div>
+</div>
+<div *ngIf="!loadOnDemand" fxLayout="row">
   <button [disabled]="disabled" [ngClass]="disabled ? 'disabled' : ''" mat-button class="tcs-case-action-button" *ngFor="let action of caseactions| slice:0:maxActions"
           matTooltip="{{action.label}}" matTooltipShowDelay="1000" matTooltipPosition="above"
           (click)="selectAction(action)">

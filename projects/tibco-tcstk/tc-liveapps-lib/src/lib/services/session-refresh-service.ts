@@ -12,6 +12,7 @@
 
 import { Injectable } from '@angular/core';
 import {LiveAppsService} from './live-apps.service';
+import {tap} from 'rxjs/operators';
 
 
 @Injectable({
@@ -30,7 +31,9 @@ export class SessionRefreshService {
   }
 
   private refreshFunction = () => {
-    this.liveappsService.tokenRefresh().subscribe(
+    this.liveappsService.tokenRefresh().pipe(
+      tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
+    ).subscribe(
       next => {
         // console.log('token refreshed: ', next);
         this.scheduleCookieRefresh(this.delay);

@@ -284,9 +284,9 @@ export class TcLiveappsLibModule {
         };
     }
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private sessionRefreshService: SessionRefreshService) {
-      // setup cookie refresh for every 15 minutes
-      // this.sessionRefreshService.scheduleCookieRefresh(900000);
-    this.sessionRefreshService.scheduleCookieRefresh(900000);
+      // setup cookie refresh for every 10 minutes
+      // this.sessionRefreshService.scheduleCookieRefresh(600000);
+    this.sessionRefreshService.scheduleCookieRefresh(600000);
       this.matIconRegistry.addSvgIconLiteral(
       'ic-no-cases-icon',
       this.domSanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">\n' +
