@@ -61,6 +61,7 @@ export * from './lib/resolvers/login-prefill.resolver';
 export * from './lib/common/tc-core-common-functions';
 export * from './lib/common/tc-core-queue-comm';
 export * from './lib/common/tc-core-topic-comm';
+export * from './lib/common/tc-base-url';
 
 // pipes
 export * from './lib/pipes/duration-since.pipe';

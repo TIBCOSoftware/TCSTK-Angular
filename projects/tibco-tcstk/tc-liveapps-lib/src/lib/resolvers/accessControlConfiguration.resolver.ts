@@ -31,13 +31,13 @@ export class AccessControlConfigurationResolver implements Resolve<Observable<Ro
 
     // can be used to load defaultAppConfig from a JSON config
     private getDefaultAppConfig = () => {
-        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL));
+        return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.DEFAULT_CONFIG_URL), { withCredentials: true });
     }
 
     // loads uiAppId from json file in assets (appId.json)
     private getAppId = (): Observable<UiAppIdConfig> => {
         const headers = new HttpHeaders().set('cacheResponse', 'true');
-        return this.http.get(this.APP_ID_URL, { headers: headers }).pipe(
+        return this.http.get(this.APP_ID_URL, { headers: headers, withCredentials: true }).pipe(
             map(uiAppId => {
                 const uiAppIdConfig = new UiAppIdConfig().deserialize(uiAppId);
                 this.uiAppId = uiAppIdConfig.uiAppId;
