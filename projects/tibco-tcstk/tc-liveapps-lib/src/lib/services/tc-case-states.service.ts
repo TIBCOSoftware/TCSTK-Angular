@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
 import {StateTrackerData, StateTracker, TrackerState, StateAuditEventList, StateAuditEvent} from '../models/tc-case-states';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {Location} from '@angular/common';
-import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TC_API_KEY, TC_BASE_URL, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 const MILESTONE_SVG = {
   END_SECTION_COMPLETED_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
@@ -172,11 +172,13 @@ export class TcCaseStatesService {
 
   public getCaseStateAudit(caseRef: string, sandboxId: number): Observable<StateAuditEventList> {
 
-    const url = '/event/v1/auditEvents?$sandbox=' + sandboxId
+    let url = TC_BASE_URL + '/event/v1/auditEvents?$sandbox=' + sandboxId
       + '&$filter=type eq \'casestate\''
       + ' and id eq \'' + caseRef + '\'';
-
-    return this.http.get(url)
+    if (TC_API_KEY) {
+      url = url + '&' + TC_API_KEY;
+    }
+    return this.http.get(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseaudit => new StateAuditEventList().deserialize(caseaudit)));

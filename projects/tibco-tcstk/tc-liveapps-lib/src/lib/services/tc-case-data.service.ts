@@ -7,6 +7,7 @@ import {CaseInfoWithSchema, PurgeResult} from '../models/tc-case-data';
 import {map, mergeMap, tap} from 'rxjs/operators';
 import {TcCaseCardConfigService} from './tc-case-card-config.service';
 import {LaProcessSelection} from '../models/tc-case-processes';
+import {TC_API_KEY, TC_BASE_URL} from '@tibco-tcstk/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,11 @@ export class TcCaseDataService {
   }
 
   public getCaseState(caseRef: string, sandboxId: number): Observable<string> {
-    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=s';
-    return this.http.get(url)
+    let url = TC_BASE_URL + '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=s';
+    if (TC_API_KEY) {
+      url = url + '&' + TC_API_KEY;
+    }
+    return this.http.get(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfo => {
@@ -40,8 +44,11 @@ export class TcCaseDataService {
 
 
   public purgeAllCases(applicationId: string, typeId: string, sandboxId: number): Observable<PurgeResult> {
-    const url = '/case/v1/cases/?$sandbox=1930&$filter=applicationId eq 2550 and typeId eq 1 and purgeable eq TRUE';
-    return this.http.delete(url)
+    let url = TC_BASE_URL + '/case/v1/cases/?$sandbox=1930&$filter=applicationId eq 2550 and typeId eq 1 and purgeable eq TRUE';
+    if (TC_API_KEY) {
+      url = url + '&' + TC_API_KEY;
+    }
+    return this.http.delete(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(result => {
@@ -55,8 +62,10 @@ export class TcCaseDataService {
 
   public getCaseWithSchema(
     caseRef: string, sandboxId: number, appId: string, typeId: string, uiAppId: string): Observable<CaseInfoWithSchema> {
-    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
-
+    let url = TC_BASE_URL + '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
+    if (TC_API_KEY) {
+      url = url + '&' + TC_API_KEY;
+    }
     // Make the two required API calls
 
     const caseSchema = this.liveAppsService.getCaseTypeSchema(sandboxId, appId, 100).pipe(
@@ -73,7 +82,7 @@ export class TcCaseDataService {
       })
     );
 
-    const caseData = this.http.get(url)
+    const caseData = this.http.get(url, { withCredentials: true })
       .pipe(
         tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfo => {
