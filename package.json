@@ -39,7 +39,7 @@
     "chart.js": "^2.9.3",
     "chartjs-plugin-datalabels": "^0.7.0",
     "chartjs-plugin-doughnutlabel": "^2.0.3",
-    "core-js": "^3.4.3",
+    "core-js": "^3.6.2",
     "document-register-element": "^1.14.3",
     "lodash-es": "^4.17.15",
     "ng2-charts": "^2.3.0",
