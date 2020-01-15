@@ -1,12 +1,15 @@
 {
   "name": "@tibco-tcstk/tc-spotfire-lib",
-  "version": "1.0.0",
+  "version": "1.1.1",
+  "scripts": {
+    "compodoc": "npx compodoc -p tsconfig.lib.json"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
     "@angular/material": "^8.2.3",
     "@angular/flex-layout": "^8.0.0-beta.27",
-    "ngx-color-picker": "^7.5.0",
+    "ngx-color-picker": "^8.2.0",
     "@tibco-tcstk/tc-core-lib": "^1.1.1",
     "@tibco/spotfire-wrapper": "^0.7.2"
   },
@@ -25,7 +28,26 @@
     "cloud",
     "tci",
     "liveapps",
-    "angular"
+    "angular",
+    "cli",
+    "tcli",
+    "cloud starter",
+    "starter",
+    "accelerator",
+    "live apps",
+    "connected",
+    "intelligence",
+    "connected intelligence cloud",
+    "cic",
+    "labs",
+    "tibco labs",
+    "analytics",
+    "framework",
+    "forms",
+    "custom forms",
+    "spotfire",
+    "analytics"
   ],
-  "license": "OTHER"
+  "license": "BSD3",
+  "description": "TCSTK Library that contains Spotfire components for your TIBCO Cloud Starter"
 }
