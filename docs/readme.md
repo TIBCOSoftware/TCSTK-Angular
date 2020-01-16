@@ -4,7 +4,7 @@ Pattern Apps are Pre-built applications connected with one or more TIBCO Cloud S
 
 #### Base App
 
-App contains the essentials for you to build your TIBCO Cloud solution from scratch, including from authorization and navigation to standard configuration options.
+App contains the essentials for you to build your TIBCO Cloud solution from scratch, including authorization and navigation to standard configuration options.
 
 ![alt-text](Basepreview.png "Base App Preview Image")
 
