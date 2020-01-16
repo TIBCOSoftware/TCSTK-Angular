@@ -42,6 +42,12 @@
       ],
       "@tibco-tcstk/tc-messaging-lib/*": [
         "dist/tibco-tcstk/tc-messaging-lib/*"
+      ],
+      "@tibco-tcstk/tc-spotfire-lib": [
+        "dist/tibco-tcstk/tc-spotfire-lib"
+      ],
+      "@tibco-tcstk/tc-spotfire-lib/*": [
+        "dist/tibco-tcstk/tc-spotfire-lib/*"
       ]
     }
   }
