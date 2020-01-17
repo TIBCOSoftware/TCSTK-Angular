@@ -1,24 +1,15 @@
 
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
-detailed description of the component and how to use it.
-
-#### Screenshot
-Screenshot Image as PNG or animated GIF
-
-![alt-text](spotfire-wrapper.png "Image")
+<p>Configuration of the TIBCO Spotfire Dashboard</p>
 
 #### Usage
-usage HTML Tags
+
+This Component can be used by using the following HTML Tag:
 
 ```html
-<tcsf-spotfire-wrapper></tcsf-spotfire-wrapper>
+<tcpd-settings-spotfire></tcpd-settings-spotfire>
 ```
-
-#### Demos
-live Showcase of the used [Sub-Component here](http://nicolas.deroche.free.fr/spotfire-wrapper/)
-
-> Showcase connected to Cloud Service
 
 <b>full development Documentation</b>
 
