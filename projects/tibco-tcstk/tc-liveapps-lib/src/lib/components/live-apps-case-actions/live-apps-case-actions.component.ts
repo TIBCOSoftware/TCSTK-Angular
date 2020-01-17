@@ -138,7 +138,9 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   }
 
   loadActions(event) {
-    this.refresh();
+    if (event) {
+      this.refresh();
+    }
   }
 
 }
