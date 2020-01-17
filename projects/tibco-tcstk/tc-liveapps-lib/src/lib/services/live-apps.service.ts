@@ -123,12 +123,15 @@ export class LiveAppsService {
         }));
   }
 
-  public getClaims(): Observable<Claim> {
+  public getClaims(disableCache?: boolean): Observable<Claim> {
     let url = TC_BASE_URL + '/organisation/v1/claims';
     if (TC_API_KEY) {
       url = url + '?' + TC_API_KEY;
     }
-    const headers = new HttpHeaders().set('cacheResponse', 'true');
+    let headers;
+    if (!disableCache) {
+      headers = new HttpHeaders().set('cacheResponse', 'true');
+    }
     return this.http.get(url, { headers: headers, withCredentials: true } )
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -834,7 +837,7 @@ export class LiveAppsService {
     if (TC_BASE_URL) {
       return this.tokenRefreshCustom();
     } else {
-      return this.getClaims();
+      return this.getClaims(false);
     }
   }
 

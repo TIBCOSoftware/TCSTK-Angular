@@ -27,17 +27,12 @@ export class SessionRefreshService {
 
   public scheduleCookieRefresh(delay: number) {
     this.delay = delay;
-    setTimeout(this.refreshFunction, delay);
+    setInterval(this.refreshFunction, delay);
   }
 
   private refreshFunction = () => {
     this.liveappsService.tokenRefresh().pipe(
       tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
-    ).subscribe(
-      next => {
-        // console.log('token refreshed: ', next);
-        this.scheduleCookieRefresh(this.delay);
-      }
-    );
+    ).subscribe();
   }
 }
