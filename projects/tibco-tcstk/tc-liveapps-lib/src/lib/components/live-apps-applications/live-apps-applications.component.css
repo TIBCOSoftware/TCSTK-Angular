@@ -2,42 +2,13 @@
   display: none;
 }
 
-:host ::ng-deep .mat-select-value {
+:host ::ng-deep .tcs-application-selector .mat-select-value {
   min-width: 100px;
   max-width: 100%;
   width: auto;
 }
 
-.la-applications-div {
-  margin-top: 50px;
-}
-
-.la-applications-card {
-  width: 500px;
-  /*  height: 300px; */
-}
-
-.la-available-sub:hover {
-  box-shadow: 0 7px 14px 0 rgba(0,0,0,.3);
-  transition: all .2s ease-in-out;
-  cursor: pointer;
-}
-
-.la-available-sub {
-  border: 1px solid #dedede;
-  border-radius: 4px;
-  box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
-  padding: 20px 31px 31px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.la-application-name {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-:host ::ng-deep  .tcs-application-selector-option .mat-select-value span {
+:host ::ng-deep .tcs-application-selector .tcs-application-selector-option .mat-select-value span {
   font-family: Source Sans Pro;
   font-size: 16px;
   font-weight: normal;
@@ -48,6 +19,6 @@
   color: #0081cb;
 }
 
-:host ::ng-deep  .tcs-application-selector-option .mat-select-arrow-wrapper div {
+:host ::ng-deep .tcs-application-selector .tcs-application-selector-option .mat-select-arrow-wrapper div {
   color: #0081cb;
 }

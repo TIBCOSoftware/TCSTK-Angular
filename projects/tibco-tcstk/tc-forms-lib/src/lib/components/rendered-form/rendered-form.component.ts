@@ -39,6 +39,12 @@ export class RenderedFormComponent implements OnInit, OnChanges {
    */
   @Output() formSubmit: EventEmitter<any> = new EventEmitter<any>();
 
+  /**
+   * ~event renderedLayout : Form Layout JSON
+   * ~payload any : The layout of the rendered form
+   */
+  @Output() renderedLayout: EventEmitter<any> = new EventEmitter<any>();
+
   formSchema: any;
   formLayout: any[];
   formData: any = {};
@@ -54,6 +60,7 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   handleLayoutOutput = (layout: any) => {
     console.log('Layout:');
     console.log(JSON.stringify(layout));
+    this.renderedLayout.emit(layout);
   }
 
   constructor(protected route: ActivatedRoute) { }
@@ -86,12 +93,12 @@ export class RenderedFormComponent implements OnInit, OnChanges {
       this.formSchema = tmpSchema;
       console.warn('*** Forms: Form Schema: ', JSON.stringify(this.formSchema));
     }
-    if (changes.data && changes.data.currentValue && (changes.data.currentValue !== changes.data.previousValue)) {
+    if (changes.data && (changes.data.currentValue !== changes.data.previousValue)) {
       this.formData = this.data;
       console.warn('*** Forms: Initial Form Data:', this.formData);
       console.warn('*** Forms: Initial Form Data (JSON):', JSON.stringify(this.formData));
     }
-    if (changes.layout && changes.layout.currentValue && (changes.layout.currentValue !== changes.layout.previousValue)) {
+    if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
       this.formLayout = this.layout;
     }
   }

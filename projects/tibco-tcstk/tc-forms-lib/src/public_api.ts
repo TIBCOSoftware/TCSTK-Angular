@@ -12,3 +12,6 @@ export * from './lib/resolvers/form.resolver';
 
 // data
 export * from './lib/models/tc-custom-forms';
+
+// directives
+export * from './lib/directives/ace-editor.directive';

@@ -193,6 +193,13 @@ export class TcCoreLibModule {
     // register all the default Icon SVGs used by this module
 
     this.matIconRegistry.addSvgIconLiteral(
+      'ic-burger-menu',
+     this.domSanitizer.bypassSecurityTrustHtml('<svg class="svg-content" fill="#727272" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">\n' +
+        '    <path d="M0 0h24v24H0z" fill="none"></path>\n' +
+        '    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>\n' +
+        '</svg>')
+    )
+    this.matIconRegistry.addSvgIconLiteral(
       'ic-error-handler',
       this.domSanitizer.bypassSecurityTrustHtml(('<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
         '\t viewBox="0 0 350 350" style="enable-background:new 0 0 350 350;" xml:space="preserve">\n' +

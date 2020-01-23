@@ -1,4 +1,15 @@
 <div class="tcs-menu-bar-pane" fxLayout="row" fxLayoutAlign="space-between center">
+  <div *ngIf="burgerMenuButtons && burgerMenuButtons.length > 0" class="tcs-toolbar-button-div" fxLayout="row" fxLayoutAlign="center center">
+    <button mat-icon-button [matMenuTriggerFor]="burgerButtonMenu">
+      <mat-icon svgIcon="ic-burger-menu" class="tcs-toolbar-button"></mat-icon>
+    </button>
+    <mat-menu #burgerButtonMenu="matMenu">
+      <button mat-menu-item *ngFor="let burgerOption of burgerMenuButtons" (click)="burgerMenuButtonClick(burgerOption.id)" [matTooltip]="burgerOption.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000">
+        <mat-icon [svgIcon]="burgerOption.icon" [ngClass]="burgerOption.filled ? 'tcs-button-filled' : 'tcs-button-not-filled'"></mat-icon>
+        <span>{{burgerOption.label}}</span>
+      </button>
+    </mat-menu>
+  </div>
   <div class="tcs-menu-bar-content" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
     <div *ngIf="headerText" fxLayoutAlign="start center">
       <mat-icon class="tcs-widget-header-icon" svgIcon="{{icon}}"></mat-icon>
@@ -8,7 +19,7 @@
   </div>
 
   <div class="tcs-button-toolbar" fxLayout="row" fxLayoutAlign="center, center">
-    <div class="tcs-toolbar-button-div" *ngFor="let toolbarButton of toolbarButtons" fxLayout="row" fxLayoutAlign="center, center">
+    <div class="tcs-toolbar-button-div" *ngFor="let toolbarButton of toolbarButtons" fxLayout="row" fxLayoutAlign="center center">
       <button *ngIf="toolbarButton.visible" mat-icon-button [disabled]="!toolbarButton.enabled" (click)="toolbarButtonClick(toolbarButton.id)">
         <mat-icon class="tcs-toolbar-button" [ngClass]="toolbarButton.filled ? 'tcs-button-filled' : 'tcs-button-not-filled'" [matTooltip]="toolbarButton.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000" [svgIcon]="toolbarButton.icon"></mat-icon>
       </button>

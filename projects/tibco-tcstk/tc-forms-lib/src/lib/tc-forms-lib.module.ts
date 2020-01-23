@@ -16,10 +16,12 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
+import {AceEditorDirective} from './directives/ace-editor.directive';
 
 @NgModule({
   declarations: [
-    RenderedFormComponent
+    RenderedFormComponent,
+    AceEditorDirective
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import {BrowserModule} from '@angular/platform-browser';
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   exports: [
-    RenderedFormComponent
+    RenderedFormComponent,
+    AceEditorDirective
   ],
   entryComponents: [
   ]

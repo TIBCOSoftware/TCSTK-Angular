@@ -89,6 +89,7 @@ export class Metadata {
               public markedForPurge: boolean,
               public applicationId:	string,
               public applicationLabel: string,
+              public applicationVersion: number,
               public typeId: string,
               public stateColor: string,
               public stateIcon: string,
@@ -173,12 +174,16 @@ export class CaseAttribute {
   minimum: number;
 }
 
-export class JsonSchema {
+export class JsonSchema implements Deserializable {
   $schema: string;
   definitions: any[];
   properties: any[];
   type: string;
   required: string[];
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
 }
 
 export class Process {
@@ -186,6 +191,7 @@ export class Process {
   name: string;
   id: string;
   formTag: string;
+  processType: string;
   unsupportedForm: boolean;
   deserialize(input: any): this {
     Object.assign(this, input);
@@ -208,6 +214,7 @@ export class CaseType {
   applicationId: string;
   applicationInternalName: string;
   applicationName: any;
+  applicationVersion: number;
   attributes: CaseAttribute[];
   creators: Process[];
   id:  string;

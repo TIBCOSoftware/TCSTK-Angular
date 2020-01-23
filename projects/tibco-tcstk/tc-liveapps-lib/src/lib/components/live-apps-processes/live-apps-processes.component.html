@@ -1,0 +1,12 @@
+<div style="margin-left: 10px" fxFlex>
+  <mat-form-field style="width:100%">
+    <mat-label>Process</mat-label>
+    <mat-select (selectionChange)="selectProcess($event.value)">
+      <mat-option *ngFor="let process of processes" [value]="process">
+        {{process.name}} ({{process.processType}})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
