@@ -225,7 +225,7 @@ export class TcCaseProcessesService {
       top: number): Observable<LaProcessSelection> {
         return this.liveAppsService.getCaseTypeSchema(sandboxId, appId, top).pipe(
           map(schema => {
-            return this.createLaProcessSelection(schema, appId, typeId, action ? action : null, creator ? creator: null, caseRef);
+            return this.createLaProcessSelection(schema, appId, typeId, action ? action : null, creator ? creator : null, caseRef);
             }
           )
         );

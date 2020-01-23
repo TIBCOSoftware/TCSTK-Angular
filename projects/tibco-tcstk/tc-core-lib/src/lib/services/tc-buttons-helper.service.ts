@@ -9,7 +9,7 @@ export class TcButtonsHelperService {
   constructor() { }
 
   public createButton = (
-    id: string, icon: string, filled: boolean, tooltip: string, visible: boolean, enabled: boolean): ToolbarButton => {
+    id: string, icon: string, filled: boolean, tooltip: string, visible: boolean, enabled: boolean, label?: string): ToolbarButton => {
     const newButton = new ToolbarButton().deserialize(
       {
         id: id,
@@ -17,7 +17,8 @@ export class TcButtonsHelperService {
         filled: filled,
         tooltip: tooltip,
         visible: visible,
-        enabled: enabled
+        enabled: enabled,
+        label: label
       }
     );
     return newButton;

@@ -43,6 +43,10 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
    */
   @Input() selectedApp: CaseType = this.selectedApp ? this.selectedApp : new CaseType();
 
+  /**
+   * Form field rendering
+   */
+  @Input() formFieldRendering: boolean = this.formFieldRendering ? this.formFieldRendering : false;
 
   /**
    * ~event selection : Value selected in child component

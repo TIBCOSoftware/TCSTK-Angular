@@ -111,6 +111,7 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
   @ViewChild(LiveAppsWorkitemsComponent, {static: false}) workitemsComponent: LiveAppsWorkitemsComponent;
 
   public toolbarButtons: ToolbarButton[] = [];
+  public burgerMenuButtons: ToolbarButton[] = [];
   public caseStartButtonActive: boolean;
   public selectedCaseTypeReportRecord: CaseTypeReportRecord;
 
@@ -138,6 +139,13 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
       const refreshButton = this.buttonsHelper.createButton('refresh', 'tcs-refresh-icon', true, 'Refresh', (this.access ? this.rolesService.checkButton('refresh', this.access) : true), true);
       buttons.push(refreshButton);
     }
+    return buttons;
+  }
+
+  protected createBurgerMenuButtons = (): ToolbarButton[] => {
+    const button1 = this.buttonsHelper.createButton('button1', 'tcs-capabilities', true, 'Config', true, true, 'Button 1');
+    const button2 = this.buttonsHelper.createButton('button2', 'tcs-refresh-icon', true, 'Refresh', true, true, 'Button 2');
+    const buttons = [button1, button2];
     return buttons;
   }
 
@@ -196,6 +204,10 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
     });
   }
 
+  public handleBurgerMenuClick = (id) => {
+    console.log('Burger menu clicked: ', id);
+  }
+
   public refresh = () => {
     if (this.favoritesComponent) {
       this.favoritesComponent.refresh();
@@ -222,6 +234,7 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
 
   initialize() {
     this.toolbarButtons = this.toolbarButtons.concat(this.createToolbarButtons());
+    // this.burgerMenuButtons = this.createBurgerMenuButtons();
     this.caseStartButtonActive = this.access ? this.rolesService.checkButton('caseStart', this.access) : true;
     this.cockpitReady = true;
   }

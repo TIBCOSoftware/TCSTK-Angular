@@ -40,6 +40,7 @@ export class TibcoCloudWidgetHeaderComponent {
    * ~payload string : tells caller a button was clicked - outputs button Id
    */
   @Output() toolbarButtonEvent: EventEmitter<string> = new EventEmitter<string>();
+
   constructor() {
   }
 

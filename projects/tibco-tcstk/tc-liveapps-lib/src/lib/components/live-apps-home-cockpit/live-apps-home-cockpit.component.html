@@ -1,7 +1,7 @@
 <div fxLayout="column" fxFlex *ngIf="cockpitReady">
   <div>
-    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title"
-                             (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+    <tc-tibco-cloud-menu-bar [burgerMenuButtons]="burgerMenuButtons" [toolbarButtons]="toolbarButtons" [headerText]="title"
+                             (toolbarButtonEvent)="handleToolbarButtonEvent($event)" (burgerMenuButtonEvent)="handleBurgerMenuClick($event)">
       <div>
         <ng-content select="[customToolbarContent]" fxFlex></ng-content>
         <tcla-live-apps-application-create-button *ngIf="caseStartButtonActive"

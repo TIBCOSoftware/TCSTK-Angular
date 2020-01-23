@@ -277,7 +277,28 @@ export class LiveAppsService {
     return this.http.get(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
-        map(casetypes => new CaseTypesList().deserialize(casetypes)));
+        map(casetypes => {
+          const ct = new CaseTypesList().deserialize(casetypes);
+          ct.casetypes.forEach(ctype => {
+            if (ctype.actions) {
+              ctype.actions.forEach(action => {
+                // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                action.formTag = ctype.applicationName + '.' + ctype.applicationInternalName + '.action.' + action.name;
+                action.processType = 'action';
+              });
+            }
+            if (ctype.creators) {
+              ctype.creators.forEach(creator => {
+                // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+                creator.formTag = ctype.applicationName + '.' + ctype.applicationInternalName + '.creator.' + creator.name;
+                creator.processType = 'creator';
+              });
+            }
+          })
+          return ct;
+        }
+        )
+        );
   }
 
     public getCaseTypeStates(sandboxId: number, appId: string, top: number): Observable<CaseTypeStatesList> {
