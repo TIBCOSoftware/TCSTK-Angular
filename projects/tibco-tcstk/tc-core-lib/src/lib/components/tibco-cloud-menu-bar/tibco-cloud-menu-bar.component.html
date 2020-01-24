@@ -4,10 +4,12 @@
       <mat-icon svgIcon="ic-burger-menu" class="tcs-toolbar-button"></mat-icon>
     </button>
     <mat-menu #burgerButtonMenu="matMenu">
-      <button mat-menu-item *ngFor="let burgerOption of burgerMenuButtons" (click)="burgerMenuButtonClick(burgerOption.id)" [matTooltip]="burgerOption.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000">
-        <mat-icon [svgIcon]="burgerOption.icon" [ngClass]="burgerOption.filled ? 'tcs-button-filled' : 'tcs-button-not-filled'"></mat-icon>
-        <span>{{burgerOption.label}}</span>
-      </button>
+      <div *ngFor="let burgerOption of burgerMenuButtons">
+        <button mat-menu-item *ngIf="burgerOption.visible" [disabled]="!burgerOption.enabled" (click)="burgerMenuButtonClick(burgerOption.id)" [matTooltip]="burgerOption.tooltip" matTooltipPosition="left" matTooltipShowDelay="1000">
+          <mat-icon [svgIcon]="burgerOption.icon" [ngClass]="burgerOption.filled ? 'tcs-button-filled' : 'tcs-button-not-filled'"></mat-icon>
+            <span>{{burgerOption.label}}</span>
+          </button>
+      </div>
     </mat-menu>
   </div>
   <div class="tcs-menu-bar-content" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
