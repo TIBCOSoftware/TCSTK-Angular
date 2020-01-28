@@ -15,7 +15,6 @@ import {LiveAppsService} from './live-apps.service';
 import {Observable, throwError} from 'rxjs';
 import {flatMap, map, tap} from 'rxjs/operators';
 import {TcCaseDataService} from './tc-case-data.service';
-import {TC_API_KEY, TC_BASE_URL} from '@tibco-tcstk/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -40,15 +39,13 @@ export class TcCaseProcessesService {
   public getCaseActions(caseRef: string, sandboxId: number, appId: string, typeId: string, caseState: string): Observable<CaseActionsList> {
     // https://eu.liveapps.cloud.tibco.com/pageflow/caseActions?$sandbox=31&
     // $filter=applicationId%20eq%201742%20and%20caseType%20eq%201%20and%20caseState%20eq%20Responded%20and%20caseRef%20eq%20150491
-    let url = TC_BASE_URL + '/pageflow/v1/caseActions?$sandbox=' + sandboxId
+    const url = '/pageflow/v1/caseActions?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and caseType eq ' + typeId
       + ' and caseState eq ' + caseState
       + ' and caseRef eq ' + caseRef;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url
+    )
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseactions => {
@@ -66,13 +63,10 @@ export class TcCaseProcessesService {
 
   // todo: Note this is not a public API - update when Public API available
   public getCaseCreators(sandboxId: number, appId: string, typeId: string): Observable<CaseCreatorsList> {
-    let url = TC_BASE_URL + '/pageflow/v1/caseCreators?$sandbox=' + sandboxId
+    const url = '/pageflow/v1/caseCreators?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and caseType eq ' + typeId
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(casecreators => {
@@ -89,13 +83,10 @@ export class TcCaseProcessesService {
   }
 
   public getProcess(sandboxId: number, appId: string, typeId: string, processName: string, processType: string): Observable<Process> {
-    let url = TC_BASE_URL + '/case/v1/types?$sandbox=' + sandboxId;
+    let url = '/case/v1/types?$sandbox=' + sandboxId;
     url = url + '&$filter=applicationId eq ' + appId;
     url = url + '&$select=b,c,ac';
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map((casetypes: CaseType[]) => {

@@ -37,7 +37,7 @@ import {
   Group,
   Claim,
   Sandbox,
-  SandboxList, TC_API_KEY
+  SandboxList
 } from '@tibco-tcstk/tc-core-lib';
 import {Groups} from '../models/tc-groups-data';
 import {
@@ -53,7 +53,7 @@ import {
   takeUntil,
   tap
 } from 'rxjs/operators';
-import { Deserializable, TC_BASE_URL} from '@tibco-tcstk/tc-core-lib';
+import { Deserializable} from '@tibco-tcstk/tc-core-lib';
 import {split} from 'ts-node';
 import {Location} from '@angular/common';
 import {StateTrackerData} from '../models/tc-case-states';
@@ -73,11 +73,8 @@ export class LiveAppsService {
     private http: HttpClient, private location: Location, private sharedStateService: TcSharedStateService) { }
 
   public getSandboxes(): Observable<SandboxList> {
-    let url = TC_BASE_URL + '/organisation/v1/sandboxes';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    const url = '/organisation/v1/sandboxes';
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map ( sandboxList => new SandboxList().deserialize(sandboxList)));
@@ -85,10 +82,7 @@ export class LiveAppsService {
 
   public getApplications(sandboxId: number, appIds: string[], top: number, useCache: boolean): Observable<CaseTypesList> {
     const select = 'b';
-    let url = TC_BASE_URL + '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
+    let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
 
     if (appIds && appIds.length > 0) {
       url = url + '&$filter=applicationId in(' + appIds.toString() + ') and isCase eq TRUE';
@@ -102,7 +96,7 @@ export class LiveAppsService {
     }
 
 
-    return this.http.get(url, { headers, withCredentials: true })
+    return this.http.get(url, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(casetypes => {
@@ -124,52 +118,40 @@ export class LiveAppsService {
   }
 
   public getClaims(disableCache?: boolean): Observable<Claim> {
-    let url = TC_BASE_URL + '/organisation/v1/claims';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    const url = '/organisation/v1/claims';
     let headers;
     if (!disableCache) {
       headers = new HttpHeaders().set('cacheResponse', 'true');
     }
-    return this.http.get(url, { headers: headers, withCredentials: true } )
+    return this.http.get(url, { headers: headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map ( claim => new Claim().deserialize(claim)));
   }
 
   public getCases(sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseInfoList> {
-    let url = TC_BASE_URL + '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+    const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
       + appId + ' and typeId eq ' + typeId + '&$skip=' + skip + '&$top=' + top;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfos => new CaseInfoList().deserialize(caseinfos)));
   }
 
   public getCasesCount(sandboxId: number, appId: string, typeId: string): Observable<string> {
-    let url = TC_BASE_URL + '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+    const url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
       + appId + ' and typeId eq ' + typeId + '&$count=true';
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
 
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(casecount => casecount.toString()));
   }
 
   public getCaseByRef(sandboxId, caseRef: string): Observable<CaseInfo> {
-    let url = TC_BASE_URL + '/case/v1/cases/' + caseRef
+    const url = '/case/v1/cases/' + caseRef
       + '?$sandbox=' + sandboxId;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfo => new CaseInfo().deserialize(caseinfo))
@@ -177,12 +159,9 @@ export class LiveAppsService {
   }
 
   public getCase(caseRef: string, sandboxId: number, appId: string, typeId: string ): Observable<CaseInfo> {
-    let url = TC_BASE_URL + '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+    const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
       + appId + ' and typeId eq ' + typeId + '&$select=uc, m';
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfo => new CaseInfo().deserialize(caseinfo)));
@@ -198,7 +177,7 @@ export class LiveAppsService {
   }
 
   public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, force: boolean, skip: number, top: number, stateId: number): Observable<CaseSearchResults> {
-      let url = TC_BASE_URL + '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
+      let url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
         + appId + ' and typeId eq ' + typeId;;
       if (stateId) {
         url = url + ' and stateId eq ' + stateId;
@@ -208,11 +187,8 @@ export class LiveAppsService {
       if (term || (!term && !force)) {
         url = url + '&$search=' + term;
       }
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
 
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfos => {
@@ -250,15 +226,12 @@ export class LiveAppsService {
 
   public getCaseTypes(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
     const select = 'b,s,sa,a';
-    let url = TC_BASE_URL + '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+    let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
     if (appId != null) {
       url = url + '&$filter=applicationId eq ' + appId;
     }
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
 
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(casetypes => new CaseTypesList().deserialize(casetypes)));
@@ -267,14 +240,11 @@ export class LiveAppsService {
   public getCaseTypeSchema(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
     // https://eu.liveapps.cloud.tibco.com/case/v1/types?$sandbox=25&&$filter=applicationName eq 'Customer Complaint'&$select=b,js,c,ac
     const select = 'b,js,c,ac,a';
-    let url = TC_BASE_URL + '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+    let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
     if (appId != null) {
       url = url + '&$filter=applicationId eq ' + appId;
     }
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(casetypes => {
@@ -303,15 +273,12 @@ export class LiveAppsService {
 
     public getCaseTypeStates(sandboxId: number, appId: string, top: number): Observable<CaseTypeStatesList> {
         const select = 's';
-        let url = TC_BASE_URL + '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select  + '&$top=' + top;
+        let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select  + '&$top=' + top;
         if (appId != null) {
             url = url + '&$filter=applicationId eq ' + appId;
         }
-        if (TC_API_KEY) {
-          url = url + '&' + TC_API_KEY;
-        }
         const headers = new HttpHeaders().set('cacheResponse', 'true');
-        return this.http.get(url, { headers: headers, withCredentials: true } )
+        return this.http.get(url, { headers: headers })
         // return this.http.get(url)
             .pipe(
                 tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -333,12 +300,9 @@ export class LiveAppsService {
 
     public getCaseTypeBasicInfo(sandboxId: number, appId: string, typeId: string, top: number): Observable<CaseType> {
         const select = 'b';
-      let url = TC_BASE_URL + '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
+      let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
       if (appId != null) {
         url = url + '&$filter=applicationId eq ' + appId;
-      }
-      if (TC_API_KEY) {
-        url = url + '&' + TC_API_KEY;
       }
 
       if (!this.caseTypesCacheMap.get(url)) {
@@ -353,7 +317,7 @@ export class LiveAppsService {
 
     private getCaseTypeBasicInfoCached(url, typeId) {
       const headers = new HttpHeaders().set('cacheResponse', 'true');
-      return this.http.get(url, { headers: headers, withCredentials: true } )
+      return this.http.get(url, { headers: headers })
         .pipe(
           tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
           map(casetypes => {
@@ -380,10 +344,7 @@ export class LiveAppsService {
       if (url.substr(0, 2) === '//') {
         url = url.substr(1, url.length - 1);
       }
-      url = TC_BASE_URL + url;
-      if (TC_API_KEY) {
-        url = url + '?' + TC_API_KEY;
-      }
+      url = url;
       if (!this.iconSVGTextCacheMap.get(url)) {
         // const fixedUrl = window.location.protocol + '//' + window.location.host  + url;
         const cacheEntry$ = this.getIconSVGTextCache(url)
@@ -397,7 +358,7 @@ export class LiveAppsService {
 
     private getIconSVGTextCache(url) {
       const headers = new HttpHeaders().set('cacheResponse', 'true');
-      return this.http.get(url, {responseType: 'text', headers: headers, withCredentials: true } )
+      return this.http.get(url, {responseType: 'text', headers: headers })
         .pipe(
           map(val => {
               const svgContents = val.toString();
@@ -542,10 +503,7 @@ export class LiveAppsService {
   }
 
   public runProcess(sandboxId: number, appId: string, processId: string, caseReference: string, data: any): Observable<any> {
-    let url = TC_BASE_URL + '/process/v1/processes';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    const url = '/process/v1/processes';
     // convert data to an escaped JSON string
     let dataJson;
     if (data) {
@@ -568,7 +526,7 @@ export class LiveAppsService {
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    return this.http.post(url, bodyStr, { headers, withCredentials: true })
+    return this.http.post(url, bodyStr, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(response => response)
@@ -577,10 +535,7 @@ export class LiveAppsService {
 
   // Since we call get userinfo a lot - and the data doesn't tend to change - I will cache it for the session
   public getUserInfo(userId: string): Observable<UserInfo> {
-    let url = TC_BASE_URL + '/organisation/v1/users/' + userId;
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    let url = '/organisation/v1/users/' + userId;
     if (!this.userInfoCacheMap.get(userId)) {
       const cacheEntry$ = this.getUserCached(url)
         .pipe(
@@ -593,7 +548,7 @@ export class LiveAppsService {
 
   private getUserCached(url) {
     const headers = new HttpHeaders().set('cacheResponse', 'true');
-    return this.http.get(url, { headers: headers, withCredentials: true } )
+    return this.http.get(url, { headers: headers })
       .pipe(
         map(userinfo => new UserInfo().deserialize(userinfo))
       );
@@ -603,12 +558,9 @@ export class LiveAppsService {
 
   public getThreads(relatedItemType: string, itemTypeId: string, skip: number, top: number): Observable<ThreadList> {
     // https://liveapps.tenant-integration.tcie.pro/collaboration/notes?$relatedItemCollection=CASE_APP_15441&$orderby=createdDate%20ASC
-    let url = TC_BASE_URL + '/collaboration/v1/notes?$relatedItemCollection=' + relatedItemType + '_' + itemTypeId
+    let url = '/collaboration/v1/notes?$relatedItemCollection=' + relatedItemType + '_' + itemTypeId
       + '&$orderby=createdDate desc'
       + '&$top=' + top + '&$skip=' + skip;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
     return this.http.get(url, { withCredentials: true })
       .pipe(
         map(notes => {
@@ -636,11 +588,8 @@ export class LiveAppsService {
 
   public getNotesForCollections(collectionIds): Observable<NotesList> {
     if (collectionIds) {
-      let url = TC_BASE_URL + '/collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
+      let url = '/collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
         '&$orderby=createdDate ASC';
-      if (TC_API_KEY) {
-        url = url + '&' + TC_API_KEY;
-      }
       return this.http.get(url, { withCredentials: true })
         .pipe(
           map(notes => new NotesList().deserialize(notes))
@@ -652,15 +601,12 @@ export class LiveAppsService {
   }
 
   public updateNote(note: Note, noteId: string): Observable<Note> {
-    let url = TC_BASE_URL + '/collaboration/v1/notes/' + noteId;
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    let url = '/collaboration/v1/notes/' + noteId;
     const body = note;
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    return this.http.put(url, bodyStr, { headers, withCredentials: true })
+    return this.http.put(url, bodyStr, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map( result => new Note().deserialize(result))
@@ -674,10 +620,7 @@ export class LiveAppsService {
                     notificationUrl: string,
                     title: string,
                     noteText: string): Observable<number> {
-    let url = TC_BASE_URL + '/collaboration/v1/notes';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    let url = '/collaboration/v1/notes';
     const note = new Note().deserialize(
       {
         attributes: [],
@@ -699,7 +642,7 @@ export class LiveAppsService {
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    return this.http.post(url, bodyStr, { headers, withCredentials: true })
+    return this.http.post(url, bodyStr, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(result => Number(result))
@@ -707,10 +650,7 @@ export class LiveAppsService {
   }
 
   public getNote(noteId: number): Observable<Note> {
-    let url = TC_BASE_URL + '/collaboration/v1/notes/' + noteId;
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    let url = '/collaboration/v1/notes/' + noteId;
     return this.http.get(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -720,13 +660,10 @@ export class LiveAppsService {
   }
 
   public getThread(relatedItemType: string, relatedItemId: string, threadId: number) {
-    let url = TC_BASE_URL + '/collaboration/v1/notes/?$relatedItemType=' + relatedItemType
+    let url = '/collaboration/v1/notes/?$relatedItemType=' + relatedItemType
       + '&relatedItemId=' + relatedItemId
       + '&filter=threadId=' + threadId
       + '&orderby=createdDate ASC';
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
       return this.http.get(url, { withCredentials: true })
         .pipe(
           tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -736,10 +673,7 @@ export class LiveAppsService {
   }
 
   public createReplyNote(originalNote: Note, reply: string, noteId: string): Observable<number> {
-    let url = TC_BASE_URL + '/collaboration/v1/notes/' + noteId;
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    let url = '/collaboration/v1/notes/' + noteId;
     const body = {
       notificationLabel: originalNote.notificationLabel,
       notificationUrl: originalNote.notificationUrl,
@@ -748,7 +682,7 @@ export class LiveAppsService {
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    return this.http.post(url, bodyStr, { headers, withCredentials: true })
+    return this.http.post(url, bodyStr, { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(value => Number(value))
@@ -756,10 +690,7 @@ export class LiveAppsService {
   }
 
   public subscribeToNotes(relatedItemType, relatedTypeId) {
-    let url = TC_BASE_URL + '/collaboration/v1/notifications';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    const url = '/collaboration/v1/notifications';
     const body = {
       topicId: undefined,
       threadId: undefined,
@@ -779,11 +710,8 @@ export class LiveAppsService {
   }
 
   public unsubscribeToNotes(relatedItemType, relatedTypeId, userId) {
-    let url = TC_BASE_URL + '/collaboration/v1/notifications?$filter=collectionName=';
+    let url = '/collaboration/v1/notifications?$filter=collectionName=';
     url = url + '\'' + relatedItemType + '_' + relatedTypeId + '\' and entityId=' + userId;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
     return this.http.delete(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
@@ -791,11 +719,8 @@ export class LiveAppsService {
   }
 
   public getNotifications(relatedItemType, relatedTypeId, userId): Observable<NotificationList> {
-    let url = TC_BASE_URL + '/collaboration/v1/notifications?$filter=collectionName=\'' + relatedItemType + '_' + relatedTypeId
+    let url = '/collaboration/v1/notifications?$filter=collectionName=\'' + relatedItemType + '_' + relatedTypeId
             + '\' and entityId=' + userId;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
     return this.http.get(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -804,10 +729,7 @@ export class LiveAppsService {
   }
 
   public deleteNote(noteId: number) {
-    let url = TC_BASE_URL + '/collaboration/v1/notes/' + noteId;
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    let url = '/collaboration/v1/notes/' + noteId;
     return this.http.delete(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
@@ -817,10 +739,7 @@ export class LiveAppsService {
   /* end notes service */
 
   public getGroups(sandboxId: number, top: number, useCache: boolean): Observable<Groups> {
-    let url = TC_BASE_URL + '/organisation/v1/groups?$sandbox=' + sandboxId + '&$top=' + top;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
+    let url = '/organisation/v1/groups?$sandbox=' + sandboxId + '&$top=' + top;
     let headers;
     if (useCache) {
       headers = new HttpHeaders().set('cacheResponse', 'true');
@@ -836,10 +755,7 @@ export class LiveAppsService {
   }
 
   public getGroupMemberships(sandboxId: number, userId: string, top: number, useCache: boolean): Observable<Groups> {
-    let url = TC_BASE_URL + '/organisation/v1/users/' + userId + '/groups' + '?$sandbox=' + sandboxId + '&$top=' + top;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
+    const url = '/organisation/v1/users/' + userId + '/groups' + '?$sandbox=' + sandboxId + '&$top=' + top;
     let headers;
     if (useCache) {
       headers = new HttpHeaders().set('cacheResponse', 'true');
@@ -854,22 +770,4 @@ export class LiveAppsService {
       );
   }
 
-  public tokenRefresh(): Observable<any> {
-    if (TC_BASE_URL) {
-      return this.tokenRefreshCustom();
-    } else {
-      return this.getClaims(false);
-    }
-  }
-
-  public tokenRefreshCustom(): Observable<any> {
-    let url = TC_BASE_URL + '/tokenRefresh';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true } )
-      .pipe(
-        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
-      );
-  }
 }

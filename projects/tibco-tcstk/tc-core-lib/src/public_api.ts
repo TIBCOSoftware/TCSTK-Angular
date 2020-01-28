@@ -31,6 +31,8 @@ export * from './lib/services/tc-general-landing-page-config.service';
 export * from './lib/services/tc-general-landing-page.service';
 export * from './lib/services/tc-visibility.service';
 export * from './lib/services/legacy-iframe.service';
+export * from './lib/services/session-refresh-service';
+export * from './lib/services/tc-core-config-service';
 
 // models
 export * from './lib/models/deserializable';
@@ -44,9 +46,14 @@ export * from './lib/models/tc-shared-state';
 export * from './lib/models/tc-widget-header';
 export * from './lib/models/tc-component';
 
+// interface
+export * from './lib/interfaces/tc-core-configuration';
+
 // interceptor
 export * from './lib/interceptors/caching-interceptor';
 export * from './lib/interceptors/mocking-interceptor';
+export * from './lib/interceptors/proxy-interceptor';
+export * from './lib/interceptors/oauth-interceptor';
 
 // guards
 export * from './lib/guards/auth.guard';
@@ -61,7 +68,6 @@ export * from './lib/resolvers/login-prefill.resolver';
 export * from './lib/common/tc-core-common-functions';
 export * from './lib/common/tc-core-queue-comm';
 export * from './lib/common/tc-core-topic-comm';
-export * from './lib/common/tc-base-url';
 
 // pipes
 export * from './lib/pipes/duration-since.pipe';
