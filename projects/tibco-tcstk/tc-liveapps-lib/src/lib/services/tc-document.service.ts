@@ -5,7 +5,7 @@ import {ApiResponseError, ApiResponseText} from '../models/liveappsdata';
 import {LiveAppsService} from './live-apps.service';
 import {Document, DocumentList, OrgFolder} from '../models/tc-document';
 import {catchError, flatMap, map, tap} from 'rxjs/operators';
-import {TC_API_KEY, TC_BASE_URL, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -16,25 +16,19 @@ export class TcDocumentService {
   }
 
   public createOrgFolder(name: string): Observable<ApiResponseText> {
-    let url = TC_BASE_URL + '/webresource/v1/orgFolders/';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    const url = '/webresource/v1/orgFolders/';
     const body = new OrgFolder().deserialize({ name: name });
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    return this.http.post(url, bodyStr, { headers, withCredentials: true }).pipe(
+    return this.http.post(url, bodyStr, { headers }).pipe(
       tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
       map(response => new ApiResponseText().deserialize(response))
     );
   }
 
   public getOrgFolder(name: string, useCache: boolean, flushCache: boolean): Observable<OrgFolder> {
-    let url = TC_BASE_URL + '/webresource/v1/orgFolders/' + name + '/';
-    if (TC_API_KEY) {
-      url = url + '?' + TC_API_KEY;
-    }
+    const url = '/webresource/v1/orgFolders/' + name + '/';
     let headers: HttpHeaders = new HttpHeaders();
     if (useCache) {
       headers = headers.set('cacheResponse', 'true');
@@ -42,7 +36,7 @@ export class TcDocumentService {
     if (flushCache) {
       headers = headers.set('flushCache', 'true');
     }
-    const options = {headers: headers, withCredentials: true};
+    const options = {headers: headers };
     return this.http.get(url, options).pipe(
       map(response => {
         return new OrgFolder().deserialize(response);
@@ -87,17 +81,15 @@ export class TcDocumentService {
   }
 
   public listDocuments(folderType: string, folderId: string, sandboxId: number, filter: string): Observable<DocumentList> {
-    let url = TC_BASE_URL + '/webresource/v1/' + folderType + '/' + folderId + '/artifacts/';
+    let url = '/webresource/v1/' + folderType + '/' + folderId + '/artifacts/';
     if (sandboxId) {
       url = url + '?$sandbox=' + sandboxId;
     }
     if (filter) {
       url = url + '&$filter=contains(name,\'' + filter + '\')';
     }
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true })
+
+    return this.http.get(url)
       .pipe(
         map(docs => {
             const docList = new DocumentList().deserialize(docs);
@@ -131,18 +123,15 @@ export class TcDocumentService {
   }
 
   public deleteDocument(folderType: string, folderId: string, documentName: string, sandboxId: number): Observable<ApiResponseText> {
-    let url = TC_BASE_URL + '/webresource/v1/' + folderType + '/' + folderId + '/artifacts/' + documentName + '?$sandbox=' + sandboxId;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.delete(url, { withCredentials: true })
+    const url = '/webresource/v1/' + folderType + '/' + folderId + '/artifacts/' + documentName + '?$sandbox=' + sandboxId;
+    return this.http.delete(url)
       .pipe(
         map( val => new ApiResponseText().deserialize(val))
       );
   }
 
   public getUrlForDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number): string {
-    let url = TC_BASE_URL + '/webresource/';
+    let url = '/webresource/';
     if (folderType === 'orgFolders') {
       url = url + 'orgFolders/' + folderId;
     } else {
@@ -155,14 +144,11 @@ export class TcDocumentService {
     if (docVersion) {
       url = url + '?$version=' + docVersion;
     }
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
     return url;
   }
 
   public downloadDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number): Observable<any> {
-    let url = TC_BASE_URL + '/webresource/';
+    let url = '/webresource/';
     if (folderType === 'orgFolders') {
       url = url + 'orgFolders/' + folderId;
     } else {
@@ -175,19 +161,16 @@ export class TcDocumentService {
     if (docVersion) {
       url = url + '&$version=' + docVersion;
     }
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/octet-stream',
     });
-    return this.http.get(url, { headers, responseType: 'blob' as 'json', withCredentials: true });
+    return this.http.get(url, { headers, responseType: 'blob' as 'json' });
   }
 
   public uploadDocument(folderType: string, folderId: string, sandboxId: number,
                         fileToUpload: File, fileName: string, description: string): Observable<any> {
-    let url = TC_BASE_URL + '/webresource/v1/' + folderType
+    let url = '/webresource/v1/' + folderType
       + '/' + folderId
       + '/artifacts/' + fileName + '/upload/';
 
@@ -198,9 +181,6 @@ export class TcDocumentService {
     if (description) {
       url = url + '&description=' + description;
     }
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
     const headers = new HttpHeaders({
       'accept': 'application/json',
       'Content-Type': 'multipart/form-data',
@@ -209,7 +189,7 @@ export class TcDocumentService {
     });
     const formData: FormData = new FormData();
     formData.append('artifactContents', fileToUpload);
-    return this.http.post(url, formData, { headers: headers, reportProgress: true, observe: 'events', withCredentials: true });
+    return this.http.post(url, formData, { headers: headers, reportProgress: true, observe: 'events' });
   }
 
   private getIcon(extension: string): string {
