@@ -5,6 +5,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {CaseType, ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsLegacyProcessComponent} from '../live-apps-legacy-process/live-apps-legacy-process.component';
+import {TcFormConfigService} from '../../services/tc-form-config.service';
 
 
 /**
@@ -91,8 +92,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     }
   }
 
-  constructor(protected lasvc: LiveAppsService) {
-    super(lasvc);
+  constructor(protected lasvc: LiveAppsService, protected tcfcs: TcFormConfigService) {
+    super(lasvc, tcfcs);
   }
 
   ngOnInit() {

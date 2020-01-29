@@ -22,7 +22,7 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
    * ~event saveFormConfiguration : save form config
    * ~payload any : forms config object
    */
-  @Output() formConfigUpdate: EventEmitter<any> = new EventEmitter<any>();
+  @Output() formConfigUpdate: EventEmitter<FormConfig> = new EventEmitter<FormConfig>();
 
   @ViewChild('dataPanel', {static: false}) dataPanel: MatExpansionPanel;
 
@@ -232,7 +232,7 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   }
 
   handleSaveFormConfig = () => {
-    this.formConfigUpdate.emit();
+    this.formConfigUpdate.emit(this.formConfig);
   }
 
   openLayoutDocsTab = () => {

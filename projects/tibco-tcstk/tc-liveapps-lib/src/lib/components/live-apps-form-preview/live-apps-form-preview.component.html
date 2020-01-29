@@ -1,4 +1,4 @@
-<div fxFill fxLayout="row">
+<div fxFill fxLayout="row" *ngIf="formConfig">
   <div fxFlex class="tcs-form-config-pane">
     <div class="tcs-form-config-header" fxLayout="row" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center">
@@ -95,11 +95,11 @@
     </mat-accordion>
     </div>
   </div>
-    <div class="tcs-form-config-pane" fxLayout="column" *ngIf="formConfig && formConfig.processFormConfigs.length > 0">
+    <div class="tcs-form-config-pane" fxLayout="column" *ngIf="formConfig && formConfig.processFormConfigs">
       <div class="tcs-form-config-content" fxLayout="row">
         <span>Custom Form Config for {{formConfig.processFormConfigs.length}} {{formConfig.processFormConfigs.length === 1 ? 'process' : 'processes'}}</span>
         <div fxFlex fxLayout="column" fxLayoutAlign="end end" style="margin-right: 20px;">
-          <button mat-raised-button color="primary" (click)="handleSaveFormConfig()" matTooltip="Save {{formConfig.processFormConfigs.length}} form configuration" matTooltipShowDelay="1000" matTooltipPosition="below">Save {{formConfig.processFormConfigs.length}} form {{formConfig.processFormConfigs.length === 1 ? 'config' : 'configs'}}</button>
+          <button mat-raised-button color="primary" (click)="handleSaveFormConfig()" matTooltip="Save form configuration" matTooltipShowDelay="1000" matTooltipPosition="below">Save Form Configuration</button>
         </div>
       </div>
   </div>

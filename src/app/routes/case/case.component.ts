@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LiveAppsConfig, Groups, Roles, RouteAccessControlConfigurationElement} from '@tibco-tcstk/tc-liveapps-lib';
+import {LiveAppsConfig, Groups, Roles, RouteAccessControlConfigurationElement, FormConfig} from '@tibco-tcstk/tc-liveapps-lib';
 import { Claim, Sandbox } from '@tibco-tcstk/tc-core-lib';
 
 import {GeneralConfig, RouteAction} from '@tibco-tcstk/tc-core-lib';
@@ -26,6 +26,7 @@ export class CaseComponent implements OnInit {
   public access: RouteAccessControlConfigurationElement;
   public customFormDefs: CustomFormDefs;
   public workitemId: number;
+  public formConfig: FormConfig;
 
   public layout: any[] = undefined;
   // case data is laid out using a default layout inside <tcla-live-apps-case-cockpit>
@@ -54,6 +55,7 @@ export class CaseComponent implements OnInit {
     // each route uses a resolver to get required data for any components it uses
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
+    this.formConfig = this.route.snapshot.data.formConfig;
     this.exclRecentAppIds = this.liveAppsConfig.recentExcludedAppIds;
     this.claims = this.route.snapshot.data.claims;
     this.groups = this.route.snapshot.data.groups;

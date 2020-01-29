@@ -17,8 +17,13 @@ export class LiveAppsConfig implements Deserializable {
   }
 }
 
-export class FormConfig {
+export class FormConfig implements Deserializable {
+  id: string;
   processFormConfigs: ProcessFormConfig[];
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
 }
 
 export class ProcessFormConfig implements Deserializable {

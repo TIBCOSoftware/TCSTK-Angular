@@ -12,7 +12,7 @@ import {
   LaConfigResolver,
   LiveAppsConfigResolver, RoleGuard,
   RolesResolver,
-  RoleActiveResolver
+  RoleActiveResolver, FormConfigResolver
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {CaseComponent} from '../../routes/case/case.component';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
@@ -36,7 +36,8 @@ export const STARTER_APP_ROUTES =
       groups: GroupsResolver,
       roles: RolesResolver,
       access: AccessResolver,
-      customFormDefs: FormResolver
+      customFormDefs: FormResolver,
+      formConfig: FormConfigResolver
     }
   },
   {
@@ -60,7 +61,8 @@ export const STARTER_APP_ROUTES =
       groups: GroupsResolver,
       roles: RolesResolver,
       access: AccessResolver,
-      customFormDefs: FormResolver
+      customFormDefs: FormResolver,
+      formConfig: FormConfigResolver
     }
   },
   {
@@ -70,7 +72,8 @@ export const STARTER_APP_ROUTES =
     resolve: {
       claims: ClaimsResolver,
       laConfigHolder: LaConfigResolver,
-      messagingConfig: MessagingConfigResolver
+      messagingConfig: MessagingConfigResolver,
+      formConfig: FormConfigResolver
     }
   },
   {
@@ -91,7 +94,8 @@ export const STARTER_APP_PROVIDERS = [
   GroupsResolver,
   AccessResolver,
   FormResolver,
-  RoleActiveResolver
+  RoleActiveResolver,
+  FormConfigResolver
   ],
   CONFIGURATION_ROUTE_PROVIDERS
 ];

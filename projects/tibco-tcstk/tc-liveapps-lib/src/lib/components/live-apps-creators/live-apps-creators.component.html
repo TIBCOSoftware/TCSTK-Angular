@@ -1,5 +1,5 @@
 <div fxLayout="column" fxFlexFill>
   <!--tcla-live-apps-creator-selector #creatorSelector style="" [sandboxId]="sandboxId" [appId]="applicationId" [typeId]="typeId" (creatorSelection)="handleCreatorSelection($event)"></tcla-live-apps-creator-selector-->
   <tcla-live-apps-case-creators *ngIf="!selectedProcess" #creatorSelector style="" [sandboxId]="sandboxId" [appId]="applicationId" [typeId]="typeId" (creatorClicked)="handleCreatorSelection($event)"></tcla-live-apps-case-creators>
-  <tcla-live-apps-case-creator style="overflow: auto; height: 100%" [formsFramework]="formsFramework" [sandboxId]="sandboxId" [applicationId]="applicationId" [typeId]="typeId" [process]="selectedProcess" [dataOverride]="dataOverride" [customFormDefs]="customFormDefs" [legacyCreators]="legacyCreators" (caseChanged)="handleSubmit($event)"></tcla-live-apps-case-creator>
+  <tcla-live-apps-case-creator style="overflow: auto; height: 100%" [formsFramework]="formsFramework" [sandboxId]="sandboxId" [applicationId]="applicationId" [typeId]="typeId" [process]="selectedProcess" [dataOverride]="dataOverride" [customFormDefs]="customFormDefs" [formConfig]="formConfig" [legacyCreators]="legacyCreators" (caseChanged)="handleSubmit($event)"></tcla-live-apps-case-creator>
 </div>

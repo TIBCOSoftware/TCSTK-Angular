@@ -58,6 +58,11 @@ export class LiveAppsActionStandaloneComponent extends LiveAppsCreatorStandalone
   @Input() customFormTag: string;
 
   /**
+   * Custom Form Layout
+   */
+  @Input() layout: any[];
+
+  /**
    * Enable legacy actions
    */
   @Input() legacyActions: boolean = this.legacyActions ? this.legacyActions : false;
@@ -75,7 +80,6 @@ export class LiveAppsActionStandaloneComponent extends LiveAppsCreatorStandalone
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   data: any;
-  layout: any[];
   options: any;
   process: Process;
   isCustomForm = false;

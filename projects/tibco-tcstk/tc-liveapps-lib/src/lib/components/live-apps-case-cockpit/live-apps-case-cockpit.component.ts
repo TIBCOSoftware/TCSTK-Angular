@@ -36,6 +36,7 @@ import {CaseAction, CaseRoute, FormTab} from '../../models/liveappsdata';
 import {FormControl} from '@angular/forms';
 import {LiveAppsCaseActionComponent} from '../live-apps-case-action/live-apps-case-action.component';
 import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-workitems.component';
+import {FormConfig} from '../../models/tc-liveapps-config';
 
 /**
  * High level component to allow interaction with case.
@@ -111,6 +112,11 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
    * RouteAccessControlConfig - basically the config for access control
    */
   @Input() access: RouteAccessControlConfigurationElement;
+
+  /**
+   * Custom Form Layout Configuration
+   */
+  @Input() formConfig: FormConfig;
 
   /**
    * Custom Form configuration file
