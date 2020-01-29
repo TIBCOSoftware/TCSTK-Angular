@@ -24,7 +24,7 @@
             </mat-accordion>
 
             <div class="la-login-button-div" fxFlex fxLayoutAlign="center start">
-              <button ngStyle.lt-md="width: 100%;" type="submit" mat-raised-button color="primary" [disabled]="(!laLoginForm.form.valid && (!oAuthAssertion || !clientId)) || loading">Login</button>
+              <button ngStyle.lt-md="width: 100%;" type="submit" mat-raised-button color="primary" [disabled]="(!laLoginForm.form.valid && !clientId) || loading">Login</button>
             </div>
 
           </form>
