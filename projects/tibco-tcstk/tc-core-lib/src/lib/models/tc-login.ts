@@ -62,6 +62,7 @@ export class AuthInfo implements Deserializable {
   lastName: string;
   userId: string;
   ts: number;
+  access_token;
   orgName: string;
 
   deserialize(input: any): this {

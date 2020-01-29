@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {flatMap, map, tap} from 'rxjs/operators';
 import {Workitem} from '../models/tc-workitems';
-import {TC_API_KEY, TC_BASE_URL} from '@tibco-tcstk/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +15,9 @@ export class TcWorkitemsService {
   public getWorkitems(sandboxId: number, appIds: string[], caseRef: string, skip: number, top: number): Observable<Workitem[]> {
     // https://eu.liveapps.cloud.tibco.com/work/workListItems?$sandbox=31&$skip=0&$top=100
     // https://eu.liveapps.cloud.tibco.com/work/workListItems?$sandbox=31&$skip=0&$top=100&$filter=caseref%20eq%20275481
-    let url = TC_BASE_URL + '/work/workListItems?$sandbox=' + sandboxId
+    let url = '/work/workListItems?$sandbox=' + sandboxId
       + '&$skip=' + skip
       + '&$top=' + top
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
     let filter: string;
     if (!caseRef) {
       let filterStr;
@@ -45,7 +41,7 @@ export class TcWorkitemsService {
     }
 
 
-    return this.http.get(url, { withCredentials: true })
+    return this.http.get(url)
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map((workitems: Workitem[]) => {

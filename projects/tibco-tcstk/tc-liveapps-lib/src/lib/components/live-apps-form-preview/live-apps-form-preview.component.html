@@ -10,7 +10,8 @@
       <tcfrm-rendered-form *ngIf="selectedProcess" [schema]="schema" [layout]="layout" [data]="data" [options]="options" [formsFramework]="formsFramework" (formSubmit)="saveSampleData($event)" (renderedLayout)="handleRenderedLayout($event)"></tcfrm-rendered-form>
     </div>
   </div>
-  <div fxFlex class="tcs-form-config-pane" fxLayout="column">
+  <div fxFlex fxLayout="column">
+    <div fxFlex class="tcs-form-config-pane" fxLayout="column">
     <div class="tcs-form-config-header" fxLayout="row" fxLayoutAlign="space-between center">
       <div fxLayoutAlign="start center">
         <mat-icon svgIcon="tcs-config-icon"></mat-icon>
@@ -51,7 +52,9 @@
           <span>&nbsp;the automatic layout&nbsp;</span>
           <span>&nbsp;or create a &nbsp;</span>
           <span class="tcs-clickable" (click)="useNewLayout()">new</span>
-          <span>&nbsp;custom layout</span>
+          <span>&nbsp;custom layout or start with an&nbsp;</span>
+          <span class="tcs-clickable" (click)="useExampleLayout()">example</span>
+          <span>&nbsp;layout</span>
         </div>
         <div *ngIf="formLayoutJSON">
           <span>Layout uses JSON schema form layout options - refer to 'Form Definitions'&nbsp;</span><span class="tcs-clickable" (click)="openLayoutDocsTab()">here</span><span>&nbsp;for layout options: </span>
@@ -67,7 +70,7 @@
                style="width:100%; overflow: auto; border: 1px solid black;">
             (loading form layout...)
           </div>
-          <mat-icon svgIcon="tcs-close-icon" (click)="dropLayout()"></mat-icon>
+          <mat-icon svgIcon="tcs-close-icon" (click)="dropLayout()" matTooltip="Clear layout" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
         </div>
       </mat-expansion-panel>
       <mat-expansion-panel #dataPanel [disabled]="!selectedApp">
@@ -86,15 +89,19 @@
                (textChanged)="updateDataJSON($event)"
                style="width:100%; overflow: auto; border: 1px solid black;">
           </div>
-          <mat-icon svgIcon="tcs-close-icon" (click)="dropData()"></mat-icon>
+          <mat-icon svgIcon="tcs-close-icon" (click)="dropData()" matTooltip="Clear data" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
         </div>
       </mat-expansion-panel>
     </mat-accordion>
     </div>
-    <div fxFlex class="tcs-filler-panel"></div>
-    <div fxLayout="column" fxLayoutAlign="end end" style="min-height: 50px; margin: 20px;">
-      <button mat-raised-button color="primary" (click)="handleSaveFormConfig()">Save form configuration</button>
-    </div>
+  </div>
+    <div class="tcs-form-config-pane" fxLayout="column" *ngIf="formConfig && formConfig.processFormConfigs.length > 0">
+      <div class="tcs-form-config-content" fxLayout="row">
+        <span>Custom Form Config for {{formConfig.processFormConfigs.length}} {{formConfig.processFormConfigs.length === 1 ? 'process' : 'processes'}}</span>
+        <div fxFlex fxLayout="column" fxLayoutAlign="end end" style="margin-right: 20px;">
+          <button mat-raised-button color="primary" (click)="handleSaveFormConfig()" matTooltip="Save {{formConfig.processFormConfigs.length}} form configuration" matTooltipShowDelay="1000" matTooltipPosition="below">Save {{formConfig.processFormConfigs.length}} form {{formConfig.processFormConfigs.length === 1 ? 'config' : 'configs'}}</button>
+        </div>
+      </div>
   </div>
 </div>
 

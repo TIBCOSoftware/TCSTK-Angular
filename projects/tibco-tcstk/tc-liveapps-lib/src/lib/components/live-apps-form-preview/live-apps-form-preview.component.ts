@@ -74,20 +74,26 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
           } else if (data) {
             fc.data = data;
           }
+          if (!fc.data && !fc.layout) {
+            // no point keeping the config if there is no value
+            this.formConfig.processFormConfigs = this.formConfig.processFormConfigs.filter(fck => fck.formTag !== fc.formTag);
+          }
           updatedConfig = true;
         }
       });
       if (!updatedConfig) {
-        const newConfig = new ProcessFormConfig().deserialize(
-          {
-            formTag,
-            processId: this.selectedProcess.id,
-            processType: this.selectedProcess.processType,
-            layout: (layout === 'RESET' ? undefined : layout),
-            data
-          }
-        );
-        this.formConfig.processFormConfigs.push(newConfig);
+        if (data || layout) {
+          const newConfig = new ProcessFormConfig().deserialize(
+            {
+              formTag,
+              processId: this.selectedProcess.id,
+              processType: this.selectedProcess.processType,
+              layout: (layout === 'RESET' ? undefined : layout),
+              data: (layout === 'RESET' ? undefined : data),
+            }
+          );
+          this.formConfig.processFormConfigs.push(newConfig);
+        }
       }
   }
 
@@ -170,6 +176,36 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   useNewLayout = () => {
     this.formLayoutJSON = JSON.stringify([ { type: 'help',
       helpvalue: '<span>Please fill in this form!</span>' } ], null, 2);
+    this.layout = JSON.parse(this.formLayoutJSON);
+    this.setProcessFormConfig(this.selectedProcess.formTag, this.formLayoutJSON);
+  }
+
+  useExampleLayout = () => {
+    this.formLayoutJSON = '[\n' +
+      '  {\n' +
+      '    "type": "help",\n' +
+      '    "helpvalue": "<span>Please fill in this form!</span>"\n' +
+      '  },\n' +
+      '  {\n' +
+      '    "key": "Expenses.ClaimantName",\n' +
+      '    "type": "select",\n' +
+      '    "titleMap": [\n' +
+      '      { "value": "John Smith", "name": "John Smith" },\n' +
+      '      { "value": "Justine Rogers", "name": "Justin Rogers" },\n' +
+      '      { "value": "James West", "name": "James West"}\n' +
+      '    ]\n' +
+      '  },\n' +
+      '  {\n' +
+      '      "type": "conditional",\n' +
+      '      "condition": "model.Expenses.ClaimantName",\n' +
+      '      "items": [\n' +
+      '          {\n' +
+      '              "key": "Expenses.DepartmentCode",\n' +
+      '                "type": "text"\n' +
+      '          }\n' +
+      '        ]\n' +
+      '  }\n' +
+      ']';
     this.layout = JSON.parse(this.formLayoutJSON);
     this.setProcessFormConfig(this.selectedProcess.formTag, this.formLayoutJSON);
   }

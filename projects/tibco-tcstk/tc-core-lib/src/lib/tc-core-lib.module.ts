@@ -55,7 +55,8 @@ import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-elemen
 import {MessageTopicService} from './common/tc-core-topic-comm';
 import {TcVisibilityService} from './services/tc-visibility.service';
 import {LegacyIframeService} from './services/legacy-iframe.service';
-import {TC_BASE_URL} from './common/tc-base-url';
+import {TcCoreConfig, TcCoreConfiguration, TcCoreConfigurationService} from './interfaces/tc-core-configuration';
+import {TcCoreConfigService} from './services/tc-core-config-service';
 
 @NgModule({
   declarations: [
@@ -167,10 +168,16 @@ export class TcCoreLibModule {
   private ms: MessageTopicService;
   private li: LegacyIframeService;
 
-  static forRoot(): ModuleWithProviders {
+  static forRoot(config?: TcCoreConfiguration): ModuleWithProviders {
     return {
       ngModule: TcCoreLibModule,
-      providers: [TcSharedStateService, TcGeneralConfigService, LegacyIframeService]
+      providers: [
+        TcCoreConfigService,
+        { provide: TcCoreConfigurationService, useValue: config ? config : undefined },
+        TcSharedStateService,
+        TcGeneralConfigService,
+        LegacyIframeService
+      ]
     };
   }
 

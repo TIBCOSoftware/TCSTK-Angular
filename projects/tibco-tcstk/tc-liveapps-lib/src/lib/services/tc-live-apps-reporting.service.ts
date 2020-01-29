@@ -5,7 +5,6 @@ import {flatMap, map, tap} from 'rxjs/operators';
 import {CaseTypeReportRecord, CaseTypesReport, CaseTypeStateReport} from '../models/tc-live-apps-reporting';
 import {TcCaseCardConfigService} from './tc-case-card-config.service';
 import {StateColorMap, StateColorMapRec} from '../models/tc-case-card-config';
-import {TC_API_KEY, TC_BASE_URL} from '@tibco-tcstk/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -53,11 +52,8 @@ export class TcLiveAppsReportingService {
   }
 
   public getCaseTypesReport(sandboxId: number, appIds: string[], uiAppId: string): Observable<CaseTypesReport> {
-    let url = TC_BASE_URL + '/case/reports/v1/caseTypesReport?$sandbox=' + sandboxId;
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true }).pipe(
+    const url = '/case/reports/v1/caseTypesReport?$sandbox=' + sandboxId;
+    return this.http.get(url).pipe(
       tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
       flatMap(response => {
         const originalResponse = new CaseTypesReport().deserialize(response);
@@ -76,14 +72,11 @@ export class TcLiveAppsReportingService {
   }
 
   public getCaseTypeStateReport(sandboxId: number, appId: string, typeId: string, incTerminal: boolean, uiAppId: string): Observable<CaseTypeStateReport> {
-    let url = TC_BASE_URL + '/case/reports/v1/caseStatesReport?$sandbox=' + sandboxId
+    const url = '/case/reports/v1/caseStatesReport?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and typeId eq ' + typeId
       + ' and includeTerminalStates eq ' + String(incTerminal).toUpperCase();
-    if (TC_API_KEY) {
-      url = url + '&' + TC_API_KEY;
-    }
-    return this.http.get(url, { withCredentials: true }).pipe(
+    return this.http.get(url).pipe(
       tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
       flatMap(response => {
         const caseTypeStateReport = new CaseTypeStateReport().deserialize(response);

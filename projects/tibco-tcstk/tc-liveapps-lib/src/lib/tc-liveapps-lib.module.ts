@@ -109,7 +109,7 @@ import { LiveAppsHomeCockpitStandaloneComponent } from './components/live-apps-h
 import { LiveAppsCaseCockpitStandaloneComponent } from './components/live-apps-case-cockpit-standalone/live-apps-case-cockpit-standalone.component';
 import { LiveAppsCreatorStandaloneComponent } from './components/live-apps-creator-standalone/live-apps-creator-standalone.component';
 import {LiveAppsActionStandaloneComponent} from './components/live-apps-action-standalone/live-apps-action-standalone.component';
-import {SessionRefreshService} from './services/session-refresh-service';
+import {SessionRefreshService} from '@tibco-tcstk/tc-core-lib';
 import { LiveAppsProcessesComponent } from './components/live-apps-processes/live-apps-processes.component';
 import { LiveAppsFormPreviewComponent } from './components/live-apps-form-preview/live-apps-form-preview.component';
 
@@ -290,9 +290,6 @@ export class TcLiveappsLibModule {
         };
     }
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private sessionRefreshService: SessionRefreshService) {
-      // setup cookie refresh for every 10 minutes
-      // this.sessionRefreshService.scheduleCookieRefresh(600000);
-    this.sessionRefreshService.scheduleCookieRefresh(600000);
       this.matIconRegistry.addSvgIconLiteral(
       'ic-no-cases-icon',
       this.domSanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">\n' +

@@ -15,14 +15,19 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>API Access Keys</mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-form-field fxFlex>
-                  <input matInput placeholder="Client Id" [(ngModel)]="clientId"  name="ClientID" required>
-                </mat-form-field>
+                <div fxLayout="column">
+                  <mat-form-field fxFlex>
+                    <input matInput placeholder="Client Id" [(ngModel)]="clientId"  name="ClientID" required>
+                  </mat-form-field>
+                  <mat-form-field fxFlex>
+                    <input matInput placeholder="OAuth Assertion (FOR TESTING ONLY)" [(ngModel)]="oAuthAssertion"  name="OAuth Assertion (FOR TESTING ONLY)">
+                  </mat-form-field>
+                </div>
               </mat-expansion-panel>
             </mat-accordion>
 
             <div class="la-login-button-div" fxFlex fxLayoutAlign="center start">
-              <button ngStyle.lt-md="width: 100%;" type="submit" mat-raised-button color="primary" [disabled]="!laLoginForm.form.valid || loading">Login</button>
+              <button ngStyle.lt-md="width: 100%;" type="submit" mat-raised-button color="primary" [disabled]="(!laLoginForm.form.valid && (!oAuthAssertion || !clientId)) || loading">Login</button>
             </div>
 
           </form>

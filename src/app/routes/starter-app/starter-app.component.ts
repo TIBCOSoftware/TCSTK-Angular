@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LiveAppsService} from '@tibco-tcstk/tc-liveapps-lib';
-import {GeneralConfig, TC_BASE_URL} from '@tibco-tcstk/tc-core-lib';
+import {GeneralConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {Title} from '@angular/platform-browser';
 
 @Component({
@@ -13,9 +13,9 @@ import {Title} from '@angular/platform-browser';
 export class StarterAppComponent implements OnInit {
 
   public config: GeneralConfig;
-  public remoteApp = TC_BASE_URL ? true : false;
+  public usingProxy = (this.tcConfigService.getConfig().proxy_url && this.tcConfigService.getConfig().proxy_url !== '') ? true : false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private titleService: Title) {
+  constructor(private route: ActivatedRoute, private router: Router, private titleService: Title, private tcConfigService: TcCoreConfigService) {
   }
 
   ngOnInit() {
