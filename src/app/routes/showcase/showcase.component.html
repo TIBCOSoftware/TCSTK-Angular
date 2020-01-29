@@ -17,11 +17,6 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
-      <mat-tab label="Form Preview">
-        <ng-template matTabContent>
-          <tcla-live-apps-form-preview *ngIf="formSchema" [appIds]="[]" [sandbox]="sandboxId" [formsFramework]="'material-design'" [options]=""></tcla-live-apps-form-preview>
-        </ng-template>
-      </mat-tab>
       <mat-tab label="Action">
         <ng-template matTabContent>
           <tcla-live-apps-action-standalone [legacyActions]="false" applicationId="2335" typeId="1" [sandboxId]="3534" processName="Submit Request for Review" caseRef="3135151" [legacyCreators]="true"></tcla-live-apps-action-standalone>
@@ -43,6 +38,7 @@
                                    [customFormDefs]="customFormDefs"
                                    formsFramework="material-design"
                                    [legacyCreators]="legacyCreators"
+                                   [formConfig]="formConfig"
                                    (caseCreated)="handleCaseCreated($event)"></tcla-live-apps-creators>
           <!--tcla-live-apps-creators *ngIf="selectedCreatorApp" [sandboxId]="sandboxId" [applicationId]="selectedCreatorApp.applicationId"
                                    [typeId]="selectedCreatorApp.id" [dataOverride]="initialData"

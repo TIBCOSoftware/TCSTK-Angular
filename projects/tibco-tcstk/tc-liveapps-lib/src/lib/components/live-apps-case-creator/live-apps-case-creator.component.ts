@@ -6,6 +6,8 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {FormConfig} from '../../models/tc-liveapps-config';
+import {TcFormConfigService} from '../../services/tc-form-config.service';
 
 /**
  * Handles rendering of case creator form.
@@ -42,6 +44,11 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
    * Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
    */
   @Input() dataOverride: any;
+
+  /**
+   * Custom Form Layout Configuration
+   */
+  @Input() formConfig: FormConfig = this.formConfig ? this.formConfig : new FormConfig();
 
   /**
    * Custom Form configuration file
@@ -129,7 +136,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     this.caseChanged.emit(processResponse);
   }
 
-  constructor(protected liveapps: LiveAppsService) {
+  constructor(protected liveapps: LiveAppsService, protected formConfigService: TcFormConfigService) {
     super();
   }
 
@@ -141,30 +148,41 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     };
   }
 
+  initialize() {
+    if (this.formConfig) {
+      this.layout = this.formConfigService.getLayoutFromConfig(this.process.ref, this.formConfig);
+    }
+    if (this.customFormDefs && this.customFormDefs.customForms) {
+      this.isCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
+        return (form === this.process.ref);
+      }) !== -1);
+    } else {
+      this.isCustomForm = false;
+    }
+    if (this.process.process.jsonSchema.$schema === 'NOSCHEMA') {
+      this.schema = undefined;
+    } else {
+      this.schema = this.process.process.jsonSchema;
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     // handle input param changes
-    if (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue)) {
-      if (this.customFormDefs && this.customFormDefs.customForms) {
-        this.isCustomForm = (this.customFormDefs.customForms.findIndex((form) => {
-          return (form === this.process.ref);
-        }) !== -1);
-      } else {
-        this.isCustomForm = false;
-      }
-      if (changes.process.currentValue.process.jsonSchema.$schema === 'NOSCHEMA') {
-        this.schema = undefined;
-      } else {
-        this.schema = changes.process.currentValue.process.jsonSchema;
-      }
+    /* if (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue)) {
+      this.initialize(changes.process.currentValue);
     } else if (changes.applicationId && (changes.applicationId.currentValue !== changes.applicationId.previousValue)) {
       // appId has changed: make sure no process selected/form displayed
       this.process = undefined;
-    }
-    if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
+    }*/
+    /*if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
       this.layout = changes.layout.currentValue;
-    }
+    }*/
     if (changes.dataOverride && (changes.dataOverride.currentValue !== changes.dataOverride.previousValue)) {
       this.data = this.dataOverride;
+    }
+
+    if (this.process) {
+      this.initialize();
     }
   }
 

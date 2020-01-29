@@ -16,7 +16,7 @@ import {
   LiveAppsSettingsAccessControlComponent,
   AccessControlConfigurationResolver,
   LiveAppsSettingsFormsComponent,
-  LiveAppsSettingsLandingComponent
+  LiveAppsSettingsLandingComponent, LiveAppsSettingsFormLayoutComponent, FormConfigResolver
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {EftlMessagingSettingsComponent, MessagingConfigResolver} from '@tibco-tcstk/tc-messaging-lib';
 
@@ -94,6 +94,16 @@ export const CONFIGURATION_ROUTE_CONFIG = [
     }
   },
   {
+    path: 'live-apps-form-layout',
+    component: LiveAppsSettingsFormLayoutComponent,
+    resolve: {
+      claims: ClaimsResolver,
+      laConfigHolder: LaConfigResolver,
+      generalConfigHolder: GeneralConfigResolver,
+      formConfig: FormConfigResolver
+    }
+  },
+  {
     path: 'messaging-connections',
     component: EftlMessagingSettingsComponent,
     resolve: {
@@ -114,5 +124,6 @@ export const CONFIGURATION_ROUTE_PROVIDERS = [
   AllGroupsResolver,
   GeneralLandingPageConfigResolver,
   AccessControlConfigurationResolver,
-  MessagingConfigResolver
+  MessagingConfigResolver,
+  FormConfigResolver
 ];

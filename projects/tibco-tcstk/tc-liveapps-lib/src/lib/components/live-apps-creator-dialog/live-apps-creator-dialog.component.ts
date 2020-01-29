@@ -1,8 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {CaseRoute, CaseType, ProcessId} from '../../models/liveappsdata';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {FormConfig} from '../../models/tc-liveapps-config';
 
 /**
  * Dialog used on home screen to allow case creation (wraps other components)
@@ -23,6 +24,7 @@ export class LiveAppsCreatorDialogComponent {
   public customFormDefs: CustomFormDefs;
   public legacyCreators: boolean;
   public formsFramework: string;
+  public formConfig: FormConfig;
 
   constructor(
     public dialogRef: MatDialogRef<LiveAppsCreatorDialogComponent>,
@@ -33,6 +35,7 @@ export class LiveAppsCreatorDialogComponent {
     this.customFormDefs = data.customFormDefs;
     this.legacyCreators = data.legacyCreators;
     this.formsFramework = data.formsFramework;
+    this.formConfig = data.formConfig;
   }
 
   public handleCaseCreated = (createdCase: ProcessId) => {

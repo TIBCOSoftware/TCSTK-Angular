@@ -61,6 +61,7 @@ export * from './lib/components/live-apps-creator-standalone/live-apps-creator-s
 export * from './lib/components/live-apps-action-standalone/live-apps-action-standalone.component';
 export * from './lib/components/live-apps-processes/live-apps-processes.component';
 export * from './lib/components/live-apps-form-preview/live-apps-form-preview.component';
+export * from './lib/components/live-apps-settings-form-layout/live-apps-settings-form-layout.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -83,6 +84,7 @@ export * from './lib/services/tc-roles-service.ts.service';
 export * from './lib/services/tc-live-apps-reporting.service';
 export * from './lib/services/tc-case-card-config.service';
 export * from './lib/services/tc-workitems.service';
+export * from './lib/services/tc-form-config.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
@@ -96,6 +98,7 @@ export * from './lib/resolvers/case-data.resolver';
 export * from './lib/resolvers/access.resolver';
 export * from './lib/resolvers/role-active.resolver';
 export * from './lib/resolvers/accessControlConfiguration.resolver';
+export * from './lib/resolvers/form-config.resolver';
 
 // guards
 export * from './lib/guards/case.guard';

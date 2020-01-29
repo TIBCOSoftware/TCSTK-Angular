@@ -3,6 +3,7 @@ import {ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsCreatorSelectorComponent} from '../live-apps-creator-selector/live-apps-creator-selector.component';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {FormConfig} from '../../models/tc-liveapps-config';
 
 /**
  * Wraps case creator selection and execution of creator
@@ -36,6 +37,11 @@ export class LiveAppsCreatorsComponent implements OnInit {
    * Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
    */
   @Input() dataOverride: any;
+
+  /**
+   * Custom Form Layout Configuration
+   */
+  @Input() formConfig: FormConfig;
 
   /**
    * Custom Form configuration file

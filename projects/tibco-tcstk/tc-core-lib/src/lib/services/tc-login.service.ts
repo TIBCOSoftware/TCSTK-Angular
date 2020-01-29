@@ -31,7 +31,7 @@ export class TcLoginService {
   constructor(private http: HttpClient, private location: Location) { }
 
   // Provide ability to login to Tibco Subscriber Cloud
-  public login(username, password, clientID, oAuthAssertion?): Observable<AuthInfo> {
+  public login(username, password, clientID): Observable<AuthInfo> {
     if (username) {
       localStorage.setItem(EMAIL_ID_KEY, username);
     }
@@ -40,21 +40,12 @@ export class TcLoginService {
     }
     let body;
     let url;
-    if (oAuthAssertion) {
-      url = '/idm/v3/login-oauth';
-      body = new HttpParams()
-        .set('scope', 'BPM')
-        .set('client_id', clientID)
-        .set('grant_type', 'urn:ietf:params:oauth:grant-type:jwt-bearer')
-        .set('client_assertion', oAuthAssertion);
-    } else {
       url = '/idm/v3/login-oauth';
       body = new HttpParams()
         .set('Email', username)
         .set('Password', password)
         .set('TenantId', 'bpm')
         .set('ClientID', clientID);
-    }
 
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
@@ -63,12 +54,10 @@ export class TcLoginService {
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map( (authInfo: AuthInfo) => {
-          if (oAuthAssertion) {
-            localStorage.setItem('oAuthKey', oAuthAssertion.access_token);
-          }
             return authInfo;
           }
-          ));
+          )
+      );
   }
 
   public loginV2(username, password): Observable<AccessToken> {

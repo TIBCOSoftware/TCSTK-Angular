@@ -14,7 +14,6 @@
  */
 
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {JsonSchemaFormComponent, MaterialDesignFrameworkModule} from 'angular6-json-schema-form';
 import {ActivatedRoute} from '@angular/router';
 import {CustomFormDefs} from '../../models/tc-custom-forms';
 

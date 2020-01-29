@@ -3,7 +3,7 @@
      Then modify the template as required and use <app-my-live-apps-case-cockpit> instead of <tcla-live-apps-case-cockpit>
 -->
 
-<tcla-live-apps-case-cockpit fxFill [typeId]="typeId" [appId]="appId" [uiAppId]="generalConfig.uiAppId" [sandboxId]="sandbox.id" [caseRef]="caseRef" [userId]="claims.id" [layout]="layout" [formsFramework]="liveAppsConfig.formsFramework" [exclRecentAppIds]="exclRecentAppIds" [roles]="roles" [access]="access" [customFormDefs]="customFormDefs" [legacyWorkitems]="liveAppsConfig.legacyWorkitems" [legacyActions]="liveAppsConfig.legacyActions" [workitemId]="workitemId" (routeAction)="handleRouteAction($event)" >
+<tcla-live-apps-case-cockpit fxFill [typeId]="typeId" [appId]="appId" [uiAppId]="generalConfig.uiAppId" [sandboxId]="sandbox.id" [caseRef]="caseRef" [userId]="claims.id" [layout]="layout" [formsFramework]="liveAppsConfig.formsFramework" [formConfig]="formConfig" [exclRecentAppIds]="exclRecentAppIds" [roles]="roles" [access]="access" [customFormDefs]="customFormDefs" [legacyWorkitems]="liveAppsConfig.legacyWorkitems" [legacyActions]="liveAppsConfig.legacyActions" [workitemId]="workitemId" (routeAction)="handleRouteAction($event)" >
   <!--  You can project buttons into the navbar here (note must use 'customToolbarContent' attribute to tag content to be projected into toolbar) -->
   <!--mat-button-toggle-group customToolbarContent name="view">
     <mat-button-toggle

@@ -5,6 +5,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {take, takeUntil} from 'rxjs/operators';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 import {TcCaseDataService} from '../../services/tc-case-data.service';
+import {FormConfig} from '../../models/tc-liveapps-config';
 
 /**
  * Handles rendering of case creator form.
@@ -50,6 +51,11 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
   @Input() customFormTag: string;
 
   /**
+   * Custom Form Layout
+   */
+  @Input() layout: any[];
+
+  /**
    * Enable legacy creators
    */
   @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
@@ -67,7 +73,6 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   data: any;
-  layout: any[];
   options: any;
   process: Process;
   isCustomForm = false;

@@ -1,0 +1,7 @@
+<div fxLayout="column" class="tcs-live-apps-settings-pane" fxFill>
+  <tc-tibco-cloud-widget-header style="height: 40px;" [icon]="'tcs-capabilities'" [headerText]="'Live Apps Form Configuration'">
+  </tc-tibco-cloud-widget-header>
+  <div fxFlex style="padding: 20px; overflow: hidden" fxLayout="column">
+    <tcla-live-apps-form-preview style="max-height: 100%; height: 100%;" [sandbox]="sandboxId" [appIds]="liveAppsConfig.applicationIds" [formsFramework]="liveAppsConfig.formsFramework" [formConfig]="formConfig" (formConfigUpdate)="formConfigChange($event)"></tcla-live-apps-form-preview>
+  </div>
+</div>

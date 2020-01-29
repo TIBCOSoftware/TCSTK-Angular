@@ -1,7 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GeneralConfig, UiAppConfig, RouteAction, Claim} from '@tibco-tcstk/tc-core-lib';
-import {CaseRoute, CaseType, LiveAppsConfig, Groups, Roles, RouteAccessControlConfigurationElement} from '@tibco-tcstk/tc-liveapps-lib';
+import {
+  CaseRoute,
+  CaseType,
+  LiveAppsConfig,
+  Groups,
+  Roles,
+  RouteAccessControlConfigurationElement,
+  FormConfig
+} from '@tibco-tcstk/tc-liveapps-lib';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
@@ -22,6 +30,7 @@ export class HomeComponent implements OnInit {
   public roles: Roles;
   public access: RouteAccessControlConfigurationElement;
   public customFormDefs: CustomFormDefs;
+  public formConfig: FormConfig;
 
   public welcomeMessage: string;
 
@@ -76,6 +85,7 @@ export class HomeComponent implements OnInit {
     this.email = this.claims.email;
     this.userId = this.claims.id;
     this.welcomeMessage = this.generalConfig.welcomeMessage ? this.generalConfig.welcomeMessage : 'Welcome to Case Manager';
+    this.formConfig = this.route.snapshot.data.formConfig;
   }
 
 }

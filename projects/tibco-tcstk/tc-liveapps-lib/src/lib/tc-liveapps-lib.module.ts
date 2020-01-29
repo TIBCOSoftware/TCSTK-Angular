@@ -112,6 +112,7 @@ import {LiveAppsActionStandaloneComponent} from './components/live-apps-action-s
 import {SessionRefreshService} from '@tibco-tcstk/tc-core-lib';
 import { LiveAppsProcessesComponent } from './components/live-apps-processes/live-apps-processes.component';
 import { LiveAppsFormPreviewComponent } from './components/live-apps-form-preview/live-apps-form-preview.component';
+import {LiveAppsSettingsFormLayoutComponent} from './components/live-apps-settings-form-layout/live-apps-settings-form-layout.component';
 
 @NgModule({
     declarations: [
@@ -175,7 +176,8 @@ import { LiveAppsFormPreviewComponent } from './components/live-apps-form-previe
         LiveAppsCreatorStandaloneComponent,
         LiveAppsActionStandaloneComponent,
         LiveAppsProcessesComponent,
-        LiveAppsFormPreviewComponent
+        LiveAppsFormPreviewComponent,
+        LiveAppsSettingsFormLayoutComponent
     ],
   imports: [
     TcCoreLibModule,
@@ -270,7 +272,8 @@ import { LiveAppsFormPreviewComponent } from './components/live-apps-form-previe
         LiveAppsCreatorStandaloneComponent,
         LiveAppsActionStandaloneComponent,
         LiveAppsProcessesComponent,
-        LiveAppsFormPreviewComponent
+        LiveAppsFormPreviewComponent,
+        LiveAppsSettingsFormLayoutComponent
     ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [

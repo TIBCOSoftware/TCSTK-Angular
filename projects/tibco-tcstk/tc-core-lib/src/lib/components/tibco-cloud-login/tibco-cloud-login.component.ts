@@ -38,7 +38,6 @@ export class TibcoCloudLoginComponent implements OnChanges {
     token: AccessToken;
     authInfo: AuthInfo;
     auth: Observable<AuthInfo>;
-    oAuthAssertion: string;
 
   /**
   * The Constructor creates the Login Dialog
@@ -53,7 +52,7 @@ export class TibcoCloudLoginComponent implements OnChanges {
         this.loading = true;
         this.loginError = undefined;
 
-      this.auth = this.tcLogin.login(this.name, this.password, this.clientId, this.oAuthAssertion).pipe(
+      this.auth = this.tcLogin.login(this.name, this.password, this.clientId).pipe(
         map((authInfo: AuthInfo) => {
             this.authInfo = authInfo;
             return authInfo;

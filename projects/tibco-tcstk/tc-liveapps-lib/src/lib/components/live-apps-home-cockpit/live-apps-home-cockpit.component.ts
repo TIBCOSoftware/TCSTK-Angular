@@ -15,6 +15,7 @@ import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widg
 import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-workitems.component';
+import {FormConfig} from '../../models/tc-liveapps-config';
 
 
 /**
@@ -74,6 +75,11 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
    * RouteAccessControlConfig - basically the config for access control
    */
   @Input() access: RouteAccessControlConfigurationElement;
+
+  /**
+   * Custom Form Layout Configuration
+   */
+  @Input() formConfig: FormConfig;
 
   /**
    * Custom Form configuration file
@@ -174,7 +180,7 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
       }
     }
     // this.openCreatorDialog(application, EXAMPLE_INITIAL_DATA, this.sandboxId);
-    this.openCreatorDialog(application, undefined, this.sandboxId, this.customFormDefs, this.legacyCreators, this.formsFramework);
+    this.openCreatorDialog(application, undefined, this.sandboxId, this.customFormDefs, this.legacyCreators, this.formsFramework, this.formConfig);
   }
 
   public handleReportCaseTypeSelection = (caseTypeReportRecord: CaseTypeReportRecord) => {
@@ -187,14 +193,14 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
     }
   }
 
-  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework) => {
+  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework, formConfig) => {
     const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
       width: '60%',
       height: '80%',
       maxWidth: '100vw',
       maxHeight: '100vh',
       panelClass: 'tcs-style-dialog',
-      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework)
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework, formConfig)
     });
 
     dialogRef.afterClosed().subscribe(result => {
