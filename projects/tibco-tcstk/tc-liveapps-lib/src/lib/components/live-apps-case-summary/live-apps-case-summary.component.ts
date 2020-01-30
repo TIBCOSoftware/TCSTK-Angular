@@ -75,6 +75,11 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
   @Input() configModeAppTypeLabel: string;
 
   /**
+   * whether to use case type color for header bar
+   */
+  @Input() configModeUseCaseTypeColor: boolean;
+
+  /**
    * The case reference
    */
   @Input() caseRef: string;
@@ -160,6 +165,10 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
     this.caseTypeIconComponent.refresh(icon, fill);
   }
 
+  public togglePreviewUseCaseTypeColor = (useCaseTypeColor: boolean) => {
+    this.metadata.useCaseTypeColor = useCaseTypeColor;
+  }
+
   public refresh = () => {
     if (!this.configMode) {
       this.caseCardConfigService.getCaseWithSummary(this.caseRef, this.sandboxId, this.uiAppId)
@@ -221,6 +230,7 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
       this.metadata.caseTypeColor = this.configModeCaseTypeColor;
       this.metadata.caseTypeIcon = this.configModeCaseTypeIcon;
       this.metadata.applicationLabel = this.configModeAppTypeLabel;
+      this.metadata.useCaseTypeColor = this.configModeUseCaseTypeColor;
     }
   }
 
@@ -240,6 +250,8 @@ export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements O
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.configModeAppTypeLabel && !changes.configModeAppTypeLabel.isFirstChange() && (changes.configModeAppTypeLabel.currentValue !== changes.configModeAppTypeLabel.previousValue)) {
+      this.refresh();
+    } else if (changes.configModelColor && changes.configModeColor.currentValue && !changes.configModeColor.isFirstChange()) {
       this.refresh();
     }
   }

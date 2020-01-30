@@ -131,7 +131,6 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public updateIconMap = (stateConfig: IconMap) => {
     let foundMap: IconMap;
-    let updatedMap: IconMap;
     if (this.caseCardConfig.cardConfig && this.caseCardConfig.cardConfig.stateMap) {
       this.caseCardConfig.cardConfig.stateMap.forEach(function(stateMap) {
         if (stateMap.state === stateConfig.state) {
@@ -155,11 +154,13 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
   public handleCaseTypeColorToggleChange = (changes) => {
     this.caseCardConfig.cardConfig.useCaseTypeColor = changes.checked ? changes.checked : false;
-    if (changes.checked) {
+
+    // if (changes.checked) {
       this.caseSummaryComponent.forEach((comp: LiveAppsCaseSummaryComponent) => {
-        comp.restylePreview(this.selectedStateConfig.icon, this.caseTypeColor);
+        // comp.restylePreview(this.selectedStateConfig.icon, this.caseTypeColor);
+        comp.togglePreviewUseCaseTypeColor(changes.checked);
       });
-    }
+    // }
     this.configChanged.emit(this.caseCardConfig);
   }
 
@@ -282,7 +283,7 @@ export class LiveAppsApplicationConfigurationComponent extends LiveAppsComponent
 
         this.caseTypeIcon = caseTypeRec.icon;
         this.caseTypeColor = caseTypeRec.fill;
-        this.selectedCaseTypeConfig = this.getConfigForCaseType(this.appTypeLabel)
+        this.selectedCaseTypeConfig = this.getConfigForCaseType(this.appTypeLabel);
       }, error => { this.errorMessage = 'Error retrieving case card config: ' + error.error.errorMsg; });
   }
 

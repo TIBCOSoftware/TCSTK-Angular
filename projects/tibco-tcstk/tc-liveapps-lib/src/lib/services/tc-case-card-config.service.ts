@@ -72,8 +72,10 @@ export class TcCaseCardConfigService {
     ssList.sharedStateEntries.push(entry);
     return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
       .pipe(
-        map(value => {
-          return new CardConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+        flatMap(value => {
+          // flush the cache and return new value
+          // return new CardConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+          return this.getCardConfig(uiAppId, appId, true, true);
         })
       );
   }

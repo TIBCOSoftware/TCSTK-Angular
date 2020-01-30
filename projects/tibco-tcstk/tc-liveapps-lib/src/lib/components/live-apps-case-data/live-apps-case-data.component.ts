@@ -6,6 +6,8 @@ import {ReplaySubject} from 'rxjs';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseDataService} from '../../services/tc-case-data.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {FormConfig} from '../../models/tc-liveapps-config';
+import {TcFormConfigService} from '../../services/tc-form-config.service';
 
 
 /**
@@ -52,6 +54,11 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   @Input() showHeader: boolean;
 
   /**
+   * Custom Form Layout Configuration
+   */
+  @Input() formConfig: FormConfig = this.formConfig ? this.formConfig : new FormConfig();
+
+  /**
    * Layout object that can be passed to override default layout of the form renderer
    */
   @Input() layout: any[];
@@ -89,7 +96,7 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   public formRef: string;
   public name: string;
 
-  constructor(protected caseDataService: TcCaseDataService) {
+  constructor(protected caseDataService: TcCaseDataService, protected formConfigService: TcFormConfigService) {
     super();
   }
 
@@ -109,7 +116,11 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
         this.summary = result.caseInfo.summaryObj;
         this.schema = result.caseSchema;
         this.name = result.name;
+        // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
         this.formRef = result.applicationName + '.' + result.applicationInternalName + '.casedata.' + this.customDataId;
+        if (this.formConfig) {
+          this.layout = this.formConfigService.getLayoutFromConfig(this.formRef, this.formConfig);
+        }
         this.casedata$.next(this.casedata);
         this.summary$.next(this.summary);
         this.metadata$.next(this.metadata);

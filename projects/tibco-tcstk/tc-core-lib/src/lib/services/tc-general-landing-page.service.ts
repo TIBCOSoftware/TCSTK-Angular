@@ -20,8 +20,8 @@ export class TcGeneralLandingPageService {
             map(landingPages => {
                 const page = landingPages.landingPage.filter(element => element.key === key )[0];
                 return page;
-            })            
-        )   
+            })
+        )
         return landingPage;
     }
 
@@ -39,6 +39,6 @@ export class TcGeneralLandingPageService {
                 }
             })
         );
-    } 
+    }
 }
 

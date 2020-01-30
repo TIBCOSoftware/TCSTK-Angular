@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {SharedStateContent, SharedStateEntry, SharedStateList} from '../models/tc-shared-state';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {flatMap, map} from 'rxjs/operators';
 import {Location} from '@angular/common';
 import {TcCoreCommonFunctions} from '../common/tc-core-common-functions';
 import {GeneralConfig} from '../models/tc-general-config';
@@ -61,10 +61,10 @@ export class TcGeneralConfigService {
 
     return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
       .pipe(
-        map(value => {
-          // flush the cache
-          this.getGeneralConfig(uiAppId, true, true).subscribe();
-          return new GeneralConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+        flatMap(value => {
+          // flush the cache and return updated value
+          return this.getGeneralConfig(uiAppId, true, true);
+          // return new GeneralConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
         })
       );
   }

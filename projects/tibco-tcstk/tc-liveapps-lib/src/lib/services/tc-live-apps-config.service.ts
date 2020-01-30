@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {flatMap, map} from 'rxjs/operators';
 import {Location} from '@angular/common';
 import {TcSharedStateService, TcCoreCommonFunctions, SharedStateContent, SharedStateEntry, SharedStateList} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsConfig} from '../models/tc-liveapps-config';
@@ -59,10 +59,9 @@ export class TcLiveAppsConfigService {
 
     return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
       .pipe(
-        map(value => {
-          // flush the cache
-          this.getLiveAppsConfig(uiAppId, true, true).subscribe();
-          return new LiveAppsConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+        flatMap(value => {
+          // flush the cache and return the saved value
+          return this.getLiveAppsConfig(uiAppId, true, true);
         })
       );
   }
