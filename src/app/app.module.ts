@@ -91,7 +91,7 @@ const tcCoreConfig: TcCoreConfig = {
   providers: [
     LogService,
     // for proxied API calls
-    // { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
 
     // for using oAuth
     // { provide: HTTP_INTERCEPTORS, useClass: OAuthInterceptor, multi: true }
