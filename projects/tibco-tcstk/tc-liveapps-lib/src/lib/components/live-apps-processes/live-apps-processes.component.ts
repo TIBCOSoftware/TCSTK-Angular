@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {LaProcessSelection} from '../../models/tc-case-processes';
-import {CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
+import {CaseType, CaseTypesList, JsonSchema, Process} from '../../models/liveappsdata';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 
@@ -26,6 +26,11 @@ export class LiveAppsProcessesComponent implements OnChanges {
    * sandboxId - this comes from claims resolver
    */
   @Input() sandboxId: number;
+
+  /**
+   * includeCaseDataPage - include case data page as process selection
+   */
+  @Input() includeCaseDataPage: boolean = this.includeCaseDataPage ? this.includeCaseDataPage : false;
 
   /**
    * ~event processClicked : Process selected
@@ -56,9 +61,23 @@ export class LiveAppsProcessesComponent implements OnChanges {
           });
           if (caseTypes && caseTypes.length > 0) {
             this.caseType = caseTypes[0];
-            // this.processes = [];
+            this.processes = [];
+            if (this.includeCaseDataPage) {
+              // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
+              const cdProcess = new Process().deserialize(
+                {
+                  jsonSchema: this.caseType.jsonSchema,
+                  name: 'Data Page',
+                  id: 'casedata',
+                  formTag: this.caseType.applicationName + '.' + this.caseType.applicationInternalName + '.' + 'casedata.default',
+                  processType: 'casedata',
+                  unsupportedForm: false
+                }
+              );
+              this.processes.push(cdProcess);
+            }
             if (this.caseType.creators) {
-              this.processes = this.caseType.creators;
+              this.processes.push(...this.caseType.creators);
             }
             if (this.caseType.actions) {
               this.processes.push(...this.caseType.actions);

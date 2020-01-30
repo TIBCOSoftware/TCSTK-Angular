@@ -21,11 +21,11 @@
     <div class="tcs-form-config-content">
       <div fxLayout="row">
         <tcla-live-apps-applications fxFlex [formFieldRendering]="true" [sandboxId]="sandbox" [appIds]="appIds" (selection)="handleAppSelection($event)"></tcla-live-apps-applications>
-        <tcla-live-apps-processes fxFlex [sandboxId]="sandbox" [appId]="selectedApp?.applicationId" [typeId]="selectedApp?.id" (processClicked)="handleProcessSelection($event)"></tcla-live-apps-processes>
+        <tcla-live-apps-processes fxFlex [sandboxId]="sandbox" [appId]="selectedApp?.applicationId" [typeId]="selectedApp?.id" [includeCaseDataPage]="true" (processClicked)="handleProcessSelection($event)"></tcla-live-apps-processes>
       </div>
 
       <mat-accordion>
-      <mat-expansion-panel [disabled]="!selectedApp">
+      <mat-expansion-panel [disabled]="!selectedProcess">
         <mat-expansion-panel-header>
           <mat-panel-title>Schema</mat-panel-title>
         </mat-expansion-panel-header>
@@ -40,7 +40,7 @@
           (loading form schema...)
         </div>
       </mat-expansion-panel>
-      <mat-expansion-panel [disabled]="!selectedApp">
+      <mat-expansion-panel [disabled]="!selectedProcess">
         <mat-expansion-panel-header>
           <mat-panel-title>Layout</mat-panel-title>
         </mat-expansion-panel-header>
@@ -57,7 +57,8 @@
           <span>&nbsp;layout</span>
         </div>
         <div *ngIf="formLayoutJSON">
-          <span>Layout uses JSON schema form layout options - refer to 'Form Definitions'&nbsp;</span><span class="tcs-clickable" (click)="openLayoutDocsTab()">here</span><span>&nbsp;for layout options: </span>
+          <span>Layout uses JSON schema form layout options - refer to 'Form Definitions'&nbsp;</span><span class="tcs-clickable" (click)="openLayoutDocsTab()">here</span><span>&nbsp;for layout options</span>
+          <div *ngIf="selectedProcess && selectedProcess.processType === 'casedata'"><br><span>Note: Case Data forms are rendered read-only and buttons will not be displayed</span></div>
         </div>
         <div *ngIf="formLayoutJSON" fxLayoutAlign="row">
           <div
@@ -73,7 +74,7 @@
           <mat-icon svgIcon="tcs-close-icon" (click)="dropLayout()" matTooltip="Clear layout" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
         </div>
       </mat-expansion-panel>
-      <mat-expansion-panel #dataPanel [disabled]="!selectedApp">
+      <mat-expansion-panel #dataPanel [disabled]="!selectedProcess">
         <mat-expansion-panel-header>
           <mat-panel-title>Data</mat-panel-title>
         </mat-expansion-panel-header>

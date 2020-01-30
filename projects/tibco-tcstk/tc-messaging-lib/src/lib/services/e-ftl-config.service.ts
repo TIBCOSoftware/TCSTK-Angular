@@ -62,9 +62,9 @@ export class EFTLConfigService {
     return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
       .pipe(
         map(value => {
-          // flush the cache
-          this.getMessagingConfig(uiAppId, true, true).subscribe();
-          return new MessagingConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+          // flush the cache and return value
+          return this.getMessagingConfig(uiAppId, true, true);
+          // return new MessagingConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
         })
       );
   }

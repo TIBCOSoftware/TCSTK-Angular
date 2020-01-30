@@ -72,22 +72,22 @@ export class LiveAppsConfigResolver implements Resolve<Observable<LiveAppsConfig
                       uiAppId.uiAppId,
                       this.defaultAppConfig)
                       .pipe(
-                        map(
+                        flatMap(
                           result => {
                             const newAppConfig = this.defaultAppConfig;
                             newAppConfig.id = result;
-                            this.liveAppsConfigService.updateLiveAppsConfig(
+                            this.triggerCardConfigFetch(newAppConfig);
+                            return this.liveAppsConfigService.updateLiveAppsConfig(
                               this.sandboxId,
                               uiAppId.uiAppId,
                               newAppConfig,
-                              result).subscribe(
+                              result).pipe(
                               // trigger a read to flush the cache since we changed it
-                              updatedConf => {
-                                this.liveAppsConfigService.getLiveAppsConfig(this.uiAppId, true, true).subscribe();
+                              flatMap(updatedConf => {
+                                return this.liveAppsConfigService.getLiveAppsConfig(this.uiAppId, true, true);
                               }
+                              )
                             );
-                            this.triggerCardConfigFetch(newAppConfig);
-                            return newAppConfig;
                           })
                       );
                   })

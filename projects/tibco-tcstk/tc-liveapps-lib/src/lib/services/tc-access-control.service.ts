@@ -3,7 +3,7 @@ import { RouteAccessControlConfig } from '../models/tc-groups-data';
 import { TcCoreCommonFunctions, TcSharedStateService, SharedStateContent, SharedStateEntry, SharedStateList } from '@tibco-tcstk/tc-core-lib';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {flatMap, map} from 'rxjs/operators';
 import { Location } from '@angular/common';
 
 @Injectable({
@@ -63,10 +63,10 @@ export class TcAccessControlService {
 
         return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
             .pipe(
-                map(value => {
-                    // flush the cache
-                    this.getAccessControlConfig(uiAppId, true, true).subscribe();
-                    return new RouteAccessControlConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+                flatMap(value => {
+                    // flush the cache and return value
+                    return this.getAccessControlConfig(uiAppId, true, true);
+                    // return new RouteAccessControlConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
                 })
             );
     }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {flatMap, map} from 'rxjs/operators';
 import { TcSharedStateService } from './tc-shared-state.service';
 import { GeneralLandingPageConfig, LandingPageConfig } from '../models/tc-general-landing-page-config';
 import { SharedStateContent, SharedStateEntry, SharedStateList } from '../models/tc-shared-state';
@@ -63,10 +63,10 @@ export class TcGeneralLandingPageConfigService {
 
         return this.sharedStateService.updateSharedState(ssList.sharedStateEntries)
             .pipe(
-                map(value => {
-                    // flush the cache
-                    this.getGeneralLandingPageConfig(uiAppId, true, true).subscribe();
-                    return new GeneralLandingPageConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
+                flatMap(value => {
+                    // flush the cache and return value
+                    return this.getGeneralLandingPageConfig(uiAppId, true, true);
+                    // return new GeneralLandingPageConfig().deserialize((JSON.parse(value.sharedStateEntries[0].content.json)));
                 })
             );
     }
