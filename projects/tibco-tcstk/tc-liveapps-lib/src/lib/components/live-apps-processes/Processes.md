@@ -2,8 +2,6 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>Special rendering of LiveAppsApplicationsComponent</p>
-
 
 
 #### Usage
@@ -12,38 +10,30 @@
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-application-list></tcla-live-apps-application-list>
+<tcla-live-apps-processes></tcla-live-apps-processes>
 ```
 
 #### Inputs
 
 Attribute | Type | Comments
 --- | --- | ---
-selectedAppIds | string[] | The app Ids selected (output)
-appIds | string[] | The list of LA Application IDs you want to handle
-formFieldRendering | boolean | Form field rendering
+appId | string | The LA Application Id
+includeCaseDataPage | boolean | includeCaseDataPage - include case data page as process selection
 sandboxId | number | sandboxId - this comes from claims resolver
-selectedApp | CaseType | Application selected from dropdown (output)
-selectFirstApp | boolean | Whether to auto select the first app in dropdown selector (eg search)
+typeId | string | The LA Application Type Id (generally 1)
 
 #### Outputs
 
 Attribute | Type |   | Comments
 --- | --- | --- | ---
-appIdsSelected | EventEmitter<string[]> |   |  
-  | Event |  appIdsSelected  |  Applications selected in component (appIds)
-  | Payload |  string[]  |  selected App Ids from the application list (used on config)
-appsSelected | EventEmitter<CaseType[]> |   |  
-  | Event |  appsSelected  |  Applications selected in component (CaseType objects)
-  | Payload |  CaseType[]  |  Array of CaseType objects of what was selected
-selection | EventEmitter<CaseType> |   |  
-  | Event |  selection  |  Value selected in child component
-  | Payload |  CaseType  |  type varies.  but is when something is selected in a drop down it is passed back to the caller
+processClicked | EventEmitter<Process> |   |  
+  | Event |  processClicked  |  Process selected
+  | Payload |  LaProcessSelection  |  LaProcessSelection object output when a process is clicked
 
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsApplicationListComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsApplicationListComponent.html)
+[Link to LiveAppsProcessesComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsProcessesComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

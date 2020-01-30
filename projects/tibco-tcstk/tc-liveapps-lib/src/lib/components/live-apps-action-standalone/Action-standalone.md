@@ -24,6 +24,7 @@ caseRef | string | The case reference on which to run the action
 customFormTag | string | Custom Form tag if using an external form app
 dataOverride | any | Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
 formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
+layout | any[] | Custom Form Layout
 legacyActions | boolean | Enable legacy actions
 processName | string | The process definition of the action or creator to execute
 sandboxId | number | sandboxId - this comes from claims resolver
@@ -32,6 +33,7 @@ applicationId | string | LA application ID
 customFormTag | string | Custom Form tag if using an external form app
 dataOverride | any | Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
 formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
+layout | any[] | Custom Form Layout
 legacyCreators | boolean | Enable legacy creators
 processName | string | The process definition of the action or creator to execute
 sandboxId | number | sandboxId - this comes from claims resolver
