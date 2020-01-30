@@ -16,7 +16,7 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   @Input() appIds: string[];
   @Input() sandbox: string;
   @Input() formConfig: FormConfig;
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  @Input() formsFramework = this.formsFramework ? this.formsFramework : 'material-design';
 
   /**
    * ~event saveFormConfiguration : save form config
@@ -240,6 +240,9 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (!this.formsFramework) {
+      this.formsFramework = 'material-design';
+    }
     if (this.schema) {
       this.formSchemaJSON = JSON.stringify(this.schema, null, 2);
     }
