@@ -25,6 +25,7 @@ access | RouteAccessControlConfigurationElement | RouteAccessControlConfig - bas
 appIds | string[] | The list of LA Application IDs you want to handle
 customFormDefs | CustomFormDefs | Custom Form configuration file
 email | string | <ul><li>Email address of the user (comes from resolver)</li></ul>
+formConfig | FormConfig | Custom Form Layout Configuration
 formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
 legacyCreators | boolean | Enable legacy creators
 legacyWorkitems | boolean | Enable legacy workitems

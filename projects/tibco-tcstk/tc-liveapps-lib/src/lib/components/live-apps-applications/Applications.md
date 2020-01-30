@@ -22,6 +22,7 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appIds | string[] | The list of LA Application IDs you want to handle
+formFieldRendering | boolean | Form field rendering
 sandboxId | number | sandboxId - this comes from claims resolver
 selectedApp | CaseType | Application selected from dropdown (output)
 selectFirstApp | boolean | Whether to auto select the first app in dropdown selector (eg search)
