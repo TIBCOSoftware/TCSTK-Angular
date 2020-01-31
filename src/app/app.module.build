@@ -45,6 +45,7 @@ import { SplashComponent } from './routes/splash/splash.component';
 import {createCustomElement} from '@angular/elements';
 import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneComponent} from '@tibco-tcstk/tc-liveapps-lib';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
@@ -78,6 +79,7 @@ const tcCoreConfig: TcCoreConfig = {
     TcMessagingLibModule,
     FlexLayoutModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     MatTabsModule,
     MatExpansionModule,
