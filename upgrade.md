@@ -1,0 +1,66 @@
+# Upgrade notes from pre 1.2.0 version
+
+If you have an application that uses the old libraries you may need to make several changes.
+The easiest way is to take one of the existing templates (case manager, base app or analytics).
+
+Alternatively if you want to update an existing app follow these steps:
+
+1) app.module.ts
+
+Add the following from the app.module.ts in this repo:
+- tcCoreConfig const with appropriate values
+- Adjust module import for tcCoreModule to import config: TcCoreLibModule.forRoot(tcCoreConfig),
+- Add the new constructor and logic for token refresh in the AppModule class export at the end of the file
+
+2) package.json
+
+Update all dependency versions to match this repo. Add new entry for brace (ace editor) 
+
+3) The form config capability requires a new config object. The app will work without these changes but custom form layouts wont be rendered. Any route that uses forms such as home and case needs that resolver and should pass the
+formConfig parameter to components it uses:
+
+- add formConfigResolver to the resolvers list in starter-app-route.ts for the route
+- eg:   {
+          path: 'home',
+          component: HomeComponent,
+          canActivate: [AuthGuard],
+          resolve: {
+            ...
+            formConfig: FormConfigResolver
+          }
+         }
+         
+         + add the FormConfigResolver to the providers (STARTER_APP_PROVIDERS) list at the bottom of the file
+         
+- in the routed component (eg: routes/home/home.component.ts) retrieve the formConfig value and pass to the cockpit on the tempalte:
+- eg:   (home.component.ts) 
+            ngOnInit() {
+            ....
+                   this.formConfig = this.route.snapshot.data.formConfig;
+                   }
+            
+            (home.component.html)
+            <tcla-live-apps-home-cockpit .... [formConfig]="formConfig">
+            
+*** This must be done for all components that use forms (typically home and case routes)
+*** If you dont do this the app will work but forms will not use configured layouts       
+        
+4) add new config screens (forms and form config)
+
+- edit the configuration-route-config.ts
+- add the live-apps-forms and live-apps-form-layout (see version in this repo as example)
+- add the FormConfigResolver to providers (CONFIGURATION_ROUTE_PROVIDERS)
+- edit the assets/config/configurationMenuConfig.json
+  - add the two new config screens under Live Apps:
+           {
+           "entry": "Live Apps",
+           ..
+           "options": [
+                    ...
+                    "Forms",
+                    "Form Layout"
+                    ]
+           }
+           
+
+- Note - if you have any custom components with references to 'new CaseCreatorSelectionContext()' you will need to add the extra formConfig parameter
