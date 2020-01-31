@@ -21,6 +21,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+burgerMenuButtons | ToolbarButton[] | <code>&lt;tc-tibco-cloud-menu-bar&gt;</code> render a general menu bar
 headerText | string | Text shown in menu bar
 icon | string | icon name (svg key - needs to be registered)
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
@@ -30,17 +31,12 @@ toolbarButtons | ToolbarButton[] | buttons to display in the menu bar
 
 Attribute | Type |   | Comments
 --- | --- | --- | ---
+burgerMenuButtonEvent | EventEmitter<string> |   |  
+  | Event |  burgerMenuButtonEvent  |  Button Clicked
+  | Payload |  string  |  tells caller a button was clicked - outputs button Id
 toolbarButtonEvent | EventEmitter<string> |   |  
   | Event |  toolbarButtonEvent  |  Button Clicked
   | Payload |  string  |  tells caller a button was clicked - outputs button Id
-
-
-<b>Constructor</b>
-
-
-<p><code>&lt;tc-tibco-cloud-menu-bar&gt;</code> render a general menu bar</p>
-
-
 
 
 <b>full development Documentation</b>
