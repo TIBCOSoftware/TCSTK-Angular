@@ -34,6 +34,7 @@ import { ShowcaseComponent } from './routes/showcase/showcase.component';
 import { SplashComponent } from './routes/splash/splash.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ProxyInterceptor, OAuthInterceptor, TcCoreConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
@@ -67,6 +68,7 @@ const tcCoreConfig: TcCoreConfig = {
     TcMessagingLibModule,
     FlexLayoutModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     MatTabsModule,
     MatExpansionModule,
