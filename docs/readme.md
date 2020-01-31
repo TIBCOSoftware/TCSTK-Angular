@@ -31,8 +31,8 @@ App contains Analytics Features like open a Dashboard, get selected Data from th
 
 #### Discover App
 
-The Process Mining App allows Analysts to discover, learn, improve, and predict process behaviors based on event log data produced by operational systems.
-App is not available as a reusable Template, yet!
+The Process Mining App allows Analysts to discover, learn, improve, and predict process behaviors based on event log data produced by operational systems.<br>
+This App is not available as a reusable NPM Template, yet!
 
 ![alt-text](discover-app.png "Discover Preview Image")
 
