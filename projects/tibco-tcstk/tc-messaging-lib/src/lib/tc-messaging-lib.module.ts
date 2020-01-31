@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { EftlMessageReceiverComponent } from './components/eftl-message-receiver/eftl-message-receiver.component';
-import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer} from '@angular/platform-browser';
 import { EftlMessageSenderComponent } from './components/eftl-message-sender/eftl-message-sender.component';
 import {
   MatButtonModule,
@@ -14,6 +14,7 @@ import {FormsModule} from '@angular/forms';
 import {TcCoreLibModule} from '@tibco-tcstk/tc-core-lib';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {EftlMessagingSettingsComponent} from './components/eftl-messaging-settings/eftl-messaging-settings.component';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {EftlMessagingSettingsComponent} from './components/eftl-messaging-settin
   imports: [
     TcCoreLibModule,
     FlexLayoutModule,
-    BrowserModule,
+    CommonModule,
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
