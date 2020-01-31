@@ -31,6 +31,7 @@ configModeCaseTypeColor | string | static data for app config box
 configModeCaseTypeIcon | string | static data for app config box
 configModeColor | string | static data for app config box
 configModeIcon | string | static data for app config box
+configModeUseCaseTypeColor | boolean | whether to use case type color for header bar
 description | string | Card Description
 displayType | string | case card format - list, card, miniCard, staticList (no click event)
 highlight | string | Text to highlight in the list of cases (normall text that was searched)
