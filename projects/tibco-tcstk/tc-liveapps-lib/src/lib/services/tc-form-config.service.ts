@@ -14,12 +14,14 @@ export class TcFormConfigService {
   }
 
   public getLayoutFromConfig(formTag: string, formConfig: FormConfig): any[] {
-    const foundConfigs = formConfig.processFormConfigs.filter(pfc => {
-      return pfc.formTag === formTag;
-    });
     let layout: any[];
-    if (foundConfigs && foundConfigs.length > 0) {
-      layout = foundConfigs[0].layout ? JSON.parse(foundConfigs[0].layout) : undefined;
+    if (formConfig && formConfig.processFormConfigs) {
+      const foundConfigs = formConfig.processFormConfigs.filter(pfc => {
+        return pfc.formTag === formTag;
+      });
+      if (foundConfigs && foundConfigs.length > 0) {
+        layout = foundConfigs[0].layout ? JSON.parse(foundConfigs[0].layout) : undefined;
+      }
     }
     return layout;
   }
