@@ -2,10 +2,6 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>Special rendering of LiveAppsApplicationsComponent</p>
-
-<p><img src="../live-apps-application-create-button.png" alt="alt-text" class="img-responsive" title="Image"></p>
-
 
 
 #### Usage
@@ -14,31 +10,32 @@
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tcla-live-apps-application-create-button></tcla-live-apps-application-create-button>
+<tcla-live-apps-form-preview></tcla-live-apps-form-preview>
 ```
 
 #### Inputs
 
 Attribute | Type | Comments
 --- | --- | ---
-appIds | string[] | The list of LA Application IDs you want to handle
-formFieldRendering | boolean | Form field rendering
-sandboxId | number | sandboxId - this comes from claims resolver
-selectedApp | CaseType | Application selected from dropdown (output)
-selectFirstApp | boolean | Whether to auto select the first app in dropdown selector (eg search)
+appIds | string[] | 
+formConfig | FormConfig | 
+formsFramework |  | 
+options | any[] | 
+sandbox | string | 
+schema | any | 
 
 #### Outputs
 
 Attribute | Type |   | Comments
 --- | --- | --- | ---
-selection | EventEmitter<CaseType> |   |  
-  | Event |  selection  |  Value selected in child component
-  | Payload |  CaseType  |  type varies.  but is when something is selected in a drop down it is passed back to the caller
+formConfigUpdate | EventEmitter<FormConfig> |   |  
+  | Event |  saveFormConfiguration  |  save form config
+  | Payload |  any  |  forms config object
 
 
 <b>full development Documentation</b>
 
-[Link to LiveAppsApplicationCreateButtonComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsApplicationCreateButtonComponent.html)
+[Link to LiveAppsFormPreviewComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsFormPreviewComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

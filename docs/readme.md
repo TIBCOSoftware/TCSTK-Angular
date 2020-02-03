@@ -29,6 +29,15 @@ App contains Analytics Features like open a Dashboard, get selected Data from th
 - [Pattern App Details](https://tibcosoftware.github.io/TCSToolkit/Angular/starters/TCSTK-analytics-app/readme/) 
 - [Git Source](https://github.com/TIBCOSoftware/TCSTK-analytics-app/)
 
+#### Discover App
+
+The Process Mining App allows Analysts to discover, learn, improve, and predict process behaviors based on event log data produced by operational systems.<br>
+This App is not available as a reusable NPM Template, yet!
+
+![alt-text](discover-app.png "Discover Preview Image")
+
+- [Project Discover Details](https://tibcosoftware.github.io/labs-discover/) 
+
 ### More?
 
 Watch out for very soon upcoming additional Apps:

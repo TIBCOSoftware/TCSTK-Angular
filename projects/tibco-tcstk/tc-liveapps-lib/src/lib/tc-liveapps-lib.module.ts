@@ -26,8 +26,7 @@ import {
 } from '@angular/material';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer} from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ColorPickerModule } from 'ngx-color-picker';
@@ -94,7 +93,7 @@ import { LiveAppsDocumentViewerComponent } from './components/live-apps-document
 import { LiveAppsLandingPageComponent } from './components/live-apps-landing-page/live-apps-landing-page.component';
 import {ChartsModule} from 'ng2-charts';
 import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.service';
-import {Location} from '@angular/common';
+import {CommonModule, Location} from '@angular/common';
 import {RoleGuard} from './guards/role.guard';
 import { LiveAppsActiveCasesWidgetComponent } from './components/live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 import { LiveAppsActiveCasesReportComponent } from './components/live-apps-active-cases-report/live-apps-active-cases-report.component';
@@ -183,8 +182,7 @@ import {LiveAppsSettingsFormLayoutComponent} from './components/live-apps-settin
     TcCoreLibModule,
     TcFormsLibModule,
     HttpClientModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,

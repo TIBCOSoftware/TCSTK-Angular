@@ -26,6 +26,7 @@ showHeader | boolean | Whether to show the header bar in the widget - eg. favori
 applicationId | string | LA application ID
 customFormDefs | CustomFormDefs | Custom Form configuration file
 dataOverride | any | Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
+formConfig | FormConfig | Custom Form Layout Configuration
 formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
 legacyCreators | boolean | Enable legacy creators
 process | LaProcessSelection | The process definition of the action or creator to execute
