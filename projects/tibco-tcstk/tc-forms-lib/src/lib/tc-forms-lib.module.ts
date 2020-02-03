@@ -14,9 +14,8 @@ import {
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BrowserModule} from '@angular/platform-browser';
 import {AceEditorDirective} from './directives/ace-editor.directive';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import {AceEditorDirective} from './directives/ace-editor.directive';
     AceEditorDirective
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    CommonModule,
     FlexLayoutModule,
     FormsModule,
     MatButtonModule,

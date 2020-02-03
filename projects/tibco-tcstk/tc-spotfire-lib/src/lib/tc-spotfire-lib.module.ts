@@ -26,10 +26,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         SettingsSpotfireComponent
     ],
     imports: [
-        FormsModule, ReactiveFormsModule,
+        FormsModule,
+        ReactiveFormsModule,
         FlexLayoutModule,
         TcCoreLibModule,
-        SpotfireViewerModule, MatButtonModule,
+        SpotfireViewerModule,
+        MatButtonModule,
         MatCardModule,
         MatCheckboxModule,
         MatDialogModule,
