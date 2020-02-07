@@ -1,0 +1,105 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+
+</head>
+
+
+<script>
+    var myApp = angular.module('myApp',[]);
+    myApp.controller('AuthenticationController', ['$scope', '$http', '$location','$rootScope' , function($scope, $http, $location, $rootScope) {
+        $scope.spotfireLogin = function () {
+            var url = "/idm/v1/reauthorize";
+            var method = 'POST';
+            var req = {
+                method: method,
+                url: url,
+                headers: {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
+                data: 'opaque-for-tenant=SPOTFIRE&resumeURL=' + encodeURIComponent($location.$$absUrl + "?firstOpen=false")
+            };
+
+            $http(req).then(
+                function (result) {
+                    $scope.getSpotfireCookieForm(result.data);
+                },
+                function (error) {
+                    console.error("*** Spotfire login failed");
+                });
+        }
+
+        $scope.getSpotfireCookieForm = function (data) {
+            const form = document.createElement('form');
+            form.action = data.location;
+            // form.action = '/idm/v1/cookie';
+            form.method = 'POST';
+            form.className = 'hidden';
+
+            const location = document.createElement('input');
+            location.name = 'location';
+            location.value = decodeURIComponent(data.resumeURL);
+            form.appendChild(location);
+
+            const token = document.createElement('input');
+            token.name = 'token';
+            token.value = data.token;
+            form.appendChild(token);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+
+        if ($location.$$absUrl.indexOf("firstOpen") != -1 || $rootScope.firstOpen != null) {
+            $rootScope.firstOpen = false;
+        } else {
+            $rootScope.firstOpen = true;
+        }
+
+
+        console.info("** Spotfire Login"); //
+        if ($location.$$host !== "localhost" && $rootScope.firstOpen ) {
+            $rootScope.firstOpen = false;
+            $scope.spotfireLogin();
+
+        } else if($location.$$host == "localhost" ){
+          // notify parent auth is done
+          window.parent.postMessage({sfAuth:"ok"});
+        } else if (!$rootScope.firstOpen) {
+          // wait for refresh token calls
+          window.addEventListener('message', function(event){
+            if (typeof(event.data) !== 'refreshSFToken'){
+              console.log('got sf refresh');
+              $scope.spotfireLogin();
+            }
+          });
+          // notify parent auth is done
+          window.parent.postMessage({sfAuth:"ok"});
+        }
+
+
+
+    }]);
+
+</script>
+
+
+<body ng-app="myApp">
+<div ng-controller="AuthenticationController">
+
+</div>
+
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
