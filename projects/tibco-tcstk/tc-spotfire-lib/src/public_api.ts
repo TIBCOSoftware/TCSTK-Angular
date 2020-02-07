@@ -14,8 +14,10 @@ export * from './lib/models/tc-spotfire-config';
 
 // service
 export * from './lib/services/tc-spotfire-config.service';
+export * from './lib/services/tc-spotfire-service';
 
 // resolvers
 export * from './lib/resolvers/spotfire-config.resolver';
+export * from './lib/resolvers/spotfire-auth.resolver';
 
 // guards
