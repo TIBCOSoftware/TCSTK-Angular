@@ -72,6 +72,22 @@
     "logLevel": "info",
     "cookieDomainRewrite": {
       "*": "localhost"
+    },
+    "headers": {
+      "Origin": "https://liveapps.cloud.tibco.com",
+      "content-type": "application/x-www-form-urlencoded"
+    }
+  },
+  "/idm/v1/cookie": {
+    "target": {
+      "host": "spotfire-next.cloud.tibco.com",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "https://liveapps.cloud.tibco.com"
     }
   },
   "/tsc-ws": {
