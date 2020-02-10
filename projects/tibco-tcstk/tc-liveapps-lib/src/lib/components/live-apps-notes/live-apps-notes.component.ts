@@ -45,6 +45,11 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
    */
   @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
 
+  /**
+   * The header text as input, defaults to 'Notes'
+   */
+  @Input() header: string = this.header ? this.header : 'Notes';
+
   public notes: Note[];
   public errorMessage: string;
   public newNote: any = {};
