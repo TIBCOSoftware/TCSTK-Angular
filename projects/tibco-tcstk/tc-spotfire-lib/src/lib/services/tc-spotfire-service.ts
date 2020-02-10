@@ -4,6 +4,8 @@ import {Location} from '@angular/common';
 import {TcCoreCommonFunctions, TcSharedStateService} from '@tibco-tcstk/tc-core-lib';
 import {flatMap, map} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
+import {SpotfireMarkingCreateCaseConfig} from '../models/tc-spotfire-config';
+import {set} from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -78,5 +80,22 @@ export class TcSpotfireService {
         return this.getCookie(response.location, response.token, response.resumeURL);
       })
     );
+  }
+
+  public createLiveAppsData(mark:any, config: SpotfireMarkingCreateCaseConfig) {
+    let liveAppsData = {};
+    if (config.initialValue) {
+      liveAppsData = config.initialValue;
+    }
+    config.attributes.forEach(atr => {
+      if (mark && mark[config.markingName] && mark[config.markingName][config.tableName] && mark[config.markingName][config.tableName][atr.sourceAttr]) {
+        for (let idx = 0; idx < mark[config.markingName][config.tableName][atr.sourceAttr].length; idx++) {
+          const val = mark[config.markingName][config.tableName][atr.sourceAttr][idx];
+          set(liveAppsData, config.objectPath + '[' + idx + ']' + atr.targetAttr, val);
+        }
+      }
+    });
+    // console.log('Live apps data: ', JSON.stringify(liveAppsData));
+    return liveAppsData;
   }
 }
