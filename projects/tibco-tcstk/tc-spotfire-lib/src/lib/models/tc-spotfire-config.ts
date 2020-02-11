@@ -18,13 +18,9 @@ export class SpotfireConfig implements Deserializable {
     }
 }
 
-export class AttributeMapping implements Deserializable {
+export class AttributeMapping {
   sourceAttr: string;
   targetAttr: string;
-  deserialize(input: any) {
-    Object.assign(this, input);
-    return this;
-  }
 }
 
 
