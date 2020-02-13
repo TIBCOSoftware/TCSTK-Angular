@@ -59,6 +59,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
 
   private getCaseData = (caseRef) => {
     // retrieve the case data for this case reference
+    this.data = undefined;
+    this.caseState = undefined;
     this.liveapps.getCase(this.caseRef, this.sandboxId, this.applicationId, this.typeId )
       .pipe(
         take(1),
