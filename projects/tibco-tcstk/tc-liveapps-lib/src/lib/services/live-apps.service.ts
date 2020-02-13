@@ -558,7 +558,7 @@ export class LiveAppsService {
 
   public getThreads(relatedItemType: string, itemTypeId: string, skip: number, top: number): Observable<ThreadList> {
     // https://liveapps.tenant-integration.tcie.pro/collaboration/notes?$relatedItemCollection=CASE_APP_15441&$orderby=createdDate%20ASC
-    let url = '/collaboration/v1/notes?$relatedItemCollection=' + relatedItemType + '_' + itemTypeId
+    const url = '/collaboration/v1/notes?$relatedItemCollection=' + relatedItemType + '_' + itemTypeId
       + '&$orderby=createdDate desc'
       + '&$top=' + top + '&$skip=' + skip;
     return this.http.get(url, { withCredentials: true })
@@ -588,7 +588,7 @@ export class LiveAppsService {
 
   public getNotesForCollections(collectionIds): Observable<NotesList> {
     if (collectionIds) {
-      let url = '/collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
+      const url = '/collaboration/v1/notes?$relatedItemCollection=' + collectionIds +
         '&$orderby=createdDate ASC';
       return this.http.get(url, { withCredentials: true })
         .pipe(
