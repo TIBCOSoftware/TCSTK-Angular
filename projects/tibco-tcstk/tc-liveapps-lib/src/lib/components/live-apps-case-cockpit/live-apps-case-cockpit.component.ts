@@ -364,7 +364,7 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
           title: 'WorkItem: ' + wiId,
           workitemId: wiId
         }));
-      this.selected.setValue(this.formTabs.length);
+      this.selected.setValue(this.dataTabGroups['_tabs'].length);
   }
 
   public addActionFormTab = (actionSelection: LaProcessSelection) => {
@@ -377,7 +377,7 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
     this.formTabs.push(newTab);
     this.selectedTab = newTab;
     setTimeout(handler => {
-      this.selected.setValue(this.formTabs.length);
+      this.selected.setValue(this.dataTabGroups['_tabs'].length);
     })
     this.caseActionsComponent.toggleEnable();
   }
