@@ -42,7 +42,7 @@ export class LiveAppsDocumentViewerComponent implements OnInit {
   constructor(protected sanitizer: DomSanitizer, protected documentsService: TcDocumentService, protected location: Location) { }
 
   ngOnInit() {
-    const preparedUrl = TcCoreCommonFunctions.prepareUrlForNonStaticResource(this.location, this.documentsService.getUrlForDocument(this.folderType, this.folderId, this.document.name, this.document.artifactVersion, this.sandboxId));
+    const preparedUrl = TcCoreCommonFunctions.prepareUrlForNonStaticResource(this.location, this.documentsService.getUrlForDocument(this.folderType, this.folderId, this.document.name, this.document.artifactVersion, this.sandboxId, true));
     this.sanitizedResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(preparedUrl);
   }
 

@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ApiResponseError, ApiResponseText} from '../models/liveappsdata';
 import {LiveAppsService} from './live-apps.service';
 import {Document, DocumentList, OrgFolder} from '../models/tc-document';
 import {catchError, flatMap, map, tap} from 'rxjs/operators';
-import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreCommonFunctions, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TcDocumentService {
 
-  constructor(private http: HttpClient, private liveapps: LiveAppsService) {
+  constructor(private http: HttpClient, private liveapps: LiveAppsService, @Inject(TcCoreConfigService) private tcCoreConfig: TcCoreConfigService ) {
   }
 
   public createOrgFolder(name: string): Observable<ApiResponseText> {
@@ -130,7 +130,7 @@ export class TcDocumentService {
       );
   }
 
-  public getUrlForDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number): string {
+  public getUrlForDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number, checkProxy?: boolean): string {
     let url = '/webresource/';
     if (folderType === 'orgFolders') {
       url = url + 'orgFolders/' + folderId;
@@ -143,6 +143,18 @@ export class TcDocumentService {
     url = url + '/' + docId;
     if (docVersion) {
       url = url + '?$version=' + docVersion;
+    }
+    // need to check for proxy since this wont be intercepted (used on HTML template)
+    if (checkProxy && this.tcCoreConfig) {
+      const tcCoreConfig = this.tcCoreConfig.getConfig();
+      if (tcCoreConfig.proxy_url && tcCoreConfig.proxy_url !== '') {
+        url = tcCoreConfig.proxy_url + url;
+        if (docVersion) {
+          url = url + '&' + tcCoreConfig.api_key_param + '=' + tcCoreConfig.api_key;
+        } else {
+          url = url + '?' + tcCoreConfig.api_key_param + '=' + tcCoreConfig.api_key;
+        }
+      }
     }
     return url;
   }
