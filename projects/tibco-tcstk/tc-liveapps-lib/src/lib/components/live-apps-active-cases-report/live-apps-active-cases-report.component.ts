@@ -5,8 +5,6 @@ import {ChartType} from 'chart.js';
 import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {map, take, takeUntil} from 'rxjs/operators';
-
-import {copy} from 'angular6-json-schema-form';
 import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-config.service';
 import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 

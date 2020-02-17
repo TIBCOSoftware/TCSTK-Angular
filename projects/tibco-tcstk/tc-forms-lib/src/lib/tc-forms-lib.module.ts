@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
-import { Bootstrap4FrameworkModule} from 'angular6-json-schema-form';
+import { MaterialDesignFrameworkModule } from '@ajsf/material';
+import { Bootstrap4FrameworkModule } from '@ajsf/bootstrap4';
 import {RenderedFormComponent} from './components/rendered-form/rendered-form.component';
 import {
   MatButtonModule,
