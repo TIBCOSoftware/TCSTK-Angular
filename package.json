@@ -17,7 +17,7 @@
     "build_cwm": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build --prod --base-href /webresource/apps/cwm/index.html --deploy-url /webresource/apps/cwm/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
     "build_pd": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build --prod --base-href /webresource/apps/pd/index.html --deploy-url /webresource/apps/pd/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
     "build_msg": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-messaging-lib && cp tsconfig.debug.json tsconfig.json",
-    "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build @tibco-tcstk/tc-messaging-lib && cp tsconfig.debug.json tsconfig.json",
+    "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build @tibco-tcstk/tc-messaging-lib && ng build @tibco-tcstk/tc-events-lib && cp tsconfig.debug.json tsconfig.json",
     "npm_pack": "cd dist/tc-liveapps-lib && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
     "build:elements": "node os-independent.js -task build"

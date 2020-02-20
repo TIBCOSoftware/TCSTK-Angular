@@ -35,18 +35,23 @@ import { SplashComponent } from './routes/splash/splash.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ProxyInterceptor, OAuthInterceptor, TcCoreConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
  *  Note: Only HTTP calls that start with / will have oAuth token attached
  * To use proxy you must also add the ProxyInterceptor to providers
  *  Note: Only HTTP calls that start with / will be proxied
+ *  Note: Enable TCE will request cookie for TCE API calls. This will only work if using the proxy
  */
 const tcCoreConfig: TcCoreConfig = {
   oAuthLocalStorageKey: '',
   proxy_url: '',
+  proxy_liveapps_path: '',
+  proxy_tce_path: '',
   api_key: '',
-  api_key_param: 'api_key'
+  api_key_param: 'api_key',
+  enable_tce: false
 }
 
 @NgModule({
@@ -66,6 +71,7 @@ const tcCoreConfig: TcCoreConfig = {
     TcFormsLibModule,
     TcLiveappsLibModule.forRoot(),
     TcMessagingLibModule,
+    TcEventsLibModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,

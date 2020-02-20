@@ -350,7 +350,42 @@
             }
           }
         }
+      },
+    "@tibco-tcstk/tc-events-lib": {
+      "projectType": "library",
+      "root": "projects/tibco-tcstk/tc-events-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-events-lib/src",
+      "prefix": "tcesvc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tibco-tcstk/tc-events-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-events-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tibco-tcstk/tc-events-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-events-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-events-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tibco-tcstk/tc-events-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-events-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
       }
+    }
   },
   "defaultProject": "tc-liveapps"
 }

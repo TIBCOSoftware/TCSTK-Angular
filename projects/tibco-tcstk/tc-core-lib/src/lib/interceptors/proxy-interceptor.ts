@@ -25,8 +25,15 @@ export class ProxyInterceptor implements HttpInterceptor {
     const tcCoreConfig = this.tcCoreConfig.getConfig();
     if (tcCoreConfig.proxy_url && tcCoreConfig.proxy_url !== '') {
       let url;
-      if (req.url.startsWith('/')) {
-        url = tcCoreConfig.proxy_url + req.url;
+      if (req.url.startsWith('/') || (req.url.startsWith('https://oocto.api.mashery.com/mashery-proxy/spotfire'))) {
+        let tenantPath = tcCoreConfig.proxy_liveapps_path;
+        const targetTenant = req.headers.get('target-tenant')
+        if (targetTenant) {
+          // replace tenant in path of proxy URL
+          const tenant_attr = 'proxy_' + targetTenant + '_path';
+          tenantPath = tcCoreConfig[tenant_attr] ? tcCoreConfig[tenant_attr] : tcCoreConfig.proxy_liveapps_path;
+        }
+        url = tcCoreConfig.proxy_url + '/' + tenantPath + req.url;
       } else {
         url = req.url;
       }
