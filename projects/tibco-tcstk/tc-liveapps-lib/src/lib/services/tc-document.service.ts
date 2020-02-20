@@ -144,11 +144,18 @@ export class TcDocumentService {
     if (docVersion) {
       url = url + '?$version=' + docVersion;
     }
+
     // need to check for proxy since this wont be intercepted (used on HTML template)
     if (checkProxy && this.tcCoreConfig) {
       const tcCoreConfig = this.tcCoreConfig.getConfig();
+      const tenantPath = tcCoreConfig.proxy_liveapps_path;
       if (tcCoreConfig.proxy_url && tcCoreConfig.proxy_url !== '') {
-        url = tcCoreConfig.proxy_url + url;
+        if (tenantPath && tenantPath !== '') {
+          url = tcCoreConfig.proxy_url + '/' + tenantPath + url;
+        } else {
+          url = tcCoreConfig.proxy_url + url;
+        }
+
         if (docVersion) {
           url = url + '&' + tcCoreConfig.api_key_param + '=' + tcCoreConfig.api_key;
         } else {
