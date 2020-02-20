@@ -9,8 +9,11 @@ import {
   Metadata, ProcessId
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
-import {map, take, takeUntil} from 'rxjs/operators';
+import {catchError, flatMap, map, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {MessagingConfig, MessagingConnection} from '@tibco-tcstk/tc-messaging-lib';
+import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
+import {Observable, concat, throwError, empty} from 'rxjs';
+import {error} from 'ng-packagr/lib/util/log';
 
 @Component({
   selector: 'laapp-showcase',
@@ -40,7 +43,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public legacyCreators;
   public formConfig: FormConfig;
 
-  constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService) {
+  constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService, private tcEventsHelperService: TcEventsHelperService, private tcEventsService: TcEventsService) {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;
     this.messagingConnection = (this.messagingConfig.connections && this.messagingConfig.connections.length > 0) ? this.messagingConfig.connections[0] : undefined;
   }
@@ -102,6 +105,36 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.selectedCreatorApp = undefined;
   }
 
+  public getCeToken = () => {
+    const artifactInput = {
+      view: {
+        bindingInfo:
+          [
+            {
+              bindingId: 'minAttendance',
+              value: '30'
+            }
+          ]
+      }
+    };
+    const ruleDeploymentConfig: RuleDeployment = new RuleDeployment(
+      artifactInput,
+      'StudentChurn',
+      '/IntervalRule',
+      '/churnIntervalCheck',
+      5,
+      '',
+      'Commited Rule Change',
+      'Approve'
+    );
+    this.tcEventsHelperService.deployRule(ruleDeploymentConfig).subscribe(
+    (next: any) => {
+        console.log(next);
+      },
+      error1 => console.error('Failed to deploy: ', error1)
+    );
+  }
+
   ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
@@ -124,8 +157,8 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
           console.error('No cases for this appId: ', this.liveAppsConfig.applicationIds[0]);
         }
       },
-      error => {
-        console.error('Error retrieving case data: ' + error.error.errorMsg);
+      errorCase => {
+        console.error('Error retrieving case data: ' + errorCase.error.errorMsg);
       });
   }
 

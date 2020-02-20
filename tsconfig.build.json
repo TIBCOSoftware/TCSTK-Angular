@@ -48,6 +48,12 @@
       ],
       "@tibco-tcstk/tc-spotfire-lib/*": [
         "dist/tibco-tcstk/tc-spotfire-lib/*"
+      ],
+      "@tibco-tcstk/tc-events-lib": [
+        "dist/tibco-tcstk/tc-events-lib"
+      ],
+      "@tibco-tcstk/tc-events-lib/*": [
+        "dist/tibco-tcstk/tc-events-lib/*"
       ]
     }
   }

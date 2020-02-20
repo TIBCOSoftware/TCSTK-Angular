@@ -45,8 +45,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 const tcCoreConfig: TcCoreConfig = {
   oAuthLocalStorageKey: '',
   proxy_url: '',
+  proxy_liveapps_path: '',
+  proxy_tce_path: '',
   api_key: '',
-  api_key_param: 'api_key'
+  api_key_param: 'api_key',
+  enable_tce: false
 }
 
 @NgModule({

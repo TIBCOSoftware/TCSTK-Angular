@@ -46,6 +46,7 @@ import {createCustomElement} from '@angular/elements';
 import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneComponent} from '@tibco-tcstk/tc-liveapps-lib';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
@@ -56,8 +57,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 const tcCoreConfig: TcCoreConfig = {
   oAuthLocalStorageKey: '',
   proxy_url: '',
+  proxy_liveapps_path: '',
+  proxy_tce_path: '',
   api_key: '',
-  api_key_param: 'api_key'
+  api_key_param: 'api_key',
+  enable_tce: false
 }
 
 @NgModule({
@@ -77,6 +81,7 @@ const tcCoreConfig: TcCoreConfig = {
     TcFormsLibModule,
     TcLiveappsLibModule.forRoot(),
     TcMessagingLibModule,
+    TcEventsLibModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,
