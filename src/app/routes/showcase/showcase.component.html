@@ -21,8 +21,9 @@
         <ng-template matTabContent>
           <div fxLayout="column" style="height: 100%">
             <div fxLayout="row" fxLayoutAlign="center center" style="height: 100px;">
-              <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId" [appIds]="['3744']" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
+              <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
             </div>
+            <!--tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" sandboxId="3534" [caseRefs]="caseRefs" [columnDefs]="columnDefs"></tcgrid-tcgrid-liveapps-cases-->
             <tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" sandboxId="3534" [caseRefs]="caseRefs"></tcgrid-tcgrid-liveapps-cases>
           </div>
         </ng-template>
