@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
 import {Claim, GeneralConfig} from '@tibco-tcstk/tc-core-lib';
 import {
-  CaseInfo,
+  CaseInfo, CaseSearchResults,
   CaseType, FormConfig,
   LiveAppsComponent,
   LiveAppsConfig,
@@ -14,6 +14,7 @@ import {MessagingConfig, MessagingConnection} from '@tibco-tcstk/tc-messaging-li
 import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
 import {Observable, concat, throwError, empty} from 'rxjs';
 import {error} from 'ng-packagr/lib/util/log';
+import {TcGridHelperService} from '../../../../projects/tibco-tcstk/tc-ag-grid/src/lib/services/tc-grid-helper.service';
 
 @Component({
   selector: 'laapp-showcase',
@@ -42,6 +43,15 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public customFormDefs;
   public legacyCreators;
   public formConfig: FormConfig;
+  public caseRefs: string[] = [];
+  public columnDefs = [
+    {headerName: 'Risk Case', field: 'untaggedCasedataObj.RiskCaseId_v1', sortable: true, filter: true, resizable: true, checkboxSelection: true },
+    {headerName: 'State', field: 'untaggedCasedataObj.state', sortable: true, filter: true, resizable: true },
+    {headerName: 'Channel', field: 'untaggedCasedataObj.Channel_v1', sortable: true, filter: true, resizable: true },
+    {headerName: 'Assignee', field: 'untaggedCasedataObj.Assignee_v1.name', sortable: true, filter: true, resizable: true },
+    {headerName: 'Created', field: 'metadata.creationTimestamp', valueFormatter: TcGridHelperService.dateFormatter, sortable: true, filter: true, resizable: true }
+  ];
+
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService, private tcEventsHelperService: TcEventsHelperService, private tcEventsService: TcEventsService) {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;
@@ -77,6 +87,10 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
 
   handleCaseClick = (event) => {
     console.log('Case click event: ', event);
+  }
+
+  handleSearchResults = (searchResults: CaseSearchResults) => {
+    this.caseRefs = searchResults.caserefs;
   }
 
   public handleCreatorAppSelection = (application: CaseType) => {

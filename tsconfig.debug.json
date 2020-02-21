@@ -54,6 +54,12 @@
       ],
       "@tibco-tcstk/tc-events-lib/*": [
         "dist/tibco-tcstk/tc-events-lib/*"
+      ],
+      "@tibco-tcstk/tc-ag-grid": [
+        "projects/tibco-tcstk/tc-ag-grid/src/public_api"
+      ],
+      "@tibco-tcstk/tc-ag-grid/*": [
+        "dist/tibco-tcstk/tc-ag-grid/*"
       ]
     }
   }

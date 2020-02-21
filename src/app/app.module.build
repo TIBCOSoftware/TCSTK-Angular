@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule, Injector} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, Injector, LOCALE_ID} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {
@@ -47,6 +47,7 @@ import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneCom
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
+import {TcAgGridModule} from '../../projects/tibco-tcstk/tc-ag-grid/src/lib/tc-ag-grid.module';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
@@ -75,38 +76,40 @@ const tcCoreConfig: TcCoreConfig = {
     ShowcaseComponent,
     SplashComponent
   ],
-  imports: [
-    AppRoutingModule,
-    TcCoreLibModule.forRoot(tcCoreConfig),
-    TcFormsLibModule,
-    TcLiveappsLibModule.forRoot(),
-    TcMessagingLibModule,
-    TcEventsLibModule,
-    FlexLayoutModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatTabsModule,
-    MatExpansionModule,
-    MatButtonModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatListModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatCardModule,
-    MatTooltipModule,
-    MatTabsModule,
-    MatButtonToggleModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        AppRoutingModule,
+        TcCoreLibModule.forRoot(tcCoreConfig),
+        TcFormsLibModule,
+        TcLiveappsLibModule.forRoot(),
+        TcMessagingLibModule,
+        TcEventsLibModule,
+        FlexLayoutModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatTabsModule,
+        MatExpansionModule,
+        MatButtonModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatCardModule,
+        MatTooltipModule,
+        MatTabsModule,
+        MatButtonToggleModule,
+        ReactiveFormsModule,
+        TcAgGridModule
+    ],
   providers: [
+    {provide: LOCALE_ID, useValue: 'en-US' },
     LogService,
     // for proxied API calls
     // { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
