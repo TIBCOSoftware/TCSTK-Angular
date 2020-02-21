@@ -1,0 +1,15 @@
+<div fxLayout="column" style="overflow: hidden; height: 100%;">
+  <ag-grid-angular *ngIf="laRowData"
+                   #casesAgGrid
+                   style="width: 100%; height: 100%;"
+                   class="ag-theme-balham"
+                   [rowData]="laRowData | async"
+                   [columnDefs]="columnConfig"
+                   [domLayout]="'normal'"
+                   rowSelection="multiple"
+                   colResizeDefault='shift'
+                   (gridReady)="onGridReady($event)"
+                   (firstDataRendered)="onFirstDataRendered($event)"
+  >
+  </ag-grid-angular>
+</div>

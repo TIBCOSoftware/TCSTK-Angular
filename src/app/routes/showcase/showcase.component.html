@@ -17,6 +17,16 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
+      <mat-tab label="grid">
+        <ng-template matTabContent>
+          <div fxLayout="column" style="height: 100%">
+            <div fxLayout="row" fxLayoutAlign="center center" style="height: 100px;">
+              <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId" [appIds]="['3744']" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
+            </div>
+            <tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" sandboxId="3534" [caseRefs]="caseRefs"></tcgrid-tcgrid-liveapps-cases>
+          </div>
+        </ng-template>
+      </mat-tab>
       <!--mat-tab label="Cloud Events">
         <ng-template matTabContent>
           <button (click)="getCeToken()">Trigger Cloud Events Rule Update</button>

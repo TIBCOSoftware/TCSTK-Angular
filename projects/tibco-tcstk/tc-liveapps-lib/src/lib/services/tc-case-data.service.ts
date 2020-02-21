@@ -50,9 +50,6 @@ export class TcCaseDataService {
       );
   }
 
-
-
-
   public getCaseWithSchema(
     caseRef: string, sandboxId: number, appId: string, typeId: string, uiAppId: string): Observable<CaseInfoWithSchema> {
     const url = '/case/v1/cases/' + caseRef + '/' + '?$sandbox=' + sandboxId + '&$select=uc, m, s';
@@ -96,4 +93,22 @@ export class TcCaseDataService {
     );
     return test1;
   }
+
+  public getCaseDataByRefs(sandboxId: number, caseRefs: string[]): Observable<CaseInfo[]> {
+    const caseRefsList = caseRefs.join(',');
+    const url = '/case/v1/cases' + '?$sandbox=' + sandboxId
+      + '&$select=cr,uc,m,s'
+      + '&$filter=caseReference in('
+      + caseRefs + ')';
+    return this.http.get(url).pipe(
+      map((result: CaseInfo[]) => {
+        const cases = [];
+        result.forEach(res => {
+          cases.push(new CaseInfo().deserialize(res));
+        })
+        return cases;
+      })
+    );
+  }
+
 }

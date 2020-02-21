@@ -385,6 +385,41 @@
           }
         }
       }
+    },
+    "@tibco-tcstk/tc-ag-grid": {
+      "projectType": "library",
+      "root": "projects/tibco-tcstk/tc-ag-grid",
+      "sourceRoot": "projects/tibco-tcstk/tc-ag-grid/src",
+      "prefix": "tcgrid",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tibco-tcstk/tc-ag-grid/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-ag-grid/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tibco-tcstk/tc-ag-grid/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-ag-grid/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-ag-grid/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tibco-tcstk/tc-ag-grid/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-ag-grid/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tc-liveapps"
