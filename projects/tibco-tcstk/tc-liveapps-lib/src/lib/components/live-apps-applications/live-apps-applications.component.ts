@@ -44,9 +44,22 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   @Input() selectedApp: CaseType = this.selectedApp ? this.selectedApp : new CaseType();
 
   /**
-   * Form field rendering
+   * Use Form field rendering around the selection box
    */
   @Input() formFieldRendering: boolean = this.formFieldRendering ? this.formFieldRendering : false;
+
+  /**
+   * Pre-select specified appId
+   */
+
+  @Input() selectedAppId: string;
+
+  /**
+   * Label for the application selector
+   */
+
+  @Input() label: string = this.label ? this.label : 'Applications'
+
 
   /**
    * ~event selection : Value selected in child component
@@ -93,6 +106,10 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
           this.selection.emit(applicationList.casetypes[0]);
         }
       }, error => { this.errorMessage = 'Error retrieving applications: ' + error.error.errorMsg; });
+  }
+
+  public compareProcessId = (o1: any, o2: any): boolean => {
+    return o1.id === this.selectedAppId;
   }
 
   ngOnInit(): void {

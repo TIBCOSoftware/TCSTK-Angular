@@ -19,9 +19,19 @@ import { LiveAppsCaseActionsComponent } from '../live-apps-case-actions/live-app
 })
 export class LiveAppsCaseActionsListComponent extends LiveAppsCaseActionsComponent implements OnInit, OnChanges {
   /**
-   * The actionId selected (output)
+   * Pre-select specified actionId
    */
   @Input() seletedActionId: string;
+
+  /**
+   * Use Form field rendering around the selection box
+   */
+  @Input() formFieldRendering: boolean = this.formFieldRendering ? this.formFieldRendering : false;
+
+  /**
+   * Label for the actions selector
+   */
+  @Input() label: string = this.label ? this.label : 'Case Actions'
 
     caseActionList: Process[];
     selectedAction: Process;
