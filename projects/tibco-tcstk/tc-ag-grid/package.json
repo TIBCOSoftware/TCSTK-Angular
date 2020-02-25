@@ -5,6 +5,7 @@
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14",
     "ag-grid-angular": "^22.1.1",
-    "ag-grid-community": "^22.1.1"
+    "ag-grid-community": "^22.1.1",
+    "@tibco-tcstk/tc-liveapps-lib": "^1.2.0"
   }
 }
