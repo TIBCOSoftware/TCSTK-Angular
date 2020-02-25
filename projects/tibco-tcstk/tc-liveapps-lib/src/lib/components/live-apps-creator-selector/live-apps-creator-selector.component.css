@@ -1,3 +1,4 @@
+
 :host ::ng-deep  .tcs-creator-selector-option .mat-select-value span {
   font-family: Source Sans Pro;
   font-size: 16px;
@@ -13,7 +14,7 @@
   color: #0081cb;
 }
 
-:host ::ng-deep .mat-select-value {
+:host ::ng-deep .tcs-creator-selector-option .mat-select-value {
   min-width: 100px;
   max-width: 100%;
   width: auto;

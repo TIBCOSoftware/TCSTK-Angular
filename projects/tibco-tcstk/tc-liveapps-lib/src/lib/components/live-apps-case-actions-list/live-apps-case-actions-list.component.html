@@ -1,8 +1,19 @@
-<div fxFlex style="margin-left: 10px;">
+<div *ngIf="!formFieldRendering" fxFlex style="margin-left: 10px;">
     <mat-select class="tcs-action-selector-option" [disableOptionCentering]="true" [(ngModel)]="selectedAction" [compareWith]="compareObjects"
-        placeholder="Case Actions" >
+        placeholder="{{label}}" >
         <mat-option *ngFor="let action of caseActionList" [value]="action" (click)="selectAction(action)">
             <span>{{action.name}}</span>
         </mat-option>
     </mat-select>
+</div>
+<div *ngIf="formFieldRendering" fxFlex>
+  <mat-form-field style="width:100%" class="tcs-action-selector-option-ff">
+    <mat-label>{{label}}</mat-label>
+    <mat-select class="tcs-action-selector-option-formfield" [disableOptionCentering]="true" [(ngModel)]="selectedAction" [compareWith]="compareObjects"
+                placeholder="{{label}}" >
+      <mat-option *ngFor="let action of caseActionList" [value]="action" (click)="selectAction(action)">
+        <span>{{action.name}}</span>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>

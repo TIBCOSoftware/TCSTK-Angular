@@ -1,6 +1,6 @@
 <div *ngIf="!formFieldRendering" class="tcs-application-selector" fxFlex style="margin-left: 10px;">
     <mat-label></mat-label>
-    <mat-select *ngIf="selectedApp" class="tcs-application-selector-option" [disableOptionCentering]="true" placeholder="Application" [(value)]="selectedApp" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
+    <mat-select *ngIf="selectedApp" class="tcs-application-selector-option" [disableOptionCentering]="true" placeholder="{{label}}" [(value)]="selectedApp" [compareWith]="compareProcessId" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
       <mat-option *ngFor="let application of applications.casetypes" [value]="application">
         {{application.label | ellipsis : 20}}
       </mat-option>
@@ -8,8 +8,8 @@
 </div>
 <div *ngIf="formFieldRendering" fxFlex>
     <mat-form-field style="width:100%">
-    <mat-label>Application</mat-label>
-    <mat-select *ngIf="selectedApp" [disableOptionCentering]="true" placeholder="Application" [(value)]="selectedApp" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
+    <mat-label>{{label}}</mat-label>
+    <mat-select *ngIf="selectedApp" [disableOptionCentering]="true" placeholder="{{label}}" [(value)]="selectedApp" (selectionChange)="selectApplication($event)" [compareWith]="compareProcessId" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
       <mat-option *ngFor="let application of applications.casetypes" [value]="application">
         {{application.label}}
       </mat-option>

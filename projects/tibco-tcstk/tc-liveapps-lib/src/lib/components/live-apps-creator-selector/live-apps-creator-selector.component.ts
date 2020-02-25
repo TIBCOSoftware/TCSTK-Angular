@@ -18,11 +18,26 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
   @ViewChild('creatorSelector', {static: false}) creatorSelector: MatSelect;
   @Input() sandboxId: number;
   @Input() appId: string;
-  @Input() typeId: string;
+  @Input() typeId: string = this.typeId ? this.typeId : '1';
   /**
    * ~event creatorSelection : Case Creator selected
    * ~payload LaProcessSelection : LaProcessSelection object output when a creator is selected from a drop down
    */
+
+  /**
+   * Pre-select specified creatorId
+   */
+  @Input() seletedCreatorId: string;
+
+  /**
+   * Use Form field rendering around the selection box
+   */
+  @Input() formFieldRendering: boolean = this.formFieldRendering ? this.formFieldRendering : false;
+
+  /**
+   * Label for the actions selector
+   */
+  @Input() label: string = this.label ? this.label : 'Case Creators'
 
   @Output() creatorSelection = new EventEmitter<LaProcessSelection>();
 
@@ -78,6 +93,9 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
     );
   }
 
+  public compareProcessId = (o1: any, o2: any): boolean => {
+    return o1.id === this.seletedCreatorId;
+  }
 
   constructor(protected liveapps: LiveAppsService) {
     super();

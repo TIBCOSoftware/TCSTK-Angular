@@ -41,7 +41,7 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   /**
    * The LA Application Type Id (generally 1)
    */
-  @Input() typeId: string;
+  @Input() typeId: string = this.typeId ? this.typeId : '1';
 
   /**
    * sandboxId - this comes from claims resolver

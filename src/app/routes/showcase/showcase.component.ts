@@ -149,6 +149,10 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     );
   }
 
+  public setApp(selectedApp: CaseType) {
+    this.selectedAppConfig = selectedApp;
+  }
+
   ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;

@@ -17,6 +17,15 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
+      <mat-tab label="Selection Widgets">
+        <ng-template matTabContent>
+          <div style="padding: 20px;">
+            <tcla-live-apps-applications [formFieldRendering]="true" [appIds]="[]" [sandboxId]="sandboxId" [label]="'My Apps'" (selection)="setApp($event)"></tcla-live-apps-applications>
+            <tcla-live-apps-creator-selector [formFieldRendering]="true" [appId]="selectedAppConfig?.applicationId" [sandboxId]="sandboxId" [label]="'Creators to pick'"></tcla-live-apps-creator-selector>
+            <tcla-live-apps-case-actions-list [formFieldRendering]="true" [appId]="selectedAppConfig?.applicationId" [sandboxId]="sandboxId" [label]="'Actions to pick'"></tcla-live-apps-case-actions-list>
+          </div>
+        </ng-template>
+      </mat-tab>
       <mat-tab label="grid">
         <ng-template matTabContent>
           <div fxLayout="column" style="height: 100%">
@@ -24,7 +33,7 @@
               <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
             </div>
             <!--tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" sandboxId="3534" [caseRefs]="caseRefs" [columnDefs]="columnDefs"></tcgrid-tcgrid-liveapps-cases-->
-            <tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" [sandboxId]="sandboxId" [caseRefs]="caseRefs"></tcgrid-tcgrid-liveapps-cases>
+            <tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" [sandboxId]="sandboxId" [caseRefs]="caseRefs" [columnDefs]="columnDefs"></tcgrid-tcgrid-liveapps-cases>
           </div>
         </ng-template>
       </mat-tab>
