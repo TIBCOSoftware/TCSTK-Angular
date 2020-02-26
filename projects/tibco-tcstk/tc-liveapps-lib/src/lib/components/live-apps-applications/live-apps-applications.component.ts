@@ -109,7 +109,7 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   }
 
   public compareProcessId = (o1: any, o2: any): boolean => {
-    return o1.id === this.selectedAppId;
+    return o1.applicationId === this.selectedAppId;
   }
 
   ngOnInit(): void {
