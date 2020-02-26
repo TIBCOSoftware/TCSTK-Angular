@@ -224,8 +224,11 @@ export class LiveAppsService {
     );
   }
 
-  public getCaseTypes(sandboxId: number, appId: string, top: number): Observable<CaseTypesList> {
-    const select = 'b,s,sa,a';
+  public getCaseTypes(sandboxId: number, appId: string, top: number, allData?: boolean): Observable<CaseTypesList> {
+    let select = 'b,s,sa,a';
+    if (allData) {
+      select = 'b,a,sa,s,js,c,ac';
+    }
     let url = '/case/v1/types?$sandbox=' + sandboxId + '&$select=' + select + '&$top=' + top;
     if (appId != null) {
       url = url + '&$filter=applicationId eq ' + appId;

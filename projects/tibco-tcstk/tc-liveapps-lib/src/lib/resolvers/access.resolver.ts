@@ -11,6 +11,7 @@ import { TcRolesService } from '../services/tc-roles-service.ts.service';
 import { TcSharedStateService, TcGeneralConfigService } from '@tibco-tcstk/tc-core-lib';
 import { LiveAppsService } from '../services/live-apps.service';
 import { RoleActiveResolver } from './role-active.resolver';
+import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 
 @Injectable()
 export class AccessResolver implements Resolve<Observable<RouteAccessControlConfigurationElement>> {
@@ -21,6 +22,7 @@ export class AccessResolver implements Resolve<Observable<RouteAccessControlConf
         private accessControlService: TcAccessControlService,
         private rolesService: TcRolesService,
         private liveapps: LiveAppsService,
+        private appDefinitionService: TcAppDefinitionService,
         private route: ActivatedRoute,
         private sharedStateService: TcSharedStateService,
         private generalConfigService: TcGeneralConfigService,
@@ -28,11 +30,11 @@ export class AccessResolver implements Resolve<Observable<RouteAccessControlConf
     ) { }
 
     resolve(): Observable<RouteAccessControlConfigurationElement> {
- 
+
         const accessControlConfiguration$ = new AccessControlConfigurationResolver(this.location, this.http, this.accessControlService).resolve();
-        
+
         // we will need the active user role
-        const activeRoleRes = new RoleActiveResolver(this.rolesService, this.liveapps, this.sharedStateService, this.generalConfigService, this.http, this.location, this.router);
+        const activeRoleRes = new RoleActiveResolver(this.rolesService, this.liveapps, this.sharedStateService, this.generalConfigService, this.appDefinitionService, this.http, this.location, this.router);
         const activeRole$ = activeRoleRes.resolve();
 
         // run both in parallel then check access
