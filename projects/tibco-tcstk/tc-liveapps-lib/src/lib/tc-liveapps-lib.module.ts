@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule} from '@angular/core';
+import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule} from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {
   MatAccordion,
@@ -112,6 +112,15 @@ import {SessionRefreshService} from '@tibco-tcstk/tc-core-lib';
 import { LiveAppsProcessesComponent } from './components/live-apps-processes/live-apps-processes.component';
 import { LiveAppsFormPreviewComponent } from './components/live-apps-form-preview/live-apps-form-preview.component';
 import {LiveAppsSettingsFormLayoutComponent} from './components/live-apps-settings-form-layout/live-apps-settings-form-layout.component';
+import {TcAppDefinitionService} from './services/tc-app-definition.service';
+
+// @dynamic
+export function initAppDefinitionService(appDefinitionService: TcAppDefinitionService) {
+  const loader = () => {
+    return appDefinitionService.refresh();
+  };
+  return loader;
+}
 
 @NgModule({
     declarations: [
@@ -276,6 +285,8 @@ import {LiveAppsSettingsFormLayoutComponent} from './components/live-apps-settin
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
         RequestCacheService,
+        TcAppDefinitionService,
+        { provide: APP_INITIALIZER, useFactory: initAppDefinitionService, deps: [TcAppDefinitionService], multi: true },
         CaseGuard,
         RoleGuard,
         DurationSincePipe,

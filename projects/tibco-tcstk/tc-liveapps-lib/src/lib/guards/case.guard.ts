@@ -10,18 +10,19 @@ import {catchError, flatMap, map, mergeMap} from 'rxjs/operators';
 import {Observable, of, throwError} from 'rxjs';
 import {ClaimsResolver} from '../resolvers/claims.resolver';
 import {Claim} from '@tibco-tcstk/tc-core-lib';
+import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 
 @Injectable()
 export class CaseGuard implements CanActivate {
 
-  constructor(private liveapps: LiveAppsService, private router: Router) {
+  constructor(private liveapps: LiveAppsService, private appDefinitionService: TcAppDefinitionService, private router: Router) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     // get app config
     const caseRef = route.url[route.url.length - 1].path;
 
-    const claimsResolver = new ClaimsResolver(this.liveapps);
+    const claimsResolver = new ClaimsResolver(this.appDefinitionService);
 
     const decision: Observable<boolean> = claimsResolver.resolve()
       .pipe(

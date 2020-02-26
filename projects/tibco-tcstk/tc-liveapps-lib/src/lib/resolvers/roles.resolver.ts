@@ -10,11 +10,12 @@ import {TcCaseCardConfigService} from '../services/tc-case-card-config.service';
 import {Location} from '@angular/common';
 import {ClaimsResolver} from './claims.resolver';
 import {group} from '@angular/animations';
+import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 
 @Injectable()
 export class RolesResolver implements Resolve<Observable<Roles>> {
 
-  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location, private router: Router) {
+  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private appDefinitionService: TcAppDefinitionService, private location: Location, private router: Router) {
   }
 
   resolve(): Observable<Roles> {
@@ -24,7 +25,7 @@ export class RolesResolver implements Resolve<Observable<Roles>> {
 
     // aim is to return an object that only contains roles where the user is a member of the matching group
 
-    const claimResolver$ = new ClaimsResolver(this.liveapps).resolve().pipe(
+    const claimResolver$ = new ClaimsResolver(this.appDefinitionService).resolve().pipe(
       flatMap(claiminfo => {
           const sandboxId = claiminfo.primaryProductionSandbox.id;
           generalConfigResolver.setSandbox(Number(sandboxId));

@@ -3,29 +3,20 @@ import { Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Claim} from '@tibco-tcstk/tc-core-lib';
-import {flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
+import {flatMap, map, mergeMap, switchMap, take} from 'rxjs/operators';
 import {Groups} from '../models/tc-groups-data';
+import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 
 @Injectable()
 export class GroupsResolver implements Resolve<Observable<Groups>> {
 
-  constructor(public liveapps: LiveAppsService) {
+  constructor(public liveapps: LiveAppsService, private appDefinitionService: TcAppDefinitionService) {
   }
 
   resolve(): Observable<Groups> {
-
-    const claims$ = this.liveapps.getClaims()
-      .pipe(
-        map(claim => {
-          claim.sandboxes.forEach(sandbox => {
-            if (sandbox.type === 'Production') {
-              claim.primaryProductionSandbox = sandbox;
-            }
-          });
-          return claim;
-        })
-      );
-
+    const claims$ = this.appDefinitionService.claims$.pipe(
+      take(1)
+    );
     return claims$.pipe(
       switchMap(claiminfo => {
           return this.liveapps.getGroupMemberships(+claiminfo.primaryProductionSandbox.id, claiminfo.id, 1000, true).pipe(

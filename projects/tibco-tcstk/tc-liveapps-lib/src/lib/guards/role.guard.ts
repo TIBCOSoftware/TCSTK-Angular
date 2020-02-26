@@ -12,6 +12,7 @@ import { TcRolesService } from '../services/tc-roles-service.ts.service';
 import { TcAccessControlService } from '../services/tc-access-control.service';
 import { AccessControlConfigurationResolver } from '../resolvers/accessControlConfiguration.resolver';
 import { AccessResolver } from '../resolvers/access.resolver';
+import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
@@ -27,6 +28,7 @@ export class RoleGuard implements CanActivate {
         private sharedStateService: TcSharedStateService,
         private generalConfigService: TcGeneralConfigService,
         private accessControlService: TcAccessControlService,
+        private appDefinitionService: TcAppDefinitionService,
         private router: Router
     ) {}
 
@@ -40,7 +42,7 @@ export class RoleGuard implements CanActivate {
         })
 
         // we will need the active user role
-        const activeResolver$ = new AccessResolver(this.location, this.http, this.accessControlService, this.rolesService, this.liveapps, this.route, this.sharedStateService, this.generalConfigService, this.router).resolve();
+        const activeResolver$ = new AccessResolver(this.location, this.http, this.accessControlService, this.rolesService, this.liveapps, this.appDefinitionService, this.route, this.sharedStateService, this.generalConfigService, this.router).resolve();
 
         // access control configuration to check current URL is on allowedRoutes
         const accessControlConfig$ = new AccessControlConfigurationResolver(this.location, this.http, this.accessControlService).resolve();

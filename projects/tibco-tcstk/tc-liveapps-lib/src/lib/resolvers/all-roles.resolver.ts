@@ -10,26 +10,17 @@ import {TcCaseCardConfigService} from '../services/tc-case-card-config.service';
 import {Location} from '@angular/common';
 import {ClaimsResolver} from './claims.resolver';
 import {group} from '@angular/animations';
+import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 
 @Injectable()
 export class AllRolesResolver implements Resolve<Observable<Roles>> {
 
-  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location, private router: Router) {
+  constructor(private sharedStateService: TcSharedStateService, private generalConfigService: TcGeneralConfigService, private appDefinitionService: TcAppDefinitionService, private http: HttpClient, private liveapps: LiveAppsService, private location: Location, private router: Router) {
   }
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<Roles> {
 
-    const claims$ = this.liveapps.getClaims()
-      .pipe(
-        map(claim => {
-          claim.sandboxes.forEach(sandbox => {
-            if (sandbox.type === 'Production') {
-              claim.primaryProductionSandbox = sandbox;
-            }
-          });
-          return claim;
-        })
-      );
+    const claims$ = this.appDefinitionService.claims$;
 
     const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location, this.router);
 
