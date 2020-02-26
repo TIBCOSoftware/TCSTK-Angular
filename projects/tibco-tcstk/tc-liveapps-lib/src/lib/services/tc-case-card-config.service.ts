@@ -15,6 +15,7 @@ import {catchError, flatMap, map, mergeMap, tap} from 'rxjs/operators';
 import {flush} from '@angular/core/testing';
 import {HttpClient} from '@angular/common/http';
 import {Location} from '@angular/common';
+import {TcAppDefinitionService} from './tc-app-definition.service';
 
 export const DEFAULT_COLORS: string[] = [
   '#3E94C0', '#49B3D3', '#76C6CF', '#A9DACD', '#DCECC9',
@@ -41,7 +42,7 @@ export const GENERIC_CASETYPE_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg
 })
 export class TcCaseCardConfigService {
 
-  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private sharedStateService: TcSharedStateService, private location: Location) {
+  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private sharedStateService: TcSharedStateService, private appDefinitionService: TcAppDefinitionService, private location: Location) {
   }
 
   public createCardConfig(sandboxId: number, appId: string, uiAppId: string): Observable<string> {
@@ -51,10 +52,10 @@ export class TcCaseCardConfigService {
     return this.sharedStateService.createSharedState(ssName, 'PUBLIC', '', sandboxId, undefined, undefined, undefined, content)
       .pipe(
         map(value => {
-          return value;
-        }
-      )
-    );
+            return value;
+          }
+        )
+      );
   }
 
   public updateCardConfig(sandboxId: number, appId: string, uiAppId: string, config: CardConfig, id: string): Observable<CardConfig> {
@@ -84,23 +85,23 @@ export class TcCaseCardConfigService {
     // create new config and return it
     const newConfig$ = this.createCardConfig(sandboxId, appId, uiAppId);
     const updatedConfig$ = newConfig$.pipe(
-      mergeMap(id => {
+      flatMap(id => {
         const stateMap: IconMap[] = [];
         // one record for the case type icon config
         stateMap.push(new IconMap(true, caseTypeId, defaultCaseTypeColor, defaultCaseTypeIcon));
         states.forEach(state => {
           stateMap.push(new IconMap(false, state.value, defaultStateColor, defaultStateIcon));
         });
-        const newCardConfig = new CardConfig().deserialize({ id: id, useCaseTypeColor: true, stateMap: stateMap });
+        const newCardConfig = new CardConfig().deserialize({id: id, useCaseTypeColor: true, stateMap: stateMap});
         return this.updateCardConfig(sandboxId, appId, uiAppId, newCardConfig, id).pipe(
           tap(config => {
             // trigger update of the cache
             this.getCardConfig(uiAppId, appId, true, true);
           }),
           map(newcard => {
-              return new CaseCardConfig().deserialize(
-                { states: states, cardConfig: newcard }
-              );
+            return new CaseCardConfig().deserialize(
+              {states: states, cardConfig: newcard}
+            );
           })
         );
       })
@@ -109,36 +110,30 @@ export class TcCaseCardConfigService {
   }
 
   public getCaseCardConfig(sandboxId: number, appId: string, uiAppId: string, caseTypeId: string, defaultCaseTypeColor: string, defaultCaseTypeIcon: string, defaultStateColor: string, defaultStateIcon: string): Observable<CaseCardConfig> {
-    const states$ = this.liveAppsService.getCaseTypeStates(sandboxId, appId, 100);
-    const cardConfig$ = this.getCardConfig(uiAppId, appId, true, false).pipe(
-      map(config => {
-          return config;
-      })
-    );
-    return states$.pipe(
-      mergeMap(states => {
-        return cardConfig$.pipe(
-          mergeMap(config => {
-            if (config) {
-              const cardConfig = new CaseCardConfig().deserialize(
-                {states: states.states, cardConfig: config}
-              );
-              return of(cardConfig);
-            } else {
-              return this.createNewCardConfig(states.states, sandboxId, appId, uiAppId, caseTypeId, defaultCaseTypeColor, defaultCaseTypeIcon, defaultStateColor, defaultStateIcon).pipe(
-                map(newCardConfig => {
-                  return newCardConfig;
-                })
-              );
-            }
+
+    const states = this.appDefinitionService.getCaseTypeByAppId(appId).states;
+    const cardConfig$ = this.getCardConfig(uiAppId, appId, true, false);
+    return cardConfig$.pipe(
+      flatMap((config: CardConfig) => {
+          if (config) {
+            const cardConfig = new CaseCardConfig().deserialize(
+              {states: states, cardConfig: config}
+            );
+            return of(cardConfig);
+          } else {
+            // create new one
+            return this.createNewCardConfig(states, sandboxId, appId, uiAppId, caseTypeId, defaultCaseTypeColor, defaultCaseTypeIcon, defaultStateColor, defaultStateIcon).pipe(
+              map((newCardConfig: CaseCardConfig) => {
+                return newCardConfig;
+              })
+            );
           }
-          )
-        );
-      })
+        }
+      )
     );
   }
 
-  public updateCaseCardConfig(sandboxId: number, appId: string, uiAppId: string, updatedConfig: CaseCardConfig): Observable < CaseCardConfig > {
+  public updateCaseCardConfig(sandboxId: number, appId: string, uiAppId: string, updatedConfig: CaseCardConfig): Observable<CaseCardConfig> {
     return this.updateCardConfig(sandboxId, appId, uiAppId, updatedConfig.cardConfig, updatedConfig.cardConfig.id).pipe(
       map(cardconfig => {
         updatedConfig.cardConfig = cardconfig;
@@ -165,7 +160,7 @@ export class TcCaseCardConfigService {
     );
   }
 
-  public getStateColorInfo (appId: string, uiAppId: string): Observable<StateColorMap> {
+  public getStateColorInfo(appId: string, uiAppId: string): Observable<StateColorMap> {
     return this.getCardConfig(uiAppId, appId, true, false).pipe(
       map(val => {
         if (val) {
@@ -173,7 +168,7 @@ export class TcCaseCardConfigService {
           const stateColorMap = new StateColorMap();
           stateColorMap.stateColorRecs = [];
           config.stateMap.forEach((stateMapRec) => {
-            const stateColorMapRec = new StateColorMapRec().deserialize( { state: stateMapRec.state, color: stateMapRec.fill} );
+            const stateColorMapRec = new StateColorMapRec().deserialize({state: stateMapRec.state, color: stateMapRec.fill});
             if (stateMapRec.isCaseType) {
               stateColorMap.caseTypeColor = stateMapRec.fill;
             }
@@ -187,7 +182,7 @@ export class TcCaseCardConfigService {
     );
   }
 
-  public getColorForState (appId: string, uiAppId: string, state: string): Observable<string> {
+  public getColorForState(appId: string, uiAppId: string, state: string): Observable<string> {
     return this.getCardConfig(uiAppId, appId, true, false).pipe(
       map(val => {
         const stateMap = val.stateMap.find((stateRec) => {
@@ -274,7 +269,7 @@ export class TcCaseCardConfigService {
           const caseinf = new CaseInfo().deserialize(caseinfo);
           if (caseinf.caseReference === undefined) {
             // case is likely no longer visible to this user so handle as deleted
-            return of(new CaseInfo().deserialize( { deleted: true }));
+            return of(new CaseInfo().deserialize({deleted: true}));
           }
           return this.parseCaseInfo(caseinf, sandboxId, caseinf.metadata.applicationId, caseinf.metadata.typeId, uiAppId);
         }
@@ -282,7 +277,7 @@ export class TcCaseCardConfigService {
       catchError(err => {
         if (err.error.errorCode === 'CM_CASEREF_NOTEXIST') {
           // case deleted
-          return of(new CaseInfo().deserialize({ deleted: true } ));
+          return of(new CaseInfo().deserialize({deleted: true}));
         }
         return throwError(err);
       })

@@ -7,6 +7,8 @@ import {HttpClient} from '@angular/common/http';
 import {StateTrackerData, StateTracker, TrackerState, StateAuditEventList, StateAuditEvent} from '../models/tc-case-states';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {Location} from '@angular/common';
+import {TcAppDefinitionService} from '../services/tc-app-definition.service';
+import {CaseTypeStatesList} from '../models/liveappsdata';
 
 const MILESTONE_SVG = {
   END_SECTION_COMPLETED_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
@@ -73,18 +75,19 @@ export class TcCaseStatesService {
   constructor(private http: HttpClient,
               private liveAppsService: LiveAppsService,
               private caseDataService: TcCaseDataService,
+              private appDefinitionService: TcAppDefinitionService,
               private sanitizer: DomSanitizer,
               private location: Location) { }
 
   private getTrackerData = (caseRef: string, sandboxId: number, appId: string): Observable<StateTrackerData> => {
-    // merge the result of these three API calls into one object
+    const possibleStates = new CaseTypeStatesList().deserialize(this.appDefinitionService.getCaseTypeByAppId(appId).states);
+    // merge the result of these two API calls into one object
     const caseState$ = this.caseDataService.getCaseState(caseRef, sandboxId);
-    const possibleStates$ = this.liveAppsService.getCaseTypeStates(sandboxId, appId, 100);
     const stateAudit$ = this.getCaseStateAudit(caseRef, sandboxId);
-    return forkJoin([caseState$, possibleStates$, stateAudit$]).pipe(
+    return forkJoin([caseState$, stateAudit$]).pipe(
       map(resultArr => {
         return new StateTrackerData().deserialize(
-          { possibleStates: resultArr[1], currentState: resultArr[0], caseAudit: resultArr[2].auditEvents }
+          { possibleStates: possibleStates, currentState: resultArr[0], caseAudit: resultArr[1].auditEvents }
           );
       })
     );
@@ -153,12 +156,11 @@ export class TcCaseStatesService {
   }
 
   public getCaseStateAuditWithTerminal(caseRef: string, sandboxId: number, appId: string): Observable<StateAuditEventList> {
-    const possibleStates$ = this.liveAppsService.getCaseTypeStates(sandboxId, appId, 100);
+    const possibleStates = new CaseTypeStatesList().deserialize(this.appDefinitionService.getCaseTypeByAppId(appId).states);
     const caseStateAudit$ = this.getCaseStateAudit(caseRef, sandboxId);
-    return forkJoin([possibleStates$, caseStateAudit$]).pipe(
-      map(resultArr => {
-        const possibleStates = resultArr[0];
-        const caseStateAudit = resultArr[1];
+    return caseStateAudit$.pipe(
+      map(result => {
+        const caseStateAudit = result;
         // mark if any are terminal states
         caseStateAudit.auditEvents.forEach(auditEvent => {
           const foundState = possibleStates.states.find(state => state.value === auditEvent.caseState.value);
