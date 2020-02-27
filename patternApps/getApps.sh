@@ -16,3 +16,6 @@ echo patternApps/TCSTK-base-app >> .git/info/sparse-checkout
 
 # you add more as you like
 #echo patternApps/TCSTK-case-manager-app >> .git/info/sparse-checkout
+
+# pull Pattern Apps
+git pull origin master
