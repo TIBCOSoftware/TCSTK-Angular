@@ -48,7 +48,7 @@ export class TcAppDefinitionService {
     );
   }
 
-  public refresh() {
+  public refresh(): Observable<any> {
     const claims$ = this.liveAppsService.getClaims().pipe(
       map(claimVal => {
         claimVal.sandboxes.forEach(sandbox => {
@@ -61,7 +61,7 @@ export class TcAppDefinitionService {
     );
 
     // initialize all data
-    const init$ = claims$.pipe(
+    return claims$.pipe(
       tap((response: Claim) => {
         this.currentClaim = response;
         this._claims.next(response);
@@ -76,8 +76,6 @@ export class TcAppDefinitionService {
         );
       })
     );
-
-    init$.subscribe();
   }
 
   // public getters
@@ -92,7 +90,7 @@ export class TcAppDefinitionService {
   }
 
   public get sandboxId() {
-    return this.currentClaim.primaryProductionSandbox.id;
+    return Number(this.currentClaim.primaryProductionSandbox.id);
   }
 
   public get userId() {
