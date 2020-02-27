@@ -1,0 +1,14 @@
+{
+  "browserTitle": "TIBCO Cloud TCSTKBaseApp",
+  "applicationTitle": "Base App (TIBCO LABS™)",
+  "welcomeMessage": "Welcome to the TCSTKBaseApp",
+  "roles": [
+    {
+      "id": "User",
+      "group": "System: ALL_USERS",
+      "display": "User"
+    }
+  ],
+  "displayName": true,
+  "documentationUrl": "assets/help.html"
+}

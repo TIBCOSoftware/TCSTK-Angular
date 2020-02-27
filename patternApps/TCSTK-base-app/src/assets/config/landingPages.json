@@ -1,0 +1,32 @@
+{
+    "id": "",
+    "version": "1.0",
+    "landingPage": [
+        {
+            "key": "id1",
+            "description": "User",
+            "title": "Welcome to your Cloud Starter TCSTKBaseApp",
+            "subtitle": "A Cloud Base Application",
+            "highlights": [
+                {
+                    "title": "Solution",
+                    "iconURL": "ic-documentation",
+                    "content": "Create your own Solution based on different TIBCO Cloud Capabilities."
+                },
+                {
+                    "title": "Combine",
+                    "iconURL": "ic-community",
+                    "content": "Combine the power of the TIBCO Connected Intelligence Cloud."
+                },
+                {
+                    "title": "Fast",
+                    "iconURL": "ic-graph",
+                    "content": "Respond fast to business needs and develop an app in minutes."
+                }
+            ],
+            "backgroundURL": "",
+            "homeRoute": "/starterApp/home/",
+            "roles": ["User", "Administrator"]
+        }
+    ]
+}
