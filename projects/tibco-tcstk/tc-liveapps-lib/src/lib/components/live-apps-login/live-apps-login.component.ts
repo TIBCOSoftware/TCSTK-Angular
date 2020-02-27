@@ -6,6 +6,7 @@ import {LoginPrefill} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsService} from '../../services/live-apps.service';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 import {TcAppDefinitionService} from '../../services/tc-app-definition.service';
+import {take} from 'rxjs/operators';
 
 /**
  * Component perform a Login in case there is no valid Session yet.
@@ -31,7 +32,9 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
   // run when logged in
   handleLoggedIn = (loginInfo) => {
     // update claims first
-    this.tcAppDefinitionService.refresh().subscribe(
+    this.tcAppDefinitionService.refresh().pipe(
+      take(1)
+    ).subscribe(
       next => {
         sessionStorage.setItem('loggedIn', Date.now().toString());
         // emit useful details about the login and session/claims
