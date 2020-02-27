@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LiveAppsService} from '../services/live-apps.service';
-import {Observable, ReplaySubject} from 'rxjs';
+import {Observable, of, ReplaySubject} from 'rxjs';
 import {Claim} from '@tibco-tcstk/tc-core-lib';
-import {map, switchMap, tap} from 'rxjs/operators';
+import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {CaseType, CaseTypesList, CaseTypeState, Process} from '../models/liveappsdata';
 
 @Injectable({
@@ -74,6 +74,11 @@ export class TcAppDefinitionService {
             return response;
           })
         );
+      }),
+      catchError(err => {
+        // todo: currently on error - I am allowing the page to continue to load page so that login can be displayed
+        // this could cause an issue with other resolvers failing.
+        return of(undefined);
       })
     );
   }
