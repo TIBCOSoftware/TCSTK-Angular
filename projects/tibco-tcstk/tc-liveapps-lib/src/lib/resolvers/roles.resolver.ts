@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Resolve, Router} from '@angular/router';
 import {forkJoin, Observable, of} from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
@@ -25,34 +25,28 @@ export class RolesResolver implements Resolve<Observable<Roles>> {
 
     // aim is to return an object that only contains roles where the user is a member of the matching group
 
-    const claimResolver$ = new ClaimsResolver(this.appDefinitionService).resolve().pipe(
-      flatMap(claiminfo => {
-          const sandboxId = claiminfo.primaryProductionSandbox.id;
-          generalConfigResolver.setSandbox(Number(sandboxId));
-          const generalConfig$ = generalConfigResolver.resolve();
-          const groups$ = this.liveapps.getGroupMemberships(+claiminfo.primaryProductionSandbox.id, claiminfo.id, 1000, true);
-          return forkJoin(generalConfig$, groups$).pipe(
-            map(([configData, groupData]) => {
-              return this.createRoles(groupData.groups, configData.roles);
-            }));
-        }
-      )
-    );
-
-    return claimResolver$;
+    const claims = this.appDefinitionService.claims;
+    const sandboxId = this.appDefinitionService.sandboxId;
+    generalConfigResolver.setSandbox(sandboxId);
+    const generalConfig$ = generalConfigResolver.resolve();
+    const groups$ = this.liveapps.getGroupMemberships(sandboxId, claims.id, 1000, true);
+    return forkJoin(generalConfig$, groups$).pipe(
+      map(([configData, groupData]) => {
+        return this.createRoles(groupData.groups, configData.roles);
+      }));
   }
 
   private createRoles = (groups: Group[], roles: RoleAttribute[]): Roles => {
     const calcRoles: RoleAttribute[] = [];
     roles.forEach(role => {
       const targetGroup = groups.find(grp => {
-        return (grp.name === role.group);
-      }
-      )
+          return (grp.name === role.group);
+        }
+      );
       if (targetGroup) {
         calcRoles.push(role);
       }
-    })
-    return new Roles().deserialize(new Roles().deserialize( { roles: calcRoles } ));
-  }
+    });
+    return new Roles().deserialize(new Roles().deserialize({roles: calcRoles}));
+  };
 }

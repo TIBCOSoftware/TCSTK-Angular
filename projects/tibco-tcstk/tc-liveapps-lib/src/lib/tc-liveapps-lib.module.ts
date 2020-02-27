@@ -113,11 +113,13 @@ import { LiveAppsProcessesComponent } from './components/live-apps-processes/liv
 import { LiveAppsFormPreviewComponent } from './components/live-apps-form-preview/live-apps-form-preview.component';
 import {LiveAppsSettingsFormLayoutComponent} from './components/live-apps-settings-form-layout/live-apps-settings-form-layout.component';
 import {TcAppDefinitionService} from './services/tc-app-definition.service';
+import {Observable} from 'rxjs';
 
 // @dynamic
 export function initAppDefinitionService(appDefinitionService: TcAppDefinitionService) {
   const loader = () => {
-    return appDefinitionService.refresh();
+    // returning a promise ensures that the refresh is complete before the module is loaded
+    return appDefinitionService.refresh().toPromise();
   };
   return loader;
 }

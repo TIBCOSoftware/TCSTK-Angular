@@ -31,30 +31,25 @@ export class LaConfigResolver implements Resolve<Observable<LiveAppsConfigHolder
     const generalConfigResolver = new GeneralConfigResolver(this.sharedStateService, this.generalConfigService, this.http, this.location, this.router);
     const liveAppsConfigResolver = new LiveAppsConfigResolver(this.sharedStateService, this.liveAppsConfigService, this.caseCardConfigService, this.http, this.location);
 
-    const claimResolver$ = new ClaimsResolver(this.appDefinitionService).resolve().pipe(
-      flatMap(value => {
-          const sandboxId = value.primaryProductionSandbox.id;
-          generalConfigResolver.setSandbox(Number(sandboxId));
-          liveAppsConfigResolver.setSandbox(Number(sandboxId));
+    const sandboxId = this.appDefinitionService.sandboxId;
+    generalConfigResolver.setSandbox(sandboxId);
+    liveAppsConfigResolver.setSandbox(sandboxId);
 
-          const generalConfig$ = generalConfigResolver.resolve();
-          const liveAppsConfig$ = liveAppsConfigResolver.resolve(routeSnapshot);
-          const forkJoinArray = [generalConfig$, liveAppsConfig$];
-          return forkJoin(forkJoinArray).pipe(
-            map(resultArr => {
-              return new LiveAppsConfigHolder().deserialize({ generalConfig: resultArr[0], liveAppsConfig: resultArr[1] });
-            }));
-        }
-        )
-    );
+    const generalConfig$ = generalConfigResolver.resolve();
+    const liveAppsConfig$ = liveAppsConfigResolver.resolve(routeSnapshot);
+    const forkJoinArray = [generalConfig$, liveAppsConfig$];
+    const calls$ = forkJoin(forkJoinArray).pipe(
+      map(resultArr => {
+        return new LiveAppsConfigHolder().deserialize({ generalConfig: resultArr[0], liveAppsConfig: resultArr[1] });
+      }));
 
-    const resolveResp$ = claimResolver$.pipe(
+    const resolveResp$ = calls$.pipe(
       flatMap(liveAppsConfigHolder => {
         const topOrgFolder$ = this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId);
         const iconsFolder$ = this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId + '_Icons');
         const docsFolder$ = this.documentService.initOrgFolder(liveAppsConfigHolder.generalConfig.uiAppId + '_Docs');
-        const forkJoinArray = [topOrgFolder$, iconsFolder$, docsFolder$];
-        return forkJoin(forkJoinArray).pipe(
+        const forkJoinArray2 = [topOrgFolder$, iconsFolder$, docsFolder$];
+        return forkJoin(forkJoinArray2).pipe(
           map(
             resultArr => {
               return liveAppsConfigHolder;

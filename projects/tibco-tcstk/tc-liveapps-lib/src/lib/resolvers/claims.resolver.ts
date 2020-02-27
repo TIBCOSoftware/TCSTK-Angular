@@ -13,11 +13,7 @@ export class ClaimsResolver implements Resolve<Observable<Claim>> {
 
   resolve(): Observable<Claim> {
 
-    // note claims will be cached at http level
-    // logout required to update them anyway
-    return this.appDefinitionService.claims$.pipe(
-      take(1)
-    );
+    return of(this.appDefinitionService.claims);
   }
 
 }
