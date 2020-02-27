@@ -5,6 +5,7 @@ import {LoginContext} from '../../models/liveappsdata';
 import {LoginPrefill} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsService} from '../../services/live-apps.service';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
+import {TcAppDefinitionService} from '../../services/tc-app-definition.service';
 
 /**
  * Component perform a Login in case there is no valid Session yet.
@@ -23,20 +24,23 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
   @Output() loginContext: EventEmitter<LoginContext> = new EventEmitter<LoginContext>();
   @Input() loginPrefill: LoginPrefill;
 
-  constructor() {
+  constructor(private tcAppDefinitionService: TcAppDefinitionService) {
     super();
   }
 
   // run when logged in
   handleLoggedIn = (loginInfo) => {
-    sessionStorage.setItem('loggedIn', Date.now().toString());
-
-    // emit useful details about the login and session/claims
-    this.loginContext.emit(new LoginContext().deserialize(
-        {
-          authInfo: loginInfo.authInfo,
-          accessToken: loginInfo.accessToken
-        }));
+    // update claims first
+    this.tcAppDefinitionService.refresh().subscribe(
+      next => {
+        sessionStorage.setItem('loggedIn', Date.now().toString());
+        // emit useful details about the login and session/claims
+        this.loginContext.emit(new LoginContext().deserialize(
+          {
+            authInfo: loginInfo.authInfo,
+            accessToken: loginInfo.accessToken
+          }));
+    });
   }
 
 }

@@ -64,6 +64,7 @@ export class TibcoCloudLoginComponent implements OnChanges {
             this.loading = false;
             // ok logged in
             console.log('User logged in...');
+            // update claims
             this.loggedIn.emit( { authInfo: authorize, accessToken: this.token } );
           },
           error => {
