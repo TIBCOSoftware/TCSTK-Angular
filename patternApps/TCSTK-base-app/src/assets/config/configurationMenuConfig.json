@@ -1,0 +1,14 @@
+{
+  "menu": [
+    {
+      "entry": "General Application",
+      "icon": "tcs-starters-icon",
+      "options": [
+        "Settings",
+        "Roles",
+        "Landing Page",
+        "Access Control"
+      ]
+    }
+  ]
+}
