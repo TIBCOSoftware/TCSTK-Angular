@@ -2,8 +2,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CachingInterceptor, TcCoreLibModule } from '@tibco-tcstk/tc-core-lib';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TcSpotfireConfigService } from './services/tc-spotfire-config.service';
+import {TcSpotfireMarkingLiveappsConfigService} from './services/tc-spotfire-marking-liveapps-config.service';
 import { SpotfireWrapperComponent } from './components/spotfire-wrapper/spotfire-wrapper.component';
 import { SettingsSpotfireComponent } from './components/settings-spotfire/settings-spotfire.component';
+import { SettingsSpotfireCreateCaseMappingComponent } from './components/settings-spotfire-create-case-mapping/settings-spotfire-create-case-mapping.component';
 import { SpotfireViewerModule } from '@tibco/spotfire-wrapper';
 import {
     MatButtonModule,
@@ -20,10 +22,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
+
 @NgModule({
     declarations: [
         SpotfireWrapperComponent,
-        SettingsSpotfireComponent
+        SettingsSpotfireComponent,
+        SettingsSpotfireCreateCaseMappingComponent
     ],
     imports: [
         FormsModule,
@@ -56,7 +60,7 @@ export class TcSpotfireLibModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: TcSpotfireLibModule,
-            providers: [TcSpotfireConfigService]
+            providers: [TcSpotfireConfigService, TcSpotfireMarkingLiveappsConfigService]
         };
     }
 }

@@ -12,6 +12,7 @@ export class SpotfireConfig implements Deserializable {
     maxMarkings: number;
     allowedPages: string[];
     columnNames: string[];
+    /*sfMarkingCreateCaseConfig: SpotfireMarkingCreateCaseConfig;*/
     deserialize(input: any) {
         Object.assign(this, input);
         return this;
@@ -22,9 +23,10 @@ export class AttributeMapping {
   sourceAttr: string;
   targetAttr: string;
 }
-
-
+// TODO: club with Spotfire Config and remove id and uiAppId
 export class SpotfireMarkingCreateCaseConfig implements Deserializable {
+  id: string;
+  uiAppId: string;
   markingName: string;
   tableName: string;
   objectPath: string;
