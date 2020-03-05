@@ -28,6 +28,42 @@ export class SettingsSpotfireCreateCaseMappingComponent implements OnInit {
     private uiAppId: string;
     private sandboxId: number;
 
+  aceEditorOptions: any = {
+    maxLines: 1000,
+    printMargin: false,
+    showGutter: true,
+    autoScrollEditorIntoView: true
+  };
+
+  configJSON = 'TEST';
+  configJSONS = {
+    markingName: 'Case Marking',
+    tableName: 'newtransactionsscoredwstate',
+    objectPath: 'RiskInvestigation201.Records_v1',
+    attributes: [
+      {
+        sourceAttr: 'oddity',
+        targetAttr: 'Oddity_v1'
+      },
+      {
+        sourceAttr: 'fraud_probability',
+        targetAttr: 'TargetProbability_v1'
+      },
+      {
+        sourceAttr: 'id',
+        targetAttr: 'id_v1'
+      }
+    ],
+    initialValue: {
+      RiskInvestigation201: {
+        Channel_v1: 'Spotfire',
+        Comment_v1: '',
+        Decision_v1: 'undetermined',
+        Followup_v1: 'None'
+      }
+    }
+  };
+
     constructor(
       protected route: ActivatedRoute,
       protected spotfireConfigService: TcSpotfireMarkingLiveappsConfigService,
@@ -36,7 +72,43 @@ export class SettingsSpotfireCreateCaseMappingComponent implements OnInit {
 
     ngOnInit() {
         this.refresh();
+        // this.configJSON = JSON.stringify(this.configJSONS);
+       this.useExampleLayout();
     }
+
+    updateConfigJSON (newJson) {
+      console.log('Update JSON ', newJson);
+    }
+
+  useExampleLayout = () => {
+    this.configJSON = '{\n' +
+      '  markingName: "Case Marking",\n' +
+      '  tableName: "newtransactionsscoredwstate",\n' +
+      '  objectPath: "RiskInvestigation201.Records_v1",\n' +
+      '  attributes: [\n' +
+      '  {\n' +
+      '    sourceAttr: "oddity",\n' +
+      '    targetAttr: "Oddity_v1"\n' +
+      '  },\n' +
+      '  {\n' +
+      '    sourceAttr: "fraud_probability",\n' +
+      '    targetAttr: "TargetProbability_v1"\n' +
+      '  },\n' +
+      '  {\n' +
+      '    sourceAttr: "id",\n' +
+      '    targetAttr: "id_v1"\n' +
+      '  }\n' +
+      '  ],\n' +
+      '  initialValue: {\n' +
+      '    RiskInvestigation201: {\n' +
+      '      Channel_v1: "Spotfire",\n' +
+      '        Comment_v1: "",\n' +
+      '        Decision_v1: "undetermined",\n' +
+      '        Followup_v1: "None"\n' +
+      '    }\n' +
+      '  }\n' +
+      '}\n';
+  }
 
     private refresh = (): void => {
       const spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
@@ -60,6 +132,8 @@ export class SettingsSpotfireCreateCaseMappingComponent implements OnInit {
         this.id = spotfireConfig.id;
         this.uiAppId = spotfireConfig.uiAppId;
     }
+
+
 
     public runSaveFunction = (): void => {
 

@@ -20,7 +20,7 @@ import {
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { TcFormsLibModule } from '@tibco-tcstk/tc-forms-lib';
 
 
 @NgModule({
@@ -43,7 +43,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MatIconModule,
         MatInputModule,
         MatToolbarModule,
-        MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule
+        MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule,
+        TcFormsLibModule
 
     ],
     exports: [
