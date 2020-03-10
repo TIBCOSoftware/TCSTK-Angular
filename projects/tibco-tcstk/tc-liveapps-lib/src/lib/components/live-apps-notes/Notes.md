@@ -25,6 +25,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+header | string | The header text as input, defaults to &#39;Notes&#39;
 relatedItemId | string | itemId for notes collection
 relatedItemType | string | itemType for notes collection
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
