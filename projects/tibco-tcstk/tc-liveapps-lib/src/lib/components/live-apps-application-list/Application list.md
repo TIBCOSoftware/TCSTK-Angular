@@ -21,9 +21,11 @@ Attribute | Type | Comments
 --- | --- | ---
 selectedAppIds | string[] | The app Ids selected (output)
 appIds | string[] | The list of LA Application IDs you want to handle
-formFieldRendering | boolean | Form field rendering
+formFieldRendering | boolean | Use Form field rendering around the selection box
+label | string | Label for the application selector
 sandboxId | number | sandboxId - this comes from claims resolver
 selectedApp | CaseType | Application selected from dropdown (output)
+selectedAppId | string | Pre-select specified appId
 selectFirstApp | boolean | Whether to auto select the first app in dropdown selector (eg search)
 
 #### Outputs

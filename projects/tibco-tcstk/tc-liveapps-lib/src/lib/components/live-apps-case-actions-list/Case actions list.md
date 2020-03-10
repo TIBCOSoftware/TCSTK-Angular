@@ -19,7 +19,9 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
-seletedActionId | string | The actionId selected (output)
+formFieldRendering | boolean | Use Form field rendering around the selection box
+label | string | Label for the actions selector
+seletedActionId | string | Pre-select specified actionId
 actionFilter | string[] | Dont show buttons for any actions that start with this string.eg: &#39;$&#39; will remove the action $Update
 appId | string | The LA Application Id
 caseRef | string | The case reference
