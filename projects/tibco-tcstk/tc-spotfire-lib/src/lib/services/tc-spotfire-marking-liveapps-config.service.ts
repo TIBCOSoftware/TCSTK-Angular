@@ -10,7 +10,7 @@ import {SpotfireMarkingCreateCaseConfig} from '../models/tc-spotfire-config';
 })
 export class TcSpotfireMarkingLiveappsConfigService {
 
-    DEFAULT_PREFIX = '.spotfire.marking.liveapps.config.tibcolabs.client.context.PUBLIC';
+    DEFAULT_PREFIX = '.sf.marking.la.config.tibcolabs.client.context.PUBLIC';
 
     constructor(
         private location: Location,

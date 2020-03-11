@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MatSnackBar } from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 import {SpotfireMarkingCreateCaseConfig} from '../../models/tc-spotfire-config';
 import {TcSpotfireMarkingLiveappsConfigService} from '../../services/tc-spotfire-marking-liveapps-config.service';
 
@@ -12,21 +12,19 @@ import {TcSpotfireMarkingLiveappsConfigService} from '../../services/tc-spotfire
 
 export class SettingsSpotfireCreateCaseMappingComponent implements OnInit {
 
-    /*
-    public spotfireServer: string;
-    public analysisPath: string;
-    public tableName: string;
-    public activePageForHome: string;
-    public activePageForDetails: string;
-    public markingName: string;
-    public maxMarkings : number;
-    public allowedPages: string;
-    public columnNames: string;
+  constructor(
+    protected route: ActivatedRoute,
+    protected spotfireMLConfigService: TcSpotfireMarkingLiveappsConfigService,
+    protected snackBar: MatSnackBar
+  ) {
+  }
 
-     */
-    private id: string;
-    private uiAppId: string;
-    private sandboxId: number;
+  private id: string;
+  private uiAppId: string;
+  private sandboxId: number;
+
+  // Configuration object
+  public SMCCConfig: SpotfireMarkingCreateCaseConfig = new SpotfireMarkingCreateCaseConfig();
 
   aceEditorOptions: any = {
     maxLines: 1000,
@@ -35,52 +33,72 @@ export class SettingsSpotfireCreateCaseMappingComponent implements OnInit {
     autoScrollEditorIntoView: true
   };
 
-  configJSON = 'TEST';
-  configJSONS = {
-    markingName: 'Case Marking',
-    tableName: 'newtransactionsscoredwstate',
-    objectPath: 'RiskInvestigation201.Records_v1',
-    attributes: [
-      {
-        sourceAttr: 'oddity',
-        targetAttr: 'Oddity_v1'
+  // Config String for ACE Editor
+  configJSON = '';
+
+  private doChange = true;
+
+  ngOnInit() {
+    this.refresh();
+  }
+
+  // Process updates from the souce pane
+  updateConfigJSON(newJson) {
+    // console.log('Update JSON ', newJson);
+    const correctJson = newJson.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
+    // console.log('Correct JSON: ' , correctJson);
+    if (this.doChange) {
+      this.SMCCConfig = JSON.parse(correctJson);
+      this.SMCCConfig.uiAppId = this.uiAppId;
+      this.SMCCConfig.id = this.id;
+    }
+  }
+
+  // Update to te source pane
+  updatePane() {
+    // this.configJSON = JSON.stringify(this.SMCCConfig , null, 1)
+    this.doChange = false;
+    const valueForPane = this.SMCCConfig;
+    delete valueForPane.id;
+    delete valueForPane.uiAppId;
+    this.configJSON = JSON.stringify(valueForPane , null, '\t');
+    setTimeout(() => { this.doChange = true; }, 500);
+  }
+
+  // Initial loading of data
+  private refresh = (): void => {
+    // Get initial data from route
+    this.SMCCConfig = this.route.snapshot.data.spotfireConfigHolder;
+    // console.log('GOT CONFIG: ' , this.SMCCConfig);
+    this.sandboxId = this.route.snapshot.data.claimsHolder.primaryProductionSandbox.id;
+    this.id = this.SMCCConfig.id;
+    this.uiAppId = this.SMCCConfig.uiAppId;
+    this.updatePane();
+  }
+
+  // Store data to shared state
+  public runSaveFunction = (): void => {
+    const configToSave = this.SMCCConfig;
+    configToSave.id = this.id;
+    configToSave.uiAppId = this.uiAppId;
+    this.spotfireMLConfigService.updateSpotfireConfig(this.sandboxId,
+      this.uiAppId, configToSave, this.id).subscribe(
+      result => {
+        this.snackBar.open('Spotfire settings saved', 'OK', {
+          duration: 3000
+        });
       },
-      {
-        sourceAttr: 'fraud_probability',
-        targetAttr: 'TargetProbability_v1'
-      },
-      {
-        sourceAttr: 'id',
-        targetAttr: 'id_v1'
+      error => {
+        this.snackBar.open('Error saving Spotfire settings...', 'OH SHIT', {
+          duration: 3000
+        });
       }
-    ],
-    initialValue: {
-      RiskInvestigation201: {
-        Channel_v1: 'Spotfire',
-        Comment_v1: '',
-        Decision_v1: 'undetermined',
-        Followup_v1: 'None'
-      }
-    }
-  };
+    );
+  }
 
-    constructor(
-      protected route: ActivatedRoute,
-      protected spotfireConfigService: TcSpotfireMarkingLiveappsConfigService,
-      protected snackBar: MatSnackBar
-    ) { }
-
-    ngOnInit() {
-        this.refresh();
-        // this.configJSON = JSON.stringify(this.configJSONS);
-       this.useExampleLayout();
-    }
-
-    updateConfigJSON (newJson) {
-      console.log('Update JSON ', newJson);
-    }
-
+  // Use sample value
   useExampleLayout = () => {
+    this.doChange = false;
     this.configJSON = '{\n' +
       '  markingName: "Case Marking",\n' +
       '  tableName: "newtransactionsscoredwstate",\n' +
@@ -108,67 +126,10 @@ export class SettingsSpotfireCreateCaseMappingComponent implements OnInit {
       '    }\n' +
       '  }\n' +
       '}\n';
+    const correctJson = this.configJSON.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
+    // console.log('Correct JSON: ' , correctJson);
+    this.SMCCConfig = JSON.parse(correctJson);
+    setTimeout(() => { this.doChange = true; }, 500);
   }
-
-    private refresh = (): void => {
-      const spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
-
-     this.sandboxId = this.route.snapshot.data.claimsHolder.primaryProductionSandbox.id;
-      /*
-     this.spotfireServer = spotfireConfig.spotfireServer;
-     this.analysisPath = spotfireConfig.analysisPath;
-
-     this.tableName = spotfireConfig.tableName;
-
-     this.activePageForHome = spotfireConfig.activePageForHome;
-     this.activePageForDetails = spotfireConfig.activePageForDetails;
-
-     this.markingName = spotfireConfig.markingName;
-     this.maxMarkings = spotfireConfig.maxMarkings;
-
-     this.allowedPages = spotfireConfig.allowedPages.join(',');
-     this.columnNames = spotfireConfig.columnNames.join(',');
-*/
-        this.id = spotfireConfig.id;
-        this.uiAppId = spotfireConfig.uiAppId;
-    }
-
-
-
-    public runSaveFunction = (): void => {
-
-        const spotfireConfig = new SpotfireMarkingCreateCaseConfig().deserialize({
-            id: this.id,
-            uiAppId: this.uiAppId
-          /*,
-            spotfireServer: this.spotfireServer,
-            analysisPath: this.analysisPath,
-            tableName: this.tableName,
-            activePageForHome: this.activePageForHome,
-            activePageForDetails: this.activePageForDetails,
-            markingName: this.markingName,
-            maxMarkings: this.maxMarkings,
-            allowedPages: this.allowedPages.split(','),
-            columnNames: this.columnNames.split(',')*/
-        });
-
-        this.spotfireConfigService.updateSpotfireConfig(this.sandboxId, this.uiAppId, spotfireConfig, this.id).subscribe(
-            result => {
-                this.snackBar.open('Spotfire settings saved', 'OK', {
-                    duration: 3000
-                });
-            },
-            error => {
-                this.snackBar.open('Error saving Spotfire settings saved', 'OK', {
-                    duration: 3000
-                });
-            }
-        );
-    }
-
-    /*
-    public handleEditLiveAppClick = (): void => {
-        window.open(this.spotfireServer + '/spotfire/wp/analysis?file=' + this.analysisPath);
-    }*/
 
 }

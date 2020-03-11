@@ -3,7 +3,29 @@
         [headerText]="'Spotfire Settings - Create Live Apps Case - Configuration'"></tc-tibco-cloud-widget-header>
 
     <div style="padding: 20px;" fxLayout="column" fxFlex>
+      <mat-tab-group >
+        <mat-tab label="Configuration">
+          <div style="overflow: auto;">
+            <div fxLayout="column" fxFlex>
+              <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px; margin-top: 20px; margin-bottom: 10px;">
+                <p>Choose the Marking to be used for the Mapping:</p>
+              </div>
 
+                <!--<input matInput placeholder="Marking Name"/>-->
+              <mat-form-field>
+                <input matInput placeholder="Marking Name" [(ngModel)]="SMCCConfig.markingName" (ngModelChange)="updatePane()">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Table Name" [(ngModel)]="SMCCConfig.tableName" (ngModelChange)="updatePane()">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Object Path" [(ngModel)]="SMCCConfig.objectPath" (ngModelChange)="updatePane()">
+              </mat-form-field>
+
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Source">
       <div
         ace-editor
         [text]="configJSON"
@@ -12,6 +34,11 @@
         [autoUpdateContent]="true"
         (textChanged)="updateConfigJSON($event)"
         style="width:100%; height: 100%; overflow: auto; border: 1px solid black;"></div>
+          <div *ngIf="'true'">
+            <span>Use </span><span class="tcs-clickable" (click)="useExampleLayout()">Sample Value</span><span></span>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
         <!--
         <div style="overflow: auto;">
             <div fxLayout="column" fxFlex>
