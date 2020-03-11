@@ -2,3 +2,8 @@
   overflow: hidden;
 }
 
+.tcs-clickable {
+  cursor: pointer;
+  color: blue;
+  font-weight: bold;
+}

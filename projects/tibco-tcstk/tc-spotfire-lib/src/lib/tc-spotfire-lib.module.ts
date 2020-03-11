@@ -43,7 +43,9 @@ import { TcFormsLibModule } from '@tibco-tcstk/tc-forms-lib';
         MatIconModule,
         MatInputModule,
         MatToolbarModule,
-        MatListModule, MatMenuModule, MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule,
+        MatListModule,
+        MatMenuModule,
+        MatOptionModule, MatSelectModule, MatTabsModule, MatTooltipModule, MatButtonToggleModule, MatExpansionModule, MatTableModule, MatStepperModule, MatRadioModule, MatSnackBarModule,
         TcFormsLibModule
 
     ],

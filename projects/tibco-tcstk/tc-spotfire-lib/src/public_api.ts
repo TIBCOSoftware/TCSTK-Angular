@@ -20,6 +20,7 @@ export * from './lib/services/tc-spotfire-marking-liveapps-config.service';
 
 // resolvers
 export * from './lib/resolvers/spotfire-config.resolver';
+export * from './lib/resolvers/spotfire-marking-liveapps-config.resolver';
 export * from './lib/resolvers/spotfire-auth.resolver';
 
 // guards
