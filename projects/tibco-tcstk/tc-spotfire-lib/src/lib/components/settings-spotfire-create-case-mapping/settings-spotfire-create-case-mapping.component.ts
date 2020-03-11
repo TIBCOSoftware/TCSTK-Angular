@@ -68,7 +68,7 @@ export class SettingsSpotfireCreateCaseMappingComponent implements OnInit {
   // Initial loading of data
   private refresh = (): void => {
     // Get initial data from route
-    this.SMCCConfig = this.route.snapshot.data.spotfireConfigHolder;
+    this.SMCCConfig = this.route.snapshot.data.spotfireMappingConfigHolder;
     // console.log('GOT CONFIG: ' , this.SMCCConfig);
     this.sandboxId = this.route.snapshot.data.claimsHolder.primaryProductionSandbox.id;
     this.id = this.SMCCConfig.id;
