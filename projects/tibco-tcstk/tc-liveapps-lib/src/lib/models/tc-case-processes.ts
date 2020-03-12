@@ -1,5 +1,5 @@
 import {Deserializable} from '@tibco-tcstk/tc-core-lib';
-import {CaseAttribute, CaseTypesList, Process} from './liveappsdata';
+import {CaseAction, CaseAttribute, CaseCreator, CaseTypesList, Process} from './liveappsdata';
 
 export class LaProcessSelection {
   // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
@@ -8,7 +8,9 @@ export class LaProcessSelection {
               public caseIdAttribute: CaseAttribute,
               public process: Process,
               public ref: string,
-              public caseReference: string
+              public caseReference: string,
+              public creator: CaseCreator,
+              public action: CaseAction
   ) {
   }
 }

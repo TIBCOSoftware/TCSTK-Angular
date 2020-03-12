@@ -1,0 +1,9 @@
+<div class="live-apps-form" [id]="'workitemFormDiv_' + workitemId"></div>
+<tib-la-openworkitem-form
+  [id]="workitemId"
+  [sandbox]="sandboxId"
+  [formDivId]="'workitemFormDiv_' + workitemId"
+  (formSubmit)="handleWorkitemComplete($event)"
+  (formCancel)="handleWorkitemCancelled($event)"
+  (formClose)="handleWorkitemClosed($event)">
+</tib-la-openworkitem-form>

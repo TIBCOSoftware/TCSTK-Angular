@@ -125,12 +125,14 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     }
   }
 
-  handleLegacyProcessComplete = () => {
+  handleLegacyProcessComplete = (event) => {
+    // event.detail.destroy();
     const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': undefined});
     this.caseChanged.emit(processResponse);
   }
 
-  handleLegacyProcessCancelled = () => {
+  handleLegacyProcessCancelled = (event) => {
+    // event.detail.destroy();
     // -1 for caseReference means cancelled
     const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': '-1'});
     this.caseChanged.emit(processResponse);
@@ -184,6 +186,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     if (this.process) {
       this.initialize();
     }
+
   }
 
 }

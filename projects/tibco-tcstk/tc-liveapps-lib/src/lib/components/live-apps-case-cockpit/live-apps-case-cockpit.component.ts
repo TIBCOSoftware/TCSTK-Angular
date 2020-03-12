@@ -254,6 +254,7 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
 
   public handleActionCompleted = (formTab: FormTab) => {
     this.caseActionsComponent.toggleEnable();
+    this.selectedTab = undefined;
     this.formTabs.splice(this.formTabs.findIndex(tab => {
       return tab.type === 'actionTab' && tab.action === formTab.action;
     }), 1);
@@ -329,7 +330,9 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
 
   public handleTabCancel = (formTab: FormTab) => {
     if (formTab.type === 'wiTab') {
-      this.workitemComponent.cancelWi(formTab.workitemId);
+      if (this.workitemComponent) {
+        this.workitemComponent.cancelWi(formTab.workitemId);
+      }
       this.formTabs.splice(this.formTabs.findIndex(tab => {
         return tab.type === 'wiTab' && tab.workitemId === formTab.workitemId;
       }), 1);

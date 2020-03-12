@@ -1,4 +1,7 @@
 {
   "applicationIds": [],
-  "formsFramework": "material-design"
+  "formsFramework": "material-design",
+  "legacyCreators": true,
+  "legacyActions": true,
+  "legacyWorkitems": true
 }

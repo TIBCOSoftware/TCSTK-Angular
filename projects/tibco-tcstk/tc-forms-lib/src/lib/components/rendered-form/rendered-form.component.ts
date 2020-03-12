@@ -16,6 +16,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CustomFormDefs} from '../../models/tc-custom-forms';
+import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 @Component({
   selector: 'tcfrm-rendered-form',
@@ -24,7 +25,7 @@ import {CustomFormDefs} from '../../models/tc-custom-forms';
 })
 export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() schema: any = {};
-  @Input() layout: any[] = [];
+  @Input() layout: string;
   @Input() data: any = {};
   @Input() options: any[];
   @Input() formRef: string;
@@ -49,6 +50,11 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   formData: any = {};
   test: string;
   useCustomForm: boolean;
+
+  updateLayout = (layout: string) => {
+    this.layout = this.layout;
+    this.formLayout = TcCoreCommonFunctions.parseLayoutString(layout);
+  }
 
   submitForm = (data: any) => {
     console.warn('*** Forms: Submitting form with payload: ', data);
@@ -98,7 +104,7 @@ export class RenderedFormComponent implements OnInit, OnChanges {
       console.warn('*** Forms: Initial Form Data (JSON):', JSON.stringify(this.formData));
     }
     if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
-      this.formLayout = this.layout;
+      this.formLayout = TcCoreCommonFunctions.parseLayoutString(this.layout);
     }
   }
 

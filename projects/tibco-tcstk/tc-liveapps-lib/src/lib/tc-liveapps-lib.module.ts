@@ -114,6 +114,8 @@ import { LiveAppsFormPreviewComponent } from './components/live-apps-form-previe
 import {LiveAppsSettingsFormLayoutComponent} from './components/live-apps-settings-form-layout/live-apps-settings-form-layout.component';
 import {TcAppDefinitionService} from './services/tc-app-definition.service';
 import {Observable} from 'rxjs';
+import { LiveAppsFormComponent } from './components/live-apps-form/live-apps-form.component';
+import { LiveAppsWorkitemComponent } from './components/live-apps-workitem/live-apps-workitem.component';
 
 // @dynamic
 export function initAppDefinitionService(appDefinitionService: TcAppDefinitionService) {
@@ -187,7 +189,9 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
         LiveAppsActionStandaloneComponent,
         LiveAppsProcessesComponent,
         LiveAppsFormPreviewComponent,
-        LiveAppsSettingsFormLayoutComponent
+        LiveAppsSettingsFormLayoutComponent,
+        LiveAppsFormComponent,
+        LiveAppsWorkitemComponent
     ],
   imports: [
     TcCoreLibModule,
@@ -282,7 +286,8 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
         LiveAppsActionStandaloneComponent,
         LiveAppsProcessesComponent,
         LiveAppsFormPreviewComponent,
-        LiveAppsSettingsFormLayoutComponent
+        LiveAppsSettingsFormLayoutComponent,
+        LiveAppsWorkitemComponent
     ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [
@@ -294,7 +299,8 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
         DurationSincePipe,
         { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
         // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }
-    ]
+    ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TcLiveappsLibModule {
     static forRoot(): ModuleWithProviders {

@@ -50,7 +50,7 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
     this.creatorSelection.emit(new LaProcessSelection('creator', this.appSchema, this.getCaseIDAttributeName(), process,
       // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
       (this.caseType.applicationName + '.' + this.caseType.applicationInternalName + '.' + 'creator' + '.' + process.name),
-      undefined
+      undefined, undefined, undefined
     ));
   }
 
