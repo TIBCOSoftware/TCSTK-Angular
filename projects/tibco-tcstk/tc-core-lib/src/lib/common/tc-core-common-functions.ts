@@ -1,6 +1,5 @@
 import {HashLocationStrategy, Location} from '@angular/common';
 import {TcComponent} from '../models/tc-component';
-import {FormConfig} from '@tibco-tcstk/tc-liveapps-lib';
 
 // @dynamic
 export class TcCoreCommonFunctions {
