@@ -1,5 +1,6 @@
 import {HashLocationStrategy, Location} from '@angular/common';
 import {TcComponent} from '../models/tc-component';
+import {FormConfig} from '@tibco-tcstk/tc-liveapps-lib';
 
 // @dynamic
 export class TcCoreCommonFunctions {
@@ -92,5 +93,42 @@ export class TcCoreCommonFunctions {
       return 100;
     }
   }
+
+  public static formLayoutToJson = (formLayout: any): string => {
+    const replacer = (key, value) => {
+      // if we get a function, give us the code for that function
+      if (typeof value === 'function') {
+        return value.toString();
+      }
+      return value;
+    };
+    const serialized = JSON.stringify(formLayout, replacer, 2);
+    return serialized;
+  }
+
+  public static parseLayoutString = (layoutString: string): any => {
+    let newFormObject: any = null;
+    // tslint:disable-next-line:no-eval
+    eval('newFormObject = ' + layoutString);
+    return newFormObject;
+  }
+
+  public static formLayoutJsonToObject = (formLayoutJSON: string): any => {
+    const reviver = (key, value) => {
+      if (typeof value === 'string'
+        && value.indexOf('function ') === 0) {
+        const functionTemplate = `(${value})`;
+        // tslint:disable-next-line:no-eval
+        return eval(functionTemplate);
+      }
+      return value;
+    };
+    // const parsedObject = JSON.parse(formLayoutJSON);
+    formLayoutJSON = TcCoreCommonFunctions.escapeString(formLayoutJSON);
+    const parsedObject = JSON.parse(formLayoutJSON, reviver);
+    return parsedObject;
+  }
+
+
 
 }

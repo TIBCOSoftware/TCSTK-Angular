@@ -240,6 +240,7 @@ export class CaseTypesList implements Deserializable {
 
 export class CaseAction implements Deserializable {
   activityName: string;
+  activityId: string;
   applicationId: string;
   applicationName: string;
   availableInStates: string[];
@@ -269,6 +270,7 @@ export class CaseActionsList implements Deserializable {
 
 export class CaseCreator implements Deserializable {
   activityName: string;
+  activityId: string;
   applicationId: string;
   applicationName: string;
   chatBotEnabled: boolean;

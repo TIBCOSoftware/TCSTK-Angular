@@ -1,4 +1,28 @@
 <div fxFill>
-  <tcfrm-rendered-form *ngIf="process && (!legacyCreators || isCustomForm)" style="overflow: auto;" [formsFramework]="formsFramework" [layout]="layout" [customFormDefs]=customFormDefs [formRef]="process.ref" [appId]="applicationId" [customFormDefs]="customFormDefs" [schema]="schema" [layout]="layout" [data]="data" [options]="options" (formSubmit)="handleSubmit($event, undefined)"></tcfrm-rendered-form>
-  <tcla-live-apps-legacy-process *ngIf="process && legacyCreators && !isCustomForm" [process]="process" [type]="'creator'" [applicationId]="applicationId" [typeId]="typeId" (processCancelled)="handleLegacyProcessCancelled()" (processComplete)="handleLegacyProcessComplete()" class="live-apps-widget" fxFill></tcla-live-apps-legacy-process>
+  <tcfrm-rendered-form *ngIf="process && (!legacyCreators || isCustomForm)" style="overflow: auto;"
+                       [formsFramework]="formsFramework" [layout]="layout" [customFormDefs]=customFormDefs
+                       [formRef]="process.ref" [appId]="applicationId" [customFormDefs]="customFormDefs"
+                       [schema]="schema" [layout]="layout" [data]="data" [options]="options"
+                       (formSubmit)="handleSubmit($event, undefined)"></tcfrm-rendered-form>
+  <!--tcla-live-apps-legacy-process *ngIf="process && legacyCreators && !isCustomForm" [process]="process" [type]="'creator'" [applicationId]="applicationId" [typeId]="typeId" (processCancelled)="handleLegacyProcessCancelled()" (processComplete)="handleLegacyProcessComplete()" class="live-apps-widget" fxFill></tcla-live-apps-legacy-process-->
+  <!--tcla-live-apps-legacy-process *ngIf="process && legacyCreators && !isCustomForm" [process]="process" [type]="'creator'" [applicationId]="applicationId" [typeId]="typeId" (processCancelled)="handleLegacyProcessCancelled()" (processComplete)="handleLegacyProcessComplete()" class="live-apps-widget" fxFill></tcla-live-apps-legacy-process-->
+  <div *ngIf="process && legacyCreators && !isCustomForm">
+    <div class="live-apps-form" id="creatorFormDiv"></div>
+    <tib-la-casecreator-form
+      [sandbox]="sandboxId"
+      [formDivId]="'creatorFormDiv'"
+      [id]="process.process.id"
+      [name]="process.creator.name"
+      [label]="process.creator.label"
+      [version]="process.creator.version"
+      [applicationId]="process.creator.applicationId"
+      [applicationName]="process.creator.applicationName"
+      [activityId]="process.creator.activityId"
+      [activityName]="process.creator.activityName"
+      (formSubmit)="handleLegacyProcessComplete($event)"
+      (formCancel)="handleLegacyProcessCancelled($event)"
+    >
+    </tib-la-casecreator-form>
+  </div>
 </div>
+

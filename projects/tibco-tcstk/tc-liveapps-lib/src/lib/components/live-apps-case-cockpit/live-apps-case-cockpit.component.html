@@ -25,7 +25,8 @@
                   <span>{{tab.title}}</span>
                   <mat-icon fxLayoutAlign="end start" class="tcs-cancel-action-button" [svgIcon]="'tcs-close-icon'" (click)="handleTabCancel(tab)"></mat-icon>
                 </ng-template>
-                <tcla-live-apps-legacy-form *ngIf="tab.type === 'wiTab'" class="live-apps-widget" [workitemId]="tab.workitemId" (workitemComplete)="handleWorkitemComplete($event)" fxFill></tcla-live-apps-legacy-form>
+                <!--tcla-live-apps-legacy-form *ngIf="tab.type === 'wiTab'" class="live-apps-widget" [workitemId]="tab.workitemId" (workitemComplete)="handleWorkitemComplete($event)" fxFill></tcla-live-apps-legacy-form-->
+                <tcla-live-apps-workitem *ngIf="tab.type === 'wiTab'" class="live-apps-widget" [sandboxId]="sandboxId" [workitemId]="tab.workitemId" (workitemComplete)="handleWorkitemComplete($event)"></tcla-live-apps-workitem>
             </mat-tab>
           </mat-tab-group>
           <!-- Using a hidden tab here to workaround the fact that web components seems to disappear on tab change-->

@@ -62,6 +62,7 @@ export * from './lib/components/live-apps-action-standalone/live-apps-action-sta
 export * from './lib/components/live-apps-processes/live-apps-processes.component';
 export * from './lib/components/live-apps-form-preview/live-apps-form-preview.component';
 export * from './lib/components/live-apps-settings-form-layout/live-apps-settings-form-layout.component';
+export * from './lib/components/live-apps-workitem/live-apps-workitem.component';
 
 // data
 export * from './lib/models/liveappsdata';

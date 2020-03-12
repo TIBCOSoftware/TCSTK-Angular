@@ -48,7 +48,49 @@ export class TcAppDefinitionService {
     );
   }
 
+  public loadFormResources = () => {
+    const frameworkJS = document.createElement('script');
+    frameworkJS.src = '/apps/app-cdn/tibco/framework_ext/1.0.0/framework_ext.nocache.js';
+    frameworkJS.type = 'text/javascript';
+    frameworkJS.async = true;
+    frameworkJS.charset = 'utf-8';
+        document.getElementsByTagName('head')[0].appendChild(frameworkJS);
+
+    const elementsEs5JS = document.createElement('script');
+    elementsEs5JS.src = '/apps/app-cdn/tibco/elements/elements-es5.js';
+    // elementsEs5JS.type = 'modul';
+    elementsEs5JS.async = true;
+    elementsEs5JS.charset = 'utf-8';
+    document.getElementsByTagName('head')[0].appendChild(elementsEs5JS);
+
+    const elementsEs2015JS = document.createElement('script');
+    elementsEs2015JS.src = '/apps/app-cdn/tibco/elements/elements-es2015.js';
+    elementsEs2015JS.type = 'module';
+    elementsEs2015JS.async = true;
+    elementsEs2015JS.charset = 'utf-8';
+    document.getElementsByTagName('head')[0].appendChild(elementsEs5JS);
+
+    const elementsCSS = document.createElement('link');
+    elementsCSS.href = '/apps/app-cdn/tibco/elements/elements.css';
+    elementsCSS.rel = 'stylesheet';
+    elementsCSS.charset = 'utf-8';
+    document.getElementsByTagName('head')[0].appendChild(elementsCSS);
+
+    const fontCSS = document.createElement('link');
+    fontCSS.href = '/apps/app-cdn/tibco/fonts/Source_Sans_Pro/font.css';
+    fontCSS.rel = 'stylesheet';
+    fontCSS.charset = 'utf-8';
+    document.getElementsByTagName('head')[0].appendChild(fontCSS);
+
+    const TfMaterial = document.createElement('link');
+    TfMaterial.href = '/apps/app-cdn/tibco/framework_ext/1.0.0/TfMaterial.min.css';
+    TfMaterial.rel = 'stylesheet';
+    TfMaterial.charset = 'utf-8';
+    document.getElementsByTagName('head')[0].appendChild(TfMaterial);
+  }
+
   public refresh(): Observable<any> {
+    this.loadFormResources();
     const claims$ = this.liveAppsService.getClaims().pipe(
       map(claimVal => {
         claimVal.sandboxes.forEach(sandbox => {

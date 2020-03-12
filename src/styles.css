@@ -17,3 +17,31 @@ html, body {
   box-shadow: 0 2px 8px 0 #dedede;
   background-color: #ffffff;
 }
+
+/* required live apps form overrides */
+body .md-select-menu-container {
+  z-index: 1090;
+}
+
+body md-autocomplete md-autocomplete-wrap.md-menu-showing {
+  z-index: 1051;
+}
+
+body .md-scroll-mask {
+  z-index: 1050;
+}
+
+body .md-scroll-mask > .md-scroll-mask-bar {
+  z-index: 1065;
+}
+
+body .md-datepicker-is-showing .md-scroll-mask {
+  z-index: 1099
+}
+
+body .md-datepicker-calendar-pane {
+  z-index: 1001;
+}
+
+/* end required live apps form overrides */
+

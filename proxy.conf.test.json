@@ -1,0 +1,337 @@
+{
+  "/idm/v3/login-oauth": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    },
+    "cookiePathRewrite": {
+      "*": "/"
+    },
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com",
+      "Cookie": ""
+    }
+  },
+  "/as/token.oauth2": {
+    "target": {
+      "host": "sso-ext.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "cloud.tibco.com"
+    },
+    "cookiePathRewrite": {
+      "*": "/"
+    }
+  },
+  "/idm/v2/login-oauth": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/tsc-ws/v1/tsc-domain": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/idm/v1/reauthorize": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/bpm": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/tsc-ws": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/griddetails": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/tsc-ws-content": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "cookieDomainRewrite": {
+      "*": "localhost"
+    }
+  },
+  "/work/": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/organisation": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/organisation/v1/": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/apps": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/case": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/case/v1/cases": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/case/v1/types": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/case/reports": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/process/v1/": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/pageflow": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/pageflow/v1/": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/event/v1/": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/clientstate/v1/states": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/webresource/": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/webresource/v1": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  },
+  "/collaboration/v1/": {
+    "target": {
+      "host": "ariel-cbpm-19753-test.emea.tibco.com",
+      "protocol": "http:",
+      "port": 80
+    },
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "headers": {
+      "Origin": "http://ariel-cbpm-19753-test.emea.tibco.com"
+    }
+  }
+}

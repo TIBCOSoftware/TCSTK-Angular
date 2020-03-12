@@ -30,7 +30,7 @@ export class ProcessFormConfig implements Deserializable {
   formTag: string;
   processId: string;
   processType: string;
-  layout: string;
+  layout: any;
   data: string;
   deserialize(input: any) {
     Object.assign(this, input);

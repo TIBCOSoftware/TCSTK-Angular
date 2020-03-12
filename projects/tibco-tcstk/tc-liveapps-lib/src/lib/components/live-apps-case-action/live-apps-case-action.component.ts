@@ -57,6 +57,10 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     return requestedType;
   }
 
+  test = (event) => {
+    console.log(event);
+  }
+
   private getCaseData = (caseRef) => {
     // retrieve the case data for this case reference
     this.data = undefined;

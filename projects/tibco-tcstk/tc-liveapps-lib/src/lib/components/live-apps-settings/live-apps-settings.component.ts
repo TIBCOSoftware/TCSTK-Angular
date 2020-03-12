@@ -61,7 +61,11 @@ export class LiveAppsSettingsComponent extends LiveAppsComponent implements OnIn
       applicationIds: this.selectedAppIds,
       caseIconsFolderId: this.liveAppsConfig.caseIconsFolderId,
       documentAppId: this.liveAppsConfig.documentAppId,
-      collaborationAppId: this.liveAppsConfig.documentAppId
+      collaborationAppId: this.liveAppsConfig.documentAppId,
+      legacyCreators: this.liveAppsConfig.legacyCreators,
+      legacyActions: this.liveAppsConfig.legacyActions,
+      legacyWorkitems: this.liveAppsConfig.legacyWorkitems,
+      formsFramework: this.liveAppsConfig.formsFramework
     });
     this.liveAppsConfigService.updateLiveAppsConfig(this.sandboxId, this.generalConfig.uiAppId, liveAppsConfig, this.liveAppsConfig.id).subscribe(
         result => {

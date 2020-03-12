@@ -3,6 +3,8 @@ import {CaseType, JsonSchema, Process} from '../../models/liveappsdata';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 import {MatExpansionPanel} from '@angular/material';
 import {FormConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
+import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {RenderedFormComponent} from '@tibco-tcstk/tc-forms-lib';
 
 @Component({
   selector: 'tcla-live-apps-form-preview',
@@ -25,12 +27,14 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   @Output() formConfigUpdate: EventEmitter<FormConfig> = new EventEmitter<FormConfig>();
 
   @ViewChild('dataPanel', {static: false}) dataPanel: MatExpansionPanel;
+  @ViewChild(RenderedFormComponent, {static: false}) renderedFormComponent: RenderedFormComponent;
 
   formSchemaJSON: string;
   formDataJSON: string;
-  autoLayoutJSON: string;
-  formLayoutJSON: string;
+  autoLayout: any;
   layout: any;
+  layoutString: string;
+  layoutChangeString: string;
   data: any;
   aceEditorOptions: any = {
     maxLines: 1000,
@@ -89,7 +93,7 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
               processId: this.selectedProcess.id,
               processType: this.selectedProcess.processType,
               layout: (layout === 'RESET' ? undefined : layout),
-              data: (layout === 'RESET' ? undefined : data),
+              data: (data === 'RESET' ? undefined : data),
             }
           );
           this.formConfig.processFormConfigs.push(newConfig);
@@ -97,9 +101,18 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
       }
   }
 
-  updateLayoutJSON = (newLayoutJSON) => {
-      this.layout = JSON.parse(newLayoutJSON);
-      this.setProcessFormConfig(this.selectedProcess.formTag, newLayoutJSON);
+  parseLayoutString = (layoutString: string): any => {
+    let newFormObject: any = null;
+    // tslint:disable-next-line:no-eval
+    eval('newFormObject = ' + layoutString);
+    return newFormObject;
+  }
+
+  updateLayout = (newLayout) => {
+    this.layout = newLayout;
+    this.layoutChangeString = newLayout;
+    this.renderedFormComponent.updateLayout(this.layout);
+    this.setProcessFormConfig(this.selectedProcess.formTag, this.layoutChangeString);
   }
 
   updateDataJSON = (newDataJSON) => {
@@ -111,7 +124,6 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
     this.selectedProcess = undefined;
     this.selectedApp = app;
     this.layout = undefined;
-    this.formLayoutJSON = undefined;
     this.data = undefined;
     this.formDataJSON = undefined;
     this.schema = undefined;
@@ -120,17 +132,17 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   handleProcessSelection = (process: Process) => {
     this.selectedProcess = undefined;
     this.layout = undefined;
-    this.formLayoutJSON = undefined;
+    this.layoutString = undefined;
     this.data = undefined;
     this.formDataJSON = undefined;
     this.schema = undefined;
     const processFormConfig = this.getProcessFormConfig(process.formTag);
     if (processFormConfig && processFormConfig.layout) {
-      this.layout = JSON.parse(processFormConfig.layout);
+      this.layout = processFormConfig.layout;
+      this.layoutString = processFormConfig.layout;
     } else {
       this.layout = undefined;
     }
-    this.formLayoutJSON = JSON.stringify(this.layout, null, 2);
     if (processFormConfig && processFormConfig.data) {
       this.data = JSON.parse(processFormConfig.data);
     } else {
@@ -155,33 +167,33 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   }
 
   handleRenderedLayout = (layout: any) => {
-    if (!this.autoLayoutJSON) {
-      this.autoLayoutJSON = JSON.stringify(layout, null, 2);
+    if (!this.autoLayout) {
+      this.autoLayout = layout;
     }
   }
 
   useAutoLayout = () => {
-    this.formLayoutJSON = this.autoLayoutJSON;
-    this.layout = JSON.parse(this.formLayoutJSON);
-    this.setProcessFormConfig(this.selectedProcess.formTag, this.formLayoutJSON);
+    this.layout = this.autoLayout;
+    this.layoutString = TcCoreCommonFunctions.formLayoutToJson(this.autoLayout);
+    this.setProcessFormConfig(this.selectedProcess.formTag, this.autoLayout);
   }
 
   useBasicLayout = () => {
-    this.formLayoutJSON = JSON.stringify([ { type: 'help',
-      helpvalue: '<span>Please fill in this form!</span>' }, '*' ], null, 2);
-    this.layout = JSON.parse(this.formLayoutJSON);
-    this.setProcessFormConfig(this.selectedProcess.formTag, this.formLayoutJSON);
+    this.layout = [ { type: 'help',
+      helpvalue: '<span>Please fill in this form!</span>' }, '*' ];
+    this.layoutString = TcCoreCommonFunctions.formLayoutToJson(this.layout);
+    this.setProcessFormConfig(this.selectedProcess.formTag, this.layout);
   }
 
   useNewLayout = () => {
-    this.formLayoutJSON = JSON.stringify([ { type: 'help',
-      helpvalue: '<span>Please fill in this form!</span>' } ], null, 2);
-    this.layout = JSON.parse(this.formLayoutJSON);
-    this.setProcessFormConfig(this.selectedProcess.formTag, this.formLayoutJSON);
+    this.layout = [ { type: 'help',
+      helpvalue: '<span>Please fill in this form!</span>' } ];
+    this.layoutString = TcCoreCommonFunctions.formLayoutToJson(this.layout);
+    this.setProcessFormConfig(this.selectedProcess.formTag, this.layout);
   }
 
   useExampleLayout = () => {
-    this.formLayoutJSON = '[\n' +
+    this.layout = JSON.parse('[\n' +
       '  {\n' +
       '    "type": "help",\n' +
       '    "helpvalue": "<span>Please fill in this form!</span>"\n' +
@@ -205,14 +217,14 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
       '          }\n' +
       '        ]\n' +
       '  }\n' +
-      ']';
-    this.layout = JSON.parse(this.formLayoutJSON);
-    this.setProcessFormConfig(this.selectedProcess.formTag, this.formLayoutJSON);
+      ']');
+    this.layoutString = TcCoreCommonFunctions.formLayoutToJson(this.layout);
+    this.setProcessFormConfig(this.selectedProcess.formTag, this.layout);
   }
 
   dropLayout = () => {
-    this.formLayoutJSON = undefined;
-    this.layout = JSON.parse(this.autoLayoutJSON);
+    this.layout = undefined;
+    this.layoutString = undefined;
     this.setProcessFormConfig(this.selectedProcess.formTag, 'RESET');
   }
 
@@ -246,12 +258,5 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
     if (this.schema) {
       this.formSchemaJSON = JSON.stringify(this.schema, null, 2);
     }
-    if (this.layout) {
-      this.formLayoutJSON = JSON.stringify(this.layout, null, 2);
-    }
-    if (this.data) {
-      this.formDataJSON = JSON.stringify(this.data, null, 2);
-    }
   }
-
 }

@@ -155,7 +155,7 @@ export class TcCaseProcessesService {
                       'action', schema, this.getCaseIDAttributeName(casetype), actionDef,
                       // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
                       (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'action' + '.' + actionDef.name),
-                      caseRef
+                      caseRef, undefined, action
                     );
                   }
                 });
@@ -166,7 +166,7 @@ export class TcCaseProcessesService {
                     'action', schema, this.getCaseIDAttributeName(casetype), process,
                     // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
                     (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'action' + '.' + action.name),
-                    caseRef
+                    caseRef, undefined, action
                   );
                 }
               } else if (creator) {
@@ -184,7 +184,7 @@ export class TcCaseProcessesService {
                       'creator', schema, this.getCaseIDAttributeName(casetype), creatorDef,
                       // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
                       (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'creator' + '.' + creatorDef.name),
-                      null
+                      null, creator, undefined
                     );
                   }
                 });
@@ -195,7 +195,7 @@ export class TcCaseProcessesService {
                     'creator', schema, this.getCaseIDAttributeName(casetype), process,
                     // Format of ref is <applicationName>.<applicationInternalName>.<processType>.<processName>
                     (casetype.applicationName + '.' + casetype.applicationInternalName + '.' + 'creator' + '.' + creator.name),
-                    null
+                    null, creator, undefined
                   );
                 }
               }
