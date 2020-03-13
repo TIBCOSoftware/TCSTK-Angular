@@ -356,7 +356,9 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
         this.selected.setValue(0);
       }
       this.caseActionComponent.cancelAction();
-      this.caseActionsComponent.toggleEnable();
+      if (this.caseActionsComponent.disabled) {
+        this.caseActionsComponent.toggleEnable();
+      }
     }
   }
 
