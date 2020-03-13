@@ -77,6 +77,11 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   layout: any[];
   options: any;
   isCustomForm = false;
+  formRef: any;
+
+  public handleFormOpen = (event) => {
+    this.formRef = event;
+  }
 
   handleSubmit = (data, caseRef) => {
     // if no_process_submit then no need to run process as this was done inside a custom form app
@@ -128,6 +133,7 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   handleLegacyProcessComplete = (event) => {
     // event.detail.destroy();
     const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': undefined});
+    this.formRef = undefined;
     this.caseChanged.emit(processResponse);
   }
 
@@ -135,6 +141,8 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
     // event.detail.destroy();
     // -1 for caseReference means cancelled
     const processResponse = new ProcessId().deserialize({'caseIdentifier': undefined, 'caseReference': '-1'});
+    this.formRef.detail.form.destroy();
+    this.formRef = undefined;
     this.caseChanged.emit(processResponse);
   }
 

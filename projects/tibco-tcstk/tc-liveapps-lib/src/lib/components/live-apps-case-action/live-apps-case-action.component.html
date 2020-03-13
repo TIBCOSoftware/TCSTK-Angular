@@ -18,6 +18,7 @@
       [applicationName]="process.action.applicationName"
       [activityId]="process.action.activityId"
       [activityName]="process.action.activityName"
+      (formLoad) ="handleFormOpen($event)"
       (formSubmit)="handleLegacyProcessComplete($event)"
       (formCancel)="handleLegacyProcessCancelled($event)"
     >

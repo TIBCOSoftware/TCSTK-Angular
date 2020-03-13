@@ -96,6 +96,11 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     if (this.legacyProcessComponent) {
       this.legacyProcessComponent.cancelProcess();
     }
+    if (this.formRef) {
+      // this.formRef.detail.form.destroy();
+      this.formRef.detail.form.invokeAction('cancel');
+      this.formRef = undefined;
+    }
   }
 
   constructor(protected lasvc: LiveAppsService, protected tcfcs: TcFormConfigService) {
