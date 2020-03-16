@@ -2,9 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Observable, of, ReplaySubject} from 'rxjs';
-import {Claim} from '@tibco-tcstk/tc-core-lib';
+import {Claim, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {CaseType, CaseTypesList, CaseTypeState, Process} from '../models/liveappsdata';
+import {Location} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class TcAppDefinitionService {
   private currentCaseTypes: CaseType[] = undefined;
   readonly _caseTypes$ = this._caseTypes.asObservable();
 
-  constructor(private http: HttpClient, private liveAppsService: LiveAppsService) {
+  constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private location: Location) {
   }
 
   private getCaseTypeData(sandboxId: number): Observable<CaseTypesList> {
@@ -59,7 +60,7 @@ export class TcAppDefinitionService {
 
     const elementsEs5JS = document.createElement('script');
     // elementsEs5JS.src = '/apps/app-cdn/tibco/elements/elements-es5.js';
-    elementsEs5JS.src = '../assets/forms/elements-es5.js';
+    elementsEs5JS.src = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/forms/elements-es5.js');
     // elementsEs5JS.type = 'modul';
     elementsEs5JS.async = true;
     elementsEs5JS.charset = 'utf-8';
@@ -69,7 +70,7 @@ export class TcAppDefinitionService {
 
     const elementsEs2015JS = document.createElement('script');
     // elementsEs2015JS.src = '/apps/app-cdn/tibco/elements/elements-es2015.js';
-    elementsEs2015JS.src = '../assets/forms/elements-es2015.js';
+    elementsEs2015JS.src = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/forms/elements-es2015.js');
     elementsEs2015JS.type = 'module';
     elementsEs2015JS.async = true;
     elementsEs2015JS.charset = 'utf-8';
@@ -77,7 +78,7 @@ export class TcAppDefinitionService {
 
     const elementsCSS = document.createElement('link');
     // elementsCSS.href = '/apps/app-cdn/tibco/elements/elements.css';
-    elementsCSS.href = '../assets/forms/elements.css';
+    elementsCSS.href = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/forms/elements.css');
     elementsCSS.rel = 'stylesheet';
     elementsCSS.charset = 'utf-8';
     document.getElementsByTagName('head')[0].appendChild(elementsCSS);
