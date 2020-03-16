@@ -79,7 +79,8 @@
  >
     </tib-la-caseaction-form>-->
 
-<script type="text/javascript" >
+
+<script type="text/javascript">
 
 /*events for open work-item*/
 
@@ -167,8 +168,11 @@ cc.addEventListener('error', (err) => {
 });
 */
 
-
-
+let formRef = undefined;
+function cancel() {
+  // formRef.detail.form.destroy();
+  formRef.detail.form.invokeAction('cancel');
+}
 
 const ca = document.querySelector('tib-la-caseaction-form');
 
@@ -185,6 +189,7 @@ ca.addEventListener('events', (event) => {
 
 const cc = document.querySelector('tib-la-caseaction-form');
 cc.addEventListener('formLoad', (event) => {
+  formRef = event;
   alert(event.detail.eventName);
   console.log(event);
 
@@ -211,6 +216,8 @@ cc.addEventListener('error', (err) => {
 
 
 </script>
+
+<button onclick=cancel()>Cancel</button>
 
 </body>
 </html>
