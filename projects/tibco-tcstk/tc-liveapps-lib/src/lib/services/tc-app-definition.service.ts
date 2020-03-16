@@ -49,6 +49,7 @@ export class TcAppDefinitionService {
   }
 
   public loadFormResources = () => {
+
     const frameworkJS = document.createElement('script');
     frameworkJS.src = '/apps/app-cdn/tibco/framework_ext/1.0.0/framework_ext.nocache.js';
     frameworkJS.type = 'text/javascript';

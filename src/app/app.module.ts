@@ -73,6 +73,7 @@ const tcCoreConfig: TcCoreConfig = {
     TcLiveappsLibModule.forRoot(),
     TcMessagingLibModule,
     TcEventsLibModule,
+    TcAgGridModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -95,8 +96,7 @@ const tcCoreConfig: TcCoreConfig = {
     MatTooltipModule,
     MatTabsModule,
     MatButtonToggleModule,
-    ReactiveFormsModule,
-    TcAgGridModule
+    ReactiveFormsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US' },
