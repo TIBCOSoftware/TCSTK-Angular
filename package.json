@@ -13,11 +13,11 @@
     "serve_au": "cp tsconfig.debug.json tsconfig.json && ng serve --proxy-config proxy.conf.prod.au.json --ssl true --source-map=true --aot",
     "build_lib": "ng build @tibco-tcstk/tc-liveapps-lib",
     "build_prod": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build --prod --base-href /webresource/apps/jeztest2/ --deploy-url /webresource/apps/jeztest2/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
-    "build_prod_hash": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-spotfire-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build @tibco-tcstk/tc-messaging-lib && ng build --prod --base-href /webresource/apps/jeztest2/index.html --deploy-url /webresource/apps/jeztest2/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
+    "build_prod_hash": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-spotfire-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build @tibco-tcstk/tc-events-lib && ng build @tibco-tcstk/tc-ag-grid && ng build @tibco-tcstk/tc-messaging-lib && ng build --base-href /webresource/apps/jeztest2/index.html --deploy-url /webresource/apps/jeztest2/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
     "build_cwm": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build --prod --base-href /webresource/apps/cwm/index.html --deploy-url /webresource/apps/cwm/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
     "build_pd": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build --prod --base-href /webresource/apps/pd/index.html --deploy-url /webresource/apps/pd/ && cd ./dist/tc-liveapps/ && zip -r ./app.zip ./* && cd ../.. && cp tsconfig.debug.json tsconfig.json",
     "build_msg": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-messaging-lib && cp tsconfig.debug.json tsconfig.json",
-    "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build @tibco-tcstk/tc-messaging-lib && ng build @tibco-tcstk/tc-events-lib && ng build @tibco-tcstk/tc-ag-grid && cp tsconfig.debug.json tsconfig.json",
+    "build_all_libs": "cp tsconfig.build.json tsconfig.json && ng build @tibco-tcstk/tc-core-lib && ng build @tibco-tcstk/tc-forms-lib && ng build @tibco-tcstk/tc-liveapps-lib && ng build @tibco-tcstk/tc-events-lib && ng build @tibco-tcstk/tc-ag-grid && ng build @tibco-tcstk/tc-messaging-lib && ng build @tibco-tcstk/tc-events-lib && ng build @tibco-tcstk/tc-ag-grid && cp tsconfig.debug.json tsconfig.json",
     "npm_pack": "cd dist/tc-liveapps-lib && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
     "build:elements": "node os-independent.js -task build"
@@ -56,9 +56,9 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.21",
-    "@angular-devkit/build-ng-packagr": "~0.803.21",
-    "@angular/cli": "~8.3.21",
+    "@angular-devkit/build-angular": "~0.803.25",
+    "@angular-devkit/build-ng-packagr": "~0.803.25",
+    "@angular/cli": "~8.3.25",
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "~8.2.14",
     "@angular/elements": "^8.2.14",
