@@ -1,6 +1,7 @@
 import {InjectionToken} from '@angular/core';
 
 export interface TcCoreConfiguration {
+  disableFormLibs?: boolean;
   oAuthLocalStorageKey: string;
   proxy_url: string;
   proxy_liveapps_path: string;
@@ -11,6 +12,7 @@ export interface TcCoreConfiguration {
 }
 
 export class TcCoreConfig implements TcCoreConfiguration {
+  disableFormLibs?: boolean;
   oAuthLocalStorageKey: string;
   proxy_url: string;
   proxy_liveapps_path: string;
@@ -25,7 +27,9 @@ export class TcCoreConfig implements TcCoreConfiguration {
     proxy_tce_path?: string,
     api_key?: string,
     api_key_param?: string,
-    enable_tce?: boolean) {
+    enable_tce?: boolean,
+    disableFormLibs?: boolean) {
+    this.disableFormLibs = (disableFormLibs !== undefined) ? disableFormLibs : false;
     this.oAuthLocalStorageKey = oAuthLocalStorageKey;
     this.proxy_url = proxy_url;
     this.proxy_liveapps_path = proxy_liveapps_path;
