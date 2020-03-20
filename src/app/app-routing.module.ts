@@ -11,4 +11,3 @@ import {CORE_PROVIDERS, CORE_ROUTES} from './route-config/core-route-config';
 
 export class AppRoutingModule {
 }
-

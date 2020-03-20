@@ -12,16 +12,16 @@
   <!--<script type="text/javascript" src="/apps/app-cdn/tibco/elements/elements.js"></script>
   <link href="/apps/app-cdn/tibco/elements/styles.css" rel="stylesheet">-->
 
-  <script src="/apps/app-cdn/tibco/elements/elements-es5.js" nomodule defer></script>
-  <script src="/apps/app-cdn/tibco/elements/elements-es2015.js" type="module"></script>
-  <link href="/apps/app-cdn/tibco/elements/elements.css" rel="stylesheet">
+  <!--script src="/assets/forms/elements-es5.js" nomodule defer></script>
+  <script src="/assets/forms/elements-es2015.js" type="module"></script>
+  <link href="/assets/forms/elements.css" rel="stylesheet">
 
-  <script src="/apps/app-cdn/tibco/framework_ext/1.0.0/framework_ext.nocache.js"></script>
+  <script src="/apps/app-cdn/tibco/framework_ext/1.0.0/framework_ext.nocache.js"></script-->
 
 
   <!--To match styles and fonts from LiveApps include following into the application:-->
-<link href="/apps/app-cdn/tibco/fonts/Source_Sans_Pro/font.css" rel="stylesheet">
-<link href="/apps/app-cdn/tibco/framework_ext/1.0.0/TfMaterial.min.css" rel="stylesheet">
+<!--link href="/apps/app-cdn/tibco/fonts/Source_Sans_Pro/font.css" rel="stylesheet">
+<link href="/apps/app-cdn/tibco/framework_ext/1.0.0/TfMaterial.min.css" rel="stylesheet"-->
 
   <!--<script src="/apps/app-cdn/tibco/framework_ext/1.0.0/framework_ext.nocache.js"></script>-->
 
@@ -33,20 +33,19 @@
 
    <!--<tib-la-openworkitem-form id="43" sandbox="43" form-div-id="formDiv"></tib-la-openworkitem-form>-->
 
-<!--tib-la-casecreator-form
-  sandbox="31"
+<!--tib-la-casecreator-form--
+  sandbox="3100"
   form-div-id="formDiv"
-  id="7915"
-  name="CreateInformationRequest"
-  label="Create Information Request"
-  version="2"
-  application-id="1742"
-  application-name="PartnerRequest"
-  activity-id="ZWjJOg9K1Eeiq0vt2duqkbg"
+  id="16166"
+  name="CreateCharityApp"
+  label="Create Charity App"
+  version="1"
+  application-id="3462"
+  application-name="CharityApp"
+  activity-id="ZxN44hGkcEeqxVo1RJaBqpw"
   activity-name="Task"
->
-</tib-la-casecreator-form-->
-	<tib-la-caseaction-form
+-->
+<tib-la-caseaction-form
  sandbox="31"
  form-div-id="formDiv"
  case-ref="210881"
@@ -167,7 +166,7 @@ cc.addEventListener('error', (err) => {
 
 });
 */
-
+/*
 let formRef = undefined;
 function cancel() {
   // formRef.detail.form.destroy();
@@ -186,7 +185,7 @@ ca.addEventListener('events', (event) => {
 
 //newly created events for case action
 
-
+/*
 const cc = document.querySelector('tib-la-caseaction-form');
 cc.addEventListener('formLoad', (event) => {
   formRef = event;
@@ -213,11 +212,9 @@ cc.addEventListener('error', (err) => {
   console.log(err);
 
 });
-
+*/
 
 </script>
-
-<button onclick=cancel()>Cancel</button>
 
 </body>
 </html>

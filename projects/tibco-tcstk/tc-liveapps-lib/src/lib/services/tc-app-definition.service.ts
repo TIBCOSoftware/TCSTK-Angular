@@ -61,7 +61,8 @@ export class TcAppDefinitionService {
       const elementsEs5JS = document.createElement('script');
       // elementsEs5JS.src = '/apps/app-cdn/tibco/elements/elements-es5.js';
       elementsEs5JS.src = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/forms/elements-es5.js');
-      // elementsEs5JS.type = 'modul';
+      elementsEs5JS.noModule = true;
+      elementsEs5JS.defer = true;
       elementsEs5JS.async = true;
       elementsEs5JS.charset = 'utf-8';
       document.getElementsByTagName('head')[0].appendChild(elementsEs5JS);
@@ -74,7 +75,7 @@ export class TcAppDefinitionService {
       elementsEs2015JS.type = 'module';
       elementsEs2015JS.async = true;
       elementsEs2015JS.charset = 'utf-8';
-      document.getElementsByTagName('head')[0].appendChild(elementsEs5JS);
+      document.getElementsByTagName('head')[0].appendChild(elementsEs2015JS);
 
       const elementsCSS = document.createElement('link');
       // elementsCSS.href = '/apps/app-cdn/tibco/elements/elements.css';

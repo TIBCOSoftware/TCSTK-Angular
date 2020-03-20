@@ -46,7 +46,7 @@ import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
  *  Note: Enable TCE will request cookie for TCE API calls. This will only work if using the proxy
  */
 const tcCoreConfig: TcCoreConfig = {
-  // disableFormLibs: true,
+  disableFormLibs: false,
   oAuthLocalStorageKey: '',
   proxy_url: '',
   proxy_liveapps_path: '',
