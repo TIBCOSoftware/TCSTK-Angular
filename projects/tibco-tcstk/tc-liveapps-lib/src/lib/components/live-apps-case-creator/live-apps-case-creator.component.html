@@ -19,6 +19,7 @@
       [applicationName]="process.creator.applicationName"
       [activityId]="process.creator.activityId"
       [activityName]="process.creator.activityName"
+      (formLoad) ="handleFormOpen($event)"
       (formSubmit)="handleLegacyProcessComplete($event)"
       (formCancel)="handleLegacyProcessCancelled($event)"
     >
