@@ -1,6 +1,6 @@
 <button mat-button [matMenuTriggerFor]="creatorApplicationMenu" (click)="handleCreateCaseClick()">
   <mat-icon [svgIcon]="'tcs-case-start-icon'"></mat-icon>
-  <span class="tcs-case-create-button-text"> Create Case</span>
+  <span class="tcs-case-create-button-text">{{createLabel}}</span>
 </button>
 <mat-menu #creatorApplicationMenu="matMenu">
   <button mat-menu-item *ngFor="let application of applications.casetypes" (click)="handleCreatorAppSelection(application)">{{application.applicationName}}</button>

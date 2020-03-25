@@ -82,6 +82,11 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
   @Input() formConfig: FormConfig;
 
   /**
+   * Label for Create Case Button
+   */
+  @Input() createLabel: string = this.createLabel ? this.createLabel : 'Create Case';
+
+  /**
    * Custom Form configuration file
    */
   @Input() customFormDefs: CustomFormDefs;
