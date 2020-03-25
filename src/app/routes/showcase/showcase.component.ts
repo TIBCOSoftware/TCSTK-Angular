@@ -15,6 +15,7 @@ import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} 
 import {Observable, concat, throwError, empty} from 'rxjs';
 import {error} from 'ng-packagr/lib/util/log';
 import {TcGridHelperService} from '../../../../projects/tibco-tcstk/tc-ag-grid/src/lib/services/tc-grid-helper.service';
+import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';
 
 @Component({
   selector: 'laapp-showcase',
@@ -58,6 +59,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.messagingConnection = (this.messagingConfig.connections && this.messagingConfig.connections.length > 0) ? this.messagingConfig.connections[0] : undefined;
   }
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
+  @ViewChild(TcgridLiveappsCasesComponent, {static: false}) gridComponent: TcgridLiveappsCasesComponent;
 
 
   toggleWidgetSize = () => {
@@ -151,6 +153,10 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
 
   public setApp(selectedApp: CaseType) {
     this.selectedAppConfig = selectedApp;
+  }
+
+  public exportCases = () => {
+    this.gridComponent.exportToCsv({ onlySelected: true });
   }
 
   ngOnInit() {

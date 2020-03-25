@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
 import {TcGridHelperService} from '../../services/tc-grid-helper.service';
 import {tap} from 'rxjs/operators';
 
@@ -40,6 +40,10 @@ export class TcgridLiveappsCasesComponent implements OnChanges {
         params.api.sizeColumnsToFit();
       });
     });
+  }
+
+  public exportToCsv(options) {
+    this.gridApi.exportDataAsCsv(options);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
