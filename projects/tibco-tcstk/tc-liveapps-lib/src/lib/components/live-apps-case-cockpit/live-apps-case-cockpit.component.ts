@@ -277,7 +277,7 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
     this.addWiFormTab(caseroute.workitemId);
   }
 
-  public refresh = () => {
+  public refresh() {
     if (this.caseSummaryComponent) {
       this.caseSummaryComponent.refresh();
     }

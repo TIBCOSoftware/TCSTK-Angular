@@ -219,7 +219,7 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
     console.log('Burger menu clicked: ', id);
   }
 
-  public refresh = () => {
+  public refresh() {
     if (this.favoritesComponent) {
       this.favoritesComponent.refresh();
     }
