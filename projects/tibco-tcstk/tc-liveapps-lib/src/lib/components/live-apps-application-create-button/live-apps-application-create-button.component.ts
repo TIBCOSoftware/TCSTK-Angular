@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LiveAppsApplicationsComponent} from '../live-apps-applications/live-apps-applications.component';
 import {CaseType} from '../../models/liveappsdata';
 
@@ -16,6 +16,8 @@ import {CaseType} from '../../models/liveappsdata';
   styleUrls: ['./live-apps-application-create-button.component.css']
 })
 export class LiveAppsApplicationCreateButtonComponent extends LiveAppsApplicationsComponent {
+
+  @Input() createLabel: string = this.createLabel ? this.createLabel : 'Create Case';
 
   public handleCreatorAppSelection = (application: CaseType) => {
     this.selection.emit(application);

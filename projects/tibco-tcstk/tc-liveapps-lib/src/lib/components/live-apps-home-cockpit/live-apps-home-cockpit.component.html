@@ -6,6 +6,7 @@
         <ng-content select="[customToolbarContent]" fxFlex></ng-content>
         <tcla-live-apps-application-create-button *ngIf="caseStartButtonActive"
                                                   style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId"
+                                                  [createLabel]="createLabel"
                                                   [appIds]="appIds"
                                                   (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
       </div>
