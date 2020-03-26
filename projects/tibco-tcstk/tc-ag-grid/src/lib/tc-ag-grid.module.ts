@@ -3,6 +3,7 @@ import { TcgridLiveappsCasesComponent } from './components/tcgrid-liveapps-cases
 import { AgGridModule } from 'ag-grid-angular';
 import {TcLiveappsLibModule} from '@tibco-tcstk/tc-liveapps-lib';
 import {CommonModule} from '@angular/common';
+import {TcGridHelperService} from './services/tc-grid-helper.service';
 
 
 @NgModule({
@@ -12,6 +13,6 @@ import {CommonModule} from '@angular/common';
     TcLiveappsLibModule,
     CommonModule
   ],
-  exports: [TcgridLiveappsCasesComponent]
+  exports: [TcgridLiveappsCasesComponent, TcGridHelperService]
 })
 export class TcAgGridModule { }

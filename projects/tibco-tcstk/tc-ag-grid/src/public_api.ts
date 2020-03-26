@@ -4,3 +4,4 @@
 
 export * from './lib/tc-ag-grid.module';
 export * from './lib/components/tcgrid-liveapps-cases/tcgrid-liveapps-cases.component';
+export * from './lib/services/tc-grid-helper.service';
