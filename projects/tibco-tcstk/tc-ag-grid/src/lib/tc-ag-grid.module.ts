@@ -13,6 +13,6 @@ import {TcGridHelperService} from './services/tc-grid-helper.service';
     TcLiveappsLibModule,
     CommonModule
   ],
-  exports: [TcgridLiveappsCasesComponent, TcGridHelperService]
+  exports: [TcgridLiveappsCasesComponent]
 })
 export class TcAgGridModule { }
