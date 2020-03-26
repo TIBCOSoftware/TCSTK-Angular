@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {TcGridHelperService} from '../../services/tc-grid-helper.service';
 import {tap} from 'rxjs/operators';
 
@@ -19,7 +19,25 @@ export class TcgridLiveappsCasesComponent implements OnChanges {
    */
   @Input() caseRefs: string[];
 
+  /**
+   * Column Definition array to display grid
+   */
   @Input() columnDefs: any[];
+
+  /**
+   * Array of selected case references
+   */
+  @Output() selection: EventEmitter<string[]> = new EventEmitter<string[]>();
+
+  /**
+   * Case Reference clicked
+   */
+  @Output() click: EventEmitter<string> = new EventEmitter<string>();
+
+  /**
+   * Case Reference double clicked
+   */
+  @Output() doubleClick: EventEmitter<string> = new EventEmitter<string>();
 
   public laRowData;
   public gridApi;
@@ -40,6 +58,22 @@ export class TcgridLiveappsCasesComponent implements OnChanges {
         params.api.sizeColumnsToFit();
       });
     });
+  }
+
+  public handleSelection(data: any) {
+    const selectedCaseRefs: string[] = [];
+    data.api.getSelectedRows().forEach((row: any) => {
+      selectedCaseRefs.push(row.caseReference);
+    })
+    this.selection.emit(selectedCaseRefs);
+  }
+
+  public handleClick(clicked) {
+    this.click.emit(clicked.data.caseReference);
+  }
+
+  public handleDoubleClick(clicked) {
+    this.doubleClick.emit(clicked.data.caseReference);
   }
 
   public exportToCsv(options) {

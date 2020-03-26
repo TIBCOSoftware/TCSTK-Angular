@@ -8,6 +8,9 @@
                    [domLayout]="'normal'"
                    rowSelection="multiple"
                    colResizeDefault='shift'
+                   (selectionChanged)="handleSelection($event)"
+                   (rowClicked)="handleClick($event)"
+                   (rowDoubleClicked)="handleDoubleClick($event)"
                    (gridReady)="onGridReady($event)"
                    (firstDataRendered)="onFirstDataRendered($event)"
   >
