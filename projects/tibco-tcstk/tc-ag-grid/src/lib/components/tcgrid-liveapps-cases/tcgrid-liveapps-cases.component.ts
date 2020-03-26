@@ -60,6 +60,10 @@ export class TcgridLiveappsCasesComponent implements OnChanges {
     });
   }
 
+  public sizeColumnsToFit() {
+    this.gridApi.sizeColumnsToFit();
+  }
+
   public handleSelection(data: any) {
     const selectedCaseRefs: string[] = [];
     data.api.getSelectedRows().forEach((row: any) => {
