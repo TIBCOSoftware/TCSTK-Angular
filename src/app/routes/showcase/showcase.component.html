@@ -34,7 +34,7 @@
             </div>
             <!--tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" sandboxId="3534" [caseRefs]="caseRefs" [columnDefs]="columnDefs"></tcgrid-tcgrid-liveapps-cases-->
             <button *ngIf="caseRefs" matButton (click)="exportCases()">Export</button>
-            <tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" [sandboxId]="sandboxId" [caseRefs]="caseRefs"></tcgrid-tcgrid-liveapps-cases>
+            <tcgrid-tcgrid-liveapps-cases style="height: 100%; padding: 10px;" [columnDefs]="columnDefs" [sandboxId]="sandboxId" [caseRefs]="caseRefs"></tcgrid-tcgrid-liveapps-cases>
           </div>
         </ng-template>
       </mat-tab>

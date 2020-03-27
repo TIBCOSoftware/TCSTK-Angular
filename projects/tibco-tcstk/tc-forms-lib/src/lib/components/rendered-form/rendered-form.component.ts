@@ -25,7 +25,7 @@ import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 })
 export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() schema: any = {};
-  @Input() layout: string;
+  @Input() layout: any[];
   @Input() data: any = {};
   @Input() options: any[];
   @Input() formRef: string;
@@ -47,13 +47,15 @@ export class RenderedFormComponent implements OnInit, OnChanges {
 
   formSchema: any;
   formLayout: any[];
+  layoutString: string;
   formData: any = {};
   test: string;
   useCustomForm: boolean;
 
   updateLayout = (layout: string) => {
-    this.layout = this.layout;
+    this.layoutString = layout;
     this.formLayout = TcCoreCommonFunctions.parseLayoutString(layout);
+    // this.formLayout = TcCoreCommonFunctions.formLayoutJsonToObject(layout);
   }
 
   submitForm = (data: any) => {
@@ -104,7 +106,7 @@ export class RenderedFormComponent implements OnInit, OnChanges {
       console.warn('*** Forms: Initial Form Data (JSON):', JSON.stringify(this.formData));
     }
     if (changes.layout && (changes.layout.currentValue !== changes.layout.previousValue)) {
-      this.formLayout = TcCoreCommonFunctions.parseLayoutString(this.layout);
+      this.formLayout = this.layout;
     }
   }
 

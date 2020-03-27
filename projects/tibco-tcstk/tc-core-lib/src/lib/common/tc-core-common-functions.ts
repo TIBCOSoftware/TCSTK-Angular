@@ -107,8 +107,12 @@ export class TcCoreCommonFunctions {
 
   public static parseLayoutString = (layoutString: string): any => {
     let newFormObject: any = null;
-    // tslint:disable-next-line:no-eval
-    eval('newFormObject = ' + layoutString);
+    try {
+      // tslint:disable-next-line:no-eval
+      eval('newFormObject = ' + layoutString);
+    } catch (error) {
+      console.log('eval failed, ', error);
+    }
     return newFormObject;
   }
 
@@ -123,7 +127,7 @@ export class TcCoreCommonFunctions {
       return value;
     };
     // const parsedObject = JSON.parse(formLayoutJSON);
-    formLayoutJSON = TcCoreCommonFunctions.escapeString(formLayoutJSON);
+    // formLayoutJSON = TcCoreCommonFunctions.escapeString(formLayoutJSON);
     const parsedObject = JSON.parse(formLayoutJSON, reviver);
     return parsedObject;
   }
