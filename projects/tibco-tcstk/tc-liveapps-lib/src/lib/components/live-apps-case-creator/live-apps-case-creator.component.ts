@@ -8,6 +8,7 @@ import {Subject} from 'rxjs';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 import {FormConfig} from '../../models/tc-liveapps-config';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
+import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 /**
  * Handles rendering of case creator form.

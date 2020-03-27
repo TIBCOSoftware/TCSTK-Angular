@@ -20,7 +20,7 @@ export class TcFormConfigService {
         return pfc.formTag === formTag;
       });
       if (foundConfigs && foundConfigs.length > 0) {
-        layout = foundConfigs[0].layout ? foundConfigs[0].layout : undefined;
+        layout = foundConfigs[0].layout ? TcCoreCommonFunctions.parseLayoutString(foundConfigs[0].layout) : undefined;
       }
     }
     return layout;

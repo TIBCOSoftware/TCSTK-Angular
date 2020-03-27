@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="tcs-form-config-content">
-      <tcfrm-rendered-form *ngIf="selectedProcess" [schema]="schema" [layout]="layout" [data]="data" [options]="options"
+      <tcfrm-rendered-form *ngIf="selectedProcess" [schema]="schema" [layout]="initialLayout" [data]="data" [options]="options"
                            [formsFramework]="formsFramework" (formSubmit)="saveSampleData($event)"
                            (renderedLayout)="handleRenderedLayout($event)"></tcfrm-rendered-form>
     </div>
