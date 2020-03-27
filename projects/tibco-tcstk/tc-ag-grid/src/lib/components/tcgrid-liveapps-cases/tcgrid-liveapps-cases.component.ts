@@ -47,7 +47,9 @@ export class TcgridLiveappsCasesComponent implements OnChanges {
   }
 
   onFirstDataRendered(params) {
-    this.gridApi.sizeColumnsToFit();
+    if (this.gridApi) {
+      this.gridApi.sizeColumnsToFit();
+    }
   }
 
   onGridReady(params) {
@@ -61,7 +63,9 @@ export class TcgridLiveappsCasesComponent implements OnChanges {
   }
 
   public sizeColumnsToFit() {
-    this.gridApi.sizeColumnsToFit();
+    if (this.gridApi) {
+      this.gridApi.sizeColumnsToFit();
+    }
   }
 
   public handleSelection(data: any) {
