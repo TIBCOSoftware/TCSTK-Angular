@@ -1,4 +1,4 @@
-/* Models used to store shared state configuration */
+/* Models used to store Events Interactions */
 
 import {Deserializable} from '@tibco-tcstk/tc-core-lib';
 
