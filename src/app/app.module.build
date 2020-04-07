@@ -56,6 +56,7 @@ import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
  *  Note: Only HTTP calls that start with / will be proxied
  */
 const tcCoreConfig: TcCoreConfig = {
+  disableFormLibs: false,
   oAuthLocalStorageKey: '',
   proxy_url: '',
   proxy_liveapps_path: '',
