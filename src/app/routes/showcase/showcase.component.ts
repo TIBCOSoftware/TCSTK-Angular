@@ -58,7 +58,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.messagingConnection = (this.messagingConfig.connections && this.messagingConfig.connections.length > 0) ? this.messagingConfig.connections[0] : undefined;
   }
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
-  @ViewChild(TcgridLiveappsCasesComponent, {static: false}) gridComponent: TcgridLiveappsCasesComponent;
+  // @ViewChild(TcgridLiveappsCasesComponent, {static: false}) gridComponent: TcgridLiveappsCasesComponent;
 
 
   toggleWidgetSize = () => {
