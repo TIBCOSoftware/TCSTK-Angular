@@ -23,6 +23,7 @@ Attribute | Type | Comments
 --- | --- | ---
 access | RouteAccessControlConfigurationElement | RouteAccessControlConfig - basically the config for access control
 appIds | string[] | The list of LA Application IDs you want to handle
+createLabel | string | Label for Create Case Button
 customFormDefs | CustomFormDefs | Custom Form configuration file
 email | string | <ul><li>Email address of the user (comes from resolver)</li></ul>
 formConfig | FormConfig | Custom Form Layout Configuration

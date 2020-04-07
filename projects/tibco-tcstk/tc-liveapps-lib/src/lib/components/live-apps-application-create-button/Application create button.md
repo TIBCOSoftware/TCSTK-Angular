@@ -21,6 +21,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+createLabel | string | 
 appIds | string[] | The list of LA Application IDs you want to handle
 formFieldRendering | boolean | Use Form field rendering around the selection box
 label | string | Label for the application selector

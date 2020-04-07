@@ -2,42 +2,6 @@
 
 import {Deserializable} from '@tibco-tcstk/tc-core-lib';
 
-/*
-{
-  "response" : {
-    "attributes" : {
-      "Id" : 4662893,
-      "type" : "www.tibco.com/be/ontology/WebStudio/Core/Concepts/DataSources/WS_C_SuccessResponseDataSource"
-    },
-    "status" : "0",
-    "startRow" : 0,
-    "endRow" : 0,
-    "totalRows" : 0,
-    "data" : {
-      "attributes" : {
-        "Id" : 4662890,
-        "type" : "www.tibco.com/be/ontology/WebStudio/Core/Concepts/DataSources/WS_C_ResponseData"
-      },
-      "record" : [ {
-        "attributes" : {
-          "Id" : 4662891,
-          "type" : "www.tibco.com/be/ontology/WebStudio/Security/Authn/Concepts/DataSources/Records/WS_C_LoginResponseDataSourceRecord"
-        },
-        "apiToken" : "8802562f0b6e40d29f075ed5bdd1e2a3",
-        "isDMInstalled" : true,
-        "isLockingEnabled" : true,
-        "isBPMNInstalled" : true,
-        "firstName" : "PS",
-        "lastName" : "POC",
-        "email" : "pspoc@outlook.com",
-        "userName" : "d6laag2mgwsy2km3oxgk3pyzonwtiead",
-        "subscriptionId" : "01DNGY4DAA1TF6VWYAPJB3TWMV"
-      } ]
-    }
-  }
-}
- */
-
 export class EventsAttribute {
   Id: string;
   type: string;
