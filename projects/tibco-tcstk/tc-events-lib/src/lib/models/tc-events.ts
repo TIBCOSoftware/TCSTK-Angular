@@ -48,21 +48,6 @@ export class EventsResponse implements Deserializable {
   }
 }
 
-/*
-request: {
-        data: {
-          project: [{
-            name: this.beProjectName,
-            artifactItem: [{
-              artifactPath: this.beRulePath,
-              artifactType: 'ruletemplateinstance',
-              fileExtension: 'ruletemplateinstance',
-              baseArtifactPath: ''
-            }]
-          }]
-        }
-      }
- */
 export class CheckoutArtifact {
   artifactPath: string;
   artifactType: string;
