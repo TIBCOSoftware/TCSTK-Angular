@@ -14,7 +14,7 @@ import {MessagingConfig, MessagingConnection} from '@tibco-tcstk/tc-messaging-li
 import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
 import {Observable, concat, throwError, empty} from 'rxjs';
 import {error} from 'ng-packagr/lib/util/log';
-import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';
+// import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';
 
 @Component({
   selector: 'laapp-showcase',
