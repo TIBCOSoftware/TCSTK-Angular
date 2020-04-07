@@ -47,7 +47,7 @@ import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneCom
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
-import {TcAgGridModule} from '../../projects/tibco-tcstk/tc-ag-grid/src/lib/tc-ag-grid.module';
+// import {TcAgGridModule} from '../../projects/tibco-tcstk/tc-ag-grid/src/lib/tc-ag-grid.module';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
