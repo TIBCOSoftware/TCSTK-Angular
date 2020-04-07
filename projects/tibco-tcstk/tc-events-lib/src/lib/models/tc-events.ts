@@ -1,42 +1,6 @@
-/* Models used to store shared state configuration */
+/* Models used to store Events Interactions */
 
 import {Deserializable} from '@tibco-tcstk/tc-core-lib';
-
-/*
-{
-  "response" : {
-    "attributes" : {
-      "Id" : 4662893,
-      "type" : "www.tibco.com/be/ontology/WebStudio/Core/Concepts/DataSources/WS_C_SuccessResponseDataSource"
-    },
-    "status" : "0",
-    "startRow" : 0,
-    "endRow" : 0,
-    "totalRows" : 0,
-    "data" : {
-      "attributes" : {
-        "Id" : 4662890,
-        "type" : "www.tibco.com/be/ontology/WebStudio/Core/Concepts/DataSources/WS_C_ResponseData"
-      },
-      "record" : [ {
-        "attributes" : {
-          "Id" : 4662891,
-          "type" : "www.tibco.com/be/ontology/WebStudio/Security/Authn/Concepts/DataSources/Records/WS_C_LoginResponseDataSourceRecord"
-        },
-        "apiToken" : "<api-token>",
-        "isDMInstalled" : true,
-        "isLockingEnabled" : true,
-        "isBPMNInstalled" : true,
-        "firstName" : "PS",
-        "lastName" : "POC",
-        "email" : "pspoc@example.com",
-        "userName" : "<user>",
-        "subscriptionId" : "<subid>"
-      } ]
-    }
-  }
-}
- */
 
 export class EventsAttribute {
   Id: string;
@@ -84,21 +48,6 @@ export class EventsResponse implements Deserializable {
   }
 }
 
-/*
-request: {
-        data: {
-          project: [{
-            name: this.beProjectName,
-            artifactItem: [{
-              artifactPath: this.beRulePath,
-              artifactType: 'ruletemplateinstance',
-              fileExtension: 'ruletemplateinstance',
-              baseArtifactPath: ''
-            }]
-          }]
-        }
-      }
- */
 export class CheckoutArtifact {
   artifactPath: string;
   artifactType: string;

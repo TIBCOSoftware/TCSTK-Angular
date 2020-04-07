@@ -36,7 +36,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ProxyInterceptor, OAuthInterceptor, TcCoreConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
-import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
+// import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
@@ -74,7 +74,6 @@ const tcCoreConfig: TcCoreConfig = {
     TcLiveappsLibModule.forRoot(),
     TcMessagingLibModule,
     TcEventsLibModule,
-    TcAgGridModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,

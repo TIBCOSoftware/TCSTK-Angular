@@ -43,6 +43,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
  *  Note: Only HTTP calls that start with / will be proxied
  */
 const tcCoreConfig: TcCoreConfig = {
+  disableFormLibs: false,
   oAuthLocalStorageKey: '',
   proxy_url: '',
   proxy_liveapps_path: '',
