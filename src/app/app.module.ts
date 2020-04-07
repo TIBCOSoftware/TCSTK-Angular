@@ -74,7 +74,6 @@ const tcCoreConfig: TcCoreConfig = {
     TcLiveappsLibModule.forRoot(),
     TcMessagingLibModule,
     TcEventsLibModule,
-    TcAgGridModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,
