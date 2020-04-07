@@ -23,15 +23,15 @@ import {Deserializable} from '@tibco-tcstk/tc-core-lib';
           "Id" : 4662891,
           "type" : "www.tibco.com/be/ontology/WebStudio/Security/Authn/Concepts/DataSources/Records/WS_C_LoginResponseDataSourceRecord"
         },
-        "apiToken" : "8802562f0b6e40d29f075ed5bdd1e2a3",
+        "apiToken" : "<api-token>",
         "isDMInstalled" : true,
         "isLockingEnabled" : true,
         "isBPMNInstalled" : true,
         "firstName" : "PS",
         "lastName" : "POC",
-        "email" : "pspoc@outlook.com",
-        "userName" : "d6laag2mgwsy2km3oxgk3pyzonwtiead",
-        "subscriptionId" : "01DNGY4DAA1TF6VWYAPJB3TWMV"
+        "email" : "pspoc@example.com",
+        "userName" : "<user>",
+        "subscriptionId" : "<subid>"
       } ]
     }
   }
