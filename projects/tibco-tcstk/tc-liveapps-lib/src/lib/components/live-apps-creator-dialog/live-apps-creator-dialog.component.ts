@@ -25,6 +25,7 @@ export class LiveAppsCreatorDialogComponent {
   public legacyCreators: boolean;
   public formsFramework: string;
   public formConfig: FormConfig;
+  public autoClose: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<LiveAppsCreatorDialogComponent>,
@@ -36,6 +37,7 @@ export class LiveAppsCreatorDialogComponent {
     this.legacyCreators = data.legacyCreators;
     this.formsFramework = data.formsFramework;
     this.formConfig = data.formConfig;
+    this.autoClose = data.autoClose;
   }
 
   public handleCaseCreated = (createdCase: ProcessId) => {
@@ -46,7 +48,9 @@ export class LiveAppsCreatorDialogComponent {
       // legacy process cancelled
       this.dialogRef.close();
     }
-
+    if (this.autoClose) {
+      this.dialogRef.close();
+    }
   }
 
   openCase = () => {
