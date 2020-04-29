@@ -10,7 +10,8 @@ export class CaseCreatorSelectionContext {
               public customFormDefs: CustomFormDefs,
               public legacyCreators: boolean,
               public formsFramework: string,
-              public formConfig: FormConfig
+              public formConfig: FormConfig,
+              public autoClose?: boolean
   ) {}
 }
 

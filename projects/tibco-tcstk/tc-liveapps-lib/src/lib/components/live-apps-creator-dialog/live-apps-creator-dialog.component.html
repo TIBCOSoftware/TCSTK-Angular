@@ -22,7 +22,7 @@
   </div>
   <!--div class="tcs-spacer"></div-->
   <mat-dialog-actions *ngIf="createdCase" class="tcs-dialog-actions" style="height: 100%" fxLayout="row" fxLayoutAlign="end end">
-    <button *ngIf="createdCase.caseReference" mat-button mat-flat-button color="primary" (click)="openCase()">Open Case</button>
+    <button *ngIf="createdCase.caseReference && !autoClose" mat-button mat-flat-button color="primary" (click)="openCase()">Open Case</button>
     <button mat-button (click)="closeDialog()">Close</button>
   </mat-dialog-actions>
 </div>

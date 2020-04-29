@@ -198,14 +198,14 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
     }
   }
 
-  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework, formConfig) => {
+  openCreatorDialog = (application: CaseType, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework, formConfig, autoClose?) => {
     const dialogRef = this.dialog.open(LiveAppsCreatorDialogComponent, {
       width: '60%',
       height: '80%',
       maxWidth: '100vw',
       maxHeight: '100vh',
       panelClass: 'tcs-style-dialog',
-      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework, formConfig)
+      data: new CaseCreatorSelectionContext(application, initialData, sandboxId, customFormDefs, legacyCreators, formsFramework, formConfig, autoClose)
     });
 
     dialogRef.afterClosed().subscribe(result => {
