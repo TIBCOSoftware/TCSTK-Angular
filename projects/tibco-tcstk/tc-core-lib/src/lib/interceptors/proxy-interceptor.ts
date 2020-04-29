@@ -33,7 +33,11 @@ export class ProxyInterceptor implements HttpInterceptor {
           const tenant_attr = 'proxy_' + targetTenant + '_path';
           tenantPath = tcCoreConfig[tenant_attr] ? tcCoreConfig[tenant_attr] : tcCoreConfig.proxy_liveapps_path;
         }
-        url = tcCoreConfig.proxy_url + '/' + tenantPath + req.url;
+        if (tenantPath && tenantPath !== '') {
+          url = tcCoreConfig.proxy_url + '/' + tenantPath + req.url;
+        } else {
+          url = tcCoreConfig.proxy_url + req.url;
+        }
       } else {
         url = req.url;
       }
