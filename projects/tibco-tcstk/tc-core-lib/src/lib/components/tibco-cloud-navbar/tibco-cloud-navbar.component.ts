@@ -164,6 +164,16 @@ export class TibcoCloudNavbarComponent implements OnInit {
       // console.log('Got message: ' + data.text);
       this.findHelpFile('assets/help/' + data.text + '/help.html');
     });
+
+    this.ms.getMessage('navbar.notificaction').subscribe(data => {
+      console.log('Got message: ' + data.text);
+      this.navbar.publishEvent('REQUEST_TOP_NOTIFICATION',
+        {
+          id: 'alert-id-' + new Date(),            // the notification ID
+          message: data.text,   // the message shown in the banner
+          persistClose: true         // Whether "Closing" banner flag is persisted in sessionStroage. If the value is false then the banner will show again               when the page is refreshed
+        });
+    });
   }
 
   findHelpFile(helpUrl) {
