@@ -63,6 +63,7 @@ export * from './lib/components/live-apps-processes/live-apps-processes.componen
 export * from './lib/components/live-apps-form-preview/live-apps-form-preview.component';
 export * from './lib/components/live-apps-settings-form-layout/live-apps-settings-form-layout.component';
 export * from './lib/components/live-apps-workitem/live-apps-workitem.component';
+export * from './lib/components/live-apps-form-wc/live-apps-form-wc.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -75,6 +76,7 @@ export * from './lib/models/tc-groups-data';
 export * from './lib/models/tc-live-apps-reporting';
 export * from './lib/models/tc-live-apps-landing-page-config';
 export * from './lib/models/tc-liveapps-config';
+export * from './lib/models/tc-liveapps-form';
 
 // service
 export * from './lib/services/live-apps.service';

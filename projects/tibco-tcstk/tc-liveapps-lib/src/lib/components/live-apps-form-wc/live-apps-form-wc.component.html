@@ -1,0 +1,42 @@
+<tib-la-caseaction-form *ngIf="config?.type?.toUpperCase() === 'ACTION'" #actionRef
+                        [caseRef]="config.caseref"
+                        [useCustomForm]="config.useCustomForm"
+                        [sandbox]="config.sandbox"
+                        [formDivId]="config.formDivId"
+                        [id]="config.id"
+                        [name]="config.name"
+                        [version]="config.version"
+                        [applicationId]="config.applicationId"
+                        [applicationName]="config.applicationName"
+                        [label]="config.label"
+                        [activityName]="config.activityName"
+                        (formLoad)="handleFormEvent($event)"
+                        (formCancel)="handleFormEvent($event)"
+                        (formSubmit)="handleFormEvent($event)">
+</tib-la-caseaction-form>
+<tib-la-openworkitem-form *ngIf="config?.type?.toUpperCase() === 'WORKITEM'" #actionRef
+                          [useCustomForm]="config.useCustomForm"
+                          [id]="config.id"
+                          [sandbox]="config.sandbox"
+                          [formDivId]="config.formDivId"
+                          (formLoad)="handleFormEvent($event)"
+                          (formCancel)="handleFormEvent($event)"
+                          (formSubmit)="handleFormEvent($event)">
+</tib-la-openworkitem-form>
+<tib-la-casecreator-form *ngIf="config?.type?.toUpperCase() === 'CREATOR'" #creatorRef
+                         [useCustomForm]="config.useCustomForm"
+                         [sandbox]="config.sandbox"
+                         [formDivId]="config.formDivId"
+                         [id]="config.id"
+                         [name]="config.name"
+                         [version]="config.version"
+                         [applicationId]="config.applicationId"
+                         [applicationName]="config.applicationName"
+                         [label]="config.label"
+                         [activityName]="config.activityName"
+                         (formLoad)="handleFormEvent($event)"
+                         (formCancel)="handleFormEvent($event)"
+                         (formSubmit)="handleFormEvent($event)">
+</tib-la-casecreator-form>
+<custom-form formId="asdasd"></custom-form>
+<div [id]="config.formDivId"></div>

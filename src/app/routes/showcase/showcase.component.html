@@ -17,6 +17,14 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
+      <mat-tab label="Creator WC">
+        <ng-template matTabContent>
+          <div style="padding: 20px;">
+            <tcla-live-apps-form-wc #formComponent [config]="config" (data)="handleData($event)" (completed)="handleCompleted($event)"></tcla-live-apps-form-wc>
+            <button *ngIf="data" (click)="handleSubmit()">FORCE SUBMIT</button>
+          </div>
+        </ng-template>
+      </mat-tab>
       <mat-tab label="Selection Widgets">
         <ng-template matTabContent>
           <div style="padding: 20px;">

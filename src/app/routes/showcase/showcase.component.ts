@@ -4,7 +4,7 @@ import {
   CaseInfo, CaseSearchResults,
   CaseType, FormConfig,
   LiveAppsComponent,
-  LiveAppsConfig,
+  LiveAppsConfig, LiveAppsFormConfig,
   LiveAppsService,
   Metadata, ProcessId
 } from '@tibco-tcstk/tc-liveapps-lib';
@@ -14,6 +14,7 @@ import {MessagingConfig, MessagingConnection} from '@tibco-tcstk/tc-messaging-li
 import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
 import {Observable, concat, throwError, empty} from 'rxjs';
 import {error} from 'ng-packagr/lib/util/log';
+import {LiveAppsFormWcComponent} from '@tibco-tcstk/tc-liveapps-lib';
 // import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';
 
 @Component({
@@ -53,13 +54,48 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   ];*/
 
 
+  public config = new LiveAppsFormConfig().deserialize({
+    type: 'creator',
+    useCustomForm: 'true',
+    sandbox: '31',
+    formDivId: 'formDiv',
+    id: '14636',
+    name: 'CreateTESTWI',
+    label: 'Create TESTWI',
+    version: '2',
+    applicationId: '3226',
+    applicationName: 'TESTWI',
+    activityName: 'Task'
+  });
+
+
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService, private tcEventsHelperService: TcEventsHelperService, private tcEventsService: TcEventsService) {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;
     this.messagingConnection = (this.messagingConfig.connections && this.messagingConfig.connections.length > 0) ? this.messagingConfig.connections[0] : undefined;
   }
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
+  @ViewChild ('formComponent', { static: false }) formComponent: LiveAppsFormWcComponent;
   // @ViewChild(TcgridLiveappsCasesComponent, {static: false}) gridComponent: TcgridLiveappsCasesComponent;
 
+  data: any;
+
+  handleData(data) {
+    console.log('data available: ', data);
+    this.data = data;
+  }
+
+  handleCompleted(data) {
+    console.log('form complete: ', data);
+    this.data = undefined;
+  }
+
+  handleEvent(event) {
+    console.log(event);
+  }
+
+  handleSubmit(data) {
+    this.formComponent.submit(data);
+  }
 
   toggleWidgetSize = () => {
     if (this.widgetSize === 100) {

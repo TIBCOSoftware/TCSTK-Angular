@@ -12,7 +12,6 @@
       (formLayout)="handleLayoutOutput($event)"
     >
     </json-schema-form>
-
     <!-- form-app="''" - this is to work around an issue where the element doesnt display the form properly unless we pass in an additional input - angular bug? -->
     <custom-form *ngIf="useCustomForm && formRef && formData && appId" form-app="''" [formRef]="formRef" [caseRef]="caseRef" [appId]="appId" [data]="formData" (formSubmitted)="submitForm($event.detail)"></custom-form>
     <span *ngIf="!formSchema && !useCustomForm">A form cannot be generated as no schema is available. Use a supported form or register a custom form app.</span>
