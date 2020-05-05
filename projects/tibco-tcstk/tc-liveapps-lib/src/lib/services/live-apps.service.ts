@@ -773,4 +773,20 @@ export class LiveAppsService {
       );
   }
 
+  public getGroupUsers(sandboxId: number, groupId: string, skip: number, top: number, filter: string, useCache: boolean): Observable<UsersInfo>{
+    const url = '/organisation/v1/groups/' + groupId + '/users' + '?$sandbox=' + sandboxId + '&$top=' + top + '&$skip=' + skip + '&$filter=' + filter
+
+    let headers;
+    if (useCache) {
+      headers = new HttpHeaders().set('cacheResponse', 'true');
+    } else {
+      headers = new HttpHeaders();
+    }
+
+    return this.http.get(url, { headers, withCredentials: true })
+      .pipe(
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(users => new UsersInfo().deserialize({ usersInfo: users }))
+      );
+  }
 }
