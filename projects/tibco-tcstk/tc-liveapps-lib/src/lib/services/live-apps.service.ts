@@ -22,7 +22,8 @@ import {
   IconMap,
   Metadata,
   CaseSearchResults,
-  CaseTypeStatesListList
+  CaseTypeStatesListList,
+  UsersInfo
 } from '../models/liveappsdata';
 import {  DocumentList, Document} from '../models/tc-document';
 import {
