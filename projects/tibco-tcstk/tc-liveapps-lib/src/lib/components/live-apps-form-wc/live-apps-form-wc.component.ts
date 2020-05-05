@@ -43,7 +43,7 @@ export class LiveAppsFormWcComponent {
     this.formApi.close(data);
   }
 
-  public cancel = (data: any) => {
+  public cancel = () => {
     this.formApi.cancel();
   }
 

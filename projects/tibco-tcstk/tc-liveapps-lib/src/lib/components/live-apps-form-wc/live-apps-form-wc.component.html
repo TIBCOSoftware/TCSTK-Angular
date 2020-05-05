@@ -1,5 +1,5 @@
 <tib-la-caseaction-form *ngIf="config?.type?.toUpperCase() === 'ACTION'" #actionRef
-                        [caseRef]="config.caseref"
+                        [caseRef]="config.caseRef"
                         [useCustomForm]="config.useCustomForm"
                         [sandbox]="config.sandbox"
                         [formDivId]="config.formDivId"
@@ -21,6 +21,7 @@
                           [formDivId]="config.formDivId"
                           (formLoad)="handleFormEvent($event)"
                           (formCancel)="handleFormEvent($event)"
+                          (formClose)="handleFormEvent($event)"
                           (formSubmit)="handleFormEvent($event)">
 </tib-la-openworkitem-form>
 <tib-la-casecreator-form *ngIf="config?.type?.toUpperCase() === 'CREATOR'" #creatorRef

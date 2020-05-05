@@ -54,11 +54,11 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   ];*/
 
 
-  public config = new LiveAppsFormConfig().deserialize({
+  public creatorConfig = new LiveAppsFormConfig().deserialize({
     type: 'creator',
-    useCustomForm: 'true',
+    useCustomForm: 'false',
     sandbox: '31',
-    formDivId: 'formDiv',
+    formDivId: 'formDivCreator',
     id: '14636',
     name: 'CreateTESTWI',
     label: 'Create TESTWI',
@@ -68,6 +68,28 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     activityName: 'Task'
   });
 
+  public actionConfig = new LiveAppsFormConfig().deserialize({
+    type: 'action',
+    caseRef: '534051',
+    useCustomForm: 'false',
+    sandbox: '31',
+    formDivId: 'formDivAction',
+    id: '14637',
+    name: 'UpdateTESTWI',
+    label: 'Update TESTWI',
+    version: '2',
+    applicationId: '3226',
+    applicationName: 'TESTWI',
+    activityName: 'Task'
+  });
+
+  public workitemConfig = new LiveAppsFormConfig().deserialize({
+    type: 'workitem',
+    useCustomForm: 'true',
+    sandbox: '31',
+    formDivId: 'formDivWorkitem',
+    id: '27631'
+  });
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService, private tcEventsHelperService: TcEventsHelperService, private tcEventsService: TcEventsService) {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;
@@ -93,8 +115,21 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     console.log(event);
   }
 
-  handleSubmit(data) {
-    this.formComponent.submit(data);
+  handleSubmit() {
+    // this.data.TESTWI.field1 = '12';
+    // this.data.inouts[0].structured[0].field2 = '89898';
+    // this.data.inouts[1].simple[0] = 'asdasdsa';
+    this.formComponent.submit(this.data);
+  }
+
+  handleClose() {
+    // this.data.inouts[0].structured[0].field2 = '222222';
+    // this.data.inouts[1].simple[0] = 'changed';
+    this.formComponent.close(this.data);
+  }
+
+  handleCancel() {
+    this.formComponent.cancel();
   }
 
   toggleWidgetSize = () => {
