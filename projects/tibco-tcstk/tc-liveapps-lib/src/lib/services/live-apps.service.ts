@@ -775,7 +775,10 @@ export class LiveAppsService {
   }
 
   public getGroupUsers(sandboxId: number, groupId: string, skip: number, top: number, filter: string, useCache: boolean): Observable<UsersInfo>{
-    const url = '/organisation/v1/groups/' + groupId + '/users' + '?$sandbox=' + sandboxId + '&$top=' + top + '&$skip=' + skip + '&$filter=' + filter
+    let url = '/organisation/v1/groups/' + groupId + '/users' + '?$sandbox=' + sandboxId + '&$top=' + top + '&$skip=' + skip
+    if (filter != '') {
+      url = url + + '&$filter=' + filter
+    }
 
     let headers;
     if (useCache) {
