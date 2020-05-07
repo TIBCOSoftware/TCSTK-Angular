@@ -340,6 +340,14 @@ export class UserInfo implements Deserializable {
   }
 }
 
+export class UsersInfo implements Deserializable{
+  usersInfo: UserInfo[];
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    return this;
+  }
+}
+
 export class NotesRole implements Deserializable {
   entityId: string;
   entityName: string;

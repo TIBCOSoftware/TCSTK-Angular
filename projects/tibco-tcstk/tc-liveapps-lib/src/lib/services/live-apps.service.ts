@@ -22,7 +22,8 @@ import {
   IconMap,
   Metadata,
   CaseSearchResults,
-  CaseTypeStatesListList
+  CaseTypeStatesListList,
+  UsersInfo
 } from '../models/liveappsdata';
 import {  DocumentList, Document} from '../models/tc-document';
 import {
@@ -812,4 +813,23 @@ export class LiveAppsService {
       );
   }
 
+  public getGroupUsers(sandboxId: number, groupId: string, skip: number, top: number, filter: string, useCache: boolean): Observable<UsersInfo>{
+    let url = '/organisation/v1/groups/' + groupId + '/users' + '?$sandbox=' + sandboxId + '&$top=' + top + '&$skip=' + skip
+    if (filter != '') {
+      url = url + + '&$filter=' + filter
+    }
+
+    let headers;
+    if (useCache) {
+      headers = new HttpHeaders().set('cacheResponse', 'true');
+    } else {
+      headers = new HttpHeaders();
+    }
+
+    return this.http.get(url, { headers, withCredentials: true })
+      .pipe(
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(users => new UsersInfo().deserialize({ usersInfo: users }))
+      );
+  }
 }
