@@ -1,5 +1,5 @@
 import { Injectable, NgModule} from '@angular/core';
-import {forkJoin, Observable, of, throwError} from 'rxjs';
+import {forkJoin, Observable, of, throwError, zip} from 'rxjs';
 import { HttpClientModule, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import {
@@ -43,7 +43,7 @@ import {Groups} from '../models/tc-groups-data';
 import {
   catchError,
   debounceTime,
-  distinctUntilChanged,
+  distinctUntilChanged, flatMap,
   map,
   mergeMap,
   share,
@@ -136,6 +136,33 @@ export class LiveAppsService {
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(caseinfos => new CaseInfoList().deserialize(caseinfos)));
+  }
+
+  public getCasesWithUserInfo(sandboxId: number, appId: string, typeId: string, skip: number, top: number): Observable<CaseInfoList> {
+    return this.getCases(sandboxId, appId, typeId, skip, top).pipe(
+      flatMap((caseinfos: CaseInfoList) => {
+        // get userIds
+        const calls$ = [];
+        caseinfos.caseinfos.forEach(caseinfo => {
+          calls$.push(forkJoin(
+            this.getUserInfo(caseinfo.metadata.createdBy),
+            this.getUserInfo(caseinfo.metadata.modifiedBy)
+          ).pipe(
+            map(([creator, modifier]) => {
+              caseinfo.metadata.createdByDetails = creator;
+              caseinfo.metadata.modifiedByDetails = modifier;
+              return caseinfo;
+            })
+          ));
+        });
+        return forkJoin(calls$).pipe(
+          map((caseinfosFilled: CaseInfo[]) => {
+            caseinfos.caseinfos = caseinfosFilled;
+            return caseinfos;
+          })
+        );
+      })
+    );
   }
 
   public getCasesCount(sandboxId: number, appId: string, typeId: string): Observable<string> {
@@ -538,15 +565,27 @@ export class LiveAppsService {
 
   // Since we call get userinfo a lot - and the data doesn't tend to change - I will cache it for the session
   public getUserInfo(userId: string): Observable<UserInfo> {
-    let url = '/organisation/v1/users/' + userId;
-    if (!this.userInfoCacheMap.get(userId)) {
-      const cacheEntry$ = this.getUserCached(url)
-        .pipe(
-          shareReplay(1)
-        );
-      this.userInfoCacheMap.set(userId, cacheEntry$);
-    }
+    const url = '/organisation/v1/users/' + userId;
+    if (userId === undefined) {
+      return of(new UserInfo().deserialize({
+        externalId: 'system',
+        firstName: 'system',
+        lastName: 'user',
+        username: 'system',
+        email: 'system',
+        type: 'system',
+        id: 'system'
+      }));
+    } else {
+      if (!this.userInfoCacheMap.get(userId)) {
+        const cacheEntry$ = this.getUserCached(url)
+          .pipe(
+            shareReplay(1)
+          );
+        this.userInfoCacheMap.set(userId, cacheEntry$);
+      }
       return this.userInfoCacheMap.get(userId);
+    }
   }
 
   private getUserCached(url) {

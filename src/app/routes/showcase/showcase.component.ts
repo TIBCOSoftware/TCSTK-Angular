@@ -56,7 +56,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
 
   public creatorConfig = new LiveAppsFormConfig().deserialize({
     type: 'creator',
-    useCustomForm: 'false',
+    useCustomForm: 'true',
     sandbox: '31',
     formDivId: 'formDivCreator',
     id: '14636',
@@ -85,7 +85,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
 
   public workitemConfig = new LiveAppsFormConfig().deserialize({
     type: 'workitem',
-    useCustomForm: 'true',
+    useCustomForm: 'false',
     sandbox: '31',
     formDivId: 'formDivWorkitem',
     id: '27631'
@@ -239,7 +239,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.email = this.claims.email;
     this.userId = this.claims.id;
     // get sample case
-    this.liveAppsService.getCases(this.sandboxId, this.liveAppsConfig.applicationIds[0], '1', 0, 1)
+    this.liveAppsService.getCasesWithUserInfo(this.sandboxId, this.liveAppsConfig.applicationIds[0], '1', 0, 10)
       .subscribe(
       next => {
         if (next.caseinfos[0]) {
@@ -250,6 +250,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
         } else {
           console.error('No cases for this appId: ', this.liveAppsConfig.applicationIds[0]);
         }
+        console.log(next);
       },
       errorCase => {
         console.error('Error retrieving case data: ' + errorCase.error.errorMsg);
