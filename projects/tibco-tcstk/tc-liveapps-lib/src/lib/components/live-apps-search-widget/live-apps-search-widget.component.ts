@@ -97,11 +97,11 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent implements 
     }
   }
 
-  public searchCasesByState = (stateId: number, stateLabel: string, appId: string, typeId: string, message: string) => {
+  public searchCasesByState = (stateId: number, stateLabel: string, appId: string, typeId: string, message: string, select?: string) => {
     this.caseSearchComponent.setCaseType(new CaseType().deserialize( { applicationId : appId, id: typeId }));
     this.caseSearchComponent.setSelectedStateId(stateId, stateLabel);
     this.message = message;
-    this.liveapps.caseSearchEntries('', this.sandboxId, appId, typeId, true, 0, 1000, stateId).subscribe(
+    this.liveapps.caseSearchEntries('', this.sandboxId, appId, typeId, true, 0, 1000, stateId, select).subscribe(
       results => {
         this.matchedRefs = results.caserefs;
       }

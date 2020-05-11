@@ -204,14 +204,18 @@ export class LiveAppsService {
       );
   }
 
-  public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, force: boolean, skip: number, top: number, stateId: number): Observable<CaseSearchResults> {
+  public caseSearchEntries(term: string, sandboxId: number, appId: string, typeId: string, force: boolean, skip: number, top: number, stateId: number, select?: string): Observable<CaseSearchResults> {
       let url = '/case/v1/cases' + '?$sandbox=' + sandboxId + '&$filter=applicationId eq '
-        + appId + ' and typeId eq ' + typeId;;
+        + appId + ' and typeId eq ' + typeId;
       if (stateId) {
         url = url + ' and stateId eq ' + stateId;
       }
-      url = url + '&$skip=' + skip + '&$top=' + top
-        + '&$select=cr';
+      url = url + '&$skip=' + skip + '&$top=' + top;
+      if (select) {
+        url = url + '&$select=' + select;
+      } else {
+        url = url + '&$select=cr';
+      }
       if (term || (!term && !force)) {
         url = url + '&$search=' + term;
       }
