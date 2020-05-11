@@ -52,6 +52,7 @@ export class TcAppDefinitionService {
   public loadFormResources = () => {
     if (!this.tcConfig.getConfig().disableFormLibs) {
       const frameworkJS = document.createElement('script');
+      frameworkJS.id = 'frameworkJS';
       frameworkJS.src = '/apps/app-cdn/tibco/framework_ext/1.0.0/framework_ext.nocache.js';
       frameworkJS.type = 'text/javascript';
       frameworkJS.async = true;
@@ -59,6 +60,7 @@ export class TcAppDefinitionService {
       document.getElementsByTagName('head')[0].appendChild(frameworkJS);
 
       const elementsEs5JS = document.createElement('script');
+      elementsEs5JS.id = 'elementsEs5JS';
       elementsEs5JS.src = '/apps/app-cdn/tibco/elements/elements-es5.js';
       // elementsEs5JS.src = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/forms/elements-es5.js');
       elementsEs5JS.noModule = true;
@@ -67,9 +69,8 @@ export class TcAppDefinitionService {
       elementsEs5JS.charset = 'utf-8';
       document.getElementsByTagName('head')[0].appendChild(elementsEs5JS);
 
-      // temporarily using local copy of elements to fix issue with prod build
-
       const elementsEs2015JS = document.createElement('script');
+      elementsEs2015JS.id = 'elementsEs2015JS';
       elementsEs2015JS.src = '/apps/app-cdn/tibco/elements/elements-es2015.js';
       // elementsEs2015JS.src = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/forms/elements-es2015.js');
       elementsEs2015JS.type = 'module';
@@ -78,6 +79,7 @@ export class TcAppDefinitionService {
       document.getElementsByTagName('head')[0].appendChild(elementsEs2015JS);
 
       const elementsCSS = document.createElement('link');
+      elementsCSS.id = 'elementsCSS';
       elementsCSS.href = '/apps/app-cdn/tibco/elements/elements.css';
       // elementsCSS.href = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/forms/elements.css');
       elementsCSS.rel = 'stylesheet';
@@ -85,12 +87,14 @@ export class TcAppDefinitionService {
       document.getElementsByTagName('head')[0].appendChild(elementsCSS);
 
       const fontCSS = document.createElement('link');
+      fontCSS.id = 'fontCSS';
       fontCSS.href = '/apps/app-cdn/tibco/fonts/Source_Sans_Pro/font.css';
       fontCSS.rel = 'stylesheet';
       fontCSS.charset = 'utf-8';
       document.getElementsByTagName('head')[0].appendChild(fontCSS);
 
       const TfMaterial = document.createElement('link');
+      TfMaterial.id = 'tfMaterial'
       TfMaterial.href = '/apps/app-cdn/tibco/framework_ext/1.0.0/TfMaterial.min.css';
       TfMaterial.rel = 'stylesheet';
       TfMaterial.charset = 'utf-8';
@@ -99,7 +103,6 @@ export class TcAppDefinitionService {
   }
 
   public refresh(): Observable<any> {
-    this.loadFormResources();
     const claims$ = this.liveAppsService.getClaims().pipe(
       map(claimVal => {
         claimVal.sandboxes.forEach(sandbox => {
@@ -107,6 +110,7 @@ export class TcAppDefinitionService {
             claimVal.primaryProductionSandbox = sandbox;
           }
         });
+        this.loadFormResources();
         return claimVal;
       })
     );

@@ -1,8 +1,8 @@
 <div class="tcs-case-action-pane" fxLayout="column" fxFill>
   <tc-tibco-cloud-widget-header *ngIf="showHeader" fxFlex="nogrow" [headerText]="'Action'" [icon]="'tcs-case-action-item'"></tc-tibco-cloud-widget-header>
-  <tcfrm-rendered-form *ngIf="data && process && (!legacyActions || isCustomForm)" [schema]="schema" [layout]="layout" [data]="data" [caseRef]="caseRef" [appId]="applicationId" [customFormDefs]="customFormDefs" [formsFramework]="formsFramework" [formRef]="process.ref" (formSubmit)="handleSubmit($event, caseRef)"></tcfrm-rendered-form>
+  <tcfrm-rendered-form *ngIf="!wcFormConfig && data && process && (!legacyActions || isCustomForm)" [schema]="schema" [layout]="layout" [data]="data" [caseRef]="caseRef" [appId]="applicationId" [customFormDefs]="customFormDefs" [formsFramework]="formsFramework" [formRef]="process.ref" (formSubmit)="handleSubmit($event, caseRef)"></tcfrm-rendered-form>
   <!--tcla-live-apps-legacy-process *ngIf="data && process && legacyActions && !isCustomForm" [process]="process" [caseState]="caseState" [type]="'action'" [applicationId]="applicationId" [typeId]="typeId" [caseRef]="caseRef" (processCancelled)="handleLegacyProcessCancelled()" (processComplete)="handleLegacyProcessComplete()" class="live-apps-widget" fxFill></tcla-live-apps-legacy-process-->
-  <div *ngIf="process && legacyActions && !isCustomForm">
+  <!--div *ngIf="process && legacyActions && !isCustomForm">
     <div class="live-apps-form" id="actionFormDiv"></div>
     <tib-la-caseaction-form
       [sandbox]="sandboxId"
@@ -22,6 +22,6 @@
       (formSubmit)="handleLegacyProcessComplete($event)"
       (formCancel)="handleLegacyProcessCancelled($event)"
     >
-    </tib-la-caseaction-form>
-  </div>
+    </tib-la-caseaction-form-->
+  <tcla-live-apps-form-wc *ngIf="process && legacyActions && !isCustomForm && wcFormConfig" [config]="wcFormConfig" (completed)="handleLegacyProcessComplete($event)"></tcla-live-apps-form-wc>
 </div>

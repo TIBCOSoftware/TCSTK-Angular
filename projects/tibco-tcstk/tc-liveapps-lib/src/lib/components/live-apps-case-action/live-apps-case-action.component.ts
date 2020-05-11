@@ -6,6 +6,8 @@ import {CaseType, ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsLegacyProcessComponent} from '../live-apps-legacy-process/live-apps-legacy-process.component';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
+import {LiveAppsFormConfig} from '../../models/tc-liveapps-form';
+import {FormConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
 
 
 /**
@@ -46,6 +48,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
 
   originalData: any;
   caseState: string;
+  wcFormConfig: LiveAppsFormConfig;
+  selectedFormConfig: ProcessFormConfig;
 
   private getMainCaseTypeFromSchema(typeId: string, process: LaProcessSelection): CaseType {
     let requestedType: CaseType;
@@ -107,6 +111,24 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     super(lasvc, tcfcs);
   }
 
+  private buildWcFormConfig = (process: LaProcessSelection, selectedFormConfig: ProcessFormConfig, caseRef: string) => {
+    this.wcFormConfig = new LiveAppsFormConfig().deserialize({
+      type: 'action',
+      id: process.action.id,
+      sandbox: this.sandboxId.toString(),
+      formDivId: 'actionDialogDiv',
+      useCustomForm: (selectedFormConfig && selectedFormConfig.externalForm) ? selectedFormConfig.externalForm.toString() : false,
+      name: process.creator.name,
+      label: process.creator.label,
+      version: process.creator.version.toString(),
+      applicationId: process.creator.applicationId,
+      applicationName: process.creator.applicationName,
+      activityId: process.creator.activityId,
+      activityName: process.creator.activityName,
+      caseRef: caseRef
+    });
+  }
+
   ngOnInit() {
     // set default layout
     // this.layout = [];
@@ -115,18 +137,17 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
   ngOnChanges(changes: SimpleChanges) {
     // the extended class will detect change in the process and layout passed
     super.ngOnChanges(changes);
-    // handle input param changes
-    if ((changes.caseRef && changes.caseRef.currentValue && (changes.caseRef.currentValue !== changes.caseRef.previousValue))
-      || (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue))) {
-      // get case data if anything changes
-      if (changes.process.currentValue) {
-        this.getCaseData(this.caseRef);
+
+    // setup form config for WC forms
+    if (this.legacyActions && this.formConfig && this.process && this.caseRef) {
+      this.selectedFormConfig = TcFormConfigService.getProcessFormConfig(this.process.ref, this.formConfig);
+      if (this.selectedFormConfig) {
+        this.buildWcFormConfig(this.process, this.selectedFormConfig, this.caseRef);
       }
-    }
-    // handle process change for legacy action process
-    if (changes.process && changes.process.currentValue && (changes.process.currentValue !== changes.process.previousValue)) {
-      if (this.legacyProcessComponent) {
-        this.legacyProcessComponent.changeProcess(changes.process.currentValue);
+    } else {
+      // non WC forms:
+      if (this.process && this.caseRef) {
+        this.getCaseData(this.caseRef);
       }
     }
   }
