@@ -117,6 +117,7 @@ import {Observable} from 'rxjs';
 import { LiveAppsFormComponent } from './components/live-apps-form/live-apps-form.component';
 import { LiveAppsWorkitemComponent } from './components/live-apps-workitem/live-apps-workitem.component';
 import { LiveAppsFormWcComponent } from './components/live-apps-form-wc/live-apps-form-wc.component';
+import {LiveAppsSettingsCustomFormsComponent} from './components/live-apps-settings-custom-forms/live-apps-settings-custom-forms.component';
 
 export const TIBCO_CLOUD_DOMAIN = 'cloud.tibco.com';
 export const TIBCO_TEST_DOMAIN = 'tenant-integration.tcie.pro';
@@ -196,7 +197,8 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
         LiveAppsSettingsFormLayoutComponent,
         LiveAppsFormComponent,
         LiveAppsWorkitemComponent,
-        LiveAppsFormWcComponent
+        LiveAppsFormWcComponent,
+        LiveAppsSettingsCustomFormsComponent
     ],
   imports: [
     TcCoreLibModule,
@@ -294,7 +296,8 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
     LiveAppsSettingsFormLayoutComponent,
     LiveAppsWorkitemComponent,
     LiveAppsFormComponent,
-    LiveAppsFormWcComponent
+    LiveAppsFormWcComponent,
+    LiveAppsSettingsCustomFormsComponent
   ],
     entryComponents: [LiveAppsStateIconUploadDialogComponent, LiveAppsDocumentUploadDialogComponent, LiveAppsDocumentViewerDialogComponent, LiveAppsCreatorDialogComponent],
     providers: [

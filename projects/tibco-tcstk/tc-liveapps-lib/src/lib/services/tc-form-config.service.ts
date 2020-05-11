@@ -23,6 +23,40 @@ export class TcFormConfigService {
     return (pfc && pfc.length > 0) ? pfc[0] : undefined;
   }
 
+  public static getCustomFormTags(formConfig: FormConfig): string[] {
+    const formRefs = [];
+    formConfig.processFormConfigs.forEach((processFormConfig: ProcessFormConfig) => {
+      if (processFormConfig.externalForm) {
+        formRefs.push(processFormConfig.formTag);
+      }
+    });
+    return formRefs;
+  }
+
+  public static setCustomFormTag(formTag: string, formConfig: FormConfig): FormConfig {
+    // set processFormConfigs externalForm to true or add a new one
+    let found = false;
+    const foundConfigs = formConfig.processFormConfigs.forEach((processFormConfig: ProcessFormConfig) => {
+      if (processFormConfig.formTag === formTag) {
+        processFormConfig.externalForm = true;
+        found = true;
+      }
+    });
+    if (!found) {
+      formConfig.processFormConfigs.push(new ProcessFormConfig().deserialize(
+        {
+          formTag,
+          processId: 'custom',
+          processType: 'custom',
+          layout: undefined,
+          data: undefined
+        }
+      )
+      );
+    }
+    return formConfig;
+  }
+
   public getLayoutFromConfig(formTag: string, formConfig: FormConfig): any[] {
     let layout: any[];
     if (formConfig && formConfig.processFormConfigs) {
