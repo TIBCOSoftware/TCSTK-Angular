@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {LiveAppsFormConfig} from '../../models/tc-liveapps-form';
 
 @Component({
   selector: 'tcla-live-apps-workitem',
   templateUrl: './live-apps-workitem.component.html',
   styleUrls: ['./live-apps-workitem.component.css']
 })
-export class LiveAppsWorkitemComponent {
+export class LiveAppsWorkitemComponent implements OnChanges {
 
   /**
    * The workitem id to display
@@ -23,7 +24,10 @@ export class LiveAppsWorkitemComponent {
    */
   @Output() workitemComplete: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
+  wcFormConfig: LiveAppsFormConfig;
+
+  constructor() {
+  }
 
   handleWorkitemComplete = (event) => {
     this.workitemComplete.emit(this.workitemId);
@@ -35,6 +39,18 @@ export class LiveAppsWorkitemComponent {
 
   handleWorkitemClosed = (event) => {
     this.workitemComplete.emit(this.workitemId);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.workitemId && this.sandboxId) {
+      this.wcFormConfig = new LiveAppsFormConfig().deserialize({
+        type: 'workitem',
+        id: this.workitemId,
+        sandbox: this.sandboxId.toString(),
+        formDivId: 'wiDialogDiv',
+        useCustomForm: false
+      });
+    }
   }
 
 }

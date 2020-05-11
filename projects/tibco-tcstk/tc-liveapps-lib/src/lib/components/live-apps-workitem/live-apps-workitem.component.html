@@ -1,9 +1,11 @@
-<div class="live-apps-form" [id]="'workitemFormDiv_' + workitemId"></div>
-<tib-la-openworkitem-form
+<div class="live-apps-form" [id]="'workitemFormDiv_' + workitemId">
+<!--tib-la-openworkitem-form
   [id]="workitemId"
   [sandbox]="sandboxId"
   [formDivId]="'workitemFormDiv_' + workitemId"
   (formSubmit)="handleWorkitemComplete($event)"
   (formCancel)="handleWorkitemCancelled($event)"
   (formClose)="handleWorkitemClosed($event)">
-</tib-la-openworkitem-form>
+</tib-la-openworkitem-form-->
+<tcla-live-apps-form-wc #wiFormWc *ngIf="wcFormConfig" [config]="wcFormConfig" (completed)="handleWorkitemComplete($event)"></tcla-live-apps-form-wc>
+</div>
