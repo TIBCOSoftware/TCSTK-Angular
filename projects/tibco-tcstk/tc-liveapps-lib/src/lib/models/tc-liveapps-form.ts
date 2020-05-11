@@ -6,7 +6,7 @@ import {Deserializable} from '@tibco-tcstk/tc-core-lib';
 export class LiveAppsFormConfig implements Deserializable {
   type: string;
   id: string;
-  user: string;
+  user?: string;
   sandbox: string;
   formDivId: string;
   useCustomForm: string;
@@ -17,8 +17,8 @@ export class LiveAppsFormConfig implements Deserializable {
   applicationName: string;
   activityId: string;
   activityName: string;
-  caseRef: string;
-  noData: string;
+  caseRef?: string;
+  noData?: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;

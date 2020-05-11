@@ -3,7 +3,9 @@ import {ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsCreatorSelectorComponent} from '../live-apps-creator-selector/live-apps-creator-selector.component';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
-import {FormConfig} from '../../models/tc-liveapps-config';
+import {FormConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
+import {TcFormConfigService} from '../../services/tc-form-config.service';
+import {LiveAppsFormConfig} from '../../models/tc-liveapps-form';
 
 /**
  * Wraps case creator selection and execution of creator
@@ -67,10 +69,12 @@ export class LiveAppsCreatorsComponent implements OnInit {
   @Output() caseCreated: EventEmitter<ProcessId> = new EventEmitter<ProcessId>();
 
   selectedProcess: LaProcessSelection;
+  selectedFormConfig: ProcessFormConfig;
+  wcFormConfig: LiveAppsFormConfig;
 
   // handle form submit
-  handleSubmit = (data: ProcessId) => {
-    this.caseCreated.emit(data);
+  handleSubmit = (event: any) => {
+    this.caseCreated.emit(event);
     /*if (this.creatorSelector) {
       this.creatorSelector.reset();
     }*/
@@ -79,6 +83,23 @@ export class LiveAppsCreatorsComponent implements OnInit {
   // handle case creator selection
   handleCreatorSelection = (process: LaProcessSelection) => {
     this.selectedProcess = process;
+    this.selectedFormConfig = TcFormConfigService.getProcessFormConfig(process.ref, this.formConfig);
+    if (this.legacyCreators) {
+      this.wcFormConfig = new LiveAppsFormConfig().deserialize({
+        type: 'creator',
+        id: process.creator.id,
+        sandbox: this.sandboxId.toString(),
+        formDivId: 'creatorDialogDiv',
+        useCustomForm: (this.selectedFormConfig && this.selectedFormConfig.externalForm) ? this.selectedFormConfig.externalForm.toString() : false,
+        name: process.creator.name,
+        label: process.creator.label,
+        version: process.creator.version.toString(),
+        applicationId: process.creator.applicationId,
+        applicationName: process.creator.applicationName,
+        activityId: process.creator.activityId,
+        activityName: process.creator.activityName
+      });
+    }
   }
 
   constructor() { }

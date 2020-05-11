@@ -29,6 +29,7 @@ export class FormConfig implements Deserializable {
 export class ProcessFormConfig implements Deserializable {
   formTag: string;
   processId: string;
+  externalForm?: boolean;
   processType: string;
   layout: any;
   data: string;

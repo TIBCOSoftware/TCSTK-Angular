@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {flatMap, map} from 'rxjs/operators';
 import {Location} from '@angular/common';
 import {TcSharedStateService, TcCoreCommonFunctions, SharedStateContent, SharedStateEntry, SharedStateList} from '@tibco-tcstk/tc-core-lib';
-import {FormConfig} from '../models/tc-liveapps-config';
+import {FormConfig, ProcessFormConfig} from '../models/tc-liveapps-config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,16 @@ import {FormConfig} from '../models/tc-liveapps-config';
 export class TcFormConfigService {
 
   constructor(private location: Location, private sharedStateService: TcSharedStateService) {
+  }
+
+  static getProcessFormConfig(formTag: string, formConfig: FormConfig): ProcessFormConfig {
+    let pfc;
+    if (formConfig && formConfig.processFormConfigs) {
+      pfc = formConfig.processFormConfigs.filter(fc => {
+        return fc.formTag === formTag;
+      });
+    }
+    return (pfc && pfc.length > 0) ? pfc[0] : undefined;
   }
 
   public getLayoutFromConfig(formTag: string, formConfig: FormConfig): any[] {

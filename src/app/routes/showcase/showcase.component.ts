@@ -56,16 +56,16 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
 
   public creatorConfig = new LiveAppsFormConfig().deserialize({
     type: 'creator',
-    useCustomForm: 'true',
+    useCustomForm: 'false',
     sandbox: '31',
     formDivId: 'formDivCreator',
     id: '14636',
     name: 'CreateTESTWI',
     label: 'Create TESTWI',
-    version: '2',
+    version: '5',
     applicationId: '3226',
     applicationName: 'TESTWI',
-    activityName: 'Task'
+    activityName: 'Task_4'
   });
 
   public actionConfig = new LiveAppsFormConfig().deserialize({

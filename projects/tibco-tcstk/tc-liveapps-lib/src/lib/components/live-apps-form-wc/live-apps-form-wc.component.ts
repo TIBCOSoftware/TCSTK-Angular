@@ -57,7 +57,9 @@ export class LiveAppsFormWcComponent {
           }
           break;
         case 'formSubmit':
-          this.completed.emit(event);
+          if (event.detail.completed) {
+            this.completed.emit(event);
+          }
           break;
         case 'formCancel':
           this.completed.emit(event);
