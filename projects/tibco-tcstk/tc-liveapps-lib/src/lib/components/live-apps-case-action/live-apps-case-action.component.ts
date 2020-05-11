@@ -8,6 +8,7 @@ import {LiveAppsLegacyProcessComponent} from '../live-apps-legacy-process/live-a
 import {TcFormConfigService} from '../../services/tc-form-config.service';
 import {LiveAppsFormConfig} from '../../models/tc-liveapps-form';
 import {FormConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
+import {LiveAppsFormWcComponent} from '../live-apps-form-wc/live-apps-form-wc.component';
 
 
 /**
@@ -45,6 +46,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
 
 
   @ViewChild(LiveAppsLegacyProcessComponent, {static: false}) legacyProcessComponent: LiveAppsLegacyProcessComponent;
+  @ViewChild('actionFormWc', {static: false}) actionFormWc: LiveAppsFormWcComponent;
 
   originalData: any;
   caseState: string;
@@ -100,6 +102,9 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     if (this.legacyProcessComponent) {
       this.legacyProcessComponent.cancelProcess();
     }
+    if (this.actionFormWc) {
+      this.actionFormWc.cancel();
+    }
     if (this.formRef) {
       // this.formRef.detail.form.destroy();
       this.formRef.detail.form.invokeAction('cancel');
@@ -118,13 +123,13 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
       sandbox: this.sandboxId.toString(),
       formDivId: 'actionDialogDiv',
       useCustomForm: (selectedFormConfig && selectedFormConfig.externalForm) ? selectedFormConfig.externalForm.toString() : false,
-      name: process.creator.name,
-      label: process.creator.label,
-      version: process.creator.version.toString(),
-      applicationId: process.creator.applicationId,
-      applicationName: process.creator.applicationName,
-      activityId: process.creator.activityId,
-      activityName: process.creator.activityName,
+      name: process.action.name,
+      label: process.action.label,
+      version: process.action.version.toString(),
+      applicationId: process.action.applicationId,
+      applicationName: process.action.applicationName,
+      activityId: process.action.activityId,
+      activityName: process.action.activityName,
       caseRef: caseRef
     });
   }
@@ -141,9 +146,7 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
     // setup form config for WC forms
     if (this.legacyActions && this.formConfig && this.process && this.caseRef) {
       this.selectedFormConfig = TcFormConfigService.getProcessFormConfig(this.process.ref, this.formConfig);
-      if (this.selectedFormConfig) {
-        this.buildWcFormConfig(this.process, this.selectedFormConfig, this.caseRef);
-      }
+      this.buildWcFormConfig(this.process, this.selectedFormConfig, this.caseRef);
     } else {
       // non WC forms:
       if (this.process && this.caseRef) {

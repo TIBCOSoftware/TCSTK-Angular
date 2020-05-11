@@ -23,5 +23,5 @@
       (formCancel)="handleLegacyProcessCancelled($event)"
     >
     </tib-la-caseaction-form-->
-  <tcla-live-apps-form-wc *ngIf="process && legacyActions && !isCustomForm && wcFormConfig" [config]="wcFormConfig" (completed)="handleLegacyProcessComplete($event)"></tcla-live-apps-form-wc>
+  <tcla-live-apps-form-wc #actionFormWc *ngIf="process && legacyActions && !isCustomForm && wcFormConfig" [config]="wcFormConfig" (completed)="handleLegacyProcessComplete($event)"></tcla-live-apps-form-wc>
 </div>
