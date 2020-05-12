@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {flatMap, map} from 'rxjs/operators';
 import {Location} from '@angular/common';
 import {TcSharedStateService, TcCoreCommonFunctions, SharedStateContent, SharedStateEntry, SharedStateList} from '@tibco-tcstk/tc-core-lib';
-import {FormConfig, ProcessFormConfig} from '../models/tc-liveapps-config';
+import {FormConfig, FormRef, ProcessFormConfig} from '../models/tc-liveapps-config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,21 @@ import {FormConfig, ProcessFormConfig} from '../models/tc-liveapps-config';
 export class TcFormConfigService {
 
   constructor(private location: Location, private sharedStateService: TcSharedStateService) {
+  }
+
+  static parseFormTag(formTag: FormRef): string {
+    return formTag.applicationName + '.' + formTag.applicationInternalName + '.' + formTag.processType + '.' + formTag.processName;
+  }
+
+  static buildFormTag(applicationName: string, applicationInternalName: string, processType: string, processName: string): FormRef {
+    return new FormRef().deserialize(
+      {
+        applicationName,
+        applicationInternalName,
+        processType,
+        processName
+      }
+    );
   }
 
   static getProcessFormConfig(formTag: string, formConfig: FormConfig): ProcessFormConfig {
@@ -33,8 +48,9 @@ export class TcFormConfigService {
     return formRefs;
   }
 
-  public static setCustomFormTag(formTag: string, formConfig: FormConfig): FormConfig {
+  public static setCustomFormTag(formRef: FormRef, formConfig: FormConfig): FormConfig {
     // set processFormConfigs externalForm to true or add a new one
+    const formTag: string = TcFormConfigService.parseFormTag(formRef);
     let found = false;
     const foundConfigs = formConfig.processFormConfigs.forEach((processFormConfig: ProcessFormConfig) => {
       if (processFormConfig.formTag === formTag) {
@@ -49,10 +65,35 @@ export class TcFormConfigService {
           processId: 'custom',
           processType: 'custom',
           layout: undefined,
-          data: undefined
+          data: undefined,
+          externalForm: true
         }
       )
       );
+    }
+    return formConfig;
+  }
+
+  public static unsetCustomFormTag(formTag: string, formConfig: FormConfig): FormConfig {
+    // set processFormConfigs externalForm to false
+    // removes it if type is custom
+    const toRemove: ProcessFormConfig[] = [];
+    formConfig.processFormConfigs.forEach((processFormConfig: ProcessFormConfig) => {
+        if (processFormConfig.formTag === formTag) {
+          if (processFormConfig.processType === 'custom' && processFormConfig.processId === 'custom') {
+            toRemove.push(processFormConfig);
+          } else {
+            processFormConfig.externalForm = false;
+          }
+        }
+      });
+    // return without the ones we want to delete
+    if (toRemove.length > 0) {
+      formConfig.processFormConfigs = formConfig.processFormConfigs.filter((config: ProcessFormConfig) => {
+        return !toRemove.find((candidate: ProcessFormConfig) => {
+          return candidate.formTag === config.formTag;
+        });
+      });
     }
     return formConfig;
   }

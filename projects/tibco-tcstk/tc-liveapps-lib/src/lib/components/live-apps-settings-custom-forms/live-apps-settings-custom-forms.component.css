@@ -35,3 +35,32 @@
   line-height: 1.5;
   letter-spacing: 0.3px;
 }
+
+.new-ref {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.new-ref div {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add-ref-button {
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.existing-ref {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.existing-ref mat-icon {
+  height: 15px;
+  width: 15px;
+  margin-left: 5px;
+}

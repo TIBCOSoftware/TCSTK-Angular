@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormConfig, LiveAppsConfig} from '../../models/tc-liveapps-config';
+import {FormConfig, FormRef, LiveAppsConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
 import {ActivatedRoute} from '@angular/router';
-import {GeneralConfig, Claim, Sandbox} from '@tibco-tcstk/tc-core-lib';
+import {GeneralConfig, Claim, Sandbox, TibcoCloudNewElementComponent, RoleAttribute} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import { MatSnackBar } from '@angular/material';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
@@ -25,7 +25,7 @@ export class LiveAppsSettingsCustomFormsComponent extends LiveAppsComponent impl
   public generalConfig: GeneralConfig;
   public formConfig: FormConfig;
   public claims: Claim;
-  public formTags: string[];
+  public newRef: FormRef = new FormRef();
 
   constructor(protected route: ActivatedRoute, protected formConfigService: TcFormConfigService, protected snackBar: MatSnackBar) {
     super();
@@ -40,9 +40,17 @@ export class LiveAppsSettingsCustomFormsComponent extends LiveAppsComponent impl
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
     this.liveAppsConfig = this.route.snapshot.data.laConfigHolder.liveAppsConfig;
     this.formConfig = this.route.snapshot.data.formConfig;
-    this.formTags = TcFormConfigService.getCustomFormTags(this.formConfig);
     this.claims = this.route.snapshot.data.claims;
     this.sandboxId = Number(this.claims.primaryProductionSandbox.id).valueOf();
+  }
+
+  public addRefFunction = (): void => {
+    this.formConfig = TcFormConfigService.setCustomFormTag(this.newRef, this.formConfig);
+    this.newRef = new FormRef();
+  }
+
+  deleteRefFunction = (config: ProcessFormConfig): void => {
+    this.formConfig = TcFormConfigService.unsetCustomFormTag(config.formTag, this.formConfig);
   }
 
   public runSaveFunction = (): void => {
@@ -59,4 +67,5 @@ export class LiveAppsSettingsCustomFormsComponent extends LiveAppsComponent impl
       }
     );
   }
+
 }

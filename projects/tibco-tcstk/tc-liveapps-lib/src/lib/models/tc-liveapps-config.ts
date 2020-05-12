@@ -47,3 +47,14 @@ export class LiveAppsConfigHolder implements Deserializable {
     return this;
   }
 }
+
+export class FormRef implements Deserializable {
+  applicationName: string;
+  applicationInternalName: string;
+  processType: string;
+  processName: string;
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
+}
