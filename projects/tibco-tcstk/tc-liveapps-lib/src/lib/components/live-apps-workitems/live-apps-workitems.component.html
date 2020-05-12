@@ -9,7 +9,7 @@
   </div>
   <div *ngIf="workitems.length > 0"class="tcs-case-recent-flow-list" fxLayout="column" fxLayout="row wrap">
     <div class="tcs-case-recent-item-box" *ngFor="let workitem of workitems" [fxFlex]="cardWidthPct">
-      <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="workitem.header.itemContext.caseRef" [description]="workitem.header.description" [workitemId]="workitem.id" (clickCase)="clickWorkitemAction($event)" (deleted)="handleDeleted($event, workitem.id)"></tcla-live-apps-case-summary>
+      <tcla-live-apps-case-summary [uiAppId]="uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="displayType" [sandboxId]="sandboxId" [caseRef]="workitem.header.itemContext.caseRef" [description]="workitem.header.description" [workitemId]="workitem.id" [workitemName]="workitem.header.itemContext.activityName" (clickCase)="clickWorkitemAction($event)" (deleted)="handleDeleted($event, workitem.id)"></tcla-live-apps-case-summary>
       <div class="tcs-case-recent-line"></div>
     </div>
   </div>

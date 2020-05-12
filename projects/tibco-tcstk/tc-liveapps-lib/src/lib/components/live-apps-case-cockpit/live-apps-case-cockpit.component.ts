@@ -94,6 +94,11 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
   @Input() workitemId: number;
 
   /**
+   * The workitem Name
+   */
+  @Input() workitemName: number;
+
+  /**
    * The ID of the logged user
    */
   @Input() userId: string;
@@ -266,7 +271,7 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
   }
 
   public handleClickWorkitem = (caseroute: CaseRoute) => {
-    console.log(caseroute.workitemId);
+    console.log(caseroute.workitemId, caseroute.workitemName);
     // remove any existing WI
     const exWiTabIdx = this.formTabs.findIndex(tab => {
       return tab.type === 'wiTab' && tab.workitemId === tab.workitemId;
@@ -274,7 +279,7 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
     if (exWiTabIdx && exWiTabIdx !== -1) {
       this.formTabs.splice(exWiTabIdx, 1);
     }
-    this.addWiFormTab(caseroute.workitemId);
+    this.addWiFormTab(caseroute.workitemId, caseroute.workitemName);
   }
 
   public refresh() {
@@ -362,12 +367,13 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
     }
   }
 
-  public addWiFormTab = (wiId) => {
+  public addWiFormTab = (wiId, wiName) => {
       this.formTabs.push(
         new FormTab().deserialize({
           type: 'wiTab',
-          title: 'WorkItem: ' + wiId,
-          workitemId: wiId
+          title: 'WorkItem: ' + wiName,
+          workitemId: wiId,
+          workitemName: wiName
         }));
       this.selected.setValue(this.dataTabGroups['_tabs'].length);
   }
@@ -441,8 +447,8 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
     this.matTabGroup._tabs.reset([...this.inclusiveTabs.toArray(), ...this.tabsFromNgContent.toArray()]);
     // this.matTabGroup.afterViewInit();
 
-    if (this.workitemId) {
-      this.addWiFormTab(this.workitemId);
+    if (this.workitemId && this.workitemName) {
+      this.addWiFormTab(this.workitemId, this.workitemName);
     }
   }
 }

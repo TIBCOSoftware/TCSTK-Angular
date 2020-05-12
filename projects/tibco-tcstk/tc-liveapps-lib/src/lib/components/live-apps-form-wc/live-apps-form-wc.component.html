@@ -40,6 +40,7 @@
                          (formSubmit)="handleFormEvent($event)">
 </tib-la-casecreator-form>
 <div [id]="config.formDivId"></div>
+<!--div>{{config | json}}</div-->
 <tcla-custom-form-library #customFormComponent *ngIf="config.useCustomForm" [config]="config"
                           (formCancel)="cancel()"
                           (formSubmit)="submit($event)"

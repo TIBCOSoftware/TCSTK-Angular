@@ -5,6 +5,7 @@ export class FormTab extends DeserializableClass implements Deserializable {
   type: string;
   title: string;
   workitemId: number;
+  workitemName: string;
   action: LaProcessSelection;
 }
 
@@ -25,6 +26,7 @@ export class CaseRoute {
   public appId: string;
   public typeId: string;
   public workitemId: number;
+  public workitemName: string;
   deserialize(input: any): this {
     Object.assign(this, input);
     return this;

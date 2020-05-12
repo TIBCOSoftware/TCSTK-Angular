@@ -26,6 +26,7 @@ export class CaseComponent implements OnInit {
   public access: RouteAccessControlConfigurationElement;
   public customFormDefs: CustomFormDefs;
   public workitemId: number;
+  public workitemName: string;
   public formConfig: FormConfig;
 
   public layout: any[] = undefined;
@@ -67,6 +68,7 @@ export class CaseComponent implements OnInit {
     this.appId = this.route.snapshot.params.appId;
     this.typeId = this.route.snapshot.params.typeId;
     this.workitemId = this.route.snapshot.params['workitemId'];
+    this.workitemName = this.route.snapshot.params['workitemName'];
   }
 
 }

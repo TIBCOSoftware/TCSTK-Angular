@@ -19,6 +19,7 @@ export class LiveAppsFormConfig implements Deserializable {
   activityName: string;
   caseRef?: string;
   noData?: string;
+  formRef: string;
   deserialize(input: any) {
     Object.assign(this, input);
     return this;
