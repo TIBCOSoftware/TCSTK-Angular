@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {LiveAppsFormConfig} from '../../models/tc-liveapps-form';
 
 /**
@@ -31,6 +31,8 @@ export class LiveAppsFormWcComponent {
    */
   @Output() completed: EventEmitter<any> = new EventEmitter<any>();
 
+  @ViewChild('customFormComponent', { static: false }) customFormComponent: ElementRef<any>;
+
   private formApi: any;
 
   constructor() { }
@@ -55,16 +57,44 @@ export class LiveAppsFormWcComponent {
           if (event.detail.data) {
             this.data.emit(event.detail.data);
           }
+          if (this.config.useCustomForm && this.customFormComponent) {
+            // @ts-ignore
+            if (this.customFormComponent.formLoad) {
+              // @ts-ignore
+              this.customFormComponent.formLoad(event);
+            }
+          }
           break;
         case 'formSubmit':
+          if (this.config.useCustomForm && this.customFormComponent) {
+            // @ts-ignore
+            if (this.customFormComponent.formSubmit) {
+              // @ts-ignore
+              this.customFormComponent.formSubmit(event);
+            }
+          }
           if (event.detail.completed) {
             this.completed.emit(event);
           }
           break;
         case 'formCancel':
+          if (this.config.useCustomForm && this.customFormComponent) {
+            // @ts-ignore
+            if (this.customFormComponent.formCancel) {
+              // @ts-ignore
+              this.customFormComponent.formSubmit(event);
+            }
+          }
           this.completed.emit(event);
           break;
         case 'formClose':
+          if (this.config.useCustomForm && this.customFormComponent) {
+            // @ts-ignore
+            if (this.customFormComponent.formClose) {
+              // @ts-ignore
+              this.customFormComponent.formClose(event);
+            }
+          }
           this.completed.emit(event);
           break;
         default:
