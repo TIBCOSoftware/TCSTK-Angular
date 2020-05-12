@@ -6,11 +6,14 @@
         <div class="tcs-form-config-header-text">Form Preview</div>
       </div>
     </div>
-    <div class="tcs-form-config-content">
+    <div class="tcs-form-config-content" *ngIf="!selectedProcessFormConfig || !selectedProcessFormConfig?.externalForm; else customFormWarning">
       <tcfrm-rendered-form *ngIf="selectedProcess" [schema]="schema" [layout]="initialLayout" [data]="data" [options]="options"
                            [formsFramework]="formsFramework" (formSubmit)="saveSampleData($event)"
                            (renderedLayout)="handleRenderedLayout($event)"></tcfrm-rendered-form>
     </div>
+    <ng-template #customFormWarning>
+      <div class="tcs-form-config-content">This form is configured as a custom form in the custom form registry</div>
+    </ng-template>
   </div>
   <div fxFlex fxLayout="column">
     <div fxFlex class="tcs-form-config-pane" fxLayout="column">
@@ -30,7 +33,7 @@
         </div>
 
         <mat-accordion>
-          <mat-expansion-panel [disabled]="!selectedProcess">
+          <mat-expansion-panel [disabled]="!selectedProcess || selectedProcessFormConfig?.externalForm">
             <mat-expansion-panel-header>
               <mat-panel-title>Schema</mat-panel-title>
             </mat-expansion-panel-header>
@@ -48,7 +51,7 @@
               (loading form schema...)
             </div>
           </mat-expansion-panel>
-          <mat-expansion-panel [disabled]="!selectedProcess">
+          <mat-expansion-panel [disabled]="!selectedProcess || selectedProcessFormConfig?.externalForm">
             <mat-expansion-panel-header>
               <mat-panel-title>Layout</mat-panel-title>
             </mat-expansion-panel-header>
@@ -85,7 +88,7 @@
                         matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
             </div>
           </mat-expansion-panel>
-          <mat-expansion-panel #dataPanel [disabled]="!selectedProcess">
+          <mat-expansion-panel #dataPanel [disabled]="!selectedProcess || selectedProcessFormConfig?.externalForm">
             <mat-expansion-panel-header>
               <mat-panel-title>Data</mat-panel-title>
             </mat-expansion-panel-header>

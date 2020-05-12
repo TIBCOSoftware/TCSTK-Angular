@@ -52,6 +52,9 @@ export class TcFormConfigService {
     // set processFormConfigs externalForm to true or add a new one
     const formTag: string = TcFormConfigService.parseFormTag(formRef);
     let found = false;
+    if (!formConfig.processFormConfigs) {
+      formConfig.processFormConfigs = [];
+    }
     const foundConfigs = formConfig.processFormConfigs.forEach((processFormConfig: ProcessFormConfig) => {
       if (processFormConfig.formTag === formTag) {
         processFormConfig.externalForm = true;

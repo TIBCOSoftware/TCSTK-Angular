@@ -45,7 +45,7 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
     showGutter: true,
     autoScrollEditorIntoView: true
   };
-
+  selectedProcessFormConfig: ProcessFormConfig;
   selectedApp: CaseType;
   selectedProcess: Process;
 
@@ -135,6 +135,7 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
   }
 
   handleProcessSelection = (process: Process) => {
+    this.selectedProcessFormConfig = undefined;
     this.selectedProcess = undefined;
     this.layout = undefined;
     this.layoutString = undefined;
@@ -142,6 +143,7 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
     this.formDataJSON = undefined;
     this.schema = undefined;
     const processFormConfig = this.getProcessFormConfig(process.formTag);
+    this.selectedProcessFormConfig = processFormConfig;
     if (processFormConfig && processFormConfig.layout) {
 
       this.layout = this.parseLayoutString(processFormConfig.layout);
