@@ -160,6 +160,7 @@ export class CaseInfoList implements Deserializable {
     this.caseinfos.forEach(function(caseinfo) {
       if (caseinfo.summary) { caseinfo.summaryObj = JSON.parse(caseinfo.summary); }
       if (caseinfo.casedata) { caseinfo.casedataObj = JSON.parse(caseinfo.casedata); }
+      if (caseinfo.untaggedCasedata) { caseinfo.untaggedCasedataObj = JSON.parse(caseinfo.untaggedCasedata); }
     })
     return this;
   }
@@ -482,6 +483,7 @@ export class LoginContext implements Deserializable {
 
 export class CaseSearchResults implements Deserializable {
   caserefs: string[];
+  caseinfos: CaseInfo[];
   searchString: string;
   deserialize(input: any) {
     Object.assign(this, input);

@@ -195,12 +195,12 @@ export class LiveAppsService {
         map(caseinfo => new CaseInfo().deserialize(caseinfo)));
   }
 
-  public caseSearch(terms: Observable<string>, sandboxId: number, appId: string, typeId: string, skip: number, top: number, stateId: number): Observable<CaseSearchResults> {
+  public caseSearch(terms: Observable<string>, sandboxId: number, appId: string, typeId: string, skip: number, top: number, stateId: number, select?: string): Observable<CaseSearchResults> {
     return terms
       .pipe(
         debounceTime(500),
         distinctUntilChanged(),
-        switchMap(term => this.caseSearchEntries(term, sandboxId, appId, typeId, false, skip, top, stateId))
+        switchMap(term => this.caseSearchEntries(term, sandboxId, appId, typeId, false, skip, top, stateId, select))
       );
   }
 
@@ -229,7 +229,10 @@ export class LiveAppsService {
             caseinfolist.caseinfos.forEach(caseinfo => {
               caserefs.push(caseinfo.caseReference);
             })
-            return new CaseSearchResults().deserialize({ caserefs: caserefs, searchString: term });
+            return new CaseSearchResults().deserialize({
+              caserefs: caserefs,
+              caseinfos: caseinfolist.caseinfos,
+              searchString: term });
           }
         )
       );
@@ -819,8 +822,8 @@ export class LiveAppsService {
 
   public getGroupUsers(sandboxId: number, groupId: string, skip: number, top: number, filter: string, useCache: boolean): Observable<UsersInfo>{
     let url = '/organisation/v1/groups/' + groupId + '/users' + '?$sandbox=' + sandboxId + '&$top=' + top + '&$skip=' + skip
-    if (filter != '') {
-      url = url + + '&$filter=' + filter
+    if (filter !== '') {
+      url = url + + '&$filter=' + filter;
     }
 
     let headers;
