@@ -49,7 +49,7 @@ export class LiveAppsCreatorDialogComponent {
       this.dialogRef.close();
     }
     if (this.autoClose) {
-      this.dialogRef.close();
+      this.dialogRef.close(true);
     }
   }
 
