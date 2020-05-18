@@ -64,7 +64,7 @@ export class LiveAppsWorkitemComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.appId && this.formConfig && this.workitemId && this.sandboxId) {
+    if (this.appId && this.formConfig && this.workitemId && this.sandboxId && this.workitemName) {
       this.caseType = this.appDefinitionService.getCaseTypeByAppId(this.appId);
       this.formRef = TcFormConfigService.buildFormTag(this.caseType.applicationName, this.caseType.applicationInternalName, 'workitem', this.workitemName);
       this.processFormConfig = TcFormConfigService.getProcessFormConfig(TcFormConfigService.parseFormTag(this.formRef), this.formConfig);
