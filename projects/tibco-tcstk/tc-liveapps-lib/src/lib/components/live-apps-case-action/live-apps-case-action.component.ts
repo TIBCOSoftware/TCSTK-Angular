@@ -130,7 +130,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
       applicationName: process.action.applicationName,
       activityId: process.action.activityId,
       activityName: process.action.activityName,
-      caseRef: caseRef
+      caseRef: caseRef,
+      formRef: process.ref
     });
   }
 

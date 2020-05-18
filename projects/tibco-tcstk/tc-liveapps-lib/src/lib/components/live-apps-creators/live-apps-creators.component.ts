@@ -97,7 +97,8 @@ export class LiveAppsCreatorsComponent implements OnInit {
         applicationId: process.creator.applicationId,
         applicationName: process.creator.applicationName,
         activityId: process.creator.activityId,
-        activityName: process.creator.activityName
+        activityName: process.creator.activityName,
+        formRef: process.ref
       });
     }
   }
