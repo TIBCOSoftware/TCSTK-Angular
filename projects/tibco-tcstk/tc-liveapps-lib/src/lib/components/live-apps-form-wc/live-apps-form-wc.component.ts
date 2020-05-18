@@ -59,18 +59,18 @@ export class LiveAppsFormWcComponent {
           }
           if (this.config.useCustomForm && this.customFormComponent) {
             // @ts-ignore
-            if (this.customFormComponent.formLoad) {
+            if (this.customFormComponent.notifyLoad) {
               // @ts-ignore
-              this.customFormComponent.formLoad(event);
+              this.customFormComponent.notifyLoad(event);
             }
           }
           break;
         case 'formSubmit':
           if (this.config.useCustomForm && this.customFormComponent) {
             // @ts-ignore
-            if (this.customFormComponent.formSubmit) {
+            if (this.customFormComponent.notifySubmit) {
               // @ts-ignore
-              this.customFormComponent.formSubmit(event);
+              this.customFormComponent.notifySubmit(event);
             }
           }
           if (event.detail.completed) {
@@ -80,9 +80,9 @@ export class LiveAppsFormWcComponent {
         case 'formCancel':
           if (this.config.useCustomForm && this.customFormComponent) {
             // @ts-ignore
-            if (this.customFormComponent.formCancel) {
+            if (this.customFormComponent.notifyCancel) {
               // @ts-ignore
-              this.customFormComponent.formCancel(event);
+              this.customFormComponent.notifyCancel(event);
             }
           }
           this.completed.emit(event);
@@ -90,9 +90,9 @@ export class LiveAppsFormWcComponent {
         case 'formClose':
           if (this.config.useCustomForm && this.customFormComponent) {
             // @ts-ignore
-            if (this.customFormComponent.formClose) {
+            if (this.customFormComponent.notifyClose) {
               // @ts-ignore
-              this.customFormComponent.formClose(event);
+              this.customFormComponent.notifyClose(event);
             }
           }
           this.completed.emit(event);

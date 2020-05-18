@@ -42,7 +42,7 @@
 <div [id]="config.formDivId"></div>
 <!--div>{{config | json}}</div-->
 <tcla-custom-form-library #customFormComponent *ngIf="config.useCustomForm" [config]="config"
-                          (formCancel)="cancel()"
-                          (formSubmit)="submit($event)"
-                          (formClose)="close($event)"
+                                                      (formCancel)="cancel()"
+                                                      (formSubmit)="submit($event)"
+                                                      (formClose)="close($event)"
 ></tcla-custom-form-library>
