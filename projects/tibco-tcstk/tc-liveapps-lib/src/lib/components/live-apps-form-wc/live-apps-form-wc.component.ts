@@ -82,7 +82,7 @@ export class LiveAppsFormWcComponent {
             // @ts-ignore
             if (this.customFormComponent.formCancel) {
               // @ts-ignore
-              this.customFormComponent.formSubmit(event);
+              this.customFormComponent.formCancel(event);
             }
           }
           this.completed.emit(event);
