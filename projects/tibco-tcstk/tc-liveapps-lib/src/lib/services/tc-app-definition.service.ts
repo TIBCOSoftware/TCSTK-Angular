@@ -110,10 +110,9 @@ export class TcAppDefinitionService {
           if (sandbox.type === 'Production') {
             claimVal.primaryProductionSandbox = sandbox;
           }
-          const adminGrp = claimVal.primaryProductionSandbox.groups.find(grp => grp.type === 'Administrator');
-          this.isAdminUser = adminGrp ? true : false;
-
         });
+        const adminGrp = claimVal.primaryProductionSandbox.groups.find(grp => grp.type === 'Administrator');
+        this.isAdminUser = adminGrp ? true : false;
         this.loadFormResources();
         return claimVal;
       })
