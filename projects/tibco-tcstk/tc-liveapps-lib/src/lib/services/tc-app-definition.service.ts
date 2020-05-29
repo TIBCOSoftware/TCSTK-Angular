@@ -18,6 +18,7 @@ export class TcAppDefinitionService {
   // claims
   private _claims = new ReplaySubject<Claim>(1);
   private currentClaim: Claim = undefined;
+  private isAdminUser: boolean;
   readonly _claims$ = this._claims.asObservable();
 
   // types
@@ -109,6 +110,9 @@ export class TcAppDefinitionService {
           if (sandbox.type === 'Production') {
             claimVal.primaryProductionSandbox = sandbox;
           }
+          const adminGrp = claimVal.primaryProductionSandbox.groups.find(grp => grp.type === 'Administrator');
+          this.isAdminUser = adminGrp ? true : false;
+
         });
         this.loadFormResources();
         return claimVal;
@@ -143,6 +147,10 @@ export class TcAppDefinitionService {
   // claims
   public get claims$() {
     return this._claims.asObservable();
+  }
+
+  public get isAdmin() {
+    return this.isAdminUser;
   }
 
   public get claims() {
