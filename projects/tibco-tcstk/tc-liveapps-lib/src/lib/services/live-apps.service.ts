@@ -210,6 +210,9 @@ export class LiveAppsService {
       if (stateId) {
         url = url + ' and stateId eq ' + stateId;
       }
+      if (hidePurgeable) {
+        url = url + ' and purgeable eq FALSE';
+      }
       url = url + '&$skip=' + skip + '&$top=' + top;
       if (select) {
         url = url + '&$select=' + select;
@@ -218,9 +221,6 @@ export class LiveAppsService {
       }
       if (term || (!term && !force)) {
         url = url + '&$search=' + term;
-      }
-      if (hidePurgeable) {
-        url = url + '&purgeable eq FALSE';
       }
 
     return this.http.get(url)
