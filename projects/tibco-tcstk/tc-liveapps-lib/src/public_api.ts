@@ -78,6 +78,10 @@ export * from './lib/models/tc-live-apps-reporting';
 export * from './lib/models/tc-live-apps-landing-page-config';
 export * from './lib/models/tc-liveapps-config';
 export * from './lib/models/tc-liveapps-form';
+export * from './lib/models/tc-case-states';
+export * from './lib/models/tc-case-audit';
+export * from './lib/models/tc-case-processes';
+export * from './lib/models/tc-case-card-config';
 
 // service
 export * from './lib/services/live-apps.service';
