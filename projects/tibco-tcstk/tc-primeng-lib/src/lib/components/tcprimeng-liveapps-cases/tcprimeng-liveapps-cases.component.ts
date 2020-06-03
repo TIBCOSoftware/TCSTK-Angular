@@ -113,4 +113,13 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
     return get(o, s);
   }
 
+  filtered(ev) {
+    // console.log('Filter Event: ', ev);
+    //TODO: Highlighting removed for now, do we want to use this ?
+    if (ev.length > 2) {
+      // this.highlight(ev);
+    }
+  }
+
+
 }
