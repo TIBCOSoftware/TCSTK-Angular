@@ -62,13 +62,13 @@
         "dist/tibco-tcstk/tc-ag-grid/*"
       ],
       "@tibco-tcstk/tc-scribe-lib": [
-        "dist/tibco-tcstk/tc-scribe-lib/src/public_api"
+        "projects/tibco-tcstk/tc-scribe-lib/src/public_api"
       ],
       "@tibco-tcstk/tc-scribe-lib/*": [
         "dist/tibco-tcstk/tc-scribe-lib/*"
       ],
       "@tibco-tcstk/tc-primeng-lib": [
-        "dist/tibco-tcstk/tc-primeng-lib/src/public_api"
+        "projects/tibco-tcstk/tc-primeng-lib/src/public_api"
       ],
       "@tibco-tcstk/tc-primeng-lib/*": [
         "dist/tibco-tcstk/tc-primeng-lib/*"
