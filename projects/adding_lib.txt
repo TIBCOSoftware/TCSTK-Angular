@@ -8,7 +8,8 @@ note: prefix is the name of the tag in components like tcla, tcscr, tcsf etc
 
 3: Edit projects/tibco-tcstk/tc-scribe-lib/ng-package.json and update public-api.ts to public_api.ts
 
-4: Build the new lib ng build @tibco-tcstk/tc-scribe-lib
+4: Build the new lib:
+ ng build @tibco-tcstk/tc-scribe-lib
 
 4: Add your new lib to app.module.ts/app.module.dev/app.module.build under imports (TcScribeLibModule)
 
