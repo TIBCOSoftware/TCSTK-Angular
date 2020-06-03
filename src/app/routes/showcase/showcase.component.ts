@@ -15,6 +15,7 @@ import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} 
 import {Observable, concat, throwError, empty} from 'rxjs';
 import {error} from 'ng-packagr/lib/util/log';
 import {LiveAppsFormWcComponent} from '@tibco-tcstk/tc-liveapps-lib';
+import { TcPrimeNGHelperService } from 'projects/tibco-tcstk/tc-primeng-lib/src/lib/services/tc-primeng-helper.service';
 // import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';
 
 @Component({
@@ -45,13 +46,13 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public legacyCreators;
   public formConfig: FormConfig;
   public caseRefs: string[] = [];
-  /*public columnDefs = [
+  public columnDefs = [
     {headerName: 'Risk Case', field: 'untaggedCasedataObj.RiskCaseId_v1', sortable: true, filter: true, resizable: true, checkboxSelection: true },
     {headerName: 'State', field: 'untaggedCasedataObj.state', sortable: true, filter: true, resizable: true },
     {headerName: 'Channel', field: 'untaggedCasedataObj.Channel_v1', sortable: true, filter: true, resizable: true },
     {headerName: 'Assignee', field: 'untaggedCasedataObj.Assignee_v1.name', sortable: true, filter: true, resizable: true },
-    {headerName: 'Created', field: 'metadata.creationTimestamp', valueFormatter: TcGridHelperService.dateFormatter, sortable: true, filter: true, resizable: true }
-  ];*/
+    {headerName: 'Created', field: 'metadata.creationTimestamp', valueFormatter: TcPrimeNGHelperService.dateFormatter, sortable: true, filter: true, resizable: true }
+  ];
 
 
   public creatorConfig = new LiveAppsFormConfig().deserialize({
@@ -225,9 +226,9 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.selectedAppConfig = selectedApp;
   }
 
-  /* public exportCases = () => {
-    this.gridComponent.exportToCsv({ onlySelected: true });
-  }*/
+  public exportCases = () => {
+    // this.gridComponent.exportToCsv({ onlySelected: true });
+  }
 
   ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;

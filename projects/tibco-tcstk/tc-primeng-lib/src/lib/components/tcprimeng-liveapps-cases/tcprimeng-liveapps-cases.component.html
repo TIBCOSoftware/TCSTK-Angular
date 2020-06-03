@@ -1,1 +1,34 @@
-<p>tcprimeng-liveapps-cases works!</p>
+
+<br>
+<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
+        {{col.headerName}}
+        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+          ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+      </th>
+      <th style="width: 3em" class="top-row"></th>
+    </tr>
+    <tr>
+      <th *ngFor="let col of columns" class="filter-row">
+        <input pInputText
+          type="text" (input)="dt.filter($event.target.value, col.field, 'contains');filtered($event.target.value);"
+          class="ui-column-filter">
+      </th>
+      <th class="filter-row"></th>
+    </tr>
+    <!-- <tr>
+      <th *ngFor="let col of columns">
+        {{col.headerName}}
+      </th>
+    </tr> -->
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ getObjectValue(rowData, col.field) }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

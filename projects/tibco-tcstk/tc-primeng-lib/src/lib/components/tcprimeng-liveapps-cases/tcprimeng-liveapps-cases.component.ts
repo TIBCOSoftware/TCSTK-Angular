@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import { TcPrimeNGHelperService } from '../../services/tc-primeng-helper.service';
 import { tap } from 'rxjs/operators';
+import { get } from 'lodash';
 
 @Component({
   selector: 'tcpmg-tcprimeng-liveapps-cases',
   templateUrl: './tcprimeng-liveapps-cases.component.html',
-  styleUrls: ['./tcprimeng-liveapps-cases.component.css']
+  styleUrls: ['./tcprimeng-liveapps-cases.component.scss']
 })
 export class TcprimengLiveappsCasesComponent implements OnChanges {
 
@@ -107,4 +108,9 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
       }
     }
   }
+
+  public getObjectValue(o, s: string) {
+    return get(o, s);
+  }
+
 }
