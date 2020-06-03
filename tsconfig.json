@@ -60,6 +60,12 @@
       ],
       "@tibco-tcstk/tc-ag-grid/*": [
         "dist/tibco-tcstk/tc-ag-grid/*"
+      ],
+      "@tibco-tcstk/tc-scribe-lib": [
+        "dist/tibco-tcstk/tc-scribe-lib"
+      ],
+      "@tibco-tcstk/tc-scribe-lib/*": [
+        "dist/tibco-tcstk/tc-scribe-lib/src/public_api"
       ]
     }
   }

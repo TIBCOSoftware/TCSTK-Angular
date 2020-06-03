@@ -10,6 +10,8 @@ import {
   ClaimsResolver,
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS, HOME_ROUTE } from './starter-app-route-config/starter-app-route';
+import {ScribeAuthResolver} from '@tibco-tcstk/tc-scribe-lib';
+import {SpotfireAuthResolver} from '@tibco-tcstk/tc-spotfire-lib';
 
 export const CORE_ROUTES = [
       {
@@ -32,7 +34,9 @@ export const CORE_ROUTES = [
         canActivate: [AuthGuard],
         resolve: {
           claims: ClaimsResolver,
-          config: GeneralConfigResolver
+          config: GeneralConfigResolver,
+          scribeAuth: ScribeAuthResolver,
+          sfAuth: SpotfireAuthResolver
         },
         children: STARTER_APP_ROUTES
       },
@@ -48,7 +52,9 @@ export const CORE_PROVIDERS = [
   [
   LoginPrefillResolver,
   ClaimsResolver,
-  GeneralConfigResolver
+  GeneralConfigResolver,
+  ScribeAuthResolver,
+  SpotfireAuthResolver
   ],
   STARTER_APP_PROVIDERS
 ];
