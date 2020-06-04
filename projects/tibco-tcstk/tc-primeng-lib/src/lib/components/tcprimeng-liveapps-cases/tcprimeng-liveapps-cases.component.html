@@ -6,7 +6,7 @@
         <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
           ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
       </th>
-      <th style="width: 3em" class="top-row"></th>
+      <th *ngIf="showOpenButton" style="width: 3em" class="top-row"></th>
     </tr>
     <tr>
       <th *ngFor="let col of columns" class="filter-row">
@@ -22,6 +22,10 @@
       <td *ngFor="let col of columns">
         {{ getObjectValue(rowData, col.field) }}
       </td>
+      <td *ngIf="showOpenButton">
+        <button pButton icon="pi pi-search" (click)="handleClick(rowData)"></button>
+      </td>
     </tr>
   </ng-template>
+  <ng-content></ng-content>
 </p-table>

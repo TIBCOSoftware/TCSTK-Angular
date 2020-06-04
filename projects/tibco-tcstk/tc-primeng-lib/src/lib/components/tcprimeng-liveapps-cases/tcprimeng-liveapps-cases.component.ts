@@ -26,6 +26,11 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   @Input() columnDefs: any[];
 
   /**
+   * Display the button on the right side
+   */
+  @Input() showOpenButton: boolean;
+
+  /**
    * Array of selected case references
    */
   @Output() selection: EventEmitter<string[]> = new EventEmitter<string[]>();
@@ -47,28 +52,6 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   constructor(protected gridHelperService: TcPrimeNGHelperService) {
   }
 
-  // onFirstDataRendered(params) {
-  //   if (this.gridApi) {
-  //     this.gridApi.sizeColumnsToFit();
-  //   }
-  // }
-
-  // onGridReady(params) {
-  //   this.gridApi = params.api;
-  //   this.gridApi.sizeColumnsToFit();
-  //   window.addEventListener('resize', function () {
-  //     setTimeout(function () {
-  //       params.api.sizeColumnsToFit();
-  //     });
-  //   });
-  // }
-
-  // public sizeColumnsToFit() {
-  //   if (this.gridApi) {
-  //     this.gridApi.sizeColumnsToFit();
-  //   }
-  // }
-
   public handleSelection(data: any) {
     const selectedCaseRefs: string[] = [];
     data.api.getSelectedRows().forEach((row: any) => {
@@ -78,15 +61,11 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   }
 
   public handleClick(clicked) {
-    this.click.emit(clicked.data.caseReference);
+    this.click.emit(clicked.caseReference);
   }
 
   public handleDoubleClick(clicked) {
-    this.doubleClick.emit(clicked.data.caseReference);
-  }
-
-  public exportToCsv(options) {
-    this.gridApi.exportDataAsCsv(options);
+    this.doubleClick.emit(clicked.caseReference);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
