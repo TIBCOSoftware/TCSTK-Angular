@@ -1,6 +1,4 @@
-
-<br>
-<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css">
+<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css" [autoLayout]="true">
   <ng-template pTemplate="header" let-columns>
     <tr>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
@@ -18,11 +16,6 @@
       </th>
       <th class="filter-row"></th>
     </tr>
-    <!-- <tr>
-      <th *ngFor="let col of columns">
-        {{col.headerName}}
-      </th>
-    </tr> -->
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-columns="columns">
     <tr>
