@@ -33,22 +33,16 @@ export class TcPrimeNGHelperService {
     if (results && results.length > 0) {
       // caseRef
       columnDefs.push({
-        headerName: 'Case Reference',
-        field: 'caseReference',
-        sortable: true,
-        filter: true,
-        resizable: true
+        name: 'Case Reference',
+        field: 'caseReference'
       });
 
       // summary fields
       for (const summaryObjKey in results[0].summaryObj) {
         if (summaryObjKey) {
           const columnDef = {
-            headerName: (summaryObjKey === 'state') ? 'State' : TcPrimeNGHelperService.unCamelCase(summaryObjKey.replace('_v1', '')),
-            field: 'summaryObj.' + summaryObjKey,
-            sortable: true,
-            filter: true,
-            resizable: true
+            name: (summaryObjKey === 'state') ? 'State' : TcPrimeNGHelperService.unCamelCase(summaryObjKey.replace('_v1', '')),
+            field: 'summaryObj.' + summaryObjKey
           }
           columnDefs.push(columnDef);
         }
@@ -56,21 +50,15 @@ export class TcPrimeNGHelperService {
 
       // createdDate
       columnDefs.push({
-        headerName: 'Created',
+        name: 'Created',
         field: 'metadata.creationTimestamp',
-        sortable: true,
-        filter: true,
-        resizable: true,
         valueFormatter: TcPrimeNGHelperService.dateFormatter
       });
 
       // last changed
       columnDefs.push({
-        headerName: 'Last Modified',
+        name: 'Last Modified',
         field: 'metadata.modificationTimestamp',
-        sortable: true,
-        filter: true,
-        resizable: true,
         valueFormatter: TcPrimeNGHelperService.dateFormatter
       });
     }
