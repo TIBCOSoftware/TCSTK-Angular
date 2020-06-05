@@ -1,7 +1,7 @@
-{{ laRowData | json }}
+
 
 <!-- <p-table #dt [columns]="columnConfig" [value]="laRowData" styleClass="custom-table-css" [autoLayout]="true" dataKey="caseReference"> -->
-<p-table #mytable [value]="laRowData" styleClass="custom-table-css" [autoLayout]="true" dataKey="vin">
+<p-table [value]="laRowData">
   <ng-template pTemplate="header">
     <ng-container *ngTemplateOutlet="headerTemplate">
     </ng-container>

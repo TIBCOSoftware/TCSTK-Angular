@@ -50,31 +50,36 @@
             <button *ngIf="caseRefs" matButton (click)="exportCases()">Export</button>
 
             <div *ngIf="caseRefs.length > 0" >
-              <tcpmg-tcprimeng-liveapps-cases [sandboxId]="sandboxId" [caseRefs]="caseRefs" [showExpandButton]='true'>
-                  <ng-template pTemplate="header">
-                    <tr>
-                      <th>Vin</th>
-                      <th>Year</th>
-                      <th>Brand</th>
-                      <th>Color</th>
-                    </tr>
-                  </ng-template>
-                  <ng-template pTemplate="body" let-car>
-                    <tr>
-                      <td>{{car.vin}}</td>
-                      <td>{{car.year}}</td>
-                      <td>{{car.brand}}</td>
-                      <td>{{car.color}}</td>
-                    </tr>
-                  </ng-template>
-
-                <!-- <div class="p-col-12 p-md-9">
-                  <div class="p-grid">
-                    <div class="p-col-12">
-                      <b>Vin:</b> Outside: +++{{rowData | json }}**
-                    </div>
-                  </div>
-                </div> -->
+              <tcpmg-tcprimeng-liveapps-cases [laRowData]="[
+    {
+      brand: 'aa',
+      vin: '12345',
+      color: 'red',
+      year: 2007
+    },
+    {
+      brand: 'aa',
+      vin: '12345',
+      color: 'red',
+      year: 2007
+    }
+  ]" [sandboxId]="sandboxId" [caseRefs]="caseRefs" [showExpandButton]='true' [headerTemplate]="headerTemplate" [bodyTemplate]="bodyTemplate">
+                <ng-template pTemplate="header" #abc>
+                  <tr>
+                    <th>Vin</th>
+                    <th>Year</th>
+                    <th>Brand</th>
+                    <th>Color</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-car #def>
+                  <tr>
+                    <td>{{car.vin}}</td>
+                    <td>{{car.year}}</td>
+                    <td>{{car.brand}}</td>
+                    <td>{{car.color}}</td>
+                  </tr>
+                </ng-template>
               </tcpmg-tcprimeng-liveapps-cases>
             </div>
           </div>

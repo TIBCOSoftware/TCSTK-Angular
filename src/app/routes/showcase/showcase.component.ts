@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild, ViewChildren} from '@angular/core';
 import {Claim, GeneralConfig} from '@tibco-tcstk/tc-core-lib';
 import {
   CaseInfo, CaseSearchResults,
@@ -90,6 +90,10 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     formDivId: 'formDivWorkitem',
     id: '27631'
   });
+
+  @ViewChild('abc', {static : false}) headerTemplate: TemplateRef<any>;
+  @ViewChild('def', {static : false}) bodyTemplate: TemplateRef<any>;
+
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService, private tcEventsHelperService: TcEventsHelperService, private tcEventsService: TcEventsService) {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;

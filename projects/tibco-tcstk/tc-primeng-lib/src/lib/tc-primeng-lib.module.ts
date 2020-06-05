@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { TcprimengRecentCasesComponent } from './components/tcprimeng-recent-cases/tcprimeng-recent-cases.component';
 import { TcLiveappsLibModule } from '@tibco-tcstk/tc-liveapps-lib';
 import { TcprimengFavoriteCasesComponent } from './components/tcprimeng-favorite-cases/tcprimeng-favorite-cases.component';
@@ -25,11 +25,11 @@ import { TcprimengFavoriteCasesComponent } from './components/tcprimeng-favorite
     FlexLayoutModule,
     MatIconModule
   ],
-  exports: [
-    TcPrimengLibComponent,
-    TcprimengLiveappsCasesComponent,
-    TcprimengRecentCasesComponent,
-    TcprimengFavoriteCasesComponent
-  ]
+    exports: [
+        TcPrimengLibComponent,
+        TcprimengLiveappsCasesComponent,
+        TcprimengRecentCasesComponent,
+        TcprimengFavoriteCasesComponent
+    ]
 })
 export class TcPrimengLibModule { }

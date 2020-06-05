@@ -1,9 +1,23 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges, QueryList, TemplateRef, ContentChildren, AfterContentInit, ViewChild} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  SimpleChanges,
+  OnChanges,
+  QueryList,
+  TemplateRef,
+  ContentChildren,
+  AfterContentInit,
+  ViewChild,
+  ViewChildren, Query
+} from '@angular/core';
 import { TcPrimeNGHelperService } from '../../services/tc-primeng-helper.service';
 import { tap } from 'rxjs/operators';
 import { get } from 'lodash';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { PrimeTemplate } from 'primeng/api';
+import {PrimeTemplate} from 'primeng/api';
 
 @Component({
   selector: 'tcpmg-tcprimeng-liveapps-cases',
@@ -24,8 +38,9 @@ import { PrimeTemplate } from 'primeng/api';
   ]
 
 })
-export class TcprimengLiveappsCasesComponent implements OnChanges {
+export class TcprimengLiveappsCasesComponent implements OnChanges, AfterContentInit {
 
+  @Input() laRowData: any;
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -40,6 +55,9 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
    * Column Definition array to display grid
    */
   @Input() columnDefs: any[];
+
+  @Input() headerTemplate: TemplateRef<any>;
+  @Input() bodyTemplate: TemplateRef<any>;
 
   /**
    * Display the button on the right side
@@ -61,7 +79,10 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
    */
   @Output() doubleClick: EventEmitter<string> = new EventEmitter<string>();
 
-  public laRowData;
+  // @Input() public data: any[];
+  // @ViewChild('mytable', {static: true}) templates;
+  @ContentChildren(PrimeTemplate) templates: QueryList<any>;
+
   public gridApi;
   public columnConfig;
 
@@ -72,7 +93,7 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
     const selectedCaseRefs: string[] = [];
     data.api.getSelectedRows().forEach((row: any) => {
       selectedCaseRefs.push(row.caseReference);
-    })
+    });
     this.selection.emit(selectedCaseRefs);
   }
 
@@ -85,21 +106,6 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-
-    this.laRowData = [
-      {
-        brand: 'aa',
-        vin: '12345',
-        color: 'red',
-        year: 2007
-      },
-      {
-        brand: 'aa',
-        vin: '12345',
-        color: 'red',
-        year: 2007
-      }
-    ];
     // if (changes.caseRefs && changes.caseRefs.currentValue !== changes.caseRefs.previousValue) {
     //   this.laRowData = undefined;
     //   if (this.caseRefs && this.caseRefs.length > 0) {
@@ -125,28 +131,15 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
 
   filtered(ev) {
     // console.log('Filter Event: ', ev);
-    //TODO: Highlighting removed for now, do we want to use this ?
+    // TODO: Highlighting removed for now, do we want to use this ?
     if (ev.length > 2) {
       // this.highlight(ev);
     }
   }
 
-  // @Input() public data: any[];
-  @ViewChild('mytable', {static:false}) templates;
-  headerTemplate: TemplateRef<any>;
-  bodyTemplate: TemplateRef<any>;
-
-
-  gePrimeTemplateByType(type: string): PrimeTemplate {
-    const kk = this.templates.find(template => template.getType() === type);
-    console.log("*******", kk);
-    return this.templates.find(template => template.getType() === type);
-  }
 
   ngAfterContentInit() {
-    console.log("^^^^^", this.templates);
-    this.headerTemplate = this.gePrimeTemplateByType('header').template;
-    this.bodyTemplate = this.gePrimeTemplateByType('body').template;
+    console.log('^^^^^', this.templates);
   }
 
   // @Input() templateRef: TemplateRef<any>;
