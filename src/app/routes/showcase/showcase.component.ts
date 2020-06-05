@@ -91,8 +91,30 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     id: '27631'
   });
 
-  @ViewChild('abc', {static : false}) headerTemplate: TemplateRef<any>;
-  @ViewChild('def', {static : false}) bodyTemplate: TemplateRef<any>;
+  @ViewChild('rowexpansion', { static: false }) rowExpansionTemplate: TemplateRef<any>;
+
+  public columnDefs2: any[] = [
+    {
+      name: 'ID',
+      field: 'summaryObj.ID_1'
+    },
+    {
+      name: 'Proyecto',
+      field: 'summaryObj.Proyecto'
+    },
+    {
+      name: 'Descripción',
+      field: 'summaryObj.Descripcin'
+    },
+    {
+      name: 'Presupuesto',
+      field: 'untaggedCasedataObj.PresupuestoAprobado'
+    },
+    {
+      name: 'Usuario interno',
+      field: 'untaggedCasedataObj.UsuarioInterno.name'
+    }
+  ];
 
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService, private tcEventsHelperService: TcEventsHelperService, private tcEventsService: TcEventsService) {
