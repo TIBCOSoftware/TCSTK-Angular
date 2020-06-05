@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   Output,
   EventEmitter,
@@ -8,16 +7,13 @@ import {
   OnChanges,
   QueryList,
   TemplateRef,
-  ContentChildren,
-  AfterContentInit,
-  ViewChild,
-  ViewChildren, Query
+  ContentChildren
 } from '@angular/core';
 import { TcPrimeNGHelperService } from '../../services/tc-primeng-helper.service';
 import { tap } from 'rxjs/operators';
 import { get } from 'lodash';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import {PrimeTemplate} from 'primeng/api';
+import { PrimeTemplate } from 'primeng/api';
 
 @Component({
   selector: 'tcpmg-tcprimeng-liveapps-cases',
@@ -38,9 +34,8 @@ import {PrimeTemplate} from 'primeng/api';
   ]
 
 })
-export class TcprimengLiveappsCasesComponent implements OnChanges, AfterContentInit {
+export class TcprimengLiveappsCasesComponent implements OnChanges {
 
-  @Input() laRowData: any;
   /**
    * sandboxId - this comes from claims resolver
    */
@@ -56,8 +51,10 @@ export class TcprimengLiveappsCasesComponent implements OnChanges, AfterContentI
    */
   @Input() columnDefs: any[];
 
-  @Input() headerTemplate: TemplateRef<any>;
-  @Input() bodyTemplate: TemplateRef<any>;
+  /**
+   * Template for the expansion row
+   */
+  @Input() rowExpansionTemplate: TemplateRef<any>;
 
   /**
    * Display the button on the right side
@@ -79,50 +76,48 @@ export class TcprimengLiveappsCasesComponent implements OnChanges, AfterContentI
    */
   @Output() doubleClick: EventEmitter<string> = new EventEmitter<string>();
 
-  // @Input() public data: any[];
-  // @ViewChild('mytable', {static: true}) templates;
   @ContentChildren(PrimeTemplate) templates: QueryList<any>;
 
-  public gridApi;
+  public laRowData;
   public columnConfig;
 
   constructor(protected gridHelperService: TcPrimeNGHelperService) {
   }
 
-  public handleSelection(data: any) {
-    const selectedCaseRefs: string[] = [];
-    data.api.getSelectedRows().forEach((row: any) => {
-      selectedCaseRefs.push(row.caseReference);
-    });
-    this.selection.emit(selectedCaseRefs);
-  }
+  // public handleSelection(data: any) {
+  //   const selectedCaseRefs: string[] = [];
+  //   data.api.getSelectedRows().forEach((row: any) => {
+  //     selectedCaseRefs.push(row.caseReference);
+  //   });
+  //   this.selection.emit(selectedCaseRefs);
+  // }
 
-  public handleClick(clicked) {
-    this.click.emit(clicked.caseReference);
-  }
+  // public handleClick(clicked) {
+  //   this.click.emit(clicked.caseReference);
+  // }
 
-  public handleDoubleClick(clicked) {
-    this.doubleClick.emit(clicked.caseReference);
-  }
+  // public handleDoubleClick(clicked) {
+  //   this.doubleClick.emit(clicked.caseReference);
+  // }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // if (changes.caseRefs && changes.caseRefs.currentValue !== changes.caseRefs.previousValue) {
-    //   this.laRowData = undefined;
-    //   if (this.caseRefs && this.caseRefs.length > 0) {
-    //     if (this.columnDefs) {
-    //       this.columnConfig = this.columnDefs;
-    //     } else {
-    //       this.columnConfig = undefined;
-    //     }
-    //     this.laRowData = this.gridHelperService.getLiveAppsCases(this.sandboxId, this.caseRefs).pipe(
-    //       tap(results => {
-    //         if (!this.columnConfig) {
-    //           this.columnConfig = TcPrimeNGHelperService.defaultColumnConfig(results);
-    //         }
-    //       })
-    //     );
-    //   }
-    // }
+    if (changes.caseRefs && changes.caseRefs.currentValue !== changes.caseRefs.previousValue) {
+      this.laRowData = undefined;
+      if (this.caseRefs && this.caseRefs.length > 0) {
+        if (this.columnDefs) {
+          this.columnConfig = this.columnDefs;
+        } else {
+          this.columnConfig = undefined;
+        }
+        this.laRowData = this.gridHelperService.getLiveAppsCases(this.sandboxId, this.caseRefs).pipe(
+          tap(results => {
+            if (!this.columnConfig) {
+              this.columnConfig = TcPrimeNGHelperService.defaultColumnConfig(results);
+            }
+          })
+        );
+      }
+    }
   }
 
   public getObjectValue(o, s: string) {
@@ -136,12 +131,4 @@ export class TcprimengLiveappsCasesComponent implements OnChanges, AfterContentI
       // this.highlight(ev);
     }
   }
-
-
-  ngAfterContentInit() {
-    console.log('^^^^^', this.templates);
-  }
-
-  // @Input() templateRef: TemplateRef<any>;
-
 }

@@ -1,7 +1,4 @@
-
-
-<!-- <p-table #dt [columns]="columnConfig" [value]="laRowData" styleClass="custom-table-css" [autoLayout]="true" dataKey="caseReference"> -->
-<p-table [value]="laRowData">
+<!-- <p-table [value]="laRowData">
   <ng-template pTemplate="header">
     <ng-container *ngTemplateOutlet="headerTemplate">
     </ng-container>
@@ -10,12 +7,14 @@
     <ng-container *ngTemplateOutlet="bodyTemplate; context:{$implicit: data}">
     </ng-container>
   </ng-template>
-</p-table>
+</p-table> -->
 
-  <!-- <ng-template pTemplate="header" let-columns>
+
+<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css" [autoLayout]="true" dataKey="caseReference">
+  <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
-          {{col.headerName}}
+          {{col.name}}
           <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
             ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
         </th>
@@ -44,7 +43,13 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+      <ng-template pTemplate="rowexpansion" let-data>
+        <ng-container *ngTemplateOutlet="rowExpansionTemplate; context:{$implicit: data}">
+        </ng-container>
+      </ng-template>
+
+
+    <!-- <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
       <tr>
         <td [attr.colspan]="columns.length + 1">
           <div class="p-grid -fluid" style="font-size:16px;padding:20px">
@@ -63,4 +68,5 @@
         </td>
       </tr>
     </ng-template> -->
+</p-table>
 
