@@ -17,17 +17,69 @@
   </div>
   <div fxFlex style="overflow: hidden">
     <mat-tab-group fxFill>
+      <!-- <mat-tab label="Recent Table">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcpmg-tcprimeng-recent-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"  [showOpenButton]="'true'"
+                  [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcpmg-tcprimeng-recent-cases>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="Favortie Table">
+        <ng-template matTabContent>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcpmg-tcprimeng-favorite-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
+                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcpmg-tcprimeng-favorite-cases>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab> -->
       <mat-tab label="grid">
-              <ng-template matTabContent>
-                <div fxLayout="column" style="height: 100%">
-                  <div fxLayout="row" fxLayoutAlign="center center" style="height: 100px;">
-                    <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
+        <ng-template matTabContent>
+          <div fxLayout="column" style="height: 100%">
+            <div fxLayout="row" fxLayoutAlign="center center" style="height: 100px;">
+              <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
+            </div>
+            <button *ngIf="caseRefs" matButton (click)="exportCases()">Export</button>
+
+            <div *ngIf="caseRefs.length > 0" >
+              <tcpmg-tcprimeng-liveapps-cases [sandboxId]="sandboxId" [caseRefs]="caseRefs" [showExpandButton]='true'>
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th>Vin</th>
+                      <th>Year</th>
+                      <th>Brand</th>
+                      <th>Color</th>
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-car>
+                    <tr>
+                      <td>{{car.vin}}</td>
+                      <td>{{car.year}}</td>
+                      <td>{{car.brand}}</td>
+                      <td>{{car.color}}</td>
+                    </tr>
+                  </ng-template>
+
+                <!-- <div class="p-col-12 p-md-9">
+                  <div class="p-grid">
+                    <div class="p-col-12">
+                      <b>Vin:</b> Outside: +++{{rowData | json }}**
+                    </div>
                   </div>
-                  <button *ngIf="caseRefs" matButton (click)="exportCases()">Export</button>
-                  <tcpmg-tcprimeng-liveapps-cases [sandboxId]="sandboxId" [caseRefs]="caseRefs"></tcpmg-tcprimeng-liveapps-cases>
-                </div>
-              </ng-template>
-            </mat-tab>
+                </div> -->
+              </tcpmg-tcprimeng-liveapps-cases>
+            </div>
+          </div>
+        </ng-template>
+      </mat-tab>
 
       <mat-tab label="Creator WC">
         <ng-template matTabContent>

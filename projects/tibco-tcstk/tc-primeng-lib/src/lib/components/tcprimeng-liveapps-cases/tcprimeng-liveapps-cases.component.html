@@ -1,31 +1,66 @@
-<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css" [autoLayout]="true">
-  <ng-template pTemplate="header" let-columns>
-    <tr>
-      <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
-        {{col.headerName}}
-        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
-          ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
-      </th>
-      <th *ngIf="showOpenButton" style="width: 3em" class="top-row"></th>
-    </tr>
-    <tr>
-      <th *ngFor="let col of columns" class="filter-row">
-        <input pInputText
-          type="text" (input)="dt.filter($event.target.value, col.field, 'contains');filtered($event.target.value);"
-          class="ui-column-filter">
-      </th>
-      <th class="filter-row"></th>
-    </tr>
+{{ laRowData | json }}
+
+<!-- <p-table #dt [columns]="columnConfig" [value]="laRowData" styleClass="custom-table-css" [autoLayout]="true" dataKey="caseReference"> -->
+<p-table #mytable [value]="laRowData" styleClass="custom-table-css" [autoLayout]="true" dataKey="vin">
+  <ng-template pTemplate="header">
+    <ng-container *ngTemplateOutlet="headerTemplate">
+    </ng-container>
   </ng-template>
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-    <tr>
-      <td *ngFor="let col of columns">
-        {{ getObjectValue(rowData, col.field) }}
-      </td>
-      <td *ngIf="showOpenButton">
-        <button pButton icon="pi pi-search" (click)="handleClick(rowData)"></button>
-      </td>
-    </tr>
+  <ng-template pTemplate="body" let-data>
+    <ng-container *ngTemplateOutlet="bodyTemplate; context:{$implicit: data}">
+    </ng-container>
   </ng-template>
-  <ng-content></ng-content>
 </p-table>
+
+  <!-- <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
+          {{col.headerName}}
+          <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+            ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+        </th>
+        <th *ngIf="showExpandButton" style="width: 3em" class="top-row"></th>
+      </tr>
+      <tr>
+        <th *ngFor="let col of columns" class="filter-row">
+          <input pInputText
+            type="text" (input)="dt.filter($event.target.value, col.field, 'contains');filtered($event.target.value);"
+            class="ui-column-filter">
+        </th>
+        <th *ngIf="showExpandButton" class="filter-row"></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{ getObjectValue(rowData, col.field) }}
+        </td>
+        <td *ngIf="showExpandButton">
+          <a href="#" [pRowToggler]="rowData">
+            <i [ngClass]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></i>
+          </a>
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+      <tr>
+        <td [attr.colspan]="columns.length + 1">
+          <div class="p-grid -fluid" style="font-size:16px;padding:20px">
+            <div>
+              <ng-content></ng-content>
+                              <div class="p-col-12 p-md-9">
+                                <div class="p-grid">
+                                  <div class="p-col-12">
+                                    <b>Vin:</b> Inside: --{{rowData | json }}**
+                                  </div>
+                                </div>
+                              </div>
+
+            </div>
+          </div>
+        </td>
+      </tr>
+    </ng-template> -->
+

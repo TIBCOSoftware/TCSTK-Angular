@@ -54,7 +54,6 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     {headerName: 'Created', field: 'metadata.creationTimestamp', valueFormatter: TcPrimeNGHelperService.dateFormatter, sortable: true, filter: true, resizable: true }
   ];
 
-
   public creatorConfig = new LiveAppsFormConfig().deserialize({
     type: 'creator',
     useCustomForm: 'false',
