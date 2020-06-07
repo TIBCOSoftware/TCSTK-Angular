@@ -108,7 +108,16 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Presupuesto',
-      field: 'untaggedCasedataObj.PresupuestoAprobado'
+      field: 'untaggedCasedataObj.PresupuestoAprobado',
+      format: 'currency',
+      currency: 'EUR',
+      align: 'left'
+    },
+    {
+      name: 'Date',
+      field: 'metadata.creationTimestamp',
+      format: 'date',
+      date: 'dd-MM-yyyy'
     },
     {
       name: 'Usuario interno',

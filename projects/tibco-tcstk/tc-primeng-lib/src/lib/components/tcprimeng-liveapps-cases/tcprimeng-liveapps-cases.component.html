@@ -33,7 +33,7 @@
     <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
       <tr>
         <td *ngFor="let col of columns">
-          {{ getObjectValue(rowData, col.field) }}
+          {{ getObjectValue(rowData, col) }}
         </td>
         <td *ngIf="showExpandButton">
           <a href="#" [pRowToggler]="rowData">

@@ -14,6 +14,7 @@ import { tap } from 'rxjs/operators';
 import { get } from 'lodash';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PrimeTemplate } from 'primeng/api';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'tcpmg-tcprimeng-liveapps-cases',
@@ -81,24 +82,12 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   public laRowData;
   public columnConfig;
 
-  constructor(protected gridHelperService: TcPrimeNGHelperService) {
+  constructor(
+    protected gridHelperService: TcPrimeNGHelperService,
+    protected currencyPipe: CurrencyPipe,
+    protected datePipe: DatePipe
+  ) {
   }
-
-  // public handleSelection(data: any) {
-  //   const selectedCaseRefs: string[] = [];
-  //   data.api.getSelectedRows().forEach((row: any) => {
-  //     selectedCaseRefs.push(row.caseReference);
-  //   });
-  //   this.selection.emit(selectedCaseRefs);
-  // }
-
-  // public handleClick(clicked) {
-  //   this.click.emit(clicked.caseReference);
-  // }
-
-  // public handleDoubleClick(clicked) {
-  //   this.doubleClick.emit(clicked.caseReference);
-  // }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.caseRefs && changes.caseRefs.currentValue !== changes.caseRefs.previousValue) {
@@ -120,8 +109,22 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
     }
   }
 
-  public getObjectValue(o, s: string) {
-    return get(o, s);
+  public getObjectValue(rowdata, column) {
+    let value = get(rowdata, column.field);
+    if (column.format != undefined){
+      switch (column.format) {
+        case 'currency':
+          value = this.currencyPipe.transform(value, column.currency, 'symbol');
+          break;
+        case 'date':
+          value = this.datePipe.transform(value, column.date);
+          break;
+
+        default:
+          break;
+      }
+    }
+    return value;
   }
 
   filtered(ev) {
