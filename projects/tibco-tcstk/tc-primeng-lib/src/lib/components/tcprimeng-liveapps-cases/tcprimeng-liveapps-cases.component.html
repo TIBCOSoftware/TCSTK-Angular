@@ -1,15 +1,3 @@
-<!-- <p-table [value]="laRowData">
-  <ng-template pTemplate="header">
-    <ng-container *ngTemplateOutlet="headerTemplate">
-    </ng-container>
-  </ng-template>
-  <ng-template pTemplate="body" let-data>
-    <ng-container *ngTemplateOutlet="bodyTemplate; context:{$implicit: data}">
-    </ng-container>
-  </ng-template>
-</p-table> -->
-
-
 <p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css" [autoLayout]="true" dataKey="caseReference">
   <ng-template pTemplate="header" let-columns>
       <tr>
@@ -30,43 +18,22 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
-      <tr>
-        <td *ngFor="let col of columns" [ngStyle]="{'text-align': col.align != undefined ? col.align : 'left' }">
-          {{ getObjectValue(rowData, col) }}
-        </td>
-        <td *ngIf="showExpandButton">
-          <a href="#" [pRowToggler]="rowData">
-            <i [ngClass]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></i>
-          </a>
-        </td>
-      </tr>
-    </ng-template>
+  <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns" [ngStyle]="{'text-align': col.align != undefined ? col.align : 'left' }">
+        {{ getObjectValue(rowData, col) }}
+      </td>
+      <td *ngIf="showExpandButton">
+        <a href="#" [pRowToggler]="rowData">
+          <i [ngClass]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></i>
+        </a>
+      </td>
+    </tr>
+  </ng-template>
 
-      <ng-template pTemplate="rowexpansion" let-data>
-        <ng-container *ngTemplateOutlet="rowExpansionTemplate; context:{$implicit: data}">
-        </ng-container>
-      </ng-template>
-
-
-    <!-- <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
-      <tr>
-        <td [attr.colspan]="columns.length + 1">
-          <div class="p-grid -fluid" style="font-size:16px;padding:20px">
-            <div>
-              <ng-content></ng-content>
-                              <div class="p-col-12 p-md-9">
-                                <div class="p-grid">
-                                  <div class="p-col-12">
-                                    <b>Vin:</b> Inside: --{{rowData | json }}**
-                                  </div>
-                                </div>
-                              </div>
-
-            </div>
-          </div>
-        </td>
-      </tr>
-    </ng-template> -->
+  <ng-template pTemplate="rowexpansion" let-data>
+    <ng-container *ngTemplateOutlet="rowExpansionTemplate; context:{$implicit: data}">
+    </ng-container>
+  </ng-template>
 </p-table>
 
