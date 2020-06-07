@@ -32,7 +32,7 @@
 
     <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
       <tr>
-        <td *ngFor="let col of columns">
+        <td *ngFor="let col of columns" [ngStyle]="{'text-align': col.align != undefined ? col.align : 'left' }">
           {{ getObjectValue(rowData, col) }}
         </td>
         <td *ngIf="showExpandButton">
