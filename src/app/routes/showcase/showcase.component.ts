@@ -96,7 +96,8 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public columnDefs2: any[] = [
     {
       name: 'ID',
-      field: 'summaryObj.ID_1'
+      field: 'summaryObj.ID_1',
+      align: 'center'
     },
     {
       name: 'Proyecto',
