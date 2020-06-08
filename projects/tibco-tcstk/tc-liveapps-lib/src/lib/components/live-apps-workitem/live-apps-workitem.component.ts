@@ -73,7 +73,7 @@ export class LiveAppsWorkitemComponent implements OnChanges {
         id: this.workitemId,
         sandbox: this.sandboxId.toString(),
         formDivId: 'wiDialogDiv',
-        useCustomForm: this.processFormConfig ? this.processFormConfig.externalForm : false,
+        useCustomForm: this.processFormConfig ? this.processFormConfig.externalForm.toString() : 'false',
         formRef: TcFormConfigService.parseFormTag(this.formRef)
       });
     }
