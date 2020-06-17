@@ -1,0 +1,39 @@
+<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css" [autoLayout]="true" dataKey="caseReference">
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
+          {{col.name}}
+          <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+            ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+        </th>
+        <th *ngIf="showExpandButton" style="width: 3em" class="top-row"></th>
+      </tr>
+      <tr>
+        <th *ngFor="let col of columns" class="filter-row">
+          <input pInputText
+            type="text" (input)="dt.filter($event.target.value, col.field, 'contains');filtered($event.target.value);"
+            class="ui-column-filter">
+        </th>
+        <th *ngIf="showExpandButton" class="filter-row"></th>
+      </tr>
+    </ng-template>
+
+  <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns" [ngStyle]="{'text-align': col.align != undefined ? col.align : 'left' }">
+        {{ getObjectValue(rowData, col) }}
+      </td>
+      <td *ngIf="showExpandButton">
+        <a href="#" [pRowToggler]="rowData">
+          <i [ngClass]="expanded ? 'pi pi-chevron-up' : 'pi pi-chevron-down'"></i>
+        </a>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="rowexpansion" let-data>
+    <ng-container *ngTemplateOutlet="rowExpansionTemplate; context:{$implicit: data}">
+    </ng-container>
+  </ng-template>
+</p-table>
+

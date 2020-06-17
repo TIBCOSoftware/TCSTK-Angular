@@ -1,0 +1,34 @@
+example to add new library:
+
+1: ng generate library @tibco-tcstk/tc-scribe-lib --prefix tcscr
+
+note: prefix is the name of the tag in components like tcla, tcscr, tcsf etc
+
+2: Got to projects/tibco-tcstk/tc-scribe-lib/src/lib and rename public-api.ts to public_api.ts
+
+3: Edit projects/tibco-tcstk/tc-scribe-lib/ng-package.json and update public-api.ts to public_api.ts
+
+4: Build the new lib:
+ ng build @tibco-tcstk/tc-scribe-lib
+
+4: Add your new lib to app.module.ts/app.module.dev/app.module.build under imports (TcScribeLibModule)
+
+5: Update tsconfig.json/tsconfig-debug.json and tsconfig-build.json to add new lib:
+
+tsconfig.json/tsconfig-debug.json:
+
+"@tibco-tcstk/tc-scribe-lib": [
+  "dist/tibco-tcstk/tc-scribe-lib"
+],
+"@tibco-tcstk/tc-scribe-lib/*": [
+  “projects/tibco-tcstk/tc-scribe-lib/src/public_api"
+]
+
+tsconfig-build.json:
+
+"@tibco-tcstk/tc-scribe-lib": [
+  "dist/tibco-tcstk/tc-scribe-lib"
+],
+"@tibco-tcstk/tc-scribe-lib/*": [
+  "dist/tibco-tcstk/tc-scribe-lib/*”
+]

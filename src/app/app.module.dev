@@ -35,7 +35,8 @@ import { SplashComponent } from './routes/splash/splash.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ProxyInterceptor, OAuthInterceptor, TcCoreConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TcScribeLibModule} from '../../projects/tibco-tcstk/tc-scribe-lib/src/lib/tc-scribe-lib.module';
+import {TcScribeLibModule} from '@tibco-tcstk/tc-scribe-lib';
+import { TcPrimengLibModule } from '@tibco-tcstk/tc-primeng-lib';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
@@ -72,6 +73,7 @@ const tcCoreConfig: TcCoreConfig = {
     TcLiveappsLibModule.forRoot(),
     TcMessagingLibModule,
     TcScribeLibModule,
+    TcPrimengLibModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,

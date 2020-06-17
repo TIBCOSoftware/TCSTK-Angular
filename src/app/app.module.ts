@@ -3,7 +3,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {CaseGuard, TcLiveappsLibModule} from '@tibco-tcstk/tc-liveapps-lib';
-import {Location} from '@angular/common';
+import {Location, CurrencyPipe, DatePipe} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -36,7 +36,9 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ProxyInterceptor, OAuthInterceptor, TcCoreConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
-import {TcScribeLibModule} from '../../projects/tibco-tcstk/tc-scribe-lib/src/lib/tc-scribe-lib.module';
+import {TcScribeLibModule} from '@tibco-tcstk/tc-scribe-lib';
+import { TcPrimengLibModule } from '@tibco-tcstk/tc-primeng-lib';
+
 // import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
 
 /** This is the tc core configuration object
@@ -76,6 +78,7 @@ const tcCoreConfig: TcCoreConfig = {
     TcMessagingLibModule,
     TcEventsLibModule,
     TcScribeLibModule,
+    TcPrimengLibModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -103,6 +106,8 @@ const tcCoreConfig: TcCoreConfig = {
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US' },
     LogService,
+    CurrencyPipe,
+    DatePipe
     // for proxied API calls
     // { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
 

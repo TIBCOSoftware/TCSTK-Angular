@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewChildren} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild, ViewChildren} from '@angular/core';
 import {Claim, GeneralConfig} from '@tibco-tcstk/tc-core-lib';
 import {
   CaseInfo, CaseSearchResults,
@@ -15,6 +15,7 @@ import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} 
 import {Observable, concat, throwError, empty} from 'rxjs';
 import {error} from 'ng-packagr/lib/util/log';
 import {LiveAppsFormWcComponent} from '@tibco-tcstk/tc-liveapps-lib';
+import { TcPrimeNGHelperService } from 'projects/tibco-tcstk/tc-primeng-lib/src/lib/services/tc-primeng-helper.service';
 // import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';
 
 @Component({
@@ -45,14 +46,13 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public legacyCreators;
   public formConfig: FormConfig;
   public caseRefs: string[] = [];
-  /*public columnDefs = [
+  public columnDefs = [
     {headerName: 'Risk Case', field: 'untaggedCasedataObj.RiskCaseId_v1', sortable: true, filter: true, resizable: true, checkboxSelection: true },
     {headerName: 'State', field: 'untaggedCasedataObj.state', sortable: true, filter: true, resizable: true },
     {headerName: 'Channel', field: 'untaggedCasedataObj.Channel_v1', sortable: true, filter: true, resizable: true },
     {headerName: 'Assignee', field: 'untaggedCasedataObj.Assignee_v1.name', sortable: true, filter: true, resizable: true },
-    {headerName: 'Created', field: 'metadata.creationTimestamp', valueFormatter: TcGridHelperService.dateFormatter, sortable: true, filter: true, resizable: true }
-  ];*/
-
+    {headerName: 'Created', field: 'metadata.creationTimestamp', valueFormatter: TcPrimeNGHelperService.dateFormatter, sortable: true, filter: true, resizable: true }
+  ];
 
   public creatorConfig = new LiveAppsFormConfig().deserialize({
     type: 'creator',
@@ -90,6 +90,43 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     formDivId: 'formDivWorkitem',
     id: '27631'
   });
+
+  @ViewChild('rowexpansion', { static: false }) rowExpansionTemplate: TemplateRef<any>;
+
+  public columnDefs2: any[] = [
+    {
+      name: 'ID',
+      field: 'summaryObj.ID_1',
+      align: 'center'
+    },
+    {
+      name: 'Proyecto',
+      field: 'summaryObj.Proyecto'
+    },
+    {
+      name: 'Descripción',
+      field: 'summaryObj.Descripcin'
+    },
+    {
+      name: 'Presupuesto',
+      field: 'untaggedCasedataObj.PresupuestoAprobado',
+      format: 'currency',
+      currency: 'EUR',
+      align: 'right'
+    },
+    {
+      name: 'Date',
+      field: 'metadata.creationTimestamp',
+      format: 'date',
+      date: 'dd-MM-yyyy',
+      align: 'center'
+    },
+    {
+      name: 'Usuario interno',
+      field: 'untaggedCasedataObj.UsuarioInterno.name'
+    }
+  ];
+
 
   constructor(private router: Router, private route: ActivatedRoute, private liveAppsService: LiveAppsService, private tcEventsHelperService: TcEventsHelperService, private tcEventsService: TcEventsService) {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;
@@ -225,9 +262,9 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.selectedAppConfig = selectedApp;
   }
 
-  /* public exportCases = () => {
-    this.gridComponent.exportToCsv({ onlySelected: true });
-  }*/
+  public exportCases = () => {
+    // this.gridComponent.exportToCsv({ onlySelected: true });
+  }
 
   ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
