@@ -8,6 +8,7 @@
 
 <script>
     var myApp = angular.module('myApp',[]);
+    var counter = 0;
     myApp.controller('AuthenticationController', ['$scope', '$http', '$location','$rootScope' , function($scope, $http, $location, $rootScope) {
         $scope.spotfireLogin = function () {
             var url = "/idm/v1/reauthorize";
@@ -50,8 +51,6 @@
             document.body.appendChild(form);
             form.submit();
         }
-
-
         if ($location.$$absUrl.indexOf("firstOpen") != -1 || $rootScope.firstOpen != null) {
             $rootScope.firstOpen = false;
         } else {
@@ -71,16 +70,14 @@
           // wait for refresh token calls
           window.addEventListener('message', function(event){
             if (typeof(event.data) !== 'refreshSFToken'){
-              console.log('got sf refresh');
+              console.log('got sf refresh : ' + counter);
+              counter++;
               $scope.spotfireLogin();
             }
           });
           // notify parent auth is done
           window.parent.postMessage({sfAuth:"ok"});
         }
-
-
-
     }]);
 
 </script>
