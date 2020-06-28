@@ -48,6 +48,11 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   @Input() caseRefs: string[];
 
   /**
+   * Display the button on the right side
+   */
+  @Input() showFilterRow: boolean;
+
+  /**
    * Column Definition array to display grid
    */
   @Input() columnDefs: any[];
@@ -58,11 +63,41 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   @Input() rowExpansionTemplate: TemplateRef<any>;
 
   /**
-   * Display the button on the right side
+   * Generates the automatically the layout.
    */
-  @Input() showExpandButton: boolean;
+  @Input() autoLayout: boolean = this.autoLayout ? this.autoLayout : true;
 
   /**
+   * Display the button on the right side
+   */
+  @Input() showExpandButton: boolean = this.showExpandButton ? this.showExpandButton : false;
+
+  /**
+   * Display pagination bar at the botton
+   */
+  @Input() paginator: boolean = this.paginator ? this.paginator : false;
+
+  /**
+   * Display page report at the botton
+   */
+  @Input() showCurrentPageReport: boolean = this.showCurrentPageReport ? this.showCurrentPageReport : false;
+
+  /**
+   * Pagination report template
+   */
+  @Input() currentPageReportTemplate: string = this.currentPageReportTemplate ? this.currentPageReportTemplate : 'Showing {first} to {last} of {totalRecords} entries';
+
+  /**
+   * Default lines per page
+   */
+  @Input() defaultRows: number = this.defaultRows ? this.defaultRows : 5;
+
+  /**
+   * Pagination report template
+   */
+  @Input() rowsPerPageOptions: number[] = this.rowsPerPageOptions ? this.rowsPerPageOptions : [15,25,50];
+ 
+/**
    * Array of selected case references
    */
   @Output() selection: EventEmitter<string[]> = new EventEmitter<string[]>();
