@@ -11,7 +11,8 @@ export class CaseCreatorSelectionContext {
               public legacyCreators: boolean,
               public formsFramework: string,
               public formConfig: FormConfig,
-              public autoClose?: boolean
+              public autoClose?: boolean,
+              public headerText?: string
   ) {}
 }
 
