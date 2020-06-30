@@ -10,8 +10,23 @@ export class SharedStateContent implements Deserializable {
   }
 }
 
+export class StateAttribute implements Deserializable {
+  name: string;
+  value: string;
+  id: string;
+  stateId: string;
+  deserialize(input: any) {
+    this.name = input.name;
+    this.value = input.value;
+    this.id = input.id;
+    this.stateId = input.stateId;
+
+    return this;
+  }
+}
+
 export class SharedStateEntry implements Deserializable {
-  attributes: string[];
+  attributes: StateAttribute[];
   content: SharedStateContent;
   createdBy: string;
   createdByName: string;

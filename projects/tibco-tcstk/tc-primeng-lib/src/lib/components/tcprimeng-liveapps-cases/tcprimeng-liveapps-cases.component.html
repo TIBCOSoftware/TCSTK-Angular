@@ -1,4 +1,8 @@
-<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css" [autoLayout]="true" dataKey="caseReference">
+<p-table #dt [columns]="columnConfig" [value]="laRowData | async" styleClass="custom-table-css" 
+    [autoLayout]="autoLayout" dataKey="caseReference" [resizableColumns]="false" scrollHeight="flex" 
+    [virtualScroll]="true" [virtualRowHeight]="34"
+    [rows]="defaultRows" [showCurrentPageReport]="showCurrentPageReport" [rowsPerPageOptions]="rowsPerPageOptions"
+    [paginator]="paginator" [currentPageReportTemplate]="currentPageReportTemplate">
   <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
@@ -8,7 +12,7 @@
         </th>
         <th *ngIf="showExpandButton" style="width: 3em" class="top-row"></th>
       </tr>
-      <tr>
+      <tr *ngIf="showFilterRow">
         <th *ngFor="let col of columns" class="filter-row">
           <input pInputText
             type="text" (input)="dt.filter($event.target.value, col.field, 'contains');filtered($event.target.value);"

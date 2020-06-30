@@ -50,7 +50,7 @@
             <button *ngIf="caseRefs" matButton (click)="exportCases()">Export</button>
 
             <div *ngIf="caseRefs.length > 0" >
-              <tcpmg-tcprimeng-liveapps-cases [sandboxId]="sandboxId" [caseRefs]="caseRefs" [showExpandButton]='true' [rowExpansionTemplate]="rowExpansionTemplate" [columnDefs]="columnDefs2">
+              <tcpmg-tcprimeng-liveapps-cases [sandboxId]="sandboxId" [caseRefs]="caseRefs" [autoLayout]="false" [showExpandButton]='true' [rowExpansionTemplate]="rowExpansionTemplate" [columnDefs]="columnDefs2" [paginator]="true" [showCurrentPageReport]="true" [currentPageReportTemplate]="'{first} to {last} of {totalRecords}'" [defaultRows]="7" [rowsPerPageOptions]="[3,5,7]">
                 <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" #rowexpansion>
                   <tr>
                     <td [attr.colspan]="8">
