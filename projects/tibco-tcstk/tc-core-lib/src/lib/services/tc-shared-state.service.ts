@@ -17,7 +17,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import {SharedStateContent, SharedStateEntry, SharedStateList} from '../models/tc-shared-state';
+import {SharedStateContent, SharedStateEntry, SharedStateList, StateAttribute, StateRole} from '../models/tc-shared-state';
 import {Observable, of} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
@@ -37,10 +37,11 @@ export class TcSharedStateService {
                            type: string,
                            description: string,
                            sandboxId: number,
-                           attributes: string[],
-                           roles: string[],
+                           attributes: StateAttribute[],
+                           roles: StateRole[],
                            links: string[],
-                           content: SharedStateContent): Observable<string> {
+                           content: SharedStateContent,
+                           scope?: string): Observable<string> {
     const url = '/clientstate/v1/states';
 
     const body = {
@@ -51,6 +52,7 @@ export class TcSharedStateService {
       'attributes': attributes,
       'roles': roles,
       'links': links,
+      'scope': scope,
       content: content
     };
     const bodyStr = JSON.stringify(body);
@@ -153,9 +155,9 @@ export class TcSharedStateService {
   }
 
   public deleteSharedState(id: number): Observable<string> {
-    const url = '/clientstate/v1/states' + id;
+    const url = '/clientstate/v1/states/' + id;
 
-    return this.http.delete(url )
+    return this.http.delete(url)
       .pipe(
         tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
         map(result => 'success')
