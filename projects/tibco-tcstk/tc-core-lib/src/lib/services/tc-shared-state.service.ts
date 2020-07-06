@@ -40,7 +40,7 @@ export class TcSharedStateService {
                            attributes: string[],
                            roles: string[],
                            links: string[],
-                           content: SharedStateContent): Observable<string> {
+                           content: SharedStateContent, scope?: string): Observable<string> {
     const url = '/clientstate/v1/states';
 
     const body = {
@@ -53,6 +53,9 @@ export class TcSharedStateService {
       'links': links,
       content: content
     };
+    if (scope) {
+      body['scope'] = scope;
+    }
     const bodyStr = JSON.stringify(body);
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
