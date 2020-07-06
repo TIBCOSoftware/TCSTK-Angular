@@ -26,6 +26,7 @@ export class LiveAppsCreatorDialogComponent {
   public formsFramework: string;
   public formConfig: FormConfig;
   public autoClose: boolean;
+  public headerText: string;
 
   constructor(
     public dialogRef: MatDialogRef<LiveAppsCreatorDialogComponent>,
@@ -38,6 +39,11 @@ export class LiveAppsCreatorDialogComponent {
     this.formsFramework = data.formsFramework;
     this.formConfig = data.formConfig;
     this.autoClose = data.autoClose;
+    if (data.headerText) {
+      this.headerText = data.headerText;
+    } else {
+      this.headerText = 'Create New ' + this.application.applicationName;
+    }
   }
 
   public handleCaseCreated = (createdCase: ProcessId) => {

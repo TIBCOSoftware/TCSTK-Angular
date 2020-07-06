@@ -2,7 +2,7 @@
     <span class="tcs-case-creation-dialog-instruction">Select a case creator</span>
     <mat-select #creatorSelector class="tcs-creator-selector-option" [disableOptionCentering]="true"
                 placeholder="{{label}}" (selectionChange)="selectProcess($event.value)">
-      <mat-option *ngFor="let creator of caseCreatorList" [value]="creator">
+      <mat-option matInput *ngFor="let creator of caseCreatorList" [value]="creator">
         <span>{{creator.name}}</span>
       </mat-option>
     </mat-select>
@@ -12,7 +12,7 @@
     <mat-label>{{label}}</mat-label>
     <mat-select #creatorSelector class="tcs-creator-selector-option-formfield" [compareWith]="compareProcessId" [disableOptionCentering]="true"
                 placeholder="{{label}}" (selectionChange)="selectProcess($event.value)">
-      <mat-option *ngFor="let creator of caseCreatorList" [value]="creator">
+      <mat-option matInput *ngFor="let creator of caseCreatorList" [value]="creator">
         <span>{{creator.name}}</span>
       </mat-option>
     </mat-select>

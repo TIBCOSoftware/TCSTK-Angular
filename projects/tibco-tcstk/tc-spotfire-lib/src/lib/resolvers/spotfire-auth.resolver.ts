@@ -12,7 +12,7 @@ export class SpotfireAuthResolver implements Resolve<Observable<any>> {
     const sfAuthDiv = document.getElementById('spotfireAuthIframe');
     sfAuthDiv['contentWindow'].postMessage({refreshSFToken: 'now'}, window.location.origin);
     console.log('sent refresh');
-  }
+  };
 
   public receiveMessage = (event) => {
     if (event.data.sfAuth === 'ok') {
@@ -23,20 +23,23 @@ export class SpotfireAuthResolver implements Resolve<Observable<any>> {
 
       this.sfAuthResolving.complete();
     }
-  }
+  };
+
 
   resolve(routeSnapshot: ActivatedRouteSnapshot): Observable<any> {
-    const iframe = document.createElement('iframe');
-    iframe.id = 'spotfireAuthIframe';
-    iframe['src'] = 'assets/authentication-frame.html';
-    iframe.style.display = 'none';
-    iframe.style.width = '0';
-    iframe.style.height = '0';
-    iframe.style.border = '0';
-    iframe.style.display = 'none';
-    // wait for login to complete
-    window.addEventListener('message', this.receiveMessage, false);
-    document.body.appendChild(iframe);
+    if (document.getElementById('spotfireAuthIframe') !== undefined) {
+      const iframe = document.createElement('iframe');
+      iframe.id = 'spotfireAuthIframe';
+      iframe['src'] = 'assets/authentication-frame.html';
+      iframe.style.display = 'none';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.style.border = '0';
+      iframe.style.display = 'none';
+      // wait for login to complete
+      window.addEventListener('message', this.receiveMessage, false);
+      document.body.appendChild(iframe);
+    }
     return this.sfAuthResolving;
   }
 }

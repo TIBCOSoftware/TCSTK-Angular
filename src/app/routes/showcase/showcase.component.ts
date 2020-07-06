@@ -96,7 +96,8 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public columnDefs2: any[] = [
     {
       name: 'ID',
-      field: 'summaryObj.ID_1'
+      field: 'summaryObj.ID_1',
+      align: 'center'
     },
     {
       name: 'Proyecto',
@@ -108,7 +109,17 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     },
     {
       name: 'Presupuesto',
-      field: 'untaggedCasedataObj.PresupuestoAprobado'
+      field: 'untaggedCasedataObj.PresupuestoAprobado',
+      format: 'currency',
+      currency: 'EUR',
+      align: 'right'
+    },
+    {
+      name: 'Date',
+      field: 'metadata.creationTimestamp',
+      format: 'date',
+      date: 'dd-MM-yyyy',
+      align: 'center'
     },
     {
       name: 'Usuario interno',

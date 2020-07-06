@@ -1,23 +1,26 @@
 <div *ngIf="!formFieldRendering" class="tcs-application-selector" fxFlex style="margin-left: 10px;">
-    <mat-label></mat-label>
-    <mat-select *ngIf="selectedApp" class="tcs-application-selector-option" [disableOptionCentering]="true" placeholder="{{label}}" [(value)]="selectedApp" [compareWith]="compareProcessId" (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
-      <mat-option *ngFor="let application of applications.casetypes" [value]="application">
-        {{application.label | ellipsis : 20}}
-      </mat-option>
-    </mat-select>
+  <mat-label></mat-label>
+  <mat-select *ngIf="selectedApp" class="tcs-application-selector-option" [disableOptionCentering]="true"
+              placeholder="{{label}}" [(value)]="selectedApp" [compareWith]="compareProcessId"
+              (selectionChange)="selectApplication($event)" matTooltip="{{selectedApp.applicationName}}"
+              matTooltipShowDelay="1000" matTooltipPosition="below">
+    <mat-option matInput *ngFor="let application of applications.casetypes" [value]="application">
+      {{application.label | ellipsis : 20}}
+    </mat-option>
+  </mat-select>
 </div>
 <div *ngIf="formFieldRendering" fxFlex>
-    <mat-form-field style="width:100%">
+  <mat-form-field style="width:100%">
     <mat-label>{{label}}</mat-label>
-    <mat-select *ngIf="selectedApp" [disableOptionCentering]="true" placeholder="{{label}}" [(value)]="selectedApp" (selectionChange)="selectApplication($event)" [compareWith]="compareProcessId" matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
-      <mat-option *ngFor="let application of applications.casetypes" [value]="application">
+    <mat-select *ngIf="selectedApp" [disableOptionCentering]="true" placeholder="{{label}}" [(value)]="selectedApp"
+                (selectionChange)="selectApplication($event)" [compareWith]="compareProcessId"
+                matTooltip="{{selectedApp.applicationName}}" matTooltipShowDelay="1000" matTooltipPosition="below">
+      <mat-option matInput *ngFor="let application of applications.casetypes" [value]="application">
         {{application.label}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
-
-
 
 
 <!--div *ngIf="errorMessage">{{errorMessage}}</div>

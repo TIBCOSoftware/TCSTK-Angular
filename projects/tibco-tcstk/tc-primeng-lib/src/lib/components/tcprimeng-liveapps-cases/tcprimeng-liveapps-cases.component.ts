@@ -14,6 +14,7 @@ import { tap } from 'rxjs/operators';
 import { get } from 'lodash';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PrimeTemplate } from 'primeng/api';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'tcpmg-tcprimeng-liveapps-cases',
@@ -47,6 +48,11 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   @Input() caseRefs: string[];
 
   /**
+   * Display the button on the right side
+   */
+  @Input() showFilterRow: boolean;
+
+  /**
    * Column Definition array to display grid
    */
   @Input() columnDefs: any[];
@@ -57,11 +63,41 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   @Input() rowExpansionTemplate: TemplateRef<any>;
 
   /**
-   * Display the button on the right side
+   * Generates the automatically the layout.
    */
-  @Input() showExpandButton: boolean;
+  @Input() autoLayout: boolean = this.autoLayout ? this.autoLayout : true;
 
   /**
+   * Display the button on the right side
+   */
+  @Input() showExpandButton: boolean = this.showExpandButton ? this.showExpandButton : false;
+
+  /**
+   * Display pagination bar at the botton
+   */
+  @Input() paginator: boolean = this.paginator ? this.paginator : false;
+
+  /**
+   * Display page report at the botton
+   */
+  @Input() showCurrentPageReport: boolean = this.showCurrentPageReport ? this.showCurrentPageReport : false;
+
+  /**
+   * Pagination report template
+   */
+  @Input() currentPageReportTemplate: string = this.currentPageReportTemplate ? this.currentPageReportTemplate : 'Showing {first} to {last} of {totalRecords} entries';
+
+  /**
+   * Default lines per page
+   */
+  @Input() defaultRows: number = this.defaultRows ? this.defaultRows : 5;
+
+  /**
+   * Pagination report template
+   */
+  @Input() rowsPerPageOptions: number[] = this.rowsPerPageOptions ? this.rowsPerPageOptions : [15,25,50];
+ 
+/**
    * Array of selected case references
    */
   @Output() selection: EventEmitter<string[]> = new EventEmitter<string[]>();
@@ -81,24 +117,12 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   public laRowData;
   public columnConfig;
 
-  constructor(protected gridHelperService: TcPrimeNGHelperService) {
+  constructor(
+    protected gridHelperService: TcPrimeNGHelperService,
+    protected currencyPipe: CurrencyPipe,
+    protected datePipe: DatePipe
+  ) {
   }
-
-  // public handleSelection(data: any) {
-  //   const selectedCaseRefs: string[] = [];
-  //   data.api.getSelectedRows().forEach((row: any) => {
-  //     selectedCaseRefs.push(row.caseReference);
-  //   });
-  //   this.selection.emit(selectedCaseRefs);
-  // }
-
-  // public handleClick(clicked) {
-  //   this.click.emit(clicked.caseReference);
-  // }
-
-  // public handleDoubleClick(clicked) {
-  //   this.doubleClick.emit(clicked.caseReference);
-  // }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.caseRefs && changes.caseRefs.currentValue !== changes.caseRefs.previousValue) {
@@ -120,8 +144,22 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
     }
   }
 
-  public getObjectValue(o, s: string) {
-    return get(o, s);
+  public getObjectValue(rowdata, column) {
+    let value = get(rowdata, column.field);
+    if (column.format != undefined){
+      switch (column.format) {
+        case 'currency':
+          value = this.currencyPipe.transform(value, column.currency, 'symbol');
+          break;
+        case 'date':
+          value = this.datePipe.transform(value, column.date);
+          break;
+
+        default:
+          break;
+      }
+    }
+    return value;
   }
 
   filtered(ev) {

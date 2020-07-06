@@ -3,7 +3,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {CaseGuard, TcLiveappsLibModule} from '@tibco-tcstk/tc-liveapps-lib';
-import {Location} from '@angular/common';
+import {Location, CurrencyPipe, DatePipe} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -106,6 +106,8 @@ const tcCoreConfig: TcCoreConfig = {
   providers: [
     {provide: LOCALE_ID, useValue: 'en-US' },
     LogService,
+    CurrencyPipe,
+    DatePipe
     // for proxied API calls
     // { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
 

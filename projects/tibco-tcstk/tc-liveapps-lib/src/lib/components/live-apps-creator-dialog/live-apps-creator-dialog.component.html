@@ -1,7 +1,7 @@
 <div class="tcs-dialog-outer-div">
   <mat-toolbar class="tcs-case-creation-dialog-toolbar">
     <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
-      <span class="tcs-case-creation-dialog-toolbar-text">Create New {{application.applicationName}}</span>
+      <span class="tcs-case-creation-dialog-toolbar-text">{{headerText}}</span>
     </div>
     <mat-icon fxLayout="column" fxLayoutAlign="start end" class="tcs-case-creation-dialog-icons" [svgIcon]="'tcs-close-icon'" (click)="closeDialog()"></mat-icon>
   </mat-toolbar>

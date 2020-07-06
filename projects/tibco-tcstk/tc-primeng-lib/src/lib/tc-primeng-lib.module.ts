@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TcPrimengLibComponent } from './tc-primeng-lib.component';
 import { TcprimengLiveappsCasesComponent } from './components/tcprimeng-liveapps-cases/tcprimeng-liveapps-cases.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe, CurrencyPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
@@ -25,11 +25,15 @@ import { TcprimengFavoriteCasesComponent } from './components/tcprimeng-favorite
     FlexLayoutModule,
     MatIconModule
   ],
-    exports: [
-        TcPrimengLibComponent,
-        TcprimengLiveappsCasesComponent,
-        TcprimengRecentCasesComponent,
-        TcprimengFavoriteCasesComponent
-    ]
+  exports: [
+      TcPrimengLibComponent,
+      TcprimengLiveappsCasesComponent,
+      TcprimengRecentCasesComponent,
+      TcprimengFavoriteCasesComponent
+  ],
+  providers: [
+    DatePipe,
+    CurrencyPipe
+  ]
 })
 export class TcPrimengLibModule { }

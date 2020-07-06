@@ -10,8 +10,44 @@ export class SharedStateContent implements Deserializable {
   }
 }
 
+export class StateAttribute implements Deserializable {
+  name: string;
+  value: string;
+  id: string;
+  stateId: string;
+  deserialize(input: any) {
+    this.name = input.name;
+    this.value = input.value;
+    this.id = input.id;
+    this.stateId = input.stateId;
+
+    return this;
+  }
+}
+
+export class StateRole implements Deserializable {
+  entityId: string;
+  role: string;
+  id: string;
+  stateId: string;
+  entityName: string;
+  entityType: string;
+
+  deserialize(input: any) {
+    this.entityId = input.entityId;
+    this.role = input.role;
+    this.id = input.id;
+    this.stateId = input.stateId;
+    this.entityName = input.entityName;
+    this.entityType = input.entityType;
+
+    return this;
+  }
+
+}
+
 export class SharedStateEntry implements Deserializable {
-  attributes: string[];
+  attributes: StateAttribute[];
   content: SharedStateContent;
   createdBy: string;
   createdByName: string;
@@ -24,7 +60,7 @@ export class SharedStateEntry implements Deserializable {
   modifiedByName: string;
   modifiedDate: number;
   name: string;
-  roles: string[];
+  roles: StateRole[];
   sandboxId: number;
   scope: string;
   type: string;
