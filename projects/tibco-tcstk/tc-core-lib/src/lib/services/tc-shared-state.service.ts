@@ -167,4 +167,16 @@ export class TcSharedStateService {
       );
   }
 
+  public deleteSharedStates(name: string, scope?: string): Observable<string> {
+    let url = '/clientstate/v1/states?$filter=name eq \'' + name + '\'';
+    if (scope) {
+      url = url + ' and scope eq \'' + scope + '\'';
+    }
+    return this.http.delete(url)
+      .pipe(
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(result => 'success')
+      );
+  }
+
 }
