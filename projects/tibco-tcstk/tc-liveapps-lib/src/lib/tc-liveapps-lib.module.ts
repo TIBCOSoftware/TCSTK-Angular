@@ -308,7 +308,7 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TcLiveappsLibModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<TcLiveappsLibModule> {
         return {
             ngModule: TcLiveappsLibModule,
             providers: [LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService, TcRolesService, TcLiveAppsReportingService]

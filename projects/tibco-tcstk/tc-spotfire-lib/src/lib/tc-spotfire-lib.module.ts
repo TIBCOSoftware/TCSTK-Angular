@@ -66,7 +66,7 @@ import { TcFormsLibModule } from '@tibco-tcstk/tc-forms-lib';
     ]
 })
 export class TcSpotfireLibModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<TcSpotfireLibModule> {
         return {
             ngModule: TcSpotfireLibModule,
             providers: [TcSpotfireConfigService, TcSpotfireMarkingLiveappsConfigService]

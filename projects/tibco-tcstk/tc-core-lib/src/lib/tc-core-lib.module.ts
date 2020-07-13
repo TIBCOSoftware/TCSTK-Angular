@@ -164,7 +164,7 @@ export class TcCoreLibModule {
   private ms: MessageTopicService;
   private li: LegacyIframeService;
 
-  static forRoot(config?: TcCoreConfiguration): ModuleWithProviders {
+  static forRoot(config?: TcCoreConfiguration): ModuleWithProviders<TcCoreLibModule> {
     return {
       ngModule: TcCoreLibModule,
       providers: [
