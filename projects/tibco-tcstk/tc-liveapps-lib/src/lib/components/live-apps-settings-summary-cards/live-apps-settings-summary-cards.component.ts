@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {LiveAppsSettingsComponent} from '../live-apps-settings/live-apps-settings.component';
 import {CaseCardConfig} from '../../models/tc-case-card-config';
-import {map, take, takeUntil} from 'rxjs/operators';
+import { take, takeUntil} from 'rxjs/operators';
 import {TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
-import {HttpClient} from '@angular/common/http';
-import {DomSanitizer} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.service';
 import {CaseType} from '../../models/liveappsdata';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 /**

@@ -50,7 +50,12 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent implements 
   /**
    * The fixed height of the case list results pane
    */
-  @Input() resultsHeight: string = this.resultsHeight ?  this.resultsHeight : '400px';
+  public resultsHeight: string = '400px';
+  @Input('resultsHeight') set ResultsHeight(resultsHeight: string) {
+    if (resultsHeight){
+      this.resultsHeight = resultsHeight;
+    }
+  }
 
   /**
    * ~event caseSelected : Case Clicked

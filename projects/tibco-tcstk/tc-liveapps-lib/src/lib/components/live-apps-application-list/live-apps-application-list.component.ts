@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {CaseType} from '../../models/liveappsdata';
 import {LiveAppsApplicationsComponent} from '../live-apps-applications/live-apps-applications.component';
 import {map, take, takeUntil} from 'rxjs/operators';
-import {MatSelectionList} from '@angular/material';
+import { MatSelectionList } from '@angular/material/list';
 
 
 /**

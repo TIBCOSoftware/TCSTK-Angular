@@ -31,7 +31,12 @@ export class RenderedFormComponent implements OnInit, OnChanges {
   @Input() formRef: string;
   @Input() caseRef: string;
   @Input() appId: string;
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
   @Input() customFormDefs: CustomFormDefs;
   /**
    * ~event formSubmit : form submitted

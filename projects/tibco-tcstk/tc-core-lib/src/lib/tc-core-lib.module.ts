@@ -3,24 +3,24 @@ import {TibcoCloudNavbarComponent} from './components/tibco-cloud-navbar/tibco-c
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-login/tibco-cloud-login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { DomSanitizer} from '@angular/platform-browser';
-import {
-  MatButtonModule, MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatDialogModule, MatExpansionModule,
-  MatFormFieldModule,
-  MatIconModule, MatIconRegistry,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatOptionModule,
-  MatPaginatorModule,
-  MatSelectModule,
-  MatSortModule,
-  MatTableModule,
-  MatTabsModule, MatToolbarModule,
-  MatTooltipModule
-} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -92,9 +92,7 @@ import {TcCoreConfigService} from './services/tc-core-config-service';
     MatInputModule,
     MatIconModule,
     MatSelectModule,
-    MatOptionModule,
     MatDialogModule,
-    MatMenuModule,
     MatCardModule,
     MatTooltipModule,
     MatTabsModule,
@@ -107,7 +105,7 @@ import {TcCoreConfigService} from './services/tc-core-config-service';
     MatToolbarModule,
     MatIconModule,
     MatSelectModule,
-    MatOptionModule,
+    // MatOptionModule,
     MatDialogModule,
     MatMenuModule,
     MatCardModule,

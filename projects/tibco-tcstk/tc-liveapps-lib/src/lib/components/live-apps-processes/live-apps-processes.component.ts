@@ -30,7 +30,12 @@ export class LiveAppsProcessesComponent implements OnChanges {
   /**
    * includeCaseDataPage - include case data page as process selection
    */
-  @Input() includeCaseDataPage: boolean = this.includeCaseDataPage ? this.includeCaseDataPage : false;
+  public includeCaseDataPage: boolean = false;
+  @Input('includeCaseDataPage') set IncludeCaseDataPage(includeCaseDataPage: boolean) {
+    if (includeCaseDataPage){
+      this.includeCaseDataPage = includeCaseDataPage;
+    }
+  }
 
   /**
    * ~event processClicked : Process selected

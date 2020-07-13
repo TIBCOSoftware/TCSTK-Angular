@@ -4,13 +4,13 @@ import {ToolbarButton, TcButtonsHelperService, RouteAction} from '@tibco-tcstk/t
 import {LiveAppsFavoriteCasesComponent} from '../live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsRecentCasesComponent} from '../live-apps-recent-cases/live-apps-recent-cases.component';
 import {LiveAppsSearchWidgetComponent} from '../live-apps-search-widget/live-apps-search-widget.component';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {LiveAppsCreatorDialogComponent} from '../live-apps-creator-dialog/live-apps-creator-dialog.component';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
 import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-documents.component';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
-import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
+import {Roles, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
 import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
@@ -84,7 +84,12 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
   /**
    * Label for Create Case Button
    */
-  @Input() createLabel: string = this.createLabel ? this.createLabel : 'Create Case';
+  public createLabel: string = 'Create Case';
+  @Input('createLabel') set CreateLabel(createLabel: string) {
+    if (createLabel){
+      this.createLabel = createLabel;
+    }
+  }
 
   /**
    * Custom Form configuration file
@@ -94,18 +99,33 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
   /**
    * Enable legacy workitems
    */
-  @Input() legacyWorkitems: boolean = this.legacyWorkitems ? this.legacyWorkitems : false;
+  public legacyWorkitems: boolean = false;
+  @Input('legacyWorkitems') set LegacyWorkitems(legacyWorkitems: boolean) {
+    if (legacyWorkitems){
+      this.legacyWorkitems = legacyWorkitems;
+    }
+  }
 
   /**
    * Enable legacy creators
    */
-  @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
+  public legacyCreators: boolean = false;
+  @Input('legacyCreators') set LegacyCreators(legacyCreators: boolean) {
+    if (legacyCreators){
+      this.legacyCreators = legacyCreators;
+    }
+  }
 
   /**
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
   /**
    * ~event routeAction : Component requests route to another page

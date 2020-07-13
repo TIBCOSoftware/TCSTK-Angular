@@ -12,11 +12,11 @@
  */
 
 import { Injectable } from '@angular/core';
-import {empty, forkJoin, Observable, of, throwError} from 'rxjs';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {catchError, flatMap, map, switchMap, tap} from 'rxjs/operators';
-import {EventsResponse, EventsRequest, EventsResponseMessage, EventsRequestMessage} from '../models/tc-events';
-import {error} from 'ng-packagr/lib/util/log';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { EventsResponse, EventsResponseMessage, EventsRequestMessage } from '../models/tc-events';
+// import {error} from 'ng-packagr/lib/util/log';
 
 @Injectable({
   providedIn: 'root'

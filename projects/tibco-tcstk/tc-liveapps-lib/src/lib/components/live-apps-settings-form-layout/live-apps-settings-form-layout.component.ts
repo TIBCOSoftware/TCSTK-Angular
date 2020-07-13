@@ -3,7 +3,7 @@ import {FormConfig, LiveAppsConfig} from '../../models/tc-liveapps-config';
 import {ActivatedRoute} from '@angular/router';
 import {GeneralConfig, Claim} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
 
 

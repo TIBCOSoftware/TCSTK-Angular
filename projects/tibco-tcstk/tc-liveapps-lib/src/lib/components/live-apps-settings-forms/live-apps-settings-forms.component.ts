@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {GeneralConfig, Claim, Sandbox} from '@tibco-tcstk/tc-core-lib';
 import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 /**

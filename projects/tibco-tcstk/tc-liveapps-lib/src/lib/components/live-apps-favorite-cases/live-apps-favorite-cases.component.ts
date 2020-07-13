@@ -1,21 +1,16 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
-  OnDestroy,
   OnInit,
   Output,
-  ViewChild
 } from '@angular/core';
-import {Subject} from 'rxjs';
-import {map, take, takeUntil} from 'rxjs/operators';
+import { take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {CaseRoute} from '../../models/liveappsdata';
-import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import { TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 
 
 /**
@@ -44,13 +39,22 @@ export class LiveAppsFavoriteCasesComponent extends LiveAppsComponent implements
   /**
    * case card format - list, card, miniCard, staticList (no click event)
    */
-  @Input() displayType: string = this.displayType ? this.displayType : 'miniCard'; // miniCard, card, list
+  public displayType: string = 'miniCard';
+  @Input('displayType') set DisplayType(displayType: string) {
+    if (displayType){
+      this.displayType = displayType;
+    }
+  }
 
   /**
    * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
    */
-  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
-
+  public showHeader: boolean = true;
+  @Input('showHeader') set ShowHeader(showHeader: boolean) {
+    if (showHeader){
+      this.showHeader = showHeader;
+    }
+  }
 
   /**
    * ~event clickCase : Case clicked

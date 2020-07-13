@@ -53,6 +53,7 @@ export class MockingInterceptor implements HttpInterceptor {
     if (segments[0] === 'http:' || segments[0] === 'https:') {
       segments.splice(0, 3);
       // we are getting a webresource (will only work for text based resources like svg)
+      // @ts-ignore
       if (segments[0] === 'webresource') {
         responseType = 'text';
       }

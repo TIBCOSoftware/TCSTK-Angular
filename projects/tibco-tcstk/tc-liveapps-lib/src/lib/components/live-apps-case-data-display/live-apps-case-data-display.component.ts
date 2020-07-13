@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CaseType, CaseTypesList, JsonSchema} from '../../models/liveappsdata';
+import { JsonSchema} from '../../models/liveappsdata';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 
@@ -66,12 +66,22 @@ export class LiveAppsCaseDataDisplayComponent implements OnInit {
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
   /**
    * Layout object that can be passed to override default layout of the form renderer
    */
-  @Input() layout: any[] = this.layout ? this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
+  public layout: any[] = this.DEFAULT_CASE_DATA_LAYOUT;;
+  @Input('layout') set Layout(layout: any[]) {
+    if (layout){
+      this.layout = layout;
+    }
+  }
 
   /**
    * Custom Form configuration file

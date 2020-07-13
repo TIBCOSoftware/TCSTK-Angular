@@ -5,9 +5,7 @@ import {CaseType, CaseTypesList, Process} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {map} from 'rxjs/operators';
-import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
-import {MatSelect} from '@angular/material';
+import {MatSelect} from '@angular/material/select';
 
 @Component({
   selector: 'tcla-live-apps-creator-selector',
@@ -18,7 +16,13 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
   @ViewChild('creatorSelector', {static: false}) creatorSelector: MatSelect;
   @Input() sandboxId: number;
   @Input() appId: string;
-  @Input() typeId: string = this.typeId ? this.typeId : '1';
+  public typeId: string = '1';
+  @Input('typeId') set TypeId(typeId: string) {
+    if (typeId){
+      this.typeId = typeId;
+    }
+  }
+
   /**
    * ~event creatorSelection : Case Creator selected
    * ~payload LaProcessSelection : LaProcessSelection object output when a creator is selected from a drop down
@@ -32,12 +36,22 @@ export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implemen
   /**
    * Use Form field rendering around the selection box
    */
-  @Input() formFieldRendering: boolean = this.formFieldRendering ? this.formFieldRendering : false;
+  public formFieldRendering: boolean = false;
+  @Input('formFieldRendering') set FormFieldRendering(formFieldRendering: boolean) {
+    if (formFieldRendering){
+      this.formFieldRendering = formFieldRendering;
+    }
+  }
 
   /**
    * Label for the actions selector
    */
-  @Input() label: string = this.label ? this.label : 'Case Creators'
+  public label: string = 'Case Creators';
+  @Input('label') set Label(label: string) {
+    if (label){
+      this.label = label;
+    }
+  }
 
   @Output() creatorSelection = new EventEmitter<LaProcessSelection>();
 

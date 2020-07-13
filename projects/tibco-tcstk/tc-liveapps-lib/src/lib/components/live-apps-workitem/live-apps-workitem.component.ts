@@ -35,7 +35,12 @@ export class LiveAppsWorkitemComponent implements OnChanges {
   /**
    * Custom Form Layout Configuration
    */
-  @Input() formConfig: FormConfig = this.formConfig ? this.formConfig : new FormConfig();
+  public formConfig: FormConfig = new FormConfig();
+  @Input('formConfig') set FormConfig(formConfig: FormConfig) {
+    if (formConfig){
+      this.formConfig = formConfig;
+    }
+  }
 
   /**
    * ~event workitemResult : id of completed workitem

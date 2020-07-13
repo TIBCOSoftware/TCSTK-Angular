@@ -53,13 +53,23 @@ export class LiveAppsCreatorsComponent implements OnInit {
   /**
    * Enable legacy creators
    */
-  @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
+  public legacyCreators: boolean = false;
+  @Input('legacyCreators') set LegacyCreators(legacyCreators: boolean) {
+    if (legacyCreators){
+      this.legacyCreators = legacyCreators;
+    }
+  }
 
   /**
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
 
   /**

@@ -25,14 +25,14 @@ import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-
 import {LiveAppsService} from '../../services/live-apps.service';
 import {ToolbarButton, TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
-import {MatTab, MatTabChangeEvent, MatTabGroup} from '@angular/material';
+import {MatTab, MatTabChangeEvent, MatTabGroup} from '@angular/material/tabs';
 import {QueryList} from '@angular/core';
 import { RouteAction } from '@tibco-tcstk/tc-core-lib';
-import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
+import {Roles, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
 import {LiveAppsLegacyFormComponent} from '../live-apps-legacy-form/live-apps-legacy-form.component';
-import {CaseAction, CaseRoute, FormTab} from '../../models/liveappsdata';
+import { CaseRoute, FormTab} from '../../models/liveappsdata';
 import {FormControl} from '@angular/forms';
 import {LiveAppsCaseActionComponent} from '../live-apps-case-action/live-apps-case-action.component';
 import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-workitems.component';
@@ -131,49 +131,93 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
   /**
    * Enable legacy workitems
    */
-  @Input() legacyWorkitems: boolean = this.legacyWorkitems ? this.legacyWorkitems : false;
+  public legacyWorkitems: boolean = false;
+  @Input('legacyWorkitems') set LegacyWorkitems(legacyWorkitems: boolean) {
+    if (legacyWorkitems){
+      this.legacyWorkitems = legacyWorkitems;
+    }
+  }
 
   /**
    * Enable legacy actions
    */
-  @Input() legacyActions: boolean = this.legacyActions ? this.legacyActions : false;
+  public legacyActions: boolean = false;
+  @Input('legacyActions') set LegacyActions(legacyActions: boolean) {
+    if (legacyActions){
+      this.legacyActions = legacyActions;
+    }
+  }
 
   /**
    * Layout object that can be passed to override default layout of the form renderer
    */
-  @Input() layout: any[] = this.layout ?  this.layout : this.DEFAULT_CASE_DATA_LAYOUT;
+  public layout: any[] = this.DEFAULT_CASE_DATA_LAYOUT;
+  @Input('layout') set Layout(layout: any[]) {
+    if (layout){
+      this.layout = layout;
+    }
+  }
 
   /**
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
   /**
    * Whether to show workitems in context panel (default true)
    */
-  @Input() showWorkitems: boolean = this.showWorkitems ? this.showWorkitems :  true;
+  public showWorkitems: boolean = true;
+  @Input('showWorkitems') set ShowWorkitems(showWorkitems: boolean) {
+    if (showWorkitems){
+      this.showWorkitems = showWorkitems;
+    }
+  }
 
   /**
    * Whether to show notes in context panel (default true)
    */
-  @Input() showNotes: boolean = this.showNotes ? this.showNotes : true;
+  public showNotes: boolean = true;
+  @Input('showNotes') set ShowNotes(showNotes: boolean) {
+    if (showNotes){
+      this.showNotes = showNotes;
+    }
+  }
 
   /**
    * Whether to show documents in context panel (default true)
    */
-  @Input() showDocuments: boolean = this.showDocuments ? this.showDocuments : true;
+  public showDocuments: boolean = true;
+  @Input('showDocuments') set ShowDocuments(showDocuments: boolean) {
+    if (showDocuments){
+      this.showDocuments = showDocuments;
+    }
+  }
 
   /**
    * Whether to show states in context panel (default true)
    */
-  @Input() showStates: boolean = this.showStates ? this.showStates :  true;
+  public showStates: boolean = true;
+  @Input('showStates') set ShowStates(showStates: boolean) {
+    if (showStates){
+      this.showStates = showStates;
+    }
+  }
 
   /**
    * Whether to show audit in context panel (default true)
    */
-  @Input() showAudit: boolean = this.showAudit ? this.showAudit :  true;
-
+  public showAudit: boolean = true;
+  @Input('showAudit') set ShowAudit(showAudit: boolean) {
+    if (showAudit){
+      this.showAudit = showAudit;
+    }
+  }
 
   /**
    * ~event routeAction : Component requests route to another page

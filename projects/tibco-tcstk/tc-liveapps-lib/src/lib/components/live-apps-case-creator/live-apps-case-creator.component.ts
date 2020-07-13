@@ -49,7 +49,12 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   /**
    * Custom Form Layout Configuration
    */
-  @Input() formConfig: FormConfig = this.formConfig ? this.formConfig : new FormConfig();
+  public formConfig: FormConfig = new FormConfig();
+  @Input('formConfig') set FormConfig(formConfig: FormConfig) {
+    if (formConfig){
+      this.formConfig = formConfig;
+    }
+  }
 
   /**
    * Custom Form configuration file
@@ -59,13 +64,23 @@ export class LiveAppsCaseCreatorComponent extends LiveAppsComponent implements O
   /**
    * Enable legacy creators
    */
-  @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
+  public legacyCreators: boolean = false;
+  @Input('legacyCreators') set LegacyCreators(legacyCreators: boolean) {
+    if (legacyCreators){
+      this.legacyCreators = legacyCreators;
+    }
+  }
 
   /**
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
   /**
    * ~event caseChanged : Case action started (process started)

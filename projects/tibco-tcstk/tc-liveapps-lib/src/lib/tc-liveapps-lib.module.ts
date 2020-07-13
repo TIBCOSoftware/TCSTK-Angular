@@ -1,36 +1,32 @@
 import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule} from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import {
-  MatAccordion,
-  MatButtonModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatDialogModule,
-  MatExpansionModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatOptionModule,
-  MatSelectModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
-  MatSnackBarModule,
-  MatSlideToggleModule,
-  MatIconRegistry,
-  MatProgressBarModule,
-  MatRadioModule,
-  MatTableModule, MatProgressSpinnerModule
-} from '@angular/material';
-import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {CdkScrollableModule} from '@angular/cdk/scrolling';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ColorPickerModule } from 'ngx-color-picker';
-import {CachingInterceptor, DurationSincePipe, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import { CachingInterceptor, DurationSincePipe } from '@tibco-tcstk/tc-core-lib';
 import { RequestCacheService } from '@tibco-tcstk/tc-core-lib';
 import { LiveAppsCaseSearchComponent } from './components/live-apps-case-search/live-apps-case-search.component';
 import { LiveAppsCaseListComponent } from './components/live-apps-case-list/live-apps-case-list.component';
@@ -213,7 +209,6 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
     MatInputModule,
     MatIconModule,
     MatSelectModule,
-    MatOptionModule,
     MatDialogModule,
     MatMenuModule,
     MatCardModule,
@@ -223,7 +218,7 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
     MatExpansionModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    ScrollDispatchModule,
+    CdkScrollableModule,
     MatSlideToggleModule,
     MatProgressBarModule,
     MatTableModule,

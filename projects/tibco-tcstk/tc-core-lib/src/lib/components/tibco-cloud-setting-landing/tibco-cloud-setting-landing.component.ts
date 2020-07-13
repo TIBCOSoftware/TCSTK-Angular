@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { LandingPageConfig, LandingPageItemConfig, GeneralLandingPageConfig } from '../../models/tc-general-landing-page-config';
 import { TcGeneralLandingPageConfigService } from '../../services/tc-general-landing-page-config.service';
 import { Claim } from '../../models/tc-login';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { TibcoCloudNewElementComponent } from '../tibco-cloud-new-element/tibco-cloud-new-element.component';
 import { RoleAttribute } from '../../models/tc-general-config';
 

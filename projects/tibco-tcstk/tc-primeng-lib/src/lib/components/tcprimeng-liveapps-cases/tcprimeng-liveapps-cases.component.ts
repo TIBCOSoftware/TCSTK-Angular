@@ -65,37 +65,72 @@ export class TcprimengLiveappsCasesComponent implements OnChanges {
   /**
    * Generates the automatically the layout.
    */
-  @Input() autoLayout: boolean = this.autoLayout ? this.autoLayout : true;
+  public autoLayout: boolean = true;
+  @Input('autoLayout') set AutoLayout(autoLayout: boolean) {
+    if (autoLayout){
+      this.autoLayout = autoLayout;
+    }
+  }
 
   /**
    * Display the button on the right side
    */
-  @Input() showExpandButton: boolean = this.showExpandButton ? this.showExpandButton : false;
+  public showExpandButton: boolean = false;
+  @Input('showExpandButton') set ShowExpandButton(showExpandButton: boolean) {
+    if (showExpandButton){
+      this.showExpandButton = showExpandButton;
+    }
+  }
 
   /**
    * Display pagination bar at the botton
    */
-  @Input() paginator: boolean = this.paginator ? this.paginator : false;
+  public paginator: boolean = false;
+  @Input('paginator') set Paginator(paginator: boolean) {
+    if (paginator){
+      this.paginator = paginator;
+    }
+  }
 
   /**
    * Display page report at the botton
    */
-  @Input() showCurrentPageReport: boolean = this.showCurrentPageReport ? this.showCurrentPageReport : false;
+  public showCurrentPageReport: boolean = false;
+  @Input('showCurrentPageReport') set ShowCurrentPageReport(showCurrentPageReport: boolean) {
+    if (showCurrentPageReport){
+      this.showCurrentPageReport = showCurrentPageReport;
+    }
+  }
 
   /**
    * Pagination report template
    */
-  @Input() currentPageReportTemplate: string = this.currentPageReportTemplate ? this.currentPageReportTemplate : 'Showing {first} to {last} of {totalRecords} entries';
+  public currentPageReportTemplate: string = 'Showing {first} to {last} of {totalRecords} entries';
+  @Input('currentPageReportTemplate') set CurrentPageReportTemplate(currentPageReportTemplate: string) {
+    if (currentPageReportTemplate){
+      this.currentPageReportTemplate = currentPageReportTemplate;
+    }
+  }
 
   /**
    * Default lines per page
    */
-  @Input() defaultRows: number = this.defaultRows ? this.defaultRows : 5;
+  public defaultRows: number = 5;
+  @Input('defaultRows') set DefaultRows(defaultRows: number) {
+    if (defaultRows){
+      this.defaultRows = defaultRows;
+    }
+  }
 
   /**
    * Pagination report template
    */
-  @Input() rowsPerPageOptions: number[] = this.rowsPerPageOptions ? this.rowsPerPageOptions : [15,25,50];
+  public rowsPerPageOptions: number[] = [15,25,50];
+  @Input('rowsPerPageOptions') set RowsPerPageOptions(rowsPerPageOptions: number[]) {
+    if (rowsPerPageOptions){
+      this.rowsPerPageOptions = rowsPerPageOptions;
+    }
+  }
  
 /**
    * Array of selected case references

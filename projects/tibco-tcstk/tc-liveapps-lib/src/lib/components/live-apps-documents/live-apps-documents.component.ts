@@ -1,9 +1,8 @@
 import {Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {map, take, takeUntil} from 'rxjs/operators';
-import {DocumentList, Document, DocumentAction} from '../../models/tc-document';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import { take, takeUntil} from 'rxjs/operators';
+import { Document, DocumentAction} from '../../models/tc-document';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcDocumentService} from '../../services/tc-document.service';
 import {HttpEventType} from '@angular/common/http';
@@ -66,7 +65,12 @@ export class LiveAppsDocumentsComponent extends LiveAppsComponent implements OnI
   /**
    * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
    */
-  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
+  public showHeader: boolean = true;
+  @Input('showHeader') set ShowHeader(showHeader: boolean) {
+    if (showHeader){
+      this.showHeader = showHeader;
+    }
+  }
 
   /**
    * Custom Document Buttons (array of text)

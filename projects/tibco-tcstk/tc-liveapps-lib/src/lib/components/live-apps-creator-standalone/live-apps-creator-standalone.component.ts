@@ -1,11 +1,10 @@
 import {Component, EventEmitter, Input, Output, OnDestroy, SimpleChanges, OnChanges, OnInit} from '@angular/core';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {CaseCreator, Process, ProcessId} from '../../models/liveappsdata';
+import { Process, ProcessId} from '../../models/liveappsdata';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {take, takeUntil} from 'rxjs/operators';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 import {TcCaseDataService} from '../../services/tc-case-data.service';
-import {FormConfig} from '../../models/tc-liveapps-config';
 
 /**
  * Handles rendering of case creator form.
@@ -58,13 +57,23 @@ export class LiveAppsCreatorStandaloneComponent extends LiveAppsComponent implem
   /**
    * Enable legacy creators
    */
-  @Input() legacyCreators: boolean = this.legacyCreators ? this.legacyCreators : false;
+  public legacyCreators: boolean = false;
+  @Input('legacyCreators') set LegacyCreators(legacyCreators: boolean) {
+    if (legacyCreators){
+      this.legacyCreators = legacyCreators;
+    }
+  }
 
   /**
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
   /**
    * ~event caseChanged : Case action started (process started)

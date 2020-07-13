@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {TibcoCloudWidgetHeaderComponent} from '../tibco-cloud-widget-header/tibco-cloud-widget-header.component';
-import {ToolbarButton} from '../../models/tc-widget-header';
-import {MatMenu} from '@angular/material';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { TibcoCloudWidgetHeaderComponent } from '../tibco-cloud-widget-header/tibco-cloud-widget-header.component';
+import { ToolbarButton } from '../../models/tc-widget-header';
+import { MatMenu } from '@angular/material/menu';
 
 /**
  * TIBCO Cloud Menu Bar
