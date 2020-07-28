@@ -81,10 +81,13 @@ export class TcSharedStateService {
       );
   }
 
-  public getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean): Observable<SharedStateList> {
-    const url = '/clientstate/v1/states?$filter=type=' + type
+  public getSharedState(name: string, type: string, useCache: boolean, flushCache: boolean, scope?: string): Observable<SharedStateList> {
+    let url = '/clientstate/v1/states?$filter=type=' + type
     // const url = '/clientstate/v1/states?$filter=type=' + type
       + ' and name=\'' + name + '\'';
+    if (scope) {
+      url = url + ' and scope eq \'' + scope + '\'';
+    }
     let options = {}
     // set headers when caching required
     let headers: HttpHeaders = new HttpHeaders();
@@ -157,6 +160,18 @@ export class TcSharedStateService {
   public deleteSharedState(id: number): Observable<string> {
     const url = '/clientstate/v1/states/' + id;
 
+    return this.http.delete(url)
+      .pipe(
+        tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map(result => 'success')
+      );
+  }
+
+  public deleteSharedStates(name: string, scope?: string): Observable<string> {
+    let url = '/clientstate/v1/states?$filter=name eq \'' + name + '\'';
+    if (scope) {
+      url = url + ' and scope eq \'' + scope + '\'';
+    }
     return this.http.delete(url)
       .pipe(
         tap(val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
