@@ -39,6 +39,7 @@ sandboxId | number | sandboxId - this comes from claims resolver
 typeBar | boolean | Whether to display the colored &quot;bar&quot; on a summary card (on left or top)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 workitemId | string | Workitem Id
+workitemName | string | Workitem Name
 
 #### Outputs
 

@@ -2,9 +2,9 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>TIBCO Cloud Navigation Bar</p>
+<p>This Component provides access to the OOTB form web component.</p>
 
-<p><img src="../tibco-cloud-navbar.png" alt="alt-text" class="img-responsive" title="Image"></p>
+<p><img src="../live-apps-form.png" alt="alt-text" class="img-responsive" title="Live Apps Form Image"></p>
 
 
 
@@ -14,32 +14,26 @@
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tc-tibco-cloud-navbar appName=""></tc-tibco-cloud-navbar>
+<tcla-live-apps-form></tcla-live-apps-form>
 ```
 
 #### Inputs
 
 Attribute | Type | Comments
 --- | --- | ---
-appName | string | diaplayed Application Name
-contextHelp | boolean | Define if you want to use contextual help
-docUrl | string | Documentation URL
-logoClickTargetUrl | string | Where to redirect on click of logo
-logoUrl | string | Custom Logo URL
-rebrandConfig | any | rebrand config - example: { &quot;backgroundColor&quot;: &quot;#cfcfcf&quot;, &quot;fontColor&quot;: &quot;#682782&quot;, &quot;fontFamily&quot;: &quot;Oswald&quot;, &quot;iconColor&quot;: &quot;red&quot; }
+config | LiveAppsFormConfig | config - configuration of the form web component
 
+#### Outputs
 
-<b>Constructor</b>
-
-
-<p>single empty Constructor of TIBCO Cloud Navigation Bar</p>
-
-
+Attribute | Type |   | Comments
+--- | --- | --- | ---
+completed | EventEmitter<any> |   |  
+data | EventEmitter<any> |   |  
 
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudNavbarComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudNavbarComponent.html)
+[Link to LiveAppsFormWcComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-liveapps-lib/components/LiveAppsFormWcComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"
