@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouteAccessControlConfig, RouteAccessControlConfigurationElement, Roles } from '../../models/tc-groups-data';
 import { TcAccessControlService } from '../../services/tc-access-control.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'tcla-live-apps-settings-access-control',

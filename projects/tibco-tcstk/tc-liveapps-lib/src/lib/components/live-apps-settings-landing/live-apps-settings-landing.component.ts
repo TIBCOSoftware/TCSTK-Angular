@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
 import { TcDocumentService } from '../../services/tc-document.service';
 import { GeneralLandingPageConfig, LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-apps-landing-page-config';

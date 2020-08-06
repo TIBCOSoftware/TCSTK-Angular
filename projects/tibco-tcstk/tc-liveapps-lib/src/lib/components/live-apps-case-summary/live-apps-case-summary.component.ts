@@ -40,9 +40,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 export class LiveAppsCaseSummaryComponent extends LiveAppsComponent implements OnInit, OnChanges, AfterViewInit {
   // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
-  @ViewChild('caseStateIcon', {static: false}) stateIconComponent: LiveAppsStateIconComponent;
-  @ViewChild('caseTypeIcon', {static: false}) caseTypeIconComponent: LiveAppsStateIconComponent;
-  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
+  @ViewChild('caseStateIcon') stateIconComponent: LiveAppsStateIconComponent;
+  @ViewChild('caseTypeIcon') caseTypeIconComponent: LiveAppsStateIconComponent;
+  @ViewChild('componentDiv') componentDiv: ElementRef;
 
   /**
    * Whether to use static data (ie. when in app config box)

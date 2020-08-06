@@ -8,15 +8,22 @@ import {AppRoutingModule} from './app-routing.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {
-  MatButtonModule, MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule, MatDialogModule,
-  MatExpansionModule,
-  MatFormFieldModule, MatIconModule, MatInputModule,
-  MatListModule, MatMenuModule, MatOptionModule, MatSelectModule,
-  MatTabsModule, MatToolbarModule, MatTooltipModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {LoginComponent} from './routes/login/login.component';
 import {ShowcaseComponent} from './routes/showcase/showcase.component';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';

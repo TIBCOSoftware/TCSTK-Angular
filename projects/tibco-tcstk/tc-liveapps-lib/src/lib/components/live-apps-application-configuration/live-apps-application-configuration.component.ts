@@ -34,7 +34,7 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 import {LiveAppsCaseDataComponent} from '../live-apps-case-data/live-apps-case-data.component';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {LiveAppsDocumentUploadDialogComponent} from '../live-apps-documents/live-apps-documents.component';
 import { Location } from '@angular/common';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TibcoCloudSettingsGeneralComponent, RoleAttribute, TcGeneralConfigService, TibcoCloudNewElementComponent } from '@tibco-tcstk/tc-core-lib';
 import { Groups, Roles } from '../../models/tc-groups-data';
 import { ActivatedRoute } from '@angular/router';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 /**
  * Configuration of roles

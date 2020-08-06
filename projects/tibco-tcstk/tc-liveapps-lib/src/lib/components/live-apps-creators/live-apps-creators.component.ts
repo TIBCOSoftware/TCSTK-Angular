@@ -19,7 +19,7 @@ import {LiveAppsFormConfig} from '../../models/tc-liveapps-form';
   styleUrls: ['./live-apps-creators.component.css']
 })
 export class LiveAppsCreatorsComponent implements OnInit {
-  @ViewChild('creatorSelector', {static: false}) creatorSelector: LiveAppsCreatorSelectorComponent;
+  @ViewChild('creatorSelector') creatorSelector: LiveAppsCreatorSelectorComponent;
   /**
    * sandboxId - this comes from claims resolver
    */

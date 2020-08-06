@@ -31,7 +31,7 @@ export class LiveAppsFormWcComponent {
    */
   @Output() completed: EventEmitter<any> = new EventEmitter<any>();
 
-  @ViewChild('customFormComponent', { static: false }) customFormComponent: ElementRef<any>;
+  @ViewChild('customFormComponent') customFormComponent: ElementRef<any>;
 
   private formApi: any;
 

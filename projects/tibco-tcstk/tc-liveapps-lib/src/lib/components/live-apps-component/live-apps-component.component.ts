@@ -32,7 +32,7 @@ import {TcComponent} from '@tibco-tcstk/tc-core-lib';
  */
 export class LiveAppsComponent implements OnDestroy, AfterViewInit, OnInit {
 
-  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
+  @ViewChild('componentDiv') componentDiv: ElementRef;
   @ViewChildren('componentChildDiv') componentChildDivs: LiveAppsComponent[];
 
   // use the _destroyed$/takeUntil pattern to avoid memory leaks if a response was never received

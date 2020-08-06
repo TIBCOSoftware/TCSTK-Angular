@@ -70,8 +70,8 @@ export class LiveAppsActiveCasesForTypeReportComponent extends LiveAppsComponent
    */
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 
-  @ViewChild(BaseChartDirective, {static: false}) caseTypeStateReportChart: BaseChartDirective;
-  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
+  @ViewChild(BaseChartDirective) caseTypeStateReportChart: BaseChartDirective;
+  @ViewChild('componentDiv') componentDiv: ElementRef;
 
   public errorMessage: string;
   public caseTypeStateReport: CaseTypeStateReport;

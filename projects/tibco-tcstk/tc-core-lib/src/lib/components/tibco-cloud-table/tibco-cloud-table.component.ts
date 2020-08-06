@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort} from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import {TibcoCloudTableDataSource} from './tibco-cloud-table-datasource';
 import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 

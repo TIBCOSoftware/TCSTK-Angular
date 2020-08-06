@@ -66,7 +66,7 @@ export class LiveAppsWorkitemsComponent extends LiveAppsComponent implements OnI
    */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
-  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
+  @ViewChild('componentDiv') componentDiv: ElementRef;
 
   public workitems: Workitem[];
   public errorMessage: string;

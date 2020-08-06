@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {SpotfireMarkingCreateCaseConfig} from '../../models/tc-spotfire-config';
 import {TcSpotfireMarkingLiveappsConfigService} from '../../services/tc-spotfire-marking-liveapps-config.service';
 

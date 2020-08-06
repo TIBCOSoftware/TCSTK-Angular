@@ -7,7 +7,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map} from 'rxjs/operators';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
-import {MatSelect} from '@angular/material';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'tcla-live-apps-creator-selector',
@@ -15,7 +15,7 @@ import {MatSelect} from '@angular/material';
   styleUrls: ['./live-apps-creator-selector.component.css']
 })
 export class LiveAppsCreatorSelectorComponent extends LiveAppsComponent implements OnChanges {
-  @ViewChild('creatorSelector', {static: false}) creatorSelector: MatSelect;
+  @ViewChild('creatorSelector') creatorSelector: MatSelect;
   @Input() sandboxId: number;
   @Input() appId: string;
   @Input() typeId: string = this.typeId ? this.typeId : '1';

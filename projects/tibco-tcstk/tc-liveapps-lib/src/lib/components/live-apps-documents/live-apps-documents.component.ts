@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {DocumentList, Document, DocumentAction} from '../../models/tc-document';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcDocumentService} from '../../services/tc-document.service';
 import {HttpEventType} from '@angular/common/http';

@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { EftlMessageReceiverComponent } from './components/eftl-message-receiver/eftl-message-receiver.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import { EftlMessageSenderComponent } from './components/eftl-message-sender/eftl-message-sender.component';
-import {
-  MatButtonModule,
-  MatExpansionModule,
-  MatFormFieldModule, MatIconRegistry,
-  MatInputModule,
-  MatSelectModule,
-  MatTooltipModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconRegistry } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {FormsModule} from '@angular/forms';
 import {TcCoreLibModule} from '@tibco-tcstk/tc-core-lib';
 import {FlexLayoutModule} from '@angular/flex-layout';

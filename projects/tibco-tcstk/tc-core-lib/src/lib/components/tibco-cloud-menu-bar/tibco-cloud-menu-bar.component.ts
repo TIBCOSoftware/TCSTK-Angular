@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {TibcoCloudWidgetHeaderComponent} from '../tibco-cloud-widget-header/tibco-cloud-widget-header.component';
 import {ToolbarButton} from '../../models/tc-widget-header';
-import {MatMenu} from '@angular/material';
+import { MatMenu } from '@angular/material/menu';
 
 /**
  * TIBCO Cloud Menu Bar
@@ -33,7 +33,7 @@ export class TibcoCloudMenuBarComponent extends TibcoCloudWidgetHeaderComponent 
    */
   @Output() burgerMenuButtonEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  @ViewChild('burgerButtonMenu', {static: false}) burgerButtonMenu: MatMenu;
+  @ViewChild('burgerButtonMenu') burgerButtonMenu: MatMenu;
 
     constructor() {
         super();

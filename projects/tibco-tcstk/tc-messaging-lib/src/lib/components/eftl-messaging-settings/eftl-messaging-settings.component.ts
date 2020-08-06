@@ -1,7 +1,10 @@
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Claim, GeneralConfig, RoleAttribute, TibcoCloudNewElementComponent} from '@tibco-tcstk/tc-core-lib';
-import {MatDialog, MatExpansionPanel, MatSnackBar, MatTab, MatTabGroup} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatExpansionPanel } from '@angular/material/expansion';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import {MessagingConfig} from '../../models/messaging-config';
 import {EFTLConfigService} from '../../services/e-ftl-config.service';
 import {MessagingConnection} from '../../models/messaging-connection';

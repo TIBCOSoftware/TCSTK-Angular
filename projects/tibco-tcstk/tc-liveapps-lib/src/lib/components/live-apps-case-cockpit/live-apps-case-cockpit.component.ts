@@ -25,7 +25,7 @@ import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-
 import {LiveAppsService} from '../../services/live-apps.service';
 import {ToolbarButton, TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
-import {MatTab, MatTabChangeEvent, MatTabGroup} from '@angular/material';
+import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material/tabs';
 import {QueryList} from '@angular/core';
 import { RouteAction } from '@tibco-tcstk/tc-core-lib';
 import {Roles, RouteAccessControlConfig, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
@@ -52,7 +52,7 @@ import {FormConfig} from '../../models/tc-liveapps-config';
 })
 export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, AfterViewInit {
 
-  @ViewChild('contextTabGroup', {static: false}) matTabGroup: MatTabGroup;
+  @ViewChild('contextTabGroup') matTabGroup: MatTabGroup;
   @ViewChildren('contextTabs') inclusiveTabs: QueryList<MatTab>;
   @ContentChildren('projectedTab') tabsFromNgContent: QueryList<MatTab>;
 
@@ -182,19 +182,19 @@ export class LiveAppsCaseCockpitComponent implements OnChanges, OnDestroy, After
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
 // The ViewChild declarations give access to components marked on the template so that I can call public functions like refresh
-  @ViewChild(LiveAppsCaseSummaryComponent, {static: false}) caseSummaryComponent: LiveAppsCaseSummaryComponent;
-  @ViewChild(LiveAppsCaseDataComponent, {static: false}) caseDataComponent: LiveAppsCaseDataComponent;
-  @ViewChild(LiveAppsCaseActionsComponent, {static: false}) caseActionsComponent: LiveAppsCaseActionsComponent;
-  @ViewChild(LiveAppsCaseActionComponent, {static: false}) caseActionComponent: LiveAppsCaseActionComponent;
-  @ViewChild(LiveAppsCaseAuditComponent, {static: false}) caseAuditComponent: LiveAppsCaseAuditComponent;
-  @ViewChild(LiveAppsDocumentsComponent, {static: false}) caseDocumentsComponent: LiveAppsDocumentsComponent;
-  @ViewChild(LiveAppsNotesComponent, {static: false}) caseNotesComponent: LiveAppsNotesComponent;
-  @ViewChild(LiveAppsCaseStatesComponent, {static: false}) caseStatesComponent: LiveAppsCaseStatesComponent;
-  @ViewChild(LiveAppsCaseStateAuditComponent, {static: false}) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
-  @ViewChild(LiveAppsLegacyFormComponent, {static: false}) workitemComponent: LiveAppsLegacyFormComponent;
-  @ViewChild(LiveAppsWorkitemsComponent, {static: false}) caseWorkitemsComponent: LiveAppsWorkitemsComponent;
-  @ViewChild('dataTabGroup', {static: false}) dataTabGroups: MatTabGroup;
-  @ViewChild('dataTabGroup', {static: false}) dataTabGroupEl: ElementRef;
+  @ViewChild(LiveAppsCaseSummaryComponent) caseSummaryComponent: LiveAppsCaseSummaryComponent;
+  @ViewChild(LiveAppsCaseDataComponent) caseDataComponent: LiveAppsCaseDataComponent;
+  @ViewChild(LiveAppsCaseActionsComponent) caseActionsComponent: LiveAppsCaseActionsComponent;
+  @ViewChild(LiveAppsCaseActionComponent) caseActionComponent: LiveAppsCaseActionComponent;
+  @ViewChild(LiveAppsCaseAuditComponent) caseAuditComponent: LiveAppsCaseAuditComponent;
+  @ViewChild(LiveAppsDocumentsComponent) caseDocumentsComponent: LiveAppsDocumentsComponent;
+  @ViewChild(LiveAppsNotesComponent) caseNotesComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsCaseStatesComponent) caseStatesComponent: LiveAppsCaseStatesComponent;
+  @ViewChild(LiveAppsCaseStateAuditComponent) caseStateAuditComponent: LiveAppsCaseStateAuditComponent;
+  @ViewChild(LiveAppsLegacyFormComponent) workitemComponent: LiveAppsLegacyFormComponent;
+  @ViewChild(LiveAppsWorkitemsComponent) caseWorkitemsComponent: LiveAppsWorkitemsComponent;
+  @ViewChild('dataTabGroup') dataTabGroups: MatTabGroup;
+  @ViewChild('dataTabGroup') dataTabGroupEl: ElementRef;
 
   isFavorite: boolean;
   valid = false;

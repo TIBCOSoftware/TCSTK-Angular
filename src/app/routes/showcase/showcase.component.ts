@@ -91,7 +91,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     id: '27631'
   });
 
-  @ViewChild('rowexpansion', { static: false }) rowExpansionTemplate: TemplateRef<any>;
+  @ViewChild('rowexpansion') rowExpansionTemplate: TemplateRef<any>;
 
   public columnDefs2: any[] = [
     {
@@ -133,7 +133,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.messagingConnection = (this.messagingConfig.connections && this.messagingConfig.connections.length > 0) ? this.messagingConfig.connections[0] : undefined;
   }
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
-  @ViewChild ('formComponent', { static: false }) formComponent: LiveAppsFormWcComponent;
+  @ViewChild('formComponent') formComponent: LiveAppsFormWcComponent;
   // @ViewChild(TcgridLiveappsCasesComponent, {static: false}) gridComponent: TcgridLiveappsCasesComponent;
 
   data: any;

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LiveAppsService, LoginContext} from '@tibco-tcstk/tc-liveapps-lib';
 import {LogLevel, LogService} from '@tibco-tcstk/tc-core-lib';
-import {MatIconRegistry} from '@angular/material';
+import { MatIconRegistry } from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Location} from '@angular/common';
 import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';

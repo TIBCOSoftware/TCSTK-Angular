@@ -56,7 +56,7 @@ export class LiveAppsRecentCasesComponent extends LiveAppsComponent implements O
    */
   @Output() clickCase: EventEmitter<CaseRoute> = new EventEmitter<CaseRoute>();
 
-  @ViewChild('componentDiv', {static: false}) componentDiv: ElementRef;
+  @ViewChild('componentDiv') componentDiv: ElementRef;
 
   public recentCases: string[];
   public errorMessage: string;

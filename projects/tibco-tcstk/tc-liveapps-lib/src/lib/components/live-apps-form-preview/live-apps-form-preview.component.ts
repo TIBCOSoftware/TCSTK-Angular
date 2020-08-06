@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {CaseType, JsonSchema, Process} from '../../models/liveappsdata';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
-import {MatExpansionPanel} from '@angular/material';
+import { MatExpansionPanel } from '@angular/material/expansion';
 import {FormConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
 import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
 import {RenderedFormComponent} from '@tibco-tcstk/tc-forms-lib';
@@ -28,8 +28,8 @@ export class LiveAppsFormPreviewComponent implements OnChanges {
    */
   @Output() formConfigUpdate: EventEmitter<FormConfig> = new EventEmitter<FormConfig>();
 
-  @ViewChild('dataPanel', {static: false}) dataPanel: MatExpansionPanel;
-  @ViewChild(RenderedFormComponent, {static: false}) renderedFormComponent: RenderedFormComponent;
+  @ViewChild('dataPanel') dataPanel: MatExpansionPanel;
+  @ViewChild(RenderedFormComponent) renderedFormComponent: RenderedFormComponent;
 
   layout: any[];
   formSchemaJSON: string;

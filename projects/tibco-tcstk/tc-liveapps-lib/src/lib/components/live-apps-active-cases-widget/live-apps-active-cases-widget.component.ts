@@ -67,8 +67,8 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   @Output() selectedCaseTypeState: EventEmitter<CaseTypeStateReportStateInfo> = new EventEmitter<CaseTypeStateReportStateInfo>();
 
 
-  @ViewChild(LiveAppsActiveCasesReportComponent, {static: false}) activeCasesComp: LiveAppsActiveCasesReportComponent;
-  @ViewChild(LiveAppsActiveCasesForTypeReportComponent, {static: false}) activeCaseTypeComp: LiveAppsActiveCasesForTypeReportComponent;
+  @ViewChild(LiveAppsActiveCasesReportComponent) activeCasesComp: LiveAppsActiveCasesReportComponent;
+  @ViewChild(LiveAppsActiveCasesForTypeReportComponent) activeCaseTypeComp: LiveAppsActiveCasesForTypeReportComponent;
 
   public selectedCaseTypeReport: CaseTypeReportRecord;
 

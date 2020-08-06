@@ -8,7 +8,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.service';
 import {CaseType} from '../../models/liveappsdata';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 /**

@@ -45,8 +45,8 @@ export class LiveAppsCaseActionComponent extends LiveAppsCaseCreatorComponent im
   @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
 
 
-  @ViewChild(LiveAppsLegacyProcessComponent, {static: false}) legacyProcessComponent: LiveAppsLegacyProcessComponent;
-  @ViewChild('actionFormWc', {static: false}) actionFormWc: LiveAppsFormWcComponent;
+  @ViewChild(LiveAppsLegacyProcessComponent) legacyProcessComponent: LiveAppsLegacyProcessComponent;
+  @ViewChild('actionFormWc') actionFormWc: LiveAppsFormWcComponent;
 
   originalData: any;
   caseState: string;

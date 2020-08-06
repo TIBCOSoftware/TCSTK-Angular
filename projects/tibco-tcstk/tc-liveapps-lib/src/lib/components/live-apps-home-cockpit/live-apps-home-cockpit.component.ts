@@ -4,7 +4,7 @@ import {ToolbarButton, TcButtonsHelperService, RouteAction} from '@tibco-tcstk/t
 import {LiveAppsFavoriteCasesComponent} from '../live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsRecentCasesComponent} from '../live-apps-recent-cases/live-apps-recent-cases.component';
 import {LiveAppsSearchWidgetComponent} from '../live-apps-search-widget/live-apps-search-widget.component';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {LiveAppsCreatorDialogComponent} from '../live-apps-creator-dialog/live-apps-creator-dialog.component';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
@@ -113,13 +113,13 @@ export class LiveAppsHomeCockpitComponent implements OnChanges {
    */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
-  @ViewChild(LiveAppsFavoriteCasesComponent, {static: false}) favoritesComponent: LiveAppsFavoriteCasesComponent;
-  @ViewChild(LiveAppsRecentCasesComponent, {static: false}) recentsComponent: LiveAppsRecentCasesComponent;
-  @ViewChild(LiveAppsSearchWidgetComponent, {static: false}) searchComponent: LiveAppsSearchWidgetComponent;
-  @ViewChild(LiveAppsNotesComponent, {static: false}) collaborationComponent: LiveAppsNotesComponent;
-  @ViewChild(LiveAppsDocumentsComponent, {static: false}) documentsComponent: LiveAppsDocumentsComponent;
-  @ViewChild(LiveAppsActiveCasesWidgetComponent, {static: false}) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
-  @ViewChild(LiveAppsWorkitemsComponent, {static: false}) workitemsComponent: LiveAppsWorkitemsComponent;
+  @ViewChild(LiveAppsFavoriteCasesComponent) favoritesComponent: LiveAppsFavoriteCasesComponent;
+  @ViewChild(LiveAppsRecentCasesComponent) recentsComponent: LiveAppsRecentCasesComponent;
+  @ViewChild(LiveAppsSearchWidgetComponent) searchComponent: LiveAppsSearchWidgetComponent;
+  @ViewChild(LiveAppsNotesComponent) collaborationComponent: LiveAppsNotesComponent;
+  @ViewChild(LiveAppsDocumentsComponent) documentsComponent: LiveAppsDocumentsComponent;
+  @ViewChild(LiveAppsActiveCasesWidgetComponent) activeCasesComponent: LiveAppsActiveCasesWidgetComponent;
+  @ViewChild(LiveAppsWorkitemsComponent) workitemsComponent: LiveAppsWorkitemsComponent;
 
   public toolbarButtons: ToolbarButton[] = [];
   public burgerMenuButtons: ToolbarButton[] = [];

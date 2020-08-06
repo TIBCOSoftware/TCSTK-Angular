@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GeneralConfig } from '../../models/tc-general-config';
 import { TcGeneralConfigService } from '../../services/tc-general-config.service';
 import { Claim } from '../../models/tc-login';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 /**

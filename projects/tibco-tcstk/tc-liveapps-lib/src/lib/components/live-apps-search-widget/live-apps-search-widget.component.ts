@@ -59,8 +59,8 @@ export class LiveAppsSearchWidgetComponent extends LiveAppsComponent implements 
   @Output() caseSelected: EventEmitter<string> = new EventEmitter<string>();
 
 
-  @ViewChild(LiveAppsCaseSearchComponent, {static: false}) caseSearchComponent: LiveAppsCaseSearchComponent;
-  @ViewChild('componentDiv', { static: false }) componentDiv: ElementRef;
+  @ViewChild(LiveAppsCaseSearchComponent) caseSearchComponent: LiveAppsCaseSearchComponent;
+  @ViewChild('componentDiv') componentDiv: ElementRef;
   @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
 
   widget: TcComponent;
