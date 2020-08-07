@@ -42,6 +42,7 @@ typeId | string | The LA Application Type Id (generally 1)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 userId | string | The ID of the logged user
 workitemId | number | The workitem Id
+workitemName | number | The workitem Name
 
 #### Outputs
 

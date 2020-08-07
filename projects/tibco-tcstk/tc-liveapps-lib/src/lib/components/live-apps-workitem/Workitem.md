@@ -17,8 +17,11 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+appId | string | The applicationId
+formConfig | FormConfig | Custom Form Layout Configuration
 sandboxId | string | The sandboxId
 workitemId | number | The workitem id to display
+workitemName | string | The workitem task name
 
 #### Outputs
 
