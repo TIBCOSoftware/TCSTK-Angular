@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef, Input, SystemJsNgModuleLoader} from '@angular/core';
 import {Location} from '@angular/common';
-import { TcCoreCommonFunctions } from '../../common/tc-core-common-functions';
+import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 import {MessageTopicService} from '../../common/tc-core-topic-comm';
 
 declare var GlobalNavbar: any;
@@ -22,7 +22,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
   /**
    * Reference Element
    */
-  @ViewChild('navbar', { static: true }) private navbarRef: ElementRef;
+  @ViewChild('navbar', {static: true}) private navbarRef: ElementRef;
   /**
    * diaplayed Application Name
    */
@@ -50,6 +50,10 @@ export class TibcoCloudNavbarComponent implements OnInit {
 
   @Input() logoClickTargetUrl: string;
 
+  /**
+   * Define if you want to use contextual help
+   */
+  @Input() contextHelp?: boolean;
 
   private navbar;
 
@@ -67,10 +71,15 @@ export class TibcoCloudNavbarComponent implements OnInit {
    * @ignore
    */
   ngOnInit() {
+    if (this.contextHelp == null) {
+      this.contextHelp = false;
+    }
 
     if (this.docUrl && (this.docUrl.slice(0, 4).toLowerCase() !== 'http')) {
-//      this.docUrl = this.location.prepareExternalUrl(this.docUrl);        // This will work with non hash routing
-      this.docUrl = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.docUrl);        // This will work with hash routing
+      // this.docUrl = this.location.prepareExternalUrl(this.docUrl);
+      // This will work with non hash routing
+      this.docUrl = TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, this.docUrl);
+      // This will work with hash routing
     }
 
     this.navbar = new GlobalNavbar({
@@ -93,7 +102,7 @@ export class TibcoCloudNavbarComponent implements OnInit {
           visible: false
         },
         region: {
-            visible: false
+          visible: false
         },
         accountswitcher: {
           visible: false
@@ -153,29 +162,17 @@ export class TibcoCloudNavbarComponent implements OnInit {
     this.urlExists(initialHelpURL, exists => {
       if (exists) {
         this.navbar.customizePanel('help', '<embed src="' + initialHelpURL + '" style="height: 100%; width: 100%">');  // set HTML string
-
       } else {
         this.navbar.customizePanel('help', '<b> No Help Page Found</b>');  // set HTML string
-
       }
     });
 
     this.ms.getMessage('help').subscribe(data => {
       // console.log('Got message: ' + data.text);
-      this.findHelpFile('assets/help/' + data.text + '/help.html');
+      if (this.contextHelp) {
+        this.findHelpFile('assets/help' + data.text + '/help.html');
+      }
     });
-
-/*
-    this.ms.getMessage('navbar.notificaction').subscribe(data => {
-      console.log('Got message: ' + data.text);
-      this.navbar.publishEvent('REQUEST_TOP_NOTIFICATION',
-        {
-          id: 'alert-id-' + new Date(),            // the notification ID
-          message: data.text,   // the message shown in the banner
-          persistClose: true         // Whether "Closing" banner flag is persisted in sessionStroage. If the value is false then the banner will show again               when the page is refreshed
-        });
-    });*/
-
   }
 
   findHelpFile(helpUrl) {
