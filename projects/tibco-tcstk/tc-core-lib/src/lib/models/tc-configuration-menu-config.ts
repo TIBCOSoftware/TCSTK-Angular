@@ -13,5 +13,6 @@ export class ConfigurationMenuConfig {
 
 export class  ConfigurationMenuEntry {
     entry: string;
+    icon: string;
     options: string[];
 }
