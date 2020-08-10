@@ -5,7 +5,7 @@ import { TcSpotfireConfigService } from '../../services/tc-spotfire-config.servi
 import { SpotfireConfig } from '../../models/tc-spotfire-config';
 
 @Component({
-  selector: 'tcpd-settings-spotfire',
+  selector: 'tcsf-settings-spotfire',
   templateUrl: './settings-spotfire.component.html',
   styleUrls: ['./settings-spotfire.component.css']
 })
@@ -17,7 +17,7 @@ export class SettingsSpotfireComponent implements OnInit {
     public activePageForHome: string;
     public activePageForDetails: string;
     public markingName: string;
-    public maxMarkings : number;
+    public maxMarkings: number;
     public allowedPages: string;
     public columnNames: string;
     private id: string;
@@ -35,7 +35,7 @@ export class SettingsSpotfireComponent implements OnInit {
     }
 
     private refresh = (): void => {
-        var spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
+        const spotfireConfig = this.route.snapshot.data.spotfireConfigHolder;
         this.sandboxId = this.route.snapshot.data.claimsHolder.primaryProductionSandbox.id;
 
         this.spotfireServer = spotfireConfig.spotfireServer;
@@ -49,16 +49,15 @@ export class SettingsSpotfireComponent implements OnInit {
         this.markingName = spotfireConfig.markingName;
         this.maxMarkings = spotfireConfig.maxMarkings;
 
-        this.allowedPages = spotfireConfig.allowedPages.join(','); 
+        this.allowedPages = spotfireConfig.allowedPages.join(',');
         this.columnNames = spotfireConfig.columnNames.join(',');
 
         this.id = spotfireConfig.id;
         this.uiAppId = spotfireConfig.uiAppId;
     }
 
-    public runSaveFunction = ():void => {
-       
-        var spotfireConfig = new SpotfireConfig().deserialize({
+    public runSaveFunction = (): void => {
+        const spotfireConfig = new SpotfireConfig().deserialize({
             id: this.id,
             uiAppId: this.uiAppId,
             spotfireServer: this.spotfireServer,
