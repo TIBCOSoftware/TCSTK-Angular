@@ -5,11 +5,10 @@ import {
   EventEmitter,
   Input,
   OnDestroy,
-  OnInit,
   Output
 } from '@angular/core';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {LegacyIframeService, TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {LegacyIframeService} from '@tibco-tcstk/tc-core-lib';
 import {TcVisibilityService} from '@tibco-tcstk/tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 
@@ -26,7 +25,13 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
 })
 export class LiveAppsLegacyProcessComponent extends LiveAppsComponent implements OnDestroy, OnDestroy, AfterViewInit {
 
-  @Input() legacyIframeId = this.legacyIframeId ?  this.legacyIframeId : 'legacyProcessFrame';
+  public legacyIframeId: string = 'legacyProcessFrame';
+  @Input('legacyIframeId') set LegacyIframeId(legacyIframeId: string) {
+    if (legacyIframeId){
+      this.legacyIframeId = legacyIframeId;
+    }
+  }
+
   @Input() process: LaProcessSelection;
   @Input() type: string; // creator/process
   @Input() applicationId: string;

@@ -47,12 +47,22 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   /**
    * Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
    */
-  @Input() maxLegendItems: number = this.maxLegendItems ? this.maxLegendItems : 8;
+  public maxLegendItems: number = 8;
+  @Input('maxLegendItems') set MaxLegendItems(maxLegendItems: number) {
+    if (maxLegendItems){
+      this.maxLegendItems = maxLegendItems;
+    }
+  }
 
   /**
    * Whether to show percentages or raw case numbers on the doughnut chart
    */
-  @Input() showPercentages = this.showPercentages ? this.showPercentages : false;
+  public showPercentages: boolean = false;
+  @Input('showPercentages') set ShowPercentages(showPercentages: boolean) {
+    if (showPercentages){
+      this.showPercentages = showPercentages;
+    }
+  }
 
   /**
    * ~event selectedCaseType : Case Type selected in vizualization

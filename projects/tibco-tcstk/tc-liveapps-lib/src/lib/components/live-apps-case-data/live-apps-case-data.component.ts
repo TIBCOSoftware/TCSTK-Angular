@@ -56,7 +56,12 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   /**
    * Custom Form Layout Configuration
    */
-  @Input() formConfig: FormConfig = this.formConfig ? this.formConfig : new FormConfig();
+  public formConfig: FormConfig = new FormConfig();
+  @Input('formConfig') set FormConfig(formConfig: FormConfig) {
+    if (formConfig){
+      this.formConfig = formConfig;
+    }
+  }
 
   /**
    * Layout object that can be passed to override default layout of the form renderer
@@ -67,7 +72,12 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
   /**
    * Custom Form configuration file
@@ -77,7 +87,12 @@ export class LiveAppsCaseDataComponent extends LiveAppsComponent implements OnIn
   /**
    * not used
    */
-  @Input() customDataId = this.customDataId ? this.customDataId : 'default';
+  public customDataId: string = 'default';
+  @Input('customDataId') set CustomDataId(customDataId: string) {
+    if (customDataId){
+      this.customDataId = customDataId;
+    }
+  }
 
   /**
    * Emit event to cause refresh of page

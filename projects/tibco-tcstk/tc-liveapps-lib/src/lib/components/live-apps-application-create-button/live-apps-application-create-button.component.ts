@@ -17,7 +17,12 @@ import {CaseType} from '../../models/liveappsdata';
 })
 export class LiveAppsApplicationCreateButtonComponent extends LiveAppsApplicationsComponent {
 
-  @Input() createLabel: string = this.createLabel ? this.createLabel : 'Create Case';
+  public createLabel: string = 'Create Case';
+  @Input('createLabel') set CreateLabel(createLabel: string) {
+    if (createLabel){
+      this.createLabel = createLabel;
+    }
+  }
 
   public handleCreatorAppSelection = (application: CaseType) => {
     this.selection.emit(application);

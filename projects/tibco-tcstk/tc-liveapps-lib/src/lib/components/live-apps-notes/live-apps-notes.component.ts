@@ -43,12 +43,22 @@ export class LiveAppsNotesComponent extends LiveAppsComponent implements OnInit 
   /**
    * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
    */
-  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
+  public showHeader: boolean = true;
+  @Input('showHeader') set ShowHeader(showHeader: boolean) {
+    if (showHeader){
+      this.showHeader = showHeader;
+    }
+  }
 
   /**
    * The header text as input, defaults to 'Notes'
    */
-  @Input() header: string = this.header ? this.header : 'Notes';
+  public header: string = 'Notes';
+  @Input('header') set Header(header: string) {
+    if (header){
+      this.header = header;
+    }
+  }
 
   public notes: Note[];
   public errorMessage: string;

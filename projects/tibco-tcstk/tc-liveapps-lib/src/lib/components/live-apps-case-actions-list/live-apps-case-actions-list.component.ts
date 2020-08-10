@@ -26,12 +26,22 @@ export class LiveAppsCaseActionsListComponent extends LiveAppsCaseActionsCompone
   /**
    * Use Form field rendering around the selection box
    */
-  @Input() formFieldRendering: boolean = this.formFieldRendering ? this.formFieldRendering : false;
+  public formFieldRendering: boolean = false;
+  @Input('formFieldRendering') set FormFieldRendering(formFieldRendering: boolean) {
+    if (formFieldRendering){
+      this.formFieldRendering = formFieldRendering;
+    }
+  }
 
   /**
    * Label for the actions selector
    */
-  @Input() label: string = this.label ? this.label : 'Case Actions'
+  public label: string = 'Case Actions';
+  @Input('label') set Label(label: string) {
+    if (label){
+      this.label = label;
+    }
+  }
 
     caseActionList: Process[];
     selectedAction: Process;

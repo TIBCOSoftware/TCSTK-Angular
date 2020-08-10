@@ -65,13 +65,23 @@ export class LiveAppsActionStandaloneComponent extends LiveAppsCreatorStandalone
   /**
    * Enable legacy actions
    */
-  @Input() legacyActions: boolean = this.legacyActions ? this.legacyActions : false;
+  public legacyActions: boolean = false;
+  @Input('legacyActions') set LegacyActions(legacyActions: boolean) {
+    if (legacyActions){
+      this.legacyActions = legacyActions;
+    }
+  }
 
   /**
    * Allow override of forms framework
    * Options: bootstrap-4 or material-design
    */
-  @Input() formsFramework: string = this.formsFramework ? this.formsFramework : 'material-design';
+  public formsFramework: string = 'material-design';
+  @Input('formsFramework') set FormsFramework(formsFramework: string) {
+    if (formsFramework){
+      this.formsFramework = formsFramework;
+    }
+  }
 
   /**
    * ~event caseChanged : Case action started (process started)

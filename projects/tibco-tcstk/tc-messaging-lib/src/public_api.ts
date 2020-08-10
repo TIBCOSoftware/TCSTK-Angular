@@ -15,6 +15,7 @@ export * from './lib/services/e-ftl-config.service';
 // components
 export * from './lib/components/eftl-message-receiver/eftl-message-receiver.component';
 export * from './lib/components/eftl-messaging-settings/eftl-messaging-settings.component';
+export * from './lib/components/eftl-message-sender/eftl-message-sender.component';
 
 // resolvers
 export * from './lib/resolvers/messaging-config.resolver';

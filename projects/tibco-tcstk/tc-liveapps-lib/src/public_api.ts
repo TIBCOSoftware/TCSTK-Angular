@@ -65,6 +65,8 @@ export * from './lib/components/live-apps-settings-form-layout/live-apps-setting
 export * from './lib/components/live-apps-workitem/live-apps-workitem.component';
 export * from './lib/components/live-apps-form-wc/live-apps-form-wc.component';
 export * from './lib/components/live-apps-settings-custom-forms/live-apps-settings-custom-forms.component';
+export * from './lib/components/live-apps-case-search/live-apps-case-search.component';
+export * from './lib/components/live-apps-form/live-apps-form.component';
 
 // data
 export * from './lib/models/liveappsdata';

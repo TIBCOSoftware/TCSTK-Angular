@@ -36,12 +36,22 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
   /**
    * Whether to load actions on component load. Default false.
    */
-  @Input() loadOnDemand = this.loadOnDemand ? this.loadOnDemand : false
+  public loadOnDemand: boolean = false;
+  @Input('loadOnDemand') set LoadOnDemand(loadOnDemand: boolean) {
+    if (loadOnDemand){
+      this.loadOnDemand = loadOnDemand;
+    }
+  }
 
   /**
    * The LA Application Type Id (generally 1)
    */
-  @Input() typeId: string = this.typeId ? this.typeId : '1';
+  public typeId: string = '1';
+  @Input('typeId') set TypeId(typeId: string) {
+    if (typeId){
+      this.typeId = typeId;
+    }
+  }
 
   /**
    * sandboxId - this comes from claims resolver
@@ -52,7 +62,6 @@ export class LiveAppsCaseActionsComponent extends LiveAppsComponent implements O
    * Max Actions that can be run simultaneously
    */
   @Input() maxActions = 1;
-
 
   /**
    * Dont show buttons for any actions that start with this string.

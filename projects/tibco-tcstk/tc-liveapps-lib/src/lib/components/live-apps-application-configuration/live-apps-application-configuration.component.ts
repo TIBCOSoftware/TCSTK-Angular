@@ -18,24 +18,18 @@ import {
   Inject,
   Input,
   OnChanges,
-  OnDestroy,
-  OnInit,
   Output,
   QueryList, SimpleChanges,
-  ViewChild,
   ViewChildren
 } from '@angular/core';
-import {Observable, of, Subject} from 'rxjs';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {CardConfig, CaseTypeState, IconMap} from '../../models/liveappsdata';
-import {map, take, takeUntil} from 'rxjs/operators';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
-import {LiveAppsCaseDataComponent} from '../live-apps-case-data/live-apps-case-data.component';
+import {CaseTypeState, IconMap} from '../../models/liveappsdata';
+import { take, takeUntil} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {DomSanitizer} from '@angular/platform-browser';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
-import {LiveAppsDocumentUploadDialogComponent} from '../live-apps-documents/live-apps-documents.component';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { Location } from '@angular/common';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {CaseCardConfig} from '../../models/tc-case-card-config';

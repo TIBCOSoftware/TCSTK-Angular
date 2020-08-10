@@ -31,7 +31,12 @@ export class TibcoCloudSplashScreenComponent implements OnInit {
   /**
    * Space above the highlight panel. Default is 0px 
    */
-  @Input() topMargin: string = this.topMargin ? this.topMargin : '0px';
+  public topMargin: string = '0px';
+  @Input('topMargin') set TopMargin(topMargin: string) {
+    if (topMargin){
+      this.topMargin = topMargin;
+    }
+  }
   /**
    * Bullet Point Item Configuration with Icon's and Text
    */

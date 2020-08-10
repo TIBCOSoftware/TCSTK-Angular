@@ -41,12 +41,22 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   /**
    * Application selected from dropdown (output)
    */
-  @Input() selectedApp: CaseType = this.selectedApp ? this.selectedApp : new CaseType();
+  public selectedApp: CaseType = new CaseType();
+  @Input('selectedApp') set SelectedApp(selectedApp: CaseType) {
+    if (selectedApp){
+      this.selectedApp = selectedApp;
+    }
+  }
 
   /**
    * Use Form field rendering around the selection box
    */
-  @Input() formFieldRendering: boolean = this.formFieldRendering ? this.formFieldRendering : false;
+  public formFieldRendering: boolean = false;
+  @Input('formFieldRendering') set FormFieldRendering(formFieldRendering: boolean) {
+    if (formFieldRendering){
+      this.formFieldRendering = formFieldRendering;
+    }
+  }
 
   /**
    * Pre-select specified appId
@@ -57,9 +67,12 @@ export class LiveAppsApplicationsComponent extends LiveAppsComponent implements 
   /**
    * Label for the application selector
    */
-
-  @Input() label: string = this.label ? this.label : 'Applications'
-
+  public label: string = 'Applications';
+  @Input('label') set Label(label: string) {
+    if (label){
+      this.label = label;
+    }
+  }
 
   /**
    * ~event selection : Value selected in child component

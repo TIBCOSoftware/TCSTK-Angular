@@ -9,11 +9,9 @@ import {
   Metadata, ProcessId
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
-import {catchError, flatMap, map, switchMap, take, takeUntil, tap} from 'rxjs/operators';
 import {MessagingConfig, MessagingConnection} from '@tibco-tcstk/tc-messaging-lib';
-import {EventsResponse, RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
-import {Observable, concat, throwError, empty} from 'rxjs';
-import {error} from 'ng-packagr/lib/util/log';
+import { RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
+// import {error} from 'ng-packagr/lib/util/log';
 import {LiveAppsFormWcComponent} from '@tibco-tcstk/tc-liveapps-lib';
 import { TcPrimeNGHelperService } from 'projects/tibco-tcstk/tc-primeng-lib/src/lib/services/tc-primeng-helper.service';
 // import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';

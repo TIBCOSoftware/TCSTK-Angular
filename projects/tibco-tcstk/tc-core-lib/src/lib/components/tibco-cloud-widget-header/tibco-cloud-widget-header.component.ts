@@ -33,7 +33,12 @@ export class TibcoCloudWidgetHeaderComponent {
   /**
    * Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
    */
-  @Input() showHeader: boolean = this.showHeader ? this.showHeader : true;
+  public showHeader: boolean = true;
+  @Input('showHeader') set ShowHeader(showHeader: boolean) {
+    if (showHeader){
+      this.showHeader = showHeader;
+    }
+  }
 
   /**
    * ~event toolbarButtonEvent : Button Clicked

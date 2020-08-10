@@ -6,3 +6,6 @@ export * from './lib/tc-scribe-lib.module';
 
 // resolvers
 export * from './lib/resolvers/scribe-auth.resolver';
+
+// Components
+export * from './lib/tc-scribe-lib.component';

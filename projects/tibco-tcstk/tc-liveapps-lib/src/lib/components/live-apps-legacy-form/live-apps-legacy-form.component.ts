@@ -25,7 +25,13 @@ import {TcVisibilityService} from '@tibco-tcstk/tc-core-lib';
 })
 export class LiveAppsLegacyFormComponent extends LiveAppsComponent implements OnDestroy, OnDestroy, AfterViewInit {
 
-  @Input() legacyIframeId = this.legacyIframeId ?  this.legacyIframeId : 'legacyWorkitemFrame';
+  public legacyIframeId: string = 'legacyWorkitemFrame';
+  @Input('legacyIframeId') set LegacyIframeId(legacyIframeId: string) {
+    if (legacyIframeId){
+      this.legacyIframeId = legacyIframeId;
+    }
+  }
+
   @Input() workitemId: number;
   @Output() workitemComplete = new EventEmitter();
 
