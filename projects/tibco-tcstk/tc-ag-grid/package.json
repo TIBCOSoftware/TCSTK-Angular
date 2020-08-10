@@ -1,11 +1,11 @@
 {
   "name": "@tibco-tcstk/tc-ag-grid",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14",
+    "@angular/common": "^10.0.3",
+    "@angular/core": "^10.0.3",
     "ag-grid-angular": "^22.1.1",
     "ag-grid-community": "^22.1.1",
-    "@tibco-tcstk/tc-liveapps-lib": "^1.2.0"
+    "@tibco-tcstk/tc-liveapps-lib": "^2.0.0"
   }
 }
