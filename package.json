@@ -51,6 +51,7 @@
     "primeicons": "^4.0.0",
     "primeng": "^10.0.0-rc.3",
     "rxjs": "^6.6.2",
+    "sass": "^1.26.10",
     "zone.js": "^0.10.3"
   },
   "devDependencies": {

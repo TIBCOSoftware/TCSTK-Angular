@@ -1,0 +1,130 @@
+:host ::ng-deep .custom-table-css input {
+  width: 100%;
+}
+:host ::ng-deep .custom-table-css .top-row {
+  background-color: transparent;
+  border-width: 0px 0px 2px 0px;
+  border-style: solid solid solid solid;
+  border-color: #c6c7c8 #c6c7c8 #c6c7c8 #c6c7c8;
+}
+:host ::ng-deep .custom-table-css .filter-row {
+  background-color: #e3e3e3;
+  border-width: 0px;
+}
+:host ::ng-deep .custom-table-css .ui-table-tbody > tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+:host ::ng-deep .custom-table-css .ui-table-tbody > tr:hover {
+  background-color: #def3fffc !important;
+}
+:host ::ng-deep .custom-table-css .data-row {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+:host ::ng-deep .custom-table-css .ui-dropdown {
+  min-width: 50px;
+}
+:host ::ng-deep .custom-table-css .ui-paginator .ui-dropdown {
+  float: left;
+}
+:host ::ng-deep .custom-table-css .ui-paginator .ui-paginator-current {
+  float: right;
+}
+:host ::ng-deep .custom-table-css .ui-progressbar {
+  height: 8px;
+  background-color: #D8DADC;
+}
+:host ::ng-deep .custom-table-css .ui-progressbar .ui-progressbar-value {
+  background-color: #00ACAD;
+}
+:host ::ng-deep .custom-table-css .ui-column-filter {
+  display: block;
+}
+:host ::ng-deep .custom-table-css .ui-column-filter input {
+  width: 100%;
+}
+:host ::ng-deep .custom-table-css .ui-table-globalfilter-container {
+  float: right;
+}
+:host ::ng-deep .custom-table-css .ui-table-globalfilter-container input {
+  width: 200px !important;
+}
+:host ::ng-deep .custom-table-css .ui-datepicker {
+  min-width: 25em;
+}
+:host ::ng-deep .custom-table-css .ui-datepicker td {
+  font-weight: 400;
+}
+:host ::ng-deep .custom-table-css .ui-table-caption {
+  border: 0 none;
+  padding: 12px;
+  text-align: left;
+  font-size: 20px;
+}
+:host ::ng-deep .custom-table-css .ui-paginator {
+  border: 0 none;
+  padding: 1em;
+}
+:host ::ng-deep .custom-table-css .ui-table-thead > tr > th {
+  /*border: 0 none;*/
+  text-align: left;
+}
+:host ::ng-deep .custom-table-css .ui-table-thead > tr > th.ui-filter-column {
+  border-top: 1px solid #c8c8c8;
+}
+:host ::ng-deep .custom-table-css .ui-table-thead > tr > th:first-child {
+  width: 5em;
+  text-align: center;
+}
+:host ::ng-deep .custom-table-css .ui-table-thead > tr > th:last-child {
+  width: 8em;
+  text-align: center;
+}
+:host ::ng-deep .custom-table-css .ui-table-tbody > tr > td {
+  border: 0 none;
+  cursor: auto;
+}
+:host ::ng-deep .custom-table-css .ui-table-tbody > tr > td:first-child {
+  width: 3em;
+  text-align: center;
+}
+:host ::ng-deep .custom-table-css .ui-table-tbody > tr > td:last-child {
+  width: 8em;
+  text-align: center;
+}
+:host ::ng-deep .custom-table-css .ui-dropdown-label:not(.ui-placeholder) {
+  text-transform: uppercase;
+}
+:host ::ng-deep .custom-table-css .ui-table-tbody > tr > td .ui-column-title {
+  display: none;
+}
+:host ::ng-deep .custom-table-css .ui-paginator-bottom {
+  background-color: #e3e3e3;
+}
+
+/* Responsive */
+@media screen and (max-width: 64em) {
+  :host ::ng-deep .ui-table.custom-table-css .ui-table-thead > tr > th,
+:host ::ng-deep .ui-table.custom-table-css .ui-table-tfoot > tr > td {
+    display: none !important;
+  }
+  :host ::ng-deep .ui-table.custom-table-css .ui-table-tbody > tr > td {
+    text-align: left;
+    display: block;
+    border: 0 none !important;
+    width: 100% !important;
+    float: left;
+    clear: left;
+    border: 0 none;
+  }
+  :host ::ng-deep .ui-table.custom-table-css .ui-table-tbody > tr > td .ui-column-title {
+    padding: 0.4em;
+    min-width: 30%;
+    display: inline-block;
+    margin: -0.4em 1em -0.4em -0.4em;
+    font-weight: bold;
+  }
+}
+
+/*# sourceMappingURL=tcprimeng-generic-table.component.css.map */

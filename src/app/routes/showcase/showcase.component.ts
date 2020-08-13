@@ -10,10 +10,11 @@ import {
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MessagingConfig, MessagingConnection} from '@tibco-tcstk/tc-messaging-lib';
-import { RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
+import {RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibco-tcstk/tc-events-lib';
 // import {error} from 'ng-packagr/lib/util/log';
 import {LiveAppsFormWcComponent} from '@tibco-tcstk/tc-liveapps-lib';
-import { TcPrimeNGHelperService } from 'projects/tibco-tcstk/tc-primeng-lib/src/lib/services/tc-primeng-helper.service';
+import {TcPrimeNGHelperService} from 'projects/tibco-tcstk/tc-primeng-lib/src/lib/services/tc-primeng-helper.service';
+
 // import {TcgridLiveappsCasesComponent} from '@tibco-tcstk/tc-ag-grid';
 
 @Component({
@@ -45,12 +46,38 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
   public formConfig: FormConfig;
   public caseRefs: string[] = [];
   public columnDefs = [
-    {headerName: 'Risk Case', field: 'untaggedCasedataObj.RiskCaseId_v1', sortable: true, filter: true, resizable: true, checkboxSelection: true },
-    {headerName: 'State', field: 'untaggedCasedataObj.state', sortable: true, filter: true, resizable: true },
-    {headerName: 'Channel', field: 'untaggedCasedataObj.Channel_v1', sortable: true, filter: true, resizable: true },
-    {headerName: 'Assignee', field: 'untaggedCasedataObj.Assignee_v1.name', sortable: true, filter: true, resizable: true },
-    {headerName: 'Created', field: 'metadata.creationTimestamp', valueFormatter: TcPrimeNGHelperService.dateFormatter, sortable: true, filter: true, resizable: true }
+    {
+      headerName: 'Risk Case',
+      field: 'untaggedCasedataObj.RiskCaseId_v1',
+      sortable: true,
+      filter: true,
+      resizable: true,
+      checkboxSelection: true
+    },
+    {headerName: 'State', field: 'untaggedCasedataObj.state', sortable: true, filter: true, resizable: true},
+    {headerName: 'Channel', field: 'untaggedCasedataObj.Channel_v1', sortable: true, filter: true, resizable: true},
+    {headerName: 'Assignee', field: 'untaggedCasedataObj.Assignee_v1.name', sortable: true, filter: true, resizable: true},
+    {
+      headerName: 'Created',
+      field: 'metadata.creationTimestamp',
+      valueFormatter: TcPrimeNGHelperService.dateFormatter,
+      sortable: true,
+      filter: true,
+      resizable: true
+    }
   ];
+  public columnGenericDefs = [
+    {headerName: 'Name', field: 'value', sortable: true, filter: true, resizable: true, checkboxSelection: true},
+    {headerName: 'Value', field: 'name', sortable: true, filter: true, resizable: true}
+  ];
+
+  public rowData = [{
+    name: 'Test',
+    value: 'V1'
+  }, {
+    name: 'Test2',
+    value: 'V2'
+  }];
 
   public creatorConfig = new LiveAppsFormConfig().deserialize({
     type: 'creator',
@@ -89,7 +116,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     id: '27631'
   });
 
-  @ViewChild('rowexpansion', { static: false }) rowExpansionTemplate: TemplateRef<any>;
+  @ViewChild('rowexpansion', {static: false}) rowExpansionTemplate: TemplateRef<any>;
 
   public columnDefs2: any[] = [
     {
@@ -130,8 +157,9 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.messagingConfig = this.route.snapshot.data.messagingConfig;
     this.messagingConnection = (this.messagingConfig.connections && this.messagingConfig.connections.length > 0) ? this.messagingConfig.connections[0] : undefined;
   }
-  @ViewChildren ('componentDiv') componentDivs: LiveAppsComponent[];
-  @ViewChild ('formComponent', { static: false }) formComponent: LiveAppsFormWcComponent;
+
+  @ViewChildren('componentDiv') componentDivs: LiveAppsComponent[];
+  @ViewChild('formComponent', {static: false}) formComponent: LiveAppsFormWcComponent;
   // @ViewChild(TcgridLiveappsCasesComponent, {static: false}) gridComponent: TcgridLiveappsCasesComponent;
 
   data: any;
@@ -180,25 +208,25 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.componentDivs.forEach(component => {
       component.resize();
     });
-  }
+  };
 
   toggleWidgetHeight = () => {
     this.fixedHeight = !this.fixedHeight;
-  }
+  };
 
   receiveMessage = (event: MessageEvent) => {
-    if (typeof(event.data) && (event.data.action === 'wiCompleted')) {
+    if (typeof (event.data) && (event.data.action === 'wiCompleted')) {
       console.log('WI Complete: ', event);
     }
-  }
+  };
 
   handleCaseClick = (event) => {
     console.log('Case click event: ', event);
-  }
+  };
 
   handleSearchResults = (searchResults: CaseSearchResults) => {
     this.caseRefs = searchResults.caserefs;
-  }
+  };
 
   public handleCreatorAppSelection = (application: CaseType) => {
     /*const EXAMPLE_INITIAL_DATA = {
@@ -219,12 +247,12 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.customFormDefs = {};
     this.legacyCreators = false;
     this.selectedCreatorApp = application;
-  }
+  };
 
   public handleCaseCreated = (createdCase: ProcessId) => {
     alert('Case created: ' + createdCase.caseReference);
     this.selectedCreatorApp = undefined;
-  }
+  };
 
   public getCeToken = () => {
     const artifactInput = {
@@ -249,12 +277,12 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
       'Approve'
     );
     this.tcEventsHelperService.deployRule(ruleDeploymentConfig).subscribe(
-    (next: any) => {
+      (next: any) => {
         console.log(next);
       },
       error1 => console.error('Failed to deploy: ', error1)
     );
-  }
+  };
 
   public setApp(selectedApp: CaseType) {
     this.selectedAppConfig = selectedApp;
@@ -262,7 +290,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
 
   public exportCases = () => {
     // this.gridComponent.exportToCsv({ onlySelected: true });
-  }
+  };
 
   ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;
@@ -276,20 +304,20 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     // get sample case
     this.liveAppsService.getCasesWithUserInfo(this.sandboxId, this.liveAppsConfig.applicationIds[0], '1', 0, 10)
       .subscribe(
-      next => {
-        if (next.caseinfos[0]) {
-          this.caseRef =  next.caseinfos[0].caseReference;
-          this.casedata = next.caseinfos[0].untaggedCasedataObj;
-          this.metadata = next.caseinfos[0].metadata;
-          this.summary = next.caseinfos[0].summaryObj;
-        } else {
-          console.error('No cases for this appId: ', this.liveAppsConfig.applicationIds[0]);
-        }
-        console.log(next);
-      },
-      errorCase => {
-        console.error('Error retrieving case data: ' + errorCase.error.errorMsg);
-      });
+        next => {
+          if (next.caseinfos[0]) {
+            this.caseRef = next.caseinfos[0].caseReference;
+            this.casedata = next.caseinfos[0].untaggedCasedataObj;
+            this.metadata = next.caseinfos[0].metadata;
+            this.summary = next.caseinfos[0].summaryObj;
+          } else {
+            console.error('No cases for this appId: ', this.liveAppsConfig.applicationIds[0]);
+          }
+          console.log(next);
+        },
+        errorCase => {
+          console.error('Error retrieving case data: ' + errorCase.error.errorMsg);
+        });
   }
 
   ngOnDestroy() {

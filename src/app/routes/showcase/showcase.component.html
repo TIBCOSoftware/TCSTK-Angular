@@ -2,16 +2,18 @@
   <div>
     <tc-tibco-cloud-menu-bar [headerText]="'Preview Components'">
       <div>
-          <div fxLayout="row" fxLayoutAlign="end center">
-            <div style="min-width:125px" fxLayoutAlign="end center">
-              <span>{{fixedHeight ? 'Fixed Height' : 'Scroll'}}</span>
-              <mat-icon style="margin-left: 5px" class="tcs-size-icon" (click)="toggleWidgetHeight()">aspect_ratio</mat-icon>
-            </div>
-            <div style="min-width:125px" fxLayoutAlign="center center">
-              <span>{{widgetSize}}% width</span>
-              <mat-icon style="margin-left: 5px" class="tcs-size-icon" (click)="toggleWidgetSize()">fullscreen_exit</mat-icon>
-            </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <div style="min-width:125px" fxLayoutAlign="end center">
+            <span>{{fixedHeight ? 'Fixed Height' : 'Scroll'}}</span>
+            <mat-icon style="margin-left: 5px" class="tcs-size-icon" (click)="toggleWidgetHeight()">aspect_ratio
+            </mat-icon>
           </div>
+          <div style="min-width:125px" fxLayoutAlign="center center">
+            <span>{{widgetSize}}% width</span>
+            <mat-icon style="margin-left: 5px" class="tcs-size-icon" (click)="toggleWidgetSize()">fullscreen_exit
+            </mat-icon>
+          </div>
+        </div>
       </div>
     </tc-tibco-cloud-menu-bar>
   </div>
@@ -41,16 +43,36 @@
           </div>
         </ng-template>
       </mat-tab> -->
+      <mat-tab label="Table">
+        <ng-template matTabContent>
+          <div fxLayout="column" style="height: 100%">
+
+              <tcpmg-generic-table [autoLayout]="false" [rowData]="rowData"
+                                   [showExpandButton]='false' [rowExpansionTemplate]="rowExpansionTemplate"
+                                   [columnDefs]="columnGenericDefs" [paginator]="false"
+                                   [showCurrentPageReport]="false"
+                                   [currentPageReportTemplate]="'{first} to {last} of {totalRecords}'"
+                                   [defaultRows]="7" [rowsPerPageOptions]="[3,5,7]"></tcpmg-generic-table>
+
+          </div>
+        </ng-template>
+      </mat-tab>
       <mat-tab label="grid">
         <ng-template matTabContent>
           <div fxLayout="column" style="height: 100%">
             <div fxLayout="row" fxLayoutAlign="center center" style="height: 100px;">
-              <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId" (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
+              <tcla-live-apps-case-search style="min-width: 700px" [sandboxId]="sandboxId"
+                                          (foundRefs)="handleSearchResults($event)"></tcla-live-apps-case-search>
             </div>
             <button *ngIf="caseRefs" matButton (click)="exportCases()">Export</button>
 
-            <div *ngIf="caseRefs.length > 0" >
-              <tcpmg-tcprimeng-liveapps-cases [sandboxId]="sandboxId" [caseRefs]="caseRefs" [autoLayout]="false" [showExpandButton]='true' [rowExpansionTemplate]="rowExpansionTemplate" [columnDefs]="columnDefs2" [paginator]="true" [showCurrentPageReport]="true" [currentPageReportTemplate]="'{first} to {last} of {totalRecords}'" [defaultRows]="7" [rowsPerPageOptions]="[3,5,7]">
+            <div *ngIf="caseRefs.length > 0">
+              <tcpmg-tcprimeng-liveapps-cases [sandboxId]="sandboxId" [caseRefs]="caseRefs" [autoLayout]="false"
+                                              [showExpandButton]='true' [rowExpansionTemplate]="rowExpansionTemplate"
+                                              [columnDefs]="columnDefs2" [paginator]="true"
+                                              [showCurrentPageReport]="true"
+                                              [currentPageReportTemplate]="'{first} to {last} of {totalRecords}'"
+                                              [defaultRows]="7" [rowsPerPageOptions]="[3,5,7]">
                 <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns" #rowexpansion>
                   <tr>
                     <td [attr.colspan]="8">
@@ -77,7 +99,8 @@
       <mat-tab label="Creator WC">
         <ng-template matTabContent>
           <div style="padding: 20px;">
-            <tcla-live-apps-form-wc #formComponent [config]="creatorConfig" (data)="handleData($event)" (completed)="handleCompleted($event)"></tcla-live-apps-form-wc>
+            <tcla-live-apps-form-wc #formComponent [config]="creatorConfig" (data)="handleData($event)"
+                                    (completed)="handleCompleted($event)"></tcla-live-apps-form-wc>
             <button *ngIf="data" (click)="handleSubmit()">FORCE SUBMIT</button>
           </div>
         </ng-template>
@@ -85,7 +108,8 @@
       <mat-tab label="Action WC">
         <ng-template matTabContent>
           <div style="padding: 20px;">
-            <tcla-live-apps-form-wc #formComponent [config]="actionConfig" (data)="handleData($event)" (completed)="handleCompleted($event)"></tcla-live-apps-form-wc>
+            <tcla-live-apps-form-wc #formComponent [config]="actionConfig" (data)="handleData($event)"
+                                    (completed)="handleCompleted($event)"></tcla-live-apps-form-wc>
             <button *ngIf="data" (click)="handleSubmit()">FORCE SUBMIT</button>
           </div>
         </ng-template>
@@ -93,7 +117,8 @@
       <mat-tab label="Workitem WC">
         <ng-template matTabContent>
           <div style="padding: 20px;">
-            <tcla-live-apps-form-wc #formComponent [config]="workitemConfig" (data)="handleData($event)" (completed)="handleCompleted($event)"></tcla-live-apps-form-wc>
+            <tcla-live-apps-form-wc #formComponent [config]="workitemConfig" (data)="handleData($event)"
+                                    (completed)="handleCompleted($event)"></tcla-live-apps-form-wc>
             <button *ngIf="data" (click)="handleSubmit()">FORCE SUBMIT</button>
             <button *ngIf="data" (click)="handleClose()">FORCE CLOSE</button>
             <button *ngIf="data" (click)="handleCancel()">FORCE CANCEL</button>
@@ -103,9 +128,14 @@
       <mat-tab label="Selection Widgets">
         <ng-template matTabContent>
           <div style="padding: 20px;">
-            <tcla-live-apps-applications [formFieldRendering]="true" [appIds]="[]" [sandboxId]="sandboxId" [label]="'My Apps'" (selection)="setApp($event)"></tcla-live-apps-applications>
-            <tcla-live-apps-creator-selector [formFieldRendering]="true" [appId]="selectedAppConfig?.applicationId" [sandboxId]="sandboxId" [label]="'Creators to pick'"></tcla-live-apps-creator-selector>
-            <tcla-live-apps-case-actions-list [formFieldRendering]="true" [appId]="selectedAppConfig?.applicationId" [sandboxId]="sandboxId" [label]="'Actions to pick'"></tcla-live-apps-case-actions-list>
+            <tcla-live-apps-applications [formFieldRendering]="true" [appIds]="[]" [sandboxId]="sandboxId"
+                                         [label]="'My Apps'" (selection)="setApp($event)"></tcla-live-apps-applications>
+            <tcla-live-apps-creator-selector [formFieldRendering]="true" [appId]="selectedAppConfig?.applicationId"
+                                             [sandboxId]="sandboxId"
+                                             [label]="'Creators to pick'"></tcla-live-apps-creator-selector>
+            <tcla-live-apps-case-actions-list [formFieldRendering]="true" [appId]="selectedAppConfig?.applicationId"
+                                              [sandboxId]="sandboxId"
+                                              [label]="'Actions to pick'"></tcla-live-apps-case-actions-list>
           </div>
         </ng-template>
       </mat-tab>
@@ -127,7 +157,9 @@
       </mat-tab-->
       <mat-tab label="Action">
         <ng-template matTabContent>
-          <tcla-live-apps-action-standalone [legacyActions]="false" applicationId="3480" typeId="1" [sandboxId]="3119" processName="Update Request" caseRef="415361" [legacyCreators]="false"></tcla-live-apps-action-standalone>
+          <tcla-live-apps-action-standalone [legacyActions]="false" applicationId="3480" typeId="1" [sandboxId]="3119"
+                                            processName="Update Request" caseRef="415361"
+                                            [legacyCreators]="false"></tcla-live-apps-action-standalone>
         </ng-template>
       </mat-tab>
       <!--mat-tab label="Creator">
@@ -138,10 +170,12 @@
       <mat-tab label="Creator Selection">
         <ng-template matTabContent>
           <tcla-live-apps-application-create-button *ngIf="!selectedCreatorApp"
-                                                    style="margin-right: 20px; margin-left: 20px" [sandboxId]="sandboxId"
+                                                    style="margin-right: 20px; margin-left: 20px"
+                                                    [sandboxId]="sandboxId"
                                                     [appIds]="liveAppsConfig.applicationIds"
                                                     (selection)="handleCreatorAppSelection($event)"></tcla-live-apps-application-create-button>
-          <tcla-live-apps-creators *ngIf="selectedCreatorApp" [sandboxId]="sandboxId" [applicationId]="selectedCreatorApp.applicationId"
+          <tcla-live-apps-creators *ngIf="selectedCreatorApp" [sandboxId]="sandboxId"
+                                   [applicationId]="selectedCreatorApp.applicationId"
                                    [typeId]="selectedCreatorApp.id" [dataOverride]="initialData"
                                    [customFormDefs]="customFormDefs"
                                    formsFramework="material-design"
@@ -160,8 +194,15 @@
       <mat-tab label="Messaging">
         <ng-template matTabContent>
           <div fxFill fxLayout="row" *ngIf="messagingConnection; else noConfig">
-            <tcmsg-eftl-message-sender style="padding: 5px;" fxFlex [wssUrl]="messagingConnection.wssUrl" [apiKey]="messagingConnection.apiKey" [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-sender-'+userId" [event]="messagingConnection.event"></tcmsg-eftl-message-sender>
-            <tcmsg-eftl-message-receiver style="padding: 5px" fxFlex [wssUrl]="messagingConnection.wssUrl" [apiKey]="messagingConnection.apiKey" [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-receiver-'+userId" [durable]="messagingConnection.durable" [matcher]="messagingConnection.matcher"></tcmsg-eftl-message-receiver>
+            <tcmsg-eftl-message-sender style="padding: 5px;" fxFlex [wssUrl]="messagingConnection.wssUrl"
+                                       [apiKey]="messagingConnection.apiKey"
+                                       [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-sender-'+userId"
+                                       [event]="messagingConnection.event"></tcmsg-eftl-message-sender>
+            <tcmsg-eftl-message-receiver style="padding: 5px" fxFlex [wssUrl]="messagingConnection.wssUrl"
+                                         [apiKey]="messagingConnection.apiKey"
+                                         [clientId]="messagingConnection.clientIdPrefix + '-' + generalConfig.uiAppId+'-receiver-'+userId"
+                                         [durable]="messagingConnection.durable"
+                                         [matcher]="messagingConnection.matcher"></tcmsg-eftl-message-receiver>
           </div>
           <ng-template #noConfig>
             <span>First configure a messaging connection to use messaging</span>
@@ -170,42 +211,47 @@
       </mat-tab>
       <mat-tab label="Search">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="column" style="height:100%">
-            <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
-            <span class="tcs-component-notes">*** The search results pane defaults to a min of 400px. This can be changed using the [resultsHeight] parameter ***</span>
-            <div fxLayout="row" style="height: 100%;">
-              <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
-                <tcla-live-apps-search-widget #componentDiv [appIds]="liveAppsConfig.applicationIds" [sandboxId]="sandboxId"
-                                              [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-search-widget>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="column" style="height:100%">
+              <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
+              <span class="tcs-component-notes">*** The search results pane defaults to a min of 400px. This can be changed using the [resultsHeight] parameter ***</span>
+              <div fxLayout="row" style="height: 100%;">
+                <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
+                  <tcla-live-apps-search-widget #componentDiv [appIds]="liveAppsConfig.applicationIds"
+                                                [sandboxId]="sandboxId"
+                                                [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-search-widget>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="Favorite">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
-            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-favorite-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
-                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-favorite-cases>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-favorite-cases #componentDiv class="padded-widget" [showHeader]="true"
+                                               [sandboxId]="sandboxId"
+                                               [uiAppId]="generalConfig.uiAppId"
+                                               (clickCase)="handleCaseClick($event)"></tcla-live-apps-favorite-cases>
+              </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="Recent">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
-            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-recent-cases #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
-                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-recent-cases>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-recent-cases #componentDiv class="padded-widget" [showHeader]="true"
+                                             [sandboxId]="sandboxId"
+                                             [uiAppId]="generalConfig.uiAppId"
+                                             (clickCase)="handleCaseClick($event)"></tcla-live-apps-recent-cases>
+              </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="Collaboration">
@@ -215,7 +261,9 @@
               <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
               <div fxLayout="row" style="height: 100%;">
                 <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
-                  <tcla-live-apps-notes #componentDiv [userId]="userId" [showHeader]="true" [relatedItemId]="generalConfig.uiAppId" [relatedItemType]="'CASE_APP'"></tcla-live-apps-notes>
+                  <tcla-live-apps-notes #componentDiv [userId]="userId" [showHeader]="true"
+                                        [relatedItemId]="generalConfig.uiAppId"
+                                        [relatedItemType]="'CASE_APP'"></tcla-live-apps-notes>
                 </div>
               </div>
             </div>
@@ -224,60 +272,70 @@
       </mat-tab>
       <mat-tab label="Documents">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
-            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-documents #componentDiv [showHeader]="true" [sandboxId]="sandboxId" [folderId]="generalConfig.uiAppId + '_Docs'" [folderType]="'orgFolders'" [folderDescription]="'Document Library'"></tcla-live-apps-documents>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-documents #componentDiv [showHeader]="true" [sandboxId]="sandboxId"
+                                          [folderId]="generalConfig.uiAppId + '_Docs'" [folderType]="'orgFolders'"
+                                          [folderDescription]="'Document Library'"></tcla-live-apps-documents>
+              </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="Active Cases">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
-            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-active-cases-widget #componentDiv [sandboxId]="sandboxId" [appIds]="liveAppsConfig.applicationIds" [showHeader]="true" [showPercentages]="true" [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-active-cases-widget>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-active-cases-widget #componentDiv [sandboxId]="sandboxId"
+                                                    [appIds]="liveAppsConfig.applicationIds" [showHeader]="true"
+                                                    [showPercentages]="true"
+                                                    [uiAppId]="generalConfig.uiAppId"></tcla-live-apps-active-cases-widget>
+              </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="States (Milestones)">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
-            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-case-states #componentDiv *ngIf="metadata" fxFlex [sandboxId]="sandboxId" [caseRef]="caseRef" [appId]="metadata.applicationId"></tcla-live-apps-case-states>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-case-states #componentDiv *ngIf="metadata" fxFlex [sandboxId]="sandboxId"
+                                            [caseRef]="caseRef"
+                                            [appId]="metadata.applicationId"></tcla-live-apps-case-states>
+              </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="States (Case States Audit)">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
-            <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-              <tcla-live-apps-case-state-audit #componentDiv *ngIf="metadata" [caseRef]="caseRef" [sandboxId]="sandboxId" [appId]="metadata.applicationId"></tcla-live-apps-case-state-audit>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
+              <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
+                <tcla-live-apps-case-state-audit #componentDiv *ngIf="metadata" [caseRef]="caseRef"
+                                                 [sandboxId]="sandboxId"
+                                                 [appId]="metadata.applicationId"></tcla-live-apps-case-state-audit>
+              </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="Audit">
         <ng-template matTabContent>
-        <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
-          <div fxLayout="column" style="height:100%">
-            <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
-            <div fxLayout="row" style="height: 100%;">
-              <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
-                <tcla-live-apps-case-audit #componentDiv [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-audit>
+          <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxLayout="column" style="height:100%">
+              <span class="tcs-component-notes">*** Since this component uses virtual scroll parent divs must always have a height or the list items will not render ***</span>
+              <div fxLayout="row" style="height: 100%;">
+                <div style="height:100%" class="demo-widget-border" [fxFlex]="widgetSize">
+                  <tcla-live-apps-case-audit #componentDiv [sandboxId]="sandboxId"
+                                             [caseRef]="caseRef"></tcla-live-apps-case-audit>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </ng-template>
       </mat-tab>
       <mat-tab label="Summary Card (miniCard)">
@@ -285,7 +343,9 @@
           <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
             <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
               <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'miniCard'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true"
+                                             [borderCard]="false" [displayType]="'miniCard'" [sandboxId]="sandboxId"
+                                             [caseRef]="caseRef"></tcla-live-apps-case-summary>
               </div>
             </div>
           </div>
@@ -296,7 +356,9 @@
           <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
             <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
               <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'card'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true"
+                                             [borderCard]="false" [displayType]="'card'" [sandboxId]="sandboxId"
+                                             [caseRef]="caseRef"></tcla-live-apps-case-summary>
               </div>
             </div>
           </div>
@@ -307,7 +369,9 @@
           <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
             <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
               <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'list'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true"
+                                             [borderCard]="false" [displayType]="'list'" [sandboxId]="sandboxId"
+                                             [caseRef]="caseRef"></tcla-live-apps-case-summary>
               </div>
             </div>
           </div>
@@ -318,7 +382,9 @@
           <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
             <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
               <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true" [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId" [caseRef]="caseRef"></tcla-live-apps-case-summary>
+                <tcla-live-apps-case-summary #componentDiv [uiAppId]="generalConfig.uiAppId" [typeBar]="true"
+                                             [borderCard]="false" [displayType]="'staticlist'" [sandboxId]="sandboxId"
+                                             [caseRef]="caseRef"></tcla-live-apps-case-summary>
               </div>
             </div>
           </div>
@@ -329,8 +395,10 @@
           <div fxFill style="padding:20px;" fxLayout="column" fxLayoutAlign="start stretch">
             <div fxLayout="row" [ngClass]="{'tcs-fixed-height' : fixedHeight}">
               <div [ngClass]="{'tcs-fixed-height' : fixedHeight}" class="demo-widget-border" [fxFlex]="widgetSize">
-                <tcla-live-apps-workitems #componentDiv class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId"
-                                             [uiAppId]="generalConfig.uiAppId" (clickCase)="handleCaseClick($event)"></tcla-live-apps-workitems>
+                <tcla-live-apps-workitems #componentDiv class="padded-widget" [showHeader]="true"
+                                          [sandboxId]="sandboxId"
+                                          [uiAppId]="generalConfig.uiAppId"
+                                          (clickCase)="handleCaseClick($event)"></tcla-live-apps-workitems>
               </div>
             </div>
           </div>
