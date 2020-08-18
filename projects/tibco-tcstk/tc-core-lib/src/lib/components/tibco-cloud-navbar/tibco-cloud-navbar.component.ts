@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ElementRef, Input, SystemJsNgModuleLoader} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, Input, SystemJsNgModuleLoader, OnChanges, SimpleChanges} from '@angular/core';
 import {Location} from '@angular/common';
 import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 import {MessageTopicService} from '../../common/tc-core-topic-comm';
@@ -18,7 +18,7 @@ declare var GlobalNavbar: any;
   templateUrl: './tibco-cloud-navbar.component.html',
   styleUrls: ['./tibco-cloud-navbar.component.css']
 })
-export class TibcoCloudNavbarComponent implements OnInit {
+export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
   /**
    * Reference Element
    */
@@ -65,6 +65,10 @@ export class TibcoCloudNavbarComponent implements OnInit {
 
   constructor(protected location: Location, protected messageService: MessageTopicService) {
     this.ms = messageService;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+       this.ngOnInit();
   }
 
   /**
