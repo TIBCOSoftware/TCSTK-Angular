@@ -68,7 +68,9 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-       this.ngOnInit();
+    // TODO: Update the Navbar on changes
+    //  this.ngOnInit();
+    // this.navbar;
   }
 
   /**
