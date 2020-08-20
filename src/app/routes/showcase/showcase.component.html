@@ -45,12 +45,12 @@
       </mat-tab> -->
       <mat-tab label="Table">
         <ng-template matTabContent>
-          <div fxLayout="column" style="height: 100%">
+          <div fxLayout="column" style="height: 100%; background-color: #FFF">
 
-              <tcpmg-generic-table [autoLayout]="false" [rowData]="rowData"
+              <tcpmg-generic-table [autoLayout]="true" [rowData]="rowData"
                                    [showExpandButton]='false' [rowExpansionTemplate]="rowExpansionTemplate"
-                                   [columnDefs]="columnGenericDefs" [paginator]="false"
-                                   [showCurrentPageReport]="false"
+                                   [columnDefs]="columnGenericDefs" [paginator]="true"
+                                   [showCurrentPageReport]="true" [showFilterRow]="true"
                                    [currentPageReportTemplate]="'{first} to {last} of {totalRecords}'"
                                    [defaultRows]="7" [rowsPerPageOptions]="[3,5,7]"></tcpmg-generic-table>
 

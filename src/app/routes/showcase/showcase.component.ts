@@ -67,17 +67,85 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     }
   ];
   public columnGenericDefs = [
-    {headerName: 'Name', field: 'value', sortable: true, filter: true, resizable: true, checkboxSelection: true},
-    {headerName: 'Value', field: 'name', sortable: true, filter: true, resizable: true}
+    {headerName: 'First Name', field: 'name', sortable: true, filter: true, resizable: true},
+    {headerName: 'Last Name', field: 'surname', sortable: true, filter: true, resizable: true},
+    {headerName: 'Manger', field: 'fullname', sortable: true, filter: true, resizable: true},
+    {headerName: 'Email', field: 'email', sortable: true, filter: true, resizable: true},
+    {headerName: 'Driver Licence', field: 'bool', sortable: true, filter: true, resizable: true}
   ];
 
-  public rowData = [{
-    name: 'Test',
-    value: 'V1'
-  }, {
-    name: 'Test2',
-    value: 'V2'
-  }];
+  public rowData = [
+    {
+      'name': 'Clyde',
+      'surname': 'Creech',
+      'fullname': 'Monica Underwood',
+      'email': 'leroy@mcintosh.cm',
+      'bool': true
+    },
+    {
+      'name': 'Gwendolyn',
+      'surname': 'Mack',
+      'fullname': 'Kent Waller',
+      'email': 'lester@garcia.pg',
+      'bool': false
+    },
+    {
+      'name': 'Lee',
+      'surname': 'Harrell',
+      'fullname': 'Sue Horn',
+      'email': 'norman@wall.ni',
+      'bool': false
+    },
+    {
+      'name': 'Melinda',
+      'surname': 'McKenna',
+      'fullname': 'Geraldine O',
+      'email': 'danny@branch.ax',
+      'bool': false
+    },
+    {
+      'name': 'Bonnie',
+      'surname': 'McNamara',
+      'fullname': 'Sarah Stanton',
+      'email': 'patrick@harvey.ro',
+      'bool': false
+    },
+    {
+      'name': 'Dana',
+      'surname': 'Caldwell',
+      'fullname': 'Janet Tyson',
+      'email': 'ben@dunn.do',
+      'bool': true
+    },
+    {
+      'name': 'Glenda',
+      'surname': 'Fischer',
+      'fullname': 'Jeff Berger',
+      'email': 'vivian@mueller.gg',
+      'bool': true
+    },
+    {
+      'name': 'Marion',
+      'surname': 'Wolf',
+      'fullname': 'Patricia Horne',
+      'email': 'judy@lang.eh',
+      'bool': true
+    },
+    {
+      'name': 'Bonnie',
+      'surname': 'Cooke',
+      'fullname': 'Bernard Teague',
+      'email': 'jimmy@crews.gy',
+      'bool': false
+    },
+    {
+      'name': 'Brenda',
+      'surname': 'Cowan',
+      'fullname': 'Jennifer Haynes',
+      'email': 'lloyd@solomon.gh',
+      'bool': true
+    }
+  ];
 
   public creatorConfig = new LiveAppsFormConfig().deserialize({
     type: 'creator',
@@ -208,25 +276,25 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.componentDivs.forEach(component => {
       component.resize();
     });
-  };
+  }
 
   toggleWidgetHeight = () => {
     this.fixedHeight = !this.fixedHeight;
-  };
+  }
 
   receiveMessage = (event: MessageEvent) => {
     if (typeof (event.data) && (event.data.action === 'wiCompleted')) {
       console.log('WI Complete: ', event);
     }
-  };
+  }
 
   handleCaseClick = (event) => {
     console.log('Case click event: ', event);
-  };
+  }
 
   handleSearchResults = (searchResults: CaseSearchResults) => {
     this.caseRefs = searchResults.caserefs;
-  };
+  }
 
   public handleCreatorAppSelection = (application: CaseType) => {
     /*const EXAMPLE_INITIAL_DATA = {
@@ -247,12 +315,12 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
     this.customFormDefs = {};
     this.legacyCreators = false;
     this.selectedCreatorApp = application;
-  };
+  }
 
   public handleCaseCreated = (createdCase: ProcessId) => {
     alert('Case created: ' + createdCase.caseReference);
     this.selectedCreatorApp = undefined;
-  };
+  }
 
   public getCeToken = () => {
     const artifactInput = {
@@ -282,7 +350,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
       },
       error1 => console.error('Failed to deploy: ', error1)
     );
-  };
+  }
 
   public setApp(selectedApp: CaseType) {
     this.selectedAppConfig = selectedApp;
@@ -290,7 +358,7 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
 
   public exportCases = () => {
     // this.gridComponent.exportToCsv({ onlySelected: true });
-  };
+  }
 
   ngOnInit() {
     this.generalConfig = this.route.snapshot.data.laConfigHolder.generalConfig;

@@ -1,40 +1,46 @@
-:host ::ng-deep .custom-table-css {
+.custom-table-css {
   /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);*/
 
+  input {
+    width: 100%;
+  }
   /*HUGO: Added top row, border below and no background */
   .top-row{
-    background-color: transparent;
-    border-width:0px;
-  }
-
-  .top-row-left {
-    background-color: transparent;
-    border-width:0px;
-    align-content: center;
-  }
-
-  .top-row:after {
-    content: ""; /* This is necessary for the pseudo element to work. */
-    display: block; /* This will put the pseudo element on its own line. */
-    margin: 0 auto; /* This will center the border. */
-    width: 100%; /* Change this to whatever width you want. */
-    border-bottom: 2px solid #2ca7ff;
+    background-color: red;
+    border-width:0px 0px 2px 0px;
+    border-style:solid solid solid solid;
+    border-color:#c6c7c8 #c6c7c8 #c6c7c8 #c6c7c8;
   }
 
   /*HUGO: Background for filter row and no borders */
   .filter-row{
-    background-color: transparent;
+    background-color: #e3e3e3;
     border-width:0px;
   }
 
   /*HUGO: Background for even rows */
   .ui-table-tbody > tr:nth-child(even) {
-    background-color: transparent;
+    background-color: #f6f6f6;
   }
   /*HUGO: Hover over rows */
   .ui-table-tbody > tr:hover {
-    background-color: #f6f6f6;
+    /*background-color: #e3e3e3;*/
+    background-color: #def3fffc !important;
   }
+  /*
+    .ui-table-scrollable-wrapper {
+      height:100%
+    }
+
+    .ui-table-scrollable-view {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ui-table-scrollable-body {
+      flex: 1 1 0;
+    }*/
 
   .data-row{
     overflow: hidden;
@@ -92,7 +98,7 @@
   .ui-table-globalfilter-container {
     float: right;
     input {
-      width: 200px;
+      width: 200px !important;
     }
   }
 
@@ -126,11 +132,12 @@
 
     &:first-child {
       width: 5em;
-      text-align: left;
+      text-align: center;
     }
 
     &:last-child {
-      text-align: left;
+      width: 8em;
+      text-align: center;
     }
   }
 
@@ -144,7 +151,8 @@
     }
 
     &:last-child {
-      text-align: left;
+      width: 8em;
+      text-align: center;
     }
   }
 
@@ -157,7 +165,7 @@
   }
 
   .ui-paginator-bottom{
-    background-color: transparent;
+    background-color: #e3e3e3;
   }
 }
 

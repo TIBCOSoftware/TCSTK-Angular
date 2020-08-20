@@ -1,21 +1,55 @@
-:host ::ng-deep .custom-table-css input {
-  width: 100%;
+:host ::ng-deep .custom-table-css {
+  /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);*/
+  /*HUGO: Added top row, border below and no background */
+  /*HUGO: Background for filter row and no borders */
+  /*HUGO: Background for even rows */
+  /*HUGO: Hover over rows */
+  /*
+  .ui-multiselect-representative-option {
+    display: inline-block;
+    vertical-align: middle;
+
+    img {
+      vertical-align: middle;
+      width: 24px;
+    }
+
+    span {
+      margin-top: .125em;
+      vertical-align: middle;
+      margin-left: .5em
+    }
+  }*/
 }
 :host ::ng-deep .custom-table-css .top-row {
   background-color: transparent;
-  border-width: 0px 0px 2px 0px;
-  border-style: solid solid solid solid;
-  border-color: #c6c7c8 #c6c7c8 #c6c7c8 #c6c7c8;
+  border-width: 0px;
+}
+:host ::ng-deep .custom-table-css .top-row-left {
+  background-color: transparent;
+  border-width: 0px;
+  align-content: center;
+}
+:host ::ng-deep .custom-table-css .top-row:after {
+  content: "";
+  /* This is necessary for the pseudo element to work. */
+  display: block;
+  /* This will put the pseudo element on its own line. */
+  margin: 0 auto;
+  /* This will center the border. */
+  width: 100%;
+  /* Change this to whatever width you want. */
+  border-bottom: 2px solid #2ca7ff;
 }
 :host ::ng-deep .custom-table-css .filter-row {
-  background-color: #e3e3e3;
+  background-color: transparent;
   border-width: 0px;
 }
 :host ::ng-deep .custom-table-css .ui-table-tbody > tr:nth-child(even) {
-  background-color: #f6f6f6;
+  background-color: transparent;
 }
 :host ::ng-deep .custom-table-css .ui-table-tbody > tr:hover {
-  background-color: #def3fffc !important;
+  background-color: #f6f6f6;
 }
 :host ::ng-deep .custom-table-css .data-row {
   overflow: hidden;
@@ -48,7 +82,7 @@
   float: right;
 }
 :host ::ng-deep .custom-table-css .ui-table-globalfilter-container input {
-  width: 200px !important;
+  width: 200px;
 }
 :host ::ng-deep .custom-table-css .ui-datepicker {
   min-width: 25em;
@@ -75,11 +109,10 @@
 }
 :host ::ng-deep .custom-table-css .ui-table-thead > tr > th:first-child {
   width: 5em;
-  text-align: center;
+  text-align: left;
 }
 :host ::ng-deep .custom-table-css .ui-table-thead > tr > th:last-child {
-  width: 8em;
-  text-align: center;
+  text-align: left;
 }
 :host ::ng-deep .custom-table-css .ui-table-tbody > tr > td {
   border: 0 none;
@@ -90,8 +123,7 @@
   text-align: center;
 }
 :host ::ng-deep .custom-table-css .ui-table-tbody > tr > td:last-child {
-  width: 8em;
-  text-align: center;
+  text-align: left;
 }
 :host ::ng-deep .custom-table-css .ui-dropdown-label:not(.ui-placeholder) {
   text-transform: uppercase;
@@ -100,7 +132,7 @@
   display: none;
 }
 :host ::ng-deep .custom-table-css .ui-paginator-bottom {
-  background-color: #e3e3e3;
+  background-color: transparent;
 }
 
 /* Responsive */
@@ -127,4 +159,4 @@
   }
 }
 
-/*# sourceMappingURL=tcprimeng-generic-table.component.css.map */
+/*# sourceMappingURL=process-analysis-table.component.css.map */
