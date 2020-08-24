@@ -90,6 +90,17 @@ export class TcprimengGenericTableComponent implements OnInit {
   }
 
   /**
+   * Display page report at the botton
+   */
+  public showSortIcon = false;
+
+  @Input('showSortIcon') set ShowSortIcon(showSortIcon: boolean) {
+    if (showSortIcon) {
+      this.showSortIcon = showSortIcon;
+    }
+  }
+
+  /**
    * Pagination report template
    */
   public currentPageReportTemplate = 'Showing {first} to {last} of {totalRecords} entries';

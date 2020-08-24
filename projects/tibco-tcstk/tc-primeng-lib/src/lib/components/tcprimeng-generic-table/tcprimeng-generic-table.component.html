@@ -7,7 +7,7 @@
     <tr>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field" class="top-row">
         {{col.headerName}}
-        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
+        <p-sortIcon *ngIf="showSortIcon" [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
                     ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
       </th>
       <th *ngIf="showExpandButton" style="width: 3em" class="top-row"></th>
