@@ -16,6 +16,8 @@ import { LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-a
 })
 export class LiveAppsSettingsLandingComponent implements OnInit {
 
+    @Input() sandboxId: number;
+    @Input() uiAppId: string;
     @Input() landingPages: LandingPageConfig[];
     @Input() allRoles: RoleAttribute[];
     public allowCreation: boolean = true;
