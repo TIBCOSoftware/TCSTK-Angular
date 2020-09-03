@@ -20,6 +20,9 @@ import {
   LiveAppsSettingsCustomFormsComponent
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {EftlMessagingSettingsComponent, MessagingConfigResolver} from '@tibco-tcstk/tc-messaging-lib';
+import { SettingsLandingComponent } from 'src/app/routes/settings-landing/settings-landing.component';
+import { SettingsSpotfireComponent } from 'src/app/routes/settings-spotfire/settings-spotfire.component';
+import { SpotfireConfigResolver } from '@tibco-tcstk/tc-spotfire-lib';
 
 export const CONFIGURATION_ROUTE_CONFIG = [
   {
@@ -42,7 +45,7 @@ export const CONFIGURATION_ROUTE_CONFIG = [
   },
   {
     path: 'general-application-landing-page',
-    component: LiveAppsSettingsLandingComponent,
+    component: SettingsLandingComponent,
     resolve: {
       landingPagesConfigHolder: GeneralLandingPageConfigResolver,
       claims: ClaimsResolver,
@@ -115,6 +118,14 @@ export const CONFIGURATION_ROUTE_CONFIG = [
     }
   },
   {
+    path: 'spotfire-settings',
+    component: SettingsSpotfireComponent,
+    resolve: {
+      claimsHolder: ClaimsResolver,
+      spotfireConfigHolder: SpotfireConfigResolver
+    }
+  },
+  {
     path: 'messaging-connections',
     component: EftlMessagingSettingsComponent,
     resolve: {
@@ -136,5 +147,6 @@ export const CONFIGURATION_ROUTE_PROVIDERS = [
   GeneralLandingPageConfigResolver,
   AccessControlConfigurationResolver,
   MessagingConfigResolver,
-  FormConfigResolver
+  FormConfigResolver,
+  SpotfireConfigResolver
 ];
