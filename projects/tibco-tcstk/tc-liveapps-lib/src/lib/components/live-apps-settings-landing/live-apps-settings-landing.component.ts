@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
@@ -18,19 +17,22 @@ import { GeneralLandingPageConfig, LandingPageConfig, LandingPageItemConfig } fr
 })
 export class LiveAppsSettingsLandingComponent implements OnInit {
 
-    private landingPagesConfig: GeneralLandingPageConfig;
-    private sandboxId: number;
-    private uiAppId: string;
-
-    public landingPages: LandingPageConfig[];
+    @Input() sandboxId: number;
+    @Input() uiAppId: string;
+    @Input() landingPages: LandingPageConfig[];
+    @Input() allRoles: RoleAttribute[];
+    @Output() handleSave: EventEmitter<void> = new EventEmitter();
+    public allowCreation: boolean = true;
+    @Input('allowCreation') set AllowCreation(allowCreation: boolean) {
+      if (allowCreation!=undefined){
+        this.allowCreation = allowCreation;
+      }
+    }
+  
     public selectedWelcomePage: LandingPageConfig;
-    public allRoles: RoleAttribute[];
     public selectedRole: RoleAttribute[];
 
     constructor(
-        private route: ActivatedRoute,
-        private generalLandingPageConfigService: TcGeneralLandingPageConfigService,
-        private snackBar: MatSnackBar,
         private dialog: MatDialog,
         private documentsService: TcDocumentService
     ) { }
@@ -38,14 +40,7 @@ export class LiveAppsSettingsLandingComponent implements OnInit {
     /**
     * @ignore
     */
-    ngOnInit() {      
-        this.landingPagesConfig = this.route.snapshot.data.landingPagesConfigHolder;
-        this.landingPages = this.landingPagesConfig.landingPage;
-        this.allRoles = this.route.snapshot.data.allRolesHolder.roles.filter(element => !element.configuration);
-
-        this.sandboxId = this.route.snapshot.data.claims.primaryProductionSandbox.id;
-        this.uiAppId = this.route.snapshot.data.landingPagesConfigHolder.uiAppId;
-
+    ngOnInit() {
         // If there is only one landing page selects it automatically
         if (this.landingPages.length == 1) {
             this.selectedWelcomePage = this.landingPages[0];
@@ -53,21 +48,10 @@ export class LiveAppsSettingsLandingComponent implements OnInit {
     }
 
     /**
-     * Save Configuration
+     * Save Button
      */
-    runSaveFunction(){
-        this.generalLandingPageConfigService.updateGeneralLandingPageConfig(this.sandboxId, this.uiAppId, this.landingPagesConfig, this.landingPagesConfig.id).subscribe(
-            result => {
-                this.snackBar.open('Landing Pages configuration saved', 'OK', {
-                    duration: 3000
-                });
-            },
-            err => {
-                this.snackBar.open('Error saving Landing Pages configuration', 'OK', {
-                    duration: 3000
-                });
-            }
-        );
+    runSave(){
+        this.handleSave.emit();
     }
 
     /**
@@ -160,6 +144,4 @@ export class LiveAppsSettingsLandingComponent implements OnInit {
                     error => { console.log('error', error.errorMsg) }); //); this.errorMessage = 'Error uploading state icon: ' +
         }
     }
-
-
 }

@@ -71,9 +71,9 @@
         </div>
         <div fxFlex class="tcs-filler-panel"></div>
         <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end end" style="min-height: 50px">
-            <button mat-raised-button color="secundary" (click)="runDeleteConfiguration()">Delete</button>
-            <button mat-raised-button color="secundary" (click)="runNewConfiguration()">New</button>
-            <button mat-raised-button color="primary" (click)="runSaveFunction()">Save</button>
+            <button mat-raised-button color="secundary" *ngIf="allowCreation" (click)="runDeleteConfiguration()">Delete</button>
+            <button mat-raised-button color="secundary" *ngIf="allowCreation" (click)="runNewConfiguration()">New</button>
+            <button mat-raised-button color="primary" (click)="runSave()">Save</button>
         </div>
     </div>
 </div>
