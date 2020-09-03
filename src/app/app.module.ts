@@ -47,6 +47,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TcEventsLibModule} from '@tibco-tcstk/tc-events-lib';
 import {TcScribeLibModule} from '@tibco-tcstk/tc-scribe-lib';
 import {TcPrimengLibModule} from '@tibco-tcstk/tc-primeng-lib';
+import { SettingsLandingComponent } from './routes/settings-landing/settings-landing.component';
+import { SettingsSpotfireComponent } from './routes/settings-spotfire/settings-spotfire.component';
+import { TcSpotfireLibModule } from '@tibco-tcstk/tc-spotfire-lib';
 
 // import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
 
@@ -77,13 +80,16 @@ const tcCoreConfig: TcCoreConfig = {
     CaseComponent,
     ConfigurationComponent,
     ShowcaseComponent,
-    SplashComponent
+    SplashComponent,
+    SettingsLandingComponent,
+    SettingsSpotfireComponent
   ],
   imports: [
     AppRoutingModule,
     TcCoreLibModule.forRoot(tcCoreConfig),
     TcFormsLibModule,
     TcLiveappsLibModule.forRoot(),
+    TcSpotfireLibModule,
     TcMessagingLibModule,
     TcEventsLibModule,
     TcScribeLibModule,
