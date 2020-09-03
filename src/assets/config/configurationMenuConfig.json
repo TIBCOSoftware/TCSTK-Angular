@@ -23,6 +23,13 @@
       ]
     },
     {
+      "entry": "Spotfire",
+      "icon": "tcs-starters-icon",
+      "options": [
+        "Settings"
+      ]
+    },
+    {
       "entry": "Messaging",
       "icon": "tcs-messaging-sm-icon",
       "options": [
