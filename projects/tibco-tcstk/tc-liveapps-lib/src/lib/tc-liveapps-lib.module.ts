@@ -269,6 +269,7 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
     LiveAppsSettingsComponent,
     LiveAppsSettingsSummaryCardsComponent,
     LiveAppsSettingsRolesComponent,
+    LiveAppsSettingsLandingComponent,
     LiveAppsRoleSwitcherComponent,
     LiveAppsCaseCreatorsComponent,
     ParseAuditMessagePipe,
