@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { RoleAttribute, TcGeneralLandingPageConfigService, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
+import { RoleAttribute, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
 import { TcDocumentService } from '../../services/tc-document.service';
-import { GeneralLandingPageConfig, LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-apps-landing-page-config';
+import { LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-apps-landing-page-config';
 
 /**
  * Configuration page home
@@ -17,11 +16,8 @@ import { GeneralLandingPageConfig, LandingPageConfig, LandingPageItemConfig } fr
 })
 export class LiveAppsSettingsLandingComponent implements OnInit {
 
-    @Input() sandboxId: number;
-    @Input() uiAppId: string;
     @Input() landingPages: LandingPageConfig[];
     @Input() allRoles: RoleAttribute[];
-    @Output() handleSave: EventEmitter<void> = new EventEmitter();
     public allowCreation: boolean = true;
     @Input('allowCreation') set AllowCreation(allowCreation: boolean) {
       if (allowCreation!=undefined){
@@ -29,6 +25,8 @@ export class LiveAppsSettingsLandingComponent implements OnInit {
       }
     }
   
+    @Output() handleSave: EventEmitter<void> = new EventEmitter();
+
     public selectedWelcomePage: LandingPageConfig;
     public selectedRole: RoleAttribute[];
 
