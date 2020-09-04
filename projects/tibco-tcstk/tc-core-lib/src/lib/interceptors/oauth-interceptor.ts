@@ -29,7 +29,14 @@ export class OAuthInterceptor implements HttpInterceptor {
       if (!oAuthLocalStorageKey || oAuthLocalStorageKey === '') {
         console.warn('oAuth interceptor enabled but oAuthLocalStorageKey config not supplied: ', this.tcCoreConfig.getConfig());
       } else {
-        const token = localStorage.getItem(oAuthLocalStorageKey);
+        let token;
+        // for test mode allow access_key to be set in config
+        if (oAuthLocalStorageKey.startsWith('CIC~')) {
+          console.warn('Using OAUTH key set in config. This should NOT be used for production!');
+          token = oAuthLocalStorageKey;
+        } else {
+          token = localStorage.getItem(oAuthLocalStorageKey);
+        }
         if (!token) {
           console.warn('oAuth interceptor enabled but no access_token in local storage key: ', oAuthLocalStorageKey);
         } else {

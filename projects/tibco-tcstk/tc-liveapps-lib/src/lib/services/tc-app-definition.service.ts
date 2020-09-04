@@ -6,6 +6,9 @@ import {Claim, TcCoreCommonFunctions, TcCoreConfigService} from '@tibco-tcstk/tc
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {CaseType, CaseTypesList, CaseTypeState, Process} from '../models/liveappsdata';
 import {Location} from '@angular/common';
+import {Group, Groups} from '../models/tc-groups-data';
+
+export const maxGroups = 1000;
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +28,12 @@ export class TcAppDefinitionService {
   private _caseTypes = new ReplaySubject<CaseType[]>(1);
   private currentCaseTypes: CaseType[] = undefined;
   readonly _caseTypes$ = this._caseTypes.asObservable();
+
+  // groups
+  private _groups = new ReplaySubject<Group[]>(1);
+  private currentGroups: Group[] = undefined;
+  private currentUsersGroups: Group[] = undefined;
+  readonly _groups$ = this._groups.asObservable();
 
   constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private location: Location, private tcConfig: TcCoreConfigService) {
   }
@@ -46,6 +55,14 @@ export class TcAppDefinitionService {
             });
           }
         });
+      })
+    );
+  }
+
+  private getGroupsData(sandboxId: number): Observable<Group[]> {
+    return this.liveAppsService.getGroups(sandboxId, maxGroups, false).pipe(
+      map((groups: Groups) => {
+        return groups.groups;
       })
     );
   }
@@ -133,6 +150,27 @@ export class TcAppDefinitionService {
           })
         );
       }),
+      switchMap((response: Claim) => {
+        return this.getGroupsData(Number(response.primaryProductionSandbox.id)).pipe(
+          map(resGroups => {
+            this.currentGroups = resGroups;
+            this._groups.next(resGroups);
+            // calculate users groups
+            this.currentUsersGroups = [];
+            this.currentGroups.forEach((group: Group) => {
+              // look to see if we are a member
+              const idx = this.claims.primaryProductionSandbox.groups.findIndex(grp => {
+                return grp.id === group.id;
+              });
+              if (idx !== -1) {
+                // add it as we are a member
+                this.currentUsersGroups.push(group);
+              }
+            })
+            return response;
+          })
+        );
+      }),
       catchError(err => {
         // todo: currently on error - I am allowing the page to continue to load page so that login can be displayed
         // this could cause an issue with other resolvers failing.
@@ -178,6 +216,30 @@ export class TcAppDefinitionService {
 
   public get subscriptionId() {
     return this.currentClaim.subscriptionId;
+  }
+
+  // groups
+  public get groups() {
+    return this.currentGroups;
+  }
+
+  public get usersGroups() {
+    return this.currentUsersGroups;
+  }
+
+  public isMemberOfByName(name: string): boolean {
+    // note: names of system groups are prefixed with 'System: '
+    const idx = this.currentUsersGroups.findIndex((grp: Group) => {
+      return grp.name.toLowerCase() === name.toLowerCase();
+    });
+    return (idx !== -1);
+  }
+
+  public isMemberOfById(id: string): boolean {
+    const idx = this.currentUsersGroups.findIndex((grp: Group) => {
+      return grp.id === id;
+    });
+    return (idx !== -1);
   }
 
   // caseTypes

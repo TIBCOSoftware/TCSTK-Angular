@@ -68,7 +68,7 @@
               {
                 "input": "node_modules/document-register-element/build/document-register-element.js"
               },
-                "src/assets/eftl.js"
+              "src/assets/eftl.js"
             ]
           },
           "configurations": {
@@ -319,41 +319,41 @@
         }
       }
     },
-      "@tibco-tcstk/tc-spotfire-lib": {
-        "projectType": "library",
-        "root": "projects/tibco-tcstk/tc-spotfire-lib",
-        "sourceRoot": "projects/tibco-tcstk/tc-spotfire-lib/src",
-        "prefix": "tcmsg",
-        "architect": {
-          "build": {
-            "builder": "@angular-devkit/build-ng-packagr:build",
-            "options": {
-              "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
-              "project": "projects/tibco-tcstk/tc-spotfire-lib/ng-package.json"
-            }
-          },
-          "test": {
-            "builder": "@angular-devkit/build-angular:karma",
-            "options": {
-              "main": "projects/tibco-tcstk/tc-spotfire-lib/src/test.ts",
-              "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json",
-              "karmaConfig": "projects/tibco-tcstk/tc-spotfire-lib/karma.conf.js"
-            }
-          },
-          "lint": {
-            "builder": "@angular-devkit/build-angular:tslint",
-            "options": {
-              "tsConfig": [
-                "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
-                "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json"
-              ],
-              "exclude": [
-                "**/node_modules/**"
-              ]
-            }
+    "@tibco-tcstk/tc-spotfire-lib": {
+      "projectType": "library",
+      "root": "projects/tibco-tcstk/tc-spotfire-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-spotfire-lib/src",
+      "prefix": "tcmsg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-spotfire-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tibco-tcstk/tc-spotfire-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-spotfire-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
-      },
+      }
+    },
     "@tibco-tcstk/tc-events-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-events-lib",
@@ -495,5 +495,8 @@
       }
     }
   },
-  "defaultProject": "tc-liveapps"
+  "defaultProject": "tc-liveapps",
+  "cli": {
+    "analytics": false
+  }
 }

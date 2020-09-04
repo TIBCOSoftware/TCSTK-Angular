@@ -62,6 +62,9 @@ import { TcSpotfireLibModule } from '@tibco-tcstk/tc-spotfire-lib';
  */
 const tcCoreConfig: TcCoreConfig = {
   disableFormLibs: false,
+  // for test mode ONLY you can enter an oAuth key as the local storage key as long as it starts CIC~
+  // do NOT use this for production code - instead enter the local storage key where external app will save oauth key.
+  // oauth keys should NEVER be saved in code for production or when checked into source control!
   oAuthLocalStorageKey: '',
   proxy_url: '',
   proxy_liveapps_path: '',
@@ -122,7 +125,7 @@ const tcCoreConfig: TcCoreConfig = {
     {provide: LOCALE_ID, useValue: 'en-US' },
     LogService,
     CurrencyPipe,
-    DatePipe
+    DatePipe,
     // for proxied API calls
     // { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
 
