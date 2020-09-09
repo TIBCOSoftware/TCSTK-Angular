@@ -2,7 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {AuditEvent} from '../../models/tc-case-audit';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {TcCaseAuditService} from '../../services/tc-case-audit.service';
+import { TcCaseAuditService, OrderBy, CaseTypeAudit} from '../../services/tc-case-audit.service';
 
 /**
  * Render audit trail for a case
@@ -28,6 +28,21 @@ export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnD
    */
   @Input() sandboxId: number;
 
+  /**
+   * creationTime - specify the date to include cases from using the format yyyy-mm-ddTHH:MM:SS.sssZ
+   */
+  @Input() creationTime: string;
+
+  /**
+   * caseType - speficy the type of the case
+   */
+  @Input() caseType: CaseTypeAudit;
+
+  /**
+   * orderBy - specify ascending or descending order
+   */
+  @Input() orderby: OrderBy;
+
   public auditEvents: AuditEvent[] = [];
   public errorMessage: string;
   public startat = undefined;
@@ -39,11 +54,12 @@ export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnD
     this.top = 20;
     this.end = false;
     this.auditEvents = [];
-    this.getAuditEvents(this.caseRef, this.sandboxId, this.startat, this.top);
+    this.getAuditEvents(this.caseRef, this.sandboxId, this.startat, this.top, this.creationTime, this.caseType, this.orderby);
   }
 
-  public getAuditEvents = (caseRef: string, sandboxId: number, startAt: number, top: number) => {
-    this.caseAuditService.getCaseAudit(this.caseRef, this.sandboxId, this.startat, this.top)
+  public getAuditEvents = (caseRef: string, sandboxId: number, startAt: number, top: number,
+    creationTime: string, caseType: CaseTypeAudit, orderBy: OrderBy) => {
+    this.caseAuditService.getCaseAudit(this.caseRef, this.sandboxId, this.startat, this.top, this.creationTime, this.caseType, this.orderby)
       .pipe(
         take(1),
         takeUntil(this._destroyed$)
@@ -64,7 +80,7 @@ export class LiveAppsCaseAuditComponent extends LiveAppsComponent implements OnD
 
   public getNextBatch = (event) => {
     if (!this.end) {
-      this.getAuditEvents(this.caseRef, this.sandboxId, this.startat, this.top);
+      this.getAuditEvents(this.caseRef, this.sandboxId, this.startat, this.top, this.creationTime, this.caseType, this.orderby);
     }
   }
 
