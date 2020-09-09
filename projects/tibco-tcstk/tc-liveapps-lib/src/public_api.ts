@@ -95,6 +95,7 @@ export * from './lib/services/tc-case-card-config.service';
 export * from './lib/services/tc-workitems.service';
 export * from './lib/services/tc-form-config.service';
 export * from './lib/services/tc-app-definition.service';
+export * from './lib/services/tc-case-audit.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
