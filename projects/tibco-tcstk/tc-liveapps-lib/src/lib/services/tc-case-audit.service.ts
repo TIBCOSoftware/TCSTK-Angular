@@ -16,12 +16,12 @@ export class TcCaseAuditService {
 
     const select = 's';
     let url = '/event/v1/auditEvents?$sandbox=' + sandboxId
-      + '&$filter=type eq \'' + ((caseType !== undefined) ? caseType : 'case') + '\''
+      + '&$filter=type eq \'' + (caseType ? caseType : 'case') + '\''
       + ' and id eq \'' + caseRef + '\'';
-    url = (creationTime !== undefined) ? (url + ' and creationTime gt ' + creationTime) : url;
-    url = (startAt !== undefined) ? (url + '&$startat=' + startAt) : url;
+    url = creationTime ? (url + ' and creationTime gt ' + creationTime) : url;
+    url = startAt ? (url + '&$startat=' + startAt) : url;
     url = top ? (url + '&$top=' + top) : url;
-    url = (orderBy !== undefined) ? (url + '&orderby=creationTime ' + orderBy) : url;
+    url = orderBy ? (url + '&orderby=creationTime ' + orderBy) : url;
 
     return this.http.get(url)
       .pipe(
