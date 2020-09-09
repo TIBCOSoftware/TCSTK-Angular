@@ -16,7 +16,7 @@ export class TcCaseAuditService {
 
     const select = 's';
     let url = '/event/v1/auditEvents?$sandbox=' + sandboxId
-      + '&$filter=type eq \'' + caseType + '\''
+      + '&$filter=type eq \'' + ((caseType !== undefined) ? caseType : 'case') + '\''
       + ' and id eq \'' + caseRef + '\'';
     url = (creationTime !== undefined) ? (url + ' and creationTime gt ' + creationTime) : url;
     url = (startAt !== undefined) ? (url + '&$startat=' + startAt) : url;
