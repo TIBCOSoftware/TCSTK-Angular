@@ -21,7 +21,7 @@ export class TcCaseAuditService {
     url = creationTime ? (url + ' and creationTime gt ' + creationTime) : url;
     url = startAt ? (url + '&$startat=' + startAt) : url;
     url = top ? (url + '&$top=' + top) : url;
-    url = orderBy ? (url + '&orderby=creationTime ' + orderBy) : url;
+    url = orderBy ? (url + '&$orderby=creationTime ' + orderBy) : url;
 
     return this.http.get(url)
       .pipe(
