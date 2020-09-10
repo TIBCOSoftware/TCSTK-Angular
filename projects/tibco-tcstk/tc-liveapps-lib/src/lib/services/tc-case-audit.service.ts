@@ -12,7 +12,7 @@ export class TcCaseAuditService {
   constructor(private http: HttpClient) { }
 
   public getCaseAudit(caseRef: string, sandboxId: number, startAt: string, top: number,
-    creationTime: string, caseType: CaseTypeAudit, orderBy: OrderBy): Observable<AuditEventList> {
+    creationTime?: string, caseType?: CaseTypeAudit, orderBy?: OrderBy): Observable<AuditEventList> {
 
     const select = 's';
     let url = '/event/v1/auditEvents?$sandbox=' + sandboxId
