@@ -31,12 +31,12 @@ export class TcCaseAuditService {
 }
 
 export enum OrderBy {
-  asc,
-  desc
+  asc = "asc",
+  desc = "desc"
 }
 
 export enum CaseTypeAudit {
-  case,
-  casestate,
-  casedata
+  case = "case",
+  casestate = "casestate",
+  casedata = "casedata"
 }
