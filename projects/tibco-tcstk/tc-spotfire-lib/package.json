@@ -5,15 +5,15 @@
     "compodoc": "npx compodoc -p tsconfig.lib.json"
   },
   "peerDependencies": {
-    "@angular/common": "^10.0.3",
-    "@angular/core": "^10.0.3",
-    "@angular/material": "^10.0.1",
+    "@angular/common": "^10.1.1",
+    "@angular/core": "^10.1.1",
+    "@angular/material": "^10.2.0",
     "@angular/flex-layout": "^10.0.0-beta.32",
     "ngx-color-picker": "^10.0.1",
     "@tibco-tcstk/tc-core-lib": "^2.0.0",
     "@tibco/spotfire-wrapper": "^0.11.6",
     "brace": "^0.11.1",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.20"
   },
   "author": {
     "name": "TIBCO Labs",

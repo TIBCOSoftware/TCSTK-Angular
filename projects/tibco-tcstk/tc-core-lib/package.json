@@ -5,8 +5,8 @@
     "compodoc": "npx compodoc -p tsconfig.lib.json"
   },
   "peerDependencies": {
-    "@angular/common": "^10.0.3",
-    "@angular/core": "^10.0.3"
+    "@angular/common": "^10.1.1",
+    "@angular/core": "^10.1.1"
   },
   "author": {
     "name": "TIBCO Labs",

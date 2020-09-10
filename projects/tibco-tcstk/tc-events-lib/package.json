@@ -2,7 +2,7 @@
   "name": "@tibco-tcstk/tc-events-lib",
   "version": "2.0.0",
   "peerDependencies": {
-    "@angular/common": "^10.0.3",
-    "@angular/core": "^10.0.3"
+    "@angular/common": "^10.1.1",
+    "@angular/core": "^10.1.1"
   }
 }

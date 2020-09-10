@@ -2,9 +2,10 @@
   "name": "@tibco-tcstk/tc-primeng-lib",
   "version": "2.0.0",
   "peerDependencies": {
-    "@angular/common": "^10.0.3",
-    "@angular/core": "^10.0.3",
+    "@angular/common": "^10.1.1",
+    "@angular/core": "^10.1.1",
     "primeicons": "^4.0.0",
-    "primeng": "^10.0.0-rc.3",
-    "@tibco-tcstk/tc-liveapps-lib": "^2.0.0"  }
+    "primeng": "^10.0.0",
+    "@tibco-tcstk/tc-liveapps-lib": "^2.0.0"
+  }
 }

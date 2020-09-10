@@ -2,9 +2,9 @@
   "name": "@tibco-tcstk/tc-messaging-lib",
   "version": "2.0.0",
   "peerDependencies": {
-    "@angular/common": "^10.0.3",
-    "@angular/core": "^10.0.3",
-    "@angular/material": "^10.0.1",
+    "@angular/common": "^10.1.1",
+    "@angular/core": "^10.1.1",
+    "@angular/material": "^10.2.0",
     "@angular/flex-layout": "^10.0.0-beta.32",
     "@tibco-tcstk/tc-core-lib": "^2.0.0",
     "ws": "^7.1.2"
