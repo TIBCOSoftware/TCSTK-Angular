@@ -6,11 +6,12 @@ const TAB_INDEX = 'tabindex';
 const TAG_ANCHOR = 'a';
 
 @Directive({
-  selector: '[tcDisable]'
+  selector: '[tcDisable]',
+  exportAs: 'tcDisable'
 })
 export class DisableDirective implements OnChanges, AfterViewInit {
 
-  @Input() appDisable = true;
+  @Input() tcDisable = true;
 
   constructor(private eleRef: ElementRef, private renderer: Renderer2) { }
 
@@ -23,7 +24,7 @@ export class DisableDirective implements OnChanges, AfterViewInit {
   }
 
   private disableElement(element: any) {
-    if (this.appDisable) {
+    if (this.tcDisable) {
       if (!element.hasAttribute(DISABLED)) {
         this.renderer.setAttribute(element, APP_DISABLED, '');
         this.renderer.setAttribute(element, DISABLED, 'true');
