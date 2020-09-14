@@ -78,3 +78,4 @@ export * from './lib/pipes/reverse.pipe';
 
 // directives
 export * from './lib/directives/on-create.directive';
+export * from './lib/directives/disable.directive';
