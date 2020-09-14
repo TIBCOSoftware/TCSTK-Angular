@@ -56,6 +56,7 @@ import {TcVisibilityService} from './services/tc-visibility.service';
 import {LegacyIframeService} from './services/legacy-iframe.service';
 import {TcCoreConfig, TcCoreConfiguration, TcCoreConfigurationService} from './interfaces/tc-core-configuration';
 import {TcCoreConfigService} from './services/tc-core-config-service';
+import { DisableDirective } from './directives/disable.directive';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import {TcCoreConfigService} from './services/tc-core-config-service';
     TibcoCloudSplashScreenComponent,
     TibcoCloudSettingLandingComponent,
     TibcoCloudNewElementComponent,
-    TibcoCloudUploadDialogComponent
+    TibcoCloudUploadDialogComponent,
+    DisableDirective
   ],
   imports: [
     RouterModule,
@@ -141,7 +143,8 @@ import {TcCoreConfigService} from './services/tc-core-config-service';
     TibcoCloudConfigurationComponent,
     TibcoCloudSplashScreenComponent,
     TibcoCloudNewElementComponent,
-    TibcoCloudUploadDialogComponent
+    TibcoCloudUploadDialogComponent,
+    DisableDirective
   ],
   providers: [
     RequestCacheService,
