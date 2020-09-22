@@ -48,8 +48,9 @@ export class TcLoginService {
         .set('TenantId', 'bpm')
         .set('ClientID', clientID);
 
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
 
     const reAuths = [];
     const tcConfig = this.tcCoreConfiguration.getConfig();
@@ -88,9 +89,11 @@ export class TcLoginService {
       .set('password', password)
       .set('client_id', 'ropc_ipass')
       .set('grant_type', 'password');
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded');
-
+    
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+  
     return this.http.post(url, body.toString(), { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -106,8 +109,9 @@ export class TcLoginService {
       .set('TenantId', 'bpm')
       .set('AccountId', accountId);
 
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
 
     return this.http.post(url, body.toString(), { headers })
       .pipe(
@@ -120,8 +124,11 @@ export class TcLoginService {
     const url = '/idm/v1/reauthorize';
     const body = new HttpParams()
         .set('opaque-for-tenant', tenant);
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded')
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    
     return this.http.post(url, body.toString(), { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
@@ -142,9 +149,11 @@ export class TcLoginService {
     const body = new HttpParams()
         .set('token', token);
 
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded')
-      .set('Target-Tenant', tenant);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Target-Tenant': tenant
+    });
+    
     return this.http.post(url, body.toString(), { headers })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
