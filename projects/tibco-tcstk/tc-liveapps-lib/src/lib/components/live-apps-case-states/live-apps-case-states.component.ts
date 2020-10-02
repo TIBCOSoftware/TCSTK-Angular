@@ -42,6 +42,11 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
    */
   @Input() small: boolean;
 
+  /**
+   * Hide milestone title - default false
+   */
+  @Input() hideTitle: boolean;
+
 
   public states: CaseTypeState[];
   public tracker: StateTracker;
