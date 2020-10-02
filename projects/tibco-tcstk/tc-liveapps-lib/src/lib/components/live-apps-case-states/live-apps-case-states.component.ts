@@ -54,7 +54,7 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
 
   public getToolTipText = (trackerState: TrackerState): string => {
     let toolTipText = '';
-    if (trackerState.status != 'pending') {
+    if (trackerState.status !== 'pending') {
       toolTipText = toolTipText + trackerState.user + ' ' + this.durationSince.transform(trackerState.changed);
     }
     return toolTipText;
