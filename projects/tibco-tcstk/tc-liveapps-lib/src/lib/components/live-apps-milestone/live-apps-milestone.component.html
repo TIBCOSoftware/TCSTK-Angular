@@ -1,4 +1,4 @@
 <div class="tcs-milestone-block" fxLayout="row" fxLayoutAlign="center start">
-  <mat-icon class="tc-ms-circle-icon" [svgIcon]="milestoneSvg"></mat-icon>
-  <div [innerHtml]="sectionSVG" fxLayoutAlign="start center"></div>
+  <mat-icon class="tc-ms-circle-icon" [ngClass]="{'small': small}" [svgIcon]="milestoneSvg"></mat-icon>
+  <div class="tc-ms-detail {{type}}" [ngClass]="{'small': small}" [innerHtml]="sectionSVG" fxLayoutAlign="start center"></div>
 </div>

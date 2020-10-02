@@ -13,55 +13,55 @@ import {CaseTypeStatesList} from '../models/liveappsdata';
 const MILESTONE_SVG = {
   END_SECTION_COMPLETED_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M0 0h76c9.941 0 18 8.059 18 18s-8.059 18-18 18H0c6.095-3.675 10.172-10.361 10.172-18C10.172 10.361 6.095 3.675 0 0z"/>\n' +
-  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>\n',
   END_SECTION_INPROGESS_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M0 0h76c9.941 0 18 8.059 18 18s-8.059 18-18 18H0c6.095-3.675 10.172-10.361 10.172-18C10.172 10.361 6.095 3.675 0 0z"/>\n' +
-  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>\n',
   END_SECTION_PENDING_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M0 0h76c9.941 0 18 8.059 18 18s-8.059 18-18 18H0c6.095-3.675 10.172-10.361 10.172-18C10.172 10.361 6.095 3.675 0 0z"/>\n' +
-  '    <text class="pending-text" fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text class="pending-text" fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>\n',
   FIRST_SECTION_COMPLETED_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
   '<path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M93.42 0C87.176 3.675 83 10.361 83 18c0 7.639 4.176 14.325 10.42 18H0c6.36-3.675 10.614-10.361 10.614-18C10.614 10.361 6.36 3.675 0 0h93.42z"/>\n' +
-  '<text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '<text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '    <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '</text>\n' +
   '</svg>\n',
   FIRST_SECTION_INPROGRESS_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M93.42 0C87.176 3.675 83 10.361 83 18c0 7.639 4.176 14.325 10.42 18H0c6.36-3.675 10.614-10.361 10.614-18C10.614 10.361 6.36 3.675 0 0h93.42z"/>\n' +
-  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>',
   FIRST_SECTION_PENDING_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="94" height="36" viewBox="0 0 94 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M93.42 0C87.176 3.675 83 10.361 83 18c0 7.639 4.176 14.325 10.42 18H0c6.36-3.675 10.614-10.361 10.614-18C10.614 10.361 6.36 3.675 0 0h93.42z"/>\n' +
-  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>\n',
   MIDDLE_SECTION_COMPLETED_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="164" height="36" viewBox="0 0 164 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M164 0c-6.09 3.675-10.163 10.361-10.163 18 0 7.639 4.073 14.325 10.163 18H0c6.095-3.675 10.172-10.361 10.172-18C10.172 10.361 6.095 3.675 0 0h164z"/>\n' +
-  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>\n',
   MIDDLE_SECTION_INPROGRESS_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="164" height="36" viewBox="0 0 164 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M164 0c-6.09 3.675-10.163 10.361-10.163 18 0 7.639 4.073 14.325 10.163 18H0c6.095-3.675 10.172-10.361 10.172-18C10.172 10.361 6.095 3.675 0 0h164z"/>\n' +
-  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>\n',
   MIDDLE_SECTION_PENDING_SVG: '<svg xmlns="http://www.w3.org/2000/svg" width="164" height="36" viewBox="0 0 164 36">\n' +
   '    <path class="{{milestoneBgClass}}" fill="none" fill-rule="evenodd" d="M164 0c-6.09 3.675-10.163 10.361-10.163 18 0 7.639 4.073 14.325 10.163 18H0c6.095-3.675 10.172-10.361 10.172-18C10.172 10.361 6.095 3.675 0 0h164z"/>\n' +
-  '    <text class="pending-text" fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="14">\n' +
+  '    <text class="pending-text" fill="#FFF" font-family="SourceSansPro-Regular, Source Sans Pro" font-size="{{fontSize}}">\n' +
   '        <tspan x="16" y="23" class="{{milestoneLabelClass}}">{{milestoneLabel}}</tspan>\n' +
   '    </text>\n' +
   '</svg>\n'
@@ -182,7 +182,7 @@ export class TcCaseStatesService {
         map(caseaudit => new StateAuditEventList().deserialize(caseaudit)));
   }
 
-  public getMilestoneSectionSvg(stateLabel: string, labelClass: string, bgClass: string, svgFileName: string): SafeHtml {
+  public getMilestoneSectionSvg(stateLabel: string, labelClass: string, bgClass: string, svgFileName: string, fontSize?: string): SafeHtml {
     /*return this.liveAppsService.getIconSVGText(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, 'assets/icons/milestones/' + svgFileName)).pipe(
       map(svgcontents => {
         let updatedsvg = svgcontents.replace('{{milestoneLabel}}', stateLabel);
@@ -201,6 +201,7 @@ export class TcCaseStatesService {
       let updatedsvg = svgcontents.replace('{{milestoneLabel}}', stateLabel);
       updatedsvg = updatedsvg.replace('{{milestoneBgClass}}', bgClass);
       updatedsvg = updatedsvg.replace('{{milestoneLabelClass}}', labelClass);
+      updatedsvg = updatedsvg.replace('{{fontSize}}', fontSize ? fontSize : '14px');
       const newval = this.sanitizer.bypassSecurityTrustHtml(updatedsvg);
       return newval;
     } else {

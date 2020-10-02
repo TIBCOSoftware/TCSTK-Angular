@@ -37,6 +37,11 @@ export class LiveAppsCaseStatesComponent extends LiveAppsComponent implements On
    */
   @Input() caseRef: string;
 
+  /**
+   * Small rendering vs normal - defaults to normal
+   */
+  @Input() small: boolean;
+
 
   public states: CaseTypeState[];
   public tracker: StateTracker;

@@ -19,12 +19,18 @@ export class LiveAppsMilestoneComponent implements OnInit {
   @Input() isLast: boolean;
   @Input() status: string;
   @Input() label: string;
+
+  /**
+   * Small rendering vs normal - defaults to normal
+   */
+  @Input() small: boolean;
   @Input() isTerminal: boolean;
   @Input() phase: string;
   @Input() previousPhase: string;
 
   public sectionSVG: SafeHtml;
   public milestoneSvg: string;
+  public type: string;
 
   constructor(protected caseStatesService: TcCaseStatesService) { }
 
@@ -40,9 +46,14 @@ export class LiveAppsMilestoneComponent implements OnInit {
     } else {
       bgClass = 'tc-ms-' + this.status + '-bg';
     }
+    if (this.isFirst || this.isLast) {
+      this.type = 'end-ms';
+    } else {
+      this.type = 'middle-ms';
+    }
     this.milestoneSvg = 'tcs-milestone-' + this.status + (this.isTerminal ? '-terminal' : '');
 
-    this.sectionSVG = this.caseStatesService.getMilestoneSectionSvg(this.label, 'tc-ms-label', bgClass, svgFileName);
+    this.sectionSVG = this.caseStatesService.getMilestoneSectionSvg(this.label, 'tc-ms-label', bgClass, svgFileName, this.small ? '16px' : undefined);
   }
 
 }

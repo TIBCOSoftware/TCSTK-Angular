@@ -9,3 +9,20 @@
   margin-bottom: 1px;
   margin-top: 1px;
 }
+
+.tc-ms-circle-icon.small {
+  height: 27px;
+  width: 27px;
+  margin-right: -6px;
+  margin-left: -6px;
+}
+
+.tc-ms-detail.small {
+  width: 70.5px;
+  height: 27px;
+}
+
+.tc-ms-detail.small.middle-ms {
+  width: 123px;
+  height: 27px;
+}
