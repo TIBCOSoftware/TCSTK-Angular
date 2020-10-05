@@ -782,7 +782,7 @@ export class LiveAppsService {
   }
 
   public deleteNote(noteId: number) {
-    let url = '/collaboration/v1/notes/' + noteId;
+    const url = '/collaboration/v1/notes/' + noteId;
     return this.http.delete(url, { withCredentials: true })
       .pipe(
         tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString()))
@@ -791,8 +791,17 @@ export class LiveAppsService {
 
   /* end notes service */
 
+  public getUsers(sandboxId: number, top: number): Observable<UserInfo[]> {
+    const url = '/organisation/v1/users?$sandbox=' + sandboxId + '&$top=' + top + '&$filter=type eq Standard';
+    return this.http.get(url)
+      .pipe(
+        tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+        map( (users: any) => users)
+      );
+  }
+
   public getGroups(sandboxId: number, top: number, useCache: boolean): Observable<Groups> {
-    let url = '/organisation/v1/groups?$sandbox=' + sandboxId + '&$top=' + top;
+    const url = '/organisation/v1/groups?$sandbox=' + sandboxId + '&$top=' + top;
     let headers;
     if (useCache) {
       headers = new HttpHeaders().set('cacheResponse', 'true');

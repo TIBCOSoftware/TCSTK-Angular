@@ -4,11 +4,13 @@ import {LiveAppsService} from '../services/live-apps.service';
 import {Observable, of, ReplaySubject} from 'rxjs';
 import {Claim, TcCoreCommonFunctions, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
-import {CaseType, CaseTypesList, CaseTypeState, Process} from '../models/liveappsdata';
+import {CaseType, CaseTypesList, CaseTypeState, Process, UserInfo} from '../models/liveappsdata';
 import {Location} from '@angular/common';
 import {Group, Groups} from '../models/tc-groups-data';
+import {AppConfig} from '../models/appConfig';
 
 export const maxGroups = 1000;
+export const maxUsers = 1000;
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,10 @@ export const maxGroups = 1000;
 export class TcAppDefinitionService {
 
   // This service provides access to common Live Apps definitions such as claims and types data
+
+  // application config
+  private _appConfig = new ReplaySubject<AppConfig>(1);
+  private currentAppConfig: AppConfig = undefined;
 
   private maxCaseTypes = 1000;
   // claims
@@ -29,6 +35,10 @@ export class TcAppDefinitionService {
   private currentCaseTypes: CaseType[] = undefined;
   readonly _caseTypes$ = this._caseTypes.asObservable();
 
+  // users
+  private _users = new ReplaySubject<UserInfo[]>();
+  private currentUsers: UserInfo[] = undefined;
+
   // groups
   private _groups = new ReplaySubject<Group[]>(1);
   private currentGroups: Group[] = undefined;
@@ -36,6 +46,12 @@ export class TcAppDefinitionService {
   readonly _groups$ = this._groups.asObservable();
 
   constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private location: Location, private tcConfig: TcCoreConfigService) {
+  }
+
+  private getConfig(): Observable<AppConfig> {
+    return this.http.get('assets/config/appConfig.json').pipe(
+      map((config: AppConfig) => config)
+    );
   }
 
   private getCaseTypeData(sandboxId: number): Observable<CaseTypesList> {
@@ -55,6 +71,14 @@ export class TcAppDefinitionService {
             });
           }
         });
+      })
+    );
+  }
+
+  private getUsersData(sandboxId: number): Observable<UserInfo[]> {
+    return this.liveAppsService.getUsers(sandboxId, maxUsers).pipe(
+      map((users: UserInfo[]) => {
+        return users;
       })
     );
   }
@@ -142,12 +166,35 @@ export class TcAppDefinitionService {
         this._claims.next(response);
       }),
       switchMap((response: Claim) => {
+        return this.getConfig().pipe(
+          map(config => {
+            this.currentAppConfig = config;
+            this._appConfig.next(config);
+            return response;
+          }),
+          catchError(error => {
+            // continue if no config file
+            return of(this.currentClaim);
+          })
+        );
+      }),
+      switchMap((response: Claim) => {
         return this.getCaseTypeData(Number(response.primaryProductionSandbox.id)).pipe(
           map(resTypes => {
             this.currentCaseTypes = resTypes.casetypes;
             this._caseTypes.next(resTypes.casetypes);
             return response;
           })
+        );
+      }),
+      switchMap((response: Claim) => {
+        return this.getUsersData(Number(response.primaryProductionSandbox.id)).pipe(
+          map(users => {
+              this.currentUsers = users;
+              this._users.next(users);
+              return response;
+            }
+          )
         );
       }),
       switchMap((response: Claim) => {
@@ -180,6 +227,11 @@ export class TcAppDefinitionService {
   }
 
   // public getters
+
+  // config
+  public get appConfig() {
+    return this.currentAppConfig;
+  }
 
   // claims
   public get claims$() {
@@ -218,6 +270,29 @@ export class TcAppDefinitionService {
     return this.currentClaim.subscriptionId;
   }
 
+  // users
+  public get users() {
+    return this.currentUsers;
+  }
+
+  public getUserById(id: string) {
+    return this.currentUsers.find((user: UserInfo) => {
+      return user.id === id;
+    });
+  }
+
+  public getUserByUserName(username: string) {
+    return this.currentUsers.find((user: UserInfo) => {
+      return user.username === username;
+    });
+  }
+
+  public getUserByEmail(email: string) {
+    return this.currentUsers.find((user: UserInfo) => {
+      return user.email === email;
+    });
+  }
+
   // groups
   public get groups() {
     return this.currentGroups;
@@ -253,25 +328,25 @@ export class TcAppDefinitionService {
 
   public getCaseTypeByAppId(appId: string): CaseType {
     return this.currentCaseTypes.find((ctype: CaseType) => {
-      return ctype.applicationId === appId;
+      return ctype.applicationId === appId && ctype.id === '1';
     });
   }
 
   public getCaseTypeByName(name: string): CaseType {
     return this.currentCaseTypes.find((ctype: CaseType) => {
-      return ctype.name === name;
+      return ctype.name === name && ctype.id === '1';
     });
   }
 
   public getCaseTypeByApplicationName(applicationName: string): CaseType {
     return this.currentCaseTypes.find((ctype: CaseType) => {
-      return ctype.applicationName === applicationName;
+      return ctype.applicationName === applicationName && ctype.id === '1';
     });
   }
 
   public getCaseTypeByInternalName(applicationInternalName: string): CaseType {
     return this.currentCaseTypes.find((ctype: CaseType) => {
-      return ctype.applicationInternalName === applicationInternalName;
+      return ctype.applicationInternalName === applicationInternalName && ctype.id === '1';
     });
   }
 
