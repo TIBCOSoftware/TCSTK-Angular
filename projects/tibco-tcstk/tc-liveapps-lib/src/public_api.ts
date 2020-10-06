@@ -67,6 +67,7 @@ export * from './lib/components/live-apps-form-wc/live-apps-form-wc.component';
 export * from './lib/components/live-apps-settings-custom-forms/live-apps-settings-custom-forms.component';
 export * from './lib/components/live-apps-case-search/live-apps-case-search.component';
 export * from './lib/components/live-apps-form/live-apps-form.component';
+export * from './lib/components/live-apps-login-oauth/live-apps-login-oauth.component';
 
 // data
 export * from './lib/models/liveappsdata';
@@ -84,6 +85,7 @@ export * from './lib/models/tc-case-states';
 export * from './lib/models/tc-case-audit';
 export * from './lib/models/tc-case-processes';
 export * from './lib/models/tc-case-card-config';
+export * from './lib/models/appConfig';
 
 // service
 export * from './lib/services/live-apps.service';
@@ -98,6 +100,7 @@ export * from './lib/services/tc-workitems.service';
 export * from './lib/services/tc-form-config.service';
 export * from './lib/services/tc-app-definition.service';
 export * from './lib/services/tc-case-audit.service';
+export * from './lib/services/credentials.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
