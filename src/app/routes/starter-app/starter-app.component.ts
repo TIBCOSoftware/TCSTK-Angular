@@ -1,8 +1,9 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LiveAppsService} from '@tibco-tcstk/tc-liveapps-lib';
+import {LiveAppsService, TcAppDefinitionService} from '@tibco-tcstk/tc-liveapps-lib';
 import {GeneralConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {Title} from '@angular/platform-browser';
+import {CustomConfig1} from '../../../models/customConfig1';
 
 @Component({
   selector: 'app-starter-app',
@@ -15,7 +16,7 @@ export class StarterAppComponent implements OnInit {
   public config: GeneralConfig;
   public usingProxy = (this.tcConfigService.getConfig().proxy_url && this.tcConfigService.getConfig().proxy_url !== '') ? true : false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private titleService: Title, private tcConfigService: TcCoreConfigService) {
+  constructor(private route: ActivatedRoute, private router: Router, private titleService: Title, private tcConfigService: TcCoreConfigService, protected appDefinitionService: TcAppDefinitionService) {
   }
 
   ngOnInit() {
@@ -35,6 +36,23 @@ export class StarterAppComponent implements OnInit {
 
     this.config = this.route.snapshot.data.config;
     this.titleService.setTitle(this.config.browserTitle ? this.config.browserTitle : 'Tibco Cloud Starters');
+
+    /* example to retrieve custom configuration from appConfig.json */
+    /****************************************************************/
+    /* note this can only be retrieved after a login since appDefinitionService wont be initialized until after a login */
+    /* to add custom config, create a new model in the app for the customConfig structure (eg:) models/customConfig1.ts
+     * then add your config in assets/appConfig.json under a new child object of config. eg)
+     * {
+     *   "config": {
+     *      "customConfig1": {
+     *        "configAttribute1": "sampleValue"
+     *      }
+     *    }
+     *  }
+     */
+
+    /*const customConfig1: CustomConfig1 = this.appDefinitionService.appConfig.config.customConfig1;
+    console.log(customConfig1.configAttribute1);*/
   }
 
 }
