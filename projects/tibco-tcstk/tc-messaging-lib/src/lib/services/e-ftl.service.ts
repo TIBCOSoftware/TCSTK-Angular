@@ -32,11 +32,14 @@ export class EFTLService {
     return sendResult.asObservable();
   }
 
-  public sendMessage = (message: string, event: string): Observable<any> => {
+  public sendMessage = (message: string, event: string, dest?: string): Observable<any> => {
     const sendResult = new Subject<any>();
     if (this.connection) {
       // setup the message
       const msg = this.connection.createMessage();
+      if (dest) {
+        msg.set('_dest', dest);
+      }
       msg.set('event', event);
       msg.set('text', message);
 
