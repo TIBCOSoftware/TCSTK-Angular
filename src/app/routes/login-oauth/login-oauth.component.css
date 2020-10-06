@@ -1,0 +1,28 @@
+.login-page-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-nav {
+  height: 60px;
+  width: 100%;
+  background-color: #062e79;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 38px;
+  padding-right: 38px;
+}
+
+.main-section {
+  flex: 1;
+}
+
+.cloud-logo {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  height: 40px;
+  width: 219px;
+}

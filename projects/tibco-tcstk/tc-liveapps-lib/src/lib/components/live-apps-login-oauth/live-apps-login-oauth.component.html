@@ -1,0 +1,39 @@
+<div class="login-container">
+  <div class="login-screen">
+    <div class="login-container-box">
+      <div class="login-box">
+        <div class="login-inner-box">
+          <div class="welcome-text">Welcome to</div>
+          <div class="welcome-content">
+            <mat-icon svgIcon="ic-tibco-logo" class="tibco-logo"></mat-icon>
+            <div class="app-text">{{appName}}</div>
+          </div>
+          <div class="login-fields">
+            <mat-form-field>
+              <input matInput type="password" placeholder="Authorization key" [(ngModel)]="accessKey" name="authorizationKey" required>
+              <mat-hint align="start">Paste your authorization key to get started</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="sign-in-section">
+            <button style="width: 144px;" type="submit" mat-raised-button color="primary" (click)="handleAuthorize()" [disabled]="!this.accessKey">Login</button>
+          </div>
+          <!--uxpl-spinner *ngIf="loading" style="height: 100px"></uxpl-spinner-->
+          <div *ngIf="error" class="error-text">{{error}}</div>
+          <div class="sign-up-section">
+            <div class="sign-up-text">
+              <span>No oauth key? </span>
+              <a (click)="handleCreate()">Create oauth key</a>
+              <span> or </span>
+              <a (click)="handleReturn()">Return to login</a>
+              <br>
+              <span>Don’t have an account? </span><a (click)="handleSignUp()">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright-text">
+      <span>Copyright © 2020 TIBCO Software Inc. All Rights Reserved.</span>
+    </div>
+  </div>
+</div>
