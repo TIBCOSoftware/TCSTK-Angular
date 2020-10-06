@@ -24,7 +24,7 @@ export class OAuthInterceptor implements HttpInterceptor {
     let request: HttpRequest<any>;
 
     // auth header only attached to calls for tibco cloud (start with /)
-    if (req.url.startsWith('/')) {
+    if (req.url.startsWith('/') && (req.headers.get('Authorization') === null)) {
       const oAuthLocalStorageKey = this.tcCoreConfig.getConfig().oAuthLocalStorageKey;
       if (!oAuthLocalStorageKey || oAuthLocalStorageKey === '') {
         console.warn('oAuth interceptor enabled but oAuthLocalStorageKey config not supplied: ', this.tcCoreConfig.getConfig());
@@ -38,7 +38,7 @@ export class OAuthInterceptor implements HttpInterceptor {
           token = localStorage.getItem(oAuthLocalStorageKey);
         }
         if (!token) {
-          console.warn('oAuth interceptor enabled but no access_token in local storage key: ', oAuthLocalStorageKey);
+          // console.warn('oAuth interceptor enabled but no access_token in local storage key: ', oAuthLocalStorageKey);
         } else {
           // add auth header with bearer token
           const header = { Authorization: 'Bearer ' + token };

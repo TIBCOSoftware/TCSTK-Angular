@@ -12,6 +12,7 @@ import {
 import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS, HOME_ROUTE } from './starter-app-route-config/starter-app-route';
 import {ScribeAuthResolver} from '@tibco-tcstk/tc-scribe-lib';
 import {SpotfireAuthResolver} from '@tibco-tcstk/tc-spotfire-lib';
+import {LoginOauthComponent} from '../routes/login-oauth/login-oauth.component';
 
 export const CORE_ROUTES = [
       {
@@ -20,6 +21,10 @@ export const CORE_ROUTES = [
         resolve: {
           loginPrefill: LoginPrefillResolver
         }
+      },
+      {
+        path: 'login-oauth',
+        component: LoginOauthComponent
       },
       {
         path: 'errorHandler/:errorCode/:errorData',

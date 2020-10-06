@@ -1,43 +1,54 @@
-<div fxFill fxLayoutAlign="center start">
-  <div fxFlex.gt-sm="grow 75" class="la-login-div" ngStyle.lt-md="height: 100%; width:100%" ngStyle.gt-sm="max-width: 500px; margin-top: 10px;">
-    <mat-card fxFlex class="la-login-card" fxLayout="column">
-        <div fxflex class="la-outer-form-div" fxLayoutAlign="start stretch">
-          <form #laLoginForm="ngForm" class="la-login-form" (submit)="doLogin()" fxLayout="column" fxFlex disabled="loading">
-            <mat-form-field>
-              <input matInput placeholder="Email Address" [(ngModel)]="name" name="email" required>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-            </mat-form-field>
-
-            <mat-accordion>
-              <mat-expansion-panel [expanded]="!clientId">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>API Access Keys</mat-panel-title>
-                </mat-expansion-panel-header>
-                <div fxLayout="column">
-                  <mat-form-field fxFlex>
-                    <input matInput placeholder="Client Id" [(ngModel)]="clientId"  name="ClientID" required>
-                  </mat-form-field>
-                </div>
-              </mat-expansion-panel>
-            </mat-accordion>
-
-            <div class="la-login-button-div" fxFlex fxLayoutAlign="center start">
-              <button ngStyle.lt-md="width: 100%;" type="submit" mat-raised-button color="primary" [disabled]="(!laLoginForm.form.valid && !clientId) || loading">Login</button>
-            </div>
-
-          </form>
-        </div>
-
-        <div fxFlex class="spacer"></div>
-
-        <div class="la-login-info-pane">
-          <div *ngIf="loading">
-            Logging in...
+<div class="login-container">
+  <div class="login-screen">
+    <div class="login-container-box">
+      <div class="login-box">
+        <div class="login-inner-box">
+          <div class="welcome-text">Welcome to</div>
+          <div class="welcome-content">
+            <mat-icon svgIcon="ic-tibco-logo" class="tibco-logo"></mat-icon>
+            <div class="app-text">{{appName}}</div>
           </div>
-          <div *ngIf="loginError" style="color: red">{{loginError}}</div>
+          <div class="login-container-form">
+            <form class="login-fields" #laLoginForm="ngForm" class="la-login-form" (submit)="doLogin()" fxLayout="column" fxFlex disabled="loading">
+              <mat-form-field>
+                <input matInput type="text" placeholder="Email Address" [(ngModel)]="name" name="email" required>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+              </mat-form-field>
+              <mat-accordion>
+                <mat-expansion-panel [expanded]="!clientId">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>API Access Keys</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div fxLayout="column">
+                    <mat-form-field fxFlex>
+                      <input matInput placeholder="Client Id" [(ngModel)]="clientId"  name="ClientID" required>
+                    </mat-form-field>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <div class="sign-in-section">
+                <button style="width: 144px;" type="submit" mat-raised-button color="primary" type="submit" [disabled]="(!laLoginForm.form.valid || !clientId) || loading">Login</button>
+              </div>
+            </form>
+          </div>
+          <uxpl-spinner *ngIf="loading" style="height: 100px"></uxpl-spinner>
+          <div *ngIf="error" class="error-text">{{error}}</div>
+          <div class="sign-up-section">
+            <div class="sign-up-text">
+              <span>Have an oauth key? </span>
+              <a (click)="handleUseOauth()">Use oauth authentication</a>
+              <br>
+              <span>Don’t have an account? </span><a (click)="handleSignUp()">Sign up</a>
+            </div>
+          </div>
         </div>
-    </mat-card>
+      </div>
+    </div>
+    <div class="copyright-text">
+      <span>Copyright © 2020 TIBCO Software Inc. All Rights Reserved.</span>
+    </div>
   </div>
 </div>
+

@@ -28,3 +28,152 @@
 }
 
 
+
+.login-container-box {
+  flex: 1;
+  align-items: center;
+  display: flex;
+}
+
+.login-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-screen {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  height: 472px;
+  width: 424px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px 0 rgba(221,221,221,0.88);
+}
+
+.login-inner-box {
+  padding: 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.welcome-text {
+  color: #1774E5;
+  font-family: var(--app-font-extra-light, Source Sans Pro);
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 21px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: normal;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.tibco-logo {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  width: 123px;
+  height: 32px;
+}
+
+.app-text {
+  color: #1774E5;
+  font-family: var(--app-font-extra-light, Source Sans Pro);
+  font-size: 36px;
+  letter-spacing: -1px;
+  line-height: 38px;
+}
+
+.login-fields {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.login-fields > mat-form-field {
+  width: 100%;
+}
+
+.sign-in-section {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sign-up-section {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: flex-end;
+}
+
+.sign-up-text {
+  display: inline-block;
+  width: 350px;
+  color: #212121;
+  font-family: var(--app-font-extra-light, Source Sans Pro);
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 18px;
+  text-align: center;
+}
+
+.sign-up-text a {
+  color: #1774E5;
+  font-family: var(--app-font-extra-light, Source Sans Pro);
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 18px;
+  text-align: center;
+}
+
+.error-text {
+  display: flex;
+  color: red;
+  font-family: var(--app-font-extra-light, Source Sans Pro);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 27px;
+  justify-content: center;
+}
+
+.copyright-text {
+  display: flex;
+  color: #4A4A4A;
+  font-family: "Source Sans Pro";
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.login-container-form {
+  margin-top: 20px;
+}
+
+a:hover {
+  cursor: pointer;
+}
+

@@ -1,1 +1,8 @@
-  <tcla-live-apps-login [loginPrefill]="loginPrefill" (loginContext)="handleLogin($event)"></tcla-live-apps-login>
+<div class="login-page-container">
+  <div class="main-nav">
+    <mat-icon class="cloud-logo" svgIcon="ic-cloud-logo"></mat-icon>
+  </div>
+  <div class="main-section">
+    <tcla-live-apps-login [loginPrefill]="loginPrefill" (loginContext)="handleLogin($event)" (useOauth)="handleUseOauth()" (signUp)="handleSignUp()"></tcla-live-apps-login>
+  </div>
+</div>

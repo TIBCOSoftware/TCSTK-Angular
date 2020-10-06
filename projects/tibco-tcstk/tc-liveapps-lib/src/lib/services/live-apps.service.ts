@@ -73,6 +73,16 @@ export class LiveAppsService {
   constructor(
     private http: HttpClient, private location: Location, private sharedStateService: TcSharedStateService) { }
 
+  public checkAuth(key: string): Promise<any> {
+    const url = '/organisation/v1/claims';
+    let headers;
+    headers = new HttpHeaders()
+      .set('Authorization', ('Bearer ' + key));
+    return this.http.get(url, { headers }).pipe(
+      tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+    ).toPromise();
+  }
+
   public getSandboxes(): Observable<SandboxList> {
     const url = '/organisation/v1/sandboxes';
     return this.http.get(url)

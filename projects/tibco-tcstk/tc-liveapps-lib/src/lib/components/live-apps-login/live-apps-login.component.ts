@@ -2,7 +2,7 @@
 
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {LoginContext} from '../../models/liveappsdata';
-import {LoginPrefill} from '@tibco-tcstk/tc-core-lib';
+import {LoginPrefill, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {LiveAppsService} from '../../services/live-apps.service';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 import {TcAppDefinitionService} from '../../services/tc-app-definition.service';
@@ -24,9 +24,31 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
 
   @Output() loginContext: EventEmitter<LoginContext> = new EventEmitter<LoginContext>();
   @Input() loginPrefill: LoginPrefill;
+  /**
+   * Output useOauth event
+   */
+  @Output() useOauth = new EventEmitter();
+  /**
+   * Output signUp event
+   */
+  @Output() signUp = new EventEmitter();
+  public appName = 'Cloud Starters';
+  @Input('appName') set AppName(appName: string) {
+    if (appName) {
+      this.appName = appName;
+    }
+  }
 
-  constructor(private tcAppDefinitionService: TcAppDefinitionService) {
+  constructor(protected tcAppDefinitionService: TcAppDefinitionService, protected configService: TcCoreConfigService) {
     super();
+  }
+
+  handleUseOauth() {
+    this.useOauth.emit();
+  }
+
+  handleSignUp() {
+    this.signUp.emit();
   }
 
   // run when logged in
@@ -38,6 +60,12 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
       next => {
         sessionStorage.setItem('loggedIn', Date.now().toString());
         // emit useful details about the login and session/claims
+
+        // clear any oauth keys stored
+        if (this.configService && this.configService.getConfig() && this.configService.getConfig().oAuthLocalStorageKey
+        && this.configService.getConfig().oAuthLocalStorageKey !== '') {
+          localStorage.removeItem(this.configService.getConfig().oAuthLocalStorageKey);
+        }
         this.loginContext.emit(new LoginContext().deserialize(
           {
             authInfo: loginInfo.authInfo,

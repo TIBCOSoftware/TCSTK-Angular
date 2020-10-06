@@ -154,7 +154,12 @@ export class TcAppDefinitionService {
         });
         const adminGrp = claimVal.primaryProductionSandbox.groups.find(grp => grp.type === 'Administrator');
         this.isAdminUser = adminGrp ? true : false;
-        this.loadFormResources();
+        // only load OOTB form lib if not using oauth
+        const oauthKey = localStorage.getItem((this.tcConfig.getConfig().oAuthLocalStorageKey));
+        if (!oauthKey) {
+          /* no ootb forms if using oauth */
+          this.loadFormResources();
+        }
         return claimVal;
       })
     );

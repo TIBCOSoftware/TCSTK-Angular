@@ -50,6 +50,7 @@ import {TcPrimengLibModule} from '@tibco-tcstk/tc-primeng-lib';
 import { SettingsLandingComponent } from './routes/settings-landing/settings-landing.component';
 import { SettingsSpotfireComponent } from './routes/settings-spotfire/settings-spotfire.component';
 import { TcSpotfireLibModule } from '@tibco-tcstk/tc-spotfire-lib';
+import { LoginOauthComponent } from './routes/login-oauth/login-oauth.component';
 
 // import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
 
@@ -65,7 +66,7 @@ const tcCoreConfig: TcCoreConfig = {
   // for test mode ONLY you can enter an oAuth key as the local storage key as long as it starts CIC~
   // do NOT use this for production code - instead enter the local storage key where external app will save oauth key.
   // oauth keys should NEVER be saved in code for production or when checked into source control!
-  oAuthLocalStorageKey: '',
+  oAuthLocalStorageKey: 'TC_DEV_KEY',
   proxy_url: '',
   proxy_liveapps_path: '',
   proxy_tce_path: '',
@@ -85,7 +86,8 @@ const tcCoreConfig: TcCoreConfig = {
     ShowcaseComponent,
     SplashComponent,
     SettingsLandingComponent,
-    SettingsSpotfireComponent
+    SettingsSpotfireComponent,
+    LoginOauthComponent
   ],
   imports: [
     AppRoutingModule,
@@ -130,7 +132,7 @@ const tcCoreConfig: TcCoreConfig = {
     // { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
 
     // for using oAuth
-    // { provide: HTTP_INTERCEPTORS, useClass: OAuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: OAuthInterceptor, multi: true }
   ],
   exports: [
   ],

@@ -6,3 +6,8 @@
   /* overflow-y: auto; */
   padding: 20px;
 }
+
+/* fix issue were forms were displayed as column layout */
+::ng-deep json-schema-form flex-layout-root-widget.form-flex-column div {
+  flex: 1 1 100% !important;
+}
