@@ -33,7 +33,6 @@ export class EFTLService {
   }
 
   public sendMessage = (message: string, event: string, dest?: string): Observable<any> => {
-    // const sendResult = new Subject<any>();
     const sendResult = new Observable<any>((observer) => {
       if (this.connection) {
         // setup the message
@@ -62,22 +61,23 @@ export class EFTLService {
   }
 
   public receiveMessage = (matcher: string, durable: string): Observable<any> => {
-    const sendResult = new Subject<any>();
-    if (this.connection) {
-      this.connection.subscribe({
-        matcher: matcher,
-        durable: durable,
-        onMessage: (message) => {
-          sendResult.next(message);
-        },
-        onError: (subscription, code, reason) => {
-          console.error('eFTL: subscription error:', subscription, code, reason);
-          throwError({ subscription: subscription, code: code, reason: reason });
-        }
-      });
-    } else {
-      throwError('eFTL: No connection to eFTL');
-    }
-    return sendResult.asObservable();
+    const sendResult = new Observable<any>((observer) => {
+      if (this.connection) {
+        this.connection.subscribe({
+          matcher: matcher,
+          durable: durable,
+          onMessage: (message) => {
+            observer.next(message);
+          },
+          onError: (subscription, code, reason) => {
+            console.error('eFTL: subscription error:', subscription, code, reason);
+            observer.error({subscription: subscription, code: code, reason: reason});
+          }
+        });
+      } else {
+        throwError('eFTL: No connection to eFTL');
+      }
+    });
+    return sendResult;
   }
 }
