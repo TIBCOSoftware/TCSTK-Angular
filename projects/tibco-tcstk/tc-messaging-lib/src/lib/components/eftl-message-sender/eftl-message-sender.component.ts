@@ -42,7 +42,7 @@ export class EftlMessageSenderComponent implements OnChanges {
   constructor(protected eFTLService: EFTLService) { }
 
   send = () => {
-    this.eFTLService.sendMessage(this.msg.contents, this.event).subscribe(
+    this.eFTLService.sendMessage([ { name: 'message', value: this.msg.contents }], this.event).subscribe(
       next => {
         console.log(next);
         this.msg.contents = undefined;

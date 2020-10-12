@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
+import {MessagingAttribute} from '../models/messaging-data';
 declare var eFTL, eFTLMessage: any;
 
 @Injectable({
@@ -32,16 +33,18 @@ export class EFTLService {
     return sendResult;
   }
 
-  public sendMessage = (message: string, event: string, dest?: string): Observable<any> => {
+  public sendMessage = (attributes: MessagingAttribute[], event?: string): Observable<any> => {
     const sendResult = new Observable<any>((observer) => {
       if (this.connection) {
         // setup the message
         const msg = this.connection.createMessage();
-        if (dest) {
-          msg.set('_dest', dest);
+        attributes.forEach(attr => {
+          msg.set(attr.name, attr.value);
+        });
+
+        if (event) {
+          msg.set('event', event);
         }
-        msg.set('event', event);
-        msg.set('text', message);
 
         // publish a message to TIBCO Cloud Messaging
         this.connection.publish(msg, {
