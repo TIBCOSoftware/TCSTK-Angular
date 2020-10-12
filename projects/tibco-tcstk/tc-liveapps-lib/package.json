@@ -5,8 +5,8 @@
     "compodoc": "npx compodoc -p tsconfig.lib.json"
   },
   "peerDependencies": {
-    "@angular/common": "^10.1.1",
-    "@angular/core": "^10.1.1",
+    "@angular/common": "^10.1.5",
+    "@angular/core": "^10.1.5",
     "@angular/material": "^10.2.0",
     "@angular/flex-layout": "^10.0.0-beta.32",
     "ngx-color-picker": "^10.0.1",
