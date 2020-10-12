@@ -7,6 +7,7 @@ export * from './lib/tc-messaging-lib.module';
 // models
 export * from './lib/models/messaging-config';
 export * from './lib/models/messaging-connection';
+export * from './lib/models/messaging-data';
 
 // services
 export * from './lib/services/e-ftl.service';
