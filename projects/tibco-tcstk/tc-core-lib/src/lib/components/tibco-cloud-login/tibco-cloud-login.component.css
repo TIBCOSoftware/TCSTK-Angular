@@ -80,7 +80,7 @@
 .welcome-content {
   display: flex;
   flex-direction: row;
-  justify-content: normal;
+  justify-content: center;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: 8px;
