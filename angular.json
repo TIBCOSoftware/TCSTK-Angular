@@ -53,7 +53,9 @@
               "src/homeElement.html",
               "src/tcstk-elements.js",
               "src/tcstk-elements.css",
-              "src/element-styles.css"
+              "src/element-styles.css",
+              "src/manifest.webmanifest",
+              "src/service-worker.js"
             ],
             "styles": [
               "src/styles.css",
@@ -94,7 +96,9 @@
                   "maximumWarning": "2mb",
                   "maximumError": "10mb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -133,7 +137,8 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ]
           }
         },

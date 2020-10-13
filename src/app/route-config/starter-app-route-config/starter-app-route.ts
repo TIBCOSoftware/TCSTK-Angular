@@ -1,6 +1,5 @@
 import {HomeComponent} from '../../routes/home/home.component';
 import {
-  AuthGuard,
   ConfigurationMenuConfigResolver,
   GeneralConfigResolver, GeneralLandingPageConfigResolver,
 } from '@tibco-tcstk/tc-core-lib';
@@ -12,7 +11,7 @@ import {
   LaConfigResolver,
   LiveAppsConfigResolver, RoleGuard,
   RolesResolver,
-  RoleActiveResolver, FormConfigResolver
+  RoleActiveResolver, FormConfigResolver, AuthGuard
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {CaseComponent} from '../../routes/case/case.component';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';

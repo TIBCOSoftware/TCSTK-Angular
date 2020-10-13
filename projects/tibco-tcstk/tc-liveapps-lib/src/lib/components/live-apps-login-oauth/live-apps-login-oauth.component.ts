@@ -60,6 +60,7 @@ export class LiveAppsLoginOauthComponent {
             console.log('Credentials Saved');
             this.appDefinitionService.refresh().toPromise().then(
                   ok => {
+                    this.credentialsService.setMode('oauth');
                     this.loggedIn.emit();
                   }
                 );

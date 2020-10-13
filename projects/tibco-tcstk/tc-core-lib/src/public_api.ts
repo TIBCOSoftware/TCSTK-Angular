@@ -54,9 +54,7 @@ export * from './lib/interceptors/caching-interceptor';
 export * from './lib/interceptors/mocking-interceptor';
 export * from './lib/interceptors/proxy-interceptor';
 export * from './lib/interceptors/oauth-interceptor';
-
-// guards
-export * from './lib/guards/auth.guard';
+export * from './lib/interceptors/authentication-error-interceptor';
 
 // resolvers
 export * from './lib/resolvers/general-config.resolver';

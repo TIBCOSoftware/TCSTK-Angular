@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   loginContext: LoginContext;
   loginPrefill: LoginPrefill;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) {
+  }
 
   handleUseOauth() {
     const returnUrl = this.route.snapshot.queryParams.returnUrl || '/splash';

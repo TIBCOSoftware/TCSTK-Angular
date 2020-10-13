@@ -59,7 +59,7 @@ import { TcPrimengLibModule } from '@tibco-tcstk/tc-primeng-lib';
  */
 const tcCoreConfig: TcCoreConfig = {
   disableFormLibs: false,
-  oAuthLocalStorageKey: '',
+  oAuthLocalStorageKey: 'TC_DEV_KEY',
   proxy_url: '',
   proxy_liveapps_path: '',
   proxy_tce_path: '',
@@ -141,7 +141,7 @@ export class AppModule {
         // setup cookie refresh for every 10 minutes
         // note: if oauth in use then no need since key will be refreshed in local storage by session manager app
         const usingProxy = (this.tcConfigService.getConfig().proxy_url && this.tcConfigService.getConfig().proxy_url !== '') ? true : false;
-        this.sessionRefreshService.scheduleCookieRefresh(600000, usingProxy);
+        // this.sessionRefreshService.scheduleCookieRefresh(600000, usingProxy);
       }
   }
 

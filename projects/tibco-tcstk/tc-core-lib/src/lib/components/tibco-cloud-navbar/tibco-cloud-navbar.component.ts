@@ -24,7 +24,7 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
    */
   @ViewChild('navbar', {static: true}) private navbarRef: ElementRef;
   /**
-   * diaplayed Application Name
+   * displayed Application Name
    */
   @Input() appName: string;
   /**
@@ -54,6 +54,16 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
    * Define if you want to use contextual help
    */
   @Input() contextHelp?: boolean;
+
+  /**
+   * Disable session timeout
+   */
+  public disableTimeout = false;
+  @Input('disableTimeout') set DisableTimeout(disableTimeout: boolean) {
+    if (disableTimeout) {
+      this.disableTimeout = disableTimeout;
+    }
+  }
 
   private navbar;
 
@@ -92,6 +102,9 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
     this.navbar = new GlobalNavbar({
       container: '#navbar',
       textAfterLogo: this.appName ? this.appName : undefined,
+      idle: {
+        disabled: this.disableTimeout
+      },
       iconMenus: {
         search: {
           visible: false  // for versions 0.1.X the propertie is "disabled" instead of "visible".

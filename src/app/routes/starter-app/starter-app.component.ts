@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LiveAppsService, TcAppDefinitionService} from '@tibco-tcstk/tc-liveapps-lib';
+import {CredentialsService, TcAppDefinitionService} from '@tibco-tcstk/tc-liveapps-lib';
 import {GeneralConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
 import {Title} from '@angular/platform-browser';
 import {CustomConfig1} from '../../../models/customConfig1';
@@ -13,10 +13,15 @@ import {CustomConfig1} from '../../../models/customConfig1';
 })
 export class StarterAppComponent implements OnInit {
 
+  private TIBCO_CLOUD_DOMAIN = 'cloud.tibco.com';
+  private TIBCO_TEST_DOMAIN = 'tenant-integration.tcie.pro';
+  private TIBCO_DEV_DOMAIN = 'emea.tibco.com';
+
+  public disableTimeout = false;
   public config: GeneralConfig;
   public usingProxy = (this.tcConfigService.getConfig().proxy_url && this.tcConfigService.getConfig().proxy_url !== '') ? true : false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private titleService: Title, private tcConfigService: TcCoreConfigService, protected appDefinitionService: TcAppDefinitionService) {
+  constructor(private route: ActivatedRoute, private router: Router, private titleService: Title, private tcConfigService: TcCoreConfigService, protected appDefinitionService: TcAppDefinitionService, protected credentialsService: CredentialsService) {
   }
 
   ngOnInit() {
@@ -36,7 +41,14 @@ export class StarterAppComponent implements OnInit {
 
     this.config = this.route.snapshot.data.config;
     this.titleService.setTitle(this.config.browserTitle ? this.config.browserTitle : 'Tibco Cloud Starters');
-
+    // check if we are hosted on tibco.cloud.com
+    const host = window.location.hostname.split('.');
+    const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
+    if (this.credentialsService.isCloud()) {
+      this.disableTimeout = true;
+    } else {
+      this.disableTimeout = false;
+    }
     /* example to retrieve custom configuration from appConfig.json */
     /****************************************************************/
     /* note this can only be retrieved after a login since appDefinitionService wont be initialized until after a login */

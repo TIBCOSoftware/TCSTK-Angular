@@ -27,7 +27,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {TcSharedStateService} from './services/tc-shared-state.service';
 import {RequestCacheService} from './services/request-cache.service';
 import {CachingInterceptor} from './interceptors/caching-interceptor';
-import {AuthGuard} from './guards/auth.guard';
 import {AuthErrorInterceptor} from './interceptors/authentication-error-interceptor';
 import {EllipsisPipe} from './pipes/ellipsis.pipe';
 import {DurationSincePipe} from './pipes/duration-since.pipe';
@@ -151,7 +150,6 @@ import { DisableDirective } from './directives/disable.directive';
     TcVisibilityService,
     TcButtonsHelperService,
     LegacyIframeService,
-    AuthGuard,
     // comment this line to disable the CachingInterceptor
     {provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true},
     // error handling interceptor

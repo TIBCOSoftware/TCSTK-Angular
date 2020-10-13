@@ -7,6 +7,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 import {TcAppDefinitionService} from '../../services/tc-app-definition.service';
 import {take} from 'rxjs/operators';
+import {CredentialsService} from '../../services/credentials.service';
 
 /**
  * Component perform a Login in case there is no valid Session yet.
@@ -39,7 +40,7 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
     }
   }
 
-  constructor(protected tcAppDefinitionService: TcAppDefinitionService, protected configService: TcCoreConfigService) {
+  constructor(protected tcAppDefinitionService: TcAppDefinitionService, protected configService: TcCoreConfigService, protected credentialsService: CredentialsService) {
     super();
   }
 
@@ -53,6 +54,8 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
 
   // run when logged in
   handleLoggedIn = (loginInfo) => {
+    // remove any stored oauth token/cookie
+    this.credentialsService.setKey(undefined);
     // update claims first
     this.tcAppDefinitionService.refresh().pipe(
       take(1)
@@ -62,10 +65,11 @@ export class LiveAppsLoginComponent extends LiveAppsComponent {
         // emit useful details about the login and session/claims
 
         // clear any oauth keys stored
-        if (this.configService && this.configService.getConfig() && this.configService.getConfig().oAuthLocalStorageKey
+        /*if (this.configService && this.configService.getConfig() && this.configService.getConfig().oAuthLocalStorageKey
         && this.configService.getConfig().oAuthLocalStorageKey !== '') {
           localStorage.removeItem(this.configService.getConfig().oAuthLocalStorageKey);
-        }
+        }*/
+        this.credentialsService.setMode('cookies');
         this.loginContext.emit(new LoginContext().deserialize(
           {
             authInfo: loginInfo.authInfo,

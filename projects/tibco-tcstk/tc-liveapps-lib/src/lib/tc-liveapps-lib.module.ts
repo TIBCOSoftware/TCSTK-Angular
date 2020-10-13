@@ -114,6 +114,7 @@ import { LiveAppsWorkitemComponent } from './components/live-apps-workitem/live-
 import { LiveAppsFormWcComponent } from './components/live-apps-form-wc/live-apps-form-wc.component';
 import {LiveAppsSettingsCustomFormsComponent} from './components/live-apps-settings-custom-forms/live-apps-settings-custom-forms.component';
 import { LiveAppsLoginOauthComponent } from './components/live-apps-login-oauth/live-apps-login-oauth.component';
+import {AuthGuard} from './guards/auth.guard';
 
 export const TIBCO_CLOUD_DOMAIN = 'cloud.tibco.com';
 export const TIBCO_TEST_DOMAIN = 'tenant-integration.tcie.pro';
@@ -304,6 +305,7 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
         { provide: APP_INITIALIZER, useFactory: initAppDefinitionService, deps: [TcAppDefinitionService], multi: true },
         CaseGuard,
         RoleGuard,
+        AuthGuard,
         DurationSincePipe,
         { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
         // { provide: HTTP_INTERCEPTORS, useClass: MockingInterceptor, multi: true }

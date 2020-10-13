@@ -119,6 +119,7 @@ export * from './lib/resolvers/form-config.resolver';
 // guards
 export * from './lib/guards/case.guard';
 export * from './lib/guards/role.guard';
+export * from './lib/guards/auth.guard';
 
 // pipes
 export * from './lib/pipes/audit.pipe';
