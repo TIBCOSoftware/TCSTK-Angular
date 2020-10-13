@@ -343,8 +343,6 @@ const PROXY_CONFIG = {
   }
 }
 
-module.exports = PROXY_CONFIG;
-
 // Add the authorization header to request using the value from the TCSTKSESSION cookie
 function addOauthHeader(proxyReq, req) {
   // check for existing auth header
@@ -357,7 +355,7 @@ function addOauthHeader(proxyReq, req) {
   if (authHeaderExists === false) {
     Object.keys(req.headers).forEach(function (key) {
       if (key === 'cookie') {
-        // log('DEBUG', req.headers[key]);
+        log('DEBUG', req.headers[key]);
         cookies = req.headers[key].split('; ');
         cookies.forEach((cook => {
           if (cook.startsWith('TCSTKSESSION=')) {
@@ -401,9 +399,38 @@ function getCookie(req, cookieName){
 }
 
 // Function for logging
-const debug = true;
+const debug = false;
 function log(level, message){
   if((debug && level == 'DEBUG') || level != 'DEBUG') {
     console.log('[PROXY INTERCEPTOR] (' + level + '): ' + message);
   }
 }
+
+try {
+  const propReader = require('properties-reader');
+  if (propReader) {
+    const tcProp = propReader('tibco-cloud.properties');
+    if (tcProp) {
+      const cloudProps = tcProp.path();
+      if (cloudProps.CloudLogin && cloudProps.CloudLogin.OAUTH_Token && cloudProps.CloudLogin.OAUTH_Token.trim() != '') {
+        for (let endpoint in PROXY_CONFIG) {
+          //console.log('ENDPOINT: ' , endpoint);
+          //console.log(PROXY_CONFIG[endpoint]['headers']);
+          let token = cloudProps.CloudLogin.OAUTH_Token;
+          const key = 'Token:';
+          if (token.indexOf(key) > 0) {
+            token = token.substring(token.indexOf(key) + key.length);
+          }
+          if (PROXY_CONFIG[endpoint] && PROXY_CONFIG[endpoint]['headers']) {
+            PROXY_CONFIG[endpoint]['headers']['Authorization'] = "Bearer " + token;
+            console.log('Added OAUTH to: ' + endpoint);
+          }
+        }
+      }
+    }
+  }
+} catch (err) {
+  console.warn('No oauth token found in tibco-cloud.properties');
+}
+
+module.exports = PROXY_CONFIG;
