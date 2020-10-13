@@ -369,35 +369,6 @@ function addOauthHeader(proxyReq, req) {
   }
 }
 
-//Re-usable function to substract cookie
-function getCookie(req, cookieName){
-  let re = 'NOT_FOUND';
-  log('INFO','Getting ' + cookieName + ' Cookie...');
-  Object.keys(req.headers).forEach(function (key) {
-    // console.log('KEY: ', key ,' VALUE:' ,proxyRes.headers[key]);
-    if(key == 'set-cookie'){
-      let cookieHeaderArray = req.headers[key];
-      cookieHeaderArray.forEach((cookieHeader) => {
-        //console.log('Header: ' + cookieHeader);
-        if(cookieHeader.startsWith(cookieName)) {
-          let tempCookie = cookieHeader.substring(
-            cookieHeader.lastIndexOf(cookieName + '=') + cookieName.length + 1,
-            cookieHeader.indexOf(";")
-          );
-          if(tempCookie != '') {
-            log('DEBUG','Cookie FOUND (' + cookieName + '): ' + tempCookie);
-            log('INFO','Successfully got ' + cookieName + ' Cookie !');
-            re = tempCookie;
-          } else {
-            log('ERROR','EMPTY Cookie returned !!');
-          }
-        }
-      });
-    }
-  });
-  return re;
-}
-
 // Function for logging
 const debug = false;
 function log(level, message){
