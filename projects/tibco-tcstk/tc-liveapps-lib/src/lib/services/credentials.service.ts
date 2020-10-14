@@ -43,7 +43,6 @@ export class CredentialsService {
     } else {
       return undefined;
     }
-
   }
 
   public isOauth(): boolean {

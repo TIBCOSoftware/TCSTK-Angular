@@ -1,7 +1,7 @@
 const PROXY_CONFIG = {
   "/idm/v3/login-oauth": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -15,7 +15,7 @@ const PROXY_CONFIG = {
       "*": "/"
     },
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com",
+      "Origin": "https://liveapps.cloud.tibco.com",
       "Cookie": ""
     }
   },
@@ -37,7 +37,7 @@ const PROXY_CONFIG = {
   },
   "/idm/v2/login-oauth": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -50,7 +50,7 @@ const PROXY_CONFIG = {
   },
   "/tsc-ws/v1/tsc-domain": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -64,7 +64,7 @@ const PROXY_CONFIG = {
   },
   "/idm/v1/reauthorize": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -77,7 +77,7 @@ const PROXY_CONFIG = {
   },
   "/tsc-ws": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -91,7 +91,7 @@ const PROXY_CONFIG = {
   },
   "/griddetails": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -105,7 +105,7 @@ const PROXY_CONFIG = {
   },
   "/tsc-ws-content": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -119,7 +119,7 @@ const PROXY_CONFIG = {
   },
   "/work/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -127,13 +127,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/organisation": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -141,13 +141,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/organisation/v1/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -155,13 +155,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/apps": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -169,13 +169,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/case": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -183,13 +183,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/case/v1/cases": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -197,13 +197,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/case/v1/types": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -211,13 +211,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/case/reports": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -225,13 +225,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/process/v1/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -239,13 +239,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/pageflow/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -253,13 +253,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/pageflow/v1/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -267,13 +267,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/event/v1/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -281,13 +281,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/clientstate/v1/states": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -295,13 +295,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/webresource/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -309,13 +309,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/webresource/v1": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -323,13 +323,13 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   },
   "/collaboration/v1/": {
     "target": {
-      "host": "eu.liveapps.cloud.tibco.com",
+      "host": "liveapps.cloud.tibco.com",
       "protocol": "https:",
       "port": 443
     },
@@ -337,7 +337,7 @@ const PROXY_CONFIG = {
     "changeOrigin": true,
     "logLevel": "info",
     "headers": {
-      "Origin": "https://eu.liveapps.cloud.tibco.com"
+      "Origin": "https://liveapps.cloud.tibco.com"
     },
     "onProxyReq": addOauthHeader
   }
