@@ -56,6 +56,7 @@ import {LegacyIframeService} from './services/legacy-iframe.service';
 import {TcCoreConfig, TcCoreConfiguration, TcCoreConfigurationService} from './interfaces/tc-core-configuration';
 import {TcCoreConfigService} from './services/tc-core-config-service';
 import { DisableDirective } from './directives/disable.directive';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,7 @@ import { DisableDirective } from './directives/disable.directive';
     MatToolbarModule,
     MatIconModule,
     MatSelectModule,
-    // MatOptionModule,
+    MatProgressSpinnerModule,
     MatDialogModule,
     MatMenuModule,
     MatCardModule,

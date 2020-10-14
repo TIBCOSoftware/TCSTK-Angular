@@ -64,6 +64,14 @@
   height: 32px;
 }
 
+.spinner {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .app-text {
   color: #1774E5;
   font-family: var(--app-font-extra-light, Source Sans Pro);

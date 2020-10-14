@@ -33,7 +33,7 @@
               </div>
             </form>
           </div>
-          <!--uxpl-spinner *ngIf="loading" style="height: 100px"></uxpl-spinner-->
+          <mat-spinner *ngIf="loading" class="spinner" diameter="40"></mat-spinner>
           <div *ngIf="error" class="error-text">{{error}}</div>
           <div class="sign-up-section">
             <div class="sign-up-text">

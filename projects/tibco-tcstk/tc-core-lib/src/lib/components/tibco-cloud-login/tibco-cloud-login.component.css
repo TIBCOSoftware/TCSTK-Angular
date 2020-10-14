@@ -87,6 +87,13 @@
   align-items: center;
 }
 
+.spinner {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  margin-top: 15px;
+}
+
 .tibco-logo {
   margin-bottom: 3px;
   display: flex;

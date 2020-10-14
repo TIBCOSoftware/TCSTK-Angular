@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {AccountsInfo, LoginPrefill, Subscription} from '../../models/tc-login';
 import {Observable, ObservableInput} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
 import {AccessToken, AuthInfo} from '../../models/tc-login';
 import {TcLoginService} from '../../services/tc-login.service';
+import {MatExpansionPanel} from '@angular/material/expansion';
 
 /**
  * This component will attempt to log the user in.
@@ -48,6 +49,8 @@ export class TibcoCloudLoginComponent implements OnChanges {
     }
   }
 
+  @ViewChild(MatExpansionPanel, { static: false }) matExpansionPanel: MatExpansionPanel;
+
   name: string;
   password: string;
   clientId: string;
@@ -68,6 +71,9 @@ export class TibcoCloudLoginComponent implements OnChanges {
   }
 
   doLogin() {
+    if (this.matExpansionPanel && this.matExpansionPanel.expanded) {
+      this.matExpansionPanel.expanded = false;
+    }
     this.loading = true;
     this.error = undefined;
 
