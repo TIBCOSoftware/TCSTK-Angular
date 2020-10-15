@@ -24,6 +24,7 @@ export class AuthGuard implements CanActivate {
 
   redirectLogin(state: RouterStateSnapshot) {
     this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
+    return false;
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -55,7 +56,6 @@ export class AuthGuard implements CanActivate {
     // fallback - refuse access
     console.warn('Auth guard| fallback - redirecting to login');
     this.redirectLogin(state);
-    return false;
 
     /*const host = window.location.hostname.split('.');
     const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
