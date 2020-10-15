@@ -48,10 +48,12 @@ export class AuthGuard implements CanActivate {
         return true;
       } else {
         // assume no cookies - redirect to login
+        console.warn('Auth guard| cookies mode but no claims - redirecting to login');
         this.redirectLogin(state);
       }
     }
     // fallback - refuse access
+    console.warn('Auth guard| fallback - redirecting to login');
     this.redirectLogin(state);
     return false;
 
