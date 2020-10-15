@@ -158,7 +158,9 @@ export class TcAppDefinitionService {
         // const oauthKey = localStorage.getItem((this.tcConfig.getConfig().oAuthLocalStorageKey));
         // if (!oauthKey) {
           /* no ootb forms if using oauth */
+        if (claimVal && claimVal.primaryProductionSandbox) {
           this.loadFormResources();
+        }
         // }
         return claimVal;
       })
