@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router, private coreConfigService: TcCoreConfigService, protected credentialsService: CredentialsService, protected appDefinitionService: TcAppDefinitionService) {
   }
 
-  redirectLogin(state: RouterStateSnapshot) {
+  redirectLogin(state: RouterStateSnapshot): boolean {
     this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     return false;
   }
@@ -40,7 +40,7 @@ export class AuthGuard implements CanActivate {
       } else {
         // something wrong - invalid oauth key?
         console.warn('Auth guard| Oauth configured but no claims available in appDefinitionService');
-        this.redirectLogin(state);
+        return this.redirectLogin(state);
       }
     }
     if (this.credentialsService.isCookies()) {
@@ -50,12 +50,12 @@ export class AuthGuard implements CanActivate {
       } else {
         // assume no cookies - redirect to login
         console.warn('Auth guard| cookies mode but no claims - redirecting to login');
-        this.redirectLogin(state);
+        return this.redirectLogin(state);
       }
     }
     // fallback - refuse access
     console.warn('Auth guard| fallback - redirecting to login');
-    this.redirectLogin(state);
+    return this.redirectLogin(state);
 
     /*const host = window.location.hostname.split('.');
     const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
