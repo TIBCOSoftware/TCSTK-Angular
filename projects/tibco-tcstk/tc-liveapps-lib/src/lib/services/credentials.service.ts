@@ -15,15 +15,15 @@ export class CredentialsService {
   private _MODE: string;
 
   constructor(private liveAppsService: LiveAppsService, @Inject(TcCoreConfigService) protected tcCoreConfig: TcCoreConfigService) {
-    if (this.tcCoreConfig.getConfig().oAuthLocalStorageKey) {
-      // using oauth key within app
-      this._MODE = 'oauth';
+    const host = window.location.hostname.split('.');
+    const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
+    if (hostDomain === this.TIBCO_CLOUD_DOMAIN || hostDomain === this.TIBCO_TEST_DOMAIN || hostDomain === this.TIBCO_DEV_DOMAIN) {
+      // on Tibco Cloud - using cookies
+      this._MODE = 'cloud';
     } else {
-      const host = window.location.hostname.split('.');
-      const hostDomain = host[host.length - 3] + '.' + host[host.length - 2] + '.' + host[host.length - 1];
-      if (hostDomain === this.TIBCO_CLOUD_DOMAIN || hostDomain === this.TIBCO_TEST_DOMAIN || hostDomain === this.TIBCO_DEV_DOMAIN) {
-        // on Tibco Cloud - using cookies
-        this._MODE = 'cloud';
+      if (this.tcCoreConfig.getConfig().oAuthLocalStorageKey) {
+        // using oauth key within app
+        this._MODE = 'oauth';
       } else {
         // Either using cookies or an external proxy with hardcoded oauth key
         this._MODE = 'cookies';
