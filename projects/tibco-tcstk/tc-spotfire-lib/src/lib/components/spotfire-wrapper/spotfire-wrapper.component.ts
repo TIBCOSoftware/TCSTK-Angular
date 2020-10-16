@@ -42,7 +42,7 @@ export class SpotfireWrapperComponent extends SpotfireViewerComponent implements
    * This function can be overriden
    * @param message INfo message to be displayed
    */
-  protected displayInfoMessage_HUGO = (message: string) => {
+  protected displayInfoMessage = (message: string) => {
     this.superDisplayInfoMessage(message);
     this.handleInfoMessage.emit(message);
   }
