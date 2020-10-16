@@ -31,7 +31,7 @@ export class SpotfireWrapperComponent extends SpotfireViewerComponent implements
    * This function can be overriden
    * @param message error message to be displayed
    */
-  protected displayErrorMessage = (message: string) => {
+  public displayErrorMessage = (message: string) => {
     this.superDisplayErrorMessage(message);
     this.handleErrorMessage.emit(message);
   }
@@ -42,8 +42,8 @@ export class SpotfireWrapperComponent extends SpotfireViewerComponent implements
    * This function can be overriden
    * @param message INfo message to be displayed
    */
-  protected displayInfoMessage = (message: string) => {
+  public displayInfoMessage = (message: string) => {
     this.superDisplayInfoMessage(message);
     this.handleInfoMessage.emit(message);
-  }   
+  }
 }
