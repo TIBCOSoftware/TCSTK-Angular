@@ -31,7 +31,7 @@ export class SpotfireWrapperComponent extends SpotfireViewerComponent implements
    * This function can be overriden
    * @param message error message to be displayed
    */
-  protected displayErrorMessage_HUGO = (message: string) => {
+  protected displayErrorMessage = (message: string) => {
     this.superDisplayErrorMessage(message);
     this.handleErrorMessage.emit(message);
   }
