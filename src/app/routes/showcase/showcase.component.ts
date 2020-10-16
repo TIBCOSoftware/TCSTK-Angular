@@ -388,6 +388,10 @@ export class ShowcaseComponent implements OnInit, OnDestroy {
         });
   }
 
+  handleErrorMessage = ($event): void => {
+    console.log("*****", $event);
+  }
+
   ngOnDestroy() {
 
   }
