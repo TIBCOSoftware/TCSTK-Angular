@@ -43,6 +43,33 @@
           </div>
         </ng-template>
       </mat-tab> -->
+      <mat-tab label="Spotfire">
+        <ng-template matTabContent>
+          <tcsf-spotfire-wrapper style="width: 100%; height: 700px;"
+                                 [version]="'7.14'"
+                                 [url]="'https://....'"
+                                 [path]="'/...'"
+                                 [customization]='{"showAbout": false,
+                                                        "showAnalysisInformationTool": false,
+                                                        "showAuthor": false,
+                                                        "showClose": false,
+                                                        "showCustomizableHeader": false,
+                                                        "showDodPanel": false,
+                                                        "showExportFile": false,
+                                                        "showExportVisualization": false,
+                                                        "showFilterPanel": false,
+                                                        "showHelp": true,
+                                                        "showLogout": false,
+                                                        "showPageNavigation": false,
+                                                        "showAnalysisInfo": false,
+                                                        "showReloadAnalysis": false,
+                                                        "showStatusBar": false,
+                                                        "showToolBar": false,
+                                                        "showUndoRedo": false}'
+                                 id="id2">
+          </tcsf-spotfire-wrapper>
+        </ng-template>
+      </mat-tab>
       <mat-tab label="Table">
         <ng-template matTabContent>
           <div fxLayout="column" style="height: 100%; background-color: #FFF">
