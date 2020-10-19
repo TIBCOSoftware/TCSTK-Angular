@@ -57,6 +57,7 @@ import {TcCoreConfig, TcCoreConfiguration, TcCoreConfigurationService} from './i
 import {TcCoreConfigService} from './services/tc-core-config-service';
 import { DisableDirective } from './directives/disable.directive';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {BytesPipe} from './pipes/bytes.pipe';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     HighlightPipe,
     OrderByDatePipe,
     ReversePipe,
+    BytesPipe,
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudMenuBarComponent,
     TibcoCloudErrorComponent,
@@ -133,6 +135,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     HighlightPipe,
     OrderByDatePipe,
     ReversePipe,
+    BytesPipe,
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudErrorComponent,
     OnCreateDirective,
