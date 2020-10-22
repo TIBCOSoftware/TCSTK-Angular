@@ -57,6 +57,16 @@ export class TcDocumentService {
     );
   }
 
+  public deleteOrgFolder(name: string): Observable<ApiResponseText> {
+    const url = '/webresource/v1/orgFolders/' + name;
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+    return this.http.delete(url, { headers }).pipe(
+      tap( val => sessionStorage.setItem('tcsTimestamp', Date.now().toString())),
+      map(response => new ApiResponseText().deserialize(response))
+    );
+  }
+
   public initOrgFolder(name: string): Observable<ApiResponseText> {
     const orgFolder$ = this.getOrgFolder(name, true, false).pipe(
       map(orgFolderResp => {
