@@ -1,0 +1,107 @@
+{
+  "side-bar": {
+    "label": "How can we help?",
+    "section": [
+      {
+        "type": "video",
+        "name": "Getting started with Cloud Starters",
+        "label": "Introduction to cloud starter apps",
+        "title": "Getting started",
+        "item": [
+          {
+            "type": "video",
+            "name": "name of the video",
+            "label": "Your first cloud starter app",
+            "title": "title 2",
+            "url": "assets/help/videos/video.mp4",
+            "default": "true",
+            "time-lines": [
+              {
+                "time": "0:32",
+                "hint": "Login"
+              },
+              {
+                "time": "0:32",
+                "hint": "Login"
+              }
+            ]
+          },
+          {
+            "type": "video",
+            "name": "name of the video",
+            "label": "Your second cloud starter app",
+            "title": "title 2",
+            "url": "assets/help/videos/video.mp4",
+            "default": "true",
+            "time-lines": [
+              {
+                "time": "0:32",
+                "hint": "Login"
+              },
+              {
+                "time": "0:32",
+                "hint": "Login"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inline",
+        "name": "Tell_Me_About",
+        "label": "Tell me more about ...",
+        "title": "Tell me about ...",
+        "item": [
+          {
+            "type": "inline",
+            "name": "Settings ...",
+            "label": "What are these Capabilities about",
+            "title": "What are these Capabilities about?",
+            "url": "assets/help/example/HDI-Create-a-case.html",
+            "content": "",
+            "default": "true"
+          },
+          {
+            "type": "inline",
+            "name": "Invite other Users?",
+            "label": "How to invite other Users to this Application?",
+            "title": "How to invite other Users to this Application?",
+            "url": "../contexthelp/general/HDI-invite-users.html",
+            "content": "",
+            "default": "true"
+          }
+        ]
+      },
+      {
+        "type": "external",
+        "name": "External_Link",
+        "title": "External link",
+        "icon": "url of the icon",
+        "item": [
+          {
+            "type": "external",
+            "label": "TIBCO® Community",
+            "additional-text": "Talk with other TIBCO Cloud™ My Partner App users",
+            "name": "TIBCO® Community",
+            "title": "TIBCO® Community",
+            "url": "https://community.tibco.com/modules/tibco-cloud-my-partner-app",
+            "icon": "assets/help/images/person_48px.svg",
+            "content": "",
+            "mono": "true"
+          },
+          {
+            "type": "external",
+            "label": "Legal Notices",
+            "additional-text": "View the list of legal notices",
+            "name": "Legal Notices",
+            "title": "Legal Notices",
+            "url": "/apps/contexthelp/common/TIB_bpm-cloud_1.0.0_license.pdf",
+            "icon": "assets/help/images/person_48px.svg",
+            "content": "",
+            "mono": "true"
+          }
+        ]
+      }
+    ]
+  }
+}
