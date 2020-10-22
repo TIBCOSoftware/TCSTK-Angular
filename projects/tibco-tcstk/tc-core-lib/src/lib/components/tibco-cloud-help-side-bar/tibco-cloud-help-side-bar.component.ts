@@ -28,6 +28,7 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
 
   loadContent(item: any): Observable<any> {
     if (!item.article) {
+      item.article = '';
       return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, item.url), {responseType: 'text'}).pipe(
         map(cont => {
             item.article = this.sanitizer.bypassSecurityTrustHtml(cont);
