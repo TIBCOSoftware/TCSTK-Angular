@@ -43,6 +43,11 @@
           </div>
         </ng-template>
       </mat-tab> -->
+      <mat-tab label="Context Help">
+        <ng-template matTabContent>
+          <tc-tibco-cloud-help-side-bar [helpSettingsUrl]="'assets/help/settings/settings.json'"></tc-tibco-cloud-help-side-bar>
+        </ng-template>
+      </mat-tab>
       <mat-tab label="Spotfire">
         <ng-template matTabContent>
           <tcsf-spotfire-wrapper style="width: 100%; height: 700px;"

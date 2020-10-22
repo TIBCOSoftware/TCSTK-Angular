@@ -19,6 +19,9 @@ export * from './lib/components/tibco-cloud-splash-screen/tibco-cloud-splash-scr
 export * from './lib/components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
 export * from './lib/components/tibco-cloud-new-element/tibco-cloud-new-element.component';
 export * from './lib/components/tibco-cloud-upload-dialog/tibco-cloud-upload-dialog.component';
+export * from './lib/components/tibco-cloud-help-side-bar/tibco-cloud-help-side-bar.component';
+export * from './lib/components/tibco-cloud-video-carousel/tibco-cloud-video-carousel.component';
+export * from './lib/components/tibco-cloud-video/tibco-cloud-video.component';
 
 // services
 export * from './lib/services/tc-login.service';
@@ -74,6 +77,7 @@ export * from './lib/pipes/highlight.pipe';
 export * from './lib/pipes/order-by-date.pipe';
 export * from './lib/pipes/reverse.pipe';
 export * from './lib/pipes/bytes.pipe';
+export * from './lib/pipes/url-prepare.pipe';
 
 // directives
 export * from './lib/directives/on-create.directive';

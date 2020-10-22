@@ -1,4 +1,4 @@
-import {ModuleWithProviders, NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule, setTestabilityGetter} from '@angular/core';
 import {TibcoCloudNavbarComponent} from './components/tibco-cloud-navbar/tibco-cloud-navbar.component';
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-login/tibco-cloud-login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -44,7 +44,7 @@ import {TibcoCloudSelectTableComponent} from './components/tibco-cloud-select-ta
 import {TibcoCloudSettingMenuEntryComponent} from './components/tibco-cloud-setting-menu-entry/tibco-cloud-setting-menu-entry.component';
 import {TibcoCloudSettingsGeneralComponent} from './components/tibco-cloud-settings-general/tibco-cloud-settings-general.component';
 import {TibcoCloudConfigurationComponent} from './components/tibco-cloud-configuration/tibco-cloud-configuration.component';
-import {NavigationEnd, Router, RouterModule} from '@angular/router';
+import {ActivatedRoute, ActivationEnd, NavigationEnd, Router, RouterModule, RouterStateSnapshot} from '@angular/router';
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 import {CommonModule, Location} from '@angular/common';
 import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
@@ -58,6 +58,10 @@ import {TcCoreConfigService} from './services/tc-core-config-service';
 import { DisableDirective } from './directives/disable.directive';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BytesPipe} from './pipes/bytes.pipe';
+import { TibcoCloudHelpSideBarComponent } from './components/tibco-cloud-help-side-bar/tibco-cloud-help-side-bar.component';
+import { UrlPrepare } from './pipes/url-prepare.pipe';
+import { TibcoCloudVideoCarouselComponent } from './components/tibco-cloud-video-carousel/tibco-cloud-video-carousel.component';
+import { TibcoCloudVideoComponent } from './components/tibco-cloud-video/tibco-cloud-video.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +86,11 @@ import {BytesPipe} from './pipes/bytes.pipe';
     TibcoCloudSettingLandingComponent,
     TibcoCloudNewElementComponent,
     TibcoCloudUploadDialogComponent,
-    DisableDirective
+    DisableDirective,
+    TibcoCloudHelpSideBarComponent,
+    UrlPrepare,
+    TibcoCloudVideoCarouselComponent,
+    TibcoCloudVideoComponent
   ],
   imports: [
     RouterModule,
@@ -136,6 +144,7 @@ import {BytesPipe} from './pipes/bytes.pipe';
     OrderByDatePipe,
     ReversePipe,
     BytesPipe,
+    UrlPrepare,
     TibcoCloudWidgetHeaderComponent,
     TibcoCloudErrorComponent,
     OnCreateDirective,
@@ -147,7 +156,10 @@ import {BytesPipe} from './pipes/bytes.pipe';
     TibcoCloudSplashScreenComponent,
     TibcoCloudNewElementComponent,
     TibcoCloudUploadDialogComponent,
-    DisableDirective
+    TibcoCloudHelpSideBarComponent,
+    TibcoCloudVideoCarouselComponent,
+    DisableDirective,
+    TibcoCloudVideoComponent
   ],
   providers: [
     RequestCacheService,
@@ -168,6 +180,7 @@ export class TcCoreLibModule {
 
   private ms: MessageTopicService;
   private li: LegacyIframeService;
+  private path: string;
 
   static forRoot(config?: TcCoreConfiguration): ModuleWithProviders<TcCoreLibModule> {
     return {
@@ -182,13 +195,34 @@ export class TcCoreLibModule {
     };
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private messageService: MessageTopicService, private legacyIFrameService: LegacyIframeService) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private routeSnapshot: ActivatedRoute, private messageService: MessageTopicService, private legacyIFrameService: LegacyIframeService) {
     this.ms = messageService;
     // subscribe to route changes
     this.router.events.subscribe((value) => {
-      // console.log('Router event: ' , value);
+      if (value instanceof ActivationEnd) {
+        if (value.snapshot) {
+          if (value.snapshot.routeConfig && value.snapshot.routeConfig.path) {
+            this.path = this.path === '' ? value.snapshot.routeConfig.path : [value.snapshot.routeConfig.path, this.path].join('/');
+          }
+        }
+      }
+
       if (value instanceof NavigationEnd) {
-        // console.log('NAVIGATION END: ' + value.url);
+        // save the path, and clear it.
+        let finalPath;
+        finalPath = this.path.split('/').filter(seg => {
+          return !seg.startsWith(':');
+        });
+        finalPath = finalPath.join('/');
+        // remove trailing '/';
+        if (finalPath.endsWith('/')) {
+          finalPath = finalPath.slice(0, finalPath.length - 1);
+        }
+        this.path = '';
+        this.ms.sendMessage('integratedHelp', finalPath);
+      }
+
+      if (value instanceof NavigationEnd) {
         this.ms.sendMessage('help', value.url);
       }
     });
@@ -200,6 +234,13 @@ export class TcCoreLibModule {
 
     // register all the default Icon SVGs used by this module
 
+
+    this.matIconRegistry.addSvgIconLiteral('ic-help-right-chevron',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg fill="#000000" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">\n' +
+      '    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>\n' +
+      '    <path d="M0-.25h24v24H0z" fill="none"></path>\n' +
+      '</svg>')
+    )
     this.matIconRegistry.addSvgIconLiteral(
       'ic-burger-menu',
      this.domSanitizer.bypassSecurityTrustHtml('<svg class="svg-content" fill="#727272" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">\n' +

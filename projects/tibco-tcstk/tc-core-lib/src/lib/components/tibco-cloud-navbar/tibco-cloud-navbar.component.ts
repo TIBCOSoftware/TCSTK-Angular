@@ -1,4 +1,14 @@
-import {Component, OnInit, ViewChild, ElementRef, Input, SystemJsNgModuleLoader, OnChanges, SimpleChanges} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Input,
+  SystemJsNgModuleLoader,
+  OnChanges,
+  SimpleChanges,
+  ChangeDetectorRef
+} from '@angular/core';
 import {Location} from '@angular/common';
 import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 import {MessageTopicService} from '../../common/tc-core-topic-comm';
@@ -19,6 +29,7 @@ declare var GlobalNavbar: any;
   styleUrls: ['./tibco-cloud-navbar.component.css']
 })
 export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
+
   /**
    * Reference Element
    */
@@ -56,6 +67,16 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
   @Input() contextHelp?: boolean;
 
   /**
+   * Component based help mode
+   */
+  public integratedHelp = false;
+  @Input('integratedHelp') set IntegratedHelp(integratedHelp: boolean) {
+    if (integratedHelp) {
+      this.integratedHelp = integratedHelp;
+    }
+  }
+
+  /**
    * Disable session timeout
    */
   public disableTimeout = false;
@@ -65,6 +86,11 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
     }
   }
 
+  private BASE_HELP_PATH = 'assets/help';
+  public helpPath: string;
+  public integratedHelpConfig: string;
+  public integratedHelpVisible = false;
+
   private navbar;
 
   private ms: MessageTopicService;
@@ -73,7 +99,7 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
    * single empty Constructor of TIBCO Cloud Navigation Bar
    */
 
-  constructor(protected location: Location, protected messageService: MessageTopicService) {
+  constructor(protected location: Location, protected messageService: MessageTopicService, protected changeDetectorRef: ChangeDetectorRef) {
     this.ms = messageService;
   }
 
@@ -113,7 +139,8 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
           visible: false
         },
         help: {
-          visible: true
+          visible: true,
+          publishEvent: this.integratedHelp
         },
         notifications: {
           visible: false
@@ -151,6 +178,15 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
         }
       ]
     });
+
+    if (this.integratedHelp) {
+      this.navbar.subscribeEvent('CLICK_ICON_MENU_HELP', (event) => {
+        // toggle help component
+        this.integratedHelpVisible = !this.integratedHelpVisible;
+        this.changeDetectorRef.detectChanges();
+      });
+    }
+
     if (this.logoUrl || this.logoClickTargetUrl || this.rebrandConfig) {
       const style: any = {};
       if (this.logoUrl || this.logoClickTargetUrl) {
@@ -177,22 +213,31 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
     }
     this.navbar.load();
     // console.log('DOC URL: ' + this.docUrl);
-    const initialHelpURL = this.docUrl + '/help.html';
 
-    this.urlExists(initialHelpURL, exists => {
-      if (exists) {
-        this.navbar.customizePanel('help', '<embed src="' + initialHelpURL + '" style="height: 100%; width: 100%">');  // set HTML string
-      } else {
-        this.navbar.customizePanel('help', '<b> No Help Page Found</b>');  // set HTML string
-      }
-    });
+    if (!this.integratedHelp) {
+      const initialHelpURL = this.docUrl + '/help.html';
 
-    this.ms.getMessage('help').subscribe(data => {
-      // console.log('Got message: ' + data.text);
-      if (this.contextHelp) {
-        this.findHelpFile('assets/help' + data.text + '/help.html');
-      }
-    });
+      this.urlExists(initialHelpURL, exists => {
+        if (exists) {
+          this.navbar.customizePanel('help', '<embed src="' + initialHelpURL + '" style="height: 100%; width: 100%">');  // set HTML string
+        } else {
+          this.navbar.customizePanel('help', '<b> No Help Page Found</b>');  // set HTML string
+        }
+      });
+    }
+
+
+    if (this.contextHelp && !this.integratedHelp) {
+      this.ms.getMessage('help').subscribe(data => {
+        // console.log('Got message: ' + data.text);
+          this.findHelpFile('assets/help' + data.text + '/help.html');
+      });
+    } else if (this.integratedHelp) {
+      this.ms.getMessage('integratedHelp').subscribe(data => {
+        // construct file path
+        this.helpPath = this.BASE_HELP_PATH + '/' + data.text + '/config.json';
+      });
+    }
   }
 
   findHelpFile(helpUrl) {
@@ -234,5 +279,9 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
       }
     };
     http.send();
+  }
+
+  hideHelp() {
+    this.integratedHelpVisible = false;
   }
 }

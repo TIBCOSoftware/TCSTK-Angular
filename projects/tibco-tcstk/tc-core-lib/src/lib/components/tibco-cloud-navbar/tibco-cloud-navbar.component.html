@@ -1,3 +1,7 @@
 <div class="tai-navbar">
 <div id="navbar" class="tai-navbar" #navbar></div>
+<div class="integrated-help-splash" *ngIf="integratedHelp && integratedHelpVisible" (click)="hideHelp()"></div>
+<div class="integrated-help" *ngIf="integratedHelp && integratedHelpVisible">
+  <tc-tibco-cloud-help-side-bar *ngIf="helpPath" [helpSettingsUrl]="helpPath"></tc-tibco-cloud-help-side-bar>
+</div>
 </div>

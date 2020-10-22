@@ -1,0 +1,47 @@
+<div class="help-page" *ngIf="helpConfig">
+  <div class="help-heading">
+    <div class="help-heading-title">{{helpConfig["side-bar"].label}}</div>
+  </div>
+  <div class="help-details">
+    <div class="help-section" *ngFor="let section of helpConfig['side-bar'].section">
+      <div *ngIf="section.type === 'video'">
+        <tc-tibco-cloud-video-carousel>
+            <tc-tibco-cloud-video *ngFor="let item of section.item" [label]="item.label" [title]="item.title" [url]="item.url"></tc-tibco-cloud-video>
+        </tc-tibco-cloud-video-carousel>
+      </div>
+      <div *ngIf="section.type === 'inline'">
+        <div class="help-heading without-box-shadow">
+          <div class="help-section-title">{{section.label}}</div>
+        </div>
+        <div class="help-section-row-container" *ngFor="let item of section.item">
+          <div class="help-section-detail-row" (click)="toggleArticle(item)">
+            <div class="section-detail-heading">{{item.label}}</div>
+            <mat-icon class="section-detail-chevron" [ngClass]="{'open': item.open}" svgIcon="ic-help-right-chevron"></mat-icon>
+          </div>
+          <div class="help-section-row-content">
+            <div *ngIf="item.type === 'video'">
+            </div>
+            <div *ngIf="item.type === 'inline'">
+              <article class="article-container" *ngIf="item.open" [innerHTML]="loadContent(item) | async">
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="section.type === 'external'">
+        <div class="help-heading without-box-shadow">
+          <div class="help-section-title" *ngIf="section.label">{{section.label}}</div>
+        </div>
+        <div class="help-section-row-container" *ngFor="let item of section.item; let itemIndex = idx">
+          <div class="help-external-link-content">
+            <img class="external-link-image" [src]="prepareIconLink(item.icon)" alt=""/>
+            <div class="help-external-link">
+              <a [href]="item.url" target="_blank" class="title" [title]="item.title">{{item.label}}</a>
+              <p class="external-link-addl">{{item["additional-text"]}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

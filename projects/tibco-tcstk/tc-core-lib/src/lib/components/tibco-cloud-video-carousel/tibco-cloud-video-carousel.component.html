@@ -1,0 +1,11 @@
+<div class="tibco-cloud-carousel" *ngIf="videos && videos.length > 0">
+  <div class="prev">
+    <mat-icon svgIcon="ic-help-right-chevron" class="carousel-ctrl prev-icon" [ngClass]="{'first': first}" (click)="previous()"></mat-icon>
+  </div>
+  <div class="cards-container">
+    <ng-content></ng-content>
+  </div>
+  <div class="next">
+    <mat-icon svgIcon="ic-help-right-chevron" class="carousel-ctrl next-icon" [ngClass]="{'last': last}" (click)="next()"></mat-icon>
+  </div>
+</div>
