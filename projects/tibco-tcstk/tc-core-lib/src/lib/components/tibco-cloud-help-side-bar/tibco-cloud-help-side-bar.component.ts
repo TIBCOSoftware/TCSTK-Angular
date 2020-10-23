@@ -26,7 +26,7 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
     item.open = !item.open;
   }
 
-  loadContent(item: any): Observable<any> {
+  /*loadContent(item: any): Observable<any> {
     if (!item.article) {
       item.article = '';
       return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, item.url), {responseType: 'text'}).pipe(
@@ -44,7 +44,7 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
     } else {
       return of(item.article);
     }
-  }
+  }*/
 
   prepareIconLink(url): string {
     return TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, url);

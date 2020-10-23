@@ -1,0 +1,24 @@
+.article-container {
+  background-color: #ebf5fb;
+  border-left: 2px solid #0081cb;
+  padding: 2px 10px;
+  margin: 15px 0;
+}
+.article-container button, .help-content .article-container html, .help-content .article-container input, .help-content .article-container select, .help-content .article-container textarea {
+
+}
+.article-container ul li {
+  font-size: 14px;
+  list-style: disc;
+  margin: 0;
+  margin-left: 35px;
+}
+.article-container ol li {
+  font-size: 14px;
+  margin: 0;
+  margin-left: 16px;
+  list-style: decimal;
+}
+.article-container p {
+  font-size: 14px;
+}

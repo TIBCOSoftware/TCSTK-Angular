@@ -62,6 +62,7 @@ import { TibcoCloudHelpSideBarComponent } from './components/tibco-cloud-help-si
 import { UrlPrepare } from './pipes/url-prepare.pipe';
 import { TibcoCloudVideoCarouselComponent } from './components/tibco-cloud-video-carousel/tibco-cloud-video-carousel.component';
 import { TibcoCloudVideoComponent } from './components/tibco-cloud-video/tibco-cloud-video.component';
+import { TibcoCloudHelpArchiveComponent } from './components/tibco-cloud-help-archive/tibco-cloud-help-archive.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { TibcoCloudVideoComponent } from './components/tibco-cloud-video/tibco-c
     TibcoCloudHelpSideBarComponent,
     UrlPrepare,
     TibcoCloudVideoCarouselComponent,
-    TibcoCloudVideoComponent
+    TibcoCloudVideoComponent,
+    TibcoCloudHelpArchiveComponent
   ],
   imports: [
     RouterModule,
@@ -159,7 +161,8 @@ import { TibcoCloudVideoComponent } from './components/tibco-cloud-video/tibco-c
     TibcoCloudHelpSideBarComponent,
     TibcoCloudVideoCarouselComponent,
     DisableDirective,
-    TibcoCloudVideoComponent
+    TibcoCloudVideoComponent,
+    TibcoCloudHelpArchiveComponent
   ],
   providers: [
     RequestCacheService,

@@ -22,6 +22,7 @@ export * from './lib/components/tibco-cloud-upload-dialog/tibco-cloud-upload-dia
 export * from './lib/components/tibco-cloud-help-side-bar/tibco-cloud-help-side-bar.component';
 export * from './lib/components/tibco-cloud-video-carousel/tibco-cloud-video-carousel.component';
 export * from './lib/components/tibco-cloud-video/tibco-cloud-video.component';
+export * from './lib/components/tibco-cloud-help-archive/tibco-cloud-help-archive.component';
 
 // services
 export * from './lib/services/tc-login.service';

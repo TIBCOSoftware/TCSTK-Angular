@@ -22,8 +22,7 @@
             <div *ngIf="item.type === 'video'">
             </div>
             <div *ngIf="item.type === 'inline'">
-              <article class="article-container" *ngIf="item.open" [innerHTML]="loadContent(item) | async">
-              </article>
+              <tc-tibco-cloud-help-archive *ngIf="item.open" [url]="item?.url"></tc-tibco-cloud-help-archive>
             </div>
           </div>
         </div>
