@@ -26,26 +26,6 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
     item.open = !item.open;
   }
 
-  /*loadContent(item: any): Observable<any> {
-    if (!item.article) {
-      item.article = '';
-      return this.http.get(TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, item.url), {responseType: 'text'}).pipe(
-        map(cont => {
-            item.article = this.sanitizer.bypassSecurityTrustHtml(cont);
-            return cont;
-          }
-        ),
-        catchError(err => {
-          console.error('Help file not found: ', item.url);
-          item.article = this.sanitizer.bypassSecurityTrustHtml('<p>Missing help file</p>');
-          return of(item.article);
-        })
-      );
-    } else {
-      return of(item.article);
-    }
-  }*/
-
   prepareIconLink(url): string {
     return TcCoreCommonFunctions.prepareUrlForStaticResource(this.location, url);
   }
