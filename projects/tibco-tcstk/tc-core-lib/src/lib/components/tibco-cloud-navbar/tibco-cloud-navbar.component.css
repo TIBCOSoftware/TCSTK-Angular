@@ -17,10 +17,15 @@
   height: calc(100% - 40px);
   min-height: calc(100% - 40px);
   max-height: calc(100% - 40px);
-  position: absolute;
+  position: fixed;
   top: 40px;
   right: 0;
   z-index: 9999;
-  animation: slide-in .5s ease-in-out forwards;
   overflow: hidden;
+  transform: translateX(100%);
+  animation: slide-in .5s ease-in-out forwards;
+}
+
+::ng-deep .tibCloudNavBar .slide-out {
+  display: none;
 }
