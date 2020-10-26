@@ -5,7 +5,6 @@
 .help-heading-section {
   flex: 1;
   text-align: center;
-  padding-left: 60px;
 }
 
 .maximize-icon {
@@ -75,10 +74,26 @@
   justify-content: flex-start;
 }
 
+.help-page.maximize .help-heading-title {
+  max-width: calc(100vw - 75px);
+  width: calc(100vw - 75px);
+  min-width: calc(100vw - 75px);
+}
+
+
 .help-heading-title {
-  font-size: 18px;
+  color: #062E79;
+  font-size: 24px;
   font-weight: 600;
-  line-height: 1.1;
+  letter-spacing: 0;
+  line-height: 31px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 300px;
+  width: 300px;
+  min-width: 300px;
+  padding-left: 15px;
 }
 
 .help-section-title {
@@ -112,7 +127,7 @@
 
 .external-link-addl {
   font-size: 12px;
-  color: #062e79;
+  color: #0081cb;
   font-weight: 400;
   line-height: 1.42857143;
 }

@@ -1,20 +1,33 @@
 .tibco-cloud-carousel {
-  height: 200px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.cards-container {
+  align-self: stretch;
 }
 
 ::ng-deep .carousel-ctrl svg {
   fill: #0081cb;
 }
 
-::ng-deep .carousel-ctrl.first svg {
+.video-navigator-control.first span {
+  color: grey;
+}
+
+::ng-deep .video-navigator-control.first svg {
   fill: grey;
 }
 
-::ng-deep .carousel-ctrl.last svg {
+.video-navigator-control.last span {
+  color: grey;
+}
+
+::ng-deep .video-navigator-control.last svg {
   fill: grey;
 }
 
@@ -34,4 +47,66 @@
   transform: rotate(180deg);
 }
 
+.video-navigator-control:hover {
+  cursor: pointer;
+}
+
+.video-navigator-control.justify-end {
+  justify-content: flex-end;
+}
+
+.video-navigator-control {
+  display: flex;
+  flex-direction: row;
+  width: 114px;
+  max-width: 114px;
+  min-width: 114px;
+}
+
+.video-navigator-control > span {
+  color: #0180CC;
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 23px;
+}
+
+.video-selection-indicator {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.video-selection-indicator > mat-icon:hover {
+  cursor: pointer;
+}
+
+.video-selection-indicator > mat-icon.current:hover {
+  cursor: auto;
+}
+
+.video-selection-indicator > mat-icon {
+  height: 9px;
+  width: 9px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.video-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  margin-top: 10px;
+  max-width: 336px;
+  width: 336px;
+  min-width: 336px;
+  margin-left: 10px;
+  margin-right: 10px;
+  max-height: 24px;
+  height: 24px;
+  min-height: 24px;
+}
 

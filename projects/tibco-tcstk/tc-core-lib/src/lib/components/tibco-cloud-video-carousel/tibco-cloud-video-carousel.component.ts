@@ -57,4 +57,13 @@ export class TibcoCloudVideoCarouselComponent implements OnInit, AfterContentIni
     }
   }
 
+  setSelectedIdx(idx: number) {
+    if (idx !== this.idx) {
+      this.videos[this.idx].visible = false;
+      this.videos[this.idx].playing = false;
+      this.idx = idx;
+      this.videos[this.idx].visible = true;
+    }
+  }
+
 }

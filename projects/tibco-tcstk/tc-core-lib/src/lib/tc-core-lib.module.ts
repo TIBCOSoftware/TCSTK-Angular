@@ -237,6 +237,10 @@ export class TcCoreLibModule {
 
     // register all the default Icon SVGs used by this module
     
+    this.matIconRegistry.addSvgIconLiteral('ic-oval-clear',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="Oval" stroke="#0081CB" cx="4.5" cy="4.5" r="4"></circle></g></svg>'))
+    this.matIconRegistry.addSvgIconLiteral('ic-oval-filled',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="Oval" stroke="#0081CB" fill="#0081CB" cx="4.5" cy="4.5" r="4"></circle></g></svg>'))
     this.matIconRegistry.addSvgIconLiteral('ic-minimize',
       this.domSanitizer.bypassSecurityTrustHtml('<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
       '<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +

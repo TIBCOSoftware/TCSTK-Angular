@@ -1,8 +1,8 @@
 <div class="video-section" *ngIf="visible">
   <div class="video-container">
-    <div class="video-title" title="{{title}}">
+    <!--div class="video-title" title="{{title}}">
       <p *ngIf="!playing">{{label}}</p>
-    </div>
+    </div-->
     <video class="video-card" controls controlsList="nodownload" (play)="togglePlaying(true)" (pause)="togglePlaying(false)" (playing)="togglePlaying(true)">
       <source [src]="url | urlPrepare: location">
     </video>

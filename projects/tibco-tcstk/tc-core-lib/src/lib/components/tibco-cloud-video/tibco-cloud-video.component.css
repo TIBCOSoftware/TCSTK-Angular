@@ -3,8 +3,12 @@
 }
 
 .video-container {
-  width: 220px;
-  height: 160px;
+  width: 336px;
+  height: 206px;
+  max-width: 336px;
+  min-width: 336px;
+  max-height: 206px;
+  min-height: 206px;
 }
 
 .video-section {
@@ -15,8 +19,12 @@
 
 .video-card {
   box-sizing: border-box;
-  width: 220px;
-  height: 160px;
+  width: 336px;
+  height: 206px;
+  max-width: 336px;
+  min-width: 336px;
+  max-height: 206px;
+  min-height: 206px;
   background: white;
   position: relative;
   overflow: visible;
