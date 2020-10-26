@@ -15,7 +15,7 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
 
   @Input() helpSettingsUrl: string;
 
-  constructor(protected location: Location, protected sanitizer: DomSanitizer, protected http: HttpClient) {
+  constructor(public location: Location, protected sanitizer: DomSanitizer, protected http: HttpClient) {
   }
 
   public selectedItem: any;
