@@ -97,9 +97,11 @@
 }
 
 .help-section-title {
+  color: #212121;
   font-size: 16px;
   font-weight: 600;
-  line-height: 36px;
+  letter-spacing: 0;
+  line-height: 20px;
 }
 
 .help-external-link-content {
@@ -134,7 +136,7 @@
 
 .help-section-detail-row {
   border-top: 1px solid #f1f3f4;
-  padding: 8px 0;
+  padding: 8px;
   justify-content: space-between;
   display: flex;
   flex-direction: row;
@@ -142,10 +144,23 @@
   cursor: pointer;
 }
 
+.section-heading-icon {
+  height: 24px;
+  min-height: 24px;
+  max-height: 24px;
+  width: 24px;
+  max-width: 24px;
+  min-width: 24px;
+  margin-right: 8px;
+}
+
 .help-section-detail-row .section-detail-heading {
   font-weight: 600;
-  font-size: 14px;
   color: #0081cb;
+  flex: 1;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 20px;
 }
 
 .help-section-detail-row .section-detail-chevron.open {

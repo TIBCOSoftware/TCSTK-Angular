@@ -58,6 +58,7 @@
             "label": "What are these Capabilities about",
             "title": "What are these Capabilities about?",
             "url": "assets/help/example/HDI-Create-a-case.html",
+            "icon": "assets/help/images/ic-community.svg",
             "content": "",
             "default": "true"
           },
