@@ -65,13 +65,11 @@ export class RenderedFormComponent implements OnInit, OnChanges {
 
   submitForm = (data: any) => {
     console.warn('*** Forms: Submitting form with payload: ', data);
-    console.warn('*** Forms: JSON: ', JSON.stringify(data));
     this.formSubmit.emit(data);
   }
 
   handleLayoutOutput = (layout: any) => {
-    console.log('Layout:');
-    console.log(JSON.stringify(layout));
+    console.log('layout', layout);
     this.renderedLayout.emit(layout);
   }
 
