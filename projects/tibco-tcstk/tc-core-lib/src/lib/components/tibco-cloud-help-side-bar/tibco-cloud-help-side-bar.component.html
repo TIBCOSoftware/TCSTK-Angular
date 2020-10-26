@@ -22,7 +22,8 @@
           <div class="help-section-detail-row" (click)="toggleArticle(item)">
             <img *ngIf="item.icon" class="section-heading-icon" [src]="item.icon | urlPrepare : location">
             <div class="section-detail-heading">{{item.label}}</div>
-            <mat-icon class="section-detail-chevron" [ngClass]="{'open': item.open}" svgIcon="ic-help-right-chevron"></mat-icon>
+            <mat-icon *ngIf="item.type === 'inline'" class="section-detail-chevron" [ngClass]="{'open': item.open}" svgIcon="ic-help-right-chevron"></mat-icon>
+            <mat-icon *ngIf="item.type === 'external'" class="section-detail-external" svgIcon="ic-open-external"></mat-icon>
           </div>
           <div class="help-section-row-content">
             <div *ngIf="item.type === 'video'">

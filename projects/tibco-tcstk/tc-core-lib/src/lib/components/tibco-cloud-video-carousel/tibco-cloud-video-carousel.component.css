@@ -11,6 +11,15 @@
   align-self: stretch;
 }
 
+.carousel-ctrl {
+  min-height: 14px;
+  min-width: 9px;
+  max-height: 14px;
+  max-width: 9px;
+  align-self: center;
+  margin: 8px;
+}
+
 ::ng-deep .carousel-ctrl svg {
   fill: #0081cb;
 }
@@ -69,7 +78,7 @@
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 23px;
+  line-height: 20px;
 }
 
 .video-selection-indicator {
@@ -99,12 +108,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-self: center;
-  margin-top: 10px;
+  margin: 10px;
   max-width: 336px;
   width: 336px;
   min-width: 336px;
-  margin-left: 10px;
-  margin-right: 10px;
   max-height: 24px;
   height: 24px;
   min-height: 24px;

@@ -24,7 +24,12 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
   public maximize = false;
 
   toggleArticle(item: any) {
-    item.open = !item.open;
+    if (item.type === 'inline') {
+      item.open = !item.open;
+    } else if (item.type === 'external') {
+      window.open(item.url, "_blank");
+    }
+    
   }
 
   prepareIconLink(url): string {

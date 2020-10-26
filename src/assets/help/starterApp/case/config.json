@@ -58,16 +58,17 @@
             "label": "What are these Capabilities about",
             "title": "What are these Capabilities about?",
             "url": "assets/help/example/HDI-Create-a-case.html",
-            "icon": "assets/help/images/ic-community.svg",
+            "icon": "assets/help/images/ic-docs-icon.svg",
             "content": "",
             "default": "true"
           },
           {
-            "type": "inline",
+            "type": "external",
             "name": "Invite other Users?",
             "label": "How to invite other Users to this Application?",
             "title": "How to invite other Users to this Application?",
-            "url": "../contexthelp/general/HDI-invite-users.html",
+            "icon": "assets/help/images/ic-community.svg",
+            "url": "https://community.tibco.com/modules/tibco-cloud-my-partner-app",
             "content": "",
             "default": "true"
           }

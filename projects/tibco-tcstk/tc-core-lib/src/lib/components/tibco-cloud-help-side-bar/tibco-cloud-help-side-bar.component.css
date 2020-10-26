@@ -145,13 +145,13 @@
 }
 
 .section-heading-icon {
-  height: 24px;
-  min-height: 24px;
-  max-height: 24px;
-  width: 24px;
-  max-width: 24px;
-  min-width: 24px;
-  margin-right: 8px;
+  height: 20px;
+  min-height: 20px;
+  max-height: 20px;
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+  margin-right: 16px;
 }
 
 .help-section-detail-row .section-detail-heading {
@@ -173,11 +173,18 @@
   justify-content: flex-start;
 }
 
+.section-detail-external {
+  min-height: 18px;
+  min-width: 18px;
+  max-height: 18px;
+  max-width: 18px;
+}
+
 .section-detail-chevron {
-  min-height: 24px;
-  min-width: 24px;
-  max-height: 24px;
-  max-width: 24px;
+  min-height: 14px;
+  min-width: 9px;
+  max-height: 14px;
+  max-width: 9px;
 }
 
 ::ng-deep .help-section-detail-row .section-detail-chevron > svg {
