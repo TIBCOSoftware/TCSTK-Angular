@@ -1,6 +1,11 @@
-<div class="help-page" *ngIf="helpConfig">
+<div class="help-page" [ngClass]="{maximize : maximize}" *ngIf="helpConfig">
   <div class="help-heading">
-    <div class="help-heading-title">{{helpConfig["side-bar"].label}}</div>
+    <div class="help-heading-section">
+      <div class="help-heading-title">{{helpConfig["side-bar"].label}}</div>
+    </div>
+    <div class="maximize-section">
+      <mat-icon class="maximize-icon" [svgIcon]="maximize ? 'ic-minimize' : 'ic-maximize'" (click)="toggleMaximize()"></mat-icon>
+    </div>
   </div>
   <div class="help-details">
     <div class="help-section" *ngFor="let section of helpConfig['side-bar'].section">
@@ -16,7 +21,7 @@
         <div class="help-section-row-container" *ngFor="let item of section.item">
           <div class="help-section-detail-row" (click)="toggleArticle(item)">
             <div class="section-detail-heading">{{item.label}}</div>
-            <mat-icon class="section-detail-chevron" [ngClass]="{'open': item.open}" svgIcon="ic-help-right-chevron"></mat-icon>
+              <mat-icon class="section-detail-chevron" [ngClass]="{'open': item.open}" svgIcon="ic-help-right-chevron"></mat-icon>
           </div>
           <div class="help-section-row-content">
             <div *ngIf="item.type === 'video'">

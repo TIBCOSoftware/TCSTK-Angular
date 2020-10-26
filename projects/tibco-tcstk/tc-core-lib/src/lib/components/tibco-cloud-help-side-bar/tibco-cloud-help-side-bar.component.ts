@@ -21,6 +21,7 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
   public selectedItem: any;
   public helpConfig: any;
   public inline: any[] = [];
+  public maximize = false;
 
   toggleArticle(item: any) {
     item.open = !item.open;
@@ -32,6 +33,10 @@ export class TibcoCloudHelpSideBarComponent implements OnChanges {
 
   togglePlaying(item: any, playing: boolean) {
     item.playing = playing;
+  }
+
+  toggleMaximize() {
+    this.maximize = !this.maximize;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

@@ -236,8 +236,20 @@ export class TcCoreLibModule {
     this.li.processStatus.subscribe();
 
     // register all the default Icon SVGs used by this module
-
-
+    
+    this.matIconRegistry.addSvgIconLiteral('ic-minimize',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
+      '<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
+      '<path d="M0.833333333,19.6904762 L5.97619048,19.6904762 L5.97619048,24.8333333 L9.4047619,24.8333333 L9.4047619,16.2619048 L0.833333333,16.2619048 L0.833333333,19.6904762 Z M5.97619048,5.97619048 L0.833333333,5.97619048 L0.833333333,9.4047619 L9.4047619,9.4047619 L9.4047619,0.833333333 L5.97619048,0.833333333 L5.97619048,5.97619048 Z M16.2619048,24.8333333 L19.6904762,24.8333333 L19.6904762,19.6904762 L24.8333333,19.6904762 L24.8333333,16.2619048 L16.2619048,16.2619048 L16.2619048,24.8333333 Z M19.6904762,5.97619048 L19.6904762,0.833333333 L16.2619048,0.833333333 L16.2619048,9.4047619 L24.8333333,9.4047619 L24.8333333,5.97619048 L19.6904762,5.97619048 Z" id="Shape" fill="#0081CB" fill-rule="nonzero"></path>' +
+      '</g>'+
+      '</svg>'))
+    this.matIconRegistry.addSvgIconLiteral('ic-maximize',
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
+      '<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
+          '<polygon id="Path" points="-20 -20 80 -20 80 80 -20 80"></polygon>' +
+          '<path d="M4.26190476,16.2619048 L0.833333333,16.2619048 L0.833333333,24.8333333 L9.4047619,24.8333333 L9.4047619,21.4047619 L4.26190476,21.4047619 L4.26190476,16.2619048 Z M0.833333333,9.4047619 L4.26190476,9.4047619 L4.26190476,4.26190476 L9.4047619,4.26190476 L9.4047619,0.833333333 L0.833333333,0.833333333 L0.833333333,9.4047619 Z M21.4047619,21.4047619 L16.2619048,21.4047619 L16.2619048,24.8333333 L24.8333333,24.8333333 L24.8333333,16.2619048 L21.4047619,16.2619048 L21.4047619,21.4047619 Z M16.2619048,0.833333333 L16.2619048,4.26190476 L21.4047619,4.26190476 L21.4047619,9.4047619 L24.8333333,9.4047619 L24.8333333,0.833333333 L16.2619048,0.833333333 Z" id="Shape" fill="#0081CB" fill-rule="nonzero"></path>' +
+      '</g>' +
+      '</svg>'))
     this.matIconRegistry.addSvgIconLiteral('ic-help-right-chevron',
       this.domSanitizer.bypassSecurityTrustHtml('<svg fill="#000000" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">\n' +
       '    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>\n' +
