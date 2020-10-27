@@ -28,7 +28,7 @@
   color: grey;
 }
 
-::ng-deep .video-navigator-control.first svg {
+::ng-deep .video-navigator-control.first svg > g > g {
   fill: grey;
 }
 
@@ -36,7 +36,7 @@
   color: grey;
 }
 
-::ng-deep .video-navigator-control.last svg {
+::ng-deep .video-navigator-control.last svg > g > g {
   fill: grey;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .prev-icon {
-  transform: rotate(180deg);
+
 }
 
 .video-navigator-control:hover {
@@ -70,6 +70,7 @@
   width: 114px;
   max-width: 114px;
   min-width: 114px;
+  align-items: center;
 }
 
 .video-navigator-control > span {
