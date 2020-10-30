@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Observable, of, ReplaySubject} from 'rxjs';
-import {Claim, TcCoreCommonFunctions, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
+import {Claim, TcCoreCommonFunctions, TcCoreConfigService, UiAppIdConfig} from '@tibco-tcstk/tc-core-lib';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {CaseType, CaseTypesList, CaseTypeState, Process, UserInfo} from '../models/liveappsdata';
 import {Location} from '@angular/common';
@@ -18,6 +18,10 @@ export const maxUsers = 1000;
 export class TcAppDefinitionService {
 
   // This service provides access to common Live Apps definitions such as claims and types data
+
+  // uiAppId config
+  private _uiAppId = new ReplaySubject<string>(1);
+  private currentUiAppId: string = undefined;
 
   // application config
   private _appConfig = new ReplaySubject<AppConfig>(1);
@@ -46,6 +50,12 @@ export class TcAppDefinitionService {
   readonly _groups$ = this._groups.asObservable();
 
   constructor(private http: HttpClient, private liveAppsService: LiveAppsService, private location: Location, private tcConfig: TcCoreConfigService) {
+  }
+
+  private getUiAppId(): Observable<UiAppIdConfig> {
+    return this.http.get('assets/config/uiAppId.json').pipe(
+      map((config: UiAppIdConfig) => config)
+    );
   }
 
   private getConfig(): Observable<AppConfig> {
@@ -173,6 +183,19 @@ export class TcAppDefinitionService {
         this._claims.next(response);
       }),
       switchMap((response: Claim) => {
+        return this.getUiAppId().pipe(
+          map((appIdConfig: UiAppIdConfig) => {
+            this.currentUiAppId = appIdConfig.uiAppId;
+            this._uiAppId.next(appIdConfig.uiAppId);
+            return response;
+          }),
+          catchError(error => {
+            // continue if no config file
+            return of(this.currentClaim);
+          })
+        );
+      }),
+      switchMap((response: Claim) => {
         return this.getConfig().pipe(
           map(config => {
             this.currentAppConfig = config;
@@ -234,6 +257,11 @@ export class TcAppDefinitionService {
   }
 
   // public getters
+
+  // uiAppId
+  public get uiAppId() {
+    return this.currentUiAppId;
+  }
 
   // config
   public get appConfig() {
