@@ -176,7 +176,7 @@ export class TcDocumentService {
     return url;
   }
 
-  public downloadDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number): Observable<any> {
+  public downloadDocument(folderType: string, folderId: string, docId: string, docVersion: string, sandboxId: number, disableCache?: boolean): Observable<any> {
     let url = '/webresource/';
     if (folderType === 'orgFolders') {
       url = url + 'orgFolders/' + folderId;
@@ -190,10 +190,15 @@ export class TcDocumentService {
     if (docVersion) {
       url = url + '&$version=' + docVersion;
     }
-
-    const headers = new HttpHeaders({
+    
+    let headers = new HttpHeaders({
       'Content-Type': 'application/octet-stream',
     });
+    if (disableCache) {
+      headers = headers.append('Cache-Control',  'no-cache, no-store, must-revalidate, post-check=0, pre-check=0')
+                       .append('Pragma', 'no-cache')
+                       .append('Expires', '0');
+    }
     return this.http.get(url, { headers, responseType: 'blob' as 'json' });
   }
 
