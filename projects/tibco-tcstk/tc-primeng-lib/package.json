@@ -2,10 +2,49 @@
   "name": "@tibco-tcstk/tc-primeng-lib",
   "version": "2.0.0",
   "peerDependencies": {
-    "@angular/common": "^10.2.1",
-    "@angular/core": "^10.2.1",
-    "primeicons": "^4.0.0",
-    "primeng": "^10.0.0",
+    "@angular/common": "^10.2.3",
+    "@angular/core": "^10.2.3",
+    "primeicons": "^4.1.0",
+    "primeng": "^10.0.3",
     "@tibco-tcstk/tc-liveapps-lib": "^2.0.0"
-  }
+  },
+  "author": {
+    "name": "TIBCO Labs",
+    "email": "tibcolabs@tibco.com",
+    "url": "http://www.tibco.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TIBCOSoftware/TCSTK-Angular"
+  },
+  "homepage": "https://tibcosoftware.github.io/TCSToolkit/",
+  "keywords": [
+    "tibco",
+    "cloud",
+    "tci",
+    "liveapps",
+    "angular",
+    "cli",
+    "tcli",
+    "cloud starter",
+    "starter",
+    "accelerator",
+    "live apps",
+    "connected",
+    "intelligence",
+    "connected intelligence cloud",
+    "cic",
+    "labs",
+    "tibco labs",
+    "analytics",
+    "framework",
+    "forms",
+    "custom forms",
+    "prime",
+    "prime ng",
+    "table",
+    "tables"
+  ],
+  "license": "BSD-3-Clause",
+  "description": "TCSTK Library that contains Live Apps components for your TIBCO Cloud Starter"
 }

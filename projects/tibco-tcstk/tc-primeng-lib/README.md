@@ -1,24 +1,15 @@
-# TcPrimengLib
+#TIBCO Cloud™ Starters Toolkit - PrimeNG Library
+<img src="https://community.tibco.com/sites/default/files/tibco_labs_final_with_tm2-01.png" alt="drawing" width="100"/>Powered by [TIBCO Labs™](https://community.tibco.com/wiki/tibco-labs)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+The PrimeNG Library contains table components for use with Cloud Starter Applications.
 
-## Code scaffolding
+This library depends on the Live Apps Library
 
-Run `ng generate component component-name --project tc-primeng-lib` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project tc-primeng-lib`.
-> Note: Don't forget to add `--project tc-primeng-lib` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build tc-primeng-lib` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build tc-primeng-lib`, go to the dist folder `cd dist/tc-primeng-lib` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test tc-primeng-lib` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+---
+For more information see the [TCSTK Documentation](https://tibcosoftware.github.io/TCSToolkit/)
+---
+Copyright © 2020. TIBCO Software Inc.
+This file is subject to the license terms contained
+in the license file that is distributed with this library or can be found here:
+                                                                                                                    
+https://github.com/TIBCOSoftware/TCSTK-Angular/blob/master/tpc.txt
