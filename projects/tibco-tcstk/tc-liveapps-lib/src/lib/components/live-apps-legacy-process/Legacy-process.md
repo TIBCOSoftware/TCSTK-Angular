@@ -22,7 +22,7 @@ Attribute | Type | Comments
 applicationId | string | 
 caseRef | string | 
 caseState | string | 
-legacyIframeId |  | 
+legacyIframeId | string | 
 process | LaProcessSelection | 
 type | string | 
 typeId | string | 

@@ -27,17 +27,17 @@ caseRef | string | The case reference
 customFormDefs | CustomFormDefs | Custom Form configuration file
 exclRecentAppIds | string[] | The list of LA Application Ids you want to mark as recent cases when accessed
 formConfig | FormConfig | Custom Form Layout Configuration
-formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
-layout | any[] | Layout object that can be passed to override default layout of the form renderer
-legacyActions | boolean | Enable legacy actions
-legacyWorkitems | boolean | Enable legacy workitems
+formsFramework | string | 
+layout | [] | 
+legacyActions | boolean | 
+legacyWorkitems | boolean | 
 roles | Roles | Roles - The users current roles
 sandboxId | number | sandboxId - this comes from claims resolver
-showAudit | boolean | Whether to show audit in context panel (default true)
-showDocuments | boolean | Whether to show documents in context panel (default true)
-showNotes | boolean | Whether to show notes in context panel (default true)
-showStates | boolean | Whether to show states in context panel (default true)
-showWorkitems | boolean | Whether to show workitems in context panel (default true)
+showAudit | boolean | 
+showDocuments | boolean | 
+showNotes | boolean | 
+showStates | boolean | 
+showWorkitems | boolean | 
 typeId | string | The LA Application Type Id (generally 1)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 userId | string | The ID of the logged user

@@ -21,9 +21,9 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
-displayType | string | case card format - list, card, miniCard, staticList (no click event)
+displayType | string | 
 sandboxId | number | sandboxId - this comes from claims resolver
-showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+showHeader | boolean | 
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs

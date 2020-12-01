@@ -45,7 +45,7 @@ folderDescription | string | header text on component (defaults to documents)
 folderId | string | The organisation folder to store/retrieve documents
 folderType | string | orgFolders&#39; or &#39;caseFolders&#39; - different API calls made according to which one this is
 sandboxId | number | sandboxId - this comes from claims resolver
-showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+showHeader | boolean | 
 
 #### Outputs
 

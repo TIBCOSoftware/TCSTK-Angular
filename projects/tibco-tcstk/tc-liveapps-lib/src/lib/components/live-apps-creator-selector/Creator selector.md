@@ -18,8 +18,8 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appId | string | 
-formFieldRendering | boolean | Use Form field rendering around the selection box
-label | string | Label for the actions selector
+formFieldRendering | boolean | 
+label | string | 
 sandboxId | number | 
 seletedCreatorId | string | ~event creatorSelection : Case Creator selected~payload LaProcessSelection : LaProcessSelection object output when a creator is selected from a drop down
 typeId | string | 

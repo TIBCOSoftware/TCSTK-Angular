@@ -23,7 +23,9 @@ Attribute | Type | Comments
 --- | --- | ---
 appId | string | The LA Application Id
 caseRef | string | The case reference
+hideTitle | boolean | Hide milestone title - default false
 sandboxId | number | sandboxId - this comes from claims resolver
+small | boolean | Small rendering vs normal - defaults to normal
 
 
 <b>full development Documentation</b>

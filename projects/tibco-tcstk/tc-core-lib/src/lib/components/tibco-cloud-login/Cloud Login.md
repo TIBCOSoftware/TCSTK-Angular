@@ -21,6 +21,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+appName | string | 
 loginPrefill | LoginPrefill | Login Data
 
 #### Outputs
@@ -28,6 +29,8 @@ loginPrefill | LoginPrefill | Login Data
 Attribute | Type |   | Comments
 --- | --- | --- | ---
 loggedIn | EventEmitter |   |  
+signUp | EventEmitter |   |  
+useOauth | EventEmitter |   |  
 
 
 <b>Constructor</b>

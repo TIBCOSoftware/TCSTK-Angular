@@ -27,6 +27,7 @@ isTerminal | boolean |
 label | string | 
 phase | string | 
 previousPhase | string | 
+small | boolean | Small rendering vs normal - defaults to normal
 status | string | 
 
 

@@ -15,6 +15,22 @@ This Component can be used by using the following HTML Tag:
 <tcla-live-apps-setting-landing></tcla-live-apps-setting-landing>
 ```
 
+#### Inputs
+
+Attribute | Type | Comments
+--- | --- | ---
+allowCreation | boolean | 
+allRoles | RoleAttribute[] | 
+landingPages | LandingPageConfig[] | 
+sandboxId | number | 
+uiAppId | string | 
+
+#### Outputs
+
+Attribute | Type |   | Comments
+--- | --- | --- | ---
+handleSave | EventEmitter<void> |   |  
+
 
 <b>full development Documentation</b>
 

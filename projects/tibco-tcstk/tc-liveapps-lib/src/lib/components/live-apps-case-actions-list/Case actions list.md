@@ -19,16 +19,16 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
-formFieldRendering | boolean | Use Form field rendering around the selection box
-label | string | Label for the actions selector
+formFieldRendering | boolean | 
+label | string | 
 seletedActionId | string | Pre-select specified actionId
 actionFilter | string[] | Dont show buttons for any actions that start with this string.eg: &#39;$&#39; will remove the action $Update
 appId | string | The LA Application Id
 caseRef | string | The case reference
-loadOnDemand |  | Whether to load actions on component load. Default false.
+loadOnDemand | boolean | 
 maxActions |  | Max Actions that can be run simultaneously
 sandboxId | number | sandboxId - this comes from claims resolver
-typeId | string | The LA Application Type Id (generally 1)
+typeId | string | 
 
 #### Outputs
 

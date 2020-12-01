@@ -20,9 +20,9 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appId | string | The LA Application Id
-maxLegendItems | number | Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
+maxLegendItems | number | 
 sandboxId | number | sandboxId - this comes from claims resolver
-showPercentages |  | Whether to show percentages or raw case numbers on the doughnut chart
+showPercentages | boolean | 
 typeId | string | The LA Application Type Id (generally 1)
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 

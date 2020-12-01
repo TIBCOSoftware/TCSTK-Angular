@@ -18,7 +18,7 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appId | string | The LA Application Id
-includeCaseDataPage | boolean | includeCaseDataPage - include case data page as process selection
+includeCaseDataPage | boolean | 
 sandboxId | number | sandboxId - this comes from claims resolver
 typeId | string | The LA Application Type Id (generally 1)
 

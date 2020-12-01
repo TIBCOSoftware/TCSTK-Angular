@@ -23,13 +23,13 @@ Attribute | Type | Comments
 --- | --- | ---
 access | RouteAccessControlConfigurationElement | RouteAccessControlConfig - basically the config for access control
 appIds | string[] | The list of LA Application IDs you want to handle
-createLabel | string | Label for Create Case Button
+createLabel | string | 
 customFormDefs | CustomFormDefs | Custom Form configuration file
 email | string | <ul><li>Email address of the user (comes from resolver)</li></ul>
 formConfig | FormConfig | Custom Form Layout Configuration
-formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
-legacyCreators | boolean | Enable legacy creators
-legacyWorkitems | boolean | Enable legacy workitems
+formsFramework | string | 
+legacyCreators | boolean | 
+legacyWorkitems | boolean | 
 roles | Roles | Roles - The users current roles
 sandboxId | number | sandboxId - this comes from claims resolver
 title | string | page title comes from config resolver

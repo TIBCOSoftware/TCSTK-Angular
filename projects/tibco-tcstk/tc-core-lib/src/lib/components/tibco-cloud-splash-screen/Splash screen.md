@@ -24,7 +24,7 @@ backGroundImage | string | Splash Configured Background Image URL to a SVG, PNG 
 highlights | LandingPageItemConfig[] | Bullet Point Item Configuration with Icon&#39;s and Text
 subTitle | string | Splash Sub-Title
 title | string | Splash Screen main Title
-topMargin | string | Space above the highlight panel. Default is 0px 
+topMargin | string | 
 
 #### Outputs
 

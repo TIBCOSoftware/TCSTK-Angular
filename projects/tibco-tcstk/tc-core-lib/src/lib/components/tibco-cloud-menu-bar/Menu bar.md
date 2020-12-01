@@ -24,7 +24,7 @@ Attribute | Type | Comments
 burgerMenuButtons | ToolbarButton[] | <code>&lt;tc-tibco-cloud-menu-bar&gt;</code> render a general menu bar
 headerText | string | Text shown in menu bar
 icon | string | icon name (svg key - needs to be registered)
-showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
+showHeader | boolean | 
 toolbarButtons | ToolbarButton[] | buttons to display in the menu bar
 
 #### Outputs

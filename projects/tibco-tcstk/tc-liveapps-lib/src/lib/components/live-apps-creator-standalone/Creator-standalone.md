@@ -22,9 +22,9 @@ Attribute | Type | Comments
 applicationId | string | LA application ID
 customFormTag | string | Custom Form tag if using an external form app
 dataOverride | any | Data object that will be displayed on the form. Allows overriding over form data (eg. when selecting data in spotfire)
-formsFramework | string | Allow override of forms frameworkOptions: bootstrap-4 or material-design
+formsFramework | string | 
 layout | any[] | Custom Form Layout
-legacyCreators | boolean | Enable legacy creators
+legacyCreators | boolean | 
 processName | string | The process definition of the action or creator to execute
 sandboxId | number | sandboxId - this comes from claims resolver
 typeId | string | The LA Application Type Id (generally 1)

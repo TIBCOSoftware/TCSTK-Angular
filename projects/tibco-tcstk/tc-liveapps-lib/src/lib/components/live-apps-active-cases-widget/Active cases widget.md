@@ -22,10 +22,10 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appIds | string[] | The list of LA Application IDs you want to handle
-maxLegendItems | number | Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
+maxLegendItems | number | 
 sandboxId | number | sandboxId - this comes from claims resolver
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
-showPercentages |  | Whether to show percentages or raw case numbers on the doughnut chart
+showPercentages | boolean | 
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 
 #### Outputs

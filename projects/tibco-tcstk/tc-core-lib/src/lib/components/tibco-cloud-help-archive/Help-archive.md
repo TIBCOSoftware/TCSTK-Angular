@@ -2,10 +2,6 @@
 ![Status][auto] ![Component Type][minor] <!--Component Meta {"created_by":"Auto", "reviewed_by":"Auto", "last_modified_by":"Auto", "comment":"none"} Component Meta -->
 
 
-<p>TIBCO Cloud Navigation Bar</p>
-
-<p><img src="../tibco-cloud-navbar.png" alt="alt-text" class="img-responsive" title="Image"></p>
-
 
 
 #### Usage
@@ -14,34 +10,19 @@
 This Component can be used by using the following HTML Tag:
 
 ```html
-<tc-tibco-cloud-navbar appName=""></tc-tibco-cloud-navbar>
+<tc-tibco-cloud-help-archive></tc-tibco-cloud-help-archive>
 ```
 
 #### Inputs
 
 Attribute | Type | Comments
 --- | --- | ---
-appName | string | displayed Application Name
-contextHelp | boolean | Define if you want to use contextual help
-disableTimeout | boolean | 
-docUrl | string | Documentation URL
-integratedHelp | boolean | 
-logoClickTargetUrl | string | Where to redirect on click of logo
-logoUrl | string | Custom Logo URL
-rebrandConfig | any | rebrand config - example: { &quot;backgroundColor&quot;: &quot;#cfcfcf&quot;, &quot;fontColor&quot;: &quot;#682782&quot;, &quot;fontFamily&quot;: &quot;Oswald&quot;, &quot;iconColor&quot;: &quot;red&quot; }
-
-
-<b>Constructor</b>
-
-
-<p>single empty Constructor of TIBCO Cloud Navigation Bar</p>
-
-
+url | string | 
 
 
 <b>full development Documentation</b>
 
-[Link to TibcoCloudNavbarComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudNavbarComponent.html)
+[Link to TibcoCloudHelpArchiveComponent](https://tibcosoftware.github.io/TCSTK-Libdocs/libdocs/tc-core-lib/components/TibcoCloudHelpArchiveComponent.html)
 
 
 [auto]: https://img.shields.io/badge/Status-auto%20generated-lightgrey.svg?style=flat "auto generated"

@@ -24,7 +24,7 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 appIds | string[] | The list of LA Application IDs you want to handle
-resultsHeight | string | The fixed height of the case list results pane
+resultsHeight | string | 
 sandboxId | number | sandboxId - this comes from claims resolver
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
 

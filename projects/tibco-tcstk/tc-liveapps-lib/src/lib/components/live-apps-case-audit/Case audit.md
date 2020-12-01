@@ -22,6 +22,9 @@ This Component can be used by using the following HTML Tag:
 Attribute | Type | Comments
 --- | --- | ---
 caseRef | string | The case reference
+caseType | CaseTypeAudit | caseType - speficy the type of the case
+creationTime | string | creationTime - specify the date to include cases from using the format yyyy-mm-ddTHH:MM:SS.sssZ
+orderby | OrderBy | orderBy - specify ascending or descending order
 sandboxId | number | sandboxId - this comes from claims resolver
 
 

@@ -23,6 +23,7 @@ This Component can be used by using the following HTML Tag:
 
 Attribute | Type | Comments
 --- | --- | ---
+appName | string | 
 loginPrefill | LoginPrefill | 
 
 #### Outputs
@@ -30,6 +31,8 @@ loginPrefill | LoginPrefill |
 Attribute | Type |   | Comments
 --- | --- | --- | ---
 loginContext | EventEmitter<LoginContext> |   |  
+signUp | EventEmitter |   |  
+useOauth | EventEmitter |   |  
 
 
 <b>full development Documentation</b>
