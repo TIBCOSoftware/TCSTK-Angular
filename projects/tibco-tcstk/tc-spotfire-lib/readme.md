@@ -1,5 +1,5 @@
 # TIBCO Cloud™ Starters Toolkit - Spotfire Library
-The Spotfire library contains components to use Spotfire Reports with Cloud Starter Applications.
+The TIBCO Spotfire library contains components to use Spotfire Reports with Cloud Starter Applications.
 
 ---
 For more information see the documentation page: 

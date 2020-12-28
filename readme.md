@@ -6,13 +6,13 @@ This Repository contains Angular.io components and sample code for creating TIBC
 Quick Guide and deep dive Developer Documentations can be found [here](https://tibcosoftware.github.io/TCSTK-Angular/).
 
 #### Repo Contents
-This repo contains angular libraries which can be used to create custom UI for TIBCO Cloud™ Services such as TIBCO Cloud™ Live Apps.
+This Repo contains angular libraries which can be used to create custom UI for TIBCO Cloud™ Services such as TIBCO Cloud™ Live Apps.
 
-Typically, you won't be using this repo but instead will use the TIBCO Cloud™ Starters Toolkit - Command Line Interface to generate applications. TIBCO Cloud™ Starters Toolkit - Command Line Interface will pull the libraries from npm:
+Typically, you won't be using this Repo but instead will use the TIBCO Cloud™ Starters Toolkit - Command Line Interface to generate applications. TIBCO Cloud™ Starters Toolkit - Command Line Interface will pull the libraries from npm:
 
 [TIBCO Cloud™ Starters Command Line Interface Repo](https://github.com/TIBCOSoftware/tcstk-cloud-cli)
 
-However, if required, you can pull this repo and run a version of the sample Case Manager Application. This can be useful for debugging and extending the libraries.
+However, if required, you can pull this Repo and run a version of the sample Case Manager Application. This can be useful for debugging and extending the libraries.
 
 #### Pre requisites
 In order to use the applications, you will need to create a TIBCO Cloud™ Live Apps Subscription. You can create a free trial account here:
@@ -24,9 +24,9 @@ You will need to obtain your Client Id API key from the TIBCO Cloud™ Settings 
 Click "Display Client Id" to get the key.
 [Getting a Client ID](https://www.youtube.com/embed/MuzQDo1RPxU)
 
-#### Steps to run this >Repo with a sample application
+#### Steps to run this Repo with a sample application
 
-1) Clone the repo using your IDE of choice
+1) Clone the Repo using your IDE of choice
 2) Run npm install
 3) Run the appropriate serve command for your region - eu, us or au:
   
