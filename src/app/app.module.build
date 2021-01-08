@@ -51,6 +51,8 @@ import {TcScribeLibModule} from '@tibco-tcstk/tc-scribe-lib';
 import { TcPrimengLibModule } from '@tibco-tcstk/tc-primeng-lib';
 import {TcSpotfireLibModule} from '@tibco-tcstk/tc-spotfire-lib';
 // import {TcAgGridModule} from '../../projects/tibco-tcstk/tc-ag-grid/src/lib/tc-ag-grid.module';
+import { TcTscLibModule} from '@tibco-tcstk/tc-tsc-lib';
+import { TcTcmdLibModule} from '@tibco-tcstk/tc-tcmd-lib';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers
@@ -89,6 +91,8 @@ const tcCoreConfig: TcCoreConfig = {
         TcEventsLibModule,
         TcScribeLibModule,
         TcPrimengLibModule,
+        TcTscLibModule,
+        TcTcmdLibModule,
         FlexLayoutModule,
         BrowserModule,
         BrowserAnimationsModule,

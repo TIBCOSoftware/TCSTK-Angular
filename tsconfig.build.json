@@ -72,6 +72,18 @@
       ],
       "@tibco-tcstk/tc-primeng-lib/*": [
         "dist/tibco-tcstk/tc-primeng-lib/*"
+      ],
+      "@tibco-tcstk/tc-tsc-lib": [
+        "dist/tibco-tcstk/tc-tsc-lib"
+      ],
+      "@tibco-tcstk/tc-tsc-lib/*": [
+        "dist/tibco-tcstk/tc-tsc-lib/*"
+      ],
+      "@tibco-tcstk/tc-tcmd-lib": [
+        "dist/tibco-tcstk/tc-tcmd-lib"
+      ],
+      "@tibco-tcstk/tc-tcmd-lib/*": [
+        "dist/tibco-tcstk/tc-tcmd-lib/*"
       ]
     }
   }

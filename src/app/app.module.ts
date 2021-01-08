@@ -51,6 +51,8 @@ import { SettingsLandingComponent } from './routes/settings-landing/settings-lan
 import { SettingsSpotfireComponent } from './routes/settings-spotfire/settings-spotfire.component';
 import { TcSpotfireLibModule } from '@tibco-tcstk/tc-spotfire-lib';
 import { LoginOauthComponent } from './routes/login-oauth/login-oauth.component';
+import { TcTscLibModule} from '@tibco-tcstk/tc-tsc-lib';
+import { TcTcmdLibModule} from '@tibco-tcstk/tc-tcmd-lib';
 
 // import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
 
@@ -100,6 +102,8 @@ const tcCoreConfig: TcCoreConfig = {
     TcEventsLibModule,
     TcScribeLibModule,
     TcPrimengLibModule,
+    TcTscLibModule,
+    TcTcmdLibModule,
     FlexLayoutModule,
     BrowserModule,
     BrowserAnimationsModule,

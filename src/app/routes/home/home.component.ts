@@ -11,6 +11,7 @@ import {
   FormConfig
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import { TcmdService} from '@tibco-tcstk/tc-tcmd-lib';
 
 @Component({
   selector: 'app-home',

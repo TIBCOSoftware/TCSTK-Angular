@@ -12,6 +12,8 @@ import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS, HOME_ROUTE } from './starter-
 import {ScribeAuthResolver} from '@tibco-tcstk/tc-scribe-lib';
 import {SpotfireAuthResolver} from '@tibco-tcstk/tc-spotfire-lib';
 import {LoginOauthComponent} from '../routes/login-oauth/login-oauth.component';
+import { TscAuthResolver } from '@tibco-tcstk/tc-tsc-lib';
+import { TcmdAuthResolver } from '@tibco-tcstk/tc-tcmd-lib';
 
 export const CORE_ROUTES = [
       {
@@ -40,7 +42,9 @@ export const CORE_ROUTES = [
           claims: ClaimsResolver,
           config: GeneralConfigResolver,
           scribeAuth: ScribeAuthResolver,
-          sfAuth: SpotfireAuthResolver
+          sfAuth: SpotfireAuthResolver,
+          tscAuth: TscAuthResolver,
+          tcmdAuth: TcmdAuthResolver
         },
         children: STARTER_APP_ROUTES
       },
@@ -58,7 +62,9 @@ export const CORE_PROVIDERS = [
   ClaimsResolver,
   GeneralConfigResolver,
   ScribeAuthResolver,
-  SpotfireAuthResolver
+  SpotfireAuthResolver,
+  TscAuthResolver,
+  TcmdAuthResolver
   ],
   STARTER_APP_PROVIDERS
 ];

@@ -18,10 +18,10 @@ note: prefix is the name of the tag in components like tcla, tcscr, tcsf etc
 tsconfig.json/tsconfig-debug.json:
 
 "@tibco-tcstk/tc-scribe-lib": [
-  "dist/tibco-tcstk/tc-scribe-lib"
+  “projects/tibco-tcstk/tc-scribe-lib/src/public_api"
 ],
 "@tibco-tcstk/tc-scribe-lib/*": [
-  “projects/tibco-tcstk/tc-scribe-lib/src/public_api"
+  "dist/tibco-tcstk/tc-scribe-lib"
 ]
 
 tsconfig-build.json:

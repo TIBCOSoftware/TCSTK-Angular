@@ -498,6 +498,86 @@
           }
         }
       }
+    },
+    "@tibco-tcstk/tc-tsc-lib": {
+      "projectType": "library",
+      "root": "projects/tibco-tcstk/tc-tsc-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-tsc-lib/src",
+      "prefix": "tctsc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/tibco-tcstk/tc-tsc-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-tsc-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tibco-tcstk/tc-tsc-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tibco-tcstk/tc-tsc-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-tsc-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-tsc-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tibco-tcstk/tc-tsc-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-tsc-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@tibco-tcstk/tc-tcmd-lib": {
+      "projectType": "library",
+      "root": "projects/tibco-tcstk/tc-tcmd-lib",
+      "sourceRoot": "projects/tibco-tcstk/tc-tcmd-lib/src",
+      "prefix": "tctcmd",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/tibco-tcstk/tc-tcmd-lib/tsconfig.lib.json",
+            "project": "projects/tibco-tcstk/tc-tcmd-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/tibco-tcstk/tc-tcmd-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/tibco-tcstk/tc-tcmd-lib/src/test.ts",
+            "tsConfig": "projects/tibco-tcstk/tc-tcmd-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/tibco-tcstk/tc-tcmd-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/tibco-tcstk/tc-tcmd-lib/tsconfig.lib.json",
+              "projects/tibco-tcstk/tc-tcmd-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "tc-liveapps",
