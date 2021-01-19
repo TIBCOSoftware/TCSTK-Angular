@@ -31,8 +31,8 @@ export class TcCaseAuditService {
 }
 
 export enum OrderBy {
-  asc,
-  desc
+  asc = 'asc',
+  desc = 'desc'
 }
 
 export enum CaseTypeAudit {
