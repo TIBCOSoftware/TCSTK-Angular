@@ -125,7 +125,6 @@ export const TIBCO_DEV_DOMAIN = 'emea.tibco.com';
 // @dynamic
 export function initAppDefinitionService(appDefinitionService: TcAppDefinitionService, tcLiveappsConfig: TcLiveappsConfigService) {
   const loader = () => {
-      console.log(tcLiveappsConfig);
       if (tcLiveappsConfig?.getConfig().defer) {
         return true;
       } else {
