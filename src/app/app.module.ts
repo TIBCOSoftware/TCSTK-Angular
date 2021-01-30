@@ -53,6 +53,7 @@ import { TcSpotfireLibModule } from '@tibco-tcstk/tc-spotfire-lib';
 import { LoginOauthComponent } from './routes/login-oauth/login-oauth.component';
 import { TcTscLibModule} from '@tibco-tcstk/tc-tsc-lib';
 import { TcTcmdLibModule} from '@tibco-tcstk/tc-tcmd-lib';
+import { TcLiveappsConfig } from '@tibco-tcstk/tc-liveapps-lib';
 
 // import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
 
@@ -77,6 +78,12 @@ const tcCoreConfig: TcCoreConfig = {
   api_key_param: 'api_key',
   enable_tce: false
 }
+
+/*
+// can be used to defer initialization of TcAppDefService
+const tcLiveappsConfig: TcLiveappsConfig = {
+  defer: true
+}*/
 
 @NgModule({
   declarations: [

@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule} from '@angular/core';
+import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, Inject, ModuleWithProviders, NgModule} from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -115,15 +115,22 @@ import { LiveAppsFormWcComponent } from './components/live-apps-form-wc/live-app
 import {LiveAppsSettingsCustomFormsComponent} from './components/live-apps-settings-custom-forms/live-apps-settings-custom-forms.component';
 import { LiveAppsLoginOauthComponent } from './components/live-apps-login-oauth/live-apps-login-oauth.component';
 import {AuthGuard} from './guards/auth.guard';
+import { TcLiveappsConfiguration, TcLiveappsConfigurationService } from './models/tcLiveappsConfig';
+import { TcLiveappsConfigService } from './services/tc-liveapps-config-service';
 
 export const TIBCO_CLOUD_DOMAIN = 'cloud.tibco.com';
 export const TIBCO_TEST_DOMAIN = 'tenant-integration.tcie.pro';
 export const TIBCO_DEV_DOMAIN = 'emea.tibco.com';
 
 // @dynamic
-export function initAppDefinitionService(appDefinitionService: TcAppDefinitionService) {
+export function initAppDefinitionService(appDefinitionService: TcAppDefinitionService, tcLiveappsConfig: TcLiveappsConfigService) {
   const loader = () => {
-      return appDefinitionService.refresh().toPromise();
+      if (tcLiveappsConfig?.getConfig().defer) {
+        return true;
+      } else {
+        return appDefinitionService.refresh().toPromise();
+      }
+
   }
   return loader;
 }
@@ -302,7 +309,7 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
     providers: [
         RequestCacheService,
         TcAppDefinitionService,
-        { provide: APP_INITIALIZER, useFactory: initAppDefinitionService, deps: [TcAppDefinitionService], multi: true },
+        { provide: APP_INITIALIZER, useFactory: initAppDefinitionService, deps: [TcAppDefinitionService, TcLiveappsConfigService], multi: true },
         CaseGuard,
         RoleGuard,
         AuthGuard,
@@ -313,10 +320,10 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class TcLiveappsLibModule {
-    static forRoot(): ModuleWithProviders<TcLiveappsLibModule> {
+    static forRoot(config?: TcLiveappsConfiguration): ModuleWithProviders<TcLiveappsLibModule> {
         return {
             ngModule: TcLiveappsLibModule,
-            providers: [LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService, TcRolesService, TcLiveAppsReportingService]
+            providers: [TcLiveappsConfigService, { provide: TcLiveappsConfigurationService, useValue: config ? config : undefined }, LiveAppsService, TcCaseDataService, TcCaseProcessesService, TcDocumentService, TcLiveAppsConfigService, TcRolesService, TcLiveAppsReportingService]
         };
     }
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private sessionRefreshService: SessionRefreshService) {

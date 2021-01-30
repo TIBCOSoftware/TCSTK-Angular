@@ -86,6 +86,7 @@ export * from './lib/models/tc-case-audit';
 export * from './lib/models/tc-case-processes';
 export * from './lib/models/tc-case-card-config';
 export * from './lib/models/appConfig';
+export * from './lib/models/tcLiveappsConfig';
 
 // service
 export * from './lib/services/live-apps.service';
@@ -101,6 +102,7 @@ export * from './lib/services/tc-form-config.service';
 export * from './lib/services/tc-app-definition.service';
 export * from './lib/services/tc-case-audit.service';
 export * from './lib/services/credentials.service';
+export * from './lib/services/tc-live-apps-config.service';
 
 // resolvers
 export * from './lib/resolvers/claims.resolver';
