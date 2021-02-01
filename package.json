@@ -37,7 +37,7 @@
     "@angular/router": "^10.2.1",
     "@angular/service-worker": "^10.2.0",
     "@ngtools/webpack": "^10.2.0",
-    "@TIBCOSoftware/spotfire-wrapper": "^0.14.0",
+    "@tibco/spotfire-wrapper": "^0.13.0",
     "brace": "^0.11.1",
     "chart.js": "^2.9.4",
     "chartjs-plugin-datalabels": "^0.7.0",
