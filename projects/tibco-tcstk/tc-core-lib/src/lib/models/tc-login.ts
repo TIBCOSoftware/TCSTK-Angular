@@ -18,6 +18,9 @@ export class Claim implements Deserializable {
   subscriptionId: string;
   username: string;
   primaryProductionSandbox: Sandbox;
+  globalSubscriptionId: string;
+  guid: string;
+  region: string;
 
   deserialize(input: any): this {
     Object.assign(this, input);
