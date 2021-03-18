@@ -88,7 +88,7 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Define if you want to use contextual help
+   * Define if you want custom configuration for the Navigation bar
    */
   @Input() customNavBarConfig?: NavBarConfig;
 
