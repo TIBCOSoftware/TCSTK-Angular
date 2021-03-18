@@ -49,6 +49,7 @@ export * from './lib/models/tc-routing-actions';
 export * from './lib/models/tc-shared-state';
 export * from './lib/models/tc-widget-header';
 export * from './lib/models/tc-component';
+export * from './lib/models/tc-navbar';
 
 // interface
 export * from './lib/interfaces/tc-core-configuration';

@@ -12,6 +12,7 @@ import {
 import {Location} from '@angular/common';
 import {TcCoreCommonFunctions} from '../../common/tc-core-common-functions';
 import {MessageTopicService} from '../../common/tc-core-topic-comm';
+import {NavBarConfig} from '../../models/tc-navbar';
 
 declare var GlobalNavbar: any;
 
@@ -86,6 +87,11 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
     }
   }
 
+  /**
+   * Define if you want to use contextual help
+   */
+  @Input() customNavBarConfig?: NavBarConfig;
+
   private BASE_HELP_PATH = 'assets/help';
   public helpPath: string;
   public integratedHelpConfig: string;
@@ -125,59 +131,63 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
       // This will work with hash routing
     }
 
-    this.navbar = new GlobalNavbar({
-      container: '#navbar',
-      textAfterLogo: this.appName ? this.appName : undefined,
-      idle: {
-        disabled: this.disableTimeout
-      },
-      iconMenus: {
-        search: {
-          visible: false  // for versions 0.1.X the propertie is "disabled" instead of "visible".
+    if (!this.customNavBarConfig) {
+      this.customNavBarConfig = {
+        container: '#navbar',
+        textAfterLogo: this.appName ? this.appName : undefined,
+        idle: {
+          disabled: this.disableTimeout
         },
-        download: {
-          visible: false
+        iconMenus: {
+          search: {
+            visible: false  // for versions 0.1.X the propertie is "disabled" instead of "visible".
+          },
+          download: {
+            visible: false
+          },
+          help: {
+            visible: true,
+            publishEvent: this.integratedHelp
+          },
+          notifications: {
+            visible: false
+          },
+          products: {
+            visible: false
+          },
+          region: {
+            visible: false
+          },
+          accountswitcher: {
+            visible: false
+          }
         },
-        help: {
-          visible: true,
-          publishEvent: this.integratedHelp
+        customProfilePanel: {
+          account: {
+            visible: false,
+            disabled: true
+          },
+          subscriptions: {
+            visible: false,
+            disabled: true
+          },
+          organization: {
+            visible: false
+          },
+          tenants: {
+            visible: false
+          }
         },
-        notifications: {
-          visible: false
-        },
-        products: {
-          visible: false
-        },
-        region: {
-          visible: false
-        },
-        accountswitcher: {
-          visible: false
-        }
-      },
-      customProfilePanel: {
-        account: {
-          visible: false,
-          disabled: true
-        },
-        subscriptions: {
-          visible: false,
-          disabled: true
-        },
-        organization: {
-          visible: false
-        },
-        tenants: {
-          visible: false
-        }
-      },
-      customizedComponents: [
-        {
-          name: 'help',
-          template: '#help-template'
-        }
-      ]
-    });
+        customizedComponents: [
+          {
+            name: 'help',
+            template: '#help-template'
+          }
+        ]
+      };
+    }
+
+    this.navbar = new GlobalNavbar(this.customNavBarConfig);
 
     if (this.integratedHelp) {
       this.navbar.subscribeEvent('CLICK_ICON_MENU_HELP', (event) => {
