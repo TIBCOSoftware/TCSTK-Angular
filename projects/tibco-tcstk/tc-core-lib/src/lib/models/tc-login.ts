@@ -19,6 +19,7 @@ export class Claim implements Deserializable {
   username: string;
   primaryProductionSandbox: Sandbox;
   globalSubscriptionId: string;
+  globalSubcriptionId?: string;
   guid: string;
   region: string;
 
