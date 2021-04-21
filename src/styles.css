@@ -31,7 +31,7 @@ body md-autocomplete md-autocomplete-wrap.md-menu-showing {
 }
 
 body .md-scroll-mask {
-  z-index: 1050;
+  display: none;
 }
 
 body .md-scroll-mask > .md-scroll-mask-bar {
