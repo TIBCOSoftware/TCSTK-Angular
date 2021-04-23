@@ -23,6 +23,7 @@ Attribute | Type | Comments
 --- | --- | ---
 appName | string | displayed Application Name
 contextHelp | boolean | Define if you want to use contextual help
+customNavBarConfig | NavBarConfig | Define if you want custom configuration for the Navigation bar
 disableTimeout | boolean | 
 docUrl | string | Documentation URL
 integratedHelp | boolean | 
