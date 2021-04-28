@@ -250,10 +250,12 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
     }
 
     this.ms.getMessage('navbar.message').subscribe(data => {
-      this.navbar.publishEvent('REQUEST_TOP_NOTIFICATION', JSON.parse(data.text)
-       );
+      if (data && data.text) {
+        try {
+          this.navbar.publishEvent('REQUEST_TOP_NOTIFICATION', JSON.parse(data.text));
+        } catch (e) {}
+      }
     });
-
   }
 
   findHelpFile(helpUrl) {
