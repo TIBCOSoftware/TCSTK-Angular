@@ -140,7 +140,7 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
         },
         iconMenus: {
           search: {
-            visible: false  // for versions 0.1.X the propertie is "disabled" instead of "visible".
+            visible: false  // for versions 0.1.X the property is "disabled" instead of "visible".
           },
           download: {
             visible: false
@@ -248,6 +248,12 @@ export class TibcoCloudNavbarComponent implements OnInit, OnChanges {
         this.helpPath = this.BASE_HELP_PATH + '/' + data.text + '/config.json';
       });
     }
+
+    this.ms.getMessage('navbar.message').subscribe(data => {
+      this.navbar.publishEvent('REQUEST_TOP_NOTIFICATION', JSON.parse(data.text)
+       );
+    });
+
   }
 
   findHelpFile(helpUrl) {
