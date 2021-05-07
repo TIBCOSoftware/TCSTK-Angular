@@ -9,7 +9,7 @@ This library does not depend on other TCSTK libraries to avoid circular dependen
 ---
 For more information see the [TCSTK Documentation](https://tibcosoftware.github.io/TCSToolkit/)
 ---
-Copyright © 2020. TIBCO Software Inc.
+Copyright © 2021. TIBCO Software Inc.
 This file is subject to the license terms contained
 in the license file that is distributed with this library or can be found here:
                                                                                                                     
