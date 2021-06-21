@@ -24,7 +24,7 @@
 
   <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
     <tr>
-      <td *ngFor="let col of columns" [ngStyle]="{'text-align': col.align != undefined ? col.align : 'left' }">
+      <td *ngFor="let col of columns"  [ngStyle]="getStyle(rowData, col)">
         {{ getObjectValue(rowData, col) }}
       </td>
       <td *ngIf="showExpandButton">

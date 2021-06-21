@@ -112,6 +112,12 @@ export class TcprimengGenericTableComponent implements OnInit {
   }
 
   /**
+   * A function that can be used to set styles
+   */
+  @Input() styleFunction: (rowData, col) => any;
+
+
+  /**
    * Default lines per page
    */
   public defaultRows = 5;
@@ -175,6 +181,14 @@ export class TcprimengGenericTableComponent implements OnInit {
       name: 'Test2',
       value: 'V2'
     }];*/
+  }
+
+  public getStyle(rowData, col) {
+    let re = {'text-align': col.align !== undefined ? col.align : 'left' }
+    if(this.styleFunction){
+      re = {...this.styleFunction(rowData, col)}
+    }
+    return re;
   }
 
   public getObjectValue(rowdata, column) {
