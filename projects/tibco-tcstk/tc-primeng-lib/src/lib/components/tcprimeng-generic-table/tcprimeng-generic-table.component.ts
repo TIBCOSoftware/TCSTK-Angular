@@ -114,13 +114,14 @@ export class TcprimengGenericTableComponent implements OnInit {
   /**
    * A function that can be used to set styles
    */
-  @Input() styleFunction: (rowData, col) => any;
-
+  @Input() styleFunction: (rowData, col, context) => any;
+  @Input() styleContext: any;
 
   /**
    * Default lines per page
    */
   public defaultRows = 5;
+
   @Input('defaultRows') set DefaultRows(defaultRows: number) {
     if (defaultRows) {
       this.defaultRows = defaultRows;
@@ -165,28 +166,12 @@ export class TcprimengGenericTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-/*
-    this.columnConfig = [
-      {headerName: 'Name', field: 'value', sortable: true, filter: true, resizable: true, checkboxSelection: true},
-      {headerName: 'Value', field: 'name', sortable: true, filter: true, resizable: true},
-    ];
-    this.columnDefs = this.columnConfig;
-
-    // this.columnDefs = this.columnConfig;
-    this.rowData = [...this.rowData];
-    this.rowData = [{
-      name: 'Test',
-      value: 'V1'
-    }, {
-      name: 'Test2',
-      value: 'V2'
-    }];*/
   }
 
   public getStyle(rowData, col) {
-    let re = {'text-align': col.align !== undefined ? col.align : 'left' }
-    if(this.styleFunction){
-      re = {...this.styleFunction(rowData, col)}
+    let re = {'text-align': col.align !== undefined ? col.align : 'left'};
+    if (this.styleFunction) {
+      re = {...this.styleFunction(rowData, col, this.styleContext)};
     }
     return re;
   }
