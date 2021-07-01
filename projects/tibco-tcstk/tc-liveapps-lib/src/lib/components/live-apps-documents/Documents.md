@@ -8,13 +8,17 @@
 
 In the Upload Dialog the User is able to select a local File and enter a short Description.</p>
 
-<p>The Component stores also the following Data
+<p>The Component stores also the following Data</p>
 
-- uploading User
+<ul>
 
-- Timestamp
+<li>uploading User</li>
 
-- File Size</p>
+<li>Timestamp</li>
+
+<li>File Size</li>
+
+</ul>
 
 <p>Document List<br>
 
