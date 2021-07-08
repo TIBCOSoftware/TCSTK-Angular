@@ -2,7 +2,7 @@
   "name": "@tibco-tcstk/tc-scribe-lib",
   "version": "3.0.0",
   "peerDependencies": {
-    "@angular/common": "^10.2.1",
-    "@angular/core": "^10.2.1"
+    "@angular/common": "^12.1.1",
+    "@angular/core": "^12.1.1"
   }
 }
