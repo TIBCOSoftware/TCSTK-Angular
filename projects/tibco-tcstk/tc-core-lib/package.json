@@ -1,6 +1,6 @@
 {
   "name": "@tibco-tcstk/tc-core-lib",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.lib.json"
   },

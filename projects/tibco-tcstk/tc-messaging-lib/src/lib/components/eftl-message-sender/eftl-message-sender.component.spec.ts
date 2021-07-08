@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EftlMessageSenderComponent } from './eftl-message-sender.component';
 
@@ -6,7 +6,7 @@ describe('EftlMessageSenderComponent', () => {
   let component: EftlMessageSenderComponent;
   let fixture: ComponentFixture<EftlMessageSenderComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EftlMessageSenderComponent ]
     })

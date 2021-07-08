@@ -65,10 +65,12 @@
             ],
             "scripts": [
               {
-                "input": "node_modules/document-register-element/build/document-register-element.js"
+                "input": "node_modules/document-register-element/build/document-register-element.js",
+                "inject": true
               },
               {
-                "input": "node_modules/document-register-element/build/document-register-element.js"
+                "input": "node_modules/document-register-element/build/document-register-element.js",
+                "inject": true
               },
               "src/assets/eftl.js"
             ]
@@ -84,7 +86,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -191,7 +192,7 @@
       "prefix": "tcla",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-liveapps-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-liveapps-lib/ng-package.json"
@@ -226,7 +227,7 @@
       "prefix": "tc",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-core-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-core-lib/ng-package.json"
@@ -261,7 +262,7 @@
       "prefix": "tcfrm",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-forms-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-forms-lib/ng-package.json"
@@ -296,7 +297,7 @@
       "prefix": "tcmsg",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-messaging-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-messaging-lib/ng-package.json"
@@ -331,7 +332,7 @@
       "prefix": "tcmsg",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-spotfire-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-spotfire-lib/ng-package.json"
@@ -366,7 +367,7 @@
       "prefix": "tcesvc",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-events-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-events-lib/ng-package.json"
@@ -401,7 +402,7 @@
       "prefix": "tcgrid",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-ag-grid/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-ag-grid/ng-package.json"
@@ -436,7 +437,7 @@
       "prefix": "tcscr",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-scribe-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-scribe-lib/ng-package.json"
@@ -471,7 +472,7 @@
       "prefix": "tcpmg",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/tibco-tcstk/tc-primeng-lib/tsconfig.lib.json",
             "project": "projects/tibco-tcstk/tc-primeng-lib/ng-package.json"
