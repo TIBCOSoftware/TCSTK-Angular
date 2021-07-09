@@ -85,9 +85,5 @@
         "dist/tibco-tcstk/tc-tcmd-lib"
       ],
     }
-  },
-  "angularCompilerOptions": {
-    "enableIvy": true,
-    "compilationMode": "partial"
   }
 }
