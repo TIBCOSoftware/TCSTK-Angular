@@ -3,40 +3,40 @@
         [headerText]="'Spotfire Settings Configuration'"></tc-tibco-cloud-widget-header>
     <div style="padding: 20px; overflow: hidden" fxLayout="column" fxFlex>
         <div style="overflow: auto;">
-            <div fxLayout="column" fxFlex>
+            <div fxLayout="column" fxFlex *ngIf="spotfireConfig">
                 <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
                     <p>Choose the TIBCO Cloud Spotfire configuration to be used within this application:</p>
                     <mat-icon class="tcs-spotfire-link" [svgIcon]="'tcs-application-edit'" (click)="handleEditLiveAppClick()"
                         matTooltip="Open in Spotfire" matTooltipShowDelay="1000" matTooltipPosition="below"></mat-icon>
                 </div>
                 <mat-form-field>
-                    <input matInput placeholder="Spotfire Server" [(ngModel)]="spotfireConfig?.spotfireServer">
+                    <input matInput placeholder="Spotfire Server" [(ngModel)]="spotfireConfig.spotfireServer">
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Analysis Path" [(ngModel)]="spotfireConfig?.analysisPath">
+                    <input matInput placeholder="Analysis Path" [(ngModel)]="spotfireConfig.analysisPath">
                 </mat-form-field>
                 <div fxLayout="row" fxLayoutAlign="space-between stretch">
                     <mat-form-field>
-                        <input matInput placeholder="Table Name" [(ngModel)]="spotfireConfig?.tableName">
+                        <input matInput placeholder="Table Name" [(ngModel)]="spotfireConfig.tableName">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Active Page for Home" [(ngModel)]="spotfireConfig?.activePageForHome">
+                        <input matInput placeholder="Active Page for Home" [(ngModel)]="spotfireConfig.activePageForHome">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Active Page for Details" [(ngModel)]="spotfireConfig?.activePageForDetails">
+                        <input matInput placeholder="Active Page for Details" [(ngModel)]="spotfireConfig.activePageForDetails">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Marking Name" [(ngModel)]="spotfireConfig?.markingName">
+                        <input matInput placeholder="Marking Name" [(ngModel)]="spotfireConfig.markingName">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Max Markings" [(ngModel)]="spotfireConfig?.maxMarkings">
+                        <input matInput placeholder="Max Markings" [(ngModel)]="spotfireConfig.maxMarkings">
                     </mat-form-field>
                 </div>
                 <mat-form-field>
-                    <input matInput placeholder="Allowed Pages" [(ngModel)]="spotfireConfig?.allowedPages">
+                    <input matInput placeholder="Allowed Pages" [(ngModel)]="spotfireConfig.allowedPages">
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput placeholder="Column Names" [(ngModel)]="spotfireConfig?.columnNames">
+                    <input matInput placeholder="Column Names" [(ngModel)]="spotfireConfig.columnNames">
                 </mat-form-field>
             </div>
         </div>
