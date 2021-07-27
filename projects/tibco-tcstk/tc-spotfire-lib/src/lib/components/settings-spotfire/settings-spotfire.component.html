@@ -3,7 +3,7 @@
         [headerText]="'Spotfire Settings Configuration'"></tc-tibco-cloud-widget-header>
     <div style="padding: 20px; overflow: hidden" fxLayout="column" fxFlex>
         <div style="overflow: auto;">
-            <div fxLayout="column" fxFlex *ngIf="spotfireConfig">
+            <div *ngIf="spotfireConfig" fxLayout="column" fxFlex>
                 <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="5px" style="height: 20px">
                     <p>Choose the TIBCO Cloud Spotfire configuration to be used within this application:</p>
                     <mat-icon class="tcs-spotfire-link" [svgIcon]="'tcs-application-edit'" (click)="handleEditLiveAppClick()"
