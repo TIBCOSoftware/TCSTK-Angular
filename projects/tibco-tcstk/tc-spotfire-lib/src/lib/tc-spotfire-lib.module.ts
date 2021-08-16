@@ -29,6 +29,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
     SettingsSpotfireCreateCaseMappingComponent
   ],
   imports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
@@ -62,7 +64,6 @@ import {TcFormsLibModule} from '@tibco-tcstk/tc-forms-lib';
     MatRadioModule,
     MatSnackBarModule,
     TcFormsLibModule
-
   ],
   exports: [
     SpotfireWrapperComponent,
