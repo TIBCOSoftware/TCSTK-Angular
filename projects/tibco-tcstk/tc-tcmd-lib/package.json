@@ -2,8 +2,8 @@
   "name": "@tibco-tcstk/tc-tcmd-lib",
   "version": "3.0.0",
   "peerDependencies": {
-    "@angular/common": "^12.1.1",
-    "@angular/core": "^12.1.1"
+    "@angular/common": "^12.2.1",
+    "@angular/core": "^12.2.1"
   },
   "dependencies": {
     "tslib": "^2.0.0"

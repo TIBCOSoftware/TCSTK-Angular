@@ -2,8 +2,8 @@
   "name": "@tibco-tcstk/tc-forms-lib",
   "version": "3.0.0",
   "peerDependencies": {
-    "@angular/common": "^12.1.1",
-    "@angular/core": "^12.1.1",
+    "@angular/common": "^12.2.1",
+    "@angular/core": "^12.2.1",
     "@angular/material": "^12.1.1",
     "@angular/flex-layout": "^12.0.0-beta.34",
     "@ajsf/bootstrap4": "^0.4.0-beta.1",
