@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^12.2.1",
     "@angular/core": "^12.2.1",
-    "@angular/material": "^12.1.1",
+    "@angular/material": "^12.2.1",
     "@angular/flex-layout": "^12.0.0-beta.34",
     "@ajsf/bootstrap4": "^0.4.0-beta.1",
     "@ajsf/material": "^0.4.0-beta.1",
