@@ -377,31 +377,45 @@ function log(level, message){
   }
 }
 
+const INJECT_OAUTH = true;
+
 try {
   const propReader = require('properties-reader');
-  if (propReader) {
+  if (propReader && INJECT_OAUTH) {
     const tcProp = propReader('tibco-cloud.properties');
     if (tcProp) {
       const cloudProps = tcProp.path();
       if (cloudProps.CloudLogin && cloudProps.CloudLogin.OAUTH_Token && cloudProps.CloudLogin.OAUTH_Token.trim() != '') {
-        for (let endpoint in PROXY_CONFIG) {
-          //console.log('ENDPOINT: ' , endpoint);
-          //console.log(PROXY_CONFIG[endpoint]['headers']);
-          let token = cloudProps.CloudLogin.OAUTH_Token;
-          const key = 'Token:';
-          if (token.indexOf(key) > 0) {
-            token = token.substring(token.indexOf(key) + key.length);
+        let token = cloudProps.CloudLogin.OAUTH_Token;
+        // Do not replace the token on the fly.
+        replaceTCSTKSESSION = false;
+        if (token == 'USE-GLOBAL') {
+          console.log('Using GLOBAL Authentication setting from global file: ' + require('os').homedir() + '/.tcli/global-tibco-cloud.properties')
+          const globalProp = propReader(require('os').homedir() + '/.tcli/global-tibco-cloud.properties').path();
+          if (globalProp.CloudLogin && globalProp.CloudLogin.OAUTH_Token && globalProp.CloudLogin.OAUTH_Token.trim() != '') {
+            token = globalProp.CloudLogin.OAUTH_Token;
+          } else {
+            console.error('Token set to USE-GLOBAL, but no global token found...');
           }
-          if (PROXY_CONFIG[endpoint] && PROXY_CONFIG[endpoint]['headers']) {
-            PROXY_CONFIG[endpoint]['headers']['Authorization'] = "Bearer " + token;
-            console.log('Added OAUTH to: ' + endpoint);
+        }
+        if (token != 'USE-GLOBAL') {
+          for (let endpoint in PROXY_CONFIG) {
+            // console.log('ENDPOINT: ' , endpoint);
+            // console.log(PROXY_CONFIG[endpoint]['headers']);
+            const key = 'Token:';
+            if (token.indexOf(key) > 0) {
+              token = token.substring(token.indexOf(key) + key.length);
+            }
+            if (PROXY_CONFIG[endpoint] && PROXY_CONFIG[endpoint]['headers']) {
+              PROXY_CONFIG[endpoint]['headers']['Authorization'] = "Bearer " + token;
+              console.log('Added OAUTH to: ' + endpoint);
+            }
           }
         }
       }
     }
   }
 } catch (err) {
-  console.warn('No oauth token found in tibco-cloud.properties');
+  console.warn('Warning on Injecting OAUTH, likely tibco-cloud.properties does not exits, or you need to run: npm install --save-dev properties-reader');
 }
-
 module.exports = PROXY_CONFIG;
