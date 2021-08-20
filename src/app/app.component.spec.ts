@@ -1,4 +1,4 @@
-import {TestBed, async, fakeAsync, tick} from '@angular/core/testing';
+import { TestBed, fakeAsync, tick, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import {TcCoreLibModule} from '../../projects/tibco-tcstk/tc-core-lib/src/lib/tc-core-lib.module';
@@ -36,7 +36,7 @@ describe('AppComponent', () => {
   let router: Router;
   let fixture;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         AppRoutingModule,

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TcprimengGenericTableComponent } from './tcprimeng-generic-table.component';
 
@@ -6,7 +6,7 @@ describe('TcprimengGenericTableComponent', () => {
   let component: TcprimengGenericTableComponent;
   let fixture: ComponentFixture<TcprimengGenericTableComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TcprimengGenericTableComponent ]
     })

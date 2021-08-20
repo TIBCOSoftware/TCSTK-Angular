@@ -2,7 +2,7 @@ import {ModuleWithProviders, NgModule, setTestabilityGetter} from '@angular/core
 import {TibcoCloudNavbarComponent} from './components/tibco-cloud-navbar/tibco-cloud-navbar.component';
 import {TibcoCloudLoginComponent} from './components/tibco-cloud-login/tibco-cloud-login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer} from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
@@ -48,21 +48,21 @@ import {ActivatedRoute, ActivationEnd, NavigationEnd, Router, RouterModule, Rout
 import {TibcoCloudSplashScreenComponent} from './components/tibco-cloud-splash-screen/tibco-cloud-splash-screen.component';
 import {CommonModule, Location} from '@angular/common';
 import {TibcoCloudSettingLandingComponent} from './components/tibco-cloud-setting-landing/tibco-cloud-setting-landing.component';
-import { TibcoCloudUploadDialogComponent } from './components/tibco-cloud-upload-dialog/tibco-cloud-upload-dialog.component';
+import {TibcoCloudUploadDialogComponent} from './components/tibco-cloud-upload-dialog/tibco-cloud-upload-dialog.component';
 import {TibcoCloudNewElementComponent} from './components/tibco-cloud-new-element/tibco-cloud-new-element.component';
 import {MessageTopicService} from './common/tc-core-topic-comm';
 import {TcVisibilityService} from './services/tc-visibility.service';
 import {LegacyIframeService} from './services/legacy-iframe.service';
 import {TcCoreConfig, TcCoreConfiguration, TcCoreConfigurationService} from './interfaces/tc-core-configuration';
 import {TcCoreConfigService} from './services/tc-core-config-service';
-import { DisableDirective } from './directives/disable.directive';
+import {DisableDirective} from './directives/disable.directive';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BytesPipe} from './pipes/bytes.pipe';
-import { TibcoCloudHelpSideBarComponent } from './components/tibco-cloud-help-side-bar/tibco-cloud-help-side-bar.component';
-import { UrlPrepare } from './pipes/url-prepare.pipe';
-import { TibcoCloudVideoCarouselComponent } from './components/tibco-cloud-video-carousel/tibco-cloud-video-carousel.component';
-import { TibcoCloudVideoComponent } from './components/tibco-cloud-video/tibco-cloud-video.component';
-import { TibcoCloudHelpArchiveComponent } from './components/tibco-cloud-help-archive/tibco-cloud-help-archive.component';
+import {TibcoCloudHelpSideBarComponent} from './components/tibco-cloud-help-side-bar/tibco-cloud-help-side-bar.component';
+import {UrlPrepare} from './pipes/url-prepare.pipe';
+import {TibcoCloudVideoCarouselComponent} from './components/tibco-cloud-video-carousel/tibco-cloud-video-carousel.component';
+import {TibcoCloudVideoComponent} from './components/tibco-cloud-video/tibco-cloud-video.component';
+import {TibcoCloudHelpArchiveComponent} from './components/tibco-cloud-help-archive/tibco-cloud-help-archive.component';
 
 @NgModule({
   declarations: [
@@ -190,7 +190,7 @@ export class TcCoreLibModule {
       ngModule: TcCoreLibModule,
       providers: [
         TcCoreConfigService,
-        { provide: TcCoreConfigurationService, useValue: config ? config : undefined },
+        {provide: TcCoreConfigurationService, useValue: config ? config : undefined},
         TcSharedStateService,
         TcGeneralConfigService,
         LegacyIframeService
@@ -198,7 +198,13 @@ export class TcCoreLibModule {
     };
   }
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private location: Location, private router: Router, private routeSnapshot: ActivatedRoute, private messageService: MessageTopicService, private legacyIFrameService: LegacyIframeService) {
+  constructor(private matIconRegistry: MatIconRegistry,
+              private domSanitizer: DomSanitizer,
+              private location: Location,
+              private router: Router,
+              private routeSnapshot: ActivatedRoute,
+              private messageService: MessageTopicService,
+              private legacyIFrameService: LegacyIframeService) {
     this.ms = messageService;
     // subscribe to route changes
     this.router.events.subscribe((value) => {
@@ -237,39 +243,39 @@ export class TcCoreLibModule {
 
     // register all the default Icon SVGs used by this module
     this.matIconRegistry.addSvgIconLiteral('ic-docs-icon',
-      this.domSanitizer.bypassSecurityTrustHtml('<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="🎨-Color" transform="translate(-2.000000, -2.000000)" fill="#0081CB"><path d="M16,2 L8,2 C6.8954305,2 6,2.8954305 6,4 L6,17 C6,18.1045695 6.8954305,19 8,19 L20,19 C21.1045695,19 22,18.1045695 22,17 L22,8 L16,2 Z M8.5,10 L12.5,10 C12.7761424,10 13,10.2238576 13,10.5 C13,10.7761424 12.7761424,11 12.5,11 L8.5,11 C8.22385763,11 8,10.7761424 8,10.5 C8,10.2238576 8.22385763,10 8.5,10 Z M17.5,17 L8.5,17 C8.22385763,17 8,16.7761424 8,16.5 C8,16.2238576 8.22385763,16 8.5,16 L17.5,16 C17.7761424,16 18,16.2238576 18,16.5 C18,16.7761424 17.7761424,17 17.5,17 Z M17.5,15 L8.5,15 C8.22385763,15 8,14.7761424 8,14.5 C8,14.2238576 8.22385763,14 8.5,14 L17.5,14 C17.7761424,14 18,14.2238576 18,14.5 C18,14.7761424 17.7761424,15 17.5,15 Z M17.5,13 L8.5,13 C8.22385763,13 8,12.7761424 8,12.5 C8,12.2238576 8.22385763,12 8.5,12 L17.5,12 C17.7761424,12 18,12.2238576 18,12.5 C18,12.7761424 17.7761424,13 17.5,13 Z M5,5 L5,18 C5,19.1045695 5.8954305,20 7,20 L7,20 L18,20 L17.9945143,20.1492623 C17.9181651,21.1841222 17.0543618,22 16,22 L16,22 L4,22 C2.8954305,22 2,21.1045695 2,20 L2,20 L2,7 C2,5.8954305 2.8954305,5 4,5 L4,5 L5,5 Z M16,3 L21.08,8 L16,8 L16,3 Z"></path></g></g></svg>'))
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="🎨-Color" transform="translate(-2.000000, -2.000000)" fill="#0081CB"><path d="M16,2 L8,2 C6.8954305,2 6,2.8954305 6,4 L6,17 C6,18.1045695 6.8954305,19 8,19 L20,19 C21.1045695,19 22,18.1045695 22,17 L22,8 L16,2 Z M8.5,10 L12.5,10 C12.7761424,10 13,10.2238576 13,10.5 C13,10.7761424 12.7761424,11 12.5,11 L8.5,11 C8.22385763,11 8,10.7761424 8,10.5 C8,10.2238576 8.22385763,10 8.5,10 Z M17.5,17 L8.5,17 C8.22385763,17 8,16.7761424 8,16.5 C8,16.2238576 8.22385763,16 8.5,16 L17.5,16 C17.7761424,16 18,16.2238576 18,16.5 C18,16.7761424 17.7761424,17 17.5,17 Z M17.5,15 L8.5,15 C8.22385763,15 8,14.7761424 8,14.5 C8,14.2238576 8.22385763,14 8.5,14 L17.5,14 C17.7761424,14 18,14.2238576 18,14.5 C18,14.7761424 17.7761424,15 17.5,15 Z M17.5,13 L8.5,13 C8.22385763,13 8,12.7761424 8,12.5 C8,12.2238576 8.22385763,12 8.5,12 L17.5,12 C17.7761424,12 18,12.2238576 18,12.5 C18,12.7761424 17.7761424,13 17.5,13 Z M5,5 L5,18 C5,19.1045695 5.8954305,20 7,20 L7,20 L18,20 L17.9945143,20.1492623 C17.9181651,21.1841222 17.0543618,22 16,22 L16,22 L4,22 C2.8954305,22 2,21.1045695 2,20 L2,20 L2,7 C2,5.8954305 2.8954305,5 4,5 L4,5 L5,5 Z M16,3 L21.08,8 L16,8 L16,3 Z"></path></g></g></svg>'));
     this.matIconRegistry.addSvgIconLiteral('ic-open-external',
-      this.domSanitizer.bypassSecurityTrustHtml('<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="🎨-Color" transform="translate(-1.738095, -2.000000)" fill="#0081CB"><path d="M20.8670203,22 L3.10982472,22 C2.49720148,22 2,21.5097894 2,20.9057798 L2,3.39825695 C2,2.79424741 2.49720148,2.30403677 3.10982472,2.30403677 L10.4568644,2.30403677 C11.0694876,2.30403677 11.5666891,2.79424741 11.5666891,3.39825695 L11.5666891,3.39825695 C11.5666891,4.00226649 11.0694876,4.49247713 10.4568644,4.49247713 L4.21964944,4.49247713 L4.21964944,19.8115596 L19.7571955,19.8115596 L19.7571955,13.3895814 C19.7571955,12.7855719 20.254397,12.2953612 20.8670203,12.2953612 L20.8670203,12.2953612 C21.4796435,12.2953612 21.976845,12.7855719 21.976845,13.3895814 L21.976845,20.9057798 C21.976845,21.5097894 21.4796435,22 20.8670203,22 M13.9694596,11.7044823 L19.3332425,6.41502199 L19.2355779,8.75555895 C19.2211502,9.09804987 19.34878,9.44491766 19.6162478,9.70862473 C20.1145591,10.2010238 20.9180722,10.2108718 21.4063951,9.72832069 C21.6339091,9.50509977 21.7526604,9.21294299 21.7659783,8.91640932 L21.9990415,3.32932108 C22.0123594,2.98792439 21.8869492,2.63996237 21.6194814,2.37625531 C21.3531235,2.11254824 20.9990894,1.98780714 20.6528241,2.00093778 L14.9871689,2.23181824 C14.6852966,2.24385466 14.3889734,2.36312466 14.1625691,2.58634558 C13.6742462,3.06780246 13.682015,3.85782943 14.182546,4.35132273 C14.4511235,4.61612401 14.8018282,4.74086511 15.1480935,4.72664025 L17.5220086,4.62925466 L12.1582257,9.918715 C11.6699028,10.4001719 11.6787814,11.1912931 12.1793123,11.6836922 C12.6798433,12.1771855 13.4811367,12.1859392 13.9694596,11.7044823"></path></g></g></svg>'))
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="🎨-Color" transform="translate(-1.738095, -2.000000)" fill="#0081CB"><path d="M20.8670203,22 L3.10982472,22 C2.49720148,22 2,21.5097894 2,20.9057798 L2,3.39825695 C2,2.79424741 2.49720148,2.30403677 3.10982472,2.30403677 L10.4568644,2.30403677 C11.0694876,2.30403677 11.5666891,2.79424741 11.5666891,3.39825695 L11.5666891,3.39825695 C11.5666891,4.00226649 11.0694876,4.49247713 10.4568644,4.49247713 L4.21964944,4.49247713 L4.21964944,19.8115596 L19.7571955,19.8115596 L19.7571955,13.3895814 C19.7571955,12.7855719 20.254397,12.2953612 20.8670203,12.2953612 L20.8670203,12.2953612 C21.4796435,12.2953612 21.976845,12.7855719 21.976845,13.3895814 L21.976845,20.9057798 C21.976845,21.5097894 21.4796435,22 20.8670203,22 M13.9694596,11.7044823 L19.3332425,6.41502199 L19.2355779,8.75555895 C19.2211502,9.09804987 19.34878,9.44491766 19.6162478,9.70862473 C20.1145591,10.2010238 20.9180722,10.2108718 21.4063951,9.72832069 C21.6339091,9.50509977 21.7526604,9.21294299 21.7659783,8.91640932 L21.9990415,3.32932108 C22.0123594,2.98792439 21.8869492,2.63996237 21.6194814,2.37625531 C21.3531235,2.11254824 20.9990894,1.98780714 20.6528241,2.00093778 L14.9871689,2.23181824 C14.6852966,2.24385466 14.3889734,2.36312466 14.1625691,2.58634558 C13.6742462,3.06780246 13.682015,3.85782943 14.182546,4.35132273 C14.4511235,4.61612401 14.8018282,4.74086511 15.1480935,4.72664025 L17.5220086,4.62925466 L12.1582257,9.918715 C11.6699028,10.4001719 11.6787814,11.1912931 12.1793123,11.6836922 C12.6798433,12.1771855 13.4811367,12.1859392 13.9694596,11.7044823"></path></g></g></svg>'));
     this.matIconRegistry.addSvgIconLiteral('ic-oval-clear',
-      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="Oval" stroke="#0081CB" cx="4.5" cy="4.5" r="4"></circle></g></svg>'))
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="Oval" stroke="#0081CB" cx="4.5" cy="4.5" r="4"></circle></g></svg>'));
     this.matIconRegistry.addSvgIconLiteral('ic-oval-filled',
-      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="Oval" stroke="#0081CB" fill="#0081CB" cx="4.5" cy="4.5" r="4"></circle></g></svg>'))
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><circle id="Oval" stroke="#0081CB" fill="#0081CB" cx="4.5" cy="4.5" r="4"></circle></g></svg>'));
     this.matIconRegistry.addSvgIconLiteral('ic-minimize',
       this.domSanitizer.bypassSecurityTrustHtml('<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
-      '<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
-      '<path d="M0.833333333,19.6904762 L5.97619048,19.6904762 L5.97619048,24.8333333 L9.4047619,24.8333333 L9.4047619,16.2619048 L0.833333333,16.2619048 L0.833333333,19.6904762 Z M5.97619048,5.97619048 L0.833333333,5.97619048 L0.833333333,9.4047619 L9.4047619,9.4047619 L9.4047619,0.833333333 L5.97619048,0.833333333 L5.97619048,5.97619048 Z M16.2619048,24.8333333 L19.6904762,24.8333333 L19.6904762,19.6904762 L24.8333333,19.6904762 L24.8333333,16.2619048 L16.2619048,16.2619048 L16.2619048,24.8333333 Z M19.6904762,5.97619048 L19.6904762,0.833333333 L16.2619048,0.833333333 L16.2619048,9.4047619 L24.8333333,9.4047619 L24.8333333,5.97619048 L19.6904762,5.97619048 Z" id="Shape" fill="#0081CB" fill-rule="nonzero"></path>' +
-      '</g>'+
-      '</svg>'))
+        '<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
+        '<path d="M0.833333333,19.6904762 L5.97619048,19.6904762 L5.97619048,24.8333333 L9.4047619,24.8333333 L9.4047619,16.2619048 L0.833333333,16.2619048 L0.833333333,19.6904762 Z M5.97619048,5.97619048 L0.833333333,5.97619048 L0.833333333,9.4047619 L9.4047619,9.4047619 L9.4047619,0.833333333 L5.97619048,0.833333333 L5.97619048,5.97619048 Z M16.2619048,24.8333333 L19.6904762,24.8333333 L19.6904762,19.6904762 L24.8333333,19.6904762 L24.8333333,16.2619048 L16.2619048,16.2619048 L16.2619048,24.8333333 Z M19.6904762,5.97619048 L19.6904762,0.833333333 L16.2619048,0.833333333 L16.2619048,9.4047619 L24.8333333,9.4047619 L24.8333333,5.97619048 L19.6904762,5.97619048 Z" id="Shape" fill="#0081CB" fill-rule="nonzero"></path>' +
+        '</g>' +
+        '</svg>'));
     this.matIconRegistry.addSvgIconLiteral('ic-maximize',
       this.domSanitizer.bypassSecurityTrustHtml('<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
-      '<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
-          '<polygon id="Path" points="-20 -20 80 -20 80 80 -20 80"></polygon>' +
-          '<path d="M4.26190476,16.2619048 L0.833333333,16.2619048 L0.833333333,24.8333333 L9.4047619,24.8333333 L9.4047619,21.4047619 L4.26190476,21.4047619 L4.26190476,16.2619048 Z M0.833333333,9.4047619 L4.26190476,9.4047619 L4.26190476,4.26190476 L9.4047619,4.26190476 L9.4047619,0.833333333 L0.833333333,0.833333333 L0.833333333,9.4047619 Z M21.4047619,21.4047619 L16.2619048,21.4047619 L16.2619048,24.8333333 L24.8333333,24.8333333 L24.8333333,16.2619048 L21.4047619,16.2619048 L21.4047619,21.4047619 Z M16.2619048,0.833333333 L16.2619048,4.26190476 L21.4047619,4.26190476 L21.4047619,9.4047619 L24.8333333,9.4047619 L24.8333333,0.833333333 L16.2619048,0.833333333 Z" id="Shape" fill="#0081CB" fill-rule="nonzero"></path>' +
-      '</g>' +
-      '</svg>'))
+        '<g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
+        '<polygon id="Path" points="-20 -20 80 -20 80 80 -20 80"></polygon>' +
+        '<path d="M4.26190476,16.2619048 L0.833333333,16.2619048 L0.833333333,24.8333333 L9.4047619,24.8333333 L9.4047619,21.4047619 L4.26190476,21.4047619 L4.26190476,16.2619048 Z M0.833333333,9.4047619 L4.26190476,9.4047619 L4.26190476,4.26190476 L9.4047619,4.26190476 L9.4047619,0.833333333 L0.833333333,0.833333333 L0.833333333,9.4047619 Z M21.4047619,21.4047619 L16.2619048,21.4047619 L16.2619048,24.8333333 L24.8333333,24.8333333 L24.8333333,16.2619048 L21.4047619,16.2619048 L21.4047619,21.4047619 Z M16.2619048,0.833333333 L16.2619048,4.26190476 L21.4047619,4.26190476 L21.4047619,9.4047619 L24.8333333,9.4047619 L24.8333333,0.833333333 L16.2619048,0.833333333 Z" id="Shape" fill="#0081CB" fill-rule="nonzero"></path>' +
+        '</g>' +
+        '</svg>'));
 
     this.matIconRegistry.addSvgIconLiteral('ic-help-left-chevron',
-      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="14px" viewBox="0 0 9 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" transform="translate(4.500000, 7.000000) scale(-1, 1) translate(-4.500000, -7.000000) " fill="#0081CB" fill-rule="nonzero"><path d="M8.99264045,6.96574786 L1.34219101,13.7559473 C1.03544944,14.0281695 0.53758427,14.0281695 0.23005618,13.7559473 C-0.0766853933,13.4830271 -0.0766853933,13.0411895 0.23005618,12.7682692 L6.76837079,6.96574786 L0.261516854,1.19184473 C-0.0452247191,0.918924501 -0.0452247191,0.477086895 0.261516854,0.204166667 C0.569044944,-0.0680555556 1.06691011,-0.0680555556 1.37365169,0.204166667 L8.99264045,6.96574786 Z" id="path-1"></path></g></g></svg>'))
+      this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="14px" viewBox="0 0 9 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" transform="translate(4.500000, 7.000000) scale(-1, 1) translate(-4.500000, -7.000000) " fill="#0081CB" fill-rule="nonzero"><path d="M8.99264045,6.96574786 L1.34219101,13.7559473 C1.03544944,14.0281695 0.53758427,14.0281695 0.23005618,13.7559473 C-0.0766853933,13.4830271 -0.0766853933,13.0411895 0.23005618,12.7682692 L6.76837079,6.96574786 L0.261516854,1.19184473 C-0.0452247191,0.918924501 -0.0452247191,0.477086895 0.261516854,0.204166667 C0.569044944,-0.0680555556 1.06691011,-0.0680555556 1.37365169,0.204166667 L8.99264045,6.96574786 Z" id="path-1"></path></g></g></svg>'));
     this.matIconRegistry.addSvgIconLiteral('ic-help-right-chevron',
       this.domSanitizer.bypassSecurityTrustHtml('<svg width="9px" height="14px" viewBox="0 0 9 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" fill="#0081CB" fill-rule="nonzero"><path d="M8.00345,6.98565 L1.19455,13.79525 C0.92155,14.06825 0.47845,14.06825 0.20475,13.79525 C-0.06825,13.52155 -0.06825,13.07845 0.20475,12.80475 L6.02385,6.98565 L0.23275,1.19525 C-0.04025,0.92155 -0.04025,0.47845 0.23275,0.20475 C0.50645,-0.06825 0.94955,-0.06825 1.22255,0.20475 L8.00345,6.98565 Z" id="path-1"></path></g></g></svg>')
-    )
+    );
     this.matIconRegistry.addSvgIconLiteral(
       'ic-burger-menu',
-     this.domSanitizer.bypassSecurityTrustHtml('<svg class="svg-content" fill="#727272" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">\n' +
+      this.domSanitizer.bypassSecurityTrustHtml('<svg class="svg-content" fill="#727272" height="100%" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">\n' +
         '    <path d="M0 0h24v24H0z" fill="none"></path>\n' +
         '    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>\n' +
         '</svg>')
-    )
+    );
     this.matIconRegistry.addSvgIconLiteral(
       'ic-error-handler',
       this.domSanitizer.bypassSecurityTrustHtml(('<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
