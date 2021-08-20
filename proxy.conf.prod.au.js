@@ -343,41 +343,47 @@ const PROXY_CONFIG = {
   }
 }
 
+
+// A switch to see if we need to update from the cookie (this is switched off if the OAUTH Token is injected from tibco-cloud.properties)
+let replaceTCSTKSESSION = true;
+// Should we inject OAUTH on all endpoints (on the local proxy)
+const INJECT_OAUTH = true;
+// Function for logging
+const debug = false;
+
 // Add the authorization header to request using the value from the TCSTKSESSION cookie
 function addOauthHeader(proxyReq, req) {
   // check for existing auth header
-  let authHeaderExists = false;
-  Object.keys(req.headers).forEach(function (key) {
-    if (key.toLowerCase() === 'authorization') {
-      authHeaderExists = true;
-    }
-  });
-  if (authHeaderExists === false) {
+  if (replaceTCSTKSESSION) {
+    let authHeaderExists = false;
     Object.keys(req.headers).forEach(function (key) {
-      if (key === 'cookie') {
-        log('DEBUG', req.headers[key]);
-        cookies = req.headers[key].split('; ');
-        cookies.forEach((cook => {
-          if (cook.startsWith('TCSTKSESSION=')) {
-            const authKey = cook.replace('TCSTKSESSION=', '');
-            proxyReq.setHeader('Authorization', 'Bearer ' + authKey);
-            // log('DEBUG', 'Added auth header');
-          }
-        }))
+      if (key.toLowerCase() === 'authorization') {
+        authHeaderExists = true;
       }
     });
+    if (authHeaderExists === false) {
+      Object.keys(req.headers).forEach(function (key) {
+        if (key === 'cookie') {
+          log('DEBUG', req.headers[key]);
+          cookies = req.headers[key].split('; ');
+          cookies.forEach((cook => {
+            if (cook.startsWith('TCSTKSESSION=')) {
+              const authKey = cook.replace('TCSTKSESSION=', '');
+              proxyReq.setHeader('Authorization', 'Bearer ' + authKey);
+              // log('DEBUG', 'Added auth header');
+            }
+          }))
+        }
+      });
+    }
   }
 }
 
-// Function for logging
-const debug = false;
 function log(level, message){
   if((debug && level == 'DEBUG') || level != 'DEBUG') {
     console.log('[PROXY INTERCEPTOR] (' + level + '): ' + message);
   }
 }
-
-const INJECT_OAUTH = true;
 
 try {
   const propReader = require('properties-reader');
