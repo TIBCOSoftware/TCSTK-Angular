@@ -45,17 +45,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/loginElement.html",
-              "src/creatorElement.html",
-              "src/actionElement.html",
-              "src/caseElement.html",
-              "src/homeElement.html",
-              "src/tcstk-elements.js",
-              "src/tcstk-elements.css",
-              "src/element-styles.css",
-              "src/manifest.webmanifest",
-              "src/service-worker.js"
+              "src/assets"
             ],
             "styles": [
               "src/styles.css",
@@ -64,14 +54,6 @@
               "./node_modules/primeng/resources/primeng.css"
             ],
             "scripts": [
-              {
-                "input": "node_modules/document-register-element/build/document-register-element.js",
-                "inject": true
-              },
-              {
-                "input": "node_modules/document-register-element/build/document-register-element.js",
-                "inject": true
-              },
               "src/assets/eftl.js"
             ],
             "aot": false,
@@ -103,9 +85,7 @@
                   "maximumWarning": "2mb",
                   "maximumError": "10mb"
                 }
-              ],
-              "serviceWorker": true,
-              "ngswConfigPath": "ngsw-config.json"
+              ]
             }
           },
           "defaultConfiguration": ""
@@ -145,8 +125,7 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ]
           }
         },

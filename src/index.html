@@ -11,7 +11,7 @@
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
   <script src="https://account.cloud.tibco.com/tsc-ws-content/tsc-universal-header/globalNavbar.js" type="application/javascript"></script>
 
-
+  <!--script src="assets/form-package.js"></script-->
 
   <!-- Live Apps OOTB Forms support -->
   <meta name="gwt:property" content="cap_mode=app,cap_wc=form"/>
@@ -28,14 +28,6 @@
 
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#1976d2">
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.info('service worker installed'))
-        .catch(err => console.error('Error', err));
-    }
-  </script>
 </head>
 <body>
   <laapp-root></laapp-root>
