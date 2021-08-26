@@ -39,7 +39,7 @@ export class TcCaseProcessesService {
   public getCaseActions(caseRef: string, sandboxId: number, appId: string, typeId: string, caseState: string): Observable<CaseActionsList> {
     // https://eu.liveapps.cloud.tibco.com/pageflow/caseActions?$sandbox=31&
     // $filter=applicationId%20eq%201742%20and%20caseType%20eq%201%20and%20caseState%20eq%20Responded%20and%20caseRef%20eq%20150491
-    const url = '/pageflow/caseActions?$sandbox=' + sandboxId
+    const url = '/pageflow/v1/caseActions?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and caseType eq ' + typeId
       + ' and caseState eq ' + caseState
@@ -63,7 +63,7 @@ export class TcCaseProcessesService {
 
   // todo: Note this is not a public API - update when Public API available
   public getCaseCreators(sandboxId: number, appId: string, typeId: string): Observable<CaseCreatorsList> {
-    const url = '/pageflow/caseCreators?$sandbox=' + sandboxId
+    const url = '/pageflow/v1/caseCreators?$sandbox=' + sandboxId
       + '&$filter=applicationId eq ' + appId
       + ' and caseType eq ' + typeId
     return this.http.get(url)
