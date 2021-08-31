@@ -25,6 +25,63 @@ import {CurrencyPipe, DatePipe} from '@angular/common';
 })
 export class TcprimengGenericTableComponent implements OnInit {
 
+  @Input('autoLayout') set AutoLayout(autoLayout: boolean) {
+    if (autoLayout) {
+      this.autoLayout = autoLayout;
+    }
+  }
+
+  @Input('showExpandButton') set ShowExpandButton(showExpandButton: boolean) {
+    if (showExpandButton) {
+      this.showExpandButton = showExpandButton;
+    }
+  }
+
+  @Input('paginator') set Paginator(paginator: boolean) {
+    if (paginator) {
+      this.paginator = paginator;
+    }
+  }
+
+  @Input('showCurrentPageReport') set ShowCurrentPageReport(showCurrentPageReport: boolean) {
+    if (showCurrentPageReport) {
+      this.showCurrentPageReport = showCurrentPageReport;
+    }
+  }
+
+  @Input('showSortIcon') set ShowSortIcon(showSortIcon: boolean) {
+    if (showSortIcon) {
+      this.showSortIcon = showSortIcon;
+    }
+  }
+
+  @Input('currentPageReportTemplate') set CurrentPageReportTemplate(currentPageReportTemplate: string) {
+    if (currentPageReportTemplate) {
+      this.currentPageReportTemplate = currentPageReportTemplate;
+    }
+  }
+
+  @Input('defaultRows') set DefaultRows(defaultRows: number) {
+    if (defaultRows) {
+      this.defaultRows = defaultRows;
+    }
+  }
+
+  @Input('rowsPerPageOptions') set RowsPerPageOptions(rowsPerPageOptions: number[]) {
+    if (rowsPerPageOptions) {
+      this.rowsPerPageOptions = rowsPerPageOptions;
+    }
+  }
+
+
+  // public rowData;
+  // public columnConfig;
+
+  constructor(
+    protected currencyPipe: CurrencyPipe,
+    protected datePipe: DatePipe) {
+  }
+
   /**
    * Display the button on the right side
    */
@@ -50,66 +107,30 @@ export class TcprimengGenericTableComponent implements OnInit {
    */
   public autoLayout = true;
 
-  @Input('autoLayout') set AutoLayout(autoLayout: boolean) {
-    if (autoLayout) {
-      this.autoLayout = autoLayout;
-    }
-  }
-
   /**
    * Display the button on the right side
    */
   public showExpandButton = false;
-
-  @Input('showExpandButton') set ShowExpandButton(showExpandButton: boolean) {
-    if (showExpandButton) {
-      this.showExpandButton = showExpandButton;
-    }
-  }
 
   /**
    * Display pagination bar at the botton
    */
   public paginator = false;
 
-  @Input('paginator') set Paginator(paginator: boolean) {
-    if (paginator) {
-      this.paginator = paginator;
-    }
-  }
-
   /**
    * Display page report at the botton
    */
   public showCurrentPageReport = false;
-
-  @Input('showCurrentPageReport') set ShowCurrentPageReport(showCurrentPageReport: boolean) {
-    if (showCurrentPageReport) {
-      this.showCurrentPageReport = showCurrentPageReport;
-    }
-  }
 
   /**
    * Display page report at the botton
    */
   public showSortIcon = false;
 
-  @Input('showSortIcon') set ShowSortIcon(showSortIcon: boolean) {
-    if (showSortIcon) {
-      this.showSortIcon = showSortIcon;
-    }
-  }
-
   /**
    * Pagination report template
    */
   public currentPageReportTemplate = 'Showing {first} to {last} of {totalRecords} entries';
-
-  @Input('currentPageReportTemplate') set CurrentPageReportTemplate(currentPageReportTemplate: string) {
-    if (currentPageReportTemplate) {
-      this.currentPageReportTemplate = currentPageReportTemplate;
-    }
-  }
 
   /**
    * A function that can be used to set styles
@@ -122,22 +143,10 @@ export class TcprimengGenericTableComponent implements OnInit {
    */
   public defaultRows = 5;
 
-  @Input('defaultRows') set DefaultRows(defaultRows: number) {
-    if (defaultRows) {
-      this.defaultRows = defaultRows;
-    }
-  }
-
   /**
    * Pagination report template
    */
   public rowsPerPageOptions: number[] = [15, 25, 50];
-
-  @Input('rowsPerPageOptions') set RowsPerPageOptions(rowsPerPageOptions: number[]) {
-    if (rowsPerPageOptions) {
-      this.rowsPerPageOptions = rowsPerPageOptions;
-    }
-  }
 
   /**
    * Array of selected case references
@@ -155,15 +164,6 @@ export class TcprimengGenericTableComponent implements OnInit {
   @Output() doubleClick: EventEmitter<string> = new EventEmitter<string>();
 
   @ContentChildren(PrimeTemplate) templates: QueryList<any>;
-
-
-  // public rowData;
-  // public columnConfig;
-
-  constructor(
-    protected currencyPipe: CurrencyPipe,
-    protected datePipe: DatePipe) {
-  }
 
   ngOnInit(): void {
   }
