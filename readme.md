@@ -1,16 +1,16 @@
-### TIBCO Cloud™ Starters Toolkit -- Angular Libraries
+### TIBCO Cloud Composer -- Angular Libraries
 
 #### Overview
-This Repository contains Angular.io components and sample code for creating TIBCO Cloud™ Starter applications. More Details here on the [TIBCO Cloud™ Starters Toolkit Site](https://tibcosoftware.github.io/TCSToolkit/).
+This Repository contains Angular.io components and sample code for creating TIBCO Cloud Composer applications. More Details here on the [TIBCO Cloud Composer Site](https://tibcosoftware.github.io/TCSToolkit/).
 
 Quick Guide and deep dive Developer Documentations can be found [here](https://tibcosoftware.github.io/TCSTK-Angular/).
 
 #### Repo Contents
 This Repo contains angular libraries which can be used to create custom UI for TIBCO Cloud™ Services such as TIBCO Cloud™ Live Apps.
 
-Typically, you won't be using this Repo but instead will use the TIBCO Cloud™ Starters Toolkit - Command Line Interface to generate applications. TIBCO Cloud™ Starters Toolkit - Command Line Interface will pull the libraries from npm:
+Typically, you won't be using this Repo but instead will use the TIBCO Cloud Composer - Command Line Interface to generate applications. TIBCO Cloud Composer - Command Line Interface will pull the libraries from npm:
 
-[TIBCO Cloud™ Starters Command Line Interface Repo](https://github.com/TIBCOSoftware/tcstk-cloud-cli)
+[TIBCO Cloud Composer Command Line Interface Repo](https://github.com/TIBCOSoftware/tcstk-cloud-cli)
 
 However, if required, you can pull this Repo and run a version of the sample Case Manager Application. This can be useful for debugging and extending the libraries.
 
@@ -38,4 +38,4 @@ Click "Display Client Id" to get the key.
 Copyright © 2021. TIBCO Software Inc.<br>
 This file is subject to the license terms contained in the license file that is distributed with this file.
 
-Please see 'TIB_cloud-starters-toolkit_x.x.x_license'.pdf/.txt for details of license and dependent third party components referenced by this library.
+Please see 'TIB_cloud-composer_x.x.x_license'.pdf/.txt for details of license and dependent third party components referenced by this library.
