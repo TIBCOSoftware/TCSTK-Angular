@@ -1,4 +1,4 @@
-### TIBCO Cloud Composer -- Angular Libraries
+### TIBCO Cloud™ Composer - Angular Libraries
 
 #### Overview
 This Repository contains Angular.io components and sample code for creating TIBCO Cloud Composer applications. More Details here on the [TIBCO Cloud Composer Site](https://tibcosoftware.github.io/TCSToolkit/).
