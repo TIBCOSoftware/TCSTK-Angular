@@ -51,5 +51,5 @@
     "analytics"
   ],
   "license": "BSD-3-Clause",
-  "description": "TCSTK Library that contains Spotfire components for your TIBCO Cloud Starter"
+  "description": "TIBCO Cloud Composer Library that contains Spotfire components for your TIBCO Cloud Application"
 }
