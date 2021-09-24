@@ -1,11 +1,11 @@
 {
   "name": "@tibco-tcstk/tc-forms-lib",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "peerDependencies": {
-    "@angular/common": "^12.2.1",
-    "@angular/core": "^12.2.1",
-    "@angular/material": "^12.2.1",
-    "@angular/flex-layout": "^12.0.0-beta.34",
+    "@angular/common": "^12.2.7",
+    "@angular/core": "^12.2.7",
+    "@angular/material": "^12.2.7",
+    "@angular/flex-layout": "^12.0.0-beta.35",
     "@ajsf/bootstrap4": "^0.4.0-beta.1",
     "@ajsf/material": "^0.4.0-beta.1",
     "lodash-es": "^4.17.21",

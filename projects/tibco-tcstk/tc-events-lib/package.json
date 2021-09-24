@@ -1,8 +1,8 @@
 {
   "name": "@tibco-tcstk/tc-events-lib",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "peerDependencies": {
-    "@angular/common": "^12.2.1",
-    "@angular/core": "^12.2.1"
+    "@angular/common": "^12.2.7",
+    "@angular/core": "^12.2.7"
   }
 }

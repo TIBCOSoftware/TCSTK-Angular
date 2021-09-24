@@ -54,6 +54,7 @@ import { LoginOauthComponent } from './routes/login-oauth/login-oauth.component'
 import { TcTscLibModule} from '@tibco-tcstk/tc-tsc-lib';
 import { TcTcmdLibModule} from '@tibco-tcstk/tc-tcmd-lib';
 import { TcLiveappsConfig } from '@tibco-tcstk/tc-liveapps-lib';
+import {TableModule} from 'primeng/table';
 
 // import {TcAgGridModule} from '@tibco-tcstk/tc-ag-grid';
 
@@ -108,6 +109,7 @@ const tcLiveappsConfig: TcLiveappsConfig = {
     TcMessagingLibModule,
     TcEventsLibModule,
     TcScribeLibModule,
+    TableModule,
     TcPrimengLibModule,
     TcTscLibModule,
     TcTcmdLibModule,
