@@ -1,7 +1,7 @@
-#TIBCO Cloud™ Starters Toolkit - PrimeNG Library
+# TIBCO Cloud™ Composer - PrimeNG Library
 <img src="https://community.tibco.com/sites/default/files/tibco_labs_final_with_tm2-01.png" alt="drawing" width="100"/>Powered by [TIBCO Labs™](https://community.tibco.com/wiki/tibco-labs)
 
-The PrimeNG Library contains table components for use with Cloud Starter Applications.
+The PrimeNG Library contains table components for use with TIBCO Cloud Applications.
 
 This library depends on the Live Apps Library
 

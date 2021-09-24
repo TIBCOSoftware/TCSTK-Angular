@@ -1,4 +1,4 @@
-# TcEventsLib
+# TIBCO Cloud™ Composer - TcEventsLib
 
 This library provides services and components for use with TIBCO Cloud Events.
 

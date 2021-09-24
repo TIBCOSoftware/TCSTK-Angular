@@ -1,7 +1,7 @@
-# TIBCO Cloud™ Starters Toolkit - Forms Library
+# TIBCO Cloud™ Composer - Forms Library
 <img src="https://community.tibco.com/sites/default/files/tibco_labs_final_with_tm2-01.png" alt="drawing" width="100"/>Powered by [TIBCO Labs™](https://community.tibco.com/wiki/tibco-labs)
 
-The Forms library contains components to display Live Apps forms for use with Cloud Starter Applications.
+The Forms library contains components to display Live Apps forms for use with TIBCO Cloud Applications.
 
 ---
 For more information see the [TCSTK Documentation](https://tibcosoftware.github.io/TCSToolkit/)

@@ -1,4 +1,4 @@
-#TIBCO Cloud™ Starters Toolkit - Core Library
+# TIBCO Cloud™ Composer - Core Library
 <img src="https://community.tibco.com/sites/default/files/tibco_labs_final_with_tm2-01.png" alt="drawing" width="100"/>Powered by [TIBCO Labs™](https://community.tibco.com/wiki/tibco-labs)
 
 The core library contains the core capabilities required for any cloud starter application.
