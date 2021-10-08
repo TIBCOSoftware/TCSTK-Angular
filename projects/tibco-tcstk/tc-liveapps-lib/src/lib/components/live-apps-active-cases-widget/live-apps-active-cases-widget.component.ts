@@ -45,6 +45,11 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
   @Input() uiAppId: string;
 
   /**
+   * Optionally a different widget Title
+   */
+  @Input() widgetTitle = 'Active Cases';
+
+  /**
    * Maximum rows to show in legend before it is hidden (otherwise would take whole widget)
    */
   public maxLegendItems: number = 8;
