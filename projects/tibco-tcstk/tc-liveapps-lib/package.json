@@ -12,7 +12,6 @@
     "ngx-color-picker": "^10.1.0",
     "ng2-charts": "^2.4.3",
     "chartjs-plugin-datalabels": "^0.7.0",
-    "chartjs-plugin-doughnutlabel": "^2.0.3",
     "@tibco-tcstk/tc-core-lib": "^3.1.0",
     "@tibco-tcstk/tc-forms-lib": "^3.1.0"
   },

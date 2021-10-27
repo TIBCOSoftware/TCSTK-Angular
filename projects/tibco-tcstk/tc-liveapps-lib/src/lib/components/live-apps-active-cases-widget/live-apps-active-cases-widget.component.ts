@@ -1,12 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CaseTypeReportRecord, CaseTypesReport, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
-import {BaseChartDirective, Label, MultiDataSet} from 'ng2-charts';
-import {ChartType} from 'chart.js';
-import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsActiveCasesReportComponent} from '../live-apps-active-cases-report/live-apps-active-cases-report.component';
 import {LiveAppsActiveCasesForTypeReportComponent} from '../live-apps-active-cases-for-type-report/live-apps-active-cases-for-type-report.component';
+import { Chart } from "chart.js";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 
 /**
@@ -84,6 +82,11 @@ export class LiveAppsActiveCasesWidgetComponent extends LiveAppsComponent {
 
   @ViewChild(LiveAppsActiveCasesReportComponent, {static: false}) activeCasesComp: LiveAppsActiveCasesReportComponent;
   @ViewChild(LiveAppsActiveCasesForTypeReportComponent, {static: false}) activeCaseTypeComp: LiveAppsActiveCasesForTypeReportComponent;
+
+  constructor() {
+    super();
+    Chart.register(ChartDataLabels);
+  }
 
   public selectedCaseTypeReport: CaseTypeReportRecord;
 

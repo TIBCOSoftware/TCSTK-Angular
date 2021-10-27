@@ -1,12 +1,11 @@
 import {AfterViewChecked, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {CaseTypeReportRecord, CaseTypesReport} from '../../models/tc-live-apps-reporting';
-import {BaseChartDirective, defaultColors, Label, MultiDataSet, SingleDataSet} from 'ng2-charts';
-import {ChartType} from 'chart.js';
+import {BaseChartDirective} from 'ng2-charts';
 import {TcLiveAppsReportingService} from '../../services/tc-live-apps-reporting.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {map, take, takeUntil} from 'rxjs/operators';
+import {take, takeUntil} from 'rxjs/operators';
 import {DEFAULT_COLORS, DEFAULT_TYPE_COLOR} from '../../services/tc-case-card-config.service';
-import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import { Chart, ChartConfiguration, ChartOptions, ChartType } from "chart.js";
 
 /**
  * Home page active cases widget sub component
@@ -81,8 +80,7 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   public widgetWidth: number;
   public widgetHeight: number;
 
-  public doughnutChartLabels: Label[];
-  public doughnutChartData: SingleDataSet = [];
+  public doughnutChartData: ChartConfiguration<'doughnut'>['data'];
   public doughnutChartType: ChartType = 'doughnut';
   public chartColors: any[] = [];
   public defaultColors: string[] = DEFAULT_COLORS.slice().reverse();
@@ -93,13 +91,9 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
     return this.totalActiveCaseCount;
   }
 
-  public doughnutChartOptions: any = {
+  public doughnutChartOptions: ChartOptions<'doughnut'> = {
     responsive: true,
     maintainAspectRatio: false,
-    legend: {
-      display: false,
-      position: 'left'
-    },
     layout: {
       padding: {
         left: 0,
@@ -109,31 +103,13 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
       }
     },
     plugins: {
-      doughnutlabel: {
-        labels: [
-          {
-            text: this.getCaseCount,
-            font: {
-              size: '20',
-              family: 'Source Sans Pro',
-              weight: 'bold'
-            },
-            color: '#b6b6b6'
-          },
-          {
-            text: 'cases',
-            font: {
-              size: '16',
-              family: 'Source Sans Pro',
-            },
-            color: '#b6b6b6'
-          }
-        ]
+      legend: {
+        position: 'left'
       },
       datalabels: {
         anchor: 'end',
-        backgroundColor: function(context) {
-          return context.dataset.backgroundColor;
+        backgroundColor: function(context): string {
+          return context?.dataset?.backgroundColor[context.dataIndex];
         },
         borderColor: 'white',
         borderRadius: 25,
@@ -148,11 +124,10 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
           weight: 'bold'
         },
         formatter: (value, ctx) => {
-
           const datasets = ctx.chart.data.datasets;
-
           if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
             if (this.showPercentages) {
+              // @ts-ignore
               const sum = datasets[0].data.reduce((a, b) => a + b, 0);
               const percentage = Math.round((value / sum) * 100) + '%';
               return percentage;
@@ -168,7 +143,10 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   };
 
   private initReportDataToChart = (reportData: CaseTypesReport) => {
-    this.doughnutChartData = [];
+    this.doughnutChartData = {
+      labels: [],
+      datasets: []
+    };
     this.totalActiveCaseCount = 0;
     const activeCasesArray: any[] = [];
     const labels: string[] = [];
@@ -207,9 +185,9 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
       colorArray.push(col);
     });
     // showing more than 8 in the legend will take up too much space
-    this.doughnutChartOptions.legend.display = labels.length <= 8;
-    this.doughnutChartData = activeCasesArray;
-    this.doughnutChartLabels = labels;
+    // this.doughnutChartOptions..legend.display = labels.length <= 8;
+    this.doughnutChartData.datasets.push({ data: activeCasesArray, backgroundColor: colorArray });
+    this.doughnutChartData.labels = labels;
     this.chartColors.push( { backgroundColor: colorArray});
     this.renderChart = true;
   }
@@ -229,19 +207,10 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   }
 
   // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: any }): void {
+  public chartClicked({ event, active }: { event: { chart: Chart, native: MouseEvent }, active: any }): void {
     if (active.length > 0) {
-      const chart = active[0]._chart;
-      const activePoints: any = chart.getElementAtEvent(event);
-      if ( activePoints.length > 0) {
-        // get the internal index of slice in pie chart
-        const clickedElementIndex = activePoints[0]._index;
-        const label = chart.data.labels[clickedElementIndex];
-        // get value by index
-        const value = chart.data.datasets[0].data[clickedElementIndex];
-        this.caseTypesReport.caseTypes[clickedElementIndex].incTerminal = false;
-        this.selectedCaseType.emit(this.caseTypesReport.caseTypes[clickedElementIndex]);
-      }
+      const selectedType = this.caseTypesReport.caseTypes[active[0].element.$context.dataIndex];
+      this.selectedCaseType.emit(selectedType);
     }
   }
 

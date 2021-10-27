@@ -87,7 +87,7 @@ import {ParseAuditMessagePipe} from './pipes/audit.pipe';
 import {LiveAppsCaseActionsListComponent} from './components/live-apps-case-actions-list/live-apps-case-actions-list.component';
 import { LiveAppsDocumentViewerComponent } from './components/live-apps-document-viewer/live-apps-document-viewer.component';
 import { LiveAppsLandingPageComponent } from './components/live-apps-landing-page/live-apps-landing-page.component';
-import {ChartsModule} from 'ng2-charts';
+import {NgChartsModule} from 'ng2-charts';
 import {TcLiveAppsReportingService} from './services/tc-live-apps-reporting.service';
 import {CommonModule, Location} from '@angular/common';
 import {RoleGuard} from './guards/role.guard';
@@ -237,7 +237,7 @@ export function initAppDefinitionService(appDefinitionService: TcAppDefinitionSe
     ColorPickerModule,
     ScrollingModule,
     ReactiveFormsModule,
-    ChartsModule
+    NgChartsModule
   ],
   exports: [
     LiveAppsLoginComponent,
