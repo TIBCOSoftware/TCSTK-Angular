@@ -27,6 +27,7 @@ sandboxId | number | sandboxId - this comes from claims resolver
 showHeader | boolean | Whether to show the header bar in the widget - eg. favorites on home page (contains icon etc) - if off icons still appear without bar
 showPercentages | boolean | 
 uiAppId | string | The Application ID of the UI (should ideally be unique as it is shared state key)
+widgetTitle |  | Optionally a different widget Title
 
 #### Outputs
 
