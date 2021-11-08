@@ -102,6 +102,10 @@ export class TcprimengGenericTableComponent implements OnInit {
    */
   @Input() rowExpansionTemplate: TemplateRef<any>;
 
+  @Input() tableScrollable = false;
+
+  @Input() tableStyle: any = {};
+
   /**
    * Generates the automatically the layout.
    */

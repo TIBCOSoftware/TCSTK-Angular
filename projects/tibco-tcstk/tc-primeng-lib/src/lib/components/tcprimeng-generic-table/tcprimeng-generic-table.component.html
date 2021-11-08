@@ -1,8 +1,7 @@
 <!-- Removed: [virtualScroll]="true" -->
-<!-- TODO: [scrollable]="true" -->
 <p-table #dt [columns]="columnDefs" [value]="rowData" styleClass="custom-table-css"
          [autoLayout]="autoLayout" dataKey="name" [resizableColumns]="false" scrollHeight="flex"
-         [virtualRowHeight]="34"
+         [virtualRowHeight]="34" [scrollable]="tableScrollable" [style]="tableStyle"
          [rows]="defaultRows" [showCurrentPageReport]="showCurrentPageReport" [rowsPerPageOptions]="rowsPerPageOptions"
          [paginator]="paginator" [currentPageReportTemplate]="currentPageReportTemplate">
   <ng-template pTemplate="header" let-columns>
