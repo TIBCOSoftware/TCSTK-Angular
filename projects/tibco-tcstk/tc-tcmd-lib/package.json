@@ -7,5 +7,40 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "author": {
+    "name": "TIBCO Labs",
+    "email": "tibcolabs@tibco.com",
+    "url": "https://www.tibco.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TIBCOSoftware/TCSTK-Angular"
+  },
+  "homepage": "https://tibcosoftware.github.io/TCSToolkit/",
+  "keywords": [
+    "tibco",
+    "cloud",
+    "tci",
+    "liveapps",
+    "angular",
+    "cli",
+    "tcli",
+    "cloud starter",
+    "starter",
+    "accelerator",
+    "live apps",
+    "connected",
+    "intelligence",
+    "connected intelligence cloud",
+    "cic",
+    "labs",
+    "tibco labs",
+    "analytics",
+    "framework",
+    "forms",
+    "custom forms"
+  ],
+  "license": "BSD-3-Clause",
+  "description": "TIBCO Cloud Composer Library that contains capabilities for your TIBCO Cloud Application"
 }
