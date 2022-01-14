@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {Claim, GeneralConfig, GeneralConfigResolver, RouteAction, Sandbox} from '@TIBCOSoftware/tc-core-lib';
+import {Claim, GeneralConfig, GeneralConfigResolver, RouteAction, Sandbox} from '@tibcosoftware/tc-core-lib';
 import {AccessResolver} from '../../resolvers/access.resolver';
 import {ClaimsResolver} from '../../resolvers/claims.resolver';
 import {Groups} from '../../models/tc-groups-data';
@@ -9,7 +9,7 @@ import {LiveAppsConfigResolver} from '../../resolvers/liveapps-config.resolver';
 import {Roles} from '../../models/tc-groups-data';
 import {RolesResolver} from '../../resolvers/roles.resolver';
 import {RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
-import {CustomFormDefs, FormResolver} from '@TIBCOSoftware/tc-forms-lib';
+import {CustomFormDefs, FormResolver} from '@tibcosoftware/tc-forms-lib';
 import {forkJoin} from 'rxjs';
 
 @Component({

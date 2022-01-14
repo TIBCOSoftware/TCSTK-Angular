@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveAppsFavoriteCasesComponent } from '@TIBCOSoftware/tc-liveapps-lib';
+import { LiveAppsFavoriteCasesComponent } from '@tibcosoftware/tc-liveapps-lib';
 
 @Component({
   selector: 'tcpmg-tcprimeng-favorite-cases',

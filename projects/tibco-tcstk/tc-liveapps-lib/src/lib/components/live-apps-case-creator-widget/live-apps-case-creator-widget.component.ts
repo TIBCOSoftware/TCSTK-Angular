@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {CaseType, ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
 
 /**
  * Wraps case creators component (high level component)

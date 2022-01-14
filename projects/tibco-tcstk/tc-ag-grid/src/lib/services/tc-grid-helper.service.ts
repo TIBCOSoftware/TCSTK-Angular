@@ -16,7 +16,7 @@ import {forkJoin, Observable, of, throwError} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {catchError, flatMap, map, switchMap, tap} from 'rxjs/operators';
 // import {error} from 'ng-packagr/lib/util/log';
-import {CaseInfo, TcCaseDataService} from '@TIBCOSoftware/tc-liveapps-lib';
+import {CaseInfo, TcCaseDataService} from '@tibcosoftware/tc-liveapps-lib';
 import {formatDate, NgLocaleLocalization} from '@angular/common';
 import { LOCALE_ID } from '@angular/core';
 export let InjectorInstance: Injector;

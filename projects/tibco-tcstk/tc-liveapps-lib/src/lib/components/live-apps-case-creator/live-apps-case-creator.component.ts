@@ -5,10 +5,10 @@ import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
 import {FormConfig} from '../../models/tc-liveapps-config';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
-import {TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
+import {TcCoreCommonFunctions} from '@tibcosoftware/tc-core-lib';
 
 /**
  * Handles rendering of case creator form.

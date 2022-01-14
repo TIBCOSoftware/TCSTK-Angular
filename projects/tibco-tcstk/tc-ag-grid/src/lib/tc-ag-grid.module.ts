@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { TcgridLiveappsCasesComponent } from './components/tcgrid-liveapps-cases/tcgrid-liveapps-cases.component';
 import { AgGridModule } from 'ag-grid-angular';
-import {TcLiveappsLibModule} from '@TIBCOSoftware/tc-liveapps-lib';
+import {TcLiveappsLibModule} from '@tibcosoftware/tc-liveapps-lib';
 import {CommonModule} from '@angular/common';
 import {TcGridHelperService} from './services/tc-grid-helper.service';
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {TcButtonsHelperService, ToolbarButton} from '@TIBCOSoftware/tc-core-lib';
-import {RouteAction} from '@TIBCOSoftware/tc-core-lib';
+import {TcButtonsHelperService, ToolbarButton} from '@tibcosoftware/tc-core-lib';
+import {RouteAction} from '@tibcosoftware/tc-core-lib';
 import {Router, ActivatedRoute} from '@angular/router';
-import {ConfigurationMenuConfig} from '@TIBCOSoftware/tc-core-lib';
-import { TcRolesService } from '@TIBCOSoftware/tc-liveapps-lib';
+import {ConfigurationMenuConfig} from '@tibcosoftware/tc-core-lib';
+import { TcRolesService } from '@tibcosoftware/tc-liveapps-lib';
 
 @Component({
   selector: 'app-configuration',

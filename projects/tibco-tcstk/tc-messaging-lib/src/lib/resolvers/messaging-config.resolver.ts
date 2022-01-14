@@ -13,7 +13,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Location} from '@angular/common';
 import {EFTLConfigService} from '../services/e-ftl-config.service';
 import {MessagingConfig} from '../models/messaging-config';
-import {TcCoreCommonFunctions, TcSharedStateService, UiAppIdConfig} from '@TIBCOSoftware/tc-core-lib';
+import {TcCoreCommonFunctions, TcSharedStateService, UiAppIdConfig} from '@tibcosoftware/tc-core-lib';
 
 @Injectable()
 export class MessagingConfigResolver implements Resolve<Observable<MessagingConfig>> {

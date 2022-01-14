@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
 import {LiveAppsCaseActionsComponent} from '../live-apps-case-actions/live-apps-case-actions.component';
 
 

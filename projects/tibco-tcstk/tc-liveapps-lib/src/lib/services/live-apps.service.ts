@@ -39,7 +39,7 @@ import {
   Claim,
   Sandbox,
   SandboxList
-} from '@TIBCOSoftware/tc-core-lib';
+} from '@tibcosoftware/tc-core-lib';
 import {Groups} from '../models/tc-groups-data';
 import {
   catchError,
@@ -54,7 +54,7 @@ import {
   takeUntil,
   tap
 } from 'rxjs/operators';
-import { Deserializable} from '@TIBCOSoftware/tc-core-lib';
+import { Deserializable} from '@tibcosoftware/tc-core-lib';
 import {split} from 'ts-node';
 import {Location} from '@angular/common';
 import {StateTrackerData} from '../models/tc-case-states';

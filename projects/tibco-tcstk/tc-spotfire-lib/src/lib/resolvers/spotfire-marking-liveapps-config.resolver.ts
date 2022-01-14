@@ -6,8 +6,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { TcSpotfireConfigService } from '../services/tc-spotfire-config.service';
 import {SpotfireConfig, SpotfireMarkingCreateCaseConfig} from '../models/tc-spotfire-config';
 import { Location } from '@angular/common';
-import { TcSharedStateService, UiAppIdConfig } from '@TIBCOSoftware/tc-core-lib';
-import { TcCoreCommonFunctions } from '@TIBCOSoftware/tc-core-lib';
+import { TcSharedStateService, UiAppIdConfig } from '@tibcosoftware/tc-core-lib';
+import { TcCoreCommonFunctions } from '@tibcosoftware/tc-core-lib';
 import {TcSpotfireMarkingLiveappsConfigService} from '../services/tc-spotfire-marking-liveapps-config.service';
 
 @Injectable()

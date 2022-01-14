@@ -1,4 +1,4 @@
-import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable} from '@tibcosoftware/tc-core-lib';
 import {CaseTypeStatesList} from './liveappsdata';
 import {AuditEventAttribute, AuditEventList} from './tc-case-audit';
 

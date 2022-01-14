@@ -13,7 +13,7 @@ import {
 import {Observable, Subject} from 'rxjs';
 import {distinctUntilChanged} from 'rxjs/internal/operators/distinctUntilChanged';
 import {debounceTime, map} from 'rxjs/operators';
-import {TcComponent} from '@TIBCOSoftware/tc-core-lib';
+import {TcComponent} from '@tibcosoftware/tc-core-lib';
 
 
 /**

@@ -4,8 +4,8 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import {map, take, takeUntil} from 'rxjs/operators';
 import {Note, NoteThread, NotificationList, ThreadList} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {ToolbarButton} from '@TIBCOSoftware/tc-core-lib';
-import {TcButtonsHelperService} from '@TIBCOSoftware/tc-core-lib';
+import {ToolbarButton} from '@tibcosoftware/tc-core-lib';
+import {TcButtonsHelperService} from '@tibcosoftware/tc-core-lib';
 
 
 /**

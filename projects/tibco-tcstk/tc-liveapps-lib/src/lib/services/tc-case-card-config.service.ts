@@ -6,7 +6,7 @@ import {
   TcCoreCommonFunctions,
   TcSharedStateService,
   UiAppConfig
-} from '@TIBCOSoftware/tc-core-lib';
+} from '@tibcosoftware/tc-core-lib';
 import {forkJoin, Observable, of, throwError} from 'rxjs';
 import {ApiResponseError, CardConfig, CaseInfo, CaseTypeState, CaseTypeStatesList, IconMap, UserInfo} from '../models/liveappsdata';
 import {LiveAppsService} from './live-apps.service';

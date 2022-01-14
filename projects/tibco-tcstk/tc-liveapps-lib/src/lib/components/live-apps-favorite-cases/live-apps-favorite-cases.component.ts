@@ -10,7 +10,7 @@ import { take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {CaseRoute} from '../../models/liveappsdata';
-import { TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
+import { TcCoreCommonFunctions} from '@tibcosoftware/tc-core-lib';
 
 
 /**

@@ -1,6 +1,6 @@
-import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable} from '@tibcosoftware/tc-core-lib';
 import {CaseType} from './liveappsdata';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
 import {FormConfig} from './tc-liveapps-config';
 
 export class CaseCreatorSelectionContext {

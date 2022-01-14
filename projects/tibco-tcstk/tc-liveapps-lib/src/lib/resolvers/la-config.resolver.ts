@@ -5,10 +5,10 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, Router} from '@angular/router';
 import {forkJoin, Observable, of} from 'rxjs';
-import {GeneralConfigResolver, UiAppConfig, GeneralConfig, TcGeneralConfigService} from '@TIBCOSoftware/tc-core-lib';
+import {GeneralConfigResolver, UiAppConfig, GeneralConfig, TcGeneralConfigService} from '@tibcosoftware/tc-core-lib';
 import {flatMap, map, mergeMap} from 'rxjs/operators';
-import {TcSharedStateService} from '@TIBCOSoftware/tc-core-lib';
-import {Claim} from '@TIBCOSoftware/tc-core-lib';
+import {TcSharedStateService} from '@tibcosoftware/tc-core-lib';
+import {Claim} from '@tibcosoftware/tc-core-lib';
 import {ClaimsResolver} from './claims.resolver';
 import {LiveAppsService} from '../services/live-apps.service';
 import {HttpClient} from '@angular/common/http';

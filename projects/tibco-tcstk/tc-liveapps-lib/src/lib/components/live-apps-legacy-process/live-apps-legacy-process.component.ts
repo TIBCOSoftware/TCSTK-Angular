@@ -8,8 +8,8 @@ import {
   Output
 } from '@angular/core';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {LegacyIframeService} from '@TIBCOSoftware/tc-core-lib';
-import {TcVisibilityService} from '@TIBCOSoftware/tc-core-lib';
+import {LegacyIframeService} from '@tibcosoftware/tc-core-lib';
+import {TcVisibilityService} from '@tibcosoftware/tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 
 /**

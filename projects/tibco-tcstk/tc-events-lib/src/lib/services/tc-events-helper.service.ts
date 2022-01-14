@@ -4,7 +4,7 @@ import {catchError, switchMap} from 'rxjs/operators';
 import {TcEventsService} from '../services/tc-events.service';
 import {EventsResponse} from '../models/tc-events';
 import {RuleDeployment} from '../models/tc-events-helper';
-import {TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
+import {TcCoreCommonFunctions} from '@tibcosoftware/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,4 @@
-import {Deserializable, GeneralConfig} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable, GeneralConfig} from '@tibcosoftware/tc-core-lib';
 
 export class LiveAppsConfig implements Deserializable {
   id: string;

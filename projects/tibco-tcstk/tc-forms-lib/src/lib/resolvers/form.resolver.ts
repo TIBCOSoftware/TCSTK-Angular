@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Location} from '@angular/common';
-import {TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
+import {TcCoreCommonFunctions} from '@tibcosoftware/tc-core-lib';
 import {map} from 'rxjs/operators';
 import {CustomFormDefs} from '../models/tc-custom-forms';
 

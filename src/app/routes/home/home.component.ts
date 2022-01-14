@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GeneralConfig, UiAppConfig, RouteAction, Claim} from '@TIBCOSoftware/tc-core-lib';
+import {GeneralConfig, UiAppConfig, RouteAction, Claim} from '@tibcosoftware/tc-core-lib';
 import {
   CaseRoute,
   CaseType,
@@ -9,9 +9,9 @@ import {
   Roles,
   RouteAccessControlConfigurationElement,
   FormConfig
-} from '@TIBCOSoftware/tc-liveapps-lib';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
-import { TcmdService} from '@TIBCOSoftware/tc-tcmd-lib';
+} from '@tibcosoftware/tc-liveapps-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
+import { TcmdService} from '@tibcosoftware/tc-tcmd-lib';
 
 @Component({
   selector: 'app-home',

@@ -18,70 +18,70 @@
       "dom"
     ],
     "paths": {
-      "@TIBCOSoftware/tc-liveapps-lib": [
+      "@tibcosoftware/tc-liveapps-lib": [
         "dist/tibco-tcstk/tc-liveapps-lib"
       ],
-      "@TIBCOSoftware/tc-liveapps-lib/*": [
+      "@tibcosoftware/tc-liveapps-lib/*": [
         "dist/tibco-tcstk/tc-liveapps-lib/*"
       ],
-      "@TIBCOSoftware/tc-core-lib": [
+      "@tibcosoftware/tc-core-lib": [
         "dist/tibco-tcstk/tc-core-lib"
       ],
-      "@TIBCOSoftware/tc-core-lib/*": [
+      "@tibcosoftware/tc-core-lib/*": [
         "dist/tibco-tcstk/tc-core-lib/*"
       ],
-      "@TIBCOSoftware/tc-forms-lib": [
+      "@tibcosoftware/tc-forms-lib": [
         "dist/tibco-tcstk/tc-forms-lib"
       ],
-      "@TIBCOSoftware/tc-forms-lib/*": [
+      "@tibcosoftware/tc-forms-lib/*": [
         "dist/tibco-tcstk/tc-forms-lib/*"
       ],
-      "@TIBCOSoftware/tc-messaging-lib": [
+      "@tibcosoftware/tc-messaging-lib": [
         "dist/tibco-tcstk/tc-messaging-lib"
       ],
-      "@TIBCOSoftware/tc-messaging-lib/*": [
+      "@tibcosoftware/tc-messaging-lib/*": [
         "dist/tibco-tcstk/tc-messaging-lib/*"
       ],
-      "@TIBCOSoftware/tc-spotfire-lib": [
+      "@tibcosoftware/tc-spotfire-lib": [
         "dist/tibco-tcstk/tc-spotfire-lib"
       ],
-      "@TIBCOSoftware/tc-spotfire-lib/*": [
+      "@tibcosoftware/tc-spotfire-lib/*": [
         "dist/tibco-tcstk/tc-spotfire-lib/*"
       ],
-      "@TIBCOSoftware/tc-events-lib": [
+      "@tibcosoftware/tc-events-lib": [
         "dist/tibco-tcstk/tc-events-lib"
       ],
-      "@TIBCOSoftware/tc-events-lib/*": [
+      "@tibcosoftware/tc-events-lib/*": [
         "dist/tibco-tcstk/tc-events-lib/*"
       ],
-      "@TIBCOSoftware/tc-ag-grid": [
+      "@tibcosoftware/tc-ag-grid": [
         "dist/tibco-tcstk/tc-ag-grid"
       ],
-      "@TIBCOSoftware/tc-ag-grid/*": [
+      "@tibcosoftware/tc-ag-grid/*": [
         "dist/tibco-tcstk/tc-ag-grid/*"
       ],
-      "@TIBCOSoftware/tc-scribe-lib": [
+      "@tibcosoftware/tc-scribe-lib": [
         "dist/tibco-tcstk/tc-scribe-lib"
       ],
-      "@TIBCOSoftware/tc-scribe-lib/*": [
+      "@tibcosoftware/tc-scribe-lib/*": [
         "dist/tibco-tcstk/tc-scribe-lib/*"
       ],
-      "@TIBCOSoftware/tc-primeng-lib": [
+      "@tibcosoftware/tc-primeng-lib": [
         "dist/tibco-tcstk/tc-primeng-lib"
       ],
-      "@TIBCOSoftware/tc-primeng-lib/*": [
+      "@tibcosoftware/tc-primeng-lib/*": [
         "dist/tibco-tcstk/tc-primeng-lib/*"
       ],
-      "@TIBCOSoftware/tc-tsc-lib": [
+      "@tibcosoftware/tc-tsc-lib": [
         "dist/tibco-tcstk/tc-tsc-lib"
       ],
-      "@TIBCOSoftware/tc-tsc-lib/*": [
+      "@tibcosoftware/tc-tsc-lib/*": [
         "dist/tibco-tcstk/tc-tsc-lib/*"
       ],
-      "@TIBCOSoftware/tc-tcmd-lib": [
+      "@tibcosoftware/tc-tcmd-lib": [
         "dist/tibco-tcstk/tc-tcmd-lib"
       ],
-      "@TIBCOSoftware/tc-tcmd-lib/*": [
+      "@tibcosoftware/tc-tcmd-lib/*": [
         "dist/tibco-tcstk/tc-tcmd-lib/*"
       ]
     }

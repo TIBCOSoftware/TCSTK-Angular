@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotfireConfig, TcSpotfireConfigService } from '@TIBCOSoftware/tc-spotfire-lib';
+import { SpotfireConfig, TcSpotfireConfigService } from '@tibcosoftware/tc-spotfire-lib';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

@@ -1,5 +1,5 @@
 {
-  "name": "@TIBCOSoftware/tc-core-lib",
+  "name": "@tibcosoftware/tc-core-lib",
   "version": "3.2.0",
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.lib.json"

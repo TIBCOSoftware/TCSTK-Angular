@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild, ViewChildren} from '@angular/core';
-import {Claim, GeneralConfig} from '@TIBCOSoftware/tc-core-lib';
+import {Claim, GeneralConfig} from '@tibcosoftware/tc-core-lib';
 import {
   CaseInfo, CaseSearchResults,
   CaseType, FormConfig,
@@ -7,15 +7,15 @@ import {
   LiveAppsConfig, LiveAppsFormConfig,
   LiveAppsService,
   Metadata, ProcessId
-} from '@TIBCOSoftware/tc-liveapps-lib';
+} from '@tibcosoftware/tc-liveapps-lib';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MessagingConfig, MessagingConnection} from '@TIBCOSoftware/tc-messaging-lib';
-import {RuleDeployment, TcEventsHelperService, TcEventsService} from '@TIBCOSoftware/tc-events-lib';
+import {MessagingConfig, MessagingConnection} from '@tibcosoftware/tc-messaging-lib';
+import {RuleDeployment, TcEventsHelperService, TcEventsService} from '@tibcosoftware/tc-events-lib';
 // import {error} from 'ng-packagr/lib/util/log';
-import {LiveAppsFormWcComponent} from '@TIBCOSoftware/tc-liveapps-lib';
+import {LiveAppsFormWcComponent} from '@tibcosoftware/tc-liveapps-lib';
 import {TcPrimeNGHelperService} from 'projects/tibco-tcstk/tc-primeng-lib/src/lib/services/tc-primeng-helper.service';
 
-// import {TcgridLiveappsCasesComponent} from '@TIBCOSoftware/tc-ag-grid';
+// import {TcgridLiveappsCasesComponent} from '@tibcosoftware/tc-ag-grid';
 
 @Component({
   selector: 'laapp-showcase',

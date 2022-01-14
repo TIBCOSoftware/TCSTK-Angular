@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { RoleAttribute } from '@TIBCOSoftware/tc-core-lib';
+import { RoleAttribute } from '@tibcosoftware/tc-core-lib';
 
 /**
  * Switch roles

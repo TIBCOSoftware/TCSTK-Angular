@@ -1,4 +1,4 @@
-import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable} from '@tibcosoftware/tc-core-lib';
 
 export class CaseTypeReportRecordInfo implements Deserializable {
   id: string;

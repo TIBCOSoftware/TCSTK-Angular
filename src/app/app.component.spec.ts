@@ -25,7 +25,7 @@ import {HomeComponent} from './routes/home/home.component';
 import {ConfigurationComponent} from './routes/configuration/configuration.component';
 import {CaseComponent} from './routes/case/case.component';
 import {SplashComponent} from './routes/splash/splash.component';
-import {LogService} from '@TIBCOSoftware/tc-core-lib';
+import {LogService} from '@tibcosoftware/tc-core-lib';
 import { Location } from '@angular/common';
 import {Router} from '@angular/router';
 import {CORE_ROUTES} from './route-config/core-route-config';

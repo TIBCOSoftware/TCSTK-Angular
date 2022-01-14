@@ -1,4 +1,4 @@
-import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable} from '@tibcosoftware/tc-core-lib';
 import {CaseInfo, JsonSchema} from './liveappsdata';
 
 export class CaseInfoWithSchema implements Deserializable {

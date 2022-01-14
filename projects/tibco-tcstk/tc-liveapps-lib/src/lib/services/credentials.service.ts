@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {LiveAppsService} from '../services/live-apps.service';
-import {TcCoreConfigService} from '@TIBCOSoftware/tc-core-lib';
+import {TcCoreConfigService} from '@tibcosoftware/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'

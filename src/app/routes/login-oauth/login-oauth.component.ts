@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LoginContext} from '@TIBCOSoftware/tc-liveapps-lib';
+import {LoginContext} from '@tibcosoftware/tc-liveapps-lib';
 
 @Component({
   selector: 'laapp-login-oauth',

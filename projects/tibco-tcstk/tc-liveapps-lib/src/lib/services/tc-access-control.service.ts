@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RouteAccessControlConfig } from '../models/tc-groups-data';
-import { TcCoreCommonFunctions, TcSharedStateService, SharedStateContent, SharedStateEntry, SharedStateList } from '@TIBCOSoftware/tc-core-lib';
+import { TcCoreCommonFunctions, TcSharedStateService, SharedStateContent, SharedStateEntry, SharedStateList } from '@tibcosoftware/tc-core-lib';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {flatMap, map} from 'rxjs/operators';

@@ -1,6 +1,6 @@
 /* Models used to store Events Interactions */
 
-import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable} from '@tibcosoftware/tc-core-lib';
 
 export class EventsAttribute {
   Id: string;

@@ -1,4 +1,4 @@
-import { Deserializable } from '@TIBCOSoftware/tc-core-lib';
+import { Deserializable } from '@tibcosoftware/tc-core-lib';
 
 /* models used by landing page config */
 export class ActionButtonConfig {

@@ -12,7 +12,7 @@ import {LiveAppsService} from '../../services/live-apps.service';
 import { take, takeUntil} from 'rxjs/operators';
 import { CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {TcComponent, TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
+import {TcComponent, TcCoreCommonFunctions} from '@tibcosoftware/tc-core-lib';
 
 /**
  * Recent cases widget, this Component list recent visited Cases.

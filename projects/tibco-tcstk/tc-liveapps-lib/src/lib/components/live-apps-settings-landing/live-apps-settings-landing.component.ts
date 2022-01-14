@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { RoleAttribute, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@TIBCOSoftware/tc-core-lib';
+import { RoleAttribute, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibcosoftware/tc-core-lib';
 import { TcDocumentService } from '../../services/tc-document.service';
 import { LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-apps-landing-page-config';
 

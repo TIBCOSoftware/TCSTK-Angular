@@ -19,7 +19,7 @@ import {DomSanitizer, Meta, SafeHtml} from '@angular/platform-browser';
 import {LiveAppsStateIconComponent} from '../live-apps-state-icon/live-apps-state-icon.component';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseCardConfigService} from '../../services/tc-case-card-config.service';
-import {TcComponent, TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
+import {TcComponent, TcCoreCommonFunctions} from '@tibcosoftware/tc-core-lib';
 import {ActivatedRoute, Router} from '@angular/router';
 
 /**

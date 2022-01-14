@@ -2,7 +2,7 @@ import {HomeComponent} from '../../routes/home/home.component';
 import {
   ConfigurationMenuConfigResolver,
   GeneralConfigResolver, GeneralLandingPageConfigResolver,
-} from '@TIBCOSoftware/tc-core-lib';
+} from '@tibcosoftware/tc-core-lib';
 import {
   AccessResolver,
   CaseGuard,
@@ -12,13 +12,13 @@ import {
   LiveAppsConfigResolver, RoleGuard,
   RolesResolver,
   RoleActiveResolver, FormConfigResolver, AuthGuard
-} from '@TIBCOSoftware/tc-liveapps-lib';
+} from '@tibcosoftware/tc-liveapps-lib';
 import {CaseComponent} from '../../routes/case/case.component';
 import {ConfigurationComponent} from '../../routes/configuration/configuration.component';
 import {CONFIGURATION_ROUTE_CONFIG, CONFIGURATION_ROUTE_PROVIDERS } from './configuration-route-config/configuration-route-config';
-import {FormResolver} from '@TIBCOSoftware/tc-forms-lib';
+import {FormResolver} from '@tibcosoftware/tc-forms-lib';
 import {ShowcaseComponent} from '../../routes/showcase/showcase.component';
-import {MessagingConfigResolver} from '@TIBCOSoftware/tc-messaging-lib';
+import {MessagingConfigResolver} from '@tibcosoftware/tc-messaging-lib';
 import { SplashComponent } from 'src/app/routes/splash/splash.component';
 
 export const HOME_ROUTE = 'splash';

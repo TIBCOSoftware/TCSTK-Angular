@@ -6,7 +6,7 @@ import { LiveAppsService } from '../services/live-apps.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { forkJoin, Observable } from 'rxjs';
-import { TcCoreCommonFunctions, TcGeneralConfigService, TcSharedStateService } from '@TIBCOSoftware/tc-core-lib';
+import { TcCoreCommonFunctions, TcGeneralConfigService, TcSharedStateService } from '@tibcosoftware/tc-core-lib';
 import { Location } from '@angular/common';
 import { TcRolesService } from '../services/tc-roles-service.ts.service';
 import { TcAccessControlService } from '../services/tc-access-control.service';

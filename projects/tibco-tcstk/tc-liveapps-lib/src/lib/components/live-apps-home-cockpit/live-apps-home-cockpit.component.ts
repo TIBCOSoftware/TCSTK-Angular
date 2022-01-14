@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {CaseRoute, CaseType} from '../../models/liveappsdata';
-import {ToolbarButton, TcButtonsHelperService, RouteAction} from '@TIBCOSoftware/tc-core-lib';
+import {ToolbarButton, TcButtonsHelperService, RouteAction} from '@tibcosoftware/tc-core-lib';
 import {LiveAppsFavoriteCasesComponent} from '../live-apps-favorite-cases/live-apps-favorite-cases.component';
 import {LiveAppsRecentCasesComponent} from '../live-apps-recent-cases/live-apps-recent-cases.component';
 import {LiveAppsSearchWidgetComponent} from '../live-apps-search-widget/live-apps-search-widget.component';
@@ -13,7 +13,7 @@ import {TcRolesService} from '../../services/tc-roles-service.ts.service';
 import {Roles, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
 import {LiveAppsActiveCasesWidgetComponent} from '../live-apps-active-cases-widget/live-apps-active-cases-widget.component';
 import {CaseTypeReportRecord, CaseTypeStateReportStateInfo} from '../../models/tc-live-apps-reporting';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
 import {LiveAppsWorkitemsComponent} from '../live-apps-workitems/live-apps-workitems.component';
 import {FormConfig} from '../../models/tc-liveapps-config';
 

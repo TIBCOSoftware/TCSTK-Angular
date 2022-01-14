@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LiveAppsService} from '../services/live-apps.service';
 import {Observable, of, ReplaySubject} from 'rxjs';
-import {Claim, TcCoreCommonFunctions, TcCoreConfigService, UiAppIdConfig} from '@TIBCOSoftware/tc-core-lib';
+import {Claim, TcCoreCommonFunctions, TcCoreConfigService, UiAppIdConfig} from '@tibcosoftware/tc-core-lib';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
 import {CaseType, CaseTypesList, CaseTypeState, Process, UserInfo} from '../models/liveappsdata';
 import {Location} from '@angular/common';

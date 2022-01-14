@@ -1,5 +1,5 @@
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {CachingInterceptor, TcCoreLibModule} from '@TIBCOSoftware/tc-core-lib';
+import {CachingInterceptor, TcCoreLibModule} from '@tibcosoftware/tc-core-lib';
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {TcSpotfireConfigService} from './services/tc-spotfire-config.service';
 import {TcSpotfireMarkingLiveappsConfigService} from './services/tc-spotfire-marking-liveapps-config.service';
@@ -28,7 +28,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {TcFormsLibModule} from '@TIBCOSoftware/tc-forms-lib';
+import {TcFormsLibModule} from '@tibcosoftware/tc-forms-lib';
 import {CommonModule} from '@angular/common';
 
 @NgModule({

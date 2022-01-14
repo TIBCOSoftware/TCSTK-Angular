@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LiveAppsRecentCasesComponent } from '@TIBCOSoftware/tc-liveapps-lib';
+import { LiveAppsRecentCasesComponent } from '@tibcosoftware/tc-liveapps-lib';
 
 @Component({
   selector: 'tcpmg-tcprimeng-recent-cases',

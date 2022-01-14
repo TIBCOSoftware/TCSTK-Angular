@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {SharedStateContent, SharedStateEntry, SharedStateList, TcCoreCommonFunctions, TcSharedStateService} from '@TIBCOSoftware/tc-core-lib';
+import {SharedStateContent, SharedStateEntry, SharedStateList, TcCoreCommonFunctions, TcSharedStateService} from '@tibcosoftware/tc-core-lib';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Location} from '@angular/common';

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Location} from '@angular/common';
-import {TcCoreCommonFunctions, TcSharedStateService} from '@TIBCOSoftware/tc-core-lib';
+import {TcCoreCommonFunctions, TcSharedStateService} from '@tibcosoftware/tc-core-lib';
 import {flatMap, map} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {SpotfireMarkingCreateCaseConfig} from '../models/tc-spotfire-config';

@@ -1,4 +1,4 @@
-import {Deserializable, RoleAttribute} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable, RoleAttribute} from '@tibcosoftware/tc-core-lib';
 
 export class Group {
   public name: string;

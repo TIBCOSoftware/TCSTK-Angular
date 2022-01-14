@@ -1,4 +1,4 @@
-import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
+import {Deserializable} from '@tibcosoftware/tc-core-lib';
 import {CaseAction, CaseAttribute, CaseCreator, CaseTypesList, Process} from './liveappsdata';
 
 export class LaProcessSelection {

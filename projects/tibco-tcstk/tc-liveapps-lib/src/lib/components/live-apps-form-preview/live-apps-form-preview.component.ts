@@ -3,8 +3,8 @@ import {CaseType, JsonSchema, Process} from '../../models/liveappsdata';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 import {MatExpansionPanel} from '@angular/material/expansion';
 import {FormConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
-import {TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
-import {RenderedFormComponent} from '@TIBCOSoftware/tc-forms-lib';
+import {TcCoreCommonFunctions} from '@tibcosoftware/tc-core-lib';
+import {RenderedFormComponent} from '@tibcosoftware/tc-forms-lib';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
 import {parse} from 'ts-node';
 

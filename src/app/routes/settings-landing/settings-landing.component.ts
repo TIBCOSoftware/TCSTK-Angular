@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneralLandingPageConfig, LandingPageConfig } from '@TIBCOSoftware/tc-liveapps-lib';
+import { GeneralLandingPageConfig, LandingPageConfig } from '@tibcosoftware/tc-liveapps-lib';
 import { ActivatedRoute } from '@angular/router';
-import { RoleAttribute, TcGeneralLandingPageConfigService } from '@TIBCOSoftware/tc-core-lib';
+import { RoleAttribute, TcGeneralLandingPageConfigService } from '@tibcosoftware/tc-core-lib';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

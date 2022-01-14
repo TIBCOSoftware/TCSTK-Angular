@@ -1,6 +1,6 @@
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Claim, GeneralConfig, RoleAttribute, TibcoCloudNewElementComponent} from '@TIBCOSoftware/tc-core-lib';
+import {Claim, GeneralConfig, RoleAttribute, TibcoCloudNewElementComponent} from '@tibcosoftware/tc-core-lib';
 import { MatDialog } from '@angular/material/dialog';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { MatSnackBar } from '@angular/material/snack-bar';

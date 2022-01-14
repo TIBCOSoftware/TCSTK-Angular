@@ -9,7 +9,7 @@ import {HttpClient, HttpHandler} from '@angular/common/http';
 import {catchError, flatMap, map, mergeMap} from 'rxjs/operators';
 import {Observable, of, throwError} from 'rxjs';
 import {ClaimsResolver} from '../resolvers/claims.resolver';
-import {Claim} from '@TIBCOSoftware/tc-core-lib';
+import {Claim} from '@tibcosoftware/tc-core-lib';
 import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 
 @Injectable()

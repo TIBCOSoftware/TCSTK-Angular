@@ -8,7 +8,7 @@ import {
   LiveAppsHomeCockpitComponent,
   LiveAppsLoginComponent,
   TcLiveappsLibModule
-} from '@TIBCOSoftware/tc-liveapps-lib';
+} from '@tibcosoftware/tc-liveapps-lib';
 import {Location} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
@@ -31,28 +31,28 @@ import {
   TcCoreLibModule,
   ProxyInterceptor,
   OAuthInterceptor
-} from '@TIBCOSoftware/tc-core-lib';
-import {TcMessagingLibModule} from '@TIBCOSoftware/tc-messaging-lib';
+} from '@tibcosoftware/tc-core-lib';
+import {TcMessagingLibModule} from '@tibcosoftware/tc-messaging-lib';
 import {LoginComponent} from './routes/login/login.component';
 import {HomeComponent} from './routes/home/home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {StarterAppComponent} from './routes/starter-app/starter-app.component';
-import {TcFormsLibModule} from '@TIBCOSoftware/tc-forms-lib';
+import {TcFormsLibModule} from '@tibcosoftware/tc-forms-lib';
 import {CaseComponent} from './routes/case/case.component';
 import { ConfigurationComponent } from './routes/configuration/configuration.component';
 import { ShowcaseComponent } from './routes/showcase/showcase.component';
 import { SplashComponent } from './routes/splash/splash.component';
 import {createCustomElement} from '@angular/elements';
-import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneComponent} from '@TIBCOSoftware/tc-liveapps-lib';
+import {LiveAppsHomeCockpitStandaloneComponent, LiveAppsCaseCockpitStandaloneComponent} from '@tibcosoftware/tc-liveapps-lib';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TcEventsLibModule} from '@TIBCOSoftware/tc-events-lib';
-import {TcScribeLibModule} from '@TIBCOSoftware/tc-scribe-lib';
-import { TcPrimengLibModule } from '@TIBCOSoftware/tc-primeng-lib';
-import {TcSpotfireLibModule} from '@TIBCOSoftware/tc-spotfire-lib';
+import {TcEventsLibModule} from '@tibcosoftware/tc-events-lib';
+import {TcScribeLibModule} from '@tibcosoftware/tc-scribe-lib';
+import { TcPrimengLibModule } from '@tibcosoftware/tc-primeng-lib';
+import {TcSpotfireLibModule} from '@tibcosoftware/tc-spotfire-lib';
 // import {TcAgGridModule} from '../../projects/tibco-tcstk/tc-ag-grid/src/lib/tc-ag-grid.module';
-import { TcTscLibModule} from '@TIBCOSoftware/tc-tsc-lib';
-import { TcTcmdLibModule} from '@TIBCOSoftware/tc-tcmd-lib';
+import { TcTscLibModule} from '@tibcosoftware/tc-tsc-lib';
+import { TcTcmdLibModule} from '@tibcosoftware/tc-tcmd-lib';
 
 /** This is the tc core configuration object
  * To use oauth you must also add the OAuthInterceptor to providers

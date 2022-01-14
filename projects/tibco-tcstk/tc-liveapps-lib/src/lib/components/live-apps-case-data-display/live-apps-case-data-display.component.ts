@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { JsonSchema} from '../../models/liveappsdata';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
 
 /**

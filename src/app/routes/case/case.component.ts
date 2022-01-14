@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LiveAppsConfig, Groups, Roles, RouteAccessControlConfigurationElement, FormConfig} from '@TIBCOSoftware/tc-liveapps-lib';
-import { Claim, Sandbox } from '@TIBCOSoftware/tc-core-lib';
+import {LiveAppsConfig, Groups, Roles, RouteAccessControlConfigurationElement, FormConfig} from '@tibcosoftware/tc-liveapps-lib';
+import { Claim, Sandbox } from '@tibcosoftware/tc-core-lib';
 
-import {GeneralConfig, RouteAction} from '@TIBCOSoftware/tc-core-lib';
-import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
+import {GeneralConfig, RouteAction} from '@tibcosoftware/tc-core-lib';
+import {CustomFormDefs} from '@tibcosoftware/tc-forms-lib';
 
 @Component({
   selector: 'app-case',

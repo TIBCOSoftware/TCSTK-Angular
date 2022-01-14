@@ -7,7 +7,7 @@ import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {TcprimengRecentCasesComponent} from './components/tcprimeng-recent-cases/tcprimeng-recent-cases.component';
-import {TcLiveappsLibModule} from '@TIBCOSoftware/tc-liveapps-lib';
+import {TcLiveappsLibModule} from '@tibcosoftware/tc-liveapps-lib';
 import {TcprimengFavoriteCasesComponent} from './components/tcprimeng-favorite-cases/tcprimeng-favorite-cases.component';
 import {TcprimengGenericTableComponent} from './components/tcprimeng-generic-table/tcprimeng-generic-table.component';
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Roles, RouteAccessControlConfigurationElement} from '../models/tc-groups-data';
-import { RoleAttribute } from '@TIBCOSoftware/tc-core-lib';
+import { RoleAttribute } from '@tibcosoftware/tc-core-lib';
 
 @Injectable({
     providedIn: 'root'

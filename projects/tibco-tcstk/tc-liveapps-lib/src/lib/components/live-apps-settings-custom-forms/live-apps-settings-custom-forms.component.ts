@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormConfig, FormRef, LiveAppsConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
 import {ActivatedRoute} from '@angular/router';
-import {GeneralConfig, Claim, Sandbox, TibcoCloudNewElementComponent, RoleAttribute} from '@TIBCOSoftware/tc-core-lib';
+import {GeneralConfig, Claim, Sandbox, TibcoCloudNewElementComponent, RoleAttribute} from '@tibcosoftware/tc-core-lib';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {TcFormConfigService} from '../../services/tc-form-config.service';

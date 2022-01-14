@@ -5,7 +5,7 @@ import {ApiResponseError, ApiResponseText} from '../models/liveappsdata';
 import {LiveAppsService} from './live-apps.service';
 import {Document, DocumentList, OrgFolder} from '../models/tc-document';
 import {catchError, flatMap, map, tap} from 'rxjs/operators';
-import {TcCoreCommonFunctions, TcCoreConfigService} from '@TIBCOSoftware/tc-core-lib';
+import {TcCoreCommonFunctions, TcCoreConfigService} from '@tibcosoftware/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
