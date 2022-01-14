@@ -11,7 +11,7 @@ import {
 import {take, takeUntil} from 'rxjs/operators';
 import {CaseRoute} from '../../models/liveappsdata';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TcComponent, TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
 import {TcWorkitemsService} from '../../services/tc-workitems.service';
 import {Workitem} from '../../models/tc-workitems';
 

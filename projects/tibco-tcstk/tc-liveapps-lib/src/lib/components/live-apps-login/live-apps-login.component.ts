@@ -2,7 +2,7 @@
 
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {LoginContext} from '../../models/liveappsdata';
-import {LoginPrefill, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
+import {LoginPrefill, TcCoreConfigService} from '@TIBCOSoftware/tc-core-lib';
 import {LiveAppsService} from '../../services/live-apps.service';
 import { LiveAppsComponent } from '../live-apps-component/live-apps-component.component';
 import {TcAppDefinitionService} from '../../services/tc-app-definition.service';

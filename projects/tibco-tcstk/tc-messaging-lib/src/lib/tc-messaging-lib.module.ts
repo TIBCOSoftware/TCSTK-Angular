@@ -11,7 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatIconRegistry } from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
-import {TcCoreLibModule} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreLibModule} from '@TIBCOSoftware/tc-core-lib';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {EftlMessagingSettingsComponent} from './components/eftl-messaging-settings/eftl-messaging-settings.component';
 import {CommonModule} from '@angular/common';

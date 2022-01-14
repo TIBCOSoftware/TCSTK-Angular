@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {ProcessId} from '../../models/liveappsdata';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsCreatorSelectorComponent} from '../live-apps-creator-selector/live-apps-creator-selector.component';
-import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
 import {FormConfig, ProcessFormConfig} from '../../models/tc-liveapps-config';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
 import {LiveAppsFormConfig} from '../../models/tc-liveapps-form';

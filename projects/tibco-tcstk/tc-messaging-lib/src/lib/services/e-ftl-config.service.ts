@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {flatMap, map} from 'rxjs/operators';
 import {Location} from '@angular/common';
-import {TcSharedStateService, TcCoreCommonFunctions, SharedStateContent, SharedStateEntry, SharedStateList} from '@tibco-tcstk/tc-core-lib';
+import {TcSharedStateService, TcCoreCommonFunctions, SharedStateContent, SharedStateEntry, SharedStateList} from '@TIBCOSoftware/tc-core-lib';
 import {MessagingConfig} from '../models/messaging-config';
 
 @Injectable({

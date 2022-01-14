@@ -1,4 +1,4 @@
-import {Deserializable} from '@tibco-tcstk/tc-core-lib';
+import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
 import {MessagingConnection} from './messaging-connection';
 
 export class MessagingConfig implements Deserializable {

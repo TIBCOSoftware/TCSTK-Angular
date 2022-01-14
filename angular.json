@@ -171,7 +171,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-liveapps-lib": {
+    "@TIBCOSoftware/tc-liveapps-lib": {
       "root": "projects/tibco-tcstk/tc-liveapps-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-liveapps-lib/src",
       "projectType": "library",
@@ -206,7 +206,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-core-lib": {
+    "@TIBCOSoftware/tc-core-lib": {
       "root": "projects/tibco-tcstk/tc-core-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-core-lib/src",
       "projectType": "library",
@@ -241,7 +241,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-forms-lib": {
+    "@TIBCOSoftware/tc-forms-lib": {
       "root": "projects/tibco-tcstk/tc-forms-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-forms-lib/src",
       "projectType": "library",
@@ -276,7 +276,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-messaging-lib": {
+    "@TIBCOSoftware/tc-messaging-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-messaging-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-messaging-lib/src",
@@ -311,7 +311,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-spotfire-lib": {
+    "@TIBCOSoftware/tc-spotfire-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-spotfire-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-spotfire-lib/src",
@@ -346,7 +346,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-events-lib": {
+    "@TIBCOSoftware/tc-events-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-events-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-events-lib/src",
@@ -381,7 +381,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-ag-grid": {
+    "@TIBCOSoftware/tc-ag-grid": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-ag-grid",
       "sourceRoot": "projects/tibco-tcstk/tc-ag-grid/src",
@@ -416,7 +416,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-scribe-lib": {
+    "@TIBCOSoftware/tc-scribe-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-scribe-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-scribe-lib/src",
@@ -451,7 +451,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-primeng-lib": {
+    "@TIBCOSoftware/tc-primeng-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-primeng-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-primeng-lib/src",
@@ -486,7 +486,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-tsc-lib": {
+    "@TIBCOSoftware/tc-tsc-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-tsc-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-tsc-lib/src",
@@ -526,7 +526,7 @@
         }
       }
     },
-    "@tibco-tcstk/tc-tcmd-lib": {
+    "@TIBCOSoftware/tc-tcmd-lib": {
       "projectType": "library",
       "root": "projects/tibco-tcstk/tc-tcmd-lib",
       "sourceRoot": "projects/tibco-tcstk/tc-tcmd-lib/src",

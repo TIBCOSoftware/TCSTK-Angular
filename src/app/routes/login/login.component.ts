@@ -3,8 +3,8 @@ import {
   OnInit,
 } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LoginContext} from '@tibco-tcstk/tc-liveapps-lib';
-import {LoginPrefill} from '@tibco-tcstk/tc-core-lib';
+import {LoginContext} from '@TIBCOSoftware/tc-liveapps-lib';
+import {LoginPrefill} from '@TIBCOSoftware/tc-core-lib';
 
 @Component({
   selector: 'app-login',

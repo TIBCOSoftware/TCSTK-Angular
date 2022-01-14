@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { LandingPageItemConfig, TcGeneralLandingPageService, ActionButtonConfig, RouteAction } from '@tibco-tcstk/tc-core-lib';
+import { LandingPageItemConfig, TcGeneralLandingPageService, ActionButtonConfig, RouteAction } from '@TIBCOSoftware/tc-core-lib';
 import { Router } from '@angular/router';
 
 /**

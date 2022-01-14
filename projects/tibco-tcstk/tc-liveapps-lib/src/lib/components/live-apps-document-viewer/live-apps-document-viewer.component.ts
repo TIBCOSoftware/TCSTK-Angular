@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {Document} from '../../models/tc-document';
 import {TcDocumentService} from '../../services/tc-document.service';
-import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
 import {Location} from '@angular/common';
 
 /**

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneralLandingPageConfig, LandingPageConfig } from '@tibco-tcstk/tc-liveapps-lib';
+import { GeneralLandingPageConfig, LandingPageConfig } from '@TIBCOSoftware/tc-liveapps-lib';
 import { ActivatedRoute } from '@angular/router';
-import { RoleAttribute, TcGeneralLandingPageConfigService } from '@tibco-tcstk/tc-core-lib';
+import { RoleAttribute, TcGeneralLandingPageConfigService } from '@TIBCOSoftware/tc-core-lib';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -18,8 +18,8 @@ export class SettingsLandingComponent implements OnInit {
   public uiAppId: string;
 
   constructor(
-    private route: ActivatedRoute, 
-    private snackBar: MatSnackBar, 
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
     private generalLandingPageConfigService: TcGeneralLandingPageConfigService
   ) { }
 

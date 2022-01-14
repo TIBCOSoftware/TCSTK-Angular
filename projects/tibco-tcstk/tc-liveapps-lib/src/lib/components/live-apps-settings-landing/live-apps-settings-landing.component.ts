@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { RoleAttribute, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@tibco-tcstk/tc-core-lib';
+import { RoleAttribute, TibcoCloudNewElementComponent, TibcoCloudUploadDialogComponent } from '@TIBCOSoftware/tc-core-lib';
 import { TcDocumentService } from '../../services/tc-document.service';
 import { LandingPageConfig, LandingPageItemConfig } from '../../models/tc-live-apps-landing-page-config';
 
@@ -26,7 +26,7 @@ export class LiveAppsSettingsLandingComponent implements OnInit {
         this.allowCreation = allowCreation;
       }
     }
-  
+
     @Output() handleSave: EventEmitter<void> = new EventEmitter();
 
     public selectedWelcomePage: LandingPageConfig;
@@ -107,7 +107,7 @@ export class LiveAppsSettingsLandingComponent implements OnInit {
 
         const dialogRef = this.dialog.open(TibcoCloudUploadDialogComponent, {
             width: '500px',
-            data: { 
+            data: {
                 title: 'Upload New ' + location + ' image',
                 allowedExtensions: imageFormat,
                 location: location,
@@ -135,7 +135,7 @@ export class LiveAppsSettingsLandingComponent implements OnInit {
                 default:
                     break;
             }
-            
+
             this.documentsService.uploadDocument('orgFolders', this.uiAppId, this.sandboxId, file, location + '%2F' + file.name, '')
                 .subscribe(
                     val => {

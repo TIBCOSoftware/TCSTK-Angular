@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import {LiveAppsService} from '../services/live-apps.service';
-import {Claim} from '@tibco-tcstk/tc-core-lib';
+import {Claim} from '@TIBCOSoftware/tc-core-lib';
 import {map, mergeMap, take} from 'rxjs/operators';
 import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 

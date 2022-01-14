@@ -1,4 +1,4 @@
-import {Deserializable, DeserializableClass} from '@tibco-tcstk/tc-core-lib';
+import {Deserializable, DeserializableClass} from '@TIBCOSoftware/tc-core-lib';
 
 export class WiDistributionStrategy extends DeserializableClass implements Deserializable {
   stringKey: string;

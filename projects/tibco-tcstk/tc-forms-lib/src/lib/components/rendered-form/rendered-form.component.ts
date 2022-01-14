@@ -16,7 +16,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CustomFormDefs} from '../../models/tc-custom-forms';
-import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
 
 @Component({
   selector: 'tcfrm-rendered-form',

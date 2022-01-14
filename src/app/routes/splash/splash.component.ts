@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import {LandingPageItemConfig, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {LandingPageItemConfig, TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
 import { Location } from '@angular/common';
 
 @Component({

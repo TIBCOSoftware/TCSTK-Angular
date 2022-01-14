@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {CredentialsService, TcAppDefinitionService} from '@tibco-tcstk/tc-liveapps-lib';
-import {GeneralConfig, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
+import {CredentialsService, TcAppDefinitionService} from '@TIBCOSoftware/tc-liveapps-lib';
+import {GeneralConfig, TcCoreConfigService} from '@TIBCOSoftware/tc-core-lib';
 import {Title} from '@angular/platform-browser';
 import {CustomConfig1} from '../../../models/customConfig1';
 

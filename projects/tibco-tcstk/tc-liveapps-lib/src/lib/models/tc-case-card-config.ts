@@ -1,4 +1,4 @@
-import {Deserializable} from '@tibco-tcstk/tc-core-lib';
+import {Deserializable} from '@TIBCOSoftware/tc-core-lib';
 import {CardConfig, CaseTypeState} from './liveappsdata';
 
 export class CaseCardConfig implements Deserializable {

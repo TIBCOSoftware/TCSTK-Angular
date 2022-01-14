@@ -6,7 +6,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {StateTracker, TrackerState} from '../../models/tc-case-states';
 import {TcCaseStatesService} from '../../services/tc-case-states.service';
-import {DurationSincePipe} from '@tibco-tcstk/tc-core-lib';
+import {DurationSincePipe} from '@TIBCOSoftware/tc-core-lib';
 
 
 /**

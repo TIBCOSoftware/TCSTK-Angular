@@ -2,7 +2,7 @@ import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {CaseCreatorSelectionContext} from '../../models/tc-case-creator';
 import {CaseRoute, CaseType, ProcessId} from '../../models/liveappsdata';
-import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
 import {FormConfig} from '../../models/tc-liveapps-config';
 
 /**

@@ -8,7 +8,7 @@ import { TcAccessControlService } from '../services/tc-access-control.service';
 import { AccessControlConfigurationResolver } from './accessControlConfiguration.resolver';
 import { map } from 'rxjs/operators';
 import { TcRolesService } from '../services/tc-roles-service.ts.service';
-import { TcSharedStateService, TcGeneralConfigService } from '@tibco-tcstk/tc-core-lib';
+import { TcSharedStateService, TcGeneralConfigService } from '@TIBCOSoftware/tc-core-lib';
 import { LiveAppsService } from '../services/live-apps.service';
 import { RoleActiveResolver } from './role-active.resolver';
 import {TcAppDefinitionService} from '../services/tc-app-definition.service';

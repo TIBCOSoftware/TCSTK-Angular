@@ -9,8 +9,8 @@ import {
   Output
 } from '@angular/core';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {LegacyIframeService, TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
-import {TcVisibilityService} from '@tibco-tcstk/tc-core-lib';
+import {LegacyIframeService, TcComponent, TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
+import {TcVisibilityService} from '@TIBCOSoftware/tc-core-lib';
 
 /**
  * Wraps legacy angularjs form renderer

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TibcoCloudSettingsGeneralComponent, RoleAttribute, TcGeneralConfigService, TibcoCloudNewElementComponent } from '@tibco-tcstk/tc-core-lib';
+import { TibcoCloudSettingsGeneralComponent, RoleAttribute, TcGeneralConfigService, TibcoCloudNewElementComponent } from '@TIBCOSoftware/tc-core-lib';
 import { Groups, Roles } from '../../models/tc-groups-data';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';

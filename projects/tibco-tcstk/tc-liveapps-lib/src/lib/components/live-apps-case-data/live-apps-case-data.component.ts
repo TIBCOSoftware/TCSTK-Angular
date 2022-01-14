@@ -5,7 +5,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {ReplaySubject} from 'rxjs';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseDataService} from '../../services/tc-case-data.service';
-import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
 import {FormConfig} from '../../models/tc-liveapps-config';
 import {TcFormConfigService} from '../../services/tc-form-config.service';
 

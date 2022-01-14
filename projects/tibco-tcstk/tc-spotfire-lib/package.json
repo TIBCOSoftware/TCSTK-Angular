@@ -1,5 +1,5 @@
 {
-  "name": "@tibco-tcstk/tc-spotfire-lib",
+  "name": "@TIBCOSoftware/tc-spotfire-lib",
   "version": "3.2.0",
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.lib.json"
@@ -10,7 +10,7 @@
     "@angular/material": "^12.2.12",
     "@angular/flex-layout": "^12.0.0-beta.35",
     "ngx-color-picker": "^10.1.0",
-    "@tibco-tcstk/tc-core-lib": "^3.1.0",
+    "@TIBCOSoftware/tc-core-lib": "^3.1.0",
     "@tibco/spotfire-wrapper": "^0.15.1",
     "brace": "^0.11.1",
     "lodash": "^4.17.21"

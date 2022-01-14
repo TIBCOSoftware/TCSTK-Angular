@@ -1,5 +1,5 @@
 {
-  "name": "@tibco-tcstk/tc-liveapps-lib",
+  "name": "@TIBCOSoftware/tc-liveapps-lib",
   "version": "3.2.0",
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.lib.json"
@@ -12,8 +12,8 @@
     "ngx-color-picker": "^10.1.0",
     "ng2-charts": "^2.4.3",
     "chartjs-plugin-datalabels": "^0.7.0",
-    "@tibco-tcstk/tc-core-lib": "^3.1.0",
-    "@tibco-tcstk/tc-forms-lib": "^3.1.0"
+    "@TIBCOSoftware/tc-core-lib": "^3.1.0",
+    "@TIBCOSoftware/tc-forms-lib": "^3.1.0"
   },
   "author": {
     "name": "TIBCO Labs",

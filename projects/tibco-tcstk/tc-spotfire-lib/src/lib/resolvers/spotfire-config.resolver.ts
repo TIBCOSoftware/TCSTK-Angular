@@ -6,8 +6,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { TcSpotfireConfigService } from '../services/tc-spotfire-config.service';
 import { SpotfireConfig } from '../models/tc-spotfire-config';
 import { Location } from '@angular/common';
-import { TcSharedStateService, UiAppIdConfig } from '@tibco-tcstk/tc-core-lib';
-import { TcCoreCommonFunctions } from '@tibco-tcstk/tc-core-lib';
+import { TcSharedStateService, UiAppIdConfig } from '@TIBCOSoftware/tc-core-lib';
+import { TcCoreCommonFunctions } from '@TIBCOSoftware/tc-core-lib';
 
 @Injectable()
 export class SpotfireConfigResolver implements Resolve<Observable<SpotfireConfig>> {

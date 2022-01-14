@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LiveAppsConfig} from '../../models/tc-liveapps-config';
 import {ActivatedRoute} from '@angular/router';
-import {GeneralConfig, Claim, Sandbox} from '@tibco-tcstk/tc-core-lib';
+import {GeneralConfig, Claim, Sandbox} from '@TIBCOSoftware/tc-core-lib';
 import {TcLiveAppsConfigService} from '../../services/tc-live-apps-config.service';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {LiveAppsSettingsComponent} from '../live-apps-settings/live-apps-settings.component';
@@ -22,7 +22,7 @@ import {LiveAppsSettingsComponent} from '../live-apps-settings/live-apps-setting
 export class LiveAppsSettingsRecentCasesComponent extends LiveAppsSettingsComponent implements OnInit {
 
   LIVE_APPS_URL = '/apps/dt-app/index.html#/application-content/';
-    
+
   public excludeRecentIds: string[];
 
   public handleExcludeRecentAppIdSelection(appIds: string[]) {

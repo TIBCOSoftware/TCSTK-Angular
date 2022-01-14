@@ -3,17 +3,17 @@ import {
   GeneralConfigResolver,
   LoginPrefillResolver,
   TibcoCloudErrorComponent,
-} from '@tibco-tcstk/tc-core-lib';
+} from '@TIBCOSoftware/tc-core-lib';
 import {StarterAppComponent} from '../routes/starter-app/starter-app.component';
 import {
   ClaimsResolver,AuthGuard
-} from '@tibco-tcstk/tc-liveapps-lib';
+} from '@TIBCOSoftware/tc-liveapps-lib';
 import {STARTER_APP_ROUTES, STARTER_APP_PROVIDERS, HOME_ROUTE } from './starter-app-route-config/starter-app-route';
-import {ScribeAuthResolver} from '@tibco-tcstk/tc-scribe-lib';
-import {SpotfireAuthResolver} from '@tibco-tcstk/tc-spotfire-lib';
+import {ScribeAuthResolver} from '@TIBCOSoftware/tc-scribe-lib';
+import {SpotfireAuthResolver} from '@TIBCOSoftware/tc-spotfire-lib';
 import {LoginOauthComponent} from '../routes/login-oauth/login-oauth.component';
-import { TscAuthResolver } from '@tibco-tcstk/tc-tsc-lib';
-import { TcmdAuthResolver } from '@tibco-tcstk/tc-tcmd-lib';
+import { TscAuthResolver } from '@TIBCOSoftware/tc-tsc-lib';
+import { TcmdAuthResolver } from '@TIBCOSoftware/tc-tcmd-lib';
 
 export const CORE_ROUTES = [
       {

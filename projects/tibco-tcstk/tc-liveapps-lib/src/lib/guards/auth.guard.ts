@@ -9,7 +9,7 @@
 
 import {Inject, Injectable} from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import {TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreConfigService} from '@TIBCOSoftware/tc-core-lib';
 import {CredentialsService} from '../services/credentials.service';
 import {TcAppDefinitionService} from '../services/tc-app-definition.service';
 

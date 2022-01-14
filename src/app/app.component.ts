@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CredentialsService, LiveAppsService, TcAppDefinitionService} from '@tibco-tcstk/tc-liveapps-lib';
-import {LogLevel, LogService} from '@tibco-tcstk/tc-core-lib';
+import {CredentialsService, LiveAppsService, TcAppDefinitionService} from '@TIBCOSoftware/tc-liveapps-lib';
+import {LogLevel, LogService} from '@TIBCOSoftware/tc-core-lib';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Location} from '@angular/common';

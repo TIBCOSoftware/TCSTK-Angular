@@ -9,9 +9,9 @@ import {LiveAppsConfigResolver} from '../../resolvers/liveapps-config.resolver';
 import {Roles} from '../../models/tc-groups-data';
 import {RolesResolver} from '../../resolvers/roles.resolver';
 import {RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
-import {CustomFormDefs, FormResolver} from '@tibco-tcstk/tc-forms-lib';
+import {CustomFormDefs, FormResolver} from '@TIBCOSoftware/tc-forms-lib';
 import {forkJoin} from 'rxjs';
-import {Claim, GeneralConfig, GeneralConfigResolver, RouteAction} from '@tibco-tcstk/tc-core-lib';
+import {Claim, GeneralConfig, GeneralConfigResolver, RouteAction} from '@TIBCOSoftware/tc-core-lib';
 
 @Component({
   selector: 'tcla-live-apps-home-cockpit-standalone',

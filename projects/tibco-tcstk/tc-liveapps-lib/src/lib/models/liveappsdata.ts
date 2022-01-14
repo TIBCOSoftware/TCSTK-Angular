@@ -1,4 +1,4 @@
-import {AccessToken, AuthInfo, Deserializable, Claim, DeserializableClass} from '@tibco-tcstk/tc-core-lib';
+import {AccessToken, AuthInfo, Deserializable, Claim, DeserializableClass} from '@TIBCOSoftware/tc-core-lib';
 import {LaProcessSelection} from '../models/tc-case-processes';
 
 export class FormTab extends DeserializableClass implements Deserializable {

@@ -1,5 +1,5 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {TcCoreLibModule} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreLibModule} from '@TIBCOSoftware/tc-core-lib';
 
 @NgModule({
   declarations: [],

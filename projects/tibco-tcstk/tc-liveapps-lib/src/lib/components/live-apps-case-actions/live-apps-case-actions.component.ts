@@ -7,7 +7,7 @@ import {CaseAction, CaseType, CaseTypesList, Process} from '../../models/liveapp
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
 import {TcCaseProcessesService} from '../../services/tc-case-processes.service';
-import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
 
 
 /**

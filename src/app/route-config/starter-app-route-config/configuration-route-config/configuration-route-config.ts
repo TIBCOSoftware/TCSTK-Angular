@@ -3,7 +3,7 @@ import {
   GeneralLandingPageConfigResolver,
   TibcoCloudSettingLandingComponent,
   TibcoCloudSettingsGeneralComponent
-} from '@tibco-tcstk/tc-core-lib';
+} from '@TIBCOSoftware/tc-core-lib';
 import {
   AllGroupsResolver,
   AllRolesResolver,
@@ -18,11 +18,11 @@ import {
   LiveAppsSettingsFormsComponent,
   LiveAppsSettingsLandingComponent, LiveAppsSettingsFormLayoutComponent, FormConfigResolver,
   LiveAppsSettingsCustomFormsComponent
-} from '@tibco-tcstk/tc-liveapps-lib';
-import {EftlMessagingSettingsComponent, MessagingConfigResolver} from '@tibco-tcstk/tc-messaging-lib';
+} from '@TIBCOSoftware/tc-liveapps-lib';
+import {EftlMessagingSettingsComponent, MessagingConfigResolver} from '@TIBCOSoftware/tc-messaging-lib';
 import { SettingsLandingComponent } from 'src/app/routes/settings-landing/settings-landing.component';
 import { SettingsSpotfireComponent } from 'src/app/routes/settings-spotfire/settings-spotfire.component';
-import { SpotfireConfigResolver } from '@tibco-tcstk/tc-spotfire-lib';
+import { SpotfireConfigResolver } from '@TIBCOSoftware/tc-spotfire-lib';
 
 export const CONFIGURATION_ROUTE_CONFIG = [
   {

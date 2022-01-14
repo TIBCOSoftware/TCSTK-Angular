@@ -1,4 +1,4 @@
-import {Deserializable, RoleAttribute} from '@tibco-tcstk/tc-core-lib';
+import {Deserializable, RoleAttribute} from '@TIBCOSoftware/tc-core-lib';
 
 export class Group {
   public name: string;
@@ -42,7 +42,7 @@ export class RouteAccessControlConfig {
 export class RouteAccessControlConfigurationElement {
     roleId: string;
     routes: string[];
-    buttonIds: string[];                                                                                  
+    buttonIds: string[];
     deserialize(input: any): this {
         Object.assign(this, input);
         return this;

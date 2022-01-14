@@ -6,7 +6,7 @@ import {map, take, takeUntil} from 'rxjs/operators';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Location} from '@angular/common';
 import {LiveAppsComponent} from '../live-apps-component/live-apps-component.component';
-import {TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
 import {GENERIC_CASETYPE_ICON_SVG, GENERIC_STATE_ICON_SVG} from '../../services/tc-case-card-config.service';
 
 /**

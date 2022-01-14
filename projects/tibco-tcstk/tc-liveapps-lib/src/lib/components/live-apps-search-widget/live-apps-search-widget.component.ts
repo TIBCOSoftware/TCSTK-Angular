@@ -15,7 +15,7 @@ import {LiveAppsComponent} from '../live-apps-component/live-apps-component.comp
 import {LiveAppsCaseSearchComponent} from '../live-apps-case-search/live-apps-case-search.component';
 import {LiveAppsService} from '../../services/live-apps.service';
 import {Subject} from 'rxjs';
-import {TcComponent, TcCoreCommonFunctions} from '@tibco-tcstk/tc-core-lib';
+import {TcComponent, TcCoreCommonFunctions} from '@TIBCOSoftware/tc-core-lib';
 
 /**
  * High Level search widget component (wraps others)

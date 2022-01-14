@@ -3,7 +3,7 @@ import { Resolve } from '@angular/router';
 import { Observable, forkJoin, of } from 'rxjs';
 import {
     TcSharedStateService, TcGeneralConfigService, TcCoreCommonFunctions, UiAppIdConfig,
-} from '@tibco-tcstk/tc-core-lib';
+} from '@TIBCOSoftware/tc-core-lib';
 import { map, switchMap, mergeMap, flatMap } from 'rxjs/operators';
 import { RouteAccessControlConfig } from '../models/tc-groups-data';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

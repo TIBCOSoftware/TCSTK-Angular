@@ -12,7 +12,7 @@ import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { CaseInfo, TcCaseDataService } from '@tibco-tcstk/tc-liveapps-lib';
+import { CaseInfo, TcCaseDataService } from '@TIBCOSoftware/tc-liveapps-lib';
 import { formatDate } from '@angular/common';
 import { LOCALE_ID } from '@angular/core';
 export let InjectorInstance: Injector;

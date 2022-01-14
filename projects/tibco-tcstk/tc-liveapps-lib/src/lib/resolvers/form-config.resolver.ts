@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
 import {Observable, of, throwError} from 'rxjs';
-import {TcCoreCommonFunctions, UiAppConfig, UiAppIdConfig} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreCommonFunctions, UiAppConfig, UiAppIdConfig} from '@TIBCOSoftware/tc-core-lib';
 import {catchError, flatMap, map, mergeMap, switchMap} from 'rxjs/operators';
-import {TcSharedStateService} from '@tibco-tcstk/tc-core-lib';
+import {TcSharedStateService} from '@TIBCOSoftware/tc-core-lib';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormConfig} from '../models/tc-liveapps-config';
 import {TcFormConfigService} from '../services/tc-form-config.service';

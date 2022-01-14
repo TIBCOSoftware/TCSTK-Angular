@@ -23,14 +23,14 @@ import {LiveAppsDocumentsComponent} from '../live-apps-documents/live-apps-docum
 import {LiveAppsNotesComponent} from '../live-apps-notes/live-apps-notes.component';
 import {LiveAppsCaseSummaryComponent} from '../live-apps-case-summary/live-apps-case-summary.component';
 import {LiveAppsService} from '../../services/live-apps.service';
-import {ToolbarButton, TcButtonsHelperService} from '@tibco-tcstk/tc-core-lib';
+import {ToolbarButton, TcButtonsHelperService} from '@TIBCOSoftware/tc-core-lib';
 import {LaProcessSelection} from '../../models/tc-case-processes';
 import {MatTab, MatTabChangeEvent, MatTabGroup} from '@angular/material/tabs';
 import {QueryList} from '@angular/core';
-import { RouteAction } from '@tibco-tcstk/tc-core-lib';
+import { RouteAction } from '@TIBCOSoftware/tc-core-lib';
 import {Roles, RouteAccessControlConfigurationElement} from '../../models/tc-groups-data';
 import {TcRolesService} from '../../services/tc-roles-service.ts.service';
-import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
+import {CustomFormDefs} from '@TIBCOSoftware/tc-forms-lib';
 import {LiveAppsLegacyFormComponent} from '../live-apps-legacy-form/live-apps-legacy-form.component';
 import { CaseRoute, FormTab} from '../../models/liveappsdata';
 import {FormControl} from '@angular/forms';

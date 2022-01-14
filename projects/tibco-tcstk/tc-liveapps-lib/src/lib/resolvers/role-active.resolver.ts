@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Resolve, Router} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { LiveAppsService } from '../services/live-apps.service';
-import { RoleAttribute, TcGeneralConfigService, TcSharedStateService } from '@tibco-tcstk/tc-core-lib';
+import { RoleAttribute, TcGeneralConfigService, TcSharedStateService } from '@TIBCOSoftware/tc-core-lib';
 import { map} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';

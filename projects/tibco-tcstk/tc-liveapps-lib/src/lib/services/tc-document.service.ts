@@ -5,7 +5,7 @@ import {ApiResponseError, ApiResponseText} from '../models/liveappsdata';
 import {LiveAppsService} from './live-apps.service';
 import {Document, DocumentList, OrgFolder} from '../models/tc-document';
 import {catchError, flatMap, map, tap} from 'rxjs/operators';
-import {TcCoreCommonFunctions, TcCoreConfigService} from '@tibco-tcstk/tc-core-lib';
+import {TcCoreCommonFunctions, TcCoreConfigService} from '@TIBCOSoftware/tc-core-lib';
 
 @Injectable({
   providedIn: 'root'
@@ -190,7 +190,7 @@ export class TcDocumentService {
     if (docVersion) {
       url = url + '&$version=' + docVersion;
     }
-    
+
     let headers = new HttpHeaders({
       'Content-Type': 'application/octet-stream',
     });
