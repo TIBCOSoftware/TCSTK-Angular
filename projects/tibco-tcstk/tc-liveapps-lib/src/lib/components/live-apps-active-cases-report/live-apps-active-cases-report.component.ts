@@ -102,6 +102,7 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
         bottom: 10
       }
     },
+    onClick: (event, active) => { event.native.stopPropagation(); this.chartClicked(active) },
     plugins: {
       legend: {
         position: 'left'
@@ -207,7 +208,8 @@ export class LiveAppsActiveCasesReportComponent extends LiveAppsComponent implem
   }
 
   // events
-  public chartClicked({ event, active }: { event: { chart: Chart, native: MouseEvent }, active: any }): void {
+  // public chartClicked({ event, active }: { event: { chart: Chart, native: MouseEvent }, active: any }): void {
+  public chartClicked(active): void {
     if (active.length > 0) {
       const selectedType = this.caseTypesReport.caseTypes[active[0].element.$context.dataIndex];
       this.selectedCaseType.emit(selectedType);
