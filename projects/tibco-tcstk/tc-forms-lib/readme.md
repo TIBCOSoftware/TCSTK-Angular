@@ -12,5 +12,5 @@ Copyright © 2022. TIBCO Software Inc.<br>
 This file is subject to the license terms contained in the license file that is distributed with this file.
 
 For more license details and dependent third party components referenced by this library, see here:
-- [TIBCO Cloud Composer License PDF](https://tibcosoftware.github.io/TCSToolkit/about/TIB_cloud-composer_license.pdf)
-- [TIBCO Cloud Composer License TXT](https://tibcosoftware.github.io/TCSToolkit/about/TIB_cloud-composer_license.txt)
+
+- [TIBCO Cloud Composer License](https://tibcosoftware.github.io/TCSToolkit/license/)
