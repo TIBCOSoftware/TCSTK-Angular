@@ -6,8 +6,10 @@ For more information see the documentation page:
 https://tibcosoftware.github.io/TCSToolkit/
 ---
 
-License: https://github.com/TIBCOSoftware/TCSTK-Angular/blob/master/LICENSE
+# License
+Copyright © 2022. TIBCO Software Inc.<br>
+This file is subject to the license terms contained in the license file that is distributed with this file.
 
-Copyright © 2021. TIBCO Software Inc.
-This file is subject to the license terms contained
-in the license file that is distributed with this library.
+For more license details and dependent third party components referenced by this library, see here:
+- [TIBCO Cloud Composer License PDF](https://tibcosoftware.github.io/TCSToolkit/about/TIB_cloud-composer_license.pdf)
+- [TIBCO Cloud Composer License TXT](https://tibcosoftware.github.io/TCSToolkit/about/TIB_cloud-composer_license.txt)
